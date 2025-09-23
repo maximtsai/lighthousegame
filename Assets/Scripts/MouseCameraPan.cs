@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem; // required for new Input System
+using UnityEngine.SceneManagement;
+
 public class MouseCameraPan : MonoBehaviour
 {
     public Transform background; // assign your background GameObject in Inspector
@@ -23,11 +25,21 @@ public class MouseCameraPan : MonoBehaviour
             Mathf.Max(0, (bgWidth - camWidth) / 2f),
             Mathf.Max(0, (bgHeight - camHeight) / 2f)
         );
+		UpdatePosition(0.9f);
     }
 
     void Update()
     {
-        if (Mouse.current == null) return; // safety check
+		UpdatePosition(0.05f);
+    }
+
+	void UpdatePosition(float shiftRatio)
+	{
+        if (Mouse.current == null) 
+		{
+			Debug.Log("Missing Mouse");
+			return;
+		}; // safety check
 
         // Get mouse position in pixels
         Vector2 mousePos = Mouse.current.position.ReadValue();
@@ -48,8 +60,10 @@ public class MouseCameraPan : MonoBehaviour
             transform.position.z
         );
 
-        transform.position = targetPos * 0.05f + transform.position * 0.95f;
-    }
+        transform.position = targetPos * shiftRatio + transform.position * (1-shiftRatio);
+	}
+
+
     private float ApplyEdgeClamp(float value)
     {
         if (value < edgeThreshold) return 0f;       // snap to min
