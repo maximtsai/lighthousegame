@@ -7,7 +7,13 @@ public class InteractableObject : MonoBehaviour
 {
     public Sprite default_sprite;
     public Sprite hover_sprite;
-    public UnityEvent on_click;
+    [SerializeField] public UnityEvent on_click;
+
+    void Awake()
+    {
+        if (on_click == null)
+            on_click = new UnityEvent();
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

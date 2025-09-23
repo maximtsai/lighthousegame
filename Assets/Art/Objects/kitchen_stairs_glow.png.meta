@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: bb578b31d3ef4444aaaff0843cdb491a
+guid: 732b4a361b9e8ce4b88e4fdd423c9613
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6260818165589843268
-    second: bedroom_2_0
+      213: -9202711136702269577
+    second: kitchen_stairs_glow_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bedroom_2_0
+      name: kitchen_stairs_glow_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1150
-        height: 424
+        width: 173
+        height: 235
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 44d9b4b43f4e2e650800000000000000
-      internalID: 6260818165589843268
+      spriteID: 777745eaaf6694080800000000000000
+      internalID: -9202711136702269577
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      bedroom_2_0: 6260818165589843268
+      kitchen_stairs_glow_0: -9202711136702269577
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
