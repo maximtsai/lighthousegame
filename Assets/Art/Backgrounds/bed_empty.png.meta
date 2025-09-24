@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ea89acbb8bf872a4387c472b25e5313c
+guid: ed25be95a0dce314ab1ab3298b287994
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6762806206646994688
-    second: kitchen_0
+      213: 3691307733545651063
+    second: bed_empty_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: kitchen_0
+      name: bed_empty_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1000
-        height: 360
+        width: 613
+        height: 670
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 009bffff59fa522a0800000000000000
-      internalID: -6762806206646994688
+      spriteID: 77b04a683d82a3330800000000000000
+      internalID: 3691307733545651063
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      kitchen_0: -6762806206646994688
+      bed_empty_0: 3691307733545651063
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
