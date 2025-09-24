@@ -23,5 +23,12 @@ public class Navigation : MonoBehaviour
     {
         SceneManager.LoadScene("BedroomScene");
     }
+
+    public void GoTo(string scene)
+    {
+        if (DialogueManager.DialogueIsOpen())
+            return;
+        SceneManager.LoadScene(scene);
+    }
     
 }

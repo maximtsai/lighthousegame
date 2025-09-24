@@ -5,9 +5,10 @@ using UnityEngine.Events;
 
 public class InteractableObject : MonoBehaviour
 {
-    public Sprite default_sprite;
-    public Sprite hover_sprite;
-    [SerializeField] public UnityEvent on_click;
+    [SerializeField] string object_id = "null";
+    [SerializeField] Sprite default_sprite;
+    [SerializeField] Sprite hover_sprite;
+    [SerializeField] UnityEvent on_click;
 
     void Awake()
     {
@@ -26,7 +27,7 @@ public class InteractableObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void OnMouseOver()
@@ -42,5 +43,10 @@ public class InteractableObject : MonoBehaviour
     void OnMouseDown()
     {
         on_click.Invoke();
+    }
+
+    public string GetObjectId()
+    {
+        return this.object_id;
     }
 }
