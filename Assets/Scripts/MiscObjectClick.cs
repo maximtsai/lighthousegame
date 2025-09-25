@@ -56,4 +56,24 @@ public class MiscObjectClick : MonoBehaviour
             }
         }
     }
+    
+    public void ClickLighthouseLight()
+    {
+        if (GameState.Get<bool>("fixed_lighthouse"))
+        {
+            DialogueManager.ShowDialogue(getDialogue("Lighthouse/fix_complete"));
+        }
+        else
+        {
+            if (GameState.Get<bool>("dropped_tool"))
+            {
+                DialogueManager.ShowDialogue(getDialogue("Lighthouse/missing_tool"));
+            }
+            else
+            {
+                // This starts the minigame too
+                DialogueManager.ShowDialogue(getDialogue("Lighthouse/open_default"));
+            }
+        }
+    }
 }
