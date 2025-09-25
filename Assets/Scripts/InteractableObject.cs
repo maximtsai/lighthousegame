@@ -24,12 +24,6 @@ public class InteractableObject : MonoBehaviour
         srender.color = Color.white;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     void OnMouseOver()
     {
         transform.GetComponent<SpriteRenderer>().sprite = hover_sprite;

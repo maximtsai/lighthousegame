@@ -52,6 +52,11 @@ public class UIDialogueBox : MonoBehaviour, IPointerClickHandler
     }
     public void OnPointerClick(PointerEventData e)
     {
+        AdvanceDialogue();
+    }
+
+    public void AdvanceDialogue()
+    {
         if (typingCoroutine != null)
         {
             // Finish typing instantly
