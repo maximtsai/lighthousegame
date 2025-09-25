@@ -464,7 +464,7 @@ Camera:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1
+    width: 0.999645
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
@@ -1226,9 +1226,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2251327215389836486, guid: a202ef0f575ca184b9f618ddc7765d32, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 47
+      objectReference: {fileID: 0}
     - target: {fileID: 3373659008476506202, guid: a202ef0f575ca184b9f618ddc7765d32, type: 3}
       propertyPath: m_Name
       value: UITaskTracker
+      objectReference: {fileID: 0}
+    - target: {fileID: 4008499491126111093, guid: a202ef0f575ca184b9f618ddc7765d32, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4008499491126111093, guid: a202ef0f575ca184b9f618ddc7765d32, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4008499491126111093, guid: a202ef0f575ca184b9f618ddc7765d32, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -937.5765
+      objectReference: {fileID: 0}
+    - target: {fileID: 4008499491126111093, guid: a202ef0f575ca184b9f618ddc7765d32, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 4008499491126111093, guid: a202ef0f575ca184b9f618ddc7765d32, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 590.4142
       objectReference: {fileID: 0}
     - target: {fileID: 4276055266016702648, guid: a202ef0f575ca184b9f618ddc7765d32, type: 3}
       propertyPath: m_Pivot.x
@@ -1309,6 +1333,22 @@ PrefabInstance:
     - target: {fileID: 4276055266016702648, guid: a202ef0f575ca184b9f618ddc7765d32, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4904431261758422585, guid: a202ef0f575ca184b9f618ddc7765d32, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -207
+      objectReference: {fileID: 0}
+    - target: {fileID: 4904431261758422585, guid: a202ef0f575ca184b9f618ddc7765d32, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 41
+      objectReference: {fileID: 0}
+    - target: {fileID: 8151830801301059911, guid: a202ef0f575ca184b9f618ddc7765d32, type: 3}
+      propertyPath: m_lineSpacing
+      value: -16
+      objectReference: {fileID: 0}
+    - target: {fileID: 8151830801301059911, guid: a202ef0f575ca184b9f618ddc7765d32, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

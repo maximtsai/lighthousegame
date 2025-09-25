@@ -52,7 +52,8 @@ public class UIDialogueBox : MonoBehaviour, IPointerClickHandler
     }
     public void OnPointerClick(PointerEventData e)
     {
-        AdvanceDialogue();
+        // Now handled by DialogClickable
+        // AdvanceDialogue();
     }
 
     public void AdvanceDialogue()

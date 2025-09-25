@@ -1,5 +1,3 @@
-using System.Data.Common;
-using TMPro;
 using UnityEngine;
 
 public class DialogueManager : MonoBehaviour
@@ -28,6 +26,8 @@ public class DialogueManager : MonoBehaviour
         }
         activeDialogueBox = Instantiate(instance.prefab_dialoguebox);
         activeDialogueBox.GetComponent<UIDialogueBox>().SetDialogue(d);
+
+        GameState.Set("dialogue_is_open", true);
         dialogue_is_open = true;
     }
     public static void CloseDialogue()
@@ -37,6 +37,7 @@ public class DialogueManager : MonoBehaviour
             Destroy(activeDialogueBox);
             activeDialogueBox = null;
         }
+        GameState.Set("dialogue_is_open", false);
         dialogue_is_open = false;
     }
     public static bool DialogueIsOpen()
