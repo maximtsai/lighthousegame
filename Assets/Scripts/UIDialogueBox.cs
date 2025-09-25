@@ -1,4 +1,5 @@
 using TMPro;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -11,6 +12,26 @@ public class UIDialogueBox : MonoBehaviour, IPointerClickHandler
     private int total_lines = -1;
     [SerializeField] private TMP_Text textmesh;
     [SerializeField] private Texture2D pointerCursor;
+
+    [SerializeField] private float typeSpeed = 0.01f; // seconds per character
+    private Coroutine typingCoroutine;
+    private IEnumerator TypeText(string line)
+    {
+        // Types in text like a typewriter
+        textmesh.text = "";
+        int index = 0;
+        while (index < line.Length)
+        {
+            // Take the next 1 or 2 characters
+            int charsToAdd = Mathf.Min(2, line.Length - index);
+            textmesh.text += line.Substring(index, charsToAdd);
+            index += charsToAdd;
+
+            yield return new WaitForSeconds(typeSpeed);
+        }
+        typingCoroutine = null;
+    }
+    
     public void OnDestroy()
     {
         DialogueManager.CloseDialogue();
@@ -22,11 +43,24 @@ public class UIDialogueBox : MonoBehaviour, IPointerClickHandler
         current_line = 0;
         dialogue = d;
         total_lines = dialogue.text.Count;
-        textmesh.text = dialogue.text[current_line];
+        
+        if (typingCoroutine != null) StopCoroutine(typingCoroutine);
+        typingCoroutine = StartCoroutine(TypeText(dialogue.text[current_line]));
+        
+        
         Cursor.SetCursor(pointerCursor, Vector2.zero, CursorMode.Auto);
     }
     public void OnPointerClick(PointerEventData e)
     {
+        if (typingCoroutine != null)
+        {
+            // Finish typing instantly
+            StopCoroutine(typingCoroutine);
+            textmesh.text = dialogue.text[current_line];
+            typingCoroutine = null;
+            return;
+        }
+        
         current_line++;
         if (total_lines <= current_line)
         {
@@ -36,7 +70,7 @@ public class UIDialogueBox : MonoBehaviour, IPointerClickHandler
         }
         else
         {
-            textmesh.text = dialogue.text[current_line];
+            typingCoroutine = StartCoroutine(TypeText(dialogue.text[current_line]));
         }
     }
 }
