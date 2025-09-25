@@ -6,6 +6,7 @@ public class DialogueManager : MonoBehaviour
 {
     public GameObject prefab_dialoguebox;
     public static DialogueManager instance;
+
     private static bool dialogue_is_open = false;
 
     private static GameObject activeDialogueBox = null;
