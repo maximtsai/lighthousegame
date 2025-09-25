@@ -30,7 +30,8 @@ public class UIDialogueBox : MonoBehaviour, IPointerClickHandler
         current_line++;
         if (total_lines <= current_line)
         {
-            Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto); // revert to default
+            dialogue.onDialogueEnd?.Invoke();
+            Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto); // revert cursor to default
             Destroy(gameObject);
         }
         else

@@ -29,14 +29,14 @@ public class TaskManager : MonoBehaviour
         if (o.GetObjectId() == instance.current_task.completion_object_id)
         {
             Debug.Log("task completed");
-            if (null != instance.current_task.on_completion)
+            if (instance.current_task.on_completion != null)
                 DialogueManager.ShowDialogue(instance.current_task.on_completion);
             instance.current_task = instance.current_task.next_task;
         }
         else
         {
             Debug.Log("wrong object");
-            if (null != instance.current_task.on_wrong)
+            if (instance.current_task.on_wrong != null)
                 DialogueManager.ShowDialogue(instance.current_task.on_wrong);
         }
     }

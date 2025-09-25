@@ -15,3 +15,6 @@ MonoBehaviour:
   text:
   - You wash up.
   - You are now less dirty.
+  onDialogueEnd:
+    m_PersistentCalls:
+      m_Calls: []

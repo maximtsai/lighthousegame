@@ -15,3 +15,6 @@ MonoBehaviour:
   text:
   - You go outside.
   - You are immediately drenched by torrential downpours.
+  onDialogueEnd:
+    m_PersistentCalls:
+      m_Calls: []
