@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HUDTask : MonoBehaviour
+public class UITaskTracker : MonoBehaviour
 {
     [SerializeField] TMP_Text text_tasklist;
     [SerializeField] Canvas canvas_full_list;
@@ -38,10 +38,12 @@ public class HUDTask : MonoBehaviour
     public void ShowTaskList()
     {
         canvas_full_list.gameObject.SetActive(true);
+        GameState.Set("task_list_open", true);
     }
 
     public void HideTaskList()
     {
         canvas_full_list.gameObject.SetActive(false);
+        GameState.Set("task_list_open", false);
     }
 }

@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d4a7cb2b5cf7c344b163f980a327405, type: 3}
   m_Name: 1
   m_EditorClassIdentifier: Assembly-CSharp::Task
+  id: 1
   description: Go outside.
   completion_object_id: object_door_outside
   on_completion: {fileID: 11400000, guid: ffb293744558aa543aed910a10da1ddf, type: 2}
-  next_task: {fileID: 11400000, guid: 130536a2c362c2d4f9a3039b5e2fdb14, type: 2}
-  on_wrong: {fileID: 11400000, guid: a1809bb14ef1b254b97e3df3d9747dd0, type: 2}
+  new_tasks_on_completion:
+  - {fileID: 11400000, guid: 130536a2c362c2d4f9a3039b5e2fdb14, type: 2}

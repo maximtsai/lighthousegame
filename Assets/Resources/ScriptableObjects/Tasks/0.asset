@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d4a7cb2b5cf7c344b163f980a327405, type: 3}
   m_Name: 0
   m_EditorClassIdentifier: Assembly-CSharp::Task
+  id: 0
   description: Go wash up.
   completion_object_id: object_sink
   on_completion: {fileID: 11400000, guid: 9bcf962f56c4bf84d8758d993f1f34f6, type: 2}
-  next_task: {fileID: 11400000, guid: c8a3eb36053ab4640a5638313204b07e, type: 2}
-  on_wrong: {fileID: 11400000, guid: a1809bb14ef1b254b97e3df3d9747dd0, type: 2}
+  new_tasks_on_completion: []

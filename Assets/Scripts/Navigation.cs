@@ -26,7 +26,7 @@ public class Navigation : MonoBehaviour
 
     public void GoTo(string scene)
     {
-        if (DialogueManager.DialogueIsOpen())
+        if (DialogueManager.DialogueIsOpen() || GameState.Get<bool>("task_list_open", false))
             return;
         SceneManager.LoadScene(scene);
     }

@@ -26,6 +26,7 @@ public class InteractableObject : MonoBehaviour
 
     void OnMouseOver()
     {
+        if (GameState.Get<bool>("task_list_open", false)) return;
         transform.GetComponent<SpriteRenderer>().sprite = hover_sprite;
     }
 
@@ -36,6 +37,7 @@ public class InteractableObject : MonoBehaviour
 
     void OnMouseDown()
     {
+        if (GameState.Get<bool>("task_list_open", false)) return;
         on_click.Invoke();
     }
 
