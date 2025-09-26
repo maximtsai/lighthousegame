@@ -5,18 +5,6 @@ TextureImporter:
   - first:
       213: 9209972408842793231
     second: kitchen_stairs_hover_0
-  - first:
-      213: -4838688245476277584
-    second: kitchen_stairs_hover_1
-  - first:
-      213: 1236639135775680816
-    second: kitchen_stairs_hover_2
-  - first:
-      213: -3425144071400748574
-    second: kitchen_stairs_hover_3
-  - first:
-      213: 8107467790689340005
-    second: kitchen_stairs_hover_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -58,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -128,10 +116,10 @@ TextureImporter:
       name: kitchen_stairs_hover_0
       rect:
         serializedVersion: 2
-        x: 9
-        y: 0
-        width: 103
-        height: 360
+        x: 19
+        y: 9
+        width: 73
+        height: 304
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,99 +134,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: kitchen_stairs_hover_1
-      rect:
-        serializedVersion: 2
-        x: 35
-        y: 0
-        width: 286
-        height: 360
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0b2478d5da689dcb0800000000000000
-      internalID: -4838688245476277584
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: kitchen_stairs_hover_2
-      rect:
-        serializedVersion: 2
-        x: 53
-        y: 310
-        width: 284
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0396143fdbc692110800000000000000
-      internalID: 1236639135775680816
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: kitchen_stairs_hover_3
-      rect:
-        serializedVersion: 2
-        x: 82
-        y: 183
-        width: 255
-        height: 90
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2e98f9f3d917770d0800000000000000
-      internalID: -3425144071400748574
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: kitchen_stairs_hover_4
-      rect:
-        serializedVersion: 2
-        x: 109
-        y: 61
-        width: 228
-        height: 92
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 56a85fb1003838070800000000000000
-      internalID: 8107467790689340005
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -249,10 +149,6 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       kitchen_stairs_hover_0: 9209972408842793231
-      kitchen_stairs_hover_1: -4838688245476277584
-      kitchen_stairs_hover_2: 1236639135775680816
-      kitchen_stairs_hover_3: -3425144071400748574
-      kitchen_stairs_hover_4: 8107467790689340005
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
