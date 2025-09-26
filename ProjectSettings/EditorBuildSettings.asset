@@ -17,6 +17,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/KitchenScene.unity
     guid: a91ce652c86bab945902a3dd210b2406
+  - enabled: 1
+    path: Assets/Scenes/LHScene.unity
+    guid: 5d4db23e38ff7bd489ea76d11166e445
+  - enabled: 1
+    path: Assets/Scenes/LHFloorScene.unity
+    guid: b016dc817d613004cb69c3ce635fab62
+  - enabled: 1
+    path: Assets/Scenes/LHStairsDownScene.unity
+    guid: c53cab23c0e0dd046a165ac6c69eab4a
+  - enabled: 1
+    path: Assets/Scenes/LHStairsUpScene.unity
+    guid: fbe40890c67dfcd4b94fef5443343e1b
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

@@ -1,24 +1,35 @@
 using UnityEngine;
 using UnityEngine.SceneManagement; // required for SceneManager
+using System.Collections;
 
 public class Navigation : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    private float duration = 0.4f;
+    public static Navigation Instance { get; private set; }
 
-    // Update is called once per frame
-    void Update()
+    [SerializeField] private SpriteRenderer srender;
+    
+    void Awake()
     {
-        
-    }
+        // Singleton setup
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
 
-    public void GoToKitchen()
-    {
-        SceneManager.LoadScene("KitchenScene");
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+
+        // Get SpriteRenderer on prefab
+        srender = GetComponent<SpriteRenderer>();
+        if (srender == null)
+        {
+            srender = gameObject.AddComponent<SpriteRenderer>();
+            Debug.LogWarning("Navigation prefab had no SpriteRenderer. Added one dynamically.");
+        }
     }
+    
     public void GoToBedroom()
     {
         SceneManager.LoadScene("BedroomScene");
@@ -28,7 +39,61 @@ public class Navigation : MonoBehaviour
     {
         if (DialogueManager.DialogueIsOpen() || GameState.Get<bool>("task_list_open", false))
             return;
+
+        // Ensure the Navigation instance exists
+        if (Instance == null)
+        {
+            // Load the Navigation prefab from Resources
+            GameObject prefab = Resources.Load<GameObject>("Navigation");
+            if (prefab == null)
+            {
+                Debug.LogError("Navigation prefab not found in Resources folder!");
+                return;
+            }
+
+            GameObject go = Instantiate(prefab);
+            Instance = go.GetComponent<Navigation>();
+        }
+
+        Instance.StartCoroutine(Instance.FadeInThenGoTo(scene));
+        
+    }
+
+    private IEnumerator FadeInThenGoTo(string scene)
+    {
+        // Start fully transparent
+        Color c = srender.color;
+        c.a = 0f;
+        srender.color = c;
+
+        float t = 0f;
+        while (t < duration)
+        {
+            t += Time.deltaTime;
+            c.a = Mathf.Clamp01(t / duration) + 0.1f;
+            srender.color = c;
+            yield return null;
+        }
+
+        c.a = 1f;
+        srender.color = c;
+
         SceneManager.LoadScene(scene);
+
+        t += 0.15f;
+        while (t > 0)
+        {
+            t -= Time.deltaTime * 2.5f;
+            c.a = Mathf.Clamp01(t / duration);
+            srender.color = c;
+            yield return null;
+        }
+        
+        // Destroy the Navigation object in the old scene
+        Destroy(gameObject);
+
+        // Clear the singleton reference
+        Instance = null;
     }
     
 }
