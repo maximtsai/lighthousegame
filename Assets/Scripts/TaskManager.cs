@@ -1,13 +1,17 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using Mono.Cecil;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TaskManager : MonoBehaviour
 {
-    private Task current_task;
+    private List<Task> tasklist;
+    [SerializeField] private Dialogue dialogue_no_matching_task;
+    [SerializeField] private Dialogue dialogue_all_tasks_done;
+    [SerializeField] private TaskList default_task_list;
     public static TaskManager instance;
-    public Task default_task;
     void Awake()
     {
         if (instance != null)
@@ -17,7 +21,8 @@ public class TaskManager : MonoBehaviour
         }
 
         instance = this;
-        instance.current_task = default_task;
+        tasklist = new List<Task>();
+        if (null != default_task_list) LoadTasks(default_task_list);
         DontDestroyOnLoad(gameObject);
     }
 
@@ -26,28 +31,41 @@ public class TaskManager : MonoBehaviour
         if (null == o || DialogueManager.DialogueIsOpen())
             return;
 
-        if (o.GetObjectId() == instance.current_task.completion_object_id)
+        string object_id = o.GetObjectId();
+        int matching_task_index = -1;
+        for (int i = 0; i < instance.tasklist.Count; i++)
+        {
+            if (instance.tasklist[i].completion_object_id == object_id)
+            {
+                matching_task_index = i;
+                break;
+            }
+        }
+
+        if (-1 < matching_task_index)
         {
             Debug.Log("task completed");
-            if (instance.current_task.on_completion != null)
-                DialogueManager.ShowDialogue(instance.current_task.on_completion);
-            instance.current_task = instance.current_task.next_task;
+            DialogueManager.ShowDialogue(instance.tasklist[matching_task_index].on_completion);
+            instance.tasklist.RemoveAt(matching_task_index);
+        }
+        else if (0 == instance.tasklist.Count)
+        {
+            DialogueManager.ShowDialogue(instance.dialogue_all_tasks_done);
         }
         else
         {
             Debug.Log("wrong object");
-            if (instance.current_task.on_wrong != null)
-                DialogueManager.ShowDialogue(instance.current_task.on_wrong);
+            DialogueManager.ShowDialogue(instance.dialogue_no_matching_task);
         }
     }
 
-    public static Task GetCurrentTask()
+    public static List<Task> GetCurrentTasks()
     {
-        return instance.current_task;
+        return instance.tasklist;
     }
 
-    void LoadTasksFromFile()
+    static void LoadTasks(TaskList l)
     {
-        // deserialize json file or something
+        instance.tasklist = new List<Task>(l.tasks);
     }
 }
