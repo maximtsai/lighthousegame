@@ -9,6 +9,7 @@ public class ParallaxScroll : MonoBehaviour
     // The parallax scrolling speed, where 1 is same speed as camera
     // and 0.5 is 50% of the camera's speed.
     public float parallaxSpeed = 0.5f;
+    public float startScale = 1f;
     public float scaleSpread = 0.05f;
 
     // Stores the camera's position from the previous frame.
@@ -44,8 +45,8 @@ public class ParallaxScroll : MonoBehaviour
         while (true)
         {
             // Set a random scale between 1 and 1.05 for x and y
-            float randomScale = Random.Range(1f, 1 + scaleSpread);
-            transform.localScale = new Vector3(randomScale, randomScale, 1f);
+            float randomScale = Random.Range(startScale, startScale + scaleSpread);
+            transform.localScale = new Vector3(randomScale, 0.5f + randomScale * 0.5f, 1f);
 
             // Wait for 0.5 seconds before the next scale change
             yield return new WaitForSeconds(0.5f);
