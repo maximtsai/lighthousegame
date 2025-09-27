@@ -24,7 +24,7 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
     flipGreenChannel: 0
-  isReadable: 1
+  isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
@@ -57,7 +57,7 @@ TextureImporter:
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
-  textureType: 7
+  textureType: 8
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -116,9 +116,9 @@ TextureImporter:
       name: wheel_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1
-        width: 30
+        x: 4
+        y: 6
+        width: 31
         height: 29
       alignment: 0
       pivot: {x: 0, y: 0}
