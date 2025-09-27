@@ -37,7 +37,7 @@ public class Navigation : MonoBehaviour
 
     public void GoTo(string scene)
     {
-        if (DialogueManager.DialogueIsOpen() || GameState.Get<bool>("task_list_open", false))
+        if (DialogueManager.DialogueIsOpen() || GameState.Get<bool>("task_list_open", false) || GameState.Get<bool>("minigame_open"))
             return;
 
         // Ensure the Navigation instance exists
