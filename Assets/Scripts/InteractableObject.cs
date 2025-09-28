@@ -9,7 +9,10 @@ public class InteractableObject : MonoBehaviour
     [SerializeField] Sprite default_sprite;
     [SerializeField] Sprite hover_sprite;
     [SerializeField] UnityEvent on_click;
+
+    private AudioSource audioSource;
     public AudioClip clickSound;
+    private bool hasSound;
 
     void Awake()
     {
@@ -23,6 +26,23 @@ public class InteractableObject : MonoBehaviour
         SpriteRenderer srender = transform.GetComponent<SpriteRenderer>();
         srender.sprite = default_sprite;
         srender.color = Color.white;
+        Debug.Log("activate");
+        // Automatically find the AudioSource in the scene
+        audioSource = FindFirstObjectByType<AudioSource>();
+        if (audioSource == null)
+        {
+            Debug.LogWarning("No AudioSource found in the scene!");
+        }
+        else if (clickSound != null)
+        {
+            Debug.Log("click sound set");
+            audioSource.clip = clickSound;
+            hasSound = true;
+        }
+        else
+        {
+            Debug.Log("has audio source but no clickSound");
+        }
     }
 
     void OnMouseOver()
@@ -43,9 +63,10 @@ public class InteractableObject : MonoBehaviour
     {
         if (GameState.Get<bool>("task_list_open", false)) return;
         if (GameState.Get<bool>("minigame_open", false)) return;
-        if (clickSound != null)
+        if (hasSound)
         {
-            AudioSource.PlayClipAtPoint(clickSound, Camera.main.transform.position);
+            Debug.Log("play");
+            audioSource.PlayOneShot(clickSound);
         }
         on_click.Invoke();
     }
