@@ -9,6 +9,7 @@ public class InteractableObject : MonoBehaviour
     [SerializeField] Sprite default_sprite;
     [SerializeField] Sprite hover_sprite;
     [SerializeField] UnityEvent on_click;
+    public AudioClip clickSound;
 
     void Awake()
     {
@@ -38,10 +39,14 @@ public class InteractableObject : MonoBehaviour
         CustomCursor.SetCursorToNormal();
     }
 
-    void OnMouseDown()
+    void OnMouseUp()
     {
         if (GameState.Get<bool>("task_list_open", false)) return;
         if (GameState.Get<bool>("minigame_open", false)) return;
+        if (clickSound != null)
+        {
+            AudioSource.PlayClipAtPoint(clickSound, Camera.main.transform.position);
+        }
         on_click.Invoke();
     }
 
