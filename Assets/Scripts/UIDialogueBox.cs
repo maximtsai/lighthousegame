@@ -5,13 +5,10 @@ using UnityEngine.EventSystems;
 
 public class UIDialogueBox : MonoBehaviour, IPointerClickHandler
 {
-    // public static Texture2D pointerCursor;
-    
     private Dialogue dialogue;
     private int current_line = -1;
     private int total_lines = -1;
     [SerializeField] private TMP_Text textmesh;
-    [SerializeField] private Texture2D pointerCursor;
 
     [SerializeField] private float typeSpeed = 0.016f; // seconds per character
     private Coroutine typingCoroutine;
@@ -43,12 +40,11 @@ public class UIDialogueBox : MonoBehaviour, IPointerClickHandler
         current_line = 0;
         dialogue = d;
         total_lines = dialogue.text.Count;
-        
+        CustomCursor.SetCursorToDialog();
+
         if (typingCoroutine != null) StopCoroutine(typingCoroutine);
         typingCoroutine = StartCoroutine(TypeText(dialogue.text[current_line]));
-        
-        
-        Cursor.SetCursor(pointerCursor, Vector2.zero, CursorMode.Auto);
+
     }
     public void OnPointerClick(PointerEventData e)
     {
@@ -71,7 +67,8 @@ public class UIDialogueBox : MonoBehaviour, IPointerClickHandler
         if (total_lines <= current_line)
         {
             dialogue.onDialogueEnd?.Invoke();
-            Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto); // revert cursor to default
+            CustomCursor.SetCursorToNormal();
+
             Destroy(gameObject);
         }
         else

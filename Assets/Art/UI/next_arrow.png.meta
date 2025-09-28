@@ -116,12 +116,12 @@ TextureImporter:
       name: next_arrow_0
       rect:
         serializedVersion: 2
-        x: 7
-        y: 9
-        width: 25
-        height: 23
+        x: 0
+        y: 0
+        width: 40
+        height: 40
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 30d7a1755feebf84aac61a71dbc49078
     internalID: 0
     vertices: []
     indices: 

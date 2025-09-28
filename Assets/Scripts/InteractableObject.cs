@@ -29,11 +29,13 @@ public class InteractableObject : MonoBehaviour
         if (GameState.Get<bool>("task_list_open", false)) return;
         if (GameState.Get<bool>("minigame_open", false)) return;
         transform.GetComponent<SpriteRenderer>().sprite = hover_sprite;
+        CustomCursor.SetCursorToPointer();
     }
 
     void OnMouseExit()
     {
         transform.GetComponent<SpriteRenderer>().sprite = default_sprite;
+        CustomCursor.SetCursorToNormal();
     }
 
     void OnMouseDown()
