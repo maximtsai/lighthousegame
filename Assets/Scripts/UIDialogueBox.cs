@@ -13,7 +13,7 @@ public class UIDialogueBox : MonoBehaviour, IPointerClickHandler
     [SerializeField] private TMP_Text textmesh;
     [SerializeField] private Texture2D pointerCursor;
 
-    [SerializeField] private float typeSpeed = 0.01f; // seconds per character
+    [SerializeField] private float typeSpeed = 0.016f; // seconds per character
     private Coroutine typingCoroutine;
     private IEnumerator TypeText(string line)
     {
@@ -22,8 +22,8 @@ public class UIDialogueBox : MonoBehaviour, IPointerClickHandler
         int index = 0;
         while (index < line.Length)
         {
-            // Take the next 1 or 2 characters
-            int charsToAdd = Mathf.Min(2, line.Length - index);
+            // Take the next 1 - 3 characters
+            int charsToAdd = Mathf.Min(3, line.Length - index);
             textmesh.text += line.Substring(index, charsToAdd);
             index += charsToAdd;
 

@@ -76,4 +76,21 @@ public class MiscObjectClick : MonoBehaviour
             }
         }
     }
+
+	public void GatherFish() 
+	{
+		if (GameState.Get<bool>("gathered_fish")) {
+        	DialogueManager.ShowDialogue(getDialogue("gather_fish_done"));
+
+		} else 
+		{
+			GameState.Set("gathered_fish", true);
+        	DialogueManager.ShowDialogue(getDialogue("gather_fish"));
+		}
+	}
+
+	public void GoOutdoors() 
+	{
+        DialogueManager.ShowDialogue(getDialogue("go_outside"));
+	}
 }
