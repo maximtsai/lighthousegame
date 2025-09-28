@@ -4,7 +4,7 @@ using System.Collections;
 
 public class Navigation : MonoBehaviour
 {
-    private float duration = 0.4f;
+    private float duration = 0.35f;
     public static Navigation Instance { get; private set; }
 
     [SerializeField] private SpriteRenderer srender;
