@@ -215,6 +215,10 @@ PrefabInstance:
       value: null
       objectReference: {fileID: 0}
     - target: {fileID: 1930117940751657890, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
+      propertyPath: clickSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 8884f5fce73ce814c917993866c63f4e, type: 3}
+    - target: {fileID: 1930117940751657890, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: hover_sprite
       value: 
       objectReference: {fileID: 9209972408842793231, guid: c8636ff4cea74d1409948a4337dbdfa1, type: 3}
@@ -459,10 +463,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.23016904
     y: 0
-    width: 0.9995062
-    height: 1
+    width: 0.8530559
+    height: 0.852194
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -844,6 +848,10 @@ PrefabInstance:
       propertyPath: object_id
       value: object_door_outside
       objectReference: {fileID: 0}
+    - target: {fileID: 1930117940751657890, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
+      propertyPath: clickSound
+      value: 
+      objectReference: {fileID: 8300000, guid: d11de4a66f963e64d910c2e7177341ac, type: 3}
     - target: {fileID: 1930117940751657890, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: hover_sprite
       value: 

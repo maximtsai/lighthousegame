@@ -4,7 +4,6 @@ using System.Collections;
 
 public class Navigation : MonoBehaviour
 {
-    private float duration = 0.35f;
     public static Navigation Instance { get; private set; }
 
     [SerializeField] private SpriteRenderer srender;
@@ -40,6 +39,19 @@ public class Navigation : MonoBehaviour
         if (GameState.Get<bool>("task_list_open", false) || GameState.Get<bool>("minigame_open"))
             return;
 
+        GoToTransition(scene, 0.35f);
+    }
+
+    public void GoToSlow(string scene)
+    {
+        if (GameState.Get<bool>("task_list_open", false) || GameState.Get<bool>("minigame_open"))
+            return;
+
+        GoToTransition(scene, 0.85f);
+    }
+    
+    private void GoToTransition(string scene, float duration)
+    {
         // Ensure the Navigation instance exists
         if (Instance == null)
         {
@@ -55,11 +67,10 @@ public class Navigation : MonoBehaviour
             Instance = go.GetComponent<Navigation>();
         }
 
-        Instance.StartCoroutine(Instance.FadeInThenGoTo(scene));
-        
+        Instance.StartCoroutine(Instance.FadeInThenGoTo(scene, duration));
     }
-
-    private IEnumerator FadeInThenGoTo(string scene)
+    
+    private IEnumerator FadeInThenGoTo(string scene, float duration)
     {
         // Start fully transparent
         Color c = srender.color;
@@ -83,7 +94,7 @@ public class Navigation : MonoBehaviour
         t += 0.15f;
         while (t > 0)
         {
-            t -= Time.deltaTime * 2.5f;
+            t -= Time.deltaTime * 2.2f;
             c.a = Mathf.Clamp01(t / duration);
             srender.color = c;
             yield return null;

@@ -222,12 +222,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930117940751657890, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1930117940751657890, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: object_id
-      value: null
+      value: lighthousefloorup
       objectReference: {fileID: 0}
+    - target: {fileID: 1930117940751657890, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
+      propertyPath: clickSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 2acc8ec282949dd44abb8c080239fa2d, type: 3}
     - target: {fileID: 1930117940751657890, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: hover_sprite
       value: 
@@ -254,7 +258,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1930117940751657890, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: on_click.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: GoTo
+      value: GoToSlow
       objectReference: {fileID: 0}
     - target: {fileID: 1930117940751657890, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: on_click.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -465,10 +469,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.38111112
+    x: 0.23016904
     y: 0
-    width: 0.56098765
-    height: 0.5612649
+    width: 0.8530559
+    height: 0.852194
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -772,12 +776,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930117940751657890, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1930117940751657890, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: object_id
-      value: null
+      value: lighthouseoutside
       objectReference: {fileID: 0}
+    - target: {fileID: 1930117940751657890, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
+      propertyPath: clickSound
+      value: 
+      objectReference: {fileID: 8300000, guid: d11de4a66f963e64d910c2e7177341ac, type: 3}
     - target: {fileID: 1930117940751657890, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: hover_sprite
       value: 

@@ -77,6 +77,12 @@ public class MiscObjectClick : MonoBehaviour
         }
     }
 
+    public void ShowDialog(string str)
+    {
+        DialogueManager.ShowDialogue(getDialogue(str));
+
+    }
+    
 	public void GatherFish() 
 	{
 		if (GameState.Get<bool>("gathered_fish")) {

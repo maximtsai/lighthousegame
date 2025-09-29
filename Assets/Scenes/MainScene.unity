@@ -220,6 +220,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1930117940751657890, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
+      propertyPath: clickSound
+      value: 
+      objectReference: {fileID: 8300000, guid: ac30296031cac8a4db605d235eaf7510, type: 3}
+    - target: {fileID: 1930117940751657890, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: hover_sprite
       value: 
       objectReference: {fileID: -3095393971291257513, guid: 9128edd4d5784d74d8351c0d95b4a38e, type: 3}
@@ -698,6 +702,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1930117940751657890, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
+      propertyPath: clickSound
+      value: 
+      objectReference: {fileID: 8300000, guid: eb197977d3a7c884597a1f65eeeb4dbb, type: 3}
+    - target: {fileID: 1930117940751657890, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: hover_sprite
       value: 
       objectReference: {fileID: -4792591357819551002, guid: e27595c3d07262841b1687d26871cd9c, type: 3}
@@ -963,7 +971,7 @@ Camera:
     x: 0
     y: 0
     width: 1
-    height: 1
+    height: 0.9989896
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34

@@ -35,6 +35,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/OutdoorsScene.unity
     guid: ba605b5578772b143b7cc0c70ce9df7a
+  - enabled: 1
+    path: Assets/Scenes/SinkScene.unity
+    guid: 6357e055b0a96d94fb07371474116103
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
