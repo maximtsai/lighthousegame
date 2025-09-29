@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: d1f99d3c4d90389499e91ac59f051d03
+guid: ee2d812ef12a9054ebad9ab4afee85a8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1944054995938551939
-    second: sink_0
+      213: 84200561968747524
+    second: cambbed_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sink_0
+      name: cambbed_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 640
-        height: 740
+        height: 700
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 388adb008bbaafa10800000000000000
-      internalID: 1944054995938551939
+      spriteID: 404190a07f32b2100800000000000000
+      internalID: 84200561968747524
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      sink_0: 1944054995938551939
+      cambbed_0: 84200561968747524
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
