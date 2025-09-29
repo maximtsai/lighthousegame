@@ -28,7 +28,10 @@ public class InteractableObject : MonoBehaviour
         srender.color = Color.white;
         Debug.Log("activate");
         // Automatically find the AudioSource in the scene
-        audioSource = FindFirstObjectByType<AudioSource>();
+        if (AudioManager.Instance)
+        {
+            audioSource = AudioManager.Instance.AudioSource;
+        }
         if (audioSource == null)
         {
             Debug.LogWarning("No AudioSource found in the scene!");
@@ -65,7 +68,7 @@ public class InteractableObject : MonoBehaviour
         if (GameState.Get<bool>("minigame_open", false)) return;
         if (hasSound)
         {
-            Debug.Log("play");
+            // Debug.Log("play");
             audioSource.PlayOneShot(clickSound);
         }
         on_click.Invoke();
