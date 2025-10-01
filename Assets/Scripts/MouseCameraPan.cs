@@ -6,7 +6,8 @@ public class MouseCameraPan : MonoBehaviour
 {
     public Transform background; // assign your background GameObject in Inspector
     private Camera cam;
-    public float edgeThreshold = 0.25f; // 20% by default
+    public float edgeThreshold = 0.25f; // 25% by default
+    public float scrollSpeed = 0.05f;
 
     private Vector2 bounds; // half-size of how far camera can move
 
@@ -30,7 +31,7 @@ public class MouseCameraPan : MonoBehaviour
 
     void Update()
     {
-		UpdatePosition(0.05f);
+		UpdatePosition(scrollSpeed);
     }
 
 	void UpdatePosition(float shiftRatio)
