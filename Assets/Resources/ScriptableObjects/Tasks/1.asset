@@ -15,6 +15,6 @@ MonoBehaviour:
   id: 1
   description: Go outside.
   completion_object_id: object_door_outside
-  on_completion: {fileID: 11400000, guid: ffb293744558aa543aed910a10da1ddf, type: 2}
+  on_completion: {fileID: 11400000, guid: 61313503650d02c41831ecb91fc35c33, type: 2}
   new_tasks_on_completion:
   - {fileID: 11400000, guid: 130536a2c362c2d4f9a3039b5e2fdb14, type: 2}

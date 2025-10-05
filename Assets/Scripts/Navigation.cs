@@ -7,7 +7,7 @@ public class Navigation : MonoBehaviour
     public static Navigation Instance { get; private set; }
 
     [SerializeField] private SpriteRenderer srender;
-    
+
     void Awake()
     {
         // Singleton setup
@@ -28,7 +28,7 @@ public class Navigation : MonoBehaviour
             Debug.LogWarning("Navigation prefab had no SpriteRenderer. Added one dynamically.");
         }
     }
-    
+
     public void GoToBedroom()
     {
         SceneManager.LoadScene("BedroomScene");
@@ -99,12 +99,26 @@ public class Navigation : MonoBehaviour
             srender.color = c;
             yield return null;
         }
-        
+
         // Destroy the Navigation object in the old scene
         Destroy(gameObject);
 
         // Clear the singleton reference
         Instance = null;
     }
-    
+
+    public void GoToIfGameState(SceneTransition transition)
+    {
+        // query GameState static class and check value 
+        // optionally play dialogue if go to is not possible via DialogueManager
+        Debug.Log(transition.gamestate_key + " " + GameState.Get<string>(transition.gamestate_key, "false"));
+        if (GameState.Get<string>(transition.gamestate_key, "false") == transition.gamestate_value)
+        {
+            GoTo(transition.destination_scene);
+        }
+        else if (null != transition.dialogue_on_stay)
+        {
+            DialogueManager.ShowDialogue(transition.dialogue_on_stay);
+        }
+    }
 }

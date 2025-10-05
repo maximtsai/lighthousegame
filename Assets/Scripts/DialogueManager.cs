@@ -4,9 +4,6 @@ public class DialogueManager : MonoBehaviour
 {
     public GameObject prefab_dialoguebox;
     public static DialogueManager instance;
-
-    private static bool dialogue_is_open = false;
-
     private static GameObject activeDialogueBox = null;
     void Awake()
     {
@@ -21,14 +18,15 @@ public class DialogueManager : MonoBehaviour
     }
     public static void ShowDialogue(Dialogue d)
     {
-        if (activeDialogueBox != null) {
+        Debug.Log("showing dialogue");
+        if (activeDialogueBox != null)
+        {
             CloseDialogue();
         }
         activeDialogueBox = Instantiate(instance.prefab_dialoguebox);
         activeDialogueBox.GetComponent<UIDialogueBox>().SetDialogue(d);
 
         GameState.Set("dialogue_is_open", true);
-        dialogue_is_open = true;
     }
     public static void CloseDialogue()
     {
@@ -38,10 +36,10 @@ public class DialogueManager : MonoBehaviour
             activeDialogueBox = null;
         }
         GameState.Set("dialogue_is_open", false);
-        dialogue_is_open = false;
+        Debug.Log("dialogue closed");
     }
     public static bool DialogueIsOpen()
     {
-        return dialogue_is_open;
+        return GameState.Get<bool>("dialogue_is_open", false);
     }
 }

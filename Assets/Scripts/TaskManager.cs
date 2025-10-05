@@ -24,13 +24,14 @@ public class TaskManager : MonoBehaviour
         if (null != default_task_list) LoadTasks(default_task_list);
         DontDestroyOnLoad(gameObject);
     }
-
     public static void AttemptTaskCompletion(InteractableObject o)
     {
-        if (null == o || DialogueManager.DialogueIsOpen())
-            return;
-
-        string object_id = o.GetObjectId();
+        if (null == o) return;
+        AttemptTaskCompletion(o.GetObjectId());
+    }
+    public static void AttemptTaskCompletion(string o)
+    {
+        string object_id = o;
         int matching_task_index = -1;
         for (int i = 0; i < instance.tasklist.Count; i++)
         {
