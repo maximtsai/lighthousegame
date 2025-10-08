@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c21e5b555f186ac4da729ad4d766dae7, type: 3}
+  m_Name: sink_wash_up
+  m_EditorClassIdentifier: Assembly-CSharp::Dialogue
+  text:
+  - You wash up.
+  - You are now less dirty.
+  onDialogueEnd:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 45970835538794510, guid: 6f78fa3420c9e554db4063e6c52a546a, type: 3}
+        m_TargetAssemblyTypeName: GameStateManager, Assembly-CSharp
+        m_MethodName: SetClean
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1422670052534856816, guid: 0e2755465418a284293a9c34ebd114ee, type: 3}
+        m_TargetAssemblyTypeName: TaskManager, Assembly-CSharp
+        m_MethodName: AttemptTaskCompletionSilent
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: object_sink
+          m_BoolArgument: 1
+        m_CallState: 2
+  choices: []
+  consequences: []

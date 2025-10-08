@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c21e5b555f186ac4da729ad4d766dae7, type: 3}
+  m_Name: prompt_wash_up
+  m_EditorClassIdentifier: Assembly-CSharp::Dialogue
+  text:
+  - Wash up?
+  onDialogueEnd:
+    m_PersistentCalls:
+      m_Calls: []
+  choices:
+  - Yes
+  - No
+  consequences:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2760049543163278766, guid: f14fe33510cb3984aa68c4beffa625cf, type: 3}
+        m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+        m_MethodName: ShowDialogue
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 9bcf962f56c4bf84d8758d993f1f34f6, type: 2}
+          m_ObjectArgumentAssemblyTypeName: Dialogue, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  - m_PersistentCalls:
+      m_Calls: []

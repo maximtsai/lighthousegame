@@ -65,7 +65,7 @@ public class UIDialogueBox : MonoBehaviour
         {
             dialogue.onDialogueEnd?.Invoke();
         }
-        Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto); // revert cursor to default
+        CustomCursor.SetCursorToNormal(); // revert cursor to default
         Destroy(gameObject);
     }
 
@@ -93,7 +93,7 @@ public class UIDialogueBox : MonoBehaviour
                 button0.GetComponentInChildren<TMP_Text>().text = dialogue.choices[0];
                 button1.gameObject.SetActive(true);
                 button1.GetComponentInChildren<TMP_Text>().text = dialogue.choices[1];
-                Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto); // revert cursor to default
+                CustomCursor.SetCursorToNormal(); // revert cursor to default
             }
             else
             {

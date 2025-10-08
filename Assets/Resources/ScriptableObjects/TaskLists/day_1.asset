@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: day_1
   m_EditorClassIdentifier: Assembly-CSharp::TaskList
   tasks:
-  - {fileID: 11400000, guid: 130536a2c362c2d4f9a3039b5e2fdb14, type: 2}
-  - {fileID: 11400000, guid: c8a3eb36053ab4640a5638313204b07e, type: 2}
+  - {fileID: 11400000, guid: 9be8b7a290e55e647aabc788953fc75f, type: 2}
+  - {fileID: 11400000, guid: 08ac9a46afd161e42b4780c3499cd368, type: 2}
