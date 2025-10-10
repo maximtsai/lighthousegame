@@ -36,6 +36,17 @@ public class UIDialogueBox : MonoBehaviour
             yield return new WaitForSeconds(typeSpeed);
         }
         typingCoroutine = null;
+        
+        // Show dialog choices if we have any
+        if (dialogue.choices.Count == 2 && dialogue.choices.Count == dialogue.consequences.Count)
+        {
+            GameState.Set("picking_choice", true);
+            button0.gameObject.SetActive(true);
+            button0.GetComponentInChildren<TMP_Text>().text = dialogue.choices[0];
+            button1.gameObject.SetActive(true);
+            button1.GetComponentInChildren<TMP_Text>().text = dialogue.choices[1];
+            CustomCursor.SetCursorToNormal(); // revert cursor to default
+        }
     }
     
     public void OnDestroy()
@@ -80,6 +91,17 @@ public class UIDialogueBox : MonoBehaviour
             StopCoroutine(typingCoroutine);
             textmesh.text = dialogue.text[current_line];
             typingCoroutine = null;
+
+            if (dialogue.choices.Count == 2 && dialogue.choices.Count == dialogue.consequences.Count)
+            {
+                GameState.Set("picking_choice", true);
+                button0.gameObject.SetActive(true);
+                button0.GetComponentInChildren<TMP_Text>().text = dialogue.choices[0];
+                button1.gameObject.SetActive(true);
+                button1.GetComponentInChildren<TMP_Text>().text = dialogue.choices[1];
+                CustomCursor.SetCursorToNormal(); // revert cursor to default
+            }
+            
             return;
         }
 
@@ -92,12 +114,12 @@ public class UIDialogueBox : MonoBehaviour
             }
             else if (2 == dialogue.choices.Count && dialogue.choices.Count == dialogue.consequences.Count)
             {
-                GameState.Set("picking_choice", true);
-                button0.gameObject.SetActive(true);
-                button0.GetComponentInChildren<TMP_Text>().text = dialogue.choices[0];
-                button1.gameObject.SetActive(true);
-                button1.GetComponentInChildren<TMP_Text>().text = dialogue.choices[1];
-                CustomCursor.SetCursorToNormal(); // revert cursor to default
+                // Moving this to when the typewriter dialog finishes typing
+                // button0.gameObject.SetActive(true);
+                // button0.GetComponentInChildren<TMP_Text>().text = dialogue.choices[0];
+                // button1.gameObject.SetActive(true);
+                // button1.GetComponentInChildren<TMP_Text>().text = dialogue.choices[1];
+                // CustomCursor.SetCursorToNormal(); // revert cursor to default
             }
             else
             {
