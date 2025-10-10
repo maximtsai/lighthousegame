@@ -2,6 +2,7 @@ using TMPro;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.UI;
 
 public class UIDialogueBox : MonoBehaviour
@@ -39,6 +40,7 @@ public class UIDialogueBox : MonoBehaviour
     
     public void OnDestroy()
     {
+        GameState.Set("picking_choice", false);
         GameState.Set("dialogue_is_open", false);
     }
     public void SetDialogue(Dialogue d)
@@ -47,6 +49,7 @@ public class UIDialogueBox : MonoBehaviour
 
         current_line = 0;
         dialogue = d;
+
         total_lines = dialogue.text.Count;
         CustomCursor.SetCursorToDialog();
 
@@ -89,6 +92,7 @@ public class UIDialogueBox : MonoBehaviour
             }
             else if (2 == dialogue.choices.Count && dialogue.choices.Count == dialogue.consequences.Count)
             {
+                GameState.Set("picking_choice", true);
                 button0.gameObject.SetActive(true);
                 button0.GetComponentInChildren<TMP_Text>().text = dialogue.choices[0];
                 button1.gameObject.SetActive(true);

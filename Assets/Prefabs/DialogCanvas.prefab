@@ -172,8 +172,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 88.9}
-  m_SizeDelta: {x: 258.8388, y: 30}
+  m_AnchoredPosition: {x: 0, y: 57}
+  m_SizeDelta: {x: 258.8388, y: 38}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5421238342177706540
 CanvasRenderer:
@@ -441,8 +441,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00030327, y: 0}
-  m_SizeDelta: {x: 258.84, y: 30}
+  m_AnchoredPosition: {x: -0.00030327, y: -4}
+  m_SizeDelta: {x: 258.84, y: 38}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5935200548739885222
 CanvasRenderer:
@@ -972,7 +972,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIDialogueBox
   textmesh: {fileID: 3477899639688986950}
-  pointerCursor: {fileID: 2800000, guid: 8e9e6f81543ffbb439d2fd8078fdf4d2, type: 3}
   typeSpeed: 0.05
   button0: {fileID: 327629974341873846}
   button1: {fileID: 4386316618397467036}

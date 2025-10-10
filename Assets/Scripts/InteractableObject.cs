@@ -38,7 +38,6 @@ public class InteractableObject : MonoBehaviour
         }
         else if (clickSound != null)
         {
-            Debug.Log("click sound set");
             audioSource.clip = clickSound;
             hasSound = true;
         }

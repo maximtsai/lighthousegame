@@ -258,10 +258,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.44723246
+    x: 0
     y: 0
-    width: 0.64551044
-    height: 0.6456693
+    width: 1
+    height: 0.9990671
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -746,15 +746,15 @@ PrefabInstance:
     - target: {fileID: 1930117940751657890, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: clickSound
       value: 
-      objectReference: {fileID: 8300000, guid: f26fe6f2357d51049ad57a3e10f32445, type: 3}
+      objectReference: {fileID: 8300000, guid: f31225dd6f8c6a54098bb8591d58e1e5, type: 3}
     - target: {fileID: 1930117940751657890, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: hover_sprite
       value: 
-      objectReference: {fileID: 7482667652216324306, guid: 3020360258a9d7546ad3dd06dac2431c, type: 3}
+      objectReference: {fileID: -378529724441376976, guid: 4666ab9507022bd49a4d930172b8479d, type: 3}
     - target: {fileID: 1930117940751657890, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: default_sprite
       value: 
-      objectReference: {fileID: 7482667652216324306, guid: 5ddecbcb0a99c3f4bbefda7e2c82d0be, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 1930117940751657890, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: on_click.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -791,13 +791,17 @@ PrefabInstance:
       propertyPath: on_click.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 2779666543188052440, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
+      propertyPath: m_Size.y
+      value: 1.7
+      objectReference: {fileID: 0}
     - target: {fileID: 3552312925848323248, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.186
+      value: 1.48
       objectReference: {fileID: 0}
     - target: {fileID: 3552312925848323248, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.558
+      value: 0.71
       objectReference: {fileID: 0}
     - target: {fileID: 3552312925848323248, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: m_LocalPosition.z
@@ -834,10 +838,10 @@ PrefabInstance:
     - target: {fileID: 4393333540239105687, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 7482667652216324306, guid: 5ddecbcb0a99c3f4bbefda7e2c82d0be, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 4393333540239105687, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: m_WasSpriteAssigned
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8117198677215079408, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: m_Name

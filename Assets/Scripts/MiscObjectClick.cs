@@ -3,6 +3,7 @@ using UnityEngine;
 public class MiscObjectClick : MonoBehaviour
 {
     private string path = "ScriptableObjects/Dialogues/";
+    AudioSource audioSource;
 
     private Dialogue getDialogue(string name)
     {
@@ -99,4 +100,21 @@ public class MiscObjectClick : MonoBehaviour
 	{
         DialogueManager.ShowDialogue(getDialogue("go_outside"));
 	}
+
+    public void PlaySound(AudioClip sfx)
+    {
+        if (AudioManager.Instance)
+        {
+            audioSource = AudioManager.Instance.AudioSource;
+        }
+        if (audioSource == null)
+        {
+            Debug.LogWarning("No AudioSource found in the scene!");
+        }
+        else if (sfx != null)
+        {
+            audioSource.clip = sfx;
+        }
+        audioSource.PlayOneShot(sfx);
+    }
 }

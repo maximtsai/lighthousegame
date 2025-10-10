@@ -1,5 +1,6 @@
 using UnityEngine;
-using UnityEngine.InputSystem; // required for new Input System
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.LowLevel; // required for new Input System
 using UnityEngine.SceneManagement;
 
 public class MouseCameraPan : MonoBehaviour
@@ -42,6 +43,18 @@ public class MouseCameraPan : MonoBehaviour
 			return;
 		}; // safety check
 
+		if (GameState.Get<bool>("picking_choice"))
+		{
+			// we are currently picking choice, stop moving.
+			return;
+		}
+
+		if (GameState.Get<bool>("dialogue_is_open"))
+		{
+			// Make scrolling much slower when dialog open
+			shiftRatio *= 0.25f;
+		}
+		
         // Get mouse position in pixels
         Vector2 mousePos = Mouse.current.position.ReadValue();
 
