@@ -20,6 +20,20 @@ public class UIDialogueBox : MonoBehaviour
     {
         button0.gameObject.SetActive(false);
         button1.gameObject.SetActive(false);
+
+        if (dialogue.startSound != null)
+        {
+            if (AudioManager.Instance)
+            {
+                AudioSource audioSource = AudioManager.Instance.AudioSource;
+                audioSource.clip = dialogue.startSound;
+                audioSource.PlayOneShot(dialogue.startSound);
+            }
+            else
+            {
+                Debug.LogWarning("No AudioSource found in the scene!");
+            }
+        }
     }
     private IEnumerator TypeText(string line)
     {
@@ -40,12 +54,7 @@ public class UIDialogueBox : MonoBehaviour
         // Show dialog choices if we have any
         if (dialogue.choices.Count == 2 && dialogue.choices.Count == dialogue.consequences.Count)
         {
-            GameState.Set("picking_choice", true);
-            button0.gameObject.SetActive(true);
-            button0.GetComponentInChildren<TMP_Text>().text = dialogue.choices[0];
-            button1.gameObject.SetActive(true);
-            button1.GetComponentInChildren<TMP_Text>().text = dialogue.choices[1];
-            CustomCursor.SetCursorToNormal(); // revert cursor to default
+            ShowDialogChoices();
         }
     }
     
@@ -94,12 +103,7 @@ public class UIDialogueBox : MonoBehaviour
 
             if (dialogue.choices.Count == 2 && dialogue.choices.Count == dialogue.consequences.Count)
             {
-                GameState.Set("picking_choice", true);
-                button0.gameObject.SetActive(true);
-                button0.GetComponentInChildren<TMP_Text>().text = dialogue.choices[0];
-                button1.gameObject.SetActive(true);
-                button1.GetComponentInChildren<TMP_Text>().text = dialogue.choices[1];
-                CustomCursor.SetCursorToNormal(); // revert cursor to default
+                ShowDialogChoices();
             }
             
             return;
@@ -131,5 +135,15 @@ public class UIDialogueBox : MonoBehaviour
         {
             typingCoroutine = StartCoroutine(TypeText(dialogue.text[current_line]));
         }
+    }
+
+    private void ShowDialogChoices()
+    {
+        GameState.Set("picking_choice", true);
+        button0.gameObject.SetActive(true);
+        button0.GetComponentInChildren<TMP_Text>().text = dialogue.choices[0];
+        button1.gameObject.SetActive(true);
+        button1.GetComponentInChildren<TMP_Text>().text = dialogue.choices[1];
+        CustomCursor.SetCursorToNormal(); // revert cursor to default
     }
 }

@@ -44,3 +44,4 @@ MonoBehaviour:
         m_CallState: 2
   choices: []
   consequences: []
+  startSound: {fileID: 8300000, guid: f26fe6f2357d51049ad57a3e10f32445, type: 3}

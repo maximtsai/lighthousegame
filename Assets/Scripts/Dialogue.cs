@@ -10,4 +10,5 @@ public class Dialogue : ScriptableObject
     public UnityEvent onDialogueEnd;
     public List<string> choices;
     public List<UnityEvent> consequences;
+    public AudioClip startSound;
 }
