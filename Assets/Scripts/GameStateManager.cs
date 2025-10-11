@@ -19,7 +19,7 @@ public class GameStateManager : MonoBehaviour
 
     public void SetClean(bool is_clean)
     {
-        GameState.Set("is_clean", is_clean.ToString().ToLower());
+        GameState.Set("is_clean", is_clean);
         Debug.Log("setting clean state");
     }
 }

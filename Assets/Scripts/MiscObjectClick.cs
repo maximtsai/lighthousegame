@@ -96,6 +96,16 @@ public class MiscObjectClick : MonoBehaviour
 		}
 	}
 
+    public void ClickSink()
+    {
+        if (GameState.Get<bool>("is_clean")) {
+            DialogueManager.ShowDialogue(getDialogue("sink/already_washed"));
+        } else 
+        {
+            DialogueManager.ShowDialogue(getDialogue("sink/prompt_wash_up"));
+        }
+    }
+
 	public void GoOutdoors() 
 	{
         DialogueManager.ShowDialogue(getDialogue("go_outside"));

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: bed2kitchen
   m_EditorClassIdentifier: Assembly-CSharp::SceneTransition
   destination_scene: KitchenScene
+  travelSound: {fileID: 8300000, guid: 8884f5fce73ce814c917993866c63f4e, type: 3}
   gamestate_key: is_clean
   gamestate_value: true
   dialogue_on_stay: {fileID: 11400000, guid: b944a39a0525b6945be90119312f694e, type: 2}

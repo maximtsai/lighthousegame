@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   text:
   - You look like a matted dog.
+  - Need to wash first.
   onDialogueEnd:
     m_PersistentCalls:
       m_Calls: []
   choices: []
   consequences: []
+  startSound: {fileID: 0}
