@@ -114,6 +114,20 @@ public class Navigation : MonoBehaviour
         Debug.Log(transition.gamestate_key + " " + GameState.Get<string>(transition.gamestate_key, "false"));
         if (GameState.Get<string>(transition.gamestate_key, "false") == transition.gamestate_value)
         {
+            if (transition.travelSound)
+            {
+                // Play sound if it's available
+                if (AudioManager.Instance)
+                {
+                    AudioSource audioSource = AudioManager.Instance.AudioSource;
+                    audioSource.clip = transition.travelSound;
+                    audioSource.PlayOneShot(transition.travelSound);
+                }
+                else
+                {
+                    Debug.LogWarning("No AudioSource found in the scene!");
+                }
+            }
             GoTo(transition.destination_scene);
         }
         else if (null != transition.dialogue_on_stay)
@@ -121,4 +135,6 @@ public class Navigation : MonoBehaviour
             DialogueManager.ShowDialogue(transition.dialogue_on_stay);
         }
     }
+    
+    
 }

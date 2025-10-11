@@ -261,7 +261,7 @@ Camera:
     x: 0
     y: 0
     width: 1
-    height: 0.9990671
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -1171,7 +1171,7 @@ PrefabInstance:
     - target: {fileID: 1930117940751657890, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: clickSound
       value: 
-      objectReference: {fileID: 8300000, guid: ad7de75b4280f4f40823eef3728b665f, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 1930117940751657890, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: hover_sprite
       value: 

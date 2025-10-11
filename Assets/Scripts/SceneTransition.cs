@@ -5,6 +5,7 @@ using UnityEngine;
 public class SceneTransition : ScriptableObject
 {
     public string destination_scene = "";
+    public AudioClip travelSound;
     // variables for checking GameState before transitioning
     public string gamestate_key = "";
     public string gamestate_value = "";
