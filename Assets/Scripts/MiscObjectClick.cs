@@ -5,7 +5,7 @@ public class MiscObjectClick : MonoBehaviour
     private string path = "ScriptableObjects/Dialogues/";
     AudioSource audioSource;
 
-    private Dialogue getDialogue(string name)
+    public Dialogue getDialogue(string name)
     {
         string fullPath = path + name;
         Dialogue dialogue = Resources.Load<Dialogue>(fullPath);
@@ -98,7 +98,7 @@ public class MiscObjectClick : MonoBehaviour
 
     public void ClickSink()
     {
-        if (GameState.Get<bool>("is_clean")) {
+        if (GameState.Get<string>("is_clean") == "true") {
             DialogueManager.ShowDialogue(getDialogue("sink/already_washed"));
         } else 
         {

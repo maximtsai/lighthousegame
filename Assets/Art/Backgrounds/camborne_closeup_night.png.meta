@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 03e922fbc5ac93442bcda4e5f70156f4
+guid: 1696b62909741ab49a1c23c15c686f6c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 908302299182228646
-    second: table_empty_0
+      213: -978101961179048842
+    second: camborne_closeup_night_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: table_empty_0
+      name: camborne_closeup_night_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 613
-        height: 670
+        width: 640
+        height: 547
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6a46d63f020fa9c00800000000000000
-      internalID: 908302299182228646
+      spriteID: 6745fc1d2751d62f0800000000000000
+      internalID: -978101961179048842
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      table_empty_0: 908302299182228646
+      camborne_closeup_night_0: -978101961179048842
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

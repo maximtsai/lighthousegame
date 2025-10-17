@@ -865,6 +865,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   background: {fileID: 2140154779}
   edgeThreshold: 0.25
+  scrollSpeed: 0.05
 --- !u!114 &1896430263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -968,10 +969,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.3001346
     y: 0
-    width: 1
-    height: 0.9989896
+    width: 0.8374458
+    height: 0.83732057
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -1169,6 +1170,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioSourceFollowingCam
       objectReference: {fileID: 0}
+    - target: {fileID: 4890448732183080169, guid: e12270b966b16a54389933f3eda2c8ed, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6242366035836684993, guid: e12270b966b16a54389933f3eda2c8ed, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1212,28 +1217,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4890448732183080169, guid: e12270b966b16a54389933f3eda2c8ed, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8504570072562704318}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e12270b966b16a54389933f3eda2c8ed, type: 3}
---- !u!1 &8504570072562704317 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4890448732183080169, guid: e12270b966b16a54389933f3eda2c8ed, type: 3}
-  m_PrefabInstance: {fileID: 8504570072562704316}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &8504570072562704318
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8504570072562704317}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e909d2bf7eff694eb643dc1062bf95c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
