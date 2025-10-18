@@ -8,6 +8,7 @@ public class LHMinigame : MonoBehaviour
     [SerializeField] private SpriteRenderer background;
     [SerializeField] private SpriteRenderer glowEffect;
     [SerializeField] private SpriteRenderer mercuryPool;
+    [SerializeField] private Sprite lighthouseRoomCloseSprite;
     [SerializeField] private Sprite lighthouseRoomOpenSprite;
     [SerializeField] private Sprite glowScissorsSprite;
     [SerializeField] private Sprite glowOilSprite;
@@ -20,10 +21,15 @@ public class LHMinigame : MonoBehaviour
     [SerializeField] private Image scissorsRenderer;
     [SerializeField] private Image mercuryRenderer;
 
+    [SerializeField] private AudioClip lockSound;
     [SerializeField] private AudioClip wrenchSound;
     [SerializeField] private AudioClip oilSound;
     [SerializeField] private AudioClip scissorsSound;
     [SerializeField] private AudioClip mercurySound;
+    [SerializeField] private AudioClip finishClick;
+    [SerializeField] private AudioClip finishLoop;
+    [SerializeField] private ParallaxScroll shadowScrollScript;
+
     [SerializeField] private MiscObjectClick miscObjectClick;
 
 	private Coroutine fadeCoroutine;
@@ -33,8 +39,18 @@ public class LHMinigame : MonoBehaviour
     
     void Start()
     {
-
+		if (GameState.Get<bool>("lighthouse_fixed"))
+		{
+			shadowScrollScript.startScale = 1.05f;
+	        StartCoroutine(PlaySoundDelayedRoutine(finishLoop, 0.9f, true, 0.01f));
+		}
     }
+
+	private IEnumerator PlaySoundDelayedRoutine(AudioClip sfx, float volume, bool loop, float delay)
+	{
+		yield return new WaitForSeconds(delay);
+        miscObjectClick.PlaySound(sfx, volume, loop);
+	}
 
     public void StartMinigame()
     {
@@ -233,7 +249,8 @@ public class LHMinigame : MonoBehaviour
             GameState.Get<bool>("oil_used"))
         {
             // We've finished!
-            StartCoroutine(CloseAfterDelay(1.5f));
+        	GameState.Set("lighthouse_fixed", true);
+            StartCoroutine(CloseAfterDelay(2.4f));
 
             // if (!isAnimating)
             //     StartCoroutine(PlayLighthouseAnimation());
@@ -242,15 +259,23 @@ public class LHMinigame : MonoBehaviour
     private IEnumerator CloseAfterDelay(float delay)
     {
         // Wait before close
-        yield return new WaitForSeconds(delay);
-        GameState.Set("lighthouse_fixed", true);
+        yield return new WaitForSeconds(delay * 0.55f);
+        if (background != null && lighthouseRoomCloseSprite != null)
+        {
+            background.sprite = lighthouseRoomCloseSprite;
+        }
+        miscObjectClick.PlaySound(lockSound);
+        yield return new WaitForSeconds(delay * 0.45f);
+
+        GameState.Set("lighthouse_opened", false);
         lighthouseAnimator.gameObject.SetActive(true);
+		shadowScrollScript.startScale = 1.05f;
+
+        miscObjectClick.PlaySound(finishClick);
+        miscObjectClick.PlaySound(finishLoop, 1f, true);
+
         StopMinigame();
         DialogueManager.ShowDialogue(miscObjectClick.getDialogue("Lighthouse/work_done"));
     }
-    IEnumerator CloseAfterDelay(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        StopMinigame();
-    }
+
 }

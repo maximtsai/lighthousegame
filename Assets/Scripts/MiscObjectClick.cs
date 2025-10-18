@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class MiscObjectClick : MonoBehaviour
 {
@@ -111,20 +112,47 @@ public class MiscObjectClick : MonoBehaviour
         DialogueManager.ShowDialogue(getDialogue("go_outside"));
 	}
 
-    public void PlaySound(AudioClip sfx)
+	public void PlaySoundDelayed(AudioClip sfx, float volume = 1f, bool loop = false, float delay = 0.1f)
+	{
+   		StartCoroutine(InvokeAfterDelay(() => PlaySound(sfx, volume, loop), delay));
+	}
+
+	private IEnumerator InvokeAfterDelay(System.Action action, float delay)
+	{
+    	yield return new WaitForSeconds(delay);
+    	action?.Invoke();
+	}
+
+    public void PlaySound(AudioClip sfx, float volume = 1f, bool loop = false)
     {
         if (AudioManager.Instance)
         {
             audioSource = AudioManager.Instance.AudioSource;
-        }
+        } else {
+            Debug.LogWarning("No AudioManager Instance ready yet!");
+		}
         if (audioSource == null)
         {
             Debug.LogWarning("No AudioSource found in the scene!");
         }
-        else if (sfx != null)
-        {
-            audioSource.clip = sfx;
-        }
-        audioSource.PlayOneShot(sfx);
+    	if (sfx == null)
+    	{
+        	Debug.LogWarning("No AudioClip provided to PlaySound!");
+        	return;
+    	}
+    	if (loop)
+    	{
+        	// Configure and play looping sound
+        	audioSource.clip = sfx;
+        	audioSource.loop = true;
+        	audioSource.volume = volume;
+        	audioSource.Play();
+    	}
+    	else
+    	{
+        	// Play one-shot sound
+        	audioSource.loop = false;
+        	audioSource.PlayOneShot(sfx, volume);
+    	}
     }
 }

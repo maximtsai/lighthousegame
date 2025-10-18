@@ -119,6 +119,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &129566222 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2567806368657113113, guid: 17a0459b6248f91429c234511f318d16, type: 3}
+  m_PrefabInstance: {fileID: 1820858900}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2d6a27eff00f7e4fb4913bf87eb8a8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1 &198182605
 GameObject:
   m_ObjectHideFlags: 0
@@ -1220,7 +1231,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &817633083
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1320,6 +1331,7 @@ MonoBehaviour:
   background: {fileID: 936786989}
   glowEffect: {fileID: 763204939}
   mercuryPool: {fileID: 958988036}
+  lighthouseRoomCloseSprite: {fileID: 3493312037325981992, guid: 9ec7037ffd7f8dd48b8b7e9c17383307, type: 3}
   lighthouseRoomOpenSprite: {fileID: -8208115752080037166, guid: 0b8b1a87af6db5149b4187692c5bc01e, type: 3}
   glowScissorsSprite: {fileID: 21300000, guid: a066ca1cb58cf284da9c0cafb35a7c48, type: 3}
   glowOilSprite: {fileID: 21300000, guid: 96da9c568d8578942afbd9575742a709, type: 3}
@@ -1329,10 +1341,14 @@ MonoBehaviour:
   oilRenderer: {fileID: 690911902}
   scissorsRenderer: {fileID: 1447152531}
   mercuryRenderer: {fileID: 552013626}
+  lockSound: {fileID: 8300000, guid: d67828064bcbf5d40859d33a6e2e7a48, type: 3}
   wrenchSound: {fileID: 8300000, guid: b78e5f01e78f1ce40a7db22fcdc69a58, type: 3}
   oilSound: {fileID: 8300000, guid: 3562927aea4e4d5469e44cd235851b24, type: 3}
   scissorsSound: {fileID: 8300000, guid: b0fdec9c6c144dc47b76199110211f0c, type: 3}
   mercurySound: {fileID: 8300000, guid: 5e0bb146ab4b61b489d451a0e3e0dba3, type: 3}
+  finishClick: {fileID: 8300000, guid: 52a9d8c0e0b6e3d4f85b8367fb21ace6, type: 3}
+  finishLoop: {fileID: 8300000, guid: 1d2dac4d1b58cb74f988f9a4fa5199ee, type: 3}
+  shadowScrollScript: {fileID: 129566222}
   miscObjectClick: {fileID: 5912071456214807691, guid: add25f6ff90e9474990e9f3862207611, type: 3}
 --- !u!1 &883241931
 GameObject:
@@ -2196,7 +2212,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1870315435
 RectTransform:
   m_ObjectHideFlags: 0
