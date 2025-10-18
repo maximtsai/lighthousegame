@@ -664,7 +664,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &957565992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -693,6 +693,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1209353537 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4890448732183080169, guid: e12270b966b16a54389933f3eda2c8ed, type: 3}
+  m_PrefabInstance: {fileID: 8504570072562704316}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1209353541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1209353537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08cdd0f1d351f62468ec4795d8db23b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  newTrack1: {fileID: 8300000, guid: 3f6c773ae3d76484cbf2270c2150fefd, type: 3}
+  newTrack2: {fileID: 8300000, guid: bb295e81a5802b94f99cacb96173522c, type: 3}
 --- !u!1001 &1342511765
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -969,10 +988,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.3001346
+    x: 0
     y: 0
-    width: 0.8374458
-    height: 0.83732057
+    width: 1
+    height: 0.99985045
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -1217,7 +1236,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4890448732183080169, guid: e12270b966b16a54389933f3eda2c8ed, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1209353541}
   m_SourcePrefab: {fileID: 100100000, guid: e12270b966b16a54389933f3eda2c8ed, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

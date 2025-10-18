@@ -463,10 +463,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.22180451
+    x: 0
     y: 0
-    width: 1.2330828
-    height: 1.2341137
+    width: 1
+    height: 0.99985045
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -540,6 +540,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   background: {fileID: 588892269}
   edgeThreshold: 0.25
+  scrollSpeed: 0.05
 --- !u!1 &566712727
 GameObject:
   m_ObjectHideFlags: 0
@@ -851,7 +852,7 @@ PrefabInstance:
     - target: {fileID: 1930117940751657890, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: clickSound
       value: 
-      objectReference: {fileID: 8300000, guid: d11de4a66f963e64d910c2e7177341ac, type: 3}
+      objectReference: {fileID: 8300000, guid: 38a9aebcbb240c04787797e684b659f3, type: 3}
     - target: {fileID: 1930117940751657890, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: hover_sprite
       value: 

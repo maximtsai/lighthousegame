@@ -1,17 +1,14 @@
 using UnityEngine;
 using System.Collections;
 
-public class LHFloorScript : MonoBehaviour
+public class PierMiscLogic : MonoBehaviour
 {
     [SerializeField] private AudioClip finishLoop;
     [SerializeField] private MiscObjectClick miscObjectClick;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if (GameState.Get<bool>("lighthouse_fixed"))
-        {
-            StartCoroutine(PlaySoundDelayedRoutine(finishLoop, 0.2f, true, 0.01f));
-        }
+        StartCoroutine(PlaySoundDelayedRoutine(finishLoop, 0.2f, true, 0.001f));
     }
     
     private IEnumerator PlaySoundDelayedRoutine(AudioClip sfx, float volume, bool loop, float delay)
@@ -19,5 +16,4 @@ public class LHFloorScript : MonoBehaviour
         yield return new WaitForSeconds(delay);
         miscObjectClick.PlaySound(sfx, volume, loop);
     }
-
 }
