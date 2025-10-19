@@ -1,7 +1,6 @@
 using UnityEngine;
-using System.Collections;
 
-public class BedroomMiscLogic : MonoBehaviour
+public class KitchenMiscLogic : MonoBehaviour
 {
     [SerializeField] private AudioClip bgLoop1;
     [SerializeField] private AudioClip bgLoop2;
