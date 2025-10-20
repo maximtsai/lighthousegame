@@ -1,7 +1,6 @@
 using UnityEngine;
-using System.Collections;
 
-public class BedroomMiscLogic : MonoBehaviour
+public class LighthouseMiscLogic : MonoBehaviour
 {
     [SerializeField] private AudioClip bgLoop1;
     [SerializeField] private AudioClip bgLoop2;
@@ -10,9 +9,9 @@ public class BedroomMiscLogic : MonoBehaviour
         Ambience ambience = Ambience.Instance;
 
         // Update track 1
-        UpdateTrack(ambience, bgLoop1, 0.6f, 1);
+        UpdateTrack(ambience, bgLoop1, 0.15f, 1);
         // Update track 2
-        UpdateTrack(ambience, bgLoop2, 0.21f, 2);
+        UpdateTrack(ambience, bgLoop2, 0.13f, 2);
     }
 
     private void UpdateTrack(Ambience ambience, AudioClip newClip, float volume, int channel)

@@ -11,7 +11,7 @@ public class KitchenMiscLogic : MonoBehaviour
         // Update track 1
         UpdateTrack(ambience, bgLoop1, 0.75f, 1);
         // Update track 2
-        UpdateTrack(ambience, bgLoop2, 0.25f, 2);
+        UpdateTrack(ambience, bgLoop2, 0.24f, 2);
     }
 
     private void UpdateTrack(Ambience ambience, AudioClip newClip, float volume, int channel)

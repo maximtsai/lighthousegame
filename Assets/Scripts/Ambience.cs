@@ -38,7 +38,7 @@ public class Ambience : MonoBehaviour
     void Start()
     {
         PlayTrack(newTrack1, 0.5f, 1); // Play track 1 at 50% volume
-        PlayTrack(newTrack2, 0.3f, 2); // Play track 2 at 30% volume
+        PlayTrack(newTrack2, 0.15f, 2); // Play track 2 at 30% volume
     }
 
     // Play a new track on the specified channel (1 or 2)

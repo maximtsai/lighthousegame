@@ -367,6 +367,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 157c9078e4815e14e93526f094eb6cb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  bgLoop1: {fileID: 8300000, guid: 3f6c773ae3d76484cbf2270c2150fefd, type: 3}
+  bgLoop2: {fileID: 8300000, guid: 22037ff5f2c0a0c47a0ff1ca6ade60ec, type: 3}
   finishLoop: {fileID: 8300000, guid: 1d2dac4d1b58cb74f988f9a4fa5199ee, type: 3}
   miscObjectClick: {fileID: 462008005}
 --- !u!4 &462008007
@@ -487,7 +489,7 @@ Camera:
     x: 0
     y: 0
     width: 1
-    height: 0.99985045
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
