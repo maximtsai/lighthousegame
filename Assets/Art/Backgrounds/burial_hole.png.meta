@@ -1,0 +1,1950 @@
+fileFormatVersion: 2
+guid: f71604aa9cb6bd94ea44f0575121c0ed
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5042219850450835117
+    second: burial_hole_0
+  - first:
+      213: 3753543256013791820
+    second: burial_hole_1
+  - first:
+      213: 3132651180043563007
+    second: burial_hole_2
+  - first:
+      213: 3362366153837049239
+    second: burial_hole_3
+  - first:
+      213: 5151938849970158645
+    second: burial_hole_4
+  - first:
+      213: 3493200109962045555
+    second: burial_hole_5
+  - first:
+      213: 423133741417359081
+    second: burial_hole_6
+  - first:
+      213: -4314008453017053520
+    second: burial_hole_7
+  - first:
+      213: -8043453766015686051
+    second: burial_hole_8
+  - first:
+      213: 1975435483415442502
+    second: burial_hole_9
+  - first:
+      213: -2151079685327345671
+    second: burial_hole_10
+  - first:
+      213: -342916755565612447
+    second: burial_hole_11
+  - first:
+      213: 8863109951104942556
+    second: burial_hole_12
+  - first:
+      213: 8956861355352171102
+    second: burial_hole_13
+  - first:
+      213: 4699781408874209006
+    second: burial_hole_14
+  - first:
+      213: 8017029106644661381
+    second: burial_hole_15
+  - first:
+      213: -3523247420496494671
+    second: burial_hole_16
+  - first:
+      213: 4997655785536833051
+    second: burial_hole_17
+  - first:
+      213: 6820732485259501871
+    second: burial_hole_18
+  - first:
+      213: -2374770117982663015
+    second: burial_hole_19
+  - first:
+      213: 6841214947538943688
+    second: burial_hole_20
+  - first:
+      213: -548623658471328052
+    second: burial_hole_21
+  - first:
+      213: -654969193894406553
+    second: burial_hole_22
+  - first:
+      213: -114857017909022076
+    second: burial_hole_23
+  - first:
+      213: -4194694949484213948
+    second: burial_hole_24
+  - first:
+      213: 547912434178212459
+    second: burial_hole_25
+  - first:
+      213: 7232590608889550321
+    second: burial_hole_26
+  - first:
+      213: -7499456560677646992
+    second: burial_hole_27
+  - first:
+      213: -7036498120610995179
+    second: burial_hole_28
+  - first:
+      213: 8029417090796121045
+    second: burial_hole_29
+  - first:
+      213: -252034739285968150
+    second: burial_hole_30
+  - first:
+      213: -3940497238382258685
+    second: burial_hole_31
+  - first:
+      213: 1889873033551177858
+    second: burial_hole_32
+  - first:
+      213: 2869070819167792469
+    second: burial_hole_33
+  - first:
+      213: -8613254195220438922
+    second: burial_hole_34
+  - first:
+      213: 3084326153977716210
+    second: burial_hole_35
+  - first:
+      213: 3907159964942230845
+    second: burial_hole_36
+  - first:
+      213: 8654271918368222537
+    second: burial_hole_37
+  - first:
+      213: -1337116057262999203
+    second: burial_hole_38
+  - first:
+      213: -1182615172777412427
+    second: burial_hole_39
+  - first:
+      213: 2228837314215664235
+    second: burial_hole_40
+  - first:
+      213: -4691071097553097920
+    second: burial_hole_41
+  - first:
+      213: 5067412867417897899
+    second: burial_hole_42
+  - first:
+      213: -3283007561774292010
+    second: burial_hole_43
+  - first:
+      213: -6817026623694462514
+    second: burial_hole_44
+  - first:
+      213: -8430865107514143530
+    second: burial_hole_45
+  - first:
+      213: -2704683253088202806
+    second: burial_hole_46
+  - first:
+      213: 5246391539299935065
+    second: burial_hole_47
+  - first:
+      213: 3460857875543769650
+    second: burial_hole_48
+  - first:
+      213: 7001524193556580535
+    second: burial_hole_49
+  - first:
+      213: 807672870856519765
+    second: burial_hole_50
+  - first:
+      213: -1318508799330674753
+    second: burial_hole_51
+  - first:
+      213: 7843772780652226080
+    second: burial_hole_52
+  - first:
+      213: 891881200620419376
+    second: burial_hole_53
+  - first:
+      213: -1002906973624577509
+    second: burial_hole_54
+  - first:
+      213: -6767615616358264965
+    second: burial_hole_55
+  - first:
+      213: -8506024461869242421
+    second: burial_hole_56
+  - first:
+      213: -5381881589845134297
+    second: burial_hole_57
+  - first:
+      213: -5560633600963399434
+    second: burial_hole_58
+  - first:
+      213: 5973266205632127219
+    second: burial_hole_59
+  - first:
+      213: 3535587803211879534
+    second: burial_hole_60
+  - first:
+      213: -8293776371835819292
+    second: burial_hole_61
+  - first:
+      213: -7475656743376803154
+    second: burial_hole_62
+  - first:
+      213: 1672986543083130173
+    second: burial_hole_63
+  - first:
+      213: 1639243486295243128
+    second: burial_hole_64
+  - first:
+      213: -1907295623432195857
+    second: burial_hole_65
+  - first:
+      213: 4061182270701946763
+    second: burial_hole_66
+  - first:
+      213: -8396479519458451574
+    second: burial_hole_67
+  - first:
+      213: 4718697442638361824
+    second: burial_hole_68
+  - first:
+      213: 2810373807204409906
+    second: burial_hole_69
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: burial_hole_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 295
+        width: 840
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3596476c2cf660ab0800000000000000
+      internalID: -5042219850450835117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_1
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 297
+        width: 95
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c42e3c744b3471430800000000000000
+      internalID: 3753543256013791820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_2
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 321
+        width: 53
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fff64b796a9697b20800000000000000
+      internalID: 3132651180043563007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_3
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 330
+        width: 29
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 795f04cc33689ae20800000000000000
+      internalID: 3362366153837049239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_4
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 307
+        width: 79
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53c7101861d5f7740800000000000000
+      internalID: 5151938849970158645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_5
+      rect:
+        serializedVersion: 2
+        x: 641
+        y: 305
+        width: 49
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 378a4a30ef65a7030800000000000000
+      internalID: 3493200109962045555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_6
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 327
+        width: 44
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e6e9ad55e54fd500800000000000000
+      internalID: 423133741417359081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_7
+      rect:
+        serializedVersion: 2
+        x: 747
+        y: 311
+        width: 93
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b6d2e72b209124c0800000000000000
+      internalID: -4314008453017053520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_8
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 279
+        width: 90
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5a6b557a69ef5090800000000000000
+      internalID: -8043453766015686051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_9
+      rect:
+        serializedVersion: 2
+        x: 749
+        y: 284
+        width: 39
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 644fda91b182a6b10800000000000000
+      internalID: 1975435483415442502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_10
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 272
+        width: 88
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f721805c64d522e0800000000000000
+      internalID: -2151079685327345671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_11
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 265
+        width: 87
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1627bf41707bd3bf0800000000000000
+      internalID: -342916755565612447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 45
+        width: 839
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd107d0ba87100b70800000000000000
+      internalID: 8863109951104942556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_13
+      rect:
+        serializedVersion: 2
+        x: 815
+        y: 258
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e52a03c72f92d4c70800000000000000
+      internalID: 8956861355352171102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_14
+      rect:
+        serializedVersion: 2
+        x: 828
+        y: 237
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eee9ee57a4af83140800000000000000
+      internalID: 4699781408874209006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_15
+      rect:
+        serializedVersion: 2
+        x: 807
+        y: 186
+        width: 33
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 584b5871f75324f60800000000000000
+      internalID: 8017029106644661381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_16
+      rect:
+        serializedVersion: 2
+        x: 632
+        y: 89
+        width: 186
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bfbe755329ea1fc0800000000000000
+      internalID: -3523247420496494671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_17
+      rect:
+        serializedVersion: 2
+        x: 801
+        y: 122
+        width: 28
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b16499e457d3b5540800000000000000
+      internalID: 4997655785536833051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_18
+      rect:
+        serializedVersion: 2
+        x: 817
+        y: 93
+        width: 13
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f212cdbbe0c18ae50800000000000000
+      internalID: 6820732485259501871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_19
+      rect:
+        serializedVersion: 2
+        x: 819
+        y: 98
+        width: 13
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99e4e66e82f1b0fd0800000000000000
+      internalID: -2374770117982663015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 35
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ceb62c9fb0e0fe50800000000000000
+      internalID: 6841214947538943688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_21
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 44
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc6f07970b5e268f0800000000000000
+      internalID: -548623658471328052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_22
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 51
+        width: 17
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76699130df419e6f0800000000000000
+      internalID: -654969193894406553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_23
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 13
+        width: 43
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48272979622f76ef0800000000000000
+      internalID: -114857017909022076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_24
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 41
+        width: 9
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4494edafa2379c5c0800000000000000
+      internalID: -4194694949484213948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_25
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 50
+        width: 17
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b624637b4739a9700800000000000000
+      internalID: 547912434178212459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_26
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 45
+        width: 18
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f510b0c6d25f5460800000000000000
+      internalID: 7232590608889550321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_27
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 41
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07d065cedf39ce790800000000000000
+      internalID: -7499456560677646992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_28
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 40
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51427428d36595e90800000000000000
+      internalID: -7036498120610995179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_29
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 40
+        width: 19
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5db6a5a6d483e6f60800000000000000
+      internalID: 8029417090796121045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_30
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 38
+        width: 43
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aea3dcd6db7908cf0800000000000000
+      internalID: -252034739285968150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_31
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 41
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30651dba3aa8059c0800000000000000
+      internalID: -3940497238382258685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_32
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 40
+        width: 14
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2886863d28d2a3a10800000000000000
+      internalID: 1889873033551177858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_33
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 27
+        width: 8
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55d6fe385bcf0d720800000000000000
+      internalID: 2869070819167792469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_34
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 3
+        width: 9
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6702eb5c1f2977880800000000000000
+      internalID: -8613254195220438922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_35
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 39
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fdd94bab4abdca20800000000000000
+      internalID: 3084326153977716210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_36
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 33
+        width: 17
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d35620f7945093630800000000000000
+      internalID: 3907159964942230845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_37
+      rect:
+        serializedVersion: 2
+        x: 747
+        y: 33
+        width: 17
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94de9fb15762a1870800000000000000
+      internalID: 8654271918368222537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_38
+      rect:
+        serializedVersion: 2
+        x: 748
+        y: 43
+        width: 17
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d593e5fb70c917de0800000000000000
+      internalID: -1337116057262999203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_39
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 25
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b87d9024c1869fe0800000000000000
+      internalID: -1182615172777412427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_40
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 15
+        width: 25
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6ad5f77abb6eee10800000000000000
+      internalID: 2228837314215664235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_41
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 6
+        width: 37
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04bee3ee0b7f5eeb0800000000000000
+      internalID: -4691071097553097920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_42
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 26
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: babffa49721135640800000000000000
+      internalID: 5067412867417897899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_43
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 13
+        width: 17
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d3a585440a6072d0800000000000000
+      internalID: -3283007561774292010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_44
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 28
+        width: 23
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec1af46676e0561a0800000000000000
+      internalID: -6817026623694462514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_45
+      rect:
+        serializedVersion: 2
+        x: 587
+        y: 32
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6dc42657adc8ffa80800000000000000
+      internalID: -8430865107514143530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_46
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 21
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acfcabd49e8077ad0800000000000000
+      internalID: -2704683253088202806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_47
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 26
+        width: 18
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9536694fe4deec840800000000000000
+      internalID: 5246391539299935065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_48
+      rect:
+        serializedVersion: 2
+        x: 748
+        y: 25
+        width: 19
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23246e1c6ef670030800000000000000
+      internalID: 3460857875543769650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_49
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 15
+        width: 22
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b84e3b88296a2160800000000000000
+      internalID: 7001524193556580535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_50
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 11
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5507f12623e653b00800000000000000
+      internalID: 807672870856519765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_51
+      rect:
+        serializedVersion: 2
+        x: 573
+        y: 10
+        width: 29
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb71ba69b37b3bde0800000000000000
+      internalID: -1318508799330674753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_52
+      rect:
+        serializedVersion: 2
+        x: 601
+        y: 15
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02667a139cdaadc60800000000000000
+      internalID: 7843772780652226080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_53
+      rect:
+        serializedVersion: 2
+        x: 601
+        y: 12
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03934d00a39906c00800000000000000
+      internalID: 891881200620419376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_54
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 19
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b12585ecb65f412f0800000000000000
+      internalID: -1002906973624577509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_55
+      rect:
+        serializedVersion: 2
+        x: 659
+        y: 15
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7f449a04799412a0800000000000000
+      internalID: -6767615616358264965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_56
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 16
+        width: 17
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc7208b91d784f980800000000000000
+      internalID: -8506024461869242421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_57
+      rect:
+        serializedVersion: 2
+        x: 738
+        y: 13
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 724f01e5537bf45b0800000000000000
+      internalID: -5381881589845134297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_58
+      rect:
+        serializedVersion: 2
+        x: 746
+        y: 17
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f0b9709339a4d2b0800000000000000
+      internalID: -5560633600963399434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_59
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 20
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f06c8f57fd45e250800000000000000
+      internalID: 5973266205632127219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_60
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 7
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e64d5aaef5ee01130800000000000000
+      internalID: 3535587803211879534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_61
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 6
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4eaa236055696ec80800000000000000
+      internalID: -8293776371835819292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_62
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 4
+        width: 15
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eaaa544bcc1214890800000000000000
+      internalID: -7475656743376803154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_63
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 12
+        width: 21
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3d8a76a564a73710800000000000000
+      internalID: 1672986543083130173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_64
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 9
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87930050443cfb610800000000000000
+      internalID: 1639243486295243128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_65
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 8
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe0baab5cbce785e0800000000000000
+      internalID: -1907295623432195857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_66
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 6
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b87cd4512c73c5830800000000000000
+      internalID: 4061182270701946763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_67
+      rect:
+        serializedVersion: 2
+        x: 569
+        y: 4
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8f16de0d56b97b80800000000000000
+      internalID: -8396479519458451574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_68
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 9
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e4f007c25e2c7140800000000000000
+      internalID: 4718697442638361824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_hole_69
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 0
+        width: 24
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2322b707614700720800000000000000
+      internalID: 2810373807204409906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      burial_hole_0: -5042219850450835117
+      burial_hole_1: 3753543256013791820
+      burial_hole_10: -2151079685327345671
+      burial_hole_11: -342916755565612447
+      burial_hole_12: 8863109951104942556
+      burial_hole_13: 8956861355352171102
+      burial_hole_14: 4699781408874209006
+      burial_hole_15: 8017029106644661381
+      burial_hole_16: -3523247420496494671
+      burial_hole_17: 4997655785536833051
+      burial_hole_18: 6820732485259501871
+      burial_hole_19: -2374770117982663015
+      burial_hole_2: 3132651180043563007
+      burial_hole_20: 6841214947538943688
+      burial_hole_21: -548623658471328052
+      burial_hole_22: -654969193894406553
+      burial_hole_23: -114857017909022076
+      burial_hole_24: -4194694949484213948
+      burial_hole_25: 547912434178212459
+      burial_hole_26: 7232590608889550321
+      burial_hole_27: -7499456560677646992
+      burial_hole_28: -7036498120610995179
+      burial_hole_29: 8029417090796121045
+      burial_hole_3: 3362366153837049239
+      burial_hole_30: -252034739285968150
+      burial_hole_31: -3940497238382258685
+      burial_hole_32: 1889873033551177858
+      burial_hole_33: 2869070819167792469
+      burial_hole_34: -8613254195220438922
+      burial_hole_35: 3084326153977716210
+      burial_hole_36: 3907159964942230845
+      burial_hole_37: 8654271918368222537
+      burial_hole_38: -1337116057262999203
+      burial_hole_39: -1182615172777412427
+      burial_hole_4: 5151938849970158645
+      burial_hole_40: 2228837314215664235
+      burial_hole_41: -4691071097553097920
+      burial_hole_42: 5067412867417897899
+      burial_hole_43: -3283007561774292010
+      burial_hole_44: -6817026623694462514
+      burial_hole_45: -8430865107514143530
+      burial_hole_46: -2704683253088202806
+      burial_hole_47: 5246391539299935065
+      burial_hole_48: 3460857875543769650
+      burial_hole_49: 7001524193556580535
+      burial_hole_5: 3493200109962045555
+      burial_hole_50: 807672870856519765
+      burial_hole_51: -1318508799330674753
+      burial_hole_52: 7843772780652226080
+      burial_hole_53: 891881200620419376
+      burial_hole_54: -1002906973624577509
+      burial_hole_55: -6767615616358264965
+      burial_hole_56: -8506024461869242421
+      burial_hole_57: -5381881589845134297
+      burial_hole_58: -5560633600963399434
+      burial_hole_59: 5973266205632127219
+      burial_hole_6: 423133741417359081
+      burial_hole_60: 3535587803211879534
+      burial_hole_61: -8293776371835819292
+      burial_hole_62: -7475656743376803154
+      burial_hole_63: 1672986543083130173
+      burial_hole_64: 1639243486295243128
+      burial_hole_65: -1907295623432195857
+      burial_hole_66: 4061182270701946763
+      burial_hole_67: -8396479519458451574
+      burial_hole_68: 4718697442638361824
+      burial_hole_69: 2810373807204409906
+      burial_hole_7: -4314008453017053520
+      burial_hole_8: -8043453766015686051
+      burial_hole_9: 1975435483415442502
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

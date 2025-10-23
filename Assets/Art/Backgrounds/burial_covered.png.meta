@@ -1,0 +1,2288 @@
+fileFormatVersion: 2
+guid: fcbac26c145bb474d9e0dbc0ee81d6ba
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5444039488886173123
+    second: burial_covered_0
+  - first:
+      213: 2509460392072196816
+    second: burial_covered_1
+  - first:
+      213: -7474028680629005837
+    second: burial_covered_2
+  - first:
+      213: -612051991657846857
+    second: burial_covered_3
+  - first:
+      213: -5591828545418953405
+    second: burial_covered_4
+  - first:
+      213: -6306276907290967828
+    second: burial_covered_5
+  - first:
+      213: -3793062683061835532
+    second: burial_covered_6
+  - first:
+      213: -1759105196148986148
+    second: burial_covered_7
+  - first:
+      213: 492628579996752758
+    second: burial_covered_8
+  - first:
+      213: 3924570372911349839
+    second: burial_covered_9
+  - first:
+      213: 3834000448428723302
+    second: burial_covered_10
+  - first:
+      213: 8735784539542478761
+    second: burial_covered_11
+  - first:
+      213: 7245087025324678217
+    second: burial_covered_12
+  - first:
+      213: 7232819050508508626
+    second: burial_covered_13
+  - first:
+      213: -1214966281741503009
+    second: burial_covered_14
+  - first:
+      213: 7758937836052373103
+    second: burial_covered_15
+  - first:
+      213: -3191320099887326110
+    second: burial_covered_16
+  - first:
+      213: -1107741295545843412
+    second: burial_covered_17
+  - first:
+      213: 7271791345999793911
+    second: burial_covered_18
+  - first:
+      213: 4273179306685597952
+    second: burial_covered_19
+  - first:
+      213: -5066974496798727108
+    second: burial_covered_20
+  - first:
+      213: -6684538218276888541
+    second: burial_covered_21
+  - first:
+      213: 104300693274972374
+    second: burial_covered_22
+  - first:
+      213: -3505745790367488665
+    second: burial_covered_23
+  - first:
+      213: 2053583974195777613
+    second: burial_covered_24
+  - first:
+      213: 6907058747620500845
+    second: burial_covered_25
+  - first:
+      213: 1175680053689504040
+    second: burial_covered_26
+  - first:
+      213: -9025378954903356046
+    second: burial_covered_27
+  - first:
+      213: -5556092677923475119
+    second: burial_covered_28
+  - first:
+      213: -4201592073826359447
+    second: burial_covered_29
+  - first:
+      213: -2431115050260600317
+    second: burial_covered_30
+  - first:
+      213: -4845821433756759046
+    second: burial_covered_31
+  - first:
+      213: -1305783582008811157
+    second: burial_covered_32
+  - first:
+      213: -1988517654390084682
+    second: burial_covered_33
+  - first:
+      213: -1332330695728969641
+    second: burial_covered_34
+  - first:
+      213: 7149128155616518759
+    second: burial_covered_35
+  - first:
+      213: 8019189410810067313
+    second: burial_covered_36
+  - first:
+      213: 4745178367917534513
+    second: burial_covered_37
+  - first:
+      213: -4557395997083320091
+    second: burial_covered_38
+  - first:
+      213: 7294496719718101926
+    second: burial_covered_39
+  - first:
+      213: -4375390914362283364
+    second: burial_covered_40
+  - first:
+      213: 7943961307391580646
+    second: burial_covered_41
+  - first:
+      213: -181886004809795049
+    second: burial_covered_42
+  - first:
+      213: -9013299492355590207
+    second: burial_covered_43
+  - first:
+      213: -1482606403408358671
+    second: burial_covered_44
+  - first:
+      213: 847810418769321892
+    second: burial_covered_45
+  - first:
+      213: -6092095295923837664
+    second: burial_covered_46
+  - first:
+      213: -2883211098004804429
+    second: burial_covered_47
+  - first:
+      213: -3419323181387841054
+    second: burial_covered_48
+  - first:
+      213: -5652396146044029414
+    second: burial_covered_49
+  - first:
+      213: 4508698088656568497
+    second: burial_covered_50
+  - first:
+      213: -2231163060116084753
+    second: burial_covered_51
+  - first:
+      213: -2370812584795191941
+    second: burial_covered_52
+  - first:
+      213: 7487152899263429395
+    second: burial_covered_53
+  - first:
+      213: -9191547528145139536
+    second: burial_covered_54
+  - first:
+      213: -1626968452697311588
+    second: burial_covered_55
+  - first:
+      213: -3029239193860575966
+    second: burial_covered_56
+  - first:
+      213: -8535225506408853412
+    second: burial_covered_57
+  - first:
+      213: -2980821136621430576
+    second: burial_covered_58
+  - first:
+      213: 5445771600478990630
+    second: burial_covered_59
+  - first:
+      213: -3460211285670487918
+    second: burial_covered_60
+  - first:
+      213: 859378394348188237
+    second: burial_covered_61
+  - first:
+      213: -1459919272161687637
+    second: burial_covered_62
+  - first:
+      213: 698567057913995809
+    second: burial_covered_63
+  - first:
+      213: 2123824412240382444
+    second: burial_covered_64
+  - first:
+      213: -5165249429982399479
+    second: burial_covered_65
+  - first:
+      213: -6044706544154358400
+    second: burial_covered_66
+  - first:
+      213: -1091213756536567091
+    second: burial_covered_67
+  - first:
+      213: 8593655804967086934
+    second: burial_covered_68
+  - first:
+      213: 3751822998973094256
+    second: burial_covered_69
+  - first:
+      213: 3183762832102297759
+    second: burial_covered_70
+  - first:
+      213: -1062462389727854192
+    second: burial_covered_71
+  - first:
+      213: -4486360451753740384
+    second: burial_covered_72
+  - first:
+      213: -5352730253337461059
+    second: burial_covered_73
+  - first:
+      213: -7526073642049028244
+    second: burial_covered_74
+  - first:
+      213: -2916651476680207482
+    second: burial_covered_75
+  - first:
+      213: -105931285277504860
+    second: burial_covered_76
+  - first:
+      213: 7555151297615696834
+    second: burial_covered_77
+  - first:
+      213: -7589646855533529604
+    second: burial_covered_78
+  - first:
+      213: -1044886818340369036
+    second: burial_covered_79
+  - first:
+      213: 859926785069248219
+    second: burial_covered_80
+  - first:
+      213: 7137562529917627411
+    second: burial_covered_81
+  - first:
+      213: 2848493749701510548
+    second: burial_covered_82
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: burial_covered_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 295
+        width: 840
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d329db9bde2e274b0800000000000000
+      internalID: -5444039488886173123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_1
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 297
+        width: 95
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d2306f4ee463d220800000000000000
+      internalID: 2509460392072196816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_2
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 321
+        width: 53
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f1d60a938ae64890800000000000000
+      internalID: -7474028680629005837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_3
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 330
+        width: 29
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b7e925d4fd8187f0800000000000000
+      internalID: -612051991657846857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_4
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 307
+        width: 79
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34df9619095d562b0800000000000000
+      internalID: -5591828545418953405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_5
+      rect:
+        serializedVersion: 2
+        x: 641
+        y: 305
+        width: 49
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce04cad909a9b78a0800000000000000
+      internalID: -6306276907290967828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_6
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 327
+        width: 44
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f82f4516955c5bc0800000000000000
+      internalID: -3793062683061835532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_7
+      rect:
+        serializedVersion: 2
+        x: 747
+        y: 311
+        width: 93
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdeeefce4276697e0800000000000000
+      internalID: -1759105196148986148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_8
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 279
+        width: 90
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67b59ec551b26d600800000000000000
+      internalID: 492628579996752758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_9
+      rect:
+        serializedVersion: 2
+        x: 749
+        y: 284
+        width: 39
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f40476df5ffd67630800000000000000
+      internalID: 3924570372911349839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_10
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 272
+        width: 88
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66c484d281b153530800000000000000
+      internalID: 3834000448428723302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_11
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 265
+        width: 87
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9af57c921cdbb3970800000000000000
+      internalID: 8735784539542478761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_12
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 45
+        width: 768
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94cd44f6348bb8460800000000000000
+      internalID: 7245087025324678217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_13
+      rect:
+        serializedVersion: 2
+        x: 815
+        y: 258
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2dddc36fa92206460800000000000000
+      internalID: 7232819050508508626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 136
+        width: 477
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd578ba9a92932fe0800000000000000
+      internalID: -1214966281741503009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_15
+      rect:
+        serializedVersion: 2
+        x: 828
+        y: 237
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6e5d307ad84dab60800000000000000
+      internalID: 7758937836052373103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_16
+      rect:
+        serializedVersion: 2
+        x: 807
+        y: 186
+        width: 33
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26cd6a9074726b3d0800000000000000
+      internalID: -3191320099887326110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_17
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 129
+        width: 18
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2185f7292380a0f0800000000000000
+      internalID: -1107741295545843412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_18
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 126
+        width: 43
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7fec31b93b79ae460800000000000000
+      internalID: 7271791345999793911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_19
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 135
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0098b8c60f16d4b30800000000000000
+      internalID: 4273179306685597952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_20
+      rect:
+        serializedVersion: 2
+        x: 801
+        y: 122
+        width: 28
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3429588a8d7ea9b0800000000000000
+      internalID: -5066974496798727108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 115
+        width: 53
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 320651c18efbb33a0800000000000000
+      internalID: -6684538218276888541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_22
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 113
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d05b7c8dec827100800000000000000
+      internalID: 104300693274972374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_23
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 103
+        width: 28
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 765235427c6195fc0800000000000000
+      internalID: -3505745790367488665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_24
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 110
+        width: 28
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d40df528ebbcf7c10800000000000000
+      internalID: 2053583974195777613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_25
+      rect:
+        serializedVersion: 2
+        x: 632
+        y: 89
+        width: 186
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d65aca6f55dcadf50800000000000000
+      internalID: 6907058747620500845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_26
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 106
+        width: 24
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 821dca1a7cad05010800000000000000
+      internalID: 1175680053689504040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_27
+      rect:
+        serializedVersion: 2
+        x: 819
+        y: 98
+        width: 13
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27df2b5b8a96fb280800000000000000
+      internalID: -9025378954903356046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 78
+        width: 44
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 151f839952bc4e2b0800000000000000
+      internalID: -5556092677923475119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_29
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 88
+        width: 24
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 967ab741542f0b5c0800000000000000
+      internalID: -4201592073826359447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_30
+      rect:
+        serializedVersion: 2
+        x: 817
+        y: 93
+        width: 13
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30a6c1d0eb1f24ed0800000000000000
+      internalID: -2431115050260600317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_31
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 74
+        width: 18
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afb44fb841f20ccb0800000000000000
+      internalID: -4845821433756759046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 62
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b61e3d020cce0ede0800000000000000
+      internalID: -1305783582008811157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_33
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 51
+        width: 17
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bb6c7c9abd5764e0800000000000000
+      internalID: -1988517654390084682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_34
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 50
+        width: 17
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 758c9bd8a4c928de0800000000000000
+      internalID: -1332330695728969641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_35
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 45
+        width: 18
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76224490e2ec63360800000000000000
+      internalID: 7149128155616518759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 35
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17978e91842e94f60800000000000000
+      internalID: 8019189410810067313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_37
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 41
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13da797a5924ad140800000000000000
+      internalID: 4745178367917534513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_38
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 40
+        width: 14
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e0cf0d9c70e0c0c0800000000000000
+      internalID: -4557395997083320091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_39
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 44
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a3bc026e124b3560800000000000000
+      internalID: 7294496719718101926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_40
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 13
+        width: 43
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9ae6fb252d7743c0800000000000000
+      internalID: -4375390914362283364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_41
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 27
+        width: 8
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e9d58c58be9e3e60800000000000000
+      internalID: 7943961307391580646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_42
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 41
+        width: 9
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71a72bd64afc97df0800000000000000
+      internalID: -181886004809795049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_43
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 41
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c7bfefbdd35ae280800000000000000
+      internalID: -9013299492355590207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_44
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 39
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f2102fc459bc6be0800000000000000
+      internalID: -1482606403408358671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_45
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 40
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4afde9f751704cb00800000000000000
+      internalID: 847810418769321892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_46
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 40
+        width: 19
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 025a1ac0b97847ba0800000000000000
+      internalID: -6092095295923837664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_47
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 38
+        width: 43
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bca5f248c6ccf7d0800000000000000
+      internalID: -2883211098004804429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_48
+      rect:
+        serializedVersion: 2
+        x: 748
+        y: 43
+        width: 17
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e18e11deaf1c80d0800000000000000
+      internalID: -3419323181387841054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_49
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 25
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a16324127a7ae81b0800000000000000
+      internalID: -5652396146044029414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_50
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 15
+        width: 25
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b08bd5060d129e30800000000000000
+      internalID: 4508698088656568497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_51
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 6
+        width: 37
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe7aecd94015901e0800000000000000
+      internalID: -2231163060116084753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_52
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 26
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b75c146e38e291fd0800000000000000
+      internalID: -2370812584795191941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_53
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 3
+        width: 9
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31bf1aba4e5b7e760800000000000000
+      internalID: 7487152899263429395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_54
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 13
+        width: 17
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b80ac8d830117080800000000000000
+      internalID: -9191547528145139536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_55
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 28
+        width: 23
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c96b534ffc8db69e0800000000000000
+      internalID: -1626968452697311588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_56
+      rect:
+        serializedVersion: 2
+        x: 587
+        y: 32
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22def36b00bf5f5d0800000000000000
+      internalID: -3029239193860575966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_57
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 21
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5095ac9f99cc8980800000000000000
+      internalID: -8535225506408853412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_58
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 26
+        width: 18
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d814b428fef1a6d0800000000000000
+      internalID: -2980821136621430576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_59
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 33
+        width: 17
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 621f57eea64439b40800000000000000
+      internalID: 5445771600478990630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_60
+      rect:
+        serializedVersion: 2
+        x: 747
+        y: 33
+        width: 17
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29810dd2b2cdaffc0800000000000000
+      internalID: -3460211285670487918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_61
+      rect:
+        serializedVersion: 2
+        x: 748
+        y: 25
+        width: 19
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d42f4c2b8102deb00800000000000000
+      internalID: 859378394348188237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_62
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 15
+        width: 22
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba74e0e28235dbbe0800000000000000
+      internalID: -1459919272161687637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_63
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 11
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 122e0cab90fc1b900800000000000000
+      internalID: 698567057913995809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_64
+      rect:
+        serializedVersion: 2
+        x: 573
+        y: 10
+        width: 29
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce904e8ec07597d10800000000000000
+      internalID: 2123824412240382444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_65
+      rect:
+        serializedVersion: 2
+        x: 601
+        y: 15
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9043c9592095158b0800000000000000
+      internalID: -5165249429982399479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_66
+      rect:
+        serializedVersion: 2
+        x: 601
+        y: 12
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08d4330ac63ec1ca0800000000000000
+      internalID: -6044706544154358400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_67
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 19
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dca4e93beda3bd0f0800000000000000
+      internalID: -1091213756536567091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_68
+      rect:
+        serializedVersion: 2
+        x: 659
+        y: 15
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65b69096c6cc24770800000000000000
+      internalID: 8593655804967086934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_69
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 16
+        width: 17
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0799ee9b327211430800000000000000
+      internalID: 3751822998973094256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_70
+      rect:
+        serializedVersion: 2
+        x: 738
+        y: 13
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f909c807d6ffe2c20800000000000000
+      internalID: 3183762832102297759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_71
+      rect:
+        serializedVersion: 2
+        x: 746
+        y: 17
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0910f01f5106141f0800000000000000
+      internalID: -1062462389727854192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_72
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 20
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a77bda50fe3db1c0800000000000000
+      internalID: -4486360451753740384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_73
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 7
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbe755fc13847b5b0800000000000000
+      internalID: -5352730253337461059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_74
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 6
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6fbc3cb5e30e8790800000000000000
+      internalID: -7526073642049028244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_75
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 4
+        width: 15
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6839bde5fe8f587d0800000000000000
+      internalID: -2916651476680207482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_76
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 12
+        width: 21
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4aa0f6aae08a78ef0800000000000000
+      internalID: -105931285277504860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_77
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 9
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c317b6831a49d860800000000000000
+      internalID: 7555151297615696834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_78
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 8
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf5734585682ca690800000000000000
+      internalID: -7589646855533529604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_79
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 6
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47d855a89f0df71f0800000000000000
+      internalID: -1044886818340369036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_80
+      rect:
+        serializedVersion: 2
+        x: 569
+        y: 4
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bde65ecdad21feb00800000000000000
+      internalID: 859926785069248219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_81
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 9
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31ce0e5fd47bd0360800000000000000
+      internalID: 7137562529917627411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_covered_82
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 0
+        width: 24
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49501ef29f1e78720800000000000000
+      internalID: 2848493749701510548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      burial_covered_0: -5444039488886173123
+      burial_covered_1: 2509460392072196816
+      burial_covered_10: 3834000448428723302
+      burial_covered_11: 8735784539542478761
+      burial_covered_12: 7245087025324678217
+      burial_covered_13: 7232819050508508626
+      burial_covered_14: -1214966281741503009
+      burial_covered_15: 7758937836052373103
+      burial_covered_16: -3191320099887326110
+      burial_covered_17: -1107741295545843412
+      burial_covered_18: 7271791345999793911
+      burial_covered_19: 4273179306685597952
+      burial_covered_2: -7474028680629005837
+      burial_covered_20: -5066974496798727108
+      burial_covered_21: -6684538218276888541
+      burial_covered_22: 104300693274972374
+      burial_covered_23: -3505745790367488665
+      burial_covered_24: 2053583974195777613
+      burial_covered_25: 6907058747620500845
+      burial_covered_26: 1175680053689504040
+      burial_covered_27: -9025378954903356046
+      burial_covered_28: -5556092677923475119
+      burial_covered_29: -4201592073826359447
+      burial_covered_3: -612051991657846857
+      burial_covered_30: -2431115050260600317
+      burial_covered_31: -4845821433756759046
+      burial_covered_32: -1305783582008811157
+      burial_covered_33: -1988517654390084682
+      burial_covered_34: -1332330695728969641
+      burial_covered_35: 7149128155616518759
+      burial_covered_36: 8019189410810067313
+      burial_covered_37: 4745178367917534513
+      burial_covered_38: -4557395997083320091
+      burial_covered_39: 7294496719718101926
+      burial_covered_4: -5591828545418953405
+      burial_covered_40: -4375390914362283364
+      burial_covered_41: 7943961307391580646
+      burial_covered_42: -181886004809795049
+      burial_covered_43: -9013299492355590207
+      burial_covered_44: -1482606403408358671
+      burial_covered_45: 847810418769321892
+      burial_covered_46: -6092095295923837664
+      burial_covered_47: -2883211098004804429
+      burial_covered_48: -3419323181387841054
+      burial_covered_49: -5652396146044029414
+      burial_covered_5: -6306276907290967828
+      burial_covered_50: 4508698088656568497
+      burial_covered_51: -2231163060116084753
+      burial_covered_52: -2370812584795191941
+      burial_covered_53: 7487152899263429395
+      burial_covered_54: -9191547528145139536
+      burial_covered_55: -1626968452697311588
+      burial_covered_56: -3029239193860575966
+      burial_covered_57: -8535225506408853412
+      burial_covered_58: -2980821136621430576
+      burial_covered_59: 5445771600478990630
+      burial_covered_6: -3793062683061835532
+      burial_covered_60: -3460211285670487918
+      burial_covered_61: 859378394348188237
+      burial_covered_62: -1459919272161687637
+      burial_covered_63: 698567057913995809
+      burial_covered_64: 2123824412240382444
+      burial_covered_65: -5165249429982399479
+      burial_covered_66: -6044706544154358400
+      burial_covered_67: -1091213756536567091
+      burial_covered_68: 8593655804967086934
+      burial_covered_69: 3751822998973094256
+      burial_covered_7: -1759105196148986148
+      burial_covered_70: 3183762832102297759
+      burial_covered_71: -1062462389727854192
+      burial_covered_72: -4486360451753740384
+      burial_covered_73: -5352730253337461059
+      burial_covered_74: -7526073642049028244
+      burial_covered_75: -2916651476680207482
+      burial_covered_76: -105931285277504860
+      burial_covered_77: 7555151297615696834
+      burial_covered_78: -7589646855533529604
+      burial_covered_79: -1044886818340369036
+      burial_covered_8: 492628579996752758
+      burial_covered_80: 859926785069248219
+      burial_covered_81: 7137562529917627411
+      burial_covered_82: 2848493749701510548
+      burial_covered_9: 3924570372911349839
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

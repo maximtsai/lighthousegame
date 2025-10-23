@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 527a23b70ffd9fb419467fc2b17396e5
+guid: b058d72c8fea09745a299a65deca672e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4420781712680604251
-    second: outside_0
+      213: -5611643908006478667
+    second: burial_shovel_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: outside_0
+      name: burial_shovel_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1100
-        height: 360
+        x: 432
+        y: 197
+        width: 78
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5ad2122647a36a2c0800000000000000
-      internalID: -4420781712680604251
+      spriteID: 5bcf941f89f6f12b0800000000000000
+      internalID: -5611643908006478667
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      outside_0: -4420781712680604251
+      burial_shovel_0: -5611643908006478667
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

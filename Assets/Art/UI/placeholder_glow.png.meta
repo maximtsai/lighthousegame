@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 943797b36f6b8f44c95aff7e90568c82
+guid: 0e878ab88bb07224fb9cad281ecde5eb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4955919002961057451
-    second: outside_hole_0
+      213: -378529724441376976
+    second: placeholder_glow_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: outside_hole_0
+      name: placeholder_glow_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 1
         y: 0
-        width: 640
-        height: 360
+        width: 252
+        height: 251
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ba61a1b5316f6c440800000000000000
-      internalID: 4955919002961057451
+      spriteID: 037cebd98313fbaf0800000000000000
+      internalID: -378529724441376976
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      outside_hole_0: 4955919002961057451
+      placeholder_glow_0: -378529724441376976
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

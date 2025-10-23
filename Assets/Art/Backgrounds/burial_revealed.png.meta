@@ -1,0 +1,2314 @@
+fileFormatVersion: 2
+guid: 2546f18e2839a084798aca2c28c2107a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3021937920144133644
+    second: burial_revealed_0
+  - first:
+      213: -2927911792154921603
+    second: burial_revealed_1
+  - first:
+      213: 4339250245972811395
+    second: burial_revealed_2
+  - first:
+      213: -3617444710550993778
+    second: burial_revealed_3
+  - first:
+      213: -3208613887600088137
+    second: burial_revealed_4
+  - first:
+      213: 8319280947227501387
+    second: burial_revealed_5
+  - first:
+      213: 6956019985181183273
+    second: burial_revealed_6
+  - first:
+      213: -1833661989327152613
+    second: burial_revealed_7
+  - first:
+      213: -872049675372864621
+    second: burial_revealed_8
+  - first:
+      213: 1900735015788765793
+    second: burial_revealed_9
+  - first:
+      213: -6359267505401423257
+    second: burial_revealed_10
+  - first:
+      213: -6591675187926763881
+    second: burial_revealed_11
+  - first:
+      213: 512799027165747027
+    second: burial_revealed_12
+  - first:
+      213: 5954333436980074919
+    second: burial_revealed_13
+  - first:
+      213: 2767153523456042925
+    second: burial_revealed_14
+  - first:
+      213: -8185823030001418282
+    second: burial_revealed_15
+  - first:
+      213: -1810339823864667009
+    second: burial_revealed_16
+  - first:
+      213: 3698260499849554307
+    second: burial_revealed_17
+  - first:
+      213: 1436310963943781042
+    second: burial_revealed_18
+  - first:
+      213: -3070373191364092216
+    second: burial_revealed_19
+  - first:
+      213: -3667728698205957263
+    second: burial_revealed_20
+  - first:
+      213: -5217643799479869881
+    second: burial_revealed_21
+  - first:
+      213: 9029467979690937884
+    second: burial_revealed_22
+  - first:
+      213: 2436615463370496445
+    second: burial_revealed_23
+  - first:
+      213: -1660538781711521421
+    second: burial_revealed_24
+  - first:
+      213: -9121078836724688218
+    second: burial_revealed_25
+  - first:
+      213: 7046436516813142509
+    second: burial_revealed_26
+  - first:
+      213: -8726678928400350337
+    second: burial_revealed_27
+  - first:
+      213: -5663888865046226777
+    second: burial_revealed_28
+  - first:
+      213: 2085099189649551527
+    second: burial_revealed_29
+  - first:
+      213: -340685479407434606
+    second: burial_revealed_30
+  - first:
+      213: 5201597366059726997
+    second: burial_revealed_31
+  - first:
+      213: -5897372318406148732
+    second: burial_revealed_32
+  - first:
+      213: 3823221878391466921
+    second: burial_revealed_33
+  - first:
+      213: -3041864527750668109
+    second: burial_revealed_34
+  - first:
+      213: 681643976686820197
+    second: burial_revealed_35
+  - first:
+      213: 2432306792355765038
+    second: burial_revealed_36
+  - first:
+      213: -6689002910674059455
+    second: burial_revealed_37
+  - first:
+      213: -4294252494846736774
+    second: burial_revealed_38
+  - first:
+      213: 5264986295372043207
+    second: burial_revealed_39
+  - first:
+      213: -8759122477744963305
+    second: burial_revealed_40
+  - first:
+      213: -4407505790608450510
+    second: burial_revealed_41
+  - first:
+      213: -3855963408419081079
+    second: burial_revealed_42
+  - first:
+      213: -5801747389242010938
+    second: burial_revealed_43
+  - first:
+      213: -6270845999806459575
+    second: burial_revealed_44
+  - first:
+      213: 6303404292662051550
+    second: burial_revealed_45
+  - first:
+      213: 7408307225932543467
+    second: burial_revealed_46
+  - first:
+      213: -5280579360678995977
+    second: burial_revealed_47
+  - first:
+      213: 2024679820584552315
+    second: burial_revealed_48
+  - first:
+      213: 6623534782818591463
+    second: burial_revealed_49
+  - first:
+      213: -1404764197093975095
+    second: burial_revealed_50
+  - first:
+      213: 540842827273378197
+    second: burial_revealed_51
+  - first:
+      213: -9145827389949228031
+    second: burial_revealed_52
+  - first:
+      213: -2655436572937852808
+    second: burial_revealed_53
+  - first:
+      213: -6378570579382850217
+    second: burial_revealed_54
+  - first:
+      213: -5764908979412711570
+    second: burial_revealed_55
+  - first:
+      213: 6740367185288014495
+    second: burial_revealed_56
+  - first:
+      213: -9011322964717433365
+    second: burial_revealed_57
+  - first:
+      213: 3783609009551841717
+    second: burial_revealed_58
+  - first:
+      213: 5316428528414093294
+    second: burial_revealed_59
+  - first:
+      213: 832126162402252088
+    second: burial_revealed_60
+  - first:
+      213: 5878324968487306116
+    second: burial_revealed_61
+  - first:
+      213: 8815974754831752496
+    second: burial_revealed_62
+  - first:
+      213: 833653994232627821
+    second: burial_revealed_63
+  - first:
+      213: -1343866655377853185
+    second: burial_revealed_64
+  - first:
+      213: 6932389731627734679
+    second: burial_revealed_65
+  - first:
+      213: -6667634420720058591
+    second: burial_revealed_66
+  - first:
+      213: 2317808022667769849
+    second: burial_revealed_67
+  - first:
+      213: 6852196025168466949
+    second: burial_revealed_68
+  - first:
+      213: 7075006178427542159
+    second: burial_revealed_69
+  - first:
+      213: -6108320575944598864
+    second: burial_revealed_70
+  - first:
+      213: -1737623568463467574
+    second: burial_revealed_71
+  - first:
+      213: -3540836116335277456
+    second: burial_revealed_72
+  - first:
+      213: -2476494945885970774
+    second: burial_revealed_73
+  - first:
+      213: 196679728124006748
+    second: burial_revealed_74
+  - first:
+      213: -1226692725311854224
+    second: burial_revealed_75
+  - first:
+      213: -7962451472022734484
+    second: burial_revealed_76
+  - first:
+      213: 4934003516365534575
+    second: burial_revealed_77
+  - first:
+      213: -6784220296940265593
+    second: burial_revealed_78
+  - first:
+      213: -2489588410261568991
+    second: burial_revealed_79
+  - first:
+      213: 131957376085287607
+    second: burial_revealed_80
+  - first:
+      213: -2717744869540441678
+    second: burial_revealed_81
+  - first:
+      213: -48245851211871673
+    second: burial_revealed_82
+  - first:
+      213: -3683656579696630178
+    second: burial_revealed_83
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: burial_revealed_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 295
+        width: 840
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f1b688f87bef06d0800000000000000
+      internalID: -3021937920144133644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_1
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 297
+        width: 95
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d75bdeedcb7fd57d0800000000000000
+      internalID: -2927911792154921603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_2
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 321
+        width: 53
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38e5cbebb1d183c30800000000000000
+      internalID: 4339250245972811395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_3
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 330
+        width: 29
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e840ef8a3314ccdc0800000000000000
+      internalID: -3617444710550993778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_4
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 307
+        width: 79
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7bb26305ba6b873d0800000000000000
+      internalID: -3208613887600088137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_5
+      rect:
+        serializedVersion: 2
+        x: 641
+        y: 305
+        width: 49
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b43ab2ea1f5047370800000000000000
+      internalID: 8319280947227501387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_6
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 327
+        width: 44
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92d0e3b625fb88060800000000000000
+      internalID: 6956019985181183273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_7
+      rect:
+        serializedVersion: 2
+        x: 747
+        y: 311
+        width: 93
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1ad408c2268d86e0800000000000000
+      internalID: -1833661989327152613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_8
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 279
+        width: 90
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39bd7e8c07bd5e3f0800000000000000
+      internalID: -872049675372864621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_9
+      rect:
+        serializedVersion: 2
+        x: 749
+        y: 284
+        width: 39
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1626c342d64c06a10800000000000000
+      internalID: 1900735015788765793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_10
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 272
+        width: 88
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76a1ddc85e75fb7a0800000000000000
+      internalID: -6359267505401423257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_11
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 265
+        width: 87
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7967edc375aa584a0800000000000000
+      internalID: -6591675187926763881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_12
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 45
+        width: 768
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 357516f8ff3dd1700800000000000000
+      internalID: 512799027165747027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_13
+      rect:
+        serializedVersion: 2
+        x: 815
+        y: 258
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a99d69a6ba02a250800000000000000
+      internalID: 5954333436980074919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 136
+        width: 477
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da76194f777e66620800000000000000
+      internalID: 2767153523456042925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_15
+      rect:
+        serializedVersion: 2
+        x: 828
+        y: 237
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6dfbd86135d166e80800000000000000
+      internalID: -8185823030001418282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_16
+      rect:
+        serializedVersion: 2
+        x: 807
+        y: 186
+        width: 33
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f74adc3958160e6e0800000000000000
+      internalID: -1810339823864667009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_17
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 129
+        width: 18
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3892464945cd25330800000000000000
+      internalID: 3698260499849554307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_18
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 126
+        width: 43
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b23ed8363dcee310800000000000000
+      internalID: 1436310963943781042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_19
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 135
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ce5cd899d7d365d0800000000000000
+      internalID: -3070373191364092216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_20
+      rect:
+        serializedVersion: 2
+        x: 801
+        y: 122
+        width: 28
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1739de27e2c991dc0800000000000000
+      internalID: -3667728698205957263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 115
+        width: 53
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74e9b7fcb943797b0800000000000000
+      internalID: -5217643799479869881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_22
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 113
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1e0e30994d1f4d70800000000000000
+      internalID: 9029467979690937884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_23
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 103
+        width: 28
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db91c6caad890d120800000000000000
+      internalID: 2436615463370496445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_24
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 110
+        width: 28
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3792354a6c494f8e0800000000000000
+      internalID: -1660538781711521421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_25
+      rect:
+        serializedVersion: 2
+        x: 632
+        y: 89
+        width: 186
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6aa11b0af1b6b6180800000000000000
+      internalID: -9121078836724688218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_26
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 106
+        width: 24
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de9fcfcada8f9c160800000000000000
+      internalID: 7046436516813142509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_27
+      rect:
+        serializedVersion: 2
+        x: 819
+        y: 98
+        width: 13
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f738fc320cb94e680800000000000000
+      internalID: -8726678928400350337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 78
+        width: 44
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a811a7f513d561b0800000000000000
+      internalID: -5663888865046226777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_29
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 88
+        width: 24
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a034886aa2cfec10800000000000000
+      internalID: 2085099189649551527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_30
+      rect:
+        serializedVersion: 2
+        x: 817
+        y: 93
+        width: 13
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29449cb8c54a54bf0800000000000000
+      internalID: -340685479407434606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_31
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 74
+        width: 18
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 598f894ce39cf2840800000000000000
+      internalID: 5201597366059726997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 62
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48dfd2d3f13582ea0800000000000000
+      internalID: -5897372318406148732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_33
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 51
+        width: 17
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ab6607ca00de0530800000000000000
+      internalID: 3823221878391466921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_34
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 50
+        width: 17
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b06f88145029c5d0800000000000000
+      internalID: -3041864527750668109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_35
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 45
+        width: 18
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56bd3b5d59fa57900800000000000000
+      internalID: 681643976686820197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 35
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2b9227042a41c120800000000000000
+      internalID: 2432306792355765038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_37
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 40
+        width: 14
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14ff7b7ea43eb23a0800000000000000
+      internalID: -6689002910674059455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_38
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 44
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7643dc9b10c764c0800000000000000
+      internalID: -4294252494846736774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_39
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 13
+        width: 43
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c353faf32df01940800000000000000
+      internalID: 5264986295372043207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_40
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 27
+        width: 8
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7114fd9a388517680800000000000000
+      internalID: -8759122477744963305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_41
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 41
+        width: 9
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23c5e4dd5d465d2c0800000000000000
+      internalID: -4407505790608450510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_42
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 48
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 984b646b5bddc7ac0800000000000000
+      internalID: -3855963408419081079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_43
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 41
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c21eab0d7d0c7fa0800000000000000
+      internalID: -5801747389242010938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_44
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 39
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9415b5c99ca79f8a0800000000000000
+      internalID: -6270845999806459575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_45
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 40
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed24bcbaec03a7750800000000000000
+      internalID: 6303404292662051550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_46
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 40
+        width: 19
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be53baccb289fc660800000000000000
+      internalID: 7408307225932543467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_47
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 38
+        width: 43
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f718769c0d97b6b0800000000000000
+      internalID: -5280579360678995977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_48
+      rect:
+        serializedVersion: 2
+        x: 748
+        y: 43
+        width: 17
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7708d1d19b191c10800000000000000
+      internalID: 2024679820584552315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_49
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 41
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e2a85fbac58beb50800000000000000
+      internalID: 6623534782818591463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_50
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 3
+        width: 9
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9cbd60fc766418ce0800000000000000
+      internalID: -1404764197093975095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_51
+      rect:
+        serializedVersion: 2
+        x: 587
+        y: 32
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59992f69fa5718700800000000000000
+      internalID: 540842827273378197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_52
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 33
+        width: 17
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10cc90d027e731180800000000000000
+      internalID: -9145827389949228031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_53
+      rect:
+        serializedVersion: 2
+        x: 747
+        y: 33
+        width: 17
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 878657a818ef52bd0800000000000000
+      internalID: -2655436572937852808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_54
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 15
+        width: 22
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75da0296ad3ca77a0800000000000000
+      internalID: -6378570579382850217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_55
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 25
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6745a7b3ddeeffa0800000000000000
+      internalID: -5764908979412711570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_56
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 15
+        width: 25
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9aaac63e389a8d50800000000000000
+      internalID: 6740367185288014495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_57
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 6
+        width: 37
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bed82b3f18951f280800000000000000
+      internalID: -9011322964717433365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_58
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 26
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b91e470954128430800000000000000
+      internalID: 3783609009551841717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_59
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 13
+        width: 17
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eefefd5349fb7c940800000000000000
+      internalID: 5316428528414093294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_60
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 28
+        width: 23
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8359b4ef55e4c8b00800000000000000
+      internalID: 832126162402252088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_61
+      rect:
+        serializedVersion: 2
+        x: 573
+        y: 10
+        width: 29
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 483cef40a61049150800000000000000
+      internalID: 5878324968487306116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_62
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 19
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03dde8a9452a85a70800000000000000
+      internalID: 8815974754831752496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_63
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 21
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6242df04ebb19b00800000000000000
+      internalID: 833653994232627821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_64
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 26
+        width: 18
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff4f5b4a560a95de0800000000000000
+      internalID: -1343866655377853185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_65
+      rect:
+        serializedVersion: 2
+        x: 748
+        y: 25
+        width: 19
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7969c364bbbc43060800000000000000
+      internalID: 6932389731627734679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_66
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 11
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12f30dc22ddc773a0800000000000000
+      internalID: -6667634420720058591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_67
+      rect:
+        serializedVersion: 2
+        x: 601
+        y: 15
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f7b9a8cd128a2020800000000000000
+      internalID: 2317808022667769849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_68
+      rect:
+        serializedVersion: 2
+        x: 601
+        y: 12
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 504928bfaf3e71f50800000000000000
+      internalID: 6852196025168466949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_69
+      rect:
+        serializedVersion: 2
+        x: 659
+        y: 15
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8a1ed062a87f2260800000000000000
+      internalID: 7075006178427542159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_70
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 16
+        width: 17
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0badc98acc2ea3ba0800000000000000
+      internalID: -6108320575944598864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_71
+      rect:
+        serializedVersion: 2
+        x: 738
+        y: 13
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acb63602298b2e7e0800000000000000
+      internalID: -1737623568463467574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_72
+      rect:
+        serializedVersion: 2
+        x: 746
+        y: 17
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07a46f5ff4c6cdec0800000000000000
+      internalID: -3540836116335277456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_73
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 20
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aae9a6eb7f8b1add0800000000000000
+      internalID: -2476494945885970774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_74
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 7
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c511a51bb2fbab200800000000000000
+      internalID: 196679728124006748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_75
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 6
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0792b333779e9fee0800000000000000
+      internalID: -1226692725311854224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_76
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 4
+        width: 15
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c697cc4b290bf7190800000000000000
+      internalID: -7962451472022734484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_77
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 12
+        width: 21
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f65fe718e0a197440800000000000000
+      internalID: 4934003516365534575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_78
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 9
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78f51e2959b99d1a0800000000000000
+      internalID: -6784220296940265593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_79
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 8
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1220e610884337dd0800000000000000
+      internalID: -2489588410261568991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_80
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 6
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b26e0fc88ec4d100800000000000000
+      internalID: 131957376085287607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_81
+      rect:
+        serializedVersion: 2
+        x: 569
+        y: 4
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b1d6ecb071a84ad0800000000000000
+      internalID: -2717744869540441678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_82
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 9
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74a41a867a8945ff0800000000000000
+      internalID: -48245851211871673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: burial_revealed_83
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 0
+        width: 24
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e56e6ac8bd501ecc0800000000000000
+      internalID: -3683656579696630178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      burial_revealed_0: -3021937920144133644
+      burial_revealed_1: -2927911792154921603
+      burial_revealed_10: -6359267505401423257
+      burial_revealed_11: -6591675187926763881
+      burial_revealed_12: 512799027165747027
+      burial_revealed_13: 5954333436980074919
+      burial_revealed_14: 2767153523456042925
+      burial_revealed_15: -8185823030001418282
+      burial_revealed_16: -1810339823864667009
+      burial_revealed_17: 3698260499849554307
+      burial_revealed_18: 1436310963943781042
+      burial_revealed_19: -3070373191364092216
+      burial_revealed_2: 4339250245972811395
+      burial_revealed_20: -3667728698205957263
+      burial_revealed_21: -5217643799479869881
+      burial_revealed_22: 9029467979690937884
+      burial_revealed_23: 2436615463370496445
+      burial_revealed_24: -1660538781711521421
+      burial_revealed_25: -9121078836724688218
+      burial_revealed_26: 7046436516813142509
+      burial_revealed_27: -8726678928400350337
+      burial_revealed_28: -5663888865046226777
+      burial_revealed_29: 2085099189649551527
+      burial_revealed_3: -3617444710550993778
+      burial_revealed_30: -340685479407434606
+      burial_revealed_31: 5201597366059726997
+      burial_revealed_32: -5897372318406148732
+      burial_revealed_33: 3823221878391466921
+      burial_revealed_34: -3041864527750668109
+      burial_revealed_35: 681643976686820197
+      burial_revealed_36: 2432306792355765038
+      burial_revealed_37: -6689002910674059455
+      burial_revealed_38: -4294252494846736774
+      burial_revealed_39: 5264986295372043207
+      burial_revealed_4: -3208613887600088137
+      burial_revealed_40: -8759122477744963305
+      burial_revealed_41: -4407505790608450510
+      burial_revealed_42: -3855963408419081079
+      burial_revealed_43: -5801747389242010938
+      burial_revealed_44: -6270845999806459575
+      burial_revealed_45: 6303404292662051550
+      burial_revealed_46: 7408307225932543467
+      burial_revealed_47: -5280579360678995977
+      burial_revealed_48: 2024679820584552315
+      burial_revealed_49: 6623534782818591463
+      burial_revealed_5: 8319280947227501387
+      burial_revealed_50: -1404764197093975095
+      burial_revealed_51: 540842827273378197
+      burial_revealed_52: -9145827389949228031
+      burial_revealed_53: -2655436572937852808
+      burial_revealed_54: -6378570579382850217
+      burial_revealed_55: -5764908979412711570
+      burial_revealed_56: 6740367185288014495
+      burial_revealed_57: -9011322964717433365
+      burial_revealed_58: 3783609009551841717
+      burial_revealed_59: 5316428528414093294
+      burial_revealed_6: 6956019985181183273
+      burial_revealed_60: 832126162402252088
+      burial_revealed_61: 5878324968487306116
+      burial_revealed_62: 8815974754831752496
+      burial_revealed_63: 833653994232627821
+      burial_revealed_64: -1343866655377853185
+      burial_revealed_65: 6932389731627734679
+      burial_revealed_66: -6667634420720058591
+      burial_revealed_67: 2317808022667769849
+      burial_revealed_68: 6852196025168466949
+      burial_revealed_69: 7075006178427542159
+      burial_revealed_7: -1833661989327152613
+      burial_revealed_70: -6108320575944598864
+      burial_revealed_71: -1737623568463467574
+      burial_revealed_72: -3540836116335277456
+      burial_revealed_73: -2476494945885970774
+      burial_revealed_74: 196679728124006748
+      burial_revealed_75: -1226692725311854224
+      burial_revealed_76: -7962451472022734484
+      burial_revealed_77: 4934003516365534575
+      burial_revealed_78: -6784220296940265593
+      burial_revealed_79: -2489588410261568991
+      burial_revealed_8: -872049675372864621
+      burial_revealed_80: 131957376085287607
+      burial_revealed_81: -2717744869540441678
+      burial_revealed_82: -48245851211871673
+      burial_revealed_83: -3683656579696630178
+      burial_revealed_9: 1900735015788765793
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
