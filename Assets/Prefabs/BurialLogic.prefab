@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1210564868887768453
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4546388748639041440}
+  - component: {fileID: 6025428421634241418}
+  - component: {fileID: 5497147221551116059}
+  m_Layer: 0
+  m_Name: BurialLogic
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4546388748639041440
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1210564868887768453}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.5761, y: -0.11499, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6025428421634241418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1210564868887768453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 761dc4207278cf44cb471eb99ba01c74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MiscObjectClick
+--- !u!114 &5497147221551116059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1210564868887768453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a0924362b926e442a44239f90ba879a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  bgLoop1: {fileID: 8300000, guid: 7e192a60ca6c11b4eb9756f7b23daf46, type: 3}
+  bgLoop2: {fileID: 8300000, guid: 3f6c773ae3d76484cbf2270c2150fefd, type: 3}
+  shovel: {fileID: 0}
+  background: {fileID: 0}
+  backgroundDugSprite: {fileID: 21300000, guid: f71604aa9cb6bd94ea44f0575121c0ed, type: 3}
+  backgroundCoveredSprite: {fileID: 21300000, guid: fcbac26c145bb474d9e0dbc0ee81d6ba, type: 3}
+  backgroundRevealedSprite: {fileID: 21300000, guid: 2546f18e2839a084798aca2c28c2107a, type: 3}
+  miscObjectClick: {fileID: 6025428421634241418}

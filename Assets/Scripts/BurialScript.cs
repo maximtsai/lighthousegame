@@ -1,11 +1,16 @@
 using UnityEngine;
+using System;
 using System.Collections;
 
 public class BurialScript : MonoBehaviour
 {
     [SerializeField] private AudioClip bgLoop1;
     [SerializeField] private AudioClip bgLoop2;
+    [SerializeField] private AudioClip shovelClip;
     [SerializeField] private GameObject shovel;
+    [SerializeField] private GameObject black;
+    public Dialogue dialogue; // The ScriptableObject
+
     [SerializeField] private SpriteRenderer background;
     [SerializeField] private Sprite backgroundDugSprite;
     [SerializeField] private Sprite backgroundCoveredSprite;
@@ -13,6 +18,18 @@ public class BurialScript : MonoBehaviour
     
     [SerializeField] private MiscObjectClick miscObjectClick;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
+    private void OnEnable()
+    {
+        // Hacky way to change background
+        dialogue.onDialogueEnd.AddListener(CoverUpHole);
+    }
+
+    private void OnDisable()
+    {
+        dialogue.onDialogueEnd.RemoveListener(CoverUpHole);
+    }
+    
     void Start()
     {
         Ambience ambience = Ambience.Instance;
@@ -34,6 +51,7 @@ public class BurialScript : MonoBehaviour
             }
 
         }
+
     }
     
     private IEnumerator PlaySoundDelayedRoutine(AudioClip sfx, float volume, bool loop, float delay)
@@ -68,12 +86,21 @@ public class BurialScript : MonoBehaviour
         {
             // Haven't dug up the grave yet, do that.
             GameState.Set("has_dug", true);
-            Destroy(shovel);
-            if (background != null && backgroundDugSprite != null)
-            {
-                background.sprite = backgroundDugSprite;
-                DialogueManager.ShowDialogue(miscObjectClick.getDialogue("burial/finished_digging"));
-            }
+	        black.SetActive(true);
+			StartCoroutine(PlaySoundDelayedRoutine(shovelClip, 0.6f, false, 0.5f));
+			FadeTo(black, 1, 1.2f, () => {
+            	Destroy(shovel);
+            	if (background != null && backgroundDugSprite != null)
+            	{
+                	background.sprite = backgroundDugSprite;
+            	}
+				FadeTo(black, 1, 1.75f, () => {
+					FadeTo(black, 0, 0.85f, () => {
+						black.SetActive(false);
+					});
+
+				});
+			});
             return;
         }
         
@@ -81,15 +108,48 @@ public class BurialScript : MonoBehaviour
         {
             // There's a hole now
             GameState.Set("has_buried", true);
-            if (background != null && backgroundCoveredSprite != null)
-            {
-                background.sprite = backgroundCoveredSprite;
-            }
             DialogueManager.ShowDialogue(miscObjectClick.getDialogue("burial/finished_burying"));
 
             return;
         }
         DialogueManager.ShowDialogue(miscObjectClick.getDialogue("burial/already_buried"));
-
     }
+
+    public void CoverUpHole()
+    {
+        if (background != null && backgroundCoveredSprite != null)
+        {
+            background.sprite = backgroundCoveredSprite;
+        }
+    }
+
+	private void FadeTo(GameObject target, float alpha = 1, float duration = 2, Action onComplete = null) {
+		StartCoroutine(FadeInRoutine(target, alpha, duration, onComplete));
+	}
+
+	private IEnumerator FadeInRoutine(GameObject target, float endAlpha, float duration, Action onComplete) {
+		SpriteRenderer sr = target.GetComponent<SpriteRenderer>();
+		if (sr == null)
+		{
+			Debug.LogWarning("Missing sprite renderer");
+			yield break;
+		}
+
+		float elapsed = 0f;
+		Color color = sr.color;
+		float startAlpha = color.a;
+		while (elapsed < duration) {
+			elapsed += Time.deltaTime;
+			float t = elapsed / duration;
+			color.a = Mathf.Lerp(startAlpha, endAlpha, t);
+			sr.color = color;
+			yield return null;
+		}
+		// Ensure ends at full alpha
+		color.a = endAlpha;
+		sr.color = color;
+
+        onComplete?.Invoke();
+	}
+
 }

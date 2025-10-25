@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: already_buried
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   text:
-  - A pile of loose dirt marks your coworker's resting place.
+  - Your coworker is underneath that.
   onDialogueEnd:
     m_PersistentCalls:
       m_Calls: []

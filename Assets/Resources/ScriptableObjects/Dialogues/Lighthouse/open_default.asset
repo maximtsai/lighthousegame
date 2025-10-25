@@ -19,7 +19,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3062725061414906588, guid: 1a72b3e5b56e6de4f88053dbe6251017, type: 3}
         m_TargetAssemblyTypeName: LHMinigame, Assembly-CSharp
-        m_MethodName: StartMiniGame
+        m_MethodName: StartMinigame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -29,3 +29,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  choices: []
+  consequences: []
+  startSound: {fileID: 0}
