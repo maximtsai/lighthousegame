@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ed25be95a0dce314ab1ab3298b287994
+guid: d509c8db1f50f244ebf0432371cf6152
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3691307733545651063
-    second: bed_empty_0
+      213: -6297481207286694666
+    second: burial_flat_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bed_empty_0
+      name: burial_flat_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 613
-        height: 670
+        width: 840
+        height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 77b04a683d82a3330800000000000000
-      internalID: 3691307733545651063
+      spriteID: 6fc7afb153ada98a0800000000000000
+      internalID: -6297481207286694666
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      bed_empty_0: 3691307733545651063
+      burial_flat_0: -6297481207286694666
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

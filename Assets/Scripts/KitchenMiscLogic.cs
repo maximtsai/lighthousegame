@@ -1,9 +1,11 @@
 using UnityEngine;
+using UnityEngine.SceneManagement; // required for SceneManager
 
 public class KitchenMiscLogic : MonoBehaviour
 {
     [SerializeField] private AudioClip bgLoop1;
     [SerializeField] private AudioClip bgLoop2;
+    [SerializeField] private MiscObjectClick miscObjectClick;
     void Start()
     {
         Ambience ambience = Ambience.Instance;
@@ -19,7 +21,8 @@ public class KitchenMiscLogic : MonoBehaviour
         // Check if the new clip is different from the current clip
         AudioClip currentClip = ambience.GetCurrentClip(channel);
         if (currentClip != newClip)
-        {
+        {                                       
+
             // Play new clip if it's different
             ambience.PlayTrack(newClip, volume, channel);
         }
@@ -29,4 +32,23 @@ public class KitchenMiscLogic : MonoBehaviour
             ambience.SetVolume(channel, volume);
         }
     }
+
+	public void ClickTable() {
+        // miscObjectClick.PlaySound(cleanSound);
+		if (GameState.Get<int>("day") == 1) 
+		{
+			if (GameState.Get<bool>("lighthouse_fixed") == true)
+			{
+				SceneManager.LoadScene("TableScene");
+
+			} 
+			else 
+			{
+	        	DialogueManager.ShowDialogue(miscObjectClick.getDialogue("kitchen/long_night"));
+			}
+
+		}
+
+
+	}
 }
