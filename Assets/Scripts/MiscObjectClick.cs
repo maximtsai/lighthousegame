@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement; // required for SceneManager
 
 public class MiscObjectClick : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class MiscObjectClick : MonoBehaviour
         Dialogue dialogue = Resources.Load<Dialogue>(fullPath);
         if (dialogue == null)
         {
-            Debug.LogWarning("Dialogue not found: " + path);
+            Debug.LogWarning("Dialogue not found: " + fullPath);
         }
         return dialogue;
     }
