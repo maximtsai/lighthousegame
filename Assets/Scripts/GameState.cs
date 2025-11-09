@@ -9,7 +9,7 @@ public static class GameState
     {
         data = new Dictionary<string, object>();
         // We can write whatever else code below to initialize data
-        data["day"] = 1;
+        // data["day"] = 1;
     }
 
 
@@ -26,6 +26,8 @@ public static class GameState
         {
             if (value is T typedValue)
                 return typedValue;
+            else
+                Debug.LogWarning($"GameState: Key '{key}' exists but is not of type {typeof(T).Name}");
         }
         return defaultValue;
     }
@@ -47,4 +49,32 @@ public static class GameState
     {
         data.Clear();
     }
+
+    public static int Increment(string key, int amount = 1)
+    {
+        int current = Get(key, 0);
+        current += amount;
+        Set(key, current);
+        return current;
+    }
+
+    public static bool Toggle(string key)
+    {
+        bool current = Get(key, false);
+        current = !current;
+        Set(key, current);
+        return current;
+    }
+
+    // For saving and loading
+    public static Dictionary<string, object> GetAllData()
+    {
+        return new Dictionary<string, object>(data);
+    }
+
+    public static void SetAllData(Dictionary<string, object> newData)
+    {
+        data = new Dictionary<string, object>(newData);
+    }
+
 }
