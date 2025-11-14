@@ -11,27 +11,39 @@ public class UIDialogueBox : MonoBehaviour
     private int current_line = -1;
     private int total_lines = -1;
     [SerializeField] private TMP_Text textmesh;
+    [SerializeField] private AudioClip typeSound1;
+    [SerializeField] private AudioClip typeSound2;
+    [SerializeField] private AudioClip typeSound3;
 
     [SerializeField] private float typeSpeed = 0.016f; // seconds per character
     [SerializeField] private Button button0;
     [SerializeField] private Button button1;
+    private AudioSource audioSrc;
     private Coroutine typingCoroutine;
     public void Start()
     {
         button0.gameObject.SetActive(false);
         button1.gameObject.SetActive(false);
+        if (!typeSound1) {
+            Debug.Log("Missing typesndxcvxcvxcv");
+        } else {
+            Debug.Log("Got soundsfx");
+        }
+        if (AudioManager.Instance)
+        {
+            audioSrc = AudioManager.Instance.AudioSource;
+        }
+        else
+        {
+            Debug.LogWarning("No AudioSource found in the scene!");
+        }
 
         if (dialogue.startSound != null)
         {
-            if (AudioManager.Instance)
+            if (audioSrc)
             {
-                AudioSource audioSource = AudioManager.Instance.AudioSource;
-                audioSource.clip = dialogue.startSound;
-                audioSource.PlayOneShot(dialogue.startSound);
-            }
-            else
-            {
-                Debug.LogWarning("No AudioSource found in the scene!");
+                audioSrc.clip = dialogue.startSound;
+                audioSrc.PlayOneShot(dialogue.startSound);
             }
         }
     }
@@ -46,6 +58,26 @@ public class UIDialogueBox : MonoBehaviour
             int charsToAdd = Mathf.Min(3, line.Length - index);
             textmesh.text += line.Substring(index, charsToAdd);
             index += charsToAdd;
+            if (audioSrc && typeSound1) {
+                int n = Random.Range(0, 4); // generates 0, 1, 2, or 3
+                switch (n)
+                {
+                    case 0:
+                        audioSrc.clip = typeSound1;
+                        audioSrc.PlayOneShot(typeSound1);
+                        break;
+                    case 1:
+                    case 2:
+                        audioSrc.clip = typeSound2;
+                        audioSrc.PlayOneShot(typeSound2);
+                        break;
+                    case 3:
+                        audioSrc.clip = typeSound3;
+                        audioSrc.PlayOneShot(typeSound3);
+                        break;
+                }
+
+            }
 
             yield return new WaitForSeconds(typeSpeed);
         }

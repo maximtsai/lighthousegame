@@ -972,6 +972,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIDialogueBox
   textmesh: {fileID: 3477899639688986950}
+  typeSound1: {fileID: 8300000, guid: 3fcb6578f938a284aa88c2e34ff85c08, type: 3}
+  typeSound2: {fileID: 8300000, guid: 6e9f1d94ff158174bb9980667ab5fe0f, type: 3}
+  typeSound3: {fileID: 8300000, guid: 595214a4c4e76e9418050aae758462fe, type: 3}
   typeSpeed: 0.05
   button0: {fileID: 327629974341873846}
   button1: {fileID: 4386316618397467036}
