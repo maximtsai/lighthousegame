@@ -10,11 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c21e5b555f186ac4da729ad4d766dae7, type: 3}
-  m_Name: my_bed_1
+  m_Name: gather_fish_not_yet
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   text:
-  - 'Your bed. '
-  - It is slightly less hard than the floor.
+  - No fish yet. Come back later.
   onDialogueEnd:
     m_PersistentCalls:
       m_Calls: []

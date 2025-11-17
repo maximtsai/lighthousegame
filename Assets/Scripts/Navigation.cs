@@ -106,33 +106,44 @@ public class Navigation : MonoBehaviour
         // Clear the singleton reference
         Instance = null;
     }
-
-    public void GoToIfGameState(SceneTransition transition)
+    
+    // Sorry J3ranch, I needed some additional custom logic for this function
+    public void LeaveBedroom(SceneTransition transition)
     {
         // query GameState static class and check value 
         // optionally play dialogue if go to is not possible via DialogueManager
-        Debug.Log(transition.gamestate_key + " " + GameState.Get<string>(transition.gamestate_key, "false"));
+        // Debug.Log(transition.gamestate_key + " " + GameState.Get<string>(transition.gamestate_key, "false"));
+        if (GameState.Get<int>("day") > 1)
+        {
+            playSoundClip(transition.travelSound);
+            GoTo(transition.destination_scene);
+        }
         if (GameState.Get<string>(transition.gamestate_key, "false") == transition.gamestate_value)
         {
-            if (transition.travelSound)
-            {
-                // Play sound if it's available
-                if (AudioManager.Instance)
-                {
-                    AudioSource audioSource = AudioManager.Instance.AudioSource;
-                    audioSource.clip = transition.travelSound;
-                    audioSource.PlayOneShot(transition.travelSound);
-                }
-                else
-                {
-                    Debug.LogWarning("No AudioSource found in the scene!");
-                }
-            }
+            playSoundClip(transition.travelSound);
             GoTo(transition.destination_scene);
         }
         else if (null != transition.dialogue_on_stay)
         {
             DialogueManager.ShowDialogue(transition.dialogue_on_stay);
+        }
+    }
+
+    private void playSoundClip(AudioClip clip)
+    {
+        if (clip)
+        {
+            // Play sound if it's available
+            if (AudioManager.Instance)
+            {
+                AudioSource audioSource = AudioManager.Instance.AudioSource;
+                audioSource.clip = clip;
+                audioSource.PlayOneShot(clip);
+            }
+            else
+            {
+                Debug.LogWarning("No AudioSource found in the scene!");
+            }
         }
     }
     

@@ -24,6 +24,5 @@ public class GameStateManager : MonoBehaviour
 		} else {
 	        GameState.Set("is_clean", "false");
 		}
-        Debug.Log("setting clean state");
     }
 }

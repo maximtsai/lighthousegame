@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: not_clean
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   text:
-  - You look like a matted dog.
-  - Need to wash first.
+  - You're dirty.
+  - Wash your face first.
   onDialogueEnd:
     m_PersistentCalls:
       m_Calls: []

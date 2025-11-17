@@ -37,13 +37,13 @@ public class MiscObjectClick : MonoBehaviour
     }
     public void ClickSelfBed()
     {
-        if (GameState.Get<bool>("checked_weather") && GameState.Get<bool>("fixed_lighthouse"))
+        if (GameState.Get<bool>("checked_weather") && GameState.Get<bool>("fixed_lighthouse") && GameState.Get<bool>("ate_dinner"))
         {
             Debug.Log("Go to next day");
         }
         else
         {
-            if (!GameState.Get<bool>("eaten_breakfast"))
+            if (!GameState.Get<bool>("ate_breakfast"))
             {
                 // Just woke up!
                 DialogueManager.ShowDialogue(getDialogue("Bedroom/my_bed_1"));
@@ -54,8 +54,16 @@ public class MiscObjectClick : MonoBehaviour
             }
             else
             {
-                // I have work to do!
-                DialogueManager.ShowDialogue(getDialogue("Bedroom/my_bed_2"));
+                if (GameState.Get<bool>("checked_weather") || GameState.Get<bool>("fixed_lighthouse") || GameState.Get<bool>("gathered_fish"))
+                {
+                    // I still have work to do!
+                    DialogueManager.ShowDialogue(getDialogue("Bedroom/my_bed_2a"));
+                }
+                else
+                {
+                    // I have work to do!
+                    DialogueManager.ShowDialogue(getDialogue("Bedroom/my_bed_2"));
+                }
             }
         }
     }
@@ -86,15 +94,20 @@ public class MiscObjectClick : MonoBehaviour
 
     }
     
-	public void GatherFish() 
-	{
-		if (GameState.Get<bool>("gathered_fish")) {
-        	DialogueManager.ShowDialogue(getDialogue("gather_fish_done"));
+	public void GatherFish()
+    {
+		if (GameState.Get<bool>("gathered_fish", false))
+        {
+        	DialogueManager.ShowDialogue(getDialogue("dock/gather_fish_done"));
 
-		} else 
-		{
+		} else if (GameState.Get<bool>("fixed_lighthouse", false) == false)
+        {
+            DialogueManager.ShowDialogue(getDialogue("dock/gather_fish_not_yet"));
+        } else
+        {
+            // Successfully got fish
 			GameState.Set("gathered_fish", true);
-        	DialogueManager.ShowDialogue(getDialogue("gather_fish"));
+        	DialogueManager.ShowDialogue(getDialogue("dock/gather_fish"));
 		}
 	}
 

@@ -9,7 +9,14 @@ public static class GameState
     {
         data = new Dictionary<string, object>();
         // We can write whatever else code below to initialize data
-        // data["day"] = 1;
+        data["day"] = 1;
+        data["fixed_lighthouse"] = false;
+        data["dropped_tool"] = false;
+        data["gathered_fish"] = false;
+        data["checked_weather"] = false;
+        data["ate_breakfast"] = false;
+        data["ate_dinner"] = false;
+
     }
 
 

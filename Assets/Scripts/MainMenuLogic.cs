@@ -18,6 +18,7 @@ public class MainMenuLogic : MonoBehaviour
 
     public void StartGame()
     {
+	    GameState.Set("day", 1);
         CsManager.PlayCutscene("Intro", true, () => {
             SceneManager.LoadScene("BedroomScene");
 
