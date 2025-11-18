@@ -3,15 +3,14 @@ using UnityEngine;
 
 public class TaskManager : MonoBehaviour
 {
-    private List<Task> tasklist;
-    [SerializeField] private Dialogue dialogue_no_matching_task;
-    [SerializeField] private Dialogue dialogue_all_tasks_done;
-    [SerializeField] private TaskList default_task_list;
-    [SerializeField] private UITaskTracker prefab_task_tracker;
+    [SerializeField] private UITaskTracker prefab_task_display;
     public static TaskManager instance;
+    private List<Task> taskList = new List<Task>();
+    private string taskPath = "ScriptableObjects/Tasks/";
+
     void Awake()
     {
-        Instantiate(prefab_task_tracker);
+        Instantiate(prefab_task_display);
         if (instance != null)
         {
             Destroy(gameObject);
@@ -19,76 +18,152 @@ public class TaskManager : MonoBehaviour
         }
 
         instance = this;
-        tasklist = new List<Task>();
         GameState.Set("task_list_open", false);
-        if (null != default_task_list) LoadTasks(default_task_list);
+        
         DontDestroyOnLoad(gameObject);
     }
-    private static void AttemptTaskCompletion(string o, Dialogue all_tasks_done, Dialogue no_matching_task)
-    {
-        string object_id = o;
-        int matching_task_index = -1;
-        for (int i = 0; i < instance.tasklist.Count; i++)
-        {
-            if (instance.tasklist[i].completion_object_id == object_id)
-            {
-                matching_task_index = i;
-                break;
-            }
-        }
 
-        if (-1 < matching_task_index)
+    // Adds to back of tasklist
+    // Usage in other scripts:
+        // TaskManager.instance.AddTask(someTask);
+    public void AddTask(Task task)
+    {
+        if (!taskList.Contains(task))
         {
-            Debug.Log("task completed");
-            Task task = instance.tasklist[matching_task_index];
-            if (null != task.on_completion)
+            taskList.Add(task);
+        }
+        else
+        {
+            Debug.LogWarning("Task already added");
+        }
+    }
+    public void AddTaskString(string id)
+    {
+        Task task = getTaskFromString(id);
+        AddTask(task);
+    }
+    
+    // Add task to the front (priority)
+    public void AddTaskImportant(Task task)
+    {
+        if (!taskList.Contains(task))
+        {
+            taskList.Insert(0, task);
+        }
+        else
+        {
+            Debug.LogWarning("Task already added");
+        }
+    }
+    public void AddTaskImportantString(string id)
+    {
+        Task task = getTaskFromString(id);
+        AddTaskImportant(task);
+    }
+    
+    public Task getTaskFromString(string name)
+    {
+        string fullPath = taskPath + name;
+        Task task = Resources.Load<Task>(fullPath);
+        if (task == null)
+        {
+            Debug.LogWarning("Task not found: " + fullPath);
+        }
+        return task;
+    }
+    
+
+    // Complete a task by ID (recommended)
+    public void CompleteTask(string id)
+    {
+        for (int i = 0; i < taskList.Count; i++)
+        {
+            if (taskList[i].id == id)
             {
-                DialogueManager.ShowDialogue(task.on_completion);
-            }
-            instance.tasklist.RemoveAt(matching_task_index);
-            if (0 < task.new_tasks_on_completion.Count)
-            {
-                foreach (Task t in task.new_tasks_on_completion)
+                Task t = taskList[i];
+                taskList.RemoveAt(i);
+
+                // trigger the on completion dialog if any
+                if (t.on_completion)
                 {
-                    if (!instance.tasklist.Find((Task p) => { return p.id == t.id; }))
-                        instance.tasklist.Add(t);
+                    DialogueManager.ShowDialogue(t.on_completion);
                 }
+                return;
             }
         }
-        else if (0 == instance.tasklist.Count && null != all_tasks_done)
+    }
+    // private static void AttemptTaskCompletion(string o, Dialogue all_tasks_done, Dialogue no_matching_task)
+    // {
+    //     string object_id = o;
+    //     int matching_task_index = -1;
+    //     for (int i = 0; i < instance.tasklist.Count; i++)
+    //     {
+    //         if (instance.tasklist[i].completion_object_id == object_id)
+    //         {
+    //             matching_task_index = i;
+    //             break;
+    //         }
+    //     }
+    //
+    //     if (-1 < matching_task_index)
+    //     {
+    //         Debug.Log("task completed");
+    //         Task task = instance.tasklist[matching_task_index];
+    //         if (null != task.on_completion)
+    //         {
+    //             DialogueManager.ShowDialogue(task.on_completion);
+    //         }
+    //         instance.tasklist.RemoveAt(matching_task_index);
+    //         if (0 < task.new_tasks_on_completion.Count)
+    //         {
+    //             foreach (Task t in task.new_tasks_on_completion)
+    //             {
+    //                 if (!instance.tasklist.Find((Task p) => { return p.id == t.id; }))
+    //                     instance.tasklist.Add(t);
+    //             }
+    //         }
+    //     }
+    //     else if (0 == instance.tasklist.Count && null != all_tasks_done)
+    //     {
+    //         DialogueManager.ShowDialogue(all_tasks_done);
+    //     }
+    //     else if (null != no_matching_task)
+    //     {
+    //         DialogueManager.ShowDialogue(no_matching_task);
+    //     }
+    // }
+    // public static void AttemptTaskCompletion(string o)
+    // {
+    //     AttemptTaskCompletion(o, instance.dialogue_all_tasks_done, instance.dialogue_no_matching_task);
+    // }
+    // public static void AttemptTaskCompletion(InteractableObject o)
+    // {
+    //     if (null == o) return;
+    //     AttemptTaskCompletion(o.GetObjectId());
+    // }
+    // public static void AttemptTaskCompletionSilent(string o)
+    // {
+    //     AttemptTaskCompletion(o, null, null);
+    // }
+    // public static void AttemptTaskCompletionSilent(InteractableObject o)
+    // {
+    //     if (null == o) return;
+    //     AttemptTaskCompletion(o.GetObjectId(), null, null);
+    // }
+    
+    
+    // Returns a shallow copy of all active tasks
+    public List<Task> GetCurrentTasks()
+    {
+        return new List<Task>(taskList);
+    }
+    
+    // Logs each task's id and description
+    public void LogAllActiveTasks()
+    {
+        foreach (Task t in taskList)
         {
-            DialogueManager.ShowDialogue(all_tasks_done);
+            Debug.Log($"Task ID: {t.id}\nDescription: {t.description}");
         }
-        else if (null != no_matching_task)
-        {
-            DialogueManager.ShowDialogue(no_matching_task);
-        }
-    }
-    public static void AttemptTaskCompletion(string o)
-    {
-        AttemptTaskCompletion(o, instance.dialogue_all_tasks_done, instance.dialogue_no_matching_task);
-    }
-    public static void AttemptTaskCompletion(InteractableObject o)
-    {
-        if (null == o) return;
-        AttemptTaskCompletion(o.GetObjectId());
-    }
-    public static void AttemptTaskCompletionSilent(string o)
-    {
-        AttemptTaskCompletion(o, null, null);
-    }
-    public static void AttemptTaskCompletionSilent(InteractableObject o)
-    {
-        if (null == o) return;
-        AttemptTaskCompletion(o.GetObjectId(), null, null);
-    }
-    public static List<Task> GetCurrentTasks()
-    {
-        return instance.tasklist;
-    }
-
-    static void LoadTasks(TaskList l)
-    {
-        instance.tasklist = new List<Task>(l.tasks);
     }
 }

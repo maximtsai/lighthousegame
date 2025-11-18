@@ -19,20 +19,20 @@ public class UITaskTracker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (null == text_tasklist) return;
-        List<Task> tasks = TaskManager.GetCurrentTasks();
-        if (0 < tasks.Count)
-        {
-            text_tasklist.text = "";
-            for (int i = 0; i < tasks.Count; i++)
-            {
-                text_tasklist.text += string.Format("{0:d}. {1}\n", i + 1, tasks[i].description);
-            }
-        }
-        else
-        {
-            text_tasklist.text = "No tasks.";
-        }
+        // if (null == text_tasklist) return;
+        // List<Task> tasks = TaskManager.GetCurrentTasks();
+        // if (0 < tasks.Count)
+        // {
+        //     text_tasklist.text = "";
+        //     for (int i = 0; i < tasks.Count; i++)
+        //     {
+        //         text_tasklist.text += string.Format("{0:d}. {1}\n", i + 1, tasks[i].description);
+        //     }
+        // }
+        // else
+        // {
+        //     text_tasklist.text = "No tasks.";
+        // }
     }
 
     public void ShowTaskList()

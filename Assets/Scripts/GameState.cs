@@ -16,7 +16,6 @@ public static class GameState
         data["checked_weather"] = false;
         data["ate_breakfast"] = false;
         data["ate_dinner"] = false;
-
     }
 
 
