@@ -26,7 +26,6 @@ public class InteractableObject : MonoBehaviour
         SpriteRenderer srender = transform.GetComponent<SpriteRenderer>();
         srender.sprite = default_sprite;
         srender.color = Color.white;
-        Debug.Log("activate");
         // Automatically find the AudioSource in the scene
         if (AudioManager.Instance)
         {

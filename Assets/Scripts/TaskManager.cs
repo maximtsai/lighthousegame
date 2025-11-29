@@ -3,14 +3,12 @@ using UnityEngine;
 
 public class TaskManager : MonoBehaviour
 {
-    [SerializeField] private UITaskTracker prefab_task_display;
     public static TaskManager instance;
     private List<Task> taskList = new List<Task>();
     private string taskPath = "ScriptableObjects/Tasks/";
 
     void Awake()
     {
-        Instantiate(prefab_task_display);
         if (instance != null)
         {
             Destroy(gameObject);
@@ -18,8 +16,28 @@ public class TaskManager : MonoBehaviour
         }
 
         instance = this;
-        GameState.Set("task_list_open", false);
-        
+        MessageBus.SubscriptionHandle addTaskHandle = MessageBus.Instance.Subscribe("AddTaskString", (args) =>
+            {
+                string message = args[0] as string;
+                AddTaskString(message);
+            });
+
+        MessageBus.SubscriptionHandle addTaskImportantHandle = MessageBus.Instance.Subscribe("AddTaskStringImportant", (args) =>
+        {
+            string message = args[0] as string;
+            AddTaskString(message);
+        });
+
+        MessageBus.SubscriptionHandle completeTaskHandle = MessageBus.Instance.Subscribe("CompleteTask", (args) =>
+        {
+            string message = args[0] as string;
+            CompleteTask(message);
+        });
+
+
+        // We're implementing a new always-on task list, no longer needed.
+        // GameState.Set("task_list_open", true);
+
         DontDestroyOnLoad(gameObject);
     }
 
