@@ -1,127 +1,207 @@
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 using System.Collections;
 
 public class UITaskTracker : MonoBehaviour
 {
+    // ============================= PUBLIC CONFIG =============================
+    [Header("UI References")]
     [SerializeField] TMP_Text text_tasklist;
     [SerializeField] Image tasklist_bg;
     [SerializeField] Canvas canvas_full_list;
+
+    [Header("Audio")]
     [SerializeField] AudioClip whoosh_in;
     [SerializeField] AudioClip typewriter;
 
-    private string textToDisplay = "LALA hello world";
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [Header("Animation Settings")]
+    [SerializeField] float revealDuration = 0.6f;
+    [SerializeField] float typewriterDelay = 0.03f;
+    [SerializeField] float hideDuration = 0.5f;
+
+    // ============================= INTERNAL STATE =============================
+    private enum UIState { Hidden, Revealing, Typing, IdleVisible, Hiding }
+    private UIState state = UIState.Hidden;
+
+    private Coroutine driverCoroutine;
+    private int animationToken = 0;
+    private bool gotMask = false;
+    private RectTransform mask;
+
+    private string textToDisplay = "";
+
     void Start()
     {
-        AnimateInNewTask();
     }
+    
+    // ============================= PUBLIC API =============================
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    public void ShowTaskList()
-    {
-        canvas_full_list.gameObject.SetActive(true);
-        GameState.Set("task_list_open", true);
-    }
-
-    public void HideTaskList()
-    {
-        canvas_full_list.gameObject.SetActive(false);
-        GameState.Set("task_list_open", false);
-    }
-
-    private void SetTextDisplay(string text)
+    public void SetTextDisplay(string text)
     {
         textToDisplay = text;
     }
 
     public void AnimateInNewTask()
     {
+        RequestState(UIState.Revealing);
+    }
+
+    public void HideDisplay()
+    {
+        RequestState(UIState.Hiding);
+    }
+
+    public void ShowTaskList()
+    {
+        canvas_full_list.gameObject.SetActive(true);
+        // GameState.Set("task_list_open", true); // no longer needed maybe
+    }
+
+    public void HideTaskList()
+    {
+        canvas_full_list.gameObject.SetActive(false);
+        // GameState.Set("task_list_open", false);
+    }
+
+    // ============================= CORE STATE MACHINE =============================
+
+    private void RequestState(UIState newState)
+    {
+        animationToken++; // invalidate all running animations
+        state = newState;
+
+        if (driverCoroutine != null)
+            StopCoroutine(driverCoroutine);
+
+        driverCoroutine = StartCoroutine(StateMachineDriver(animationToken));
+    }
+
+    private IEnumerator StateMachineDriver(int token)
+    {
+        while (true)
+        {
+            if (token != animationToken) yield break;
+
+            switch (state)
+            {
+                case UIState.Revealing:
+                    yield return RevealAnimation(token);
+                    if (token != animationToken) yield break;
+                    state = UIState.Typing;
+                    break;
+
+                case UIState.Typing:
+                    yield return TypewriterAnimation(token);
+                    if (token != animationToken) yield break;
+                    state = UIState.IdleVisible;
+                    break;
+
+                case UIState.IdleVisible:
+                    yield break; // Nothing to do; wait for next request
+
+                case UIState.Hiding:
+                    yield return HideAnimation(token);
+                    if (token != animationToken) yield break;
+                    state = UIState.Hidden;
+                    yield break;
+
+                case UIState.Hidden:
+                default:
+                    tasklist_bg.gameObject.SetActive(false);
+                    text_tasklist.text = "";
+                    yield break;
+            }
+        }
+    }
+
+    // ============================= ANIMATION ROUTINES =============================
+
+    private IEnumerator RevealAnimation(int token)
+    {
         tasklist_bg.gameObject.SetActive(true);
-        // Make tasklist animate in here
         text_tasklist.text = "";
-        StartCoroutine(AnimateRevealThenType());
-    }
+        text_tasklist.color = new Color(1,1,1,1);
 
-    private IEnumerator AnimateRevealThenType()
-    {
-        // --- First: Reveal Animation ---
-        yield return StartCoroutine(AnimateReveal());
+        // Play sound
+        PlaySound(whoosh_in);
 
-        // --- Then: Typewriter Animation ---
-        yield return StartCoroutine(Typewriter());
-    }
-
-
-    private IEnumerator AnimateReveal()
-    {
         RectTransform bg = tasklist_bg.rectTransform;
-        RectTransform mask = tasklist_bg.transform.parent.GetComponent<RectTransform>();
-
-        playSoundClip(whoosh_in);
-
-        float duration = 0.6f;
-        float t = 0f;
 
         float targetWidth = bg.sizeDelta.x;
-        mask.sizeDelta = new Vector2(0, bg.sizeDelta.y);
+        float height = bg.sizeDelta.y;
 
-        while (t < duration)
+        if (!gotMask)
         {
+            gotMask = true;
+            mask = tasklist_bg.transform.parent.GetComponent<RectTransform>();
+        }
+        mask.sizeDelta = new Vector2(0, height);
+
+        float t = 0f;
+        while (t < revealDuration)
+        {
+            if (token != animationToken) yield break;
             t += Time.deltaTime;
-            float normalized = Mathf.Clamp01(t / duration);
 
-            // Ease-out smoothing
-            float eased = Mathf.SmoothStep(0f, 1f, normalized);
-
+            float eased = Mathf.SmoothStep(0f, 1f, t / revealDuration);
             float w = Mathf.Lerp(0f, targetWidth, eased);
-            mask.sizeDelta = new Vector2(w, bg.sizeDelta.y);
+
+            mask.sizeDelta = new Vector2(w, height);
 
             yield return null;
         }
 
-        // Ensure perfect final state
-        mask.sizeDelta = new Vector2(targetWidth, bg.sizeDelta.y);
+        mask.sizeDelta = new Vector2(targetWidth, height);
     }
 
-
-    private IEnumerator Typewriter()
+    private IEnumerator TypewriterAnimation(int token)
     {
-        float delay = 0.03f; // time between letters (adjust to taste)
         text_tasklist.text = "";
-        yield return new WaitForSeconds(0.06f);
 
         for (int i = 0; i <= textToDisplay.Length; i++)
         {
+            if (token != animationToken) yield break;
+
             text_tasklist.text = textToDisplay.Substring(0, i);
-            playSoundClip(typewriter);
-            yield return new WaitForSeconds(delay);
+            PlaySound(typewriter);
+
+            yield return new WaitForSeconds(typewriterDelay);
         }
     }
 
-
-    private void playSoundClip(AudioClip clip)
+    private IEnumerator HideAnimation(int token)
     {
-        if (clip)
+        Color startC = tasklist_bg.color;
+        float t = 0;
+
+        while (t < hideDuration)
         {
-            // Play sound if it's available
-            if (AudioManager.Instance)
-            {
-                AudioSource audioSource = AudioManager.Instance.AudioSource;
-                audioSource.clip = clip;
-                audioSource.PlayOneShot(clip);
-            }
-            else
-            {
-                Debug.LogWarning("No AudioSource found in the scene!");
-            }
+            if (token != animationToken) yield break;
+
+            t += Time.deltaTime;
+            float eased = Mathf.SmoothStep(0f, 1f, t / hideDuration);
+            float a = Mathf.Lerp(1f, 0f, eased);
+
+            tasklist_bg.color = new Color(1, 1, 1, a);
+            text_tasklist.color = new Color(1, 1, 1, a);
+
+            yield return null;
         }
+
+        tasklist_bg.color = new Color(1,1,1,0);
+        text_tasklist.color = new Color(1,1,1,0);
+        tasklist_bg.gameObject.SetActive(false);
     }
 
+    // ============================= AUDIO =============================
+
+    private void PlaySound(AudioClip clip)
+    {
+        if (!clip) return;
+        if (!AudioManager.Instance) return;
+
+        var src = AudioManager.Instance.AudioSource;
+        src.PlayOneShot(clip);
+    }
 }

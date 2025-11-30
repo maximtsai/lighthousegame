@@ -7,12 +7,33 @@ public class BedroomMiscLogic : MonoBehaviour
     [SerializeField] private AudioClip bgLoop2;
     void Start()
     {
-        Ambience ambience = Ambience.Instance;
+        if (Ambience.Instance != null) {
+            Ambience ambience = Ambience.Instance;
+    
+            // Update track 1
+            UpdateTrack(ambience, bgLoop1, 0.6f, 1);
+            // Update track 2
+            UpdateTrack(ambience, bgLoop2, 0.21f, 2);
+        }
 
-        // Update track 1
-        UpdateTrack(ambience, bgLoop1, 0.6f, 1);
-        // Update track 2
-        UpdateTrack(ambience, bgLoop2, 0.21f, 2);
+        int day = GameState.Get<int>("day");
+        switch (day) {
+            case 1:
+                MessageBus.Instance.Publish("AddTaskString", "generic/task_wash_up");
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 5:
+                break;
+            case 6:
+                break;
+            case 7:
+                break;
+        }
     }
 
     private void UpdateTrack(Ambience ambience, AudioClip newClip, float volume, int channel)

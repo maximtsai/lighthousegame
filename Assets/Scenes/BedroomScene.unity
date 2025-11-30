@@ -260,8 +260,8 @@ Camera:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1
-    height: 0.99984723
+    width: 0.99967027
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -807,7 +807,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1930117940751657890, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: on_click.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1930117940751657890, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: on_click.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -819,7 +819,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1930117940751657890, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: on_click.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: GoTo
+      value: GoToSink
       objectReference: {fileID: 0}
     - target: {fileID: 1930117940751657890, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: on_click.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -1103,6 +1103,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4801979934914595931, guid: dd5f4d8884df57545b6117f57bd5a5d1, type: 3}
+      propertyPath: uITaskTracker
+      value: 
+      objectReference: {fileID: 1489820477}
     - target: {fileID: 6531356694525060655, guid: dd5f4d8884df57545b6117f57bd5a5d1, type: 3}
       propertyPath: whoosh_in
       value: 
@@ -1120,6 +1124,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd5f4d8884df57545b6117f57bd5a5d1, type: 3}
+--- !u!114 &1489820477 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6531356694525060655, guid: dd5f4d8884df57545b6117f57bd5a5d1, type: 3}
+  m_PrefabInstance: {fileID: 1489820476}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea0382a7cbf194d4d81699a040e7e3d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HUDTask
 --- !u!1 &1764343125
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,6 +6,7 @@ public class TaskManager : MonoBehaviour
     public static TaskManager instance;
     private List<Task> taskList = new List<Task>();
     private string taskPath = "ScriptableObjects/Tasks/";
+    [SerializeField] UITaskTracker uITaskTracker;
 
     void Awake()
     {
@@ -46,9 +47,15 @@ public class TaskManager : MonoBehaviour
         // TaskManager.instance.AddTask(someTask);
     public void AddTask(Task task)
     {
+        Debug.Log("Adding task: " + task.id);
         if (!taskList.Contains(task))
         {
             taskList.Add(task);
+            if (taskList.Count == 1)
+            {
+                // We only update display if we're going from 0 tasks to 1 task.
+                updateTaskDisplay();
+            }
         }
         else
         {
@@ -67,6 +74,8 @@ public class TaskManager : MonoBehaviour
         if (!taskList.Contains(task))
         {
             taskList.Insert(0, task);
+            updateTaskDisplay();
+
         }
         else
         {
@@ -100,6 +109,7 @@ public class TaskManager : MonoBehaviour
             {
                 Task t = taskList[i];
                 taskList.RemoveAt(i);
+                updateTaskDisplay();
 
                 // trigger the on completion dialog if any
                 if (t.on_completion)
@@ -183,5 +193,24 @@ public class TaskManager : MonoBehaviour
         {
             Debug.Log($"Task ID: {t.id}\nDescription: {t.description}");
         }
+    }
+
+    private void updateTaskDisplay()
+    {
+        if (taskList.Count == 0)
+        {
+            Debug.Log("Hide display");
+            uITaskTracker.HideDisplay();
+        }
+        else
+        {
+            Task nextTask = taskList[0];
+            Debug.Log(nextTask.id);
+            uITaskTracker.SetTextDisplay(nextTask.description);
+            Debug.Log("text display set");
+            uITaskTracker.AnimateInNewTask();
+            Debug.Log("animate in new mask");
+        }
+
     }
 }

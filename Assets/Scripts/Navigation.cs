@@ -41,6 +41,18 @@ public class Navigation : MonoBehaviour
 
         GoToTransition(scene, 0.35f);
     }
+    
+    public void GoToSink()
+    {
+        if (GameState.Get<string>("is_clean") == "true")
+        {
+            DialogueManager.ShowDialogue(getDialog("Bedroom/already_washed"));
+
+            return;
+        }
+
+        GoToTransition("SinkScene", 0.3f);
+    }
 
     public void GoToSlow(string scene)
     {
@@ -146,6 +158,17 @@ public class Navigation : MonoBehaviour
             }
         }
     }
-    
+
+    private Dialogue getDialog(string name)
+    {
+        string fullPath = "ScriptableObjects/Dialogues/" + name;
+        Dialogue dialogue = Resources.Load<Dialogue>(fullPath);
+        
+        if (dialogue == null)
+        {
+            Debug.LogWarning("Dialogue not found: " + fullPath);
+        }
+        return dialogue;
+    }
     
 }
