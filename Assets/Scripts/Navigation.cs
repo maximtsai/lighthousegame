@@ -1,12 +1,13 @@
 using UnityEngine;
 using UnityEngine.SceneManagement; // required for SceneManager
 using System.Collections;
+using UnityEngine.UI;
 
 public class Navigation : MonoBehaviour
 {
     public static Navigation Instance { get; private set; }
 
-    [SerializeField] private SpriteRenderer srender;
+    [SerializeField] private Image blackoutImage;
 
     void Awake()
     {
@@ -20,12 +21,11 @@ public class Navigation : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
-        // Get SpriteRenderer on prefab
-        srender = GetComponent<SpriteRenderer>();
-        if (srender == null)
+        // Get Image on prefab
+        if (blackoutImage == null)
         {
-            srender = gameObject.AddComponent<SpriteRenderer>();
-            Debug.LogWarning("Navigation prefab had no SpriteRenderer. Added one dynamically.");
+            blackoutImage = gameObject.AddComponent<Image>();
+            Debug.LogWarning("Navigation prefab had no Image. Added one dynamically.");
         }
     }
 
@@ -51,7 +51,7 @@ public class Navigation : MonoBehaviour
             return;
         }
 
-        GoToTransition("SinkScene", 0.3f);
+        GoToTransition("SinkScene", 0.25f);
     }
 
     public void GoToSlow(string scene)
@@ -85,21 +85,21 @@ public class Navigation : MonoBehaviour
     private IEnumerator FadeInThenGoTo(string scene, float duration)
     {
         // Start fully transparent
-        Color c = srender.color;
+        Color c = new Color(0, 0, 0, blackoutImage.color.a);
         c.a = 0f;
-        srender.color = c;
+        blackoutImage.color = c;
 
         float t = 0f;
         while (t < duration)
         {
             t += Time.deltaTime;
             c.a = Mathf.Clamp01(t / duration) + 0.1f;
-            srender.color = c;
+            blackoutImage.color = c;
             yield return null;
         }
 
         c.a = 1f;
-        srender.color = c;
+        blackoutImage.color = c;
 
         SceneManager.LoadScene(scene);
 
@@ -108,7 +108,7 @@ public class Navigation : MonoBehaviour
         {
             t -= Time.deltaTime * 2.2f;
             c.a = Mathf.Clamp01(t / duration);
-            srender.color = c;
+            blackoutImage.color = c;
             yield return null;
         }
 

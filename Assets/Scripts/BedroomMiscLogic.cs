@@ -19,7 +19,13 @@ public class BedroomMiscLogic : MonoBehaviour
         int day = GameState.Get<int>("day");
         switch (day) {
             case 1:
-                MessageBus.Instance.Publish("AddTaskString", "generic/task_wash_up");
+                if (GameState.Get<string>("is_clean") != "true") {
+                    MessageBus.Instance.Publish("AddTaskString", "generic/task_wash_up");
+                }
+                if (!GameState.Get<bool>("ate_breakfast")) {
+                    MessageBus.Instance.Publish("AddTaskString", "generic/task_breakfast");
+                }
+
                 break;
             case 2:
                 break;

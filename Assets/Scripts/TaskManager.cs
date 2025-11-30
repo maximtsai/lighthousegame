@@ -119,6 +119,7 @@ public class TaskManager : MonoBehaviour
                 return;
             }
         }
+        Debug.LogWarning("Did not find task " + id);
     }
     // private static void AttemptTaskCompletion(string o, Dialogue all_tasks_done, Dialogue no_matching_task)
     // {

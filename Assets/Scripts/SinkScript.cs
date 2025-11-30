@@ -21,7 +21,9 @@ public class SinkScript : MonoBehaviour
         {
             Destroy(cleaningItems);
             // miscObjectClick.PlaySound(cleanSound);
+            MessageBus.Instance.Publish("CompleteTask", "task_wash_up");
             DialogueManager.ShowDialogue(miscObjectClick.getDialogue("sink/sink_wash_up"));
+            
         }
     }
 }
