@@ -41,20 +41,44 @@ public class Navigation : MonoBehaviour
 
         GoToTransition(scene, 0.35f);
     }
-    
+
     public void GoToSink(SceneTransition transition)
     {
         if (GameState.Get<string>("is_clean") == "true")
         {
             DialogueManager.ShowDialogue(getDialog("Bedroom/already_washed"));
-
             return;
         }
 
         playSoundClip(transition.travelSound);
         GoToTransition("SinkScene", 0.25f);
     }
+    
+    public void GoToOutdoors(SceneTransition transition)
+    {
+        if (!GameState.Get<bool>("ate_breakfast"))
+        {
+            DialogueManager.ShowDialogue(getDialog("kitchen/hungry"));
+            return;
+        }
 
+        playSoundClip(transition.travelSound);
+        GoToTransition("OutdoorsScene", 0.35f);
+    }
+    
+    public void GoToUpstairs(SceneTransition transition)
+    {
+        if (GameState.Get<bool>("lighthouse_fixed") && !GameState.Get<bool>("ate_dinner"))
+        {
+            DialogueManager.ShowDialogue(getDialog("Kitchen/hungry_dinner"));
+            return;
+        }
+
+        playSoundClip(transition.travelSound);
+        GoToTransition("BedroomScene", 0.35f);
+    }
+
+    
     public void GoToSlow(string scene)
     {
         if (GameState.Get<bool>("task_list_open", false) || GameState.Get<bool>("minigame_open"))
