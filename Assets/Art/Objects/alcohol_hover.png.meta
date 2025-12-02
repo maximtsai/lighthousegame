@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f9f59bd5c29913c44b07cd4c50257d4d
+guid: fbddf81748ccc8942b3a0980a8b059fa
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6696897164379916337
-    second: stove_0
+      213: 1274029476436640862
+    second: alcohol_hover_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: stove_0
+      name: alcohol_hover_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 980
-        height: 360
+        x: 9
+        y: 7
+        width: 67
+        height: 161
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fc770dbb287df03a0800000000000000
-      internalID: -6696897164379916337
+      spriteID: e5402680f034ea110800000000000000
+      internalID: 1274029476436640862
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      stove_0: -6696897164379916337
+      alcohol_hover_0: 1274029476436640862
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

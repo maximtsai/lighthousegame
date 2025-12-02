@@ -57,4 +57,20 @@ public class BedroomMiscLogic : MonoBehaviour
             ambience.SetVolume(channel, volume);
         }
     }
+
+    public void NewDay() {
+        GameState.Set("corn_clicked", false);
+        GameState.Set("pepper_clicked", false);
+        GameState.Set("alcohol_clicked", false);
+        GameState.Set("fish_clicked", false);
+        GameState.Set("lighthouse_opened", false);
+        GameState.Set("lighthouse_fixed", false);
+        GameState.Set("wrench_used", false);
+        GameState.Set("oil_used", false);
+        GameState.Set("scissors_used", false);
+        GameState.Set("mercury_used", false);
+        GameState.Set("gathered_fish", false);
+        GameState.Set("is_clean", "false");
+
+    }
 }

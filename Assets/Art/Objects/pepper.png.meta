@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f9f59bd5c29913c44b07cd4c50257d4d
+guid: 0fffdbbfc4f65ab4c961603a22d726bd
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6696897164379916337
-    second: stove_0
+      213: 8374363231432968964
+    second: pepper_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: stove_0
+      name: pepper_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 980
-        height: 360
+        x: 8
+        y: 10
+        width: 56
+        height: 81
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fc770dbb287df03a0800000000000000
-      internalID: -6696897164379916337
+      spriteID: 40b87ad5df6b73470800000000000000
+      internalID: 8374363231432968964
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      stove_0: -6696897164379916337
+      pepper_0: 8374363231432968964
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

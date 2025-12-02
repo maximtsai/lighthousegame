@@ -206,11 +206,8 @@ public class TaskManager : MonoBehaviour
         else
         {
             Task nextTask = taskList[0];
-            Debug.Log(nextTask.id);
             uITaskTracker.SetTextDisplay(nextTask.description);
-            Debug.Log("text display set");
             uITaskTracker.AnimateInNewTask();
-            Debug.Log("animate in new mask");
         }
 
     }

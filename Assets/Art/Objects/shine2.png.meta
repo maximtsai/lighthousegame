@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: f9f59bd5c29913c44b07cd4c50257d4d
+guid: f5cc4630ab5618e428a994a9ef5741ad
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6696897164379916337
-    second: stove_0
+      213: 1554147899006308140
+    second: shine2_0
+  - first:
+      213: -121821738944212759
+    second: shine2_1
+  - first:
+      213: 3634039035470937893
+    second: shine2_2
+  - first:
+      213: -4573840586085575111
+    second: shine2_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +55,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -113,13 +122,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: stove_0
+      name: shine2_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 980
-        height: 360
+        x: 14
+        y: 21
+        width: 22
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +137,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fc770dbb287df03a0800000000000000
-      internalID: -6696897164379916337
+      spriteID: c2fc0b8a741719510800000000000000
+      internalID: 1554147899006308140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shine2_1
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 28
+        width: 14
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e05f4c16c33f4ef0800000000000000
+      internalID: -121821738944212759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shine2_2
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 29
+        width: 18
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52ff521bf33be6230800000000000000
+      internalID: 3634039035470937893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shine2_3
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 18
+        width: 24
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 936da1f58347680c0800000000000000
+      internalID: -4573840586085575111
       vertices: []
       indices: 
       edges: []
@@ -138,7 +213,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +223,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      stove_0: -6696897164379916337
+      shine2_0: 1554147899006308140
+      shine2_1: -121821738944212759
+      shine2_2: 3634039035470937893
+      shine2_3: -4573840586085575111
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

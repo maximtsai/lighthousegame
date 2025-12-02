@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f9f59bd5c29913c44b07cd4c50257d4d
+guid: be858b6ed9395e540837dfa41740a3f5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6696897164379916337
-    second: stove_0
+      213: -47647320098665484
+    second: fish_hover_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: stove_0
+      name: fish_hover_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 980
-        height: 360
+        x: 9
+        y: 9
+        width: 275
+        height: 94
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fc770dbb287df03a0800000000000000
-      internalID: -6696897164379916337
+      spriteID: 4fb050bc309b65ff0800000000000000
+      internalID: -47647320098665484
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      stove_0: -6696897164379916337
+      fish_hover_0: -47647320098665484
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
