@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -30,11 +31,42 @@ public class UITaskTracker : MonoBehaviour
     private RectTransform mask;
 
     private string textToDisplay = "";
+    private bool posflipped = false;
+    private int countDownFlip = 30;
+
+    private Vector2 basePos;
+    private Vector2 basePosText;
 
     void Start()
     {
+        basePos = tasklist_bg.rectTransform.anchoredPosition;
+        basePosText = text_tasklist.rectTransform.anchoredPosition;
     }
-    
+
+    private void FixedUpdate()
+    {
+        if (tasklist_bg.IsActive())
+        {
+            countDownFlip--;
+            if (countDownFlip <= 0)
+            {
+                countDownFlip = 75;
+                posflipped = !posflipped;
+                RectTransform rt = tasklist_bg.rectTransform;
+                RectTransform textRT = text_tasklist.rectTransform;
+                if (posflipped)
+                {
+                    rt.anchoredPosition = basePos + new Vector2(0, 0.5f);
+                    textRT.anchoredPosition = basePosText + new Vector2(0, 0.5f);
+                }
+                else
+                {
+                    rt.anchoredPosition = basePos + new Vector2(0, -0.5f);
+                    textRT.anchoredPosition = basePosText + new Vector2(0, -0.5f);
+                }
+            }
+        }
+    }
     // ============================= PUBLIC API =============================
 
     public void SetTextDisplay(string text)

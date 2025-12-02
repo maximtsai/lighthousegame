@@ -64,10 +64,8 @@ public class InteractableObject : MonoBehaviour
     {
         if (GameState.Get<bool>("task_list_open", false)) return;
         if (GameState.Get<bool>("minigame_open", false)) return;
-        Debug.Log("mouse up");
         if (hasSound)
         {
-            Debug.Log("has sound");
             audioSource.PlayOneShot(clickSound);
         }
         on_click.Invoke();

@@ -42,7 +42,7 @@ public class Navigation : MonoBehaviour
         GoToTransition(scene, 0.35f);
     }
     
-    public void GoToSink()
+    public void GoToSink(SceneTransition transition)
     {
         if (GameState.Get<string>("is_clean") == "true")
         {
@@ -51,6 +51,7 @@ public class Navigation : MonoBehaviour
             return;
         }
 
+        playSoundClip(transition.travelSound);
         GoToTransition("SinkScene", 0.25f);
     }
 
