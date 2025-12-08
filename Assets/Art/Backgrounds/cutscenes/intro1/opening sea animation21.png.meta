@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 9ad0f5a20ee26b94a8010aed3ee2e10c
+guid: 7f2007f20177dad4195ab13a7ec0596c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4394694302168372352
-    second: intro2_0
+      213: 2985732110343776515
+    second: opening sea animation21_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: intro2_0
+      name: opening sea animation21_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 615
-        height: 537
+        width: 660
+        height: 900
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 084dd290f271dfc30800000000000000
-      internalID: 4394694302168372352
+      spriteID: 309a48709837f6920800000000000000
+      internalID: 2985732110343776515
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      intro2_0: 4394694302168372352
+      opening sea animation21_0: 2985732110343776515
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

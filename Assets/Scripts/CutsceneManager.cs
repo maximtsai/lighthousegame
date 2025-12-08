@@ -4,41 +4,55 @@ using UnityEngine.UI;
 
 public class CutsceneManager : MonoBehaviour
 {
-    [SerializeField] private Image displayImage;   // The main image showing screenshots
-    [SerializeField] private Image fadeOverlay;    // A black Image that covers the screen for fading
-    [SerializeField] private GameObject clickAgainImage;   // A prompt asking you if you want to skip
-    [SerializeField] private GameObject clickBlocker;    // A full-screen button that detects clicks
+    [SerializeField] private Image fadeOverlay;
+    [SerializeField] private GameObject clickAgainImage;
+    [SerializeField] private GameObject clickBlocker;
     [SerializeField] private AudioSource audioSource;
+    [SerializeField] private GameObject animatorObj;   // used for animation cutscenes
 
-    [SerializeField] private float fadeDuration = 0.65f; // seconds to fade in/out
-    private const float targetWidth = 773f;
+    private Animator animator;   // used for animation cutscenes
+
+    [SerializeField] private float fadeDuration = 0.65f;
 
     private bool isPlaying = false;
     private string path = "ScriptableObjects/Cutscenes/";
-    private const float referenceAspect = 16f / 9f; // 1.777...
 
-    // --- Added for skip handling ---
+    // Skip system
     private bool waitingForSecondClick = false;
     private float doubleClickTimeout = 2f;
     private Coroutine resetClickRoutine;
     private System.Action cutsceneOnComplete;
     private bool skipFirstClickBlockerClick = true;
 
-    void Start() { }
-
-    private void SetImageSize(Sprite sprite)
-    {
-        if (sprite == null) return;
-    
-        RectTransform rt = displayImage.rectTransform;
-    
-        float aspect = sprite.rect.width / sprite.rect.height;
-        float targetHeight = targetWidth / aspect;
-    
-        rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, targetWidth);
-        rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, targetHeight);
+    void Start() {
+        if (animatorObj) {
+            animator = animatorObj.GetComponent<Animator>();     
+            ResizeAnimatorObj();
+        }
     }
 
+    void ResizeAnimatorObj() {
+        // Adjust height to maintain aspect ratio
+        RectTransform rt = animatorObj.GetComponent<RectTransform>();
+        if (rt != null) {
+            // Assuming the animatorObj has an Image component for original sprite
+            Image img = animatorObj.GetComponent<Image>();
+            if (img != null && img.sprite != null) {
+                float originalWidth = img.sprite.rect.width;
+                float originalHeight = img.sprite.rect.height;
+
+                float currentWidth = rt.rect.width;
+                float newHeight = currentWidth * (originalHeight / originalWidth);
+
+                rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, newHeight);
+            }
+        }
+
+    }
+
+    // ---------------------------------------------------------
+    // Load ScriptableObject by name
+    // ---------------------------------------------------------
     public Cutscene getCutsceneScriptable(string name)
     {
         string fullPath = path + name;
@@ -50,6 +64,9 @@ public class CutsceneManager : MonoBehaviour
         return cutscene;
     }
 
+    // ---------------------------------------------------------
+    // Play cutscene
+    // ---------------------------------------------------------
     public void PlayCutscene(string cutsceneName, bool skipFadeout = false, System.Action onComplete = null)
     {
         if (isPlaying) return;
@@ -61,7 +78,7 @@ public class CutsceneManager : MonoBehaviour
             return;
         }
 
-        cutsceneOnComplete = onComplete; // store for SkipCutscene()
+        cutsceneOnComplete = onComplete;
         StartCoroutine(PlayCutsceneRoutine(cutscene, skipFadeout, onComplete));
     }
 
@@ -69,71 +86,83 @@ public class CutsceneManager : MonoBehaviour
     {
         isPlaying = true;
         skipFirstClickBlockerClick = true;
+
         clickBlocker.SetActive(true);
         clickAgainImage.SetActive(false);
 
+        // -------------------------------------------------
+        // PLAY MUSIC
+        // -------------------------------------------------
         if (cutscene.backgroundMusic)
         {
             audioSource.clip = cutscene.backgroundMusic;
             audioSource.Play();
         }
 
-        // Start fully transparent
+        // Start transparent
         Color overlayColor = fadeOverlay.color;
         overlayColor.a = 0f;
-        Color fullColor = displayImage.color;
-        Color emptyColor = displayImage.color;
-        fullColor.a = 1f;
-        emptyColor.a = 0f;
-        displayImage.color = emptyColor;
+        fadeOverlay.color = overlayColor;
 
-        for (int i = 0; i < cutscene.images.Count; i++)
+        // FADE IN
+        yield return StartCoroutine(FadeOverlay(1f, fadeDuration));
+
+        // -------------------------------------------------
+        // PLAY ANIMATION
+        // -------------------------------------------------
+        if (cutscene.animation != null && animator != null)
         {
-            // --- Fade to black ---
-            yield return StartCoroutine(FadeOverlay(1f));
-
-            // --- Change image ---
-            displayImage.sprite = cutscene.images[i];
-            fullColor.a = 1f;
-            displayImage.color = fullColor;
-            SetImageSize(displayImage.sprite);
-            SetImageStartPosition(displayImage.sprite);
-
-            // --- Hold for the image duration ---
-            float duration = (i < cutscene.durations.Count) ? cutscene.durations[i] : 4f;
-            yield return StartCoroutine(ShowAndPanImage(displayImage, duration));
+            animatorObj.SetActive(true);
+            ResizeAnimatorObj();
+            animator.Play(cutscene.animation.name, 0, 0f);
+        } else if (cutscene.animation == null)
+        {
+            Debug.LogWarning("Missing cutscene.animation");
+        } else if (animator == null)
+        {
+            Debug.LogWarning("Missing animator");
         }
 
-        // Fade to black at end
-        yield return StartCoroutine(FadeOverlay(1f));
+        // FADE IN
+        yield return StartCoroutine(FadeOverlay(0f, fadeDuration));
 
-        // Clear image & stop music
-        displayImage.sprite = null;
-        displayImage.color = emptyColor;
+        // SCROLL UP LINEARLY UNTIL PLAYER CAN SEE TOP OF animatorObj
+        yield return StartCoroutine(ScrollUp(cutscene.duration));
+
+        // -------------------------------------------------
+        // FADE OUT
+        // -------------------------------------------------
+        yield return StartCoroutine(FadeOverlay(1f, fadeDuration, true));
+
         audioSource.Stop();
 
-        // Fade back to transparent for next scene
-        if (!skipFadeout) {
-            yield return StartCoroutine(FadeOverlay(0f));
+        // Optional fade back to transparent
+        if (!skipFadeout)
+        {
+            yield return StartCoroutine(FadeOverlay(0f, 1f));
         }
 
         isPlaying = false;
         skipFirstClickBlockerClick = false;
+
         clickBlocker.SetActive(false);
         clickAgainImage.SetActive(false);
+        animatorObj.SetActive(false);
+
         onComplete?.Invoke();
     }
 
-    // -----------------------------
-    // SKIP HANDLING (added section)
-    // -----------------------------
+    // ---------------------------------------------------------
+    // Skip Handling
+    // ---------------------------------------------------------
     public void OnClickBlocker()
     {
-        if (skipFirstClickBlockerClick) {
+        if (skipFirstClickBlockerClick)
+        {
             skipFirstClickBlockerClick = false;
             return;
         }
-        Debug.Log("Click blocker clickesdfsdfsdfd");
+
         if (!isPlaying) return;
 
         if (!waitingForSecondClick)
@@ -148,7 +177,6 @@ public class CutsceneManager : MonoBehaviour
         }
         else
         {
-            // Skip NOW
             SkipCutscene();
         }
     }
@@ -164,130 +192,98 @@ public class CutsceneManager : MonoBehaviour
     private void SkipCutscene()
     {
         if (!isPlaying) return;
-    
+
         StopAllCoroutines();
         StartCoroutine(SkipCutsceneRoutine());
     }
 
     private IEnumerator SkipCutsceneRoutine()
     {
-        // 1. Fade to black
+        // fade to black quickly
         yield return StartCoroutine(FadeOverlay(1f, 0.25f));
 
-        // Reset UI
-        displayImage.sprite = null;
-        displayImage.color = new Color(1,1,1,0);
-        clickBlocker.SetActive(false);
-        clickAgainImage.SetActive(false);
-
-        // Stop audio
+        // stop audio
         audioSource.Stop();
 
+        clickBlocker.SetActive(false);
+        clickAgainImage.SetActive(false);
         isPlaying = false;
-        skipFirstClickBlockerClick = false;
 
-        // Call the final callback if provided
         cutsceneOnComplete?.Invoke();
     }
 
-    private IEnumerator FadeOverlay(float targetAlpha, float usedDuration = 0f)
+    // ---------------------------------------------------------
+    // Fade helper
+    // ---------------------------------------------------------
+    private IEnumerator FadeOverlay(float targetAlpha, float usedDuration = 0f, bool fadeAudio = false)
     {
         Color color = fadeOverlay.color;
         float startAlpha = color.a;
+        float startVolume = audioSource.volume;
         float elapsed = 0f;
-
-        float actualDuration = fadeDuration;
-        if (usedDuration > 0f) {
-            actualDuration = usedDuration;
-        }
-
+    
+        float actualDuration = (usedDuration > 0f) ? usedDuration : fadeDuration;
+    
         while (elapsed < actualDuration)
         {
             elapsed += Time.deltaTime;
-            color.a = Mathf.Lerp(startAlpha, targetAlpha, elapsed / actualDuration);
+            float t = elapsed / actualDuration;
+    
+            // Fade overlay
+            color.a = Mathf.Lerp(startAlpha, targetAlpha, t);
             fadeOverlay.color = color;
+    
+            // Fade audio if requested
+            if (fadeAudio)
+            {
+                audioSource.volume = Mathf.Lerp(startVolume, 0f, t);
+            }
+    
             yield return null;
         }
-
+    
+        // Ensure final values are exact
         color.a = targetAlpha;
         fadeOverlay.color = color;
+    
+        if (fadeAudio)
+            audioSource.volume = 1f;
     }
-
-    private IEnumerator ShowAndPanImage(Image img, float duration)
+    // ---------------------------------------------------------
+    // Scroll up helper
+    // ---------------------------------------------------------
+    private IEnumerator ScrollUp(float usedDuration = 1f)
     {
-        RectTransform rt = img.rectTransform;
-        Sprite sprite = img.sprite;
-        if (sprite == null) yield break;
+        RectTransform rt = animatorObj.GetComponent<RectTransform>();
+        if (rt == null) yield break;
     
-        float spriteAspect = sprite.rect.width / sprite.rect.height;
-        float targetHeight = targetWidth / spriteAspect;
-        float refAspect = 16f / 9f;
-        float spriteHeightRatio = sprite.rect.height / sprite.rect.width;
+        // Starting position (current anchored position)
+        Vector2 startPos = rt.anchoredPosition;
     
-        rt.anchoredPosition = Vector2.zero;
-        rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, targetWidth);
-        rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, targetHeight);
+        // Calculate target position
+        // We want the top of the RectTransform to align with the top of its parent
+        RectTransform parentRT = rt.parent.GetComponent<RectTransform>();
+        if (parentRT == null) yield break;
     
-        if (spriteHeightRatio > (9f / 16f))
+        float parentHeight = parentRT.rect.height;
+        float targetY = startPos.y - (rt.rect.height - parentHeight);
+    
+        // Only scroll if the content is taller than the parent
+        if (rt.rect.height <= parentHeight)
+            yield break;
+    
+        float elapsed = 0f;
+    
+        while (elapsed < usedDuration)
         {
-            float extraHeight = targetHeight - (targetWidth / refAspect);
-            Vector2 startPos = new Vector2(0f, extraHeight / 2f);
-            Vector2 endPos = new Vector2(0f, -extraHeight / 2f);
+            elapsed += Time.deltaTime;
+            float t = Mathf.Clamp01(elapsed / usedDuration);
+            float newY = Mathf.Lerp(startPos.y, targetY, t);
+            rt.anchoredPosition = new Vector2(startPos.x, newY);
+            yield return null;
+        }
     
-            float slowDownStart = 0.9f;
-            float slowDownFactor = 0.1f;
-            float elapsed = 0f;
-            while (elapsed < duration)
-            {
-                elapsed += Time.deltaTime;
-                float t = Mathf.Clamp01(elapsed / duration);
-                if (t > slowDownStart)
-                {
-                    float normalized = (t - slowDownStart) / (1f - slowDownStart);
-                    float speedMult = Mathf.Lerp(1f, slowDownFactor, normalized);
-                    t = slowDownStart + 0.4f * (t - slowDownStart);
-                }
-    
-                rt.anchoredPosition = Vector2.Lerp(startPos, endPos, t / 0.94f);
-
-                float halfFadeDur = fadeDuration * 0.5f;
-                if (elapsed < halfFadeDur)
-                {
-                    float fadeT = (halfFadeDur - elapsed) / halfFadeDur;
-                    Color color = fadeOverlay.color;
-                    color.a = Mathf.Lerp(0f, 1f, fadeT);
-                    fadeOverlay.color = color;
-                } 
-                else 
-                {
-                    Color color = fadeOverlay.color;
-                    color.a = 0f;
-                    fadeOverlay.color = color;
-                }
-
-                yield return null;
-            }
-            yield return new WaitForSeconds(1f);
-        }
-        else
-        {
-            yield return new WaitForSeconds(duration);
-        }
-    }
-
-    private void SetImageStartPosition(Sprite sprite)
-    {
-        RectTransform rt = displayImage.rectTransform;
-        float aspect = sprite.rect.width / sprite.rect.height;
-
-        rt.anchoredPosition = Vector2.zero;
-
-        if (aspect < referenceAspect)
-        {
-            float targetHeight = targetWidth / aspect;
-            float visibleHeight = targetWidth / referenceAspect;
-            float offset = (targetHeight - visibleHeight) / 2f;
-            rt.anchoredPosition = new Vector2(0f, offset);
-        }
+        // Ensure final position is exact
+        rt.anchoredPosition = new Vector2(startPos.x, targetY);
     }
 }

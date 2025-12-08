@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 54fa523210c78c746b6abe26556b53e9
+guid: 1974142368f9f184e9590c81d2d4c697
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7155477386765806185
-    second: fish_alive_0
+      213: -7359275833748776418
+    second: opening sea animation11_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: fish_alive_0
+      name: opening sea animation11_0
       rect:
         serializedVersion: 2
-        x: 82
-        y: 45
-        width: 132
-        height: 90
+        x: 0
+        y: 0
+        width: 660
+        height: 900
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 795db736a33a2bc90800000000000000
-      internalID: -7155477386765806185
+      spriteID: e1a994dce999ed990800000000000000
+      internalID: -7359275833748776418
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      fish_alive_0: -7155477386765806185
+      opening sea animation11_0: -7359275833748776418
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
