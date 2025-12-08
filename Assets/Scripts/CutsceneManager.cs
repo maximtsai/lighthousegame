@@ -12,7 +12,7 @@ public class CutsceneManager : MonoBehaviour
 
     private Animator animator;   // used for animation cutscenes
 
-    [SerializeField] private float fadeDuration = 0.65f;
+    [SerializeField] private float fadeDuration = 0.6f;
 
     private bool isPlaying = false;
     private string path = "ScriptableObjects/Cutscenes/";
