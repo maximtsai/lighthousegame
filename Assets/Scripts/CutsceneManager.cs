@@ -47,7 +47,6 @@ public class CutsceneManager : MonoBehaviour
                 rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, newHeight);
             }
         }
-
     }
 
     // ---------------------------------------------------------
