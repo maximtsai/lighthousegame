@@ -25,7 +25,9 @@ public class BedroomMiscLogic : MonoBehaviour
                 if (!GameState.Get<bool>("ate_breakfast")) {
                     MessageBus.Instance.Publish("AddTaskString", "generic/task_breakfast");
                 }
-
+                if (!GameState.Get<bool>("ate_dinner")) {
+                    MessageBus.Instance.Publish("AddTaskString", "generic/task_dinner");
+                }
                 break;
             case 2:
                 break;

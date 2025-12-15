@@ -44,7 +44,7 @@ public class Navigation : MonoBehaviour
 
     public void GoToStove()
     {
-        if (GameState.Get<bool>("hungry"))
+        if (!GameState.Get<bool>("hungry"))
         {
             DialogueManager.ShowDialogue(getDialog("kitchen/not_hungry"));
             return;

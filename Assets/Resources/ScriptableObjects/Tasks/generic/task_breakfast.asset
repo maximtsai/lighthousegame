@@ -13,7 +13,5 @@ MonoBehaviour:
   m_Name: task_breakfast
   m_EditorClassIdentifier: Assembly-CSharp::Task
   id: task_breakfast
-  description: Eat breakfast.
-  completion_object_id: object_stewpot
+  description: Eat Breakfast
   on_completion: {fileID: 0}
-  new_tasks_on_completion: []

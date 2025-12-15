@@ -24,6 +24,11 @@ public class StoveScript : MonoBehaviour
         {
             fish.SetActive(true);
         }
+        if (IsDoneCooking())
+        {
+            EnableEating();
+        }
+        
     }
 
     // Update is called once per frame
@@ -40,25 +45,31 @@ public class StoveScript : MonoBehaviour
         }
         else
         {
+            GameState.Set("corn_clicked", true);
             GlowPot();
-            CheckIfDoneCooking();
+            if (IsDoneCooking())
+            {
+                EnableEating();
+            }
             PlaySound(cornSound);
         }
-        GameState.Set("corn_clicked", true);
     }
 
     public void ClickPepper()
     {
-        if (GameState.Get<bool>("alcohol_clicked"))
+        if (GameState.Get<bool>("pepper_clicked"))
         {
             // Already clicked
             DialogueManager.ShowDialogue(miscObjectClick.getDialogue("stove/pepper_already_added"));
         } else {
+            GameState.Set("pepper_clicked", true);
             GlowPot();
-            CheckIfDoneCooking();
+            if (IsDoneCooking())
+            {
+                EnableEating();
+            }
             PlaySound(pepperSound);
         }
-        GameState.Set("pepper_clicked", true);
     }
 
     public void ClickAlcohol()
@@ -68,11 +79,14 @@ public class StoveScript : MonoBehaviour
             // Already clicked
             DialogueManager.ShowDialogue(miscObjectClick.getDialogue("stove/alcohol_already_added"));
         } else {
+            GameState.Set("alcohol_clicked", true);
             GlowPot();
-            CheckIfDoneCooking();
+            if (IsDoneCooking())
+            {
+                EnableEating();
+            }
             PlaySound(alcoholSound);
         }
-        GameState.Set("alcohol_clicked", true);
     }
 
     public void ClickFish()
@@ -84,11 +98,15 @@ public class StoveScript : MonoBehaviour
         }
         else
         {
+            GameState.Set("fish_clicked", true);
             GlowPot();
-            CheckIfDoneCooking();
+            if (IsDoneCooking())
+            {
+                EnableEating();
+            }
+            
             PlaySound(fishChopSound);
         }
-        GameState.Set("fish_clicked", true);
     }
 
     public void ClickPot()
@@ -98,40 +116,58 @@ public class StoveScript : MonoBehaviour
             DialogueManager.ShowDialogue(miscObjectClick.getDialogue("stove/not_hungry"));
             return;
         }
-        if (doneAnim.activeInHierarchy)
+        
+        if (IsDoneCooking())
         {
             PlaySound(eatSound);
+            if (GameState.Get<bool>("ate_breakfast"))
+            {
+                MessageBus.Instance.Publish("CompleteTask", "task_dinner");
+            }
+            else
+            {
+                MessageBus.Instance.Publish("CompleteTask", "task_breakfast");
+            }
+
+            
             GameState.Set("ate_breakfast", true);
             GameState.Set("hungry", false);
-        } else {
+            doneAnim.SetActive(false);
+            DialogueManager.ShowDialogue(miscObjectClick.getDialogue("stove/eating"));
+        }
+        else
+        {
             DialogueManager.ShowDialogue(miscObjectClick.getDialogue("stove/not_ready"));
         }
+
     }
     
-    private void CheckIfDoneCooking() {
+    private bool IsDoneCooking() {
         if (GameState.Get<bool>("ate_breakfast")) {
-            CheckIfDoneCookingDinner();
+            return IsDoneCookingDinner();
         } else {
-            CheckIfDoneCookingBreakfast();
+            return IsDoneCookingBreakfast();
         }
     }
 
-    private void CheckIfDoneCookingBreakfast() {
-        Debug.Log(GameState.Get<bool>("corn_clicked"));
-        Debug.Log(GameState.Get<bool>("pepper_clicked"));
-        Debug.Log(GameState.Get<bool>("alcohol_clicked"));
-        Debug.Log("=====");
+    private bool IsDoneCookingBreakfast() {
         if (GameState.Get<bool>("corn_clicked") && GameState.Get<bool>("pepper_clicked") && GameState.Get<bool>("alcohol_clicked")) {
-            EnableEating();
+            // EnableEating();
+            return true;
         }
+
+        return false;
     }
 
-    private void CheckIfDoneCookingDinner() {
+    private bool IsDoneCookingDinner() {
         if (GameState.Get<bool>("corn_clicked") && GameState.Get<bool>("pepper_clicked") && GameState.Get<bool>("alcohol_clicked")) {
             if (GameState.Get<bool>("fish_clicked")) {
-                EnableEating();
+                //EnableEating();
+                return true;
             }
         }
+
+        return false;
     }
 
 
@@ -159,7 +195,7 @@ public class StoveScript : MonoBehaviour
         c.a = 1f;
         potGlowAnim.color = c;
 
-        float duration = 1.5f;
+        float duration = 1.2f;
         float t = 0f;
 
         while (t < duration)

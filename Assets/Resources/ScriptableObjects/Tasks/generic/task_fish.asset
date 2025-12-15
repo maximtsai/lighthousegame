@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5d4a7cb2b5cf7c344b163f980a327405, type: 3}
-  m_Name: task_wash_up
+  m_Name: task_fish
   m_EditorClassIdentifier: Assembly-CSharp::Task
-  id: task_wash_up
-  description: Go Wash Up
+  id: task_fish
+  description: Catch Fish
   on_completion: {fileID: 0}
