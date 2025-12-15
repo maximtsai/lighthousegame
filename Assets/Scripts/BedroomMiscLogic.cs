@@ -65,6 +65,8 @@ public class BedroomMiscLogic : MonoBehaviour
         GameState.Set("fish_clicked", false);
         GameState.Set("ate_breakfast", false);
         GameState.Set("ate_dinner", false);
+        GameState.Set("hungry", true);
+        
 
         GameState.Set("lighthouse_opened", false);
         GameState.Set("lighthouse_fixed", false);

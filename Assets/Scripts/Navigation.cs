@@ -42,6 +42,17 @@ public class Navigation : MonoBehaviour
         GoToTransition(scene, 0.35f);
     }
 
+    public void GoToStove()
+    {
+        if (GameState.Get<bool>("hungry"))
+        {
+            DialogueManager.ShowDialogue(getDialog("kitchen/not_hungry"));
+            return;
+        }
+
+        GoToTransition("StoveScene", 0.25f);
+    }
+    
     public void GoToSink(SceneTransition transition)
     {
         if (GameState.Get<string>("is_clean") == "true")
