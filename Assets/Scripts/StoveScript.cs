@@ -7,6 +7,7 @@ public class StoveScript : MonoBehaviour
     [SerializeField] private SpriteRenderer potGlowAnim;   // used for animation 
     [SerializeField] private GameObject eatButton;
     [SerializeField] private GameObject fish;
+    [SerializeField] private GameObject soupCover;
     [SerializeField] private MiscObjectClick miscObjectClick;
 
     [SerializeField] private AudioClip cornSound;
@@ -27,6 +28,15 @@ public class StoveScript : MonoBehaviour
         if (IsDoneCooking())
         {
             EnableEating();
+        }
+        if (GameState.Get<bool>("corn_clicked") || GameState.Get<bool>("pepper_clicked") || GameState.Get<bool>("alcohol_clicked"))
+        {
+            // If you've prepared some food, but haven't eaten it and therefore are still hungry
+            // Hide the soupcover to show the soup in progress
+            if (GameState.Get<bool>("hungry"))
+            {
+                soupCover.SetActive(false);
+            }
         }
         
     }
@@ -133,6 +143,7 @@ public class StoveScript : MonoBehaviour
             GameState.Set("ate_breakfast", true);
             GameState.Set("hungry", false);
             doneAnim.SetActive(false);
+            soupCover.SetActive(true);
             DialogueManager.ShowDialogue(miscObjectClick.getDialogue("stove/eating"));
         }
         else
@@ -184,7 +195,7 @@ public class StoveScript : MonoBehaviour
     {
         if (glowRoutine != null)
             StopCoroutine(glowRoutine);
-
+        soupCover.SetActive(false);
         glowRoutine = StartCoroutine(GlowRoutine());
     }
 
