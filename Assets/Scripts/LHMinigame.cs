@@ -249,7 +249,10 @@ public class LHMinigame : MonoBehaviour
             GameState.Get<bool>("oil_used"))
         {
             // We've finished!
+            Debug.Log("Lighthouse now fixed");
         	GameState.Set("lighthouse_fixed", true);
+            MessageBus.Instance.Publish("CompleteTask", "task_lighthouse");
+
             StartCoroutine(CloseAfterDelay(2.4f));
 
             // if (!isAnimating)

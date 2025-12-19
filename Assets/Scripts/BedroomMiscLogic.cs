@@ -16,18 +16,25 @@ public class BedroomMiscLogic : MonoBehaviour
             UpdateTrack(ambience, bgLoop2, 0.21f, 2);
         }
 
+        BeginDay();
+    }
+
+    private void BeginDay()
+    {
+        if (GameState.Get<bool>("day_started"))
+            return;
+
+        GameState.Set("day_started", true);
+
         int day = GameState.Get<int>("day");
-        switch (day) {
+        switch (day)
+        {
             case 1:
-                if (GameState.Get<string>("is_clean") != "true") {
-                    MessageBus.Instance.Publish("AddTaskString", "generic/task_wash_up");
-                }
-                if (!GameState.Get<bool>("ate_breakfast")) {
-                    MessageBus.Instance.Publish("AddTaskString", "generic/task_breakfast");
-                }
-                if (!GameState.Get<bool>("ate_dinner")) {
-                    MessageBus.Instance.Publish("AddTaskString", "generic/task_dinner");
-                }
+                MessageBus.Instance.Publish("AddTaskString", "generic/task_wash_up");
+                MessageBus.Instance.Publish("AddTaskString", "generic/task_breakfast");
+                MessageBus.Instance.Publish("AddTaskString", "generic/task_lighthouse");
+                MessageBus.Instance.Publish("AddTaskString", "generic/task_fish");
+                MessageBus.Instance.Publish("AddTaskString", "generic/task_dinner");
                 break;
             case 2:
                 break;
@@ -61,14 +68,18 @@ public class BedroomMiscLogic : MonoBehaviour
     }
 
     public void NewDay() {
+        GameState.Set("day_started", false);
+
+        GameState.Set("is_clean", "false");
+
         GameState.Set("corn_clicked", false);
         GameState.Set("pepper_clicked", false);
         GameState.Set("alcohol_clicked", false);
         GameState.Set("fish_clicked", false);
+
         GameState.Set("ate_breakfast", false);
         GameState.Set("ate_dinner", false);
         GameState.Set("hungry", true);
-        
 
         GameState.Set("lighthouse_opened", false);
         GameState.Set("lighthouse_fixed", false);
@@ -76,8 +87,11 @@ public class BedroomMiscLogic : MonoBehaviour
         GameState.Set("oil_used", false);
         GameState.Set("scissors_used", false);
         GameState.Set("mercury_used", false);
-        GameState.Set("gathered_fish", false);
-        GameState.Set("is_clean", "false");
 
+        GameState.Set("gathered_fish", false);
+
+        GameState.Set("recorded_weather", false);
+
+        BeginDay();
     }
 }

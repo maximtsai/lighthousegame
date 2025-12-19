@@ -37,7 +37,7 @@ public class MiscObjectClick : MonoBehaviour
     }
     public void ClickSelfBed()
     {
-        if (GameState.Get<bool>("checked_weather") && GameState.Get<bool>("fixed_lighthouse") && GameState.Get<bool>("ate_dinner"))
+        if (GameState.Get<bool>("checked_weather") && GameState.Get<bool>("lighthouse_fixed") && GameState.Get<bool>("ate_dinner"))
         {
             Debug.Log("Go to next day");
         }
@@ -54,7 +54,7 @@ public class MiscObjectClick : MonoBehaviour
             }
             else
             {
-                if (GameState.Get<bool>("checked_weather") || GameState.Get<bool>("fixed_lighthouse") || GameState.Get<bool>("gathered_fish"))
+                if (GameState.Get<bool>("checked_weather") || GameState.Get<bool>("lighthouse_fixed") || GameState.Get<bool>("gathered_fish"))
                 {
                     // I still have work to do!
                     DialogueManager.ShowDialogue(getDialogue("Bedroom/my_bed_2a"));
@@ -70,7 +70,7 @@ public class MiscObjectClick : MonoBehaviour
     
     public void ClickLighthouseLight()
     {
-        if (GameState.Get<bool>("fixed_lighthouse"))
+        if (GameState.Get<bool>("lighthouse_fixed"))
         {
             DialogueManager.ShowDialogue(getDialogue("Lighthouse/fix_complete"));
         }
@@ -100,14 +100,15 @@ public class MiscObjectClick : MonoBehaviour
         {
         	DialogueManager.ShowDialogue(getDialogue("dock/gather_fish_done"));
 
-		} else if (GameState.Get<bool>("fixed_lighthouse", false) == false)
+		} else if (GameState.Get<bool>("lighthouse_fixed", false) == false)
         {
             DialogueManager.ShowDialogue(getDialogue("dock/gather_fish_not_yet"));
         } else
         {
             // Successfully got fish
 			GameState.Set("gathered_fish", true);
-        	DialogueManager.ShowDialogue(getDialogue("dock/gather_fish"));
+            MessageBus.Instance.Publish("CompleteTask", "task_fish");
+            DialogueManager.ShowDialogue(getDialogue("dock/gather_fish"));
 		}
 	}
 
