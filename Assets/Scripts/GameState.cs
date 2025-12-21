@@ -3,6 +3,8 @@ using UnityEngine;
 
 public static class GameState
 {
+    public static System.Action OnDataChanged;
+
     private static Dictionary<string, object> data;
 
     static GameState()
@@ -24,6 +26,7 @@ public static class GameState
     public static void Set(string key, object value)
     {
         data[key] = value;
+        OnDataChanged?.Invoke();
     }
 
     // Get a value with type casting
@@ -82,6 +85,21 @@ public static class GameState
     public static void SetAllData(Dictionary<string, object> newData)
     {
         data = new Dictionary<string, object>(newData);
+    }
+
+    public static string StringifyData()
+    {
+        System.Text.StringBuilder sb = new System.Text.StringBuilder();
+
+        foreach (var pair in data)
+        {
+            sb.Append(pair.Key);
+            sb.Append(": ");
+            sb.Append(pair.Value);
+            sb.Append("\n");
+        }
+
+        return sb.ToString();
     }
 
 }
