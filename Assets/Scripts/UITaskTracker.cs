@@ -14,7 +14,7 @@ public class UITaskTracker : MonoBehaviour
 
     [Header("Audio")]
     [SerializeField] AudioClip whoosh_in;
-    [SerializeField] AudioClip typewriter;
+    [SerializeField] AudioClip scribble_sfx;
 
     [Header("Animation Settings")]
     [SerializeField] float revealDuration = 0.6f;
@@ -190,13 +190,13 @@ public class UITaskTracker : MonoBehaviour
     private IEnumerator TypewriterAnimation(int token)
     {
         text_tasklist.text = "";
+        PlaySound(scribble_sfx);
 
         for (int i = 0; i <= textToDisplay.Length; i++)
         {
             if (token != animationToken) yield break;
 
             text_tasklist.text = textToDisplay.Substring(0, i);
-            PlaySound(typewriter);
 
             yield return new WaitForSeconds(typewriterDelay);
         }

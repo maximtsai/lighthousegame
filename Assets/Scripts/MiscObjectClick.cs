@@ -107,6 +107,7 @@ public class MiscObjectClick : MonoBehaviour
         {
             // Successfully got fish
 			GameState.Set("gathered_fish", true);
+            GameState.Set("hungry", true);
             MessageBus.Instance.Publish("CompleteTask", "task_fish");
             DialogueManager.ShowDialogue(getDialogue("dock/gather_fish"));
 		}

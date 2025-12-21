@@ -258,10 +258,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.2799043
     y: 0
-    width: 0.99913865
-    height: 1
+    width: 0.75917065
+    height: 0.7595745
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -1127,6 +1127,10 @@ PrefabInstance:
       propertyPath: typewriter
       value: 
       objectReference: {fileID: 8300000, guid: 3fcb6578f938a284aa88c2e34ff85c08, type: 3}
+    - target: {fileID: 6531356694525060655, guid: dd5f4d8884df57545b6117f57bd5a5d1, type: 3}
+      propertyPath: scribble_sfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 63fcb3c04f02ddd46aa03ff402c42789, type: 3}
     - target: {fileID: 8704168897114315089, guid: dd5f4d8884df57545b6117f57bd5a5d1, type: 3}
       propertyPath: m_Name
       value: QuestManager
