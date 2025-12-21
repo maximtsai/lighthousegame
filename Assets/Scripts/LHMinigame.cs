@@ -4,6 +4,7 @@ using System.Collections;
 
 public class LHMinigame : MonoBehaviour
 {
+    [SerializeField] private GameObject exit;
     [SerializeField] private GameObject tools;
     [SerializeField] private SpriteRenderer background;
     [SerializeField] private SpriteRenderer glowEffect;
@@ -249,9 +250,8 @@ public class LHMinigame : MonoBehaviour
             GameState.Get<bool>("oil_used"))
         {
             // We've finished!
-            Debug.Log("Lighthouse now fixed");
         	GameState.Set("lighthouse_fixed", true);
-            MessageBus.Instance.Publish("CompleteTask", "task_lighthouse");
+            exit.SetActive(false);
 
             StartCoroutine(CloseAfterDelay(2.4f));
 
@@ -274,11 +274,15 @@ public class LHMinigame : MonoBehaviour
         lighthouseAnimator.gameObject.SetActive(true);
 		shadowScrollScript.startScale = 1.05f;
 
+        miscObjectClick.PlaySound(finishLoop, 0.98f, true);
         miscObjectClick.PlaySound(finishClick);
-        miscObjectClick.PlaySound(finishLoop, 1f, true);
+
+        Debug.Log("loop sound play");
 
         StopMinigame();
         DialogueManager.ShowDialogue(miscObjectClick.getDialogue("Lighthouse/work_done"));
+        MessageBus.Instance.Publish("CompleteTask", "task_lighthouse");
+
     }
 
 }

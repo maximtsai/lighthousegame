@@ -14,6 +14,11 @@ public class KitchenMiscLogic : MonoBehaviour
         UpdateTrack(ambience, bgLoop1, 0.75f, 1);
         // Update track 2
         UpdateTrack(ambience, bgLoop2, 0.24f, 2);
+
+        if (GameState.Get<bool>("is_nighttime", false))
+        {
+
+        }
     }
 
     private void UpdateTrack(Ambience ambience, AudioClip newClip, float volume, int channel)

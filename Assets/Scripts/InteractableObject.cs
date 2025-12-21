@@ -6,8 +6,8 @@ using UnityEngine.Events;
 public class InteractableObject : MonoBehaviour
 {
     [SerializeField] string object_id = "null";
-    [SerializeField] Sprite default_sprite;
-    [SerializeField] Sprite hover_sprite;
+    public Sprite default_sprite;
+    public Sprite hover_sprite;
     [SerializeField] UnityEvent on_click;
 
     private AudioSource audioSource;

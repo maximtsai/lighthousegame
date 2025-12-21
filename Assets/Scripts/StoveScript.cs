@@ -7,8 +7,13 @@ public class StoveScript : MonoBehaviour
     [SerializeField] private SpriteRenderer potGlowAnim;   // used for animation 
     [SerializeField] private GameObject eatButton;
     [SerializeField] private GameObject fish;
+    [SerializeField] private GameObject fishAnim;
     [SerializeField] private GameObject soupCover;
     [SerializeField] private MiscObjectClick miscObjectClick;
+
+    [SerializeField] private Sprite choppedFishSprite;
+    [SerializeField] private Sprite choppedFishSpriteTwitch;
+    [SerializeField] private Sprite choppedFishSpriteHover;
 
     [SerializeField] private AudioClip cornSound;
     [SerializeField] private AudioClip pepperSound;
@@ -24,6 +29,16 @@ public class StoveScript : MonoBehaviour
         if (GameState.Get<bool>("ate_breakfast") && !GameState.Get<bool>("ate_dinner") && GameState.Get<bool>("gathered_fish"))
         {
             fish.SetActive(true);
+            if (GameState.Get<bool>("fish_clicked", false))
+            {
+                // Change gameObject "fish"'s sprite to a new sprite
+                SpriteRenderer sr = fish.GetComponent<SpriteRenderer>();
+                sr.sprite = choppedFishSprite;
+                InteractableObject interactable = fish.GetComponent<InteractableObject>();
+                interactable.hover_sprite = choppedFishSpriteHover;
+                interactable.default_sprite = choppedFishSprite;
+
+            }
         }
         if (IsDoneCooking())
         {
@@ -49,6 +64,12 @@ public class StoveScript : MonoBehaviour
 
     public void ClickCorn()
     {
+        if (!GameState.Get<bool>("hungry"))
+        {
+            DialogueManager.ShowDialogue(miscObjectClick.getDialogue("stove/not_hungry"));
+            return;
+        }
+
         if (GameState.Get<bool>("corn_clicked"))
         {
             DialogueManager.ShowDialogue(miscObjectClick.getDialogue("stove/corn_already_added"));
@@ -67,6 +88,11 @@ public class StoveScript : MonoBehaviour
 
     public void ClickPepper()
     {
+        if (!GameState.Get<bool>("hungry"))
+        {
+            DialogueManager.ShowDialogue(miscObjectClick.getDialogue("stove/not_hungry"));
+            return;
+        }
         if (GameState.Get<bool>("pepper_clicked"))
         {
             // Already clicked
@@ -84,6 +110,11 @@ public class StoveScript : MonoBehaviour
 
     public void ClickAlcohol()
     {
+        if (!GameState.Get<bool>("hungry"))
+        {
+            DialogueManager.ShowDialogue(miscObjectClick.getDialogue("stove/not_hungry"));
+            return;
+        }
         if (GameState.Get<bool>("alcohol_clicked"))
         {
             // Already clicked
@@ -101,6 +132,11 @@ public class StoveScript : MonoBehaviour
 
     public void ClickFish()
     {
+        if (!GameState.Get<bool>("hungry"))
+        {
+            DialogueManager.ShowDialogue(miscObjectClick.getDialogue("stove/not_hungry"));
+            return;
+        }
         if (GameState.Get<bool>("fish_clicked"))
         {
             // Already clicked
@@ -109,6 +145,12 @@ public class StoveScript : MonoBehaviour
         else
         {
             GameState.Set("fish_clicked", true);
+            // Change gameObject "fish"'s sprite to a new sprite
+            TwitchFish();
+
+            InteractableObject interactable = fish.GetComponent<InteractableObject>();
+            interactable.hover_sprite = choppedFishSpriteHover;
+            interactable.default_sprite = choppedFishSprite;
             GlowPot();
             if (IsDoneCooking())
             {
@@ -133,12 +175,17 @@ public class StoveScript : MonoBehaviour
             if (GameState.Get<bool>("ate_breakfast"))
             {
                 MessageBus.Instance.Publish("CompleteTask", "task_dinner");
+                GameState.Set("ate_dinner", true);
             }
             else
             {
                 MessageBus.Instance.Publish("CompleteTask", "task_breakfast");
             }
 
+            GameState.Set("corn_clicked", false);
+            GameState.Set("pepper_clicked", false);
+            GameState.Set("alcohol_clicked", false);
+            GameState.Set("fish_clicked", false);
             
             GameState.Set("ate_breakfast", true);
             GameState.Set("hungry", false);
@@ -162,6 +209,10 @@ public class StoveScript : MonoBehaviour
     }
 
     private bool IsDoneCookingBreakfast() {
+        if (!GameState.Get<bool>("hungry"))
+        {
+            return true;
+        }
         if (GameState.Get<bool>("corn_clicked") && GameState.Get<bool>("pepper_clicked") && GameState.Get<bool>("alcohol_clicked")) {
             // EnableEating();
             return true;
@@ -171,6 +222,10 @@ public class StoveScript : MonoBehaviour
     }
 
     private bool IsDoneCookingDinner() {
+        if (!GameState.Get<bool>("hungry"))
+        {
+            return true;
+        }
         if (GameState.Get<bool>("corn_clicked") && GameState.Get<bool>("pepper_clicked") && GameState.Get<bool>("alcohol_clicked")) {
             if (GameState.Get<bool>("fish_clicked")) {
                 //EnableEating();
@@ -231,5 +286,24 @@ public class StoveScript : MonoBehaviour
 
         var src = AudioManager.Instance.AudioSource;
         src.PlayOneShot(clip);
+    }
+
+    private void TwitchFish()
+    {
+        fish.SetActive(false);
+        fishAnim.SetActive(true);
+        SpriteRenderer sr = fishAnim.GetComponent<SpriteRenderer>();
+        sr.sprite = choppedFishSpriteTwitch;
+        StartCoroutine(TwitchFishCoroutine());
+    }
+
+    private IEnumerator TwitchFishCoroutine()
+    {
+        yield return new WaitForSeconds(0.12f);
+        SpriteRenderer sr = fishAnim.GetComponent<SpriteRenderer>();
+        sr.sprite = choppedFishSprite;
+        yield return new WaitForSeconds(1f);
+        fish.SetActive(true);
+        fishAnim.SetActive(false);
     }
 }

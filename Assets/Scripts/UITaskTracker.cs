@@ -18,7 +18,7 @@ public class UITaskTracker : MonoBehaviour
 
     [Header("Animation Settings")]
     [SerializeField] float revealDuration = 0.6f;
-    [SerializeField] float typewriterDelay = 0.03f;
+    [SerializeField] float typewriterDelay = 0.06f;
     [SerializeField] float hideDuration = 0.5f;
 
     // ============================= INTERNAL STATE =============================
@@ -191,6 +191,7 @@ public class UITaskTracker : MonoBehaviour
     {
         text_tasklist.text = "";
         PlaySound(scribble_sfx);
+        yield return new WaitForSeconds(0.23f);
 
         for (int i = 0; i <= textToDisplay.Length; i++)
         {

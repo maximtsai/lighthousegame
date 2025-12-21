@@ -89,6 +89,7 @@ public class BedroomMiscLogic : MonoBehaviour
         GameState.Set("mercury_used", false);
 
         GameState.Set("gathered_fish", false);
+        GameState.Set("is_nighttime", false);
 
         GameState.Set("recorded_weather", false);
 

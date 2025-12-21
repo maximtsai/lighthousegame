@@ -566,7 +566,7 @@ Camera:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 0.99976104
+    width: 1
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
@@ -1254,6 +1254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c7be23229d3a5b40b1ad1f676f4c579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LHMinigame
+  exit: {fileID: 1936424240}
   tools: {fileID: 1870315434}
   background: {fileID: 936786989}
   glowEffect: {fileID: 763204939}
