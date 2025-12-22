@@ -45,6 +45,25 @@ public class LHMinigame : MonoBehaviour
 			shadowScrollScript.startScale = 1.05f;
 	        StartCoroutine(PlaySoundDelayedRoutine(finishLoop, 0.9f, true, 0.01f));
 		}
+        GameState.Set("wrench_used", false);
+        GameState.Set("lighthouse_opened", false);
+
+
+        if (GameState.Get<bool>("oil_used") && oilRenderer != null)
+        {
+            oilRenderer.color = new Color(0.4f, 0.4f, 0.4f, 1f); // Make it appear used
+        }
+
+        if (GameState.Get<bool>("mercury_used") && mercuryRenderer != null)
+        {
+            mercuryRenderer.color = new Color(0.4f, 0.4f, 0.4f, 1f); // Make it appear used
+        }
+
+        if (GameState.Get<bool>("scissors_used") && scissorsRenderer != null)
+        {
+            scissorsRenderer.color = new Color(0.4f, 0.4f, 0.4f, 1f); // Make it appear used
+        }
+
     }
 
 	private IEnumerator PlaySoundDelayedRoutine(AudioClip sfx, float volume, bool loop, float delay)
@@ -91,7 +110,6 @@ public class LHMinigame : MonoBehaviour
 
         if (GameState.Get<bool>("wrench_used"))
         {
-            // We've already used mercury
             return;
         }
         GameState.Set("wrench_used", true);
@@ -268,16 +286,17 @@ public class LHMinigame : MonoBehaviour
             background.sprite = lighthouseRoomCloseSprite;
         }
         miscObjectClick.PlaySound(lockSound);
+        miscObjectClick.PlaySound(finishLoop, 0.98f, true);
+
         yield return new WaitForSeconds(delay * 0.45f);
 
         GameState.Set("lighthouse_opened", false);
         lighthouseAnimator.gameObject.SetActive(true);
 		shadowScrollScript.startScale = 1.05f;
 
-        miscObjectClick.PlaySound(finishLoop, 0.98f, true);
         miscObjectClick.PlaySound(finishClick);
 
-        Debug.Log("loop sound play");
+        Debug.Log("loop sound play for lighthouse");
 
         StopMinigame();
         DialogueManager.ShowDialogue(miscObjectClick.getDialogue("Lighthouse/work_done"));

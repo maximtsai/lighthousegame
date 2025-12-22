@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: fish_already_added
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   text:
-  - You already added fish
+  - You've already added all the good bits.
   onDialogueEnd:
     m_PersistentCalls:
       m_Calls: []

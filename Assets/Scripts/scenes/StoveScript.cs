@@ -214,7 +214,6 @@ public class StoveScript : MonoBehaviour
             return true;
         }
         if (GameState.Get<bool>("corn_clicked") && GameState.Get<bool>("pepper_clicked") && GameState.Get<bool>("alcohol_clicked")) {
-            // EnableEating();
             return true;
         }
 
@@ -228,7 +227,6 @@ public class StoveScript : MonoBehaviour
         }
         if (GameState.Get<bool>("corn_clicked") && GameState.Get<bool>("pepper_clicked") && GameState.Get<bool>("alcohol_clicked")) {
             if (GameState.Get<bool>("fish_clicked")) {
-                //EnableEating();
                 return true;
             }
         }
