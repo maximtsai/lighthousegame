@@ -213,7 +213,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.65, y: 2.2}
+  m_Size: {x: 1.5, y: 2}
   m_EdgeRadius: 0
 --- !u!212 &249423852
 SpriteRenderer:
@@ -636,10 +636,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.32932165
+    x: 0.2995283
     y: 0
-    width: 0.60880136
-    height: 0.6089494
+    width: 0.73375267
+    height: 0.7337526
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34

@@ -147,7 +147,8 @@ public class StoveScript : MonoBehaviour
             GameState.Set("fish_clicked", true);
             // Change gameObject "fish"'s sprite to a new sprite
             TwitchFish();
-
+            SpriteRenderer sr = fish.GetComponent<SpriteRenderer>();
+            sr.sprite = choppedFishSprite;
             InteractableObject interactable = fish.GetComponent<InteractableObject>();
             interactable.hover_sprite = choppedFishSpriteHover;
             interactable.default_sprite = choppedFishSprite;

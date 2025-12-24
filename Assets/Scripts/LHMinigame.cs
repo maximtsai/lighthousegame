@@ -70,6 +70,9 @@ public class LHMinigame : MonoBehaviour
 	{
 		yield return new WaitForSeconds(delay);
         miscObjectClick.PlaySound(sfx, volume, loop);
+        // PlaySoundToSource(...)
+        // enum with diff priorities.
+        // Audiomixer unity
 	}
 
     public void StartMinigame()
@@ -82,6 +85,8 @@ public class LHMinigame : MonoBehaviour
 
         GameState.Set("minigame_open", true);
         tools.SetActive(true);
+        miscObjectClick.PlaySound(finishLoop, 0.98f, true);
+
     }
 
     public void StopMinigame()
@@ -285,8 +290,7 @@ public class LHMinigame : MonoBehaviour
         {
             background.sprite = lighthouseRoomCloseSprite;
         }
-        miscObjectClick.PlaySound(lockSound);
-        miscObjectClick.PlaySound(finishLoop, 0.98f, true);
+        // miscObjectClick.PlaySound(lockSound);
 
         yield return new WaitForSeconds(delay * 0.45f);
 
@@ -294,7 +298,8 @@ public class LHMinigame : MonoBehaviour
         lighthouseAnimator.gameObject.SetActive(true);
 		shadowScrollScript.startScale = 1.05f;
 
-        miscObjectClick.PlaySound(finishClick);
+        // miscObjectClick.PlaySound(finishClick);
+        miscObjectClick.PlaySound(finishLoop, 0.98f, true);
 
         Debug.Log("loop sound play for lighthouse");
 
@@ -303,5 +308,7 @@ public class LHMinigame : MonoBehaviour
         MessageBus.Instance.Publish("CompleteTask", "task_lighthouse");
 
     }
+
+
 
 }

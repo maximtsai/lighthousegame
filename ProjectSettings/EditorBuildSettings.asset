@@ -44,6 +44,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BurialScene.unity
     guid: 562f05ba09184b14fba83583088499d7
+  - enabled: 1
+    path: Assets/Scenes/TableScene.unity
+    guid: 09557bb942d01ed4e9685b073590eb61
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

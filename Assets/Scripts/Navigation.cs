@@ -81,7 +81,14 @@ public class Navigation : MonoBehaviour
     {
         if (!GameState.Get<bool>("ate_breakfast"))
         {
-            DialogueManager.ShowDialogue(getDialog("kitchen/hungry"));
+            if (GameState.Get<bool>("corn_clicked"))
+            {
+                DialogueManager.ShowDialogue(getDialog("kitchen/hungry_forgot"));
+            }
+            else
+            {
+                DialogueManager.ShowDialogue(getDialog("kitchen/hungry"));
+            }
             return;
         }
 

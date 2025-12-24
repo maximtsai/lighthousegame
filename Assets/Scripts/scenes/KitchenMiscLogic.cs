@@ -56,7 +56,6 @@ public class KitchenMiscLogic : MonoBehaviour
 			{
 	        	DialogueManager.ShowDialogue(miscObjectClick.getDialogue("kitchen/long_night"));
 			}
-
 		}
 	}
 

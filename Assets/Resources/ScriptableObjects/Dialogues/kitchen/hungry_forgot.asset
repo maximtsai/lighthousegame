@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c21e5b555f186ac4da729ad4d766dae7, type: 3}
-  m_Name: missing_fish
+  m_Name: hungry_forgot
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   text:
-  - I still need fish for dinner
+  - Wait I haven't actually eaten anything yet.
   onDialogueEnd:
     m_PersistentCalls:
       m_Calls: []

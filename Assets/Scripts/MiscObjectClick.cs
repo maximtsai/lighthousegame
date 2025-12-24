@@ -155,6 +155,8 @@ public class MiscObjectClick : MonoBehaviour
         	audioSource.loop = true;
         	audioSource.volume = volume;
         	audioSource.Play();
+            // audiorandomcontainer
+            // pitch by range randomness
     	}
     	else
     	{
