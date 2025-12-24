@@ -1,0 +1,55 @@
+using UnityEngine;
+using UnityEngine.SceneManagement; // required for SceneManager
+
+public class TableMiscLogic : MonoBehaviour
+{
+    [SerializeField] private AudioClip bgLoop1;
+    [SerializeField] private AudioClip bgLoop2;
+    [SerializeField] private GameObject background;
+    [SerializeField] private GameObject tableButton;
+    [SerializeField] private Sprite bgScare;
+    [SerializeField] private MiscObjectClick miscObjectClick;
+    [SerializeField] private MouseCameraPan mouseCamPanScript;
+    void Start()
+    {
+        Ambience ambience = Ambience.Instance;
+        MessageBus.Instance.Subscribe("camborne_jumpscare", (str) =>
+        {
+            showCamborneJumpscare();
+        });
+
+        // Update track 1
+        UpdateTrack(ambience, bgLoop1, 0.6f, 1);
+        // Update track 2
+        UpdateTrack(ambience, bgLoop2, 0.2f, 2);
+    }
+
+    private void UpdateTrack(Ambience ambience, AudioClip newClip, float volume, int channel)
+    {
+        // Check if the new clip is different from the current clip
+        AudioClip currentClip = ambience.GetCurrentClip(channel);
+        if (currentClip != newClip)
+        {
+
+            // Play new clip if it's different
+            ambience.PlayTrack(newClip, volume, channel);
+        }
+        else
+        {
+            // Update volume if the clip is the same
+            ambience.SetVolume(channel, volume);
+        }
+    }
+
+    public void clickCamborne()
+    {
+        DialogueManager.ShowDialogue(miscObjectClick.getDialogue("kitchen/wake_camborne"));
+    }
+
+    public void showCamborneJumpscare()
+    {
+        background.GetComponent<SpriteRenderer>().sprite = bgScare;
+        mouseCamPanScript.RecalculateDimensions();
+        tableButton.SetActive(false);
+    }
+}

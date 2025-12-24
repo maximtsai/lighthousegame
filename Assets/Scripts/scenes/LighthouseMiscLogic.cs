@@ -29,4 +29,20 @@ public class LighthouseMiscLogic : MonoBehaviour
             ambience.SetVolume(channel, volume);
         }
     }
+
+    public void UpdateTrackPublic(AudioClip newClip, float volume, int channel)
+    {
+        Ambience ambience = Ambience.Instance;
+        AudioClip currentClip = ambience.GetCurrentClip(channel);
+        if (currentClip != newClip)
+        {
+            // Play new clip if it's different
+            ambience.PlayTrack(newClip, volume, channel);
+        }
+        else
+        {
+            // Update volume if the clip is the same
+            ambience.SetVolume(channel, volume);
+        }
+    }
 }

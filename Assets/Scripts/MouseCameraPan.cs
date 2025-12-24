@@ -15,7 +15,10 @@ public class MouseCameraPan : MonoBehaviour
     void Start()
     {
         cam = Camera.main;
-
+        RecalculateDimensions();
+    }
+    public void RecalculateDimensions()
+    {
         // Calculate how much bigger the background is compared to the camera view
         float bgWidth = background.GetComponent<SpriteRenderer>().bounds.size.x;
         float bgHeight = background.GetComponent<SpriteRenderer>().bounds.size.y;
@@ -27,7 +30,7 @@ public class MouseCameraPan : MonoBehaviour
             Mathf.Max(0, (bgWidth - camWidth) / 2f),
             Mathf.Max(0, (bgHeight - camHeight) / 2f)
         );
-		UpdatePosition(0.9f);
+        UpdatePosition(0.9f);
     }
 
     void Update()

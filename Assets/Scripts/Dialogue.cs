@@ -8,6 +8,7 @@ public class Dialogue : ScriptableObject
 {
     public List<string> text;
     public UnityEvent onDialogueEnd;
+    public UnityEvent onDialogueEndImmediate;
     public List<string> choices;
     public List<UnityEvent> consequences;
     public AudioClip startSound;

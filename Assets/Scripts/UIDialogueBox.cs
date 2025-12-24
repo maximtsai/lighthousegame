@@ -47,7 +47,7 @@ public class UIDialogueBox : MonoBehaviour
             }
         }
     }
-    private IEnumerator TypeText(string line)
+    private IEnumerator TypeText(string line, bool isFinalLine)
     {
         // Types in text like a typewriter
         textmesh.text = "";
@@ -82,7 +82,21 @@ public class UIDialogueBox : MonoBehaviour
             yield return new WaitForSeconds(typeSpeed);
         }
         typingCoroutine = null;
-        
+
+        if (isFinalLine)
+        {
+            bool hasImmediateEnd = dialogue.onDialogueEndImmediate.GetPersistentEventCount() > 0;
+            dialogue.onDialogueEndImmediate?.Invoke();
+            if (hasImmediateEnd)
+            {
+                yield return new WaitForSeconds(0.2f);
+                CustomCursor.SetCursorToNormal(); // revert cursor to default
+                Destroy(gameObject);
+                yield break;
+            }
+        }
+
+
         // Show dialog choices if we have any
         if (dialogue.choices.Count == 2 && dialogue.choices.Count == dialogue.consequences.Count)
         {
@@ -103,10 +117,11 @@ public class UIDialogueBox : MonoBehaviour
         dialogue = d;
 
         total_lines = dialogue.text.Count;
+        bool isFinalLine = current_line == total_lines - 1;
         CustomCursor.SetCursorToDialog();
 
         if (typingCoroutine != null) StopCoroutine(typingCoroutine);
-        typingCoroutine = StartCoroutine(TypeText(dialogue.text[current_line]));
+        typingCoroutine = StartCoroutine(TypeText(dialogue.text[current_line], isFinalLine));
 
     }
     public void EndDialogue(int choice = -1)
@@ -165,7 +180,8 @@ public class UIDialogueBox : MonoBehaviour
         }
         else
         {
-            typingCoroutine = StartCoroutine(TypeText(dialogue.text[current_line]));
+            bool isFinalLine = current_line == total_lines - 1;
+            typingCoroutine = StartCoroutine(TypeText(dialogue.text[current_line], isFinalLine));
         }
     }
 

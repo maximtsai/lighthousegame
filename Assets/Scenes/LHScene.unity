@@ -564,10 +564,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.238653
+    x: 0.30521092
     y: 0
-    width: 1.1530827
-    height: 1.1536459
+    width: 0.6903777
+    height: 0.6909492
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -1254,6 +1254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c7be23229d3a5b40b1ad1f676f4c579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LHMinigame
+  miscLogic: {fileID: 675806196}
   exit: {fileID: 1936424240}
   tools: {fileID: 1870315434}
   background: {fileID: 936786989}

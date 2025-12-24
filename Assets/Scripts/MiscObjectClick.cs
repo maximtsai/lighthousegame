@@ -7,6 +7,14 @@ public class MiscObjectClick : MonoBehaviour
     private string path = "ScriptableObjects/Dialogues/";
     AudioSource audioSource;
 
+    private void Awake()
+    {
+        if (AudioManager.Instance)
+        {
+            audioSource = AudioManager.Instance.AudioSource;
+        }
+    }
+
     public Dialogue getDialogue(string name)
     {
         string fullPath = path + name;
@@ -131,24 +139,30 @@ public class MiscObjectClick : MonoBehaviour
     	action?.Invoke();
 	}
 
-    public void PlaySound(AudioClip sfx, float volume = 1f, bool loop = false)
+    public void PlaySound(AudioClip sfx, float volume = 1f, bool loop = false, AudioSource sourceOverride = null)
     {
-        if (AudioManager.Instance)
+        if (sfx == null)
         {
-            audioSource = AudioManager.Instance.AudioSource;
-        } else {
-            Debug.LogWarning("No AudioManager Instance ready yet!");
-		}
-        if (audioSource == null)
-        {
-            Debug.LogWarning("No AudioSource found in the scene!");
+            Debug.LogWarning("No AudioClip provided to PlaySound!");
+            return;
         }
-    	if (sfx == null)
-    	{
-        	Debug.LogWarning("No AudioClip provided to PlaySound!");
-        	return;
-    	}
-    	if (loop)
+
+        AudioSource src = sourceOverride;
+
+        if (src == null)
+        {
+            if (audioSource == null && AudioManager.Instance != null)
+                audioSource = AudioManager.Instance.AudioSource;
+
+            src = audioSource;
+        }
+
+        if (src == null)
+        {
+            Debug.LogWarning("No AudioSource available to play sound!");
+            return;
+        }
+        if (loop)
     	{
         	// Configure and play looping sound
         	audioSource.clip = sfx;
@@ -161,8 +175,18 @@ public class MiscObjectClick : MonoBehaviour
     	else
     	{
         	// Play one-shot sound
-        	audioSource.loop = false;
         	audioSource.PlayOneShot(sfx, volume);
     	}
+    }
+
+    public void StopLoop()
+    {
+        if (audioSource != null && audioSource.loop)
+            audioSource.Stop();
+    }
+
+    public void PublishMessage(string message)
+    {
+        MessageBus.Instance.Publish(message);
     }
 }

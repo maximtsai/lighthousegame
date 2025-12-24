@@ -4,6 +4,7 @@ using System.Collections;
 
 public class LHMinigame : MonoBehaviour
 {
+    [SerializeField] private LighthouseMiscLogic miscLogic;
     [SerializeField] private GameObject exit;
     [SerializeField] private GameObject tools;
     [SerializeField] private SpriteRenderer background;
@@ -15,7 +16,7 @@ public class LHMinigame : MonoBehaviour
     [SerializeField] private Sprite glowOilSprite;
     [SerializeField] private Sprite glowMercurySprite;
     [SerializeField] private playlighthouseanim lighthouseAnimator;
-    
+
 
     [SerializeField] private Image wrenchRenderer;
     [SerializeField] private Image oilRenderer;
@@ -43,11 +44,12 @@ public class LHMinigame : MonoBehaviour
 		if (GameState.Get<bool>("lighthouse_fixed"))
 		{
 			shadowScrollScript.startScale = 1.05f;
-	        StartCoroutine(PlaySoundDelayedRoutine(finishLoop, 0.9f, true, 0.01f));
-		}
+            miscLogic.UpdateTrackPublic(finishLoop, 1, 2);
+
+            // StartCoroutine(PlaySoundDelayedRoutine(finishLoop, 0.9f, true, 0.01f));
+        }
         GameState.Set("wrench_used", false);
         GameState.Set("lighthouse_opened", false);
-
 
         if (GameState.Get<bool>("oil_used") && oilRenderer != null)
         {
@@ -69,10 +71,6 @@ public class LHMinigame : MonoBehaviour
 	private IEnumerator PlaySoundDelayedRoutine(AudioClip sfx, float volume, bool loop, float delay)
 	{
 		yield return new WaitForSeconds(delay);
-        miscObjectClick.PlaySound(sfx, volume, loop);
-        // PlaySoundToSource(...)
-        // enum with diff priorities.
-        // Audiomixer unity
 	}
 
     public void StartMinigame()
@@ -85,8 +83,6 @@ public class LHMinigame : MonoBehaviour
 
         GameState.Set("minigame_open", true);
         tools.SetActive(true);
-        miscObjectClick.PlaySound(finishLoop, 0.98f, true);
-
     }
 
     public void StopMinigame()
@@ -290,7 +286,7 @@ public class LHMinigame : MonoBehaviour
         {
             background.sprite = lighthouseRoomCloseSprite;
         }
-        // miscObjectClick.PlaySound(lockSound);
+        miscObjectClick.PlaySound(lockSound);
 
         yield return new WaitForSeconds(delay * 0.45f);
 
@@ -298,14 +294,13 @@ public class LHMinigame : MonoBehaviour
         lighthouseAnimator.gameObject.SetActive(true);
 		shadowScrollScript.startScale = 1.05f;
 
-        // miscObjectClick.PlaySound(finishClick);
+        miscObjectClick.PlaySound(finishClick);
         miscObjectClick.PlaySound(finishLoop, 0.98f, true);
-
-        Debug.Log("loop sound play for lighthouse");
 
         StopMinigame();
         DialogueManager.ShowDialogue(miscObjectClick.getDialogue("Lighthouse/work_done"));
         MessageBus.Instance.Publish("CompleteTask", "task_lighthouse");
+        miscLogic.UpdateTrackPublic(finishLoop, 1, 2);
 
     }
 

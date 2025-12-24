@@ -40,10 +40,6 @@ public class InteractableObject : MonoBehaviour
             audioSource.clip = clickSound;
             hasSound = true;
         }
-        else
-        {
-            Debug.Log("has audio source but no clickSound");
-        }
     }
 
     void OnMouseOver()

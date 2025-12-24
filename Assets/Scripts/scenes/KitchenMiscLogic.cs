@@ -42,7 +42,7 @@ public class KitchenMiscLogic : MonoBehaviour
         // miscObjectClick.PlaySound(cleanSound);
 		if (GameState.Get<int>("day") == 1) 
 		{
-			if (GameState.Get<bool>("lighthouse_fixed"))
+            if (GameState.Get<bool>("lighthouse_fixed"))
 			{
                 if (GameState.Get<bool>("ate_dinner"))
                 {
@@ -54,13 +54,20 @@ public class KitchenMiscLogic : MonoBehaviour
             }
 			else 
 			{
-	        	DialogueManager.ShowDialogue(miscObjectClick.getDialogue("kitchen/long_night"));
-			}
+                if (GameState.Get<bool>("ate_breakfast", false) && !GameState.Get<bool>("gathered_fish", false))
+                {
+                    DialogueManager.ShowDialogue(miscObjectClick.getDialogue("kitchen/camborne_breakfast"));
+                } else
+                {
+                    DialogueManager.ShowDialogue(miscObjectClick.getDialogue("kitchen/long_night"));
+                }
+            }
 		}
 	}
 
     public void checkupCamborne()
     {
+        Debug.Log("Checkup camborne called");
         SceneManager.LoadScene("TableScene");
     }
 }
