@@ -873,6 +873,8 @@ MonoBehaviour:
   bgScare: {fileID: 3088427565571349694, guid: 1846aabe3b0208b4ab53eff95c020573, type: 3}
   miscObjectClick: {fileID: 5912071456214807691, guid: add25f6ff90e9474990e9f3862207611, type: 3}
   mouseCamPanScript: {fileID: 519420034}
+  jumpScare: {fileID: 8300000, guid: 7f2c7ec50b61e0e42b171008f33aadc5, type: 3}
+  horrorLoop: {fileID: 8300000, guid: 4eb471763cd62b2428c099a12973db0a, type: 3}
 --- !u!4 &867207264400593078
 Transform:
   m_ObjectHideFlags: 0

@@ -10,6 +10,10 @@ public class TableMiscLogic : MonoBehaviour
     [SerializeField] private Sprite bgScare;
     [SerializeField] private MiscObjectClick miscObjectClick;
     [SerializeField] private MouseCameraPan mouseCamPanScript;
+
+    [SerializeField] private AudioClip jumpScare;
+    [SerializeField] private AudioClip horrorLoop;
+
     void Start()
     {
         Ambience ambience = Ambience.Instance;
@@ -48,8 +52,15 @@ public class TableMiscLogic : MonoBehaviour
 
     public void showCamborneJumpscare()
     {
+        DialogueManager.CloseDialogue();
+        tableButton.SetActive(false);
+
         background.GetComponent<SpriteRenderer>().sprite = bgScare;
         mouseCamPanScript.RecalculateDimensions();
-        tableButton.SetActive(false);
+
+        miscObjectClick.PlaySound(jumpScare, 0.8f, false);
+        Ambience ambience = Ambience.Instance;
+        UpdateTrack(ambience, horrorLoop, 0.8f, 1);
+
     }
 }

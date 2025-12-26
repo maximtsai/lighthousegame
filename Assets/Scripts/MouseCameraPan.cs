@@ -30,7 +30,7 @@ public class MouseCameraPan : MonoBehaviour
             Mathf.Max(0, (bgWidth - camWidth) / 2f),
             Mathf.Max(0, (bgHeight - camHeight) / 2f)
         );
-        UpdatePosition(0.9f);
+        UpdatePosition(1f);
     }
 
     void Update()

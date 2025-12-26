@@ -16,7 +16,7 @@ MonoBehaviour:
   - I should probably wake him.
   - He's not going to get angry right?
   - ... He'll probably yell and throw some bottles.
-  - Ah well, I've seen worse.
+  - But that's fine. I've seen worse.
   - '"Hey Camborne, it''s time to wake'
   onDialogueEnd:
     m_PersistentCalls:

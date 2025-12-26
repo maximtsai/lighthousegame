@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Bouncing Balls Physics Puzzle</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden; /* Prevent scrolling on pull-to-refresh */
+            touch-action: none; /* Important for custom drag handling */
+        }
+
+        #game-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        canvas {
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border: 4px solid #000;
+            max-width: 100%;
+            max-height: 80%;
+        }
+
+        #ui-layer {
+            position: absolute;
+            top: 10px;
+            left: 0;
+            width: 100%;
+            pointer-events: none; /* Let clicks pass through to canvas if needed */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .btn {
+            pointer-events: auto;
+            background: #000;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        .btn:active {
+            transform: scale(0.95);
+        }
+
+        #level-indicator {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            background: rgba(255,255,255,0.8);
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+
+        #instructions {
+            position: absolute;
+            bottom: 20px;
+            background: rgba(255,255,255,0.9);
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            color: #333;
+            font-size: 14px;
+            pointer-events: none;
+            width: 90%;
+            max-width: 400px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="game-container">
+    <div id="ui-layer">
+        <button class="btn" onclick="game.prevLevel()">&lt;</button>
+        <div id="level-indicator">Level A</div>
+        <button class="btn" onclick="game.nextLevel()">&gt;</button>
+        <button class="btn" onclick="game.resetLevel()">Reset</button>
+    </div>
+    
+    <canvas id="gameCanvas"></canvas>
+
+    <div id="instructions">
+        Drag Ball 1 left/right to position.<br>
+        Drag anywhere to aim & shoot.<br>
+        <strong>Goal:</strong> Knock Ball 2 to the floor.
+    </div>
+</div>
+
+<script>
+/**
+ * Vector Math Helper
+ */
+class Vec2 {
+    constructor(x, y) { this.x = x; this.y = y; }
+    add(v) { return new Vec2(this.x + v.x, this.y + v.y); }
+    sub(v) { return new Vec2(this.x - v.x, this.y - v.y); }
+    mult(s) { return new Vec2(this.x * s, this.y * s); }
+    mag() { return Math.sqrt(this.x * this.x + this.y * this.y); }
+    norm() { 
+        let m = this.mag(); 
+        return m === 0 ? new Vec2(0,0) : new Vec2(this.x/m, this.y/m); 
+    }
+    dot(v) { return this.x * v.x + this.y * v.y; }
+    dist(v) { return Math.sqrt(Math.pow(this.x - v.x, 2) + Math.pow(this.y - v.y, 2)); }
+}
+
+/**
+ * Game Configuration
+ */
+const CONFIG = {
+    gravity: 0.25,
+    friction: 0.99,
+    elasticity: 0.7, // Bounciness
+    wallElasticity: 0.6,
+    ballRadius: 20,
+    shootPower: 0.15,
+    maxPull: 200
+};
+
+/**
+ * Physics Objects
+ */
+class Ball {
+    constructor(id, x, y, isStatic = false) {
+        this.id = id;
+        this.pos = new Vec2(x, y);
+        this.vel = new Vec2(0, 0);
+        this.radius = CONFIG.ballRadius;
+        this.isStatic = isStatic;
+        this.mass = 1;
+        this.onFloor = false;
+    }
+
+    update() {
+        if (this.isStatic) return;
+
+        // Gravity
+        this.vel.y += CONFIG.gravity;
+
+        // Apply Velocity
+        this.pos = this.pos.add(this.vel);
+
+        // Friction (air resistance + rolling)
+        this.vel = this.vel.mult(CONFIG.friction);
+
+        // Floor Check (Simple bounds for the very bottom of the level)
+        // Note: Complex floor collisions are handled by the 'Wall' segments, 
+        // but this flag is for the Win Condition.
+        if (this.pos.y >= 900 - this.radius) {
+            this.onFloor = true;
+        } else {
+            this.onFloor = false;
+        }
+    }
+
+    draw(ctx) {
+        ctx.beginPath();
+        ctx.arc(this.pos.x, this.pos.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = "#000";
+        ctx.fill();
+        ctx.strokeStyle = "#000";
+        ctx.stroke();
+
+        // Draw Number
+        ctx.fillStyle = "#FFF";
+        ctx.font = "bold 20px Arial";
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillText(this.id, this.pos.x, this.pos.y);
+    }
+}
+
+class Wall {
+    constructor(x1, y1, x2, y2) {
+        this.start = new Vec2(x1, y1);
+        this.end = new Vec2(x2, y2);
+        this.vec = this.end.sub(this.start);
+        this.len = this.vec.mag();
+        this.norm = this.vec.norm();
+    }
+
+    draw(ctx) {
+        ctx.beginPath();
+        ctx.moveTo(this.start.x, this.start.y);
+        ctx.lineTo(this.end.x, this.end.y);
+        ctx.strokeStyle = "#000";
+        ctx.lineWidth = 8;
+        ctx.lineCap = "round";
+        ctx.stroke();
+    }
+}
+
+/**
+ * Game Engine
+ */
+class Game {
+    constructor() {
+        this.canvas = document.getElementById('gameCanvas');
+        this.ctx = this.canvas.getContext('2d');
+        
+        // Logical resolution (1000x1000)
+        this.width = 1000;
+        this.height = 1000;
+
+        this.balls = [];
+        this.walls = [];
+        this.level = 0;
+        this.state = 'SETUP'; // SETUP, AIMING, FIRED, WIN
+        this.message = "";
+        
+        // Input vars
+        this.dragStart = null;
+        this.dragCurr = null;
+        this.isDraggingBall = false;
+
+        this.resize();
+        window.addEventListener('resize', () => this.resize());
+        
+        // Input Listeners
+        this.canvas.addEventListener('mousedown', e => this.handleStart(e));
+        this.canvas.addEventListener('mousemove', e => this.handleMove(e));
+        window.addEventListener('mouseup', e => this.handleEnd(e));
+        
+        this.canvas.addEventListener('touchstart', e => this.handleStart(e.touches[0]));
+        this.canvas.addEventListener('touchmove', e => { e.preventDefault(); this.handleMove(e.touches[0]); }, {passive: false});
+        window.addEventListener('touchend', e => this.handleEnd(e.changedTouches[0]));
+
+        this.loadLevel(0);
+        this.loop();
+    }
+
+    resize() {
+        const aspect = this.width / this.height;
+        let w = window.innerWidth;
+        let h = window.innerHeight;
+        
+        if (w / h > aspect) {
+            w = h * aspect;
+        } else {
+            h = w / aspect;
+        }
+        
+        this.canvas.width = this.width;
+        this.canvas.height = this.height;
+        this.canvas.style.width = `${w}px`;
+        this.canvas.style.height = `${h}px`;
+        
+        this.scale = w / this.width;
+        this.bounds = this.canvas.getBoundingClientRect();
+    }
+
+    getPos(e) {
+        const rect = this.canvas.getBoundingClientRect();
+        return new Vec2(
+            (e.clientX - rect.left) * (this.width / rect.width),
+            (e.clientY - rect.top) * (this.height / rect.height)
+        );
+    }
+
+    loadLevel(index) {
+        this.level = index;
+        this.state = 'SETUP';
+        this.message = "";
+        this.balls = [];
+        this.walls = [];
+        const levels = ['A', 'B', 'C'];
+        document.getElementById('level-indicator').innerText = `Level ${levels[this.level]}`;
+
+        // Common Border Walls
+        this.walls.push(new Wall(50, 50, 950, 50));   // Top
+        this.walls.push(new Wall(50, 50, 50, 950));   // Left
+        this.walls.push(new Wall(950, 50, 950, 950)); // Right
+        this.walls.push(new Wall(50, 950, 950, 950)); // Bottom (Base line)
+
+        // Ball 1 (Shooter) - Starts on baseline
+        let b1 = new Ball(1, 700, 950 - CONFIG.ballRadius); 
+        this.balls.push(b1);
+
+        // Level Specifics
+        if (index === 0) { // A
+            // Shelf
+            this.walls.push(new Wall(600, 400, 950, 400));
+            // Ball 2
+            this.balls.push(new Ball(2, 800, 400 - CONFIG.ballRadius));
+        }
+        else if (index === 1) { // B
+            // Shelf with Lip
+            this.walls.push(new Wall(600, 400, 950, 400)); // Flat part
+            this.walls.push(new Wall(500, 300, 600, 400)); // Lip
+            // Ball 2
+            this.balls.push(new Ball(2, 750, 400 - CONFIG.ballRadius));
+        }
+        else if (index === 2) { // C
+            // Shelf with Lip
+            this.walls.push(new Wall(600, 400, 950, 400)); 
+            this.walls.push(new Wall(500, 300, 600, 400));
+            // Obstruction Top Right
+            this.walls.push(new Wall(800, 50, 950, 200));
+            
+            // Ball 2
+            this.balls.push(new Ball(2, 750, 400 - CONFIG.ballRadius));
+        }
+    }
+
+    resetLevel() {
+        this.loadLevel(this.level);
+    }
+
+    nextLevel() {
+        if (this.level < 2) this.loadLevel(this.level + 1);
+    }
+
+    prevLevel() {
+        if (this.level > 0) this.loadLevel(this.level - 1);
+    }
+
+    // --- Input Handling ---
+
+    handleStart(e) {
+        if (this.state !== 'SETUP') return;
+        
+        let m = this.getPos(e);
+        let b1 = this.balls[0];
+
+        // Check if touching Ball 1
+        if (m.dist(b1.pos) < b1.radius * 2.5) {
+            this.isDraggingBall = true;
+        } else {
+            // Aiming drag
+            this.dragStart = m;
+            this.dragCurr = m;
+        }
+    }
+
+    handleMove(e) {
+        if (this.state !== 'SETUP') return;
+        let m = this.getPos(e);
+
+        if (this.isDraggingBall) {
+            // Constrain Ball 1 to bottom line
+            let b1 = this.balls[0];
+            b1.pos.x = Math.max(75, Math.min(925, m.x)); // Keep inside walls
+            // Ensure physics resets for position
+            b1.vel = new Vec2(0,0);
+        } else if (this.dragStart) {
+            this.dragCurr = m;
+        }
+    }
+
+    handleEnd(e) {
+        if (this.state !== 'SETUP') return;
+
+        if (this.isDraggingBall) {
+            this.isDraggingBall = false;
+        } else if (this.dragStart) {
+            // Calculate shot vector
+            let vec = this.dragStart.sub(this.dragCurr);
+            
+            // Cap power
+            if (vec.mag() > CONFIG.maxPull) {
+                vec = vec.norm().mult(CONFIG.maxPull);
+            }
+
+            // Only shoot if pulled enough
+            if (vec.mag() > 10) {
+                this.balls[0].vel = vec.mult(CONFIG.shootPower);
+                this.state = 'FIRED';
+            }
+            
+            this.dragStart = null;
+            this.dragCurr = null;
+        }
+    }
+
+    // --- Physics Core ---
+
+    closestPointOnSegment(p, a, b) {
+        let ab = b.sub(a);
+        let t = p.sub(a).dot(ab) / ab.dot(ab);
+        t = Math.max(0, Math.min(1, t));
+        return a.add(ab.mult(t));
+    }
+
+    resolveCollisions() {
+        // 1. Ball to Wall
+        for (let b of this.balls) {
+            for (let w of this.walls) {
+                let closest = this.closestPointOnSegment(b.pos, w.start, w.end);
+                let distVec = b.pos.sub(closest);
+                let dist = distVec.mag();
+
+                if (dist < b.radius) {
+                    // Overlap amount
+                    let overlap = b.radius - dist;
+                    let normal = distVec.norm();
+                    
+                    // Fallback normal if center is exactly on line
+                    if (dist === 0) normal = new Vec2(0, -1);
+
+                    // Push out
+                    b.pos = b.pos.add(normal.mult(overlap));
+
+                    // Reflect velocity
+                    // v' = v - 2 * (v . n) * n
+                    let dot = b.vel.dot(normal);
+                    // Only reflect if moving towards wall
+                    if (dot < 0) {
+                        let reflection = normal.mult(dot * 2);
+                        b.vel = b.vel.sub(reflection).mult(CONFIG.wallElasticity);
+                    }
+                }
+            }
+        }
+
+        // 2. Ball to Ball
+        let b1 = this.balls[0];
+        let b2 = this.balls[1];
+        let dist = b1.pos.dist(b2.pos);
+        let minDist = b1.radius + b2.radius;
+
+        if (dist < minDist) {
+            let collisionNorm = b1.pos.sub(b2.pos).norm();
+            
+            // Push apart (prevent sticking)
+            let overlap = (minDist - dist) / 2;
+            b1.pos = b1.pos.add(collisionNorm.mult(overlap));
+            b2.pos = b2.pos.sub(collisionNorm.mult(overlap));
+
+            // Exchange momentum (Elastic)
+            let relativeVel = b1.vel.sub(b2.vel);
+            let speed = relativeVel.dot(collisionNorm);
+
+            if (speed < 0) {
+                let impulse = speed * (1 + CONFIG.elasticity);
+                // Assume equal mass
+                let impulseVec = collisionNorm.mult(impulse / 2); // Divide by 2 for equal mass
+
+                b1.vel = b1.vel.sub(impulseVec);
+                b2.vel = b2.vel.add(impulseVec);
+            }
+        }
+    }
+
+    // --- Main Loop ---
+
+    loop() {
+        this.ctx.clearRect(0, 0, this.width, this.height);
+
+        // Physics Step
+        if (this.state === 'FIRED' || this.state === 'WIN') {
+            // Run multiple sub-steps for stability
+            for(let i=0; i<4; i++) {
+                this.balls.forEach(b => b.update());
+                this.resolveCollisions();
+            }
+
+            // Check Win Condition
+            let b2 = this.balls[1];
+            // If Ball 2 is on the floor (y > 900 roughly) and stable
+            if (b2.pos.y > 900 && this.state !== 'WIN') {
+                this.state = 'WIN';
+                this.message = "SUCCESS!";
+                setTimeout(() => {
+                   if(this.state === 'WIN') this.nextLevel();
+                }, 2000);
+            }
+        }
+
+        // Draw Walls
+        this.walls.forEach(w => w.draw(this.ctx));
+
+        // Draw Balls
+        this.balls.forEach(b => b.draw(this.ctx));
+
+        // Draw Aiming Line
+        if (this.state === 'SETUP' && this.dragStart && this.dragCurr) {
+            let b1 = this.balls[0];
+            let vec = this.dragStart.sub(this.dragCurr);
+            if (vec.mag() > CONFIG.maxPull) vec = vec.norm().mult(CONFIG.maxPull);
+
+            // Draw trajectory line from Ball 1
+            this.ctx.beginPath();
+            this.ctx.moveTo(b1.pos.x, b1.pos.y);
+            // Visual scale factor for line
+            let end = b1.pos.add(vec.mult(3)); 
+            this.ctx.lineTo(end.x, end.y);
+            this.ctx.strokeStyle = "rgba(0,0,0,0.3)";
+            this.ctx.lineWidth = 4;
+            this.ctx.setLineDash([10, 10]);
+            this.ctx.stroke();
+            this.ctx.setLineDash([]);
+        }
+
+        // Draw Win Message
+        if (this.state === 'WIN') {
+            this.ctx.fillStyle = "rgba(0, 200, 0, 0.8)";
+            this.ctx.font = "bold 80px Arial";
+            this.ctx.textAlign = "center";
+            this.ctx.fillText("SUCCESS!", this.width/2, this.height/2);
+        }
+
+        requestAnimationFrame(() => this.loop());
+    }
+}
+
+// Init
+const game = new Game();
+
+</script>
+</body>
+</html>
