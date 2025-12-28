@@ -258,10 +258,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.30521092
     y: 0
-    width: 1
-    height: 0.9991368
+    width: 0.6903777
+    height: 0.6909492
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -364,6 +364,7 @@ GameObject:
   m_Component:
   - component: {fileID: 234607255}
   - component: {fileID: 234607253}
+  - component: {fileID: 234607256}
   m_Layer: 0
   m_Name: Misc
   m_TagString: Untagged
@@ -400,6 +401,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &234607256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 234607252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c706a754a72c534fa4eb59845f6c9fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SetBackgroundWhenDark
+  background: {fileID: 1764343126}
+  dark_bg: {fileID: -2872044076317536383, guid: 43c1a6b4bb0eccd4cafb5a1a308c6601, type: 3}
 --- !u!1001 &266012936
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1469,6 +1484,10 @@ PrefabInstance:
     - target: {fileID: 7592047893097350760, guid: bcf33da3790d41f4b839cf08de6e9eb8, type: 3}
       propertyPath: m_Name
       value: DebugDisplay
+      objectReference: {fileID: 0}
+    - target: {fileID: 7592047893097350760, guid: bcf33da3790d41f4b839cf08de6e9eb8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
