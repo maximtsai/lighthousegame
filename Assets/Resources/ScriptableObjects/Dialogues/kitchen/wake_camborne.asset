@@ -17,7 +17,11 @@ MonoBehaviour:
   - He's not going to get angry right?
   - ... He'll probably yell and throw some bottles.
   - But that's fine. I've seen worse.
-  - '"Hey Camborne, it''s time to wake'
+  - I poke my coworker.
+  - He doesn't move.
+  - Maybe if I call out to him?
+  - I move his arm aside.
+  - '"...Hey Camborne, it''s time to'
   onDialogueEnd:
     m_PersistentCalls:
       m_Calls: []

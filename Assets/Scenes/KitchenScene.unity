@@ -1473,6 +1473,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 796459748010555052, guid: c49b1c478a2499442b61b52e81de3217, type: 3}
+      propertyPath: navTest
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 796459748010555052, guid: c49b1c478a2499442b61b52e81de3217, type: 3}
       propertyPath: background
       value: 
       objectReference: {fileID: 588892268}
@@ -1480,6 +1484,38 @@ PrefabInstance:
       propertyPath: navigationScript
       value: 
       objectReference: {fileID: 708757768589027116, guid: 8cbb3f24ebba1814dbc6273dd0df8db0, type: 3}
+    - target: {fileID: 796459748010555052, guid: c49b1c478a2499442b61b52e81de3217, type: 3}
+      propertyPath: navigation_call.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 796459748010555052, guid: c49b1c478a2499442b61b52e81de3217, type: 3}
+      propertyPath: navigation_call.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 796459748010555052, guid: c49b1c478a2499442b61b52e81de3217, type: 3}
+      propertyPath: navigation_call.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 708757768589027116, guid: 8cbb3f24ebba1814dbc6273dd0df8db0, type: 3}
+    - target: {fileID: 796459748010555052, guid: c49b1c478a2499442b61b52e81de3217, type: 3}
+      propertyPath: navigation_call.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 796459748010555052, guid: c49b1c478a2499442b61b52e81de3217, type: 3}
+      propertyPath: navigation_call.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GoToStove
+      objectReference: {fileID: 0}
+    - target: {fileID: 796459748010555052, guid: c49b1c478a2499442b61b52e81de3217, type: 3}
+      propertyPath: navigation_call.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Navigation, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 796459748010555052, guid: c49b1c478a2499442b61b52e81de3217, type: 3}
+      propertyPath: navigation_call.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: TableScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 796459748010555052, guid: c49b1c478a2499442b61b52e81de3217, type: 3}
+      propertyPath: navigation_call.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2331009213013426326, guid: c49b1c478a2499442b61b52e81de3217, type: 3}
       propertyPath: m_Name
       value: KitchenMisc

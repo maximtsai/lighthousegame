@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement; // required for SceneManager
 
 public class KitchenMiscLogic : MonoBehaviour
@@ -6,16 +7,16 @@ public class KitchenMiscLogic : MonoBehaviour
     [SerializeField] private AudioClip bgLoop1;
     [SerializeField] private AudioClip bgLoop2;
     [SerializeField] private MiscObjectClick miscObjectClick;
-    [SerializeField] private Navigation navigationScript;
+
 
     void Start()
     {
         Ambience ambience = Ambience.Instance;
-
         // Update track 1
         UpdateTrack(ambience, bgLoop1, 0.75f, 1);
         // Update track 2
         UpdateTrack(ambience, bgLoop2, 0.24f, 2);
+
     }
 
     private void UpdateTrack(Ambience ambience, AudioClip newClip, float volume, int channel)
@@ -61,11 +62,4 @@ public class KitchenMiscLogic : MonoBehaviour
             }
 		}
 	}
-
-    public void checkupCamborne()
-    {
-        Debug.Log("Checkup camborne called");
-        navigationScript.GoTo("TableScene");
-        // SceneManager.LoadScene("TableScene");
-    }
 }

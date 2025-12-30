@@ -10,25 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c21e5b555f186ac4da729ad4d766dae7, type: 3}
-  m_Name: check_up_camborne
+  m_Name: reveal_camborne
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   text:
-  - Camborne is being a little too lazy...
+  - ...
+  - I ponder what to do.
   onDialogueEnd:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 708757768589027116, guid: 8cbb3f24ebba1814dbc6273dd0df8db0, type: 3}
-        m_TargetAssemblyTypeName: Navigation, Assembly-CSharp
-        m_MethodName: GoTo
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: TableScene
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onDialogueEndImmediate:
     m_PersistentCalls:
       m_Calls: []

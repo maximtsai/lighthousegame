@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement; // required for SceneManager
 
@@ -61,6 +62,30 @@ public class TableMiscLogic : MonoBehaviour
         miscObjectClick.PlaySound(jumpScare, 0.8f, false);
         Ambience ambience = Ambience.Instance;
         UpdateTrack(ambience, horrorLoop, 0.8f, 1);
+
+        ShowCamborneDialogAfterDelay();
+    }
+
+    private IEnumerator ShowCamborneDialogAfterDelay()
+    {
+        yield return new WaitForSeconds(1.5f);
+        MessageBus.Instance.Publish("ChangeQuestText", "PANIC");
+        yield return new WaitForSeconds(0.4f);
+        MessageBus.Instance.Publish("ChangeQuestText", "HOLD BREATH");
+        yield return new WaitForSeconds(0.4f);
+        MessageBus.Instance.Publish("ChangeQuestText", "DON'T CHOKE");
+        yield return new WaitForSeconds(0.4f);
+        MessageBus.Instance.Publish("ChangeQuestText", "IGNORE MAGGOTS");
+        yield return new WaitForSeconds(0.4f);
+        MessageBus.Instance.Publish("ChangeQuestText", "AVERT GAZE");
+        yield return new WaitForSeconds(0.4f);
+        MessageBus.Instance.Publish("ChangeQuestText", "SWALLOW VOMIT");
+        yield return new WaitForSeconds(0.4f);
+        MessageBus.Instance.Publish("ChangeQuestText", "BREATHE OUT");
+        yield return new WaitForSeconds(0.8f);
+        MessageBus.Instance.Publish("ChangeQuestText", "MAKE DECISION");
+        yield return new WaitForSeconds(1.25f);
+        DialogueManager.ShowDialogue(miscObjectClick.getDialogue("kitchen/reveal_camborne"));
 
     }
 }

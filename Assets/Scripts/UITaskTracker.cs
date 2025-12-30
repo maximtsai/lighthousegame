@@ -15,6 +15,7 @@ public class UITaskTracker : MonoBehaviour
     [Header("Audio")]
     [SerializeField] AudioClip whoosh_in;
     [SerializeField] AudioClip scribble_sfx;
+    [SerializeField] AudioClip interrupt;
 
     [Header("Animation Settings")]
     [SerializeField] float revealDuration = 0.6f;
@@ -41,6 +42,50 @@ public class UITaskTracker : MonoBehaviour
     {
         basePos = tasklist_bg.rectTransform.anchoredPosition;
         basePosText = text_tasklist.rectTransform.anchoredPosition;
+        MessageBus.Instance.Subscribe("ChangeQuestText", (args) =>
+        {
+            // This interrupts whatever the current state is and immediately makes
+            // the tasklist visible with final text set, without any animation.
+
+            // 1. Invalidate any running animation immediately
+            animationToken++;
+            // 2. Stop the driver coroutine if it exists
+            if (driverCoroutine != null)
+            {
+                StopCoroutine(driverCoroutine);
+                driverCoroutine = null;
+            }
+            // 3. Force state
+            state = UIState.IdleVisible;
+
+            // 4. Ensure visibility
+            tasklist_bg.gameObject.SetActive(true);
+
+            // 5. Read message, conditionally setting it to "~~~" if string missing
+            string message = args != null && args.Length > 0
+                ? args[0] as string
+                : "~~~";
+            SetTextDisplay(message);
+
+            // 6. Set final visual instantly
+            text_tasklist.text = message;
+            text_tasklist.color = Color.white;
+            tasklist_bg.color = Color.white;
+
+            // 7. Ensure mask is fully open (important if reveal was mid-way)
+            if (gotMask && mask != null)
+            {
+                mask.sizeDelta = new Vector2(
+                    tasklist_bg.rectTransform.sizeDelta.x,
+                    tasklist_bg.rectTransform.sizeDelta.y
+                );
+            }
+
+            // Play sound
+            PlaySound(interrupt);
+            StartCoroutine(ShakeTaskList());
+
+        });
     }
 
     private void FixedUpdate()
@@ -67,6 +112,36 @@ public class UITaskTracker : MonoBehaviour
             }
         }
     }
+
+    private IEnumerator ShakeTaskList(float stepDuration = 0.04f)
+    {
+        // Explicit shake pattern (Y offsets)
+        float[] offsets =
+        {
+        1.8f,
+       -1.8f,
+        0.9f,
+       -0.9f,
+        0.4f,
+       -0.4f,
+        0f
+    };
+
+        RectTransform bgRT = tasklist_bg.rectTransform;
+        RectTransform textRT = text_tasklist.rectTransform;
+
+        foreach (float y in offsets)
+        {
+            bgRT.anchoredPosition = basePos + new Vector2(0, y);
+            textRT.anchoredPosition = basePosText + new Vector2(0, y);
+            yield return new WaitForSeconds(stepDuration);
+        }
+
+        // Safety snap (in case interrupted)
+        bgRT.anchoredPosition = basePos;
+        textRT.anchoredPosition = basePosText;
+    }
+
     // ============================= PUBLIC API =============================
 
     public void SetTextDisplay(string text)
