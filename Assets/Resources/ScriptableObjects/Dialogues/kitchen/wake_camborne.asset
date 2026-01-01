@@ -19,7 +19,7 @@ MonoBehaviour:
   - But that's fine. I've seen worse.
   - I poke my coworker.
   - He doesn't move.
-  - Maybe if I call out to him?
+  - Maybe he'll wake up if I call out to him?
   - I move his arm aside.
   - '"...Hey Camborne, it''s time to'
   onDialogueEnd:
