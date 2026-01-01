@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement; // required for SceneManager
@@ -27,6 +28,7 @@ public class TableMiscLogic : MonoBehaviour
         UpdateTrack(ambience, bgLoop1, 0.6f, 1);
         // Update track 2
         UpdateTrack(ambience, bgLoop2, 0.2f, 2);
+        MessageBus.Instance.Publish("HideTask");
     }
 
     private void UpdateTrack(Ambience ambience, AudioClip newClip, float volume, int channel)
@@ -63,29 +65,52 @@ public class TableMiscLogic : MonoBehaviour
         Ambience ambience = Ambience.Instance;
         UpdateTrack(ambience, horrorLoop, 0.8f, 1);
 
-        ShowCamborneDialogAfterDelay();
+        StartCoroutine(ShowCamborneDialogAfterDelay());
     }
 
     private IEnumerator ShowCamborneDialogAfterDelay()
     {
+        Debug.Log("Show Camborne Jumpscare");
         yield return new WaitForSeconds(1.5f);
         MessageBus.Instance.Publish("ChangeQuestText", "PANIC");
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.33f);
         MessageBus.Instance.Publish("ChangeQuestText", "HOLD BREATH");
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.33f);
         MessageBus.Instance.Publish("ChangeQuestText", "DON'T CHOKE");
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.33f);
         MessageBus.Instance.Publish("ChangeQuestText", "IGNORE MAGGOTS");
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.33f);
         MessageBus.Instance.Publish("ChangeQuestText", "AVERT GAZE");
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.33f);
         MessageBus.Instance.Publish("ChangeQuestText", "SWALLOW VOMIT");
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.33f);
         MessageBus.Instance.Publish("ChangeQuestText", "BREATHE OUT");
-        yield return new WaitForSeconds(0.8f);
+        yield return new WaitForSeconds(0.66f);
         MessageBus.Instance.Publish("ChangeQuestText", "MAKE DECISION");
-        yield return new WaitForSeconds(1.25f);
+        yield return new WaitForSeconds(1f);
         DialogueManager.ShowDialogue(miscObjectClick.getDialogue("kitchen/reveal_camborne"));
+
+        MessageBus.Instance.Publish(
+            "ShowThreeChoice",
+            "PANIC",
+            "STARE",
+            "BURY HIM",
+            (Action)(() =>
+            {
+                // Option 1 Panic
+                Debug.Log("Panic!");
+            }),
+            (Action)(() =>
+            {
+                // Option 2
+                Debug.Log("stare");
+            }),
+            (Action)(() =>
+            {
+                // Option 3
+                Debug.Log("Bury him");
+            })
+        );
 
     }
 }

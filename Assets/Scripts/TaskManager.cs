@@ -35,6 +35,11 @@ public class TaskManager : MonoBehaviour
             CompleteTask(message);
         });
 
+        MessageBus.SubscriptionHandle hideTaskHandle = MessageBus.Instance.Subscribe("HideTask", (args) =>
+        {
+            HideTask();
+        });
+
 
         // We're implementing a new always-on task list, no longer needed.
         // GameState.Set("task_list_open", true);
@@ -121,6 +126,12 @@ public class TaskManager : MonoBehaviour
         }
         Debug.LogWarning("Did not find task " + id);
     }
+
+    public void HideTask()
+    {
+        uITaskTracker.HideDisplay();
+    }
+
     // private static void AttemptTaskCompletion(string o, Dialogue all_tasks_done, Dialogue no_matching_task)
     // {
     //     string object_id = o;
@@ -179,8 +190,8 @@ public class TaskManager : MonoBehaviour
     //     if (null == o) return;
     //     AttemptTaskCompletion(o.GetObjectId(), null, null);
     // }
-    
-    
+
+
     // Returns a shallow copy of all active tasks
     public List<Task> GetCurrentTasks()
     {

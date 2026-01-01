@@ -12,6 +12,10 @@ public class KitchenMiscLogic : MonoBehaviour
     void Start()
     {
         Ambience ambience = Ambience.Instance;
+        GameState.Set("lighthouse_fixed", true);
+        GameState.Set("ate_dinner", true);
+        GameState.Set("is_nighttime", true);
+
         // Update track 1
         UpdateTrack(ambience, bgLoop1, 0.75f, 1);
         // Update track 2
