@@ -39,7 +39,7 @@ public class KitchenMiscLogic : MonoBehaviour
                 Debug.Log("do stuff2!");
             })
         );
-        MessageBus.Instance.Publish("ShowDialogInstant", "test text");
+        MessageBus.Instance.Publish("ShowChoiceDialog", "test text");
 
     }
 

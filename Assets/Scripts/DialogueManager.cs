@@ -21,7 +21,6 @@ public class DialogueManager : MonoBehaviour
 
     private void SubscribeToMessages()
     {
-        MessageBus.Instance.Subscribe("ShowDialogInstant", ShowDialogueInstant, this);
         MessageBus.Instance.Subscribe("CloseDialogue", CloseDialogue, this);
     }
 

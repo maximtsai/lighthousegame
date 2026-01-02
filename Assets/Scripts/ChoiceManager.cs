@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 
 public class ChoiceManager : MonoBehaviour
@@ -6,6 +7,9 @@ public class ChoiceManager : MonoBehaviour
     [SerializeField] private GameObject Button1; // left
     [SerializeField] private GameObject Button2; // right
     [SerializeField] private GameObject Button3; // top
+    [SerializeField] private GameObject ClickBlocker; // top
+    [SerializeField] private GameObject DialogBG; // top
+    [SerializeField] private GameObject DialogText; // top
 
     private Action callback1;
     private Action callback2;
@@ -43,6 +47,8 @@ public class ChoiceManager : MonoBehaviour
         MessageBus.Instance.Subscribe("ShowOneChoice", OnShowOneChoice, this);
         MessageBus.Instance.Subscribe("ShowTwoChoice", OnShowTwoChoice, this);
         MessageBus.Instance.Subscribe("ShowThreeChoice", OnShowThreeChoice, this);
+
+        MessageBus.Instance.Subscribe("ShowChoiceDialog", SetChoiceDialog, this);
     }
 
     private void HookupButtons()
@@ -168,8 +174,23 @@ public class ChoiceManager : MonoBehaviour
         Button2.SetActive(false);
         Button3.SetActive(false);
 
-        MessageBus.Instance.Publish("CloseDialogue");
+        CloseDialog();
+    }
 
+    public void SetChoiceDialog(object[] args)
+    {
+        string str = args[0] as string;
+        ClickBlocker.SetActive(true);
+        DialogBG.SetActive(true);
+        DialogText.SetActive(true);
+        DialogText.GetComponent<TMP_Text>().SetText(str);
+    }
+
+    private void CloseDialog()
+    {
+        ClickBlocker.SetActive(false);
+        DialogBG.SetActive(false);
+        DialogText.SetActive(false);
     }
 
 
