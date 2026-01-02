@@ -20,14 +20,13 @@ public class UIDialogueBox : MonoBehaviour
     [SerializeField] private Button button1;
     private AudioSource audioSrc;
     private Coroutine typingCoroutine;
+
     public void Start()
     {
         button0.gameObject.SetActive(false);
         button1.gameObject.SetActive(false);
         if (!typeSound1) {
-            Debug.Log("Missing typesndxcvxcvxcv");
-        } else {
-            Debug.Log("Got soundsfx");
+            Debug.Log("Missing type sound");
         }
         if (AudioManager.Instance)
         {
@@ -38,7 +37,7 @@ public class UIDialogueBox : MonoBehaviour
             Debug.LogWarning("No AudioSource found in the scene!");
         }
 
-        if (dialogue.startSound != null)
+        if (dialogue != null && dialogue.startSound != null)
         {
             if (audioSrc)
             {
@@ -103,7 +102,7 @@ public class UIDialogueBox : MonoBehaviour
             ShowDialogChoices();
         }
     }
-    
+
     public void OnDestroy()
     {
         GameState.Set("picking_choice", false);
@@ -122,11 +121,22 @@ public class UIDialogueBox : MonoBehaviour
 
         if (typingCoroutine != null) StopCoroutine(typingCoroutine);
         typingCoroutine = StartCoroutine(TypeText(dialogue.text[current_line], isFinalLine));
+    }
+
+    public void SetDialogueInstant(string text)
+    {
+        if (1 > text.Length) return;
+
+        current_line = 0;
+        CustomCursor.SetCursorToDialog();
+
+        if (typingCoroutine != null) StopCoroutine(typingCoroutine);
+        typingCoroutine = null;
+        textmesh.text = text;
 
     }
     public void EndDialogue(int choice = -1)
     {
-        Debug.Log(choice);
         if (-1 < choice && choice < dialogue.consequences.Count)
         {
             dialogue.consequences[choice]?.Invoke();
@@ -141,6 +151,10 @@ public class UIDialogueBox : MonoBehaviour
 
     public void AdvanceDialogue()
     {
+        if (dialogue == null)
+        {
+            return;
+        }
         if (typingCoroutine != null)
         {
             // Finish typing instantly

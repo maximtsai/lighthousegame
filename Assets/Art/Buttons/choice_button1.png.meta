@@ -116,10 +116,10 @@ TextureImporter:
       name: choice_button1_0
       rect:
         serializedVersion: 2
-        x: 17
-        y: 15
-        width: 137
-        height: 38
+        x: 8
+        y: 7
+        width: 155
+        height: 53
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

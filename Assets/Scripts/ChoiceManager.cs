@@ -6,8 +6,6 @@ public class ChoiceManager : MonoBehaviour
     [SerializeField] private GameObject Button1; // left
     [SerializeField] private GameObject Button2; // right
     [SerializeField] private GameObject Button3; // top
-    // Singleton
-    public static ChoiceManager Instance { get; private set; }
 
     private Action callback1;
     private Action callback2;
@@ -15,21 +13,33 @@ public class ChoiceManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
-
         SubscribeToMessages();
         HookupButtons();
+    }
+
+    private void Start()
+    {
+
+
     }
 
 
     private void SubscribeToMessages()
     {
+
+        // Example use:
+        /*
+        MessageBus.Instance.Publish(
+            "ShowOneChoice",
+            "Option 1 text",
+            (Action)(() =>
+            {
+                // Option 1
+                Debug.Log("do stuff!");
+            })
+        );
+        */
+
         MessageBus.Instance.Subscribe("ShowOneChoice", OnShowOneChoice, this);
         MessageBus.Instance.Subscribe("ShowTwoChoice", OnShowTwoChoice, this);
         MessageBus.Instance.Subscribe("ShowThreeChoice", OnShowThreeChoice, this);
@@ -60,7 +70,7 @@ public class ChoiceManager : MonoBehaviour
         string label = args[0] as string;
         callback1 = args[1] as Action;
 
-        Debug.Log($"[ChoiceManager] One choice: {label}");
+        // Debug.Log($"[ChoiceManager] One choice: {label}");
 
     }
 
@@ -157,6 +167,9 @@ public class ChoiceManager : MonoBehaviour
         Button1.SetActive(false);
         Button2.SetActive(false);
         Button3.SetActive(false);
+
+        MessageBus.Instance.Publish("CloseDialogue");
+
     }
 
 

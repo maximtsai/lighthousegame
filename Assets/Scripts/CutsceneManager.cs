@@ -1,6 +1,8 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class CutsceneManager : MonoBehaviour
 {
@@ -24,7 +26,26 @@ public class CutsceneManager : MonoBehaviour
     private System.Action cutsceneOnComplete;
     private bool skipFirstClickBlockerClick = true;
 
-    void Start() {
+    private void Awake()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDestroy()
+    {
+        // Prevent duplicate subscriptions
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // 🔥 This runs EVERY time a scene loads
+        animatorObj.SetActive(false);
+        // Your code here
+        StartCoroutine(FadeOverlay(0f, 1f));
+
+    }
+
+    private void Start() {
         if (animatorObj) {
             animator = animatorObj.GetComponent<Animator>();     
             ResizeAnimatorObj();

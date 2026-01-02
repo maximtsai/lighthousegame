@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement; // required for SceneManager
@@ -20,6 +21,25 @@ public class KitchenMiscLogic : MonoBehaviour
         UpdateTrack(ambience, bgLoop1, 0.75f, 1);
         // Update track 2
         UpdateTrack(ambience, bgLoop2, 0.24f, 2);
+
+
+        // Todo: Remove this later
+        MessageBus.Instance.Publish(
+            "ShowTwoChoice",
+            "Option 1 text",
+            "Option 2 text",
+            (Action)(() =>
+            {
+                // Option 1
+                Debug.Log("do stuff!");
+            }),
+            (Action)(() =>
+            {
+                // Option 1
+                Debug.Log("do stuff2!");
+            })
+        );
+        MessageBus.Instance.Publish("ShowDialogInstant", "test text");
 
     }
 
