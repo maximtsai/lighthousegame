@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement; // required for SceneManager
+using System;
 
 public class MiscObjectClick : MonoBehaviour
 {
@@ -188,5 +189,30 @@ public class MiscObjectClick : MonoBehaviour
     public void PublishMessage(string message)
     {
         MessageBus.Instance.Publish(message);
+    }
+
+    public void ShowDeadCamborneChoices()
+    {
+        MessageBus.Instance.Publish(
+            "ShowThreeChoice",
+            "PANIC",
+            "STARE",
+            "BURY HIM",
+            (Action)(() =>
+            {
+                // Option 1 Panic
+                DialogueManager.ShowDialogue(getDialogue("kitchen/reveal_camborne"));
+            }),
+            (Action)(() =>
+            {
+                // Option 2
+                Debug.Log("stare");
+            }),
+            (Action)(() =>
+            {
+                // Option 3
+                Debug.Log("Bury him");
+            })
+        );
     }
 }

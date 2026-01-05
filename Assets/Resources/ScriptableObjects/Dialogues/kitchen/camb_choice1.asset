@@ -10,26 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c21e5b555f186ac4da729ad4d766dae7, type: 3}
-  m_Name: reveal_camborne
+  m_Name: camb_choice1
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   text:
-  - Oh bother.
-  - What to do...
+  - You try and look away.
   onDialogueEnd:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5912071456214807691, guid: add25f6ff90e9474990e9f3862207611, type: 3}
-        m_TargetAssemblyTypeName: MiscObjectClick, Assembly-CSharp
-        m_MethodName: ShowDeadCamborneChoices
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onDialogueEndImmediate:
     m_PersistentCalls:
       m_Calls: []

@@ -10,6 +10,7 @@ public class ChoiceManager : MonoBehaviour
     [SerializeField] private GameObject ClickBlocker; // top
     [SerializeField] private GameObject DialogBG; // top
     [SerializeField] private GameObject DialogText; // top
+    [SerializeField] private GameObject FadeOverlay; // top
 
     private Action callback1;
     private Action callback2;
@@ -73,11 +74,10 @@ public class ChoiceManager : MonoBehaviour
             return;
         }
 
-        string label = args[0] as string;
+        string choice1 = args[0] as string;
         callback1 = args[1] as Action;
 
-        // Debug.Log($"[ChoiceManager] One choice: {label}");
-
+        SetButtonText(Button1, choice1);
     }
 
     private void OnShowTwoChoice(object[] args)
@@ -103,11 +103,8 @@ public class ChoiceManager : MonoBehaviour
         callback1 = args[2] as Action;
         callback2 = args[3] as Action;
 
-        Debug.Log($"[ChoiceManager] Two choices:");
-        Debug.Log($"  1) {choice1}");
-        Debug.Log($"  2) {choice2}");
-
-        // Demo execution
+        SetButtonText(Button1, choice1);
+        SetButtonText(Button2, choice2);
     }
 
     private void OnShowThreeChoice(object[] args)
@@ -138,12 +135,9 @@ public class ChoiceManager : MonoBehaviour
         callback2 = args[4] as Action;
         callback3 = args[5] as Action;
 
-        Debug.Log($"[ChoiceManager] Three choices:");
-        Debug.Log($"  1) {choice1}");
-        Debug.Log($"  2) {choice2}");
-        Debug.Log($"  3) {choice3}");
-
-        // Demo execution
+        SetButtonText(Button1, choice1);
+        SetButtonText(Button2, choice2);
+        SetButtonText(Button3, choice3);
     }
 
     private void OnButton1Clicked()
@@ -193,5 +187,16 @@ public class ChoiceManager : MonoBehaviour
         DialogText.SetActive(false);
     }
 
+    private void SetButtonText(GameObject button, string text)
+    {
+        TMP_Text tmp = button.GetComponentInChildren<TMP_Text>(true);
 
+        if (tmp == null)
+        {
+            Debug.LogError($"No TMP_Text found in children of {button.name}");
+            return;
+        }
+
+        tmp.text = text;
+    }
 }
