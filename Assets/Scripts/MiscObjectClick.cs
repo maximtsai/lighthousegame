@@ -195,24 +195,68 @@ public class MiscObjectClick : MonoBehaviour
     {
         MessageBus.Instance.Publish(
             "ShowThreeChoice",
-            "PANIC",
-            "STARE",
+            "LOOK AWAY",
+            "TOUCH",
             "BURY HIM",
             (Action)(() =>
             {
                 // Option 1 Panic
-                DialogueManager.ShowDialogue(getDialogue("kitchen/reveal_camborne"));
+                DialogueManager.ShowDialogue(getDialogue("kitchen/camb_choice1"));
             }),
             (Action)(() =>
             {
                 // Option 2
-                Debug.Log("stare");
+                DialogueManager.ShowDialogue(getDialogue("kitchen/camb_choice2"));
             }),
             (Action)(() =>
             {
                 // Option 3
-                Debug.Log("Bury him");
+                CamborneChoicesBuryClick();
             })
         );
+    }
+
+    public void CamborneChoicesLookAwayClick()
+    {
+        MessageBus.Instance.Publish(
+            "ShowTwoChoice",
+            "TOUCH",
+            "BURY HIM",
+            (Action)(() =>
+            {
+                // Option 2
+                DialogueManager.ShowDialogue(getDialogue("kitchen/camb_choice2x"));
+            }),
+            (Action)(() =>
+            {
+                // Option 3
+                CamborneChoicesBuryClick();
+
+            })
+        );
+    }
+
+    public void CamborneChoicesTouchClick()
+    {
+        MessageBus.Instance.Publish(
+            "ShowTwoChoice",
+            "LOOK AWAY",
+            "BURY HIM",
+            (Action)(() =>
+            {
+                // Option 2
+                DialogueManager.ShowDialogue(getDialogue("kitchen/camb_choice1x"));
+            }),
+            (Action)(() =>
+            {
+                // Option 3
+                CamborneChoicesBuryClick();
+            })
+        );
+    }
+
+    public void CamborneChoicesBuryClick()
+    {
+        DialogueManager.ShowDialogue(getDialogue("kitchen/camb_choice3"));
     }
 }
