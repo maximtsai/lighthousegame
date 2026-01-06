@@ -421,10 +421,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.30521092
+    x: 0.36741972
     y: 0
-    width: 0.6903777
-    height: 0.6909492
+    width: 0.76522654
+    height: 0.7653277
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -803,7 +803,7 @@ PrefabInstance:
     - target: {fileID: 1930117940751657890, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: clickSound
       value: 
-      objectReference: {fileID: 8300000, guid: d11de4a66f963e64d910c2e7177341ac, type: 3}
+      objectReference: {fileID: 8300000, guid: 864b573967e5aeb4ea7f28645380868b, type: 3}
     - target: {fileID: 1930117940751657890, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: hover_sprite
       value: 

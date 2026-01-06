@@ -9,9 +9,9 @@ public class LighthouseMiscLogic : MonoBehaviour
         Ambience ambience = Ambience.Instance;
 
         // Update track 1
-        UpdateTrack(ambience, bgLoop1, 0.15f, 1);
+        UpdateTrack(ambience, bgLoop1, 0.3f, 1);
         // Update track 2
-        UpdateTrack(ambience, bgLoop2, 0.13f, 2);
+        UpdateTrack(ambience, bgLoop2, 0.17f, 2);
     }
 
     private void UpdateTrack(Ambience ambience, AudioClip newClip, float volume, int channel)
