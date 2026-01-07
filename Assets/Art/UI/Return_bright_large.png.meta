@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e8a024ad652331541a750685ef713817
+guid: a7e3101d7e9683040b9511745f0da5ae
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4880293019744103078
-    second: kitchen_camborne_0
+      213: 7218258586117380230
+    second: Return_bright_large_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: kitchen_camborne_0
+      name: Return_bright_large_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 12
         y: 0
-        width: 1000
-        height: 360
+        width: 77
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6aa6aa105a84ab340800000000000000
-      internalID: 4880293019744103078
+      spriteID: 688907aa0f76c2460800000000000000
+      internalID: 7218258586117380230
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      kitchen_camborne_0: 4880293019744103078
+      Return_bright_large_0: 7218258586117380230
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

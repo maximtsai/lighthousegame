@@ -9,7 +9,6 @@ public class CutsceneManager : MonoBehaviour
     [SerializeField] private Image fadeOverlay;
     [SerializeField] private GameObject clickAgainImage;
     [SerializeField] private GameObject clickBlocker;
-    [SerializeField] private AudioSource audioSource;
     [SerializeField] private GameObject animatorObj;   // used for animation cutscenes
 
     private Animator animator;   // used for animation cutscenes
@@ -115,8 +114,8 @@ public class CutsceneManager : MonoBehaviour
         // -------------------------------------------------
         if (cutscene.backgroundMusic)
         {
-            audioSource.clip = cutscene.backgroundMusic;
-            audioSource.Play();
+            AudioManager.Instance.AudioSource.clip = cutscene.backgroundMusic;
+            AudioManager.Instance.AudioSource.Play();
         }
 
         // Start transparent
@@ -154,7 +153,7 @@ public class CutsceneManager : MonoBehaviour
         // -------------------------------------------------
         yield return StartCoroutine(FadeOverlay(1f, fadeDuration, true));
 
-        audioSource.Stop();
+        AudioManager.Instance.AudioSource.Stop();
 
         // Optional fade back to transparent
         if (!skipFadeout)
@@ -223,7 +222,7 @@ public class CutsceneManager : MonoBehaviour
         yield return StartCoroutine(FadeOverlay(1f, 0.25f));
 
         // stop audio
-        audioSource.Stop();
+        AudioManager.Instance.AudioSource.Stop();
 
         clickBlocker.SetActive(false);
         clickAgainImage.SetActive(false);
@@ -239,7 +238,7 @@ public class CutsceneManager : MonoBehaviour
     {
         Color color = fadeOverlay.color;
         float startAlpha = color.a;
-        float startVolume = audioSource.volume;
+        float startVolume = AudioManager.Instance.AudioSource.volume;
         float elapsed = 0f;
     
         float actualDuration = (usedDuration > 0f) ? usedDuration : fadeDuration;
@@ -256,7 +255,7 @@ public class CutsceneManager : MonoBehaviour
             // Fade audio if requested
             if (fadeAudio)
             {
-                audioSource.volume = Mathf.Lerp(startVolume, 0f, t);
+                AudioManager.Instance.AudioSource.volume = Mathf.Lerp(startVolume, 0f, t);
             }
     
             yield return null;
@@ -267,7 +266,7 @@ public class CutsceneManager : MonoBehaviour
         fadeOverlay.color = color;
     
         if (fadeAudio)
-            audioSource.volume = 1f;
+            AudioManager.Instance.AudioSource.volume = 1f;
     }
     // ---------------------------------------------------------
     // Scroll up helper

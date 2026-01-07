@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e1750fcffb8c0254e851d4e72f1a7c6d
+guid: 8f42f5999c26ae342a97f12d2530573e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 738490732054691404
-    second: kitchen_night_0
+      213: -569907493492725855
+    second: lighthouse_cutscene2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: kitchen_night_0
+      name: lighthouse_cutscene2_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 950
-        height: 360
+        width: 640
+        height: 700
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c4eb90a7865af3a00800000000000000
-      internalID: 738490732054691404
+      spriteID: 1a7688777284718f0800000000000000
+      internalID: -569907493492725855
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      kitchen_night_0: 738490732054691404
+      lighthouse_cutscene2_0: -569907493492725855
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

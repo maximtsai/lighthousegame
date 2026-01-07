@@ -10,7 +10,6 @@ public class ChoiceManager : MonoBehaviour
     [SerializeField] private GameObject ClickBlocker; // top
     [SerializeField] private GameObject DialogBG; // top
     [SerializeField] private GameObject DialogText; // top
-    [SerializeField] private GameObject FadeOverlay; // top
 
     private Action callback1;
     private Action callback2;

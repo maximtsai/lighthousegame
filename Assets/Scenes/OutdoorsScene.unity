@@ -467,10 +467,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.4850136
     y: 0
-    width: 0.99917287
-    height: 1
+    width: 0.94943994
+    height: 0.9491526
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -705,6 +705,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   bgLoop1: {fileID: 8300000, guid: 3f6c773ae3d76484cbf2270c2150fefd, type: 3}
   bgLoop2: {fileID: 8300000, guid: bb295e81a5802b94f99cacb96173522c, type: 3}
+  CsManager: {fileID: 1354897420}
 --- !u!4 &647772682
 Transform:
   m_ObjectHideFlags: 0
@@ -889,6 +890,78 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
+--- !u!1001 &1354897419
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 789083952819893391, guid: 1c51b1f8617e4ee4e86a74e558b2fb52, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6244265684674665917, guid: 1c51b1f8617e4ee4e86a74e558b2fb52, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 259.72452
+      objectReference: {fileID: 0}
+    - target: {fileID: 6244265684674665917, guid: 1c51b1f8617e4ee4e86a74e558b2fb52, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 233.66797
+      objectReference: {fileID: 0}
+    - target: {fileID: 6244265684674665917, guid: 1c51b1f8617e4ee4e86a74e558b2fb52, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6244265684674665917, guid: 1c51b1f8617e4ee4e86a74e558b2fb52, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6244265684674665917, guid: 1c51b1f8617e4ee4e86a74e558b2fb52, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6244265684674665917, guid: 1c51b1f8617e4ee4e86a74e558b2fb52, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6244265684674665917, guid: 1c51b1f8617e4ee4e86a74e558b2fb52, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6244265684674665917, guid: 1c51b1f8617e4ee4e86a74e558b2fb52, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6244265684674665917, guid: 1c51b1f8617e4ee4e86a74e558b2fb52, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6244265684674665917, guid: 1c51b1f8617e4ee4e86a74e558b2fb52, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8336018543559920889, guid: 1c51b1f8617e4ee4e86a74e558b2fb52, type: 3}
+      propertyPath: m_Name
+      value: CutsceneManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1c51b1f8617e4ee4e86a74e558b2fb52, type: 3}
+--- !u!114 &1354897420 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 789083952819893391, guid: 1c51b1f8617e4ee4e86a74e558b2fb52, type: 3}
+  m_PrefabInstance: {fileID: 1354897419}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e286644505e4cb4faffc04b780780b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1001 &1601745822
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1371,4 +1444,5 @@ SceneRoots:
   - {fileID: 2020215862}
   - {fileID: 1601745822}
   - {fileID: 1717215370}
+  - {fileID: 1354897419}
   - {fileID: 647772682}
