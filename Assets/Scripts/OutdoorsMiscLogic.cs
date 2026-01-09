@@ -18,8 +18,10 @@ public class OutdoorsMiscLogic : MonoBehaviour
         bool cutscenePlayed = GameState.Get<bool>("cutscene_outdoors_played", false) || GameState.Get<int>("day", 1) > 1;
         if (!cutscenePlayed)
         {
+            Debug.Log("play lighthouse cutscene");
             GameState.Set("cutscene_outdoors_played", true);
-            CsManager.PlayCutscene("Lighthouse", false, () => {
+            CsManager.PlayCutscene("Intro", true, () => {
+                Debug.Log("lighthouse scene done");
                 // SceneManager.LoadScene("BedroomScene");
             });
         }
@@ -30,6 +32,10 @@ public class OutdoorsMiscLogic : MonoBehaviour
     private void UpdateTrack(Ambience ambience, AudioClip newClip, float volume, int channel)
     {
         // Check if the new clip is different from the current clip
+        if (ambience == null)
+        {
+            return;
+        }
         AudioClip currentClip = ambience.GetCurrentClip(channel);
         if (currentClip != newClip)
         {

@@ -1548,7 +1548,6 @@ MonoBehaviour:
   fadeOverlay: {fileID: 8879477326200334862}
   clickAgainImage: {fileID: 694459962898835391}
   clickBlocker: {fileID: 8058658853406059078}
-  audioSource: {fileID: 0}
   animatorObj: {fileID: 3506633424947986591}
   fadeDuration: 0.5
 --- !u!114 &3981211062624122174
@@ -1569,7 +1568,6 @@ MonoBehaviour:
   ClickBlocker: {fileID: 8058658853406059078}
   DialogBG: {fileID: 8016435017063839519}
   DialogText: {fileID: 991570174948798816}
-  FadeOverlay: {fileID: 0}
 --- !u!114 &3093726530328815677
 MonoBehaviour:
   m_ObjectHideFlags: 0

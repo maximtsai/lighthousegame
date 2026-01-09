@@ -27,8 +27,6 @@ public class MainMenuLogic : MonoBehaviour
 
     public void ContinueGame()
     {
-        CsManager.PlayCutscene("Intro", true, () => {
-            SceneManager.LoadScene("BedroomScene");
-        });
+        SceneManager.LoadScene("BedroomScene");
     }
 }

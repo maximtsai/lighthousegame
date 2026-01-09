@@ -7,6 +7,7 @@ using UnityEngine.Events;
 public class Cutscene : ScriptableObject
 {
     public AnimationClip animation;
+    public RuntimeAnimatorController controller;
     public float duration;
     public AudioClip backgroundMusic;
 }
