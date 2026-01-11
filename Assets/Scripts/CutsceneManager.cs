@@ -203,8 +203,8 @@ public class CutsceneManager : MonoBehaviour
             animatorObj.SetActive(true);
             // SetAnimation(cutscene.animation);
             // ChangeAnimatorController(animator, cutscene.controller);
-            ResizeAnimatorObj();
-            animator.Play(0, 0, 0f); // layer 0, default state, time = 0
+            animator.Play(cutscene.animation.name, 0, 0f); // layer 0, default state, time = 0
+            // ResizeAnimatorObj();
         } else if (cutscene.animation == null)
         {
             Debug.LogWarning("Missing cutscene.animation");
