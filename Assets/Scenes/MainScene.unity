@@ -1012,6 +1012,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
+--- !u!114 &1599003121 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8879477326200334862, guid: 1c51b1f8617e4ee4e86a74e558b2fb52, type: 3}
+  m_PrefabInstance: {fileID: 2832228261116431610}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!1001 &1872892262
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1293,8 +1304,8 @@ Camera:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 0.9997434
-    height: 1
+    width: 1
+    height: 0.9996906
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -1496,6 +1507,10 @@ PrefabInstance:
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 1209353543}
+    - target: {fileID: 789083952819893391, guid: 1c51b1f8617e4ee4e86a74e558b2fb52, type: 3}
+      propertyPath: fadeOverlayImg
+      value: 
+      objectReference: {fileID: 1599003121}
     - target: {fileID: 6244265684674665917, guid: 1c51b1f8617e4ee4e86a74e558b2fb52, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

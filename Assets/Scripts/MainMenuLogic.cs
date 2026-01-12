@@ -22,7 +22,7 @@ public class MainMenuLogic : MonoBehaviour
         CsManager.PlayCutscene("Intro", true, () => {
             SceneManager.LoadScene("BedroomScene");
 
-        });
+        }, true);
     }
 
     public void ContinueGame()

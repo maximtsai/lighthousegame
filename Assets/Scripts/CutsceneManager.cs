@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -8,7 +9,7 @@ using UnityEngine.SceneManagement;
 
 public class CutsceneManager : MonoBehaviour
 {
-    [SerializeField] private Image fadeOverlay;
+    [SerializeField] private Image fadeOverlayImg;
     [SerializeField] private GameObject clickAgainImage;
     [SerializeField] private GameObject clickBlocker;
     [SerializeField] private GameObject animatorObj;   // used for animation cutscenes
@@ -25,6 +26,7 @@ public class CutsceneManager : MonoBehaviour
     private float doubleClickTimeout = 4f;
     private Coroutine resetClickRoutine;
     private System.Action cutsceneOnComplete;
+    private bool postSceneSwapCleanup = false;
     private bool skipFirstClickBlockerClick = true;
 
     private void Awake()
@@ -40,10 +42,10 @@ public class CutsceneManager : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         // 🔥 This runs EVERY time a scene loads
-        //animatorObj.SetActive(false);
-        // Your code here
-        //StartCoroutine(FadeOverlay(0f, 1f));
-
+        if (postSceneSwapCleanup)
+        {
+            StartCoroutine(FadeOverlayThenCleanup(0f, 0.35f));
+        }
     }
 
     private void Start() {
@@ -51,8 +53,25 @@ public class CutsceneManager : MonoBehaviour
             animator = animatorObj.GetComponent<Animator>();     
             ResizeAnimatorObj();
         }
+        
+        MessageBus.Instance.Subscribe("PlayCutscene", PlayCutsceneFromMessage);
+            
     }
 
+    private void PlayCutsceneFromMessage(object[] args)
+    {
+        // Expected:
+        // [0] string
+        // [1] bool
+        // [2] Action
+
+        string cutsceneName = args[0] as string;
+        bool skipFadeout = (bool)args[1];
+        Action onComplete = args[2] as Action;
+        bool switchesScenes = (bool)args[3];
+        PlayCutscene(cutsceneName, skipFadeout, onComplete, switchesScenes);
+    }
+    
     void ResizeAnimatorObj() {
         // Adjust height to maintain aspect ratio
         RectTransform rt = animatorObj.GetComponent<RectTransform>();
@@ -141,7 +160,6 @@ public class CutsceneManager : MonoBehaviour
     public Cutscene getCutsceneScriptable(string name)
     {
         string fullPath = path + name;
-        Debug.Log(fullPath);
         Cutscene cutscene = Resources.Load<Cutscene>(fullPath);
         if (cutscene == null)
         {
@@ -153,7 +171,7 @@ public class CutsceneManager : MonoBehaviour
     // ---------------------------------------------------------
     // Play cutscene
     // ---------------------------------------------------------
-    public void PlayCutscene(string cutsceneName, bool skipFadeout = false, System.Action onComplete = null)
+    public void PlayCutscene(string cutsceneName, bool skipFadeout = false, System.Action onComplete = null, bool switchesScenes = false)
     {
         if (isPlaying) return;
         Cutscene cutscene = getCutsceneScriptable(cutsceneName);
@@ -165,10 +183,10 @@ public class CutsceneManager : MonoBehaviour
         }
 
         cutsceneOnComplete = onComplete;
-        StartCoroutine(PlayCutsceneRoutine(cutscene, skipFadeout, onComplete));
+        StartCoroutine(PlayCutsceneRoutine(cutscene, skipFadeout, onComplete, switchesScenes));
     }
 
-    private IEnumerator PlayCutsceneRoutine(Cutscene cutscene, bool skipFadeout, System.Action onComplete)
+    private IEnumerator PlayCutsceneRoutine(Cutscene cutscene, bool skipFadeout, System.Action onComplete, bool switchesScenes)
     {
         isPlaying = true;
         skipFirstClickBlockerClick = true;
@@ -186,9 +204,9 @@ public class CutsceneManager : MonoBehaviour
         }
 
         // Start transparent
-        Color transparentColor = fadeOverlay.color;
+        Color transparentColor = fadeOverlayImg.color;
         transparentColor.a = 0f;
-        fadeOverlay.color = transparentColor;
+        fadeOverlayImg.color = transparentColor;
         Debug.Log("playing cutscene routine did audio");
 
         // FADE IN
@@ -229,21 +247,29 @@ public class CutsceneManager : MonoBehaviour
         {
             AudioManager.Instance.AudioSource.Stop();
         }
-        onComplete?.Invoke();
+        PreCleanUp();
 
-        yield return new WaitForSeconds(0.02f);
-        // Optional fade back to transparent
-        if (skipFadeout)
+        if (switchesScenes)
         {
-            Debug.Log("skipped fadeout, quick fade");
-            yield return StartCoroutine(FadeOverlay(0f, 0.05f));
+            cutsceneOnComplete?.Invoke();
+            postSceneSwapCleanup = true;
         }
         else
         {
-            Debug.Log("slow fade");
-            yield return StartCoroutine(FadeOverlay(0f, 0.5f));
+            cutsceneOnComplete?.Invoke();
+            // Optional fade back to transparent
+            if (skipFadeout)
+            {
+                Debug.Log("skipped fadeout, quick fade");
+                yield return StartCoroutine(FadeOverlay(0f, 0.05f));
+            }
+            else
+            {
+                Debug.Log("slow fade");
+                yield return StartCoroutine(FadeOverlay(0f, 0.5f));
+            }
+            CleanUp();
         }
-        CleanUp();
     }
 
     // ---------------------------------------------------------
@@ -308,14 +334,20 @@ public class CutsceneManager : MonoBehaviour
 
     }
 
+
+    private void PreCleanUp()
+    {
+        animatorObj.SetActive(false);
+        clickAgainImage.SetActive(false);
+    }
     private void CleanUp()
     {
         skipFirstClickBlockerClick = true;
         waitingForSecondClick = false;
-        Color transparentColor = fadeOverlay.color;
+        Color transparentColor = fadeOverlayImg.color;
         transparentColor.a = 0f;
-        fadeOverlay.color = transparentColor;
-        fadeOverlay.color = transparentColor;
+        fadeOverlayImg.color = transparentColor;
+        fadeOverlayImg.color = transparentColor;
 
         isPlaying = false;
         skipFirstClickBlockerClick = false;
@@ -324,7 +356,7 @@ public class CutsceneManager : MonoBehaviour
         clickAgainImage.SetActive(false);
         ResetAnimatorObj();
         animatorObj.SetActive(false);
-        
+        postSceneSwapCleanup = false;
     }
 
     // ---------------------------------------------------------
@@ -332,7 +364,9 @@ public class CutsceneManager : MonoBehaviour
     // ---------------------------------------------------------
     private IEnumerator FadeOverlay(float targetAlpha, float usedDuration = 0f, bool fadeAudio = false)
     {
-        Color color = fadeOverlay.color;
+        Debug.Log("FadeOverlay called");
+        Debug.Log(targetAlpha);
+        Color color = fadeOverlayImg.color;
         float startAlpha = color.a;
         float startVolume = 1f;
         if (AudioManager.Instance)
@@ -350,7 +384,7 @@ public class CutsceneManager : MonoBehaviour
     
             // Fade overlay
             color.a = Mathf.Lerp(startAlpha, targetAlpha, t);
-            fadeOverlay.color = color;
+            fadeOverlayImg.color = color;
     
             // Fade audio if requested
             if (fadeAudio && AudioManager.Instance)
@@ -360,17 +394,22 @@ public class CutsceneManager : MonoBehaviour
     
             yield return null;
         }
-        Debug.Log("finishing fade overlay");
 
         // Ensure final values are exact
         color.a = targetAlpha;
-        fadeOverlay.color = color;
+        fadeOverlayImg.color = color;
 
         if (fadeAudio && AudioManager.Instance)
         {
             AudioManager.Instance.AudioSource.volume = 1f;
         }
-        Debug.Log("finishing fade overlay2");
+    }
+
+    private IEnumerator FadeOverlayThenCleanup(float targetAlpha, float usedDuration = 0f, bool fadeAudio = false)
+    {
+        FadeOverlay(targetAlpha, usedDuration, fadeAudio);
+        CleanUp();
+        yield return null;
     }
     // ---------------------------------------------------------
     // Scroll up helper
