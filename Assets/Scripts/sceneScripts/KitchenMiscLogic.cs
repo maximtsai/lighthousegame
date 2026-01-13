@@ -22,25 +22,6 @@ public class KitchenMiscLogic : MonoBehaviour
         // Update track 2
         UpdateTrack(ambience, bgLoop2, 0.24f, 2);
 
-
-        // Todo: Remove this later
-        MessageBus.Instance.Publish(
-            "ShowTwoChoice",
-            "Option 1 text",
-            "Option 2 text",
-            (Action)(() =>
-            {
-                // Option 1
-                Debug.Log("do stuff!");
-            }),
-            (Action)(() =>
-            {
-                // Option 1
-                Debug.Log("do stuff2!");
-            })
-        );
-        MessageBus.Instance.Publish("ShowDialogInstant", "test text");
-
     }
 
     private void UpdateTrack(Ambience ambience, AudioClip newClip, float volume, int channel)

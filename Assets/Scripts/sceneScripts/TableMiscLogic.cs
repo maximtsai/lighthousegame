@@ -89,28 +89,5 @@ public class TableMiscLogic : MonoBehaviour
         MessageBus.Instance.Publish("ChangeQuestText", "MAKE DECISION");
         yield return new WaitForSeconds(1f);
         DialogueManager.ShowDialogue(miscObjectClick.getDialogue("kitchen/reveal_camborne"));
-
-        MessageBus.Instance.Publish(
-            "ShowThreeChoice",
-            "PANIC",
-            "STARE",
-            "BURY HIM",
-            (Action)(() =>
-            {
-                // Option 1 Panic
-                Debug.Log("Panic!");
-            }),
-            (Action)(() =>
-            {
-                // Option 2
-                Debug.Log("stare");
-            }),
-            (Action)(() =>
-            {
-                // Option 3
-                Debug.Log("Bury him");
-            })
-        );
-
     }
 }

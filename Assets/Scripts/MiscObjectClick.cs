@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement; // required for SceneManager
+using System;
 
 public class MiscObjectClick : MonoBehaviour
 {
@@ -188,5 +189,74 @@ public class MiscObjectClick : MonoBehaviour
     public void PublishMessage(string message)
     {
         MessageBus.Instance.Publish(message);
+    }
+
+    public void ShowDeadCamborneChoices()
+    {
+        MessageBus.Instance.Publish(
+            "ShowThreeChoice",
+            "LOOK AWAY",
+            "TOUCH",
+            "BURY HIM",
+            (Action)(() =>
+            {
+                // Option 1 Panic
+                DialogueManager.ShowDialogue(getDialogue("kitchen/camb_choice1"));
+            }),
+            (Action)(() =>
+            {
+                // Option 2
+                DialogueManager.ShowDialogue(getDialogue("kitchen/camb_choice2"));
+            }),
+            (Action)(() =>
+            {
+                // Option 3
+                CamborneChoicesBuryClick();
+            })
+        );
+    }
+
+    public void CamborneChoicesLookAwayClick()
+    {
+        MessageBus.Instance.Publish(
+            "ShowTwoChoice",
+            "TOUCH",
+            "BURY HIM",
+            (Action)(() =>
+            {
+                // Option 2
+                DialogueManager.ShowDialogue(getDialogue("kitchen/camb_choice2x"));
+            }),
+            (Action)(() =>
+            {
+                // Option 3
+                CamborneChoicesBuryClick();
+
+            })
+        );
+    }
+
+    public void CamborneChoicesTouchClick()
+    {
+        MessageBus.Instance.Publish(
+            "ShowTwoChoice",
+            "LOOK AWAY",
+            "BURY HIM",
+            (Action)(() =>
+            {
+                // Option 2
+                DialogueManager.ShowDialogue(getDialogue("kitchen/camb_choice1x"));
+            }),
+            (Action)(() =>
+            {
+                // Option 3
+                CamborneChoicesBuryClick();
+            })
+        );
+    }
+
+    public void CamborneChoicesBuryClick()
+    {
+        DialogueManager.ShowDialogue(getDialogue("kitchen/camb_choice3"));
     }
 }

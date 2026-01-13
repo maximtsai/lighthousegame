@@ -4,6 +4,8 @@ public class OutdoorsMiscLogic : MonoBehaviour
 {
     [SerializeField] private AudioClip bgLoop1;
     [SerializeField] private AudioClip bgLoop2;
+    // [SerializeField] CutsceneManager CsManager;
+
     void Start()
     {
         Ambience ambience = Ambience.Instance;
@@ -17,6 +19,10 @@ public class OutdoorsMiscLogic : MonoBehaviour
     private void UpdateTrack(Ambience ambience, AudioClip newClip, float volume, int channel)
     {
         // Check if the new clip is different from the current clip
+        if (ambience == null)
+        {
+            return;
+        }
         AudioClip currentClip = ambience.GetCurrentClip(channel);
         if (currentClip != newClip)
         {

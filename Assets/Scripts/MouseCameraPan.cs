@@ -16,6 +16,8 @@ public class MouseCameraPan : MonoBehaviour
     {
         cam = Camera.main;
         RecalculateDimensions();
+        // MessageBus.Instance.Subscribe("ShakeScreen", ShakeScreen, this);
+
     }
     public void RecalculateDimensions()
     {
@@ -94,5 +96,10 @@ public class MouseCameraPan : MonoBehaviour
         // normalize the middle region back to 0–1
         return (value - edgeThreshold) / (1f - 2f * edgeThreshold);
     }
-    
+
+
+    // private void ShakeScreen()
+    // {
+	   //  
+    // }
 }

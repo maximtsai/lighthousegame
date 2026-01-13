@@ -467,10 +467,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.5165468
     y: 0
-    width: 0.99917287
-    height: 1
+    width: 0.78017586
+    height: 0.7800512
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -705,6 +705,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   bgLoop1: {fileID: 8300000, guid: 3f6c773ae3d76484cbf2270c2150fefd, type: 3}
   bgLoop2: {fileID: 8300000, guid: bb295e81a5802b94f99cacb96173522c, type: 3}
+  CsManager: {fileID: 0}
 --- !u!4 &647772682
 Transform:
   m_ObjectHideFlags: 0

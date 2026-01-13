@@ -1,4 +1,7 @@
+using System;
 using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -6,10 +9,9 @@ using UnityEngine.SceneManagement;
 
 public class CutsceneManager : MonoBehaviour
 {
-    [SerializeField] private Image fadeOverlay;
+    [SerializeField] private Image fadeOverlayImg;
     [SerializeField] private GameObject clickAgainImage;
     [SerializeField] private GameObject clickBlocker;
-    [SerializeField] private AudioSource audioSource;
     [SerializeField] private GameObject animatorObj;   // used for animation cutscenes
 
     private Animator animator;   // used for animation cutscenes
@@ -21,9 +23,10 @@ public class CutsceneManager : MonoBehaviour
 
     // Skip system
     private bool waitingForSecondClick = false;
-    private float doubleClickTimeout = 2f;
+    private float doubleClickTimeout = 4f;
     private Coroutine resetClickRoutine;
     private System.Action cutsceneOnComplete;
+    private bool postSceneSwapCleanup = false;
     private bool skipFirstClickBlockerClick = true;
 
     private void Awake()
@@ -39,10 +42,10 @@ public class CutsceneManager : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         // 🔥 This runs EVERY time a scene loads
-        animatorObj.SetActive(false);
-        // Your code here
-        StartCoroutine(FadeOverlay(0f, 1f));
-
+        if (postSceneSwapCleanup)
+        {
+            StartCoroutine(FadeOverlayThenCleanup(0f, 0.35f));
+        }
     }
 
     private void Start() {
@@ -50,8 +53,25 @@ public class CutsceneManager : MonoBehaviour
             animator = animatorObj.GetComponent<Animator>();     
             ResizeAnimatorObj();
         }
+        
+        MessageBus.Instance.Subscribe("PlayCutscene", PlayCutsceneFromMessage);
+            
     }
 
+    private void PlayCutsceneFromMessage(object[] args)
+    {
+        // Expected:
+        // [0] string
+        // [1] bool
+        // [2] Action
+
+        string cutsceneName = args[0] as string;
+        bool skipFadeout = (bool)args[1];
+        Action onComplete = args[2] as Action;
+        bool switchesScenes = (bool)args[3];
+        PlayCutscene(cutsceneName, skipFadeout, onComplete, switchesScenes);
+    }
+    
     void ResizeAnimatorObj() {
         // Adjust height to maintain aspect ratio
         RectTransform rt = animatorObj.GetComponent<RectTransform>();
@@ -70,6 +90,70 @@ public class CutsceneManager : MonoBehaviour
         }
     }
 
+    void SetAnimation(AnimationClip clip)
+    {
+        if (clip == null) return;
+        if (animator == null)
+        {
+            Debug.LogError("Animator component missing on animatorObj");
+            return;
+        }
+        // If no controller is assigned, this is setup error
+        if (animator.runtimeAnimatorController == null)
+        {
+            Debug.LogError("Animator has no RuntimeAnimatorController assigned");
+            return;
+        }
+        
+        // Create or reuse an override controller
+        AnimatorOverrideController overrideController = animator.runtimeAnimatorController as AnimatorOverrideController;
+
+        if (overrideController == null)
+        {
+            overrideController = new AnimatorOverrideController(animator.runtimeAnimatorController);
+        }
+
+        // Override the first (default) animation clip
+        var overrides = new List<KeyValuePair<AnimationClip, AnimationClip>>();
+        overrideController.GetOverrides(overrides);
+
+        if (overrides.Count == 0)
+        {
+            Debug.LogError("Animator controller has no clips to override");
+            return;
+        }
+        Debug.Log("-0-0-0");
+        Debug.Log(overrides[0].Key);
+        Debug.Log(clip.name);
+        overrides[0] = new KeyValuePair<AnimationClip, AnimationClip>(
+            overrides[0].Key,
+            clip
+        );
+
+        overrideController.ApplyOverrides(overrides);
+        animator.runtimeAnimatorController = overrideController;
+
+        // (Optional but recommended)
+        // animator.Rebind();
+        // animator.Update(0f);
+    }
+
+    public void ChangeAnimatorController(
+        Animator animatorToChange,
+        RuntimeAnimatorController controller,
+        string stateName = "idle",
+        int layer = 0,
+        float normalizedTime = 0f
+    )
+    {
+        if (controller != null)
+        {
+            animatorToChange.runtimeAnimatorController = controller;
+        }
+        animator.Rebind();
+        animator.Update(0f);
+    }
+    
     // ---------------------------------------------------------
     // Load ScriptableObject by name
     // ---------------------------------------------------------
@@ -87,7 +171,7 @@ public class CutsceneManager : MonoBehaviour
     // ---------------------------------------------------------
     // Play cutscene
     // ---------------------------------------------------------
-    public void PlayCutscene(string cutsceneName, bool skipFadeout = false, System.Action onComplete = null)
+    public void PlayCutscene(string cutsceneName, bool skipFadeout = false, System.Action onComplete = null, bool switchesScenes = false)
     {
         if (isPlaying) return;
         Cutscene cutscene = getCutsceneScriptable(cutsceneName);
@@ -99,10 +183,10 @@ public class CutsceneManager : MonoBehaviour
         }
 
         cutsceneOnComplete = onComplete;
-        StartCoroutine(PlayCutsceneRoutine(cutscene, skipFadeout, onComplete));
+        StartCoroutine(PlayCutsceneRoutine(cutscene, skipFadeout, onComplete, switchesScenes));
     }
 
-    private IEnumerator PlayCutsceneRoutine(Cutscene cutscene, bool skipFadeout, System.Action onComplete)
+    private IEnumerator PlayCutsceneRoutine(Cutscene cutscene, bool skipFadeout, System.Action onComplete, bool switchesScenes)
     {
         isPlaying = true;
         skipFirstClickBlockerClick = true;
@@ -113,28 +197,32 @@ public class CutsceneManager : MonoBehaviour
         // -------------------------------------------------
         // PLAY MUSIC
         // -------------------------------------------------
-        if (cutscene.backgroundMusic)
+        if (cutscene.backgroundMusic && AudioManager.Instance)
         {
-            audioSource.clip = cutscene.backgroundMusic;
-            audioSource.Play();
+            AudioManager.Instance.AudioSource.clip = cutscene.backgroundMusic;
+            AudioManager.Instance.AudioSource.Play();
         }
 
         // Start transparent
-        Color overlayColor = fadeOverlay.color;
-        overlayColor.a = 0f;
-        fadeOverlay.color = overlayColor;
+        Color transparentColor = fadeOverlayImg.color;
+        transparentColor.a = 0f;
+        fadeOverlayImg.color = transparentColor;
+        Debug.Log("playing cutscene routine did audio");
 
         // FADE IN
         yield return StartCoroutine(FadeOverlay(1f, fadeDuration));
+        Debug.Log("playing cutscene routine fade overlay");
 
         // -------------------------------------------------
         // PLAY ANIMATION
         // -------------------------------------------------
-        if (cutscene.animation != null && animator != null)
+        if (cutscene.controller != null && animator != null)
         {
             animatorObj.SetActive(true);
-            ResizeAnimatorObj();
-            animator.Play(cutscene.animation.name, 0, 0f);
+            // SetAnimation(cutscene.animation);
+            // ChangeAnimatorController(animator, cutscene.controller);
+            animator.Play(cutscene.animation.name, 0, 0f); // layer 0, default state, time = 0
+            // ResizeAnimatorObj();
         } else if (cutscene.animation == null)
         {
             Debug.LogWarning("Missing cutscene.animation");
@@ -142,6 +230,7 @@ public class CutsceneManager : MonoBehaviour
         {
             Debug.LogWarning("Missing animator");
         }
+        Debug.Log("playing cutscene routine fadein");
 
         // FADE IN
         yield return StartCoroutine(FadeOverlay(0f, fadeDuration));
@@ -154,22 +243,33 @@ public class CutsceneManager : MonoBehaviour
         // -------------------------------------------------
         yield return StartCoroutine(FadeOverlay(1f, fadeDuration, true));
 
-        audioSource.Stop();
-
-        // Optional fade back to transparent
-        if (!skipFadeout)
+        if (AudioManager.Instance)
         {
-            yield return StartCoroutine(FadeOverlay(0f, 1f));
+            AudioManager.Instance.AudioSource.Stop();
         }
+        PreCleanUp();
 
-        isPlaying = false;
-        skipFirstClickBlockerClick = false;
-
-        clickBlocker.SetActive(false);
-        clickAgainImage.SetActive(false);
-        animatorObj.SetActive(false);
-
-        onComplete?.Invoke();
+        if (switchesScenes)
+        {
+            cutsceneOnComplete?.Invoke();
+            postSceneSwapCleanup = true;
+        }
+        else
+        {
+            cutsceneOnComplete?.Invoke();
+            // Optional fade back to transparent
+            if (skipFadeout)
+            {
+                Debug.Log("skipped fadeout, quick fade");
+                yield return StartCoroutine(FadeOverlay(0f, 0.05f));
+            }
+            else
+            {
+                Debug.Log("slow fade");
+                yield return StartCoroutine(FadeOverlay(0f, 0.5f));
+            }
+            CleanUp();
+        }
     }
 
     // ---------------------------------------------------------
@@ -223,13 +323,40 @@ public class CutsceneManager : MonoBehaviour
         yield return StartCoroutine(FadeOverlay(1f, 0.25f));
 
         // stop audio
-        audioSource.Stop();
+        if (AudioManager.Instance)
+        {
+            AudioManager.Instance.AudioSource.Stop();
+        }
+        cutsceneOnComplete?.Invoke();
+        yield return new WaitForSeconds(0.02f);
+
+        CleanUp();
+
+    }
+
+
+    private void PreCleanUp()
+    {
+        animatorObj.SetActive(false);
+        clickAgainImage.SetActive(false);
+    }
+    private void CleanUp()
+    {
+        skipFirstClickBlockerClick = true;
+        waitingForSecondClick = false;
+        Color transparentColor = fadeOverlayImg.color;
+        transparentColor.a = 0f;
+        fadeOverlayImg.color = transparentColor;
+        fadeOverlayImg.color = transparentColor;
+
+        isPlaying = false;
+        skipFirstClickBlockerClick = false;
 
         clickBlocker.SetActive(false);
         clickAgainImage.SetActive(false);
-        isPlaying = false;
-
-        cutsceneOnComplete?.Invoke();
+        ResetAnimatorObj();
+        animatorObj.SetActive(false);
+        postSceneSwapCleanup = false;
     }
 
     // ---------------------------------------------------------
@@ -237,9 +364,15 @@ public class CutsceneManager : MonoBehaviour
     // ---------------------------------------------------------
     private IEnumerator FadeOverlay(float targetAlpha, float usedDuration = 0f, bool fadeAudio = false)
     {
-        Color color = fadeOverlay.color;
+        Debug.Log("FadeOverlay called");
+        Debug.Log(targetAlpha);
+        Color color = fadeOverlayImg.color;
         float startAlpha = color.a;
-        float startVolume = audioSource.volume;
+        float startVolume = 1f;
+        if (AudioManager.Instance)
+        {
+            startVolume = AudioManager.Instance.AudioSource.volume;
+        }
         float elapsed = 0f;
     
         float actualDuration = (usedDuration > 0f) ? usedDuration : fadeDuration;
@@ -251,23 +384,32 @@ public class CutsceneManager : MonoBehaviour
     
             // Fade overlay
             color.a = Mathf.Lerp(startAlpha, targetAlpha, t);
-            fadeOverlay.color = color;
+            fadeOverlayImg.color = color;
     
             // Fade audio if requested
-            if (fadeAudio)
+            if (fadeAudio && AudioManager.Instance)
             {
-                audioSource.volume = Mathf.Lerp(startVolume, 0f, t);
+                AudioManager.Instance.AudioSource.volume = Mathf.Lerp(startVolume, 0f, t);
             }
     
             yield return null;
         }
-    
+
         // Ensure final values are exact
         color.a = targetAlpha;
-        fadeOverlay.color = color;
-    
-        if (fadeAudio)
-            audioSource.volume = 1f;
+        fadeOverlayImg.color = color;
+
+        if (fadeAudio && AudioManager.Instance)
+        {
+            AudioManager.Instance.AudioSource.volume = 1f;
+        }
+    }
+
+    private IEnumerator FadeOverlayThenCleanup(float targetAlpha, float usedDuration = 0f, bool fadeAudio = false)
+    {
+        FadeOverlay(targetAlpha, usedDuration, fadeAudio);
+        CleanUp();
+        yield return null;
     }
     // ---------------------------------------------------------
     // Scroll up helper
@@ -278,7 +420,7 @@ public class CutsceneManager : MonoBehaviour
         if (rt == null) yield break;
     
         // Starting position (current anchored position)
-        Vector2 startPos = rt.anchoredPosition;
+        Vector2 startPos = new Vector2(0, 0);
     
         // Calculate target position
         // We want the top of the RectTransform to align with the top of its parent
@@ -305,5 +447,14 @@ public class CutsceneManager : MonoBehaviour
     
         // Ensure final position is exact
         rt.anchoredPosition = new Vector2(startPos.x, targetY);
+    }
+
+    private void ResetAnimatorObj()
+    {
+        if (animatorObj == null) return;
+        RectTransform rt = animatorObj.GetComponent<RectTransform>();
+        if (rt == null) return;
+    
+        rt.anchoredPosition = new Vector2(0, 0);
     }
 }

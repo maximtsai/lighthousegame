@@ -52,7 +52,7 @@ public class TaskManager : MonoBehaviour
         // TaskManager.instance.AddTask(someTask);
     public void AddTask(Task task)
     {
-        Debug.Log("Adding task: " + task.id);
+        // Debug.Log("Adding task: " + task.id);
         if (!taskList.Contains(task))
         {
             taskList.Add(task);

@@ -17,7 +17,19 @@ MonoBehaviour:
   - What to do...
   onDialogueEnd:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5912071456214807691, guid: add25f6ff90e9474990e9f3862207611, type: 3}
+        m_TargetAssemblyTypeName: MiscObjectClick, Assembly-CSharp
+        m_MethodName: ShowDeadCamborneChoices
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onDialogueEndImmediate:
     m_PersistentCalls:
       m_Calls: []

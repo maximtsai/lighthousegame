@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement; // required for SceneManager
 using System.Collections;
@@ -93,7 +94,25 @@ public class Navigation : MonoBehaviour
         }
 
         playSoundClip(transition.travelSound);
-        GoToTransition("OutdoorsScene", 0.35f);
+        
+        bool cutscenePlayed = GameState.Get<bool>("cutscene_outdoors_played", false) || GameState.Get<int>("day", 1) > 1;
+        if (!cutscenePlayed)
+        {
+            Debug.Log("play lighthouse cutscene");
+            GameState.Set("cutscene_outdoors_played", true);
+            MessageBus.Instance.Publish("PlayCutscene", "Lighthouse", true, (Action)(() =>
+            {
+                Debug.Log("going to outdoors");
+                GoToTransition("OutdoorsScene", 0.35f);
+                
+            }), true);
+        }
+        else
+        {
+            GoToTransition("OutdoorsScene", 0.35f);
+        }
+        
+        
     }
     
     public void GoToUpstairs(SceneTransition transition)

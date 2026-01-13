@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 
 public class ChoiceManager : MonoBehaviour
@@ -6,6 +7,9 @@ public class ChoiceManager : MonoBehaviour
     [SerializeField] private GameObject Button1; // left
     [SerializeField] private GameObject Button2; // right
     [SerializeField] private GameObject Button3; // top
+    [SerializeField] private GameObject ClickBlocker; // top
+    [SerializeField] private GameObject DialogBG; // top
+    [SerializeField] private GameObject DialogText; // top
 
     private Action callback1;
     private Action callback2;
@@ -43,6 +47,8 @@ public class ChoiceManager : MonoBehaviour
         MessageBus.Instance.Subscribe("ShowOneChoice", OnShowOneChoice, this);
         MessageBus.Instance.Subscribe("ShowTwoChoice", OnShowTwoChoice, this);
         MessageBus.Instance.Subscribe("ShowThreeChoice", OnShowThreeChoice, this);
+
+        MessageBus.Instance.Subscribe("ShowChoiceDialog", SetChoiceDialog, this);
     }
 
     private void HookupButtons()
@@ -67,11 +73,10 @@ public class ChoiceManager : MonoBehaviour
             return;
         }
 
-        string label = args[0] as string;
+        string choice1 = args[0] as string;
         callback1 = args[1] as Action;
 
-        // Debug.Log($"[ChoiceManager] One choice: {label}");
-
+        SetButtonText(Button1, choice1);
     }
 
     private void OnShowTwoChoice(object[] args)
@@ -97,11 +102,8 @@ public class ChoiceManager : MonoBehaviour
         callback1 = args[2] as Action;
         callback2 = args[3] as Action;
 
-        Debug.Log($"[ChoiceManager] Two choices:");
-        Debug.Log($"  1) {choice1}");
-        Debug.Log($"  2) {choice2}");
-
-        // Demo execution
+        SetButtonText(Button1, choice1);
+        SetButtonText(Button2, choice2);
     }
 
     private void OnShowThreeChoice(object[] args)
@@ -132,12 +134,9 @@ public class ChoiceManager : MonoBehaviour
         callback2 = args[4] as Action;
         callback3 = args[5] as Action;
 
-        Debug.Log($"[ChoiceManager] Three choices:");
-        Debug.Log($"  1) {choice1}");
-        Debug.Log($"  2) {choice2}");
-        Debug.Log($"  3) {choice3}");
-
-        // Demo execution
+        SetButtonText(Button1, choice1);
+        SetButtonText(Button2, choice2);
+        SetButtonText(Button3, choice3);
     }
 
     private void OnButton1Clicked()
@@ -168,9 +167,35 @@ public class ChoiceManager : MonoBehaviour
         Button2.SetActive(false);
         Button3.SetActive(false);
 
-        MessageBus.Instance.Publish("CloseDialogue");
-
+        CloseDialog();
     }
 
+    public void SetChoiceDialog(object[] args)
+    {
+        string str = args[0] as string;
+        ClickBlocker.SetActive(true);
+        DialogBG.SetActive(true);
+        DialogText.SetActive(true);
+        DialogText.GetComponent<TMP_Text>().SetText(str);
+    }
 
+    private void CloseDialog()
+    {
+        ClickBlocker.SetActive(false);
+        DialogBG.SetActive(false);
+        DialogText.SetActive(false);
+    }
+
+    private void SetButtonText(GameObject button, string text)
+    {
+        TMP_Text tmp = button.GetComponentInChildren<TMP_Text>(true);
+
+        if (tmp == null)
+        {
+            Debug.LogError($"No TMP_Text found in children of {button.name}");
+            return;
+        }
+
+        tmp.text = text;
+    }
 }

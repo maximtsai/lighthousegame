@@ -4,7 +4,7 @@ public class Singleton : MonoBehaviour
 {
     private static Singleton instance;
 
-    void Awake()
+    private void Awake()
     {
         if (instance != null)
         {
