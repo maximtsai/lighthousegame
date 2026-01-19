@@ -401,10 +401,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.36646885
+    x: 0.4552239
     y: 0
-    width: 1.0708869
-    height: 1.0712402
+    width: 1.1966833
+    height: 1.1962864
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -1354,6 +1354,14 @@ PrefabInstance:
       propertyPath: shovelClip
       value: 
       objectReference: {fileID: 8300000, guid: 71777ad8bd9f8304d84ddd0c44c1cba5, type: 3}
+    - target: {fileID: 5497147221551116059, guid: be95ed95170129849bc8e4ae9113e45c, type: 3}
+      propertyPath: backgroundDugSprite
+      value: 
+      objectReference: {fileID: 6386002778180264370, guid: a169587df9acf31478113d3e21f323cd, type: 3}
+    - target: {fileID: 5497147221551116059, guid: be95ed95170129849bc8e4ae9113e45c, type: 3}
+      propertyPath: backgroundCoveredSprite
+      value: 
+      objectReference: {fileID: 8292460941425288298, guid: e7a8bce3252373d48a06c750913d48b8, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
