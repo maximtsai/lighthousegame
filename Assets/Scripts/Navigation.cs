@@ -127,6 +127,11 @@ public class Navigation : MonoBehaviour
         GoToTransition("BedroomScene", 0.35f);
     }
 
+    public void GoToMainMenu()
+    {
+        MessageBus.Instance.Publish("DestroyAllUI");
+        GoToTransition("MainScene", 0.3f);
+    }
     
     public void GoToSlow(string scene)
     {

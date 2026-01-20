@@ -16,10 +16,11 @@ public class TableMiscLogic : MonoBehaviour
     [SerializeField] private AudioClip jumpScare;
     [SerializeField] private AudioClip horrorLoop;
 
+    private MessageBus.SubscriptionHandle handle;
     void Start()
     {
         Ambience ambience = Ambience.Instance;
-        MessageBus.Instance.Subscribe("camborne_jumpscare", (str) =>
+        handle = MessageBus.Instance.Subscribe("camborne_jumpscare", (str) =>
         {
             showCamborneJumpscare();
         });
@@ -89,5 +90,11 @@ public class TableMiscLogic : MonoBehaviour
         MessageBus.Instance.Publish("ChangeQuestText", "MAKE DECISION");
         yield return new WaitForSeconds(1f);
         DialogueManager.ShowDialogue(miscObjectClick.getDialogue("kitchen/reveal_camborne"));
+    }
+    
+    void OnDestroy()
+    {
+        // Always unsubscribe when this object is destroyed
+        handle?.Unsubscribe();
     }
 }

@@ -8,6 +8,11 @@ public class TaskManager : MonoBehaviour
     private string taskPath = "ScriptableObjects/Tasks/";
     [SerializeField] UITaskTracker uITaskTracker;
 
+    private MessageBus.SubscriptionHandle addTaskHandle;
+    private MessageBus.SubscriptionHandle addTaskImportantHandle;
+    private MessageBus.SubscriptionHandle completeTaskHandle;
+    private MessageBus.SubscriptionHandle hideTaskHandle;
+    
     void Awake()
     {
         if (instance != null)
@@ -17,25 +22,25 @@ public class TaskManager : MonoBehaviour
         }
 
         instance = this;
-        MessageBus.SubscriptionHandle addTaskHandle = MessageBus.Instance.Subscribe("AddTaskString", (args) =>
+        addTaskHandle = MessageBus.Instance.Subscribe("AddTaskString", (args) =>
             {
                 string message = args[0] as string;
                 AddTaskString(message);
             });
 
-        MessageBus.SubscriptionHandle addTaskImportantHandle = MessageBus.Instance.Subscribe("AddTaskStringImportant", (args) =>
+        addTaskImportantHandle = MessageBus.Instance.Subscribe("AddTaskStringImportant", (args) =>
         {
             string message = args[0] as string;
             AddTaskString(message);
         });
 
-        MessageBus.SubscriptionHandle completeTaskHandle = MessageBus.Instance.Subscribe("CompleteTask", (args) =>
+        completeTaskHandle = MessageBus.Instance.Subscribe("CompleteTask", (args) =>
         {
             string message = args[0] as string;
             CompleteTask(message);
         });
 
-        MessageBus.SubscriptionHandle hideTaskHandle = MessageBus.Instance.Subscribe("HideTask", (args) =>
+        hideTaskHandle = MessageBus.Instance.Subscribe("HideTask", (args) =>
         {
             HideTask();
         });
@@ -47,6 +52,15 @@ public class TaskManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    void OnDestroy()
+    {
+        // Always unsubscribe when this object is destroyed
+        addTaskHandle?.Unsubscribe();
+        addTaskImportantHandle?.Unsubscribe();
+        completeTaskHandle?.Unsubscribe();
+        hideTaskHandle?.Unsubscribe();
+    }
+    
     // Adds to back of tasklist
     // Usage in other scripts:
         // TaskManager.instance.AddTask(someTask);

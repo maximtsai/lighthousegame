@@ -6,6 +6,7 @@ public class DialogueManager : MonoBehaviour
     public static DialogueManager instance;
     private static GameObject activeDialogueBox = null;
 
+    private MessageBus.SubscriptionHandle handle;
     void Awake()
     {
         if (instance != null)
@@ -21,7 +22,7 @@ public class DialogueManager : MonoBehaviour
 
     private void SubscribeToMessages()
     {
-        MessageBus.Instance.Subscribe("CloseDialogue", CloseDialogue, this);
+        handle = MessageBus.Instance.Subscribe("CloseDialogue", CloseDialogue, this);
     }
 
     public static void ShowDialogue(Dialogue d)
@@ -67,5 +68,10 @@ public class DialogueManager : MonoBehaviour
     public static bool DialogueIsOpen()
     {
         return GameState.Get<bool>("dialogue_is_open", false);
+    }
+
+    void OnDestroy()
+    {
+        handle?.Unsubscribe();
     }
 }
