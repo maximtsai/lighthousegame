@@ -28,17 +28,24 @@ public class CutsceneManager : Singleton<CutsceneManager>
     private System.Action cutsceneOnComplete;
     private bool postSceneSwapCleanup = false;
     private bool skipFirstClickBlockerClick = true;
+    private bool createdOnSceneLoaded = false;
 
     protected override void Awake()
     {
         base.Awake();
+        Debug.Log("created cutscene manager");
+        createdOnSceneLoaded = true;
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     private void OnDestroy()
     {
+        Debug.Log("Destroyed cutscenemanager");
         // Prevent duplicate subscriptions
-        SceneManager.sceneLoaded -= OnSceneLoaded;
+        if (createdOnSceneLoaded)
+        {
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+        }
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
@@ -365,8 +372,8 @@ public class CutsceneManager : Singleton<CutsceneManager>
     // ---------------------------------------------------------
     private IEnumerator FadeOverlay(float targetAlpha, float usedDuration = 0f, bool fadeAudio = false)
     {
-        Debug.Log("FadeOverlay called");
-        Debug.Log(targetAlpha);
+        //Debug.Log("FadeOverlay called");
+        //Debug.Log(targetAlpha);
         Color color = fadeOverlayImg.color;
         float startAlpha = color.a;
         float startVolume = 1f;

@@ -1,13 +1,13 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement; // required for SceneManager
 
 public class MainMenuLogic : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    [SerializeField] CutsceneManager CsManager;
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -19,10 +19,11 @@ public class MainMenuLogic : MonoBehaviour
     public void StartGame()
     {
 	    GameState.Set("day", 1);
-        CsManager.PlayCutscene("Intro", true, () => {
+        MessageBus.Instance.Publish("PlayCutscene", "Intro", true, (Action)(() =>
+        {
             SceneManager.LoadScene("BedroomScene");
-
-        }, true);
+        }), true);
+        
     }
 
     public void ContinueGame()
