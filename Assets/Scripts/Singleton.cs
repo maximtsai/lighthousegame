@@ -1,18 +1,19 @@
 using UnityEngine;
 
-public class Singleton : MonoBehaviour
+public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 {
-    private static Singleton instance;
+	private static T instance;
+	public static T Instance => instance;
 
-    private void Awake()
-    {
-        if (instance != null)
-        {
-            Destroy(gameObject);
-            return;
-        }
+	protected virtual void Awake()
+	{
+		if (instance != null && instance != this)
+		{
+			Destroy(gameObject);
+			return;
+		}
 
-        instance = this;
-        DontDestroyOnLoad(gameObject);
-    }
+		instance = (T)(object)this;
+		DontDestroyOnLoad(gameObject);
+	}
 }

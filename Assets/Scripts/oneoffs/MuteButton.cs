@@ -27,10 +27,12 @@ public class MuteButton : MonoBehaviour
         if (muted)
         {
             muteButtonImage.sprite = mutedSprite;
+            AudioManager.Instance.SetMuted(true);
         }
         else
         {
             muteButtonImage.sprite = soundOnSprite;
+            AudioManager.Instance.SetMuted(false);
         }
     }
 }

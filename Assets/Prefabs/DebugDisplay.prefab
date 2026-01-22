@@ -12,14 +12,14 @@ GameObject:
   - component: {fileID: 4825775731924542980}
   - component: {fileID: 810138094211941102}
   - component: {fileID: 7689576657658373742}
-  - component: {fileID: 6492526415059889023}
+  - component: {fileID: 7410715968796016290}
   m_Layer: 5
   m_Name: DebugDisplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7053817113644225021
 RectTransform:
   m_ObjectHideFlags: 0
@@ -58,7 +58,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 1
-  m_AdditionalShaderChannelsFlag: 25
+  m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -103,7 +103,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &6492526415059889023
+--- !u!114 &7410715968796016290
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -112,9 +112,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 7592047893097350760}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0298be0dd0e51a1448dacc7fefee9010, type: 3}
+  m_Script: {fileID: 11500000, guid: 2d6b070db7d3c3a488ec89e5aebea63d, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Singleton
+  m_EditorClassIdentifier: '::'
 --- !u!1 &8394564875696147248
 GameObject:
   m_ObjectHideFlags: 0

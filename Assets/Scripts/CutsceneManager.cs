@@ -7,7 +7,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 
-public class CutsceneManager : MonoBehaviour
+public class CutsceneManager : Singleton<CutsceneManager>
 {
     [SerializeField] private Image fadeOverlayImg;
     [SerializeField] private GameObject clickAgainImage;
@@ -29,8 +29,9 @@ public class CutsceneManager : MonoBehaviour
     private bool postSceneSwapCleanup = false;
     private bool skipFirstClickBlockerClick = true;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 

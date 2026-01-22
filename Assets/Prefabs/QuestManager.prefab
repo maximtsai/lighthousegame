@@ -374,13 +374,13 @@ Canvas:
   m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 1
-  m_AdditionalShaderChannelsFlag: 25
+  m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -423,10 +423,10 @@ MonoBehaviour:
   text_tasklist: {fileID: 7287280763999209049}
   tasklist_bg: {fileID: 176134080110435579}
   canvas_full_list: {fileID: 3556900856497377975}
-  whoosh_in: {fileID: 0}
-  typewriter: {fileID: 0}
+  whoosh_in: {fileID: 8300000, guid: c95a2ccc64324ed41a637bef424ea0c7, type: 3}
+  scribble_sfx: {fileID: 8300000, guid: 63fcb3c04f02ddd46aa03ff402c42789, type: 3}
+  interrupt: {fileID: 0}
   revealDuration: 0.6
-  typewriterDelay: 0.03
   hideDuration: 0.5
 --- !u!1 &8704168897114315089
 GameObject:
@@ -473,4 +473,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1680ebb1138b167478596f437981a5da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TaskManager
-  uITaskTracker: {fileID: 0}
+  uITaskTracker: {fileID: 6531356694525060655}
