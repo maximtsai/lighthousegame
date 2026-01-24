@@ -15,8 +15,10 @@ public class TaskManager : MonoBehaviour
     
     void Awake()
     {
+        ClearAllTasks();
         if (instance != null)
         {
+            Debug.Log("destroying task manager");
             Destroy(gameObject);
             return;
         }
@@ -25,6 +27,7 @@ public class TaskManager : MonoBehaviour
         addTaskHandle = MessageBus.Instance.Subscribe("AddTaskString", (args) =>
             {
                 string message = args[0] as string;
+                Debug.Log("Added task string " + message);
                 AddTaskString(message);
             });
 
@@ -54,6 +57,7 @@ public class TaskManager : MonoBehaviour
 
     void OnDestroy()
     {
+        Debug.Log("Clearing up subscriptions");
         // Always unsubscribe when this object is destroyed
         addTaskHandle?.Unsubscribe();
         addTaskImportantHandle?.Unsubscribe();
@@ -80,6 +84,12 @@ public class TaskManager : MonoBehaviour
         {
             Debug.LogWarning("Task already added");
         }
+    }
+
+    public void ClearAllTasks()
+    {
+        taskList = new List<Task>();
+        updateTaskDisplay();
     }
     public void AddTaskString(string id)
     {
@@ -223,9 +233,9 @@ public class TaskManager : MonoBehaviour
 
     private void updateTaskDisplay()
     {
+        Debug.Log("update Task Display " + taskList.Count);
         if (taskList.Count == 0)
         {
-            Debug.Log("Hide display");
             uITaskTracker.HideDisplay();
         }
         else

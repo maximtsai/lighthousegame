@@ -15,18 +15,20 @@ public class BedroomMiscLogic : MonoBehaviour
             // Update track 2
             UpdateTrack(ambience, bgLoop2, 0.21f, 2);
         }
+        Debug.Log("bedroom misc logic");
 
         BeginDay();
     }
 
     private void BeginDay()
     {
-        if (GameState.Get<bool>("day_started"))
+        if (GameState.Get<bool>("day_began"))
             return;
 
-        GameState.Set("day_started", true);
+        GameState.Set("day_began", true);
 
         int day = GameState.Get<int>("day");
+        Debug.Log("Begin day " + day);
         switch (day)
         {
             case 1:
@@ -67,32 +69,5 @@ public class BedroomMiscLogic : MonoBehaviour
         }
     }
 
-    public void NewDay() {
-        GameState.Set("day_started", false);
 
-        GameState.Set("is_clean", "false");
-
-        GameState.Set("corn_clicked", false);
-        GameState.Set("pepper_clicked", false);
-        GameState.Set("alcohol_clicked", false);
-        GameState.Set("fish_clicked", false);
-
-        GameState.Set("ate_breakfast", false);
-        GameState.Set("ate_dinner", false);
-        GameState.Set("hungry", true);
-
-        GameState.Set("lighthouse_opened", false);
-        GameState.Set("lighthouse_fixed", false);
-        GameState.Set("wrench_used", false);
-        GameState.Set("oil_used", false);
-        GameState.Set("scissors_used", false);
-        GameState.Set("mercury_used", false);
-
-        GameState.Set("gathered_fish", false);
-        GameState.Set("is_nighttime", false);
-
-        GameState.Set("recorded_weather", false);
-
-        BeginDay();
-    }
 }

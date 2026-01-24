@@ -7,7 +7,7 @@ public class UISelfDestruct : MonoBehaviour
 
     void Start()
     {
-        destroyHandle = MessageBus.Instance.Subscribe("DestroyAllUI", (args) =>
+        destroyHandle = MessageBus.Instance.Subscribe("ResetToMainMenu", (args) =>
         {
             Destroy(gameObject);
         }, this);

@@ -151,6 +151,7 @@ public class UITaskTracker : MonoBehaviour
 
     public void AnimateInNewTask()
     {
+        Debug.Log("animate in new task");
         RequestState(UIState.Revealing);
     }
 

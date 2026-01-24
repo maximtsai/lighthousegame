@@ -6,6 +6,8 @@ public class UILogic : Singleton<UILogic>
 	// Start is called once before the first execution of Update after the MonoBehaviour is created
 	private bool muted = false;
 	public GameObject muteButton;
+	public GameObject popup;
+	public GameObject clickBlocker;
 	public Sprite mutedSprite;
 	public Sprite soundOnSprite;
 
@@ -34,5 +36,17 @@ public class UILogic : Singleton<UILogic>
 			muteButtonImage.sprite = soundOnSprite;
 			AudioManager.Instance.SetMuted(false);
 		}
+	}
+
+	public void OpenPopup()
+	{
+		clickBlocker.SetActive(true);
+		popup.SetActive(true);
+	}
+
+	public void ClosePopup()
+	{
+		clickBlocker.SetActive(false);
+		popup.SetActive(false);
 	}
 }

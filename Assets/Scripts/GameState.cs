@@ -102,4 +102,31 @@ public static class GameState
         return sb.ToString();
     }
 
+    // Game specific function
+    public static void ResetDay() {
+        GameState.Set("day_began", false);
+
+        GameState.Set("is_clean", "false");
+
+        GameState.Set("corn_clicked", false);
+        GameState.Set("pepper_clicked", false);
+        GameState.Set("alcohol_clicked", false);
+        GameState.Set("fish_clicked", false);
+
+        GameState.Set("ate_breakfast", false);
+        GameState.Set("ate_dinner", false);
+        GameState.Set("hungry", true);
+
+        GameState.Set("lighthouse_opened", false);
+        GameState.Set("lighthouse_fixed", false);
+        GameState.Set("wrench_used", false);
+        GameState.Set("oil_used", false);
+        GameState.Set("scissors_used", false);
+        GameState.Set("mercury_used", false);
+
+        GameState.Set("gathered_fish", false);
+        GameState.Set("is_nighttime", false);
+
+        GameState.Set("recorded_weather", false);
+    }
 }

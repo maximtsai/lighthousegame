@@ -129,8 +129,8 @@ public class Navigation : MonoBehaviour
 
     public void GoToMainMenu()
     {
-        Debug.Log("Destroyed all UI");
-        MessageBus.Instance.Publish("DestroyAllUI");
+        MessageBus.Instance.Publish("ResetToMainMenu");
+        GameState.ResetDay();
         GoToTransition("MainScene", 0.3f);
     }
     

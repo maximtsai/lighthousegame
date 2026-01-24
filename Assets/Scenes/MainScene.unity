@@ -694,7 +694,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b23d1cdc3749e71408b31c36d17bc0ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  CsManager: {fileID: 963047759}
 --- !u!4 &702606381
 Transform:
   m_ObjectHideFlags: 0
@@ -755,17 +754,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &963047759 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 789083952819893391, guid: 1c51b1f8617e4ee4e86a74e558b2fb52, type: 3}
-  m_PrefabInstance: {fileID: 2832228261116431610}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e286644505e4cb4faffc04b780780b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
 --- !u!1 &1209353537 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4890448732183080169, guid: e12270b966b16a54389933f3eda2c8ed, type: 3}
@@ -1212,10 +1200,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.28314918
+    x: 0.27704486
     y: 0
-    width: 0.874156
-    height: 0.87469286
+    width: 0.8208737
+    height: 0.82159626
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -1417,6 +1405,14 @@ PrefabInstance:
       propertyPath: fadeOverlayImg
       value: 
       objectReference: {fileID: 1599003121}
+    - target: {fileID: 2140798270887083077, guid: 1c51b1f8617e4ee4e86a74e558b2fb52, type: 3}
+      propertyPath: m_Size.x
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2140798270887083077, guid: 1c51b1f8617e4ee4e86a74e558b2fb52, type: 3}
+      propertyPath: m_Size.y
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 2267050077241658048, guid: 1c51b1f8617e4ee4e86a74e558b2fb52, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 0

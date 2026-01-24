@@ -12,7 +12,6 @@ public class TextTest : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("text setup");
         //textToShow.SetActive(false);
         Color c = textToShow.color;
         c.a = 0;
