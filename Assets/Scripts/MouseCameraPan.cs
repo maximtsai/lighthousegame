@@ -54,7 +54,7 @@ public class MouseCameraPan : MonoBehaviour
 			return;
 		}
 
-		if (GameState.Get<bool>("dialogue_is_open") || GameState.Get<bool>("minigame_open"))
+		if (GameState.Get<bool>("dialogue_is_open") || GameState.Get<bool>("minigame_open") || GameState.Get<bool>("pause_open"))
 		{
 			// Make scrolling much slower when dialog open
 			shiftRatio *= 0.25f;

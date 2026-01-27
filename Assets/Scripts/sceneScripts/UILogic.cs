@@ -40,12 +40,14 @@ public class UILogic : Singleton<UILogic>
 
 	public void OpenPopup()
 	{
+		GameState.Set("pause_open", true);
 		clickBlocker.SetActive(true);
 		popup.SetActive(true);
 	}
 
 	public void ClosePopup()
 	{
+		GameState.Set("pause_open", false);
 		clickBlocker.SetActive(false);
 		popup.SetActive(false);
 	}

@@ -131,6 +131,7 @@ public class Navigation : MonoBehaviour
     {
         MessageBus.Instance.Publish("ResetToMainMenu");
         GameState.ResetDay();
+        GameState.Set("pause_open", false);
         GoToTransition("MainScene", 0.3f);
     }
     
