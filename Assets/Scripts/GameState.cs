@@ -116,7 +116,8 @@ public static class GameState
         GameState.Set("ate_breakfast", false);
         GameState.Set("ate_dinner", false);
         GameState.Set("hungry", true);
-
+        GameState.Set("can_sleep", false);
+        
         GameState.Set("lighthouse_opened", false);
         GameState.Set("lighthouse_fixed", false);
         GameState.Set("wrench_used", false);

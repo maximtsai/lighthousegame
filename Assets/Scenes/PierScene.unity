@@ -579,7 +579,7 @@ Camera:
     x: 0
     y: 0
     width: 1
-    height: 1
+    height: 0.9993221
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -861,7 +861,7 @@ PrefabInstance:
     - target: {fileID: 1930117940751657890, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: hover_sprite
       value: 
-      objectReference: {fileID: 9103894217506870427, guid: ce759e411fd27a747a195f89f298298e, type: 3}
+      objectReference: {fileID: 21300000, guid: a7e3101d7e9683040b9511745f0da5ae, type: 3}
     - target: {fileID: 1930117940751657890, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: default_sprite
       value: 
@@ -988,19 +988,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4393333540239105687, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: m_Size.x
-      value: 1.72
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 4393333540239105687, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: m_Size.y
-      value: 2.52
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 4393333540239105687, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 21300000, guid: a7e3101d7e9683040b9511745f0da5ae, type: 3}
     - target: {fileID: 4393333540239105687, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: m_WasSpriteAssigned
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8117198677215079408, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: m_Name

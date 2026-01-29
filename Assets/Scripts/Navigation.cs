@@ -134,6 +134,26 @@ public class Navigation : MonoBehaviour
         GameState.Set("pause_open", false);
         GoToTransition("MainScene", 0.3f);
     }
+
+    public void GoToJournal()
+    {
+        if (GameState.Get<bool>("can_sleep"))
+        {
+        }
+        else
+        {
+            if (GameState.Get<int>("day") == 1 && !GameState.Get<bool>("introduced_journal", false))
+            {
+                GameState.Set("introduced_journal", true);
+                DialogueManager.ShowDialogue(getDialog("Bedroom/journal_not_yet_day1"));
+            }
+            else
+            {
+                DialogueManager.ShowDialogue(getDialog("Bedroom/journal_not_yet"));
+            }
+        }
+
+    }
     
     public void GoToSlow(string scene)
     {
