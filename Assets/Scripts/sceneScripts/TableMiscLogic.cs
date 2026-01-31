@@ -8,8 +8,10 @@ public class TableMiscLogic : MonoBehaviour
     [SerializeField] private AudioClip bgLoop1;
     [SerializeField] private AudioClip bgLoop2;
     [SerializeField] private GameObject background;
+    [SerializeField] private GameObject background_fried;
     [SerializeField] private GameObject tableButton;
     [SerializeField] private Sprite bgScare;
+    [SerializeField] private Sprite bgScareFried;
     [SerializeField] private MiscObjectClick miscObjectClick;
     [SerializeField] private MouseCameraPan mouseCamPanScript;
 
@@ -17,6 +19,12 @@ public class TableMiscLogic : MonoBehaviour
     [SerializeField] private AudioClip horrorLoop;
 
     private MessageBus.SubscriptionHandle handle;
+    private float pingPongSpeed = 0.5f;
+    private float maxAlpha = 0.95f;
+    float pingPongTime = 0f;
+
+    SpriteRenderer sr_fried;
+    private bool showingScare = false;
     void Start()
     {
         Ambience ambience = Ambience.Instance;
@@ -30,6 +38,19 @@ public class TableMiscLogic : MonoBehaviour
         // Update track 2
         UpdateTrack(ambience, bgLoop2, 0.2f, 2);
         MessageBus.Instance.Publish("HideTask");
+        sr_fried = background_fried.GetComponent<SpriteRenderer>();
+    }
+
+    void Update()
+    {
+        if (!showingScare) return;
+
+        pingPongTime += Time.deltaTime * pingPongSpeed;
+        float a = Mathf.PingPong(pingPongTime, maxAlpha);
+
+        Color c = sr_fried.color;
+        c.a = a;
+        sr_fried.color = c;
     }
 
     private void UpdateTrack(Ambience ambience, AudioClip newClip, float volume, int channel)
@@ -56,10 +77,18 @@ public class TableMiscLogic : MonoBehaviour
 
     public void showCamborneJumpscare()
     {
+        GameState.Set("do_burial", true); // activate burial flag so we can bury this guy
+
         DialogueManager.CloseDialogue();
         tableButton.SetActive(false);
 
         background.GetComponent<SpriteRenderer>().sprite = bgScare;
+        sr_fried.sprite = bgScareFried;
+        Color c = sr_fried.color;
+        c.a = 1f;
+        sr_fried.color = c;
+        StartCoroutine(FadeToZero(sr_fried));
+
         mouseCamPanScript.RecalculateDimensions();
 
         miscObjectClick.PlaySound(jumpScare, 0.8f, false);
@@ -67,6 +96,34 @@ public class TableMiscLogic : MonoBehaviour
         UpdateTrack(ambience, horrorLoop, 0.8f, 1);
 
         StartCoroutine(ShowCamborneDialogAfterDelay());
+    }
+
+    IEnumerator FadeToZero(SpriteRenderer sr_fried)
+    {
+        yield return new WaitForSeconds(0.25f);
+        float startAlpha = sr_fried.color.a;
+        float t = 0f;
+
+        while (t < 1)
+        {
+            t += Time.deltaTime;
+            float a = Mathf.Lerp(startAlpha, 0f, t / 1);
+
+            Color c = sr_fried.color;
+            c.a = a;
+            sr_fried.color = c;
+
+            yield return null;
+        }
+
+        // Ensure EXACTLY 0 alpha
+        Color final = sr_fried.color;
+        final.a = 0f;
+        sr_fried.color = final;
+        
+        pingPongTime = 0f;
+        showingScare = true;
+        
     }
 
     private IEnumerator ShowCamborneDialogAfterDelay()

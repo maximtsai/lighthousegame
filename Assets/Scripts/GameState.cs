@@ -129,5 +129,8 @@ public static class GameState
         GameState.Set("is_nighttime", false);
 
         GameState.Set("recorded_weather", false);
+        
+        GameState.Set("do_burial", false);
+        
     }
 }

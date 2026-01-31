@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 1846aabe3b0208b4ab53eff95c020573
+guid: 0980302a31332f6448a7ef517f09432f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3088427565571349694
-    second: dead_camborne_0
+      213: 7095517312020913376
+    second: star1_0
+  - first:
+      213: -1699599493801796781
+    second: star1_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: dead_camborne_0
+      name: star1_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 640
-        height: 360
+        x: 18
+        y: 14
+        width: 19
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +131,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ebc9768f18c4cda20800000000000000
-      internalID: 3088427565571349694
+      spriteID: 0ec14a0d667587260800000000000000
+      internalID: 7095517312020913376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: star1_1
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 11
+        width: 15
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35b9287e34fc968e0800000000000000
+      internalID: -1699599493801796781
       vertices: []
       indices: 
       edges: []
@@ -148,7 +173,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      dead_camborne_0: 3088427565571349694
+      star1_0: 7095517312020913376
+      star1_1: -1699599493801796781
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

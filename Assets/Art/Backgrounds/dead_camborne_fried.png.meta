@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1846aabe3b0208b4ab53eff95c020573
+guid: 3a5050b04f6705140b7598361a1579b3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3088427565571349694
-    second: dead_camborne_0
+      213: -698289127466429235
+    second: dead_camborne_fried_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,12 +113,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: dead_camborne_0
+      name: dead_camborne_fried_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 640
+        width: 646
         height: 360
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ebc9768f18c4cda20800000000000000
-      internalID: 3088427565571349694
+      spriteID: dc498defcbd2f46f0800000000000000
+      internalID: -698289127466429235
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      dead_camborne_0: 3088427565571349694
+      dead_camborne_fried_0: -698289127466429235
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
