@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: finished_burying
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   text:
-  - You toss your coworker in, then cover up the hole.
+  - You toss your coworker in, #then cover up the hole.
   onDialogueEnd:
     m_PersistentCalls:
       m_Calls:
@@ -29,6 +29,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onDialogueEndImmediate:
+    m_PersistentCalls:
+      m_Calls: []
   choices: []
   consequences: []
   startSound: {fileID: 0}

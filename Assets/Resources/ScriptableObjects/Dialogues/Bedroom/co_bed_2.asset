@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: co_bed_2
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   text:
-  - Strange. What's Camborne still doing downstairs?
+  - Strange. #What's Camborne still doing downstairs?
   onDialogueEnd:
     m_PersistentCalls:
       m_Calls: []

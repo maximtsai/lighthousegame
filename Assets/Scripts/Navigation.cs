@@ -210,7 +210,6 @@ public class Navigation : MonoBehaviour
 
         GameState.Set("navigationBlocked", true);
         Instance.StartCoroutine(Instance.FadeInThenGoTo(scene, duration));
-        Debug.Log("==== navigating coroutine called done?");
     }
     
     private IEnumerator FadeInThenGoTo(string scene, float duration)

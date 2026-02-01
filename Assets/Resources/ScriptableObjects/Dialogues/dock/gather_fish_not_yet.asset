@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: gather_fish_not_yet
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   text:
-  - No fish yet. Come back later.
+  - No fish yet. #Come back later.
   onDialogueEnd:
+    m_PersistentCalls:
+      m_Calls: []
+  onDialogueEndImmediate:
     m_PersistentCalls:
       m_Calls: []
   choices: []

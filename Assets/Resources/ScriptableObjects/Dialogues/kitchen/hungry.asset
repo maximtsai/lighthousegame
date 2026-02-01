@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: hungry
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   text:
-  - Hungry. Need breakfast first.
+  - Hungry. #Need breakfast first.
   onDialogueEnd:
+    m_PersistentCalls:
+      m_Calls: []
+  onDialogueEndImmediate:
     m_PersistentCalls:
       m_Calls: []
   choices: []

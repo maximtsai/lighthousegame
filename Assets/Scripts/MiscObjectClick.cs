@@ -193,6 +193,7 @@ public class MiscObjectClick : MonoBehaviour
 
     public void ShowDeadCamborneChoices()
     {
+        Debug.Log("ShowDeadCamborneChoices");
         MessageBus.Instance.Publish(
             "ShowThreeChoice",
             "LOOK AWAY",
@@ -218,6 +219,7 @@ public class MiscObjectClick : MonoBehaviour
 
     public void CamborneChoicesLookAwayClick()
     {
+        Debug.Log("CamborneChoicesLookAwayClick");
         MessageBus.Instance.Publish(
             "ShowTwoChoice",
             "TOUCH",
@@ -238,6 +240,8 @@ public class MiscObjectClick : MonoBehaviour
 
     public void CamborneChoicesTouchClick()
     {
+        Debug.Log("CamborneChoicesTouchClick");
+
         MessageBus.Instance.Publish(
             "ShowTwoChoice",
             "LOOK AWAY",
@@ -257,6 +261,7 @@ public class MiscObjectClick : MonoBehaviour
 
     public void CamborneChoicesLastClick()
     {
+        Debug.Log("last choice");
         MessageBus.Instance.Publish(
             "ShowOneChoice",
             "BURY HIM",
@@ -270,6 +275,7 @@ public class MiscObjectClick : MonoBehaviour
     
     public void CamborneChoicesBuryClick()
     {
+        Debug.Log("bury click pressed");
         DialogueManager.ShowDialogue(getDialogue("kitchen/camb_choice3"));
     }
     
