@@ -48,60 +48,77 @@ public class UIDialogueBox : MonoBehaviour
     }
     private IEnumerator TypeText(string line, bool isFinalLine)
     {
-        // Types in text like a typewriter
         textmesh.text = "";
         int index = 0;
+
         while (index < line.Length)
         {
-            // Take the next 1 - 3 characters
-            int charsToAdd = Mathf.Min(3, line.Length - index);
+            // Handle control character #
+            if (line[index] == '#')
+            {
+                index++; // skip the symbol, do not print
+                yield return new WaitForSeconds(0.25f);
+                continue;
+            }
+
+            // Take the next 1 - 3 characters (but stop if we hit #)
+            int charsToAdd = 0;
+            for (int i = 0; i < 3 && index + i < line.Length; i++)
+            {
+                if (line[index + i] == '#')
+                    break;
+
+                charsToAdd++;
+            }
+
+            // Append characters
             textmesh.text += line.Substring(index, charsToAdd);
             index += charsToAdd;
-            if (audioSrc && typeSound1) {
-                int n = Random.Range(0, 4); // generates 0, 1, 2, or 3
+
+            // Play typing sound
+            if (audioSrc && typeSound1)
+            {
+                int n = Random.Range(0, 4);
                 switch (n)
                 {
                     case 0:
-                        audioSrc.clip = typeSound1;
                         audioSrc.PlayOneShot(typeSound1);
                         break;
                     case 1:
                     case 2:
-                        audioSrc.clip = typeSound2;
                         audioSrc.PlayOneShot(typeSound2);
                         break;
                     case 3:
-                        audioSrc.clip = typeSound3;
                         audioSrc.PlayOneShot(typeSound3);
                         break;
                 }
-
             }
 
             yield return new WaitForSeconds(typeSpeed);
         }
+
         typingCoroutine = null;
 
         if (isFinalLine)
         {
             bool hasImmediateEnd = dialogue.onDialogueEndImmediate.GetPersistentEventCount() > 0;
             dialogue.onDialogueEndImmediate?.Invoke();
+
             if (hasImmediateEnd)
             {
                 yield return new WaitForSeconds(0.2f);
-                CustomCursor.SetCursorToNormal(); // revert cursor to default
+                CustomCursor.SetCursorToNormal();
                 Destroy(gameObject);
                 yield break;
             }
         }
 
-
-        // Show dialog choices if we have any
         if (dialogue.choices.Count == 2 && dialogue.choices.Count == dialogue.consequences.Count)
         {
             ShowDialogChoices();
         }
     }
+
 
     public void OnDestroy()
     {

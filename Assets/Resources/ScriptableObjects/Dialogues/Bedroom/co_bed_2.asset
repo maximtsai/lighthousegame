@@ -17,3 +17,9 @@ MonoBehaviour:
   onDialogueEnd:
     m_PersistentCalls:
       m_Calls: []
+  onDialogueEndImmediate:
+    m_PersistentCalls:
+      m_Calls: []
+  choices: []
+  consequences: []
+  startSound: {fileID: 0}

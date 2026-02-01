@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: journal_not_yet_day1
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   text:
-  - My journal. I keep my secrets there.
+  - My journal.## I keep my secrets there.
   onDialogueEnd:
     m_PersistentCalls:
       m_Calls: []
