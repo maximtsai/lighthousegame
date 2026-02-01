@@ -9,7 +9,7 @@ public class Navigation : MonoBehaviour
     public static Navigation Instance { get; private set; }
 
     [SerializeField] private Image blackoutImage;
-
+    
     void Awake()
     {
         // Singleton setup
@@ -29,7 +29,7 @@ public class Navigation : MonoBehaviour
             Debug.LogWarning("Navigation prefab had no Image. Added one dynamically.");
         }
     }
-
+    
     public void GoToBedroom()
     {
         SceneManager.LoadScene("BedroomScene");
@@ -165,6 +165,11 @@ public class Navigation : MonoBehaviour
     
     private void GoToTransition(string scene, float duration)
     {
+        if (GameState.Get<bool>("navigationBlocked"))
+        {
+            Debug.Log("Navigation blocked");
+            return;
+        }
         // Ensure the Navigation instance exists
         if (Instance == null)
         {
@@ -180,7 +185,9 @@ public class Navigation : MonoBehaviour
             Instance = go.GetComponent<Navigation>();
         }
 
+        GameState.Set("navigationBlocked", true);
         Instance.StartCoroutine(Instance.FadeInThenGoTo(scene, duration));
+        Debug.Log("==== navigating coroutine called done?");
     }
     
     private IEnumerator FadeInThenGoTo(string scene, float duration)
@@ -213,11 +220,12 @@ public class Navigation : MonoBehaviour
             yield return null;
         }
 
+        GameState.Set("navigationBlocked", false);
         // Destroy the Navigation object in the old scene
-        Destroy(gameObject);
+        // Destroy(gameObject);
 
         // Clear the singleton reference
-        Instance = null;
+        // Instance = null;
     }
     
     // Sorry J3ranch, I needed some additional custom logic for this function
@@ -247,7 +255,7 @@ public class Navigation : MonoBehaviour
         if (clip)
         {
             // Play sound if it's available
-            if (AudioManager.Instance)
+            if (AudioManager.Instance && !GameState.Get<bool>("navigationBlocked"))
             {
                 AudioSource audioSource = AudioManager.Instance.AudioSource;
                 audioSource.clip = clip;

@@ -60,7 +60,7 @@ public class InteractableObject : MonoBehaviour
     {
         if (GameState.Get<bool>("task_list_open", false)) return;
         if (GameState.Get<bool>("minigame_open", false)) return;
-        if (hasSound)
+        if (hasSound && !GameState.Get<bool>("navigationBlocked", false))
         {
             audioSource.PlayOneShot(clickSound);
         }

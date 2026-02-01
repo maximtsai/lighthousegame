@@ -131,6 +131,7 @@ public static class GameState
         GameState.Set("recorded_weather", false);
         
         GameState.Set("do_burial", false);
-        
+        GameState.Set("navigationBlocked", false);
+
     }
 }
