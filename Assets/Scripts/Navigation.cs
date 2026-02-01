@@ -58,8 +58,10 @@ public class Navigation : MonoBehaviour
     {
         if (GameState.Get("do_burial", false))
         {
-            DialogueManager.ShowDialogue(getDialog("burial_blocked"));
+            DialogueManager.ShowDialogue(getDialog("outdoors/burial_blocked"));
+            return;
         }
+        
         if (GameState.Get<bool>("lighthouse_fixed") && !GameState.Get<bool>("gathered_fish"))
         {
             DialogueManager.ShowDialogue(getDialog("outdoors/missing_fish"));
@@ -73,9 +75,14 @@ public class Navigation : MonoBehaviour
     {
         if (GameState.Get("do_burial", false))
         {
-            DialogueManager.ShowDialogue(getDialog("burial_blocked"));
+            DialogueManager.ShowDialogue(getDialog("outdoors/burial_blocked"));
+            return;
         }
-
+        if (GameState.Get("ready_to_sleep", false))
+        {
+            DialogueManager.ShowDialogue(getDialog("time_for_bed"));
+            return;
+        }
         GoToTransition("LHFloorScene", 0.35f);
     }
 
@@ -83,12 +90,33 @@ public class Navigation : MonoBehaviour
     {
         if (GameState.Get("do_burial", false))
         {
-            DialogueManager.ShowDialogue(getDialog("burial_blocked"));
+            DialogueManager.ShowDialogue(getDialog("outdoors/burial_blocked"));
+            return;
         }
-
+        if (GameState.Get("ready_to_sleep", false))
+        {
+            DialogueManager.ShowDialogue(getDialog("time_for_bed"));
+            return;
+        }
         GoToTransition("PierScene", 0.35f);
     }
 
+    public void GoToBurial()
+    {
+        if (!GameState.Get("do_burial", false))
+        {
+            DialogueManager.ShowDialogue(getDialog("outdoors/resting_place"));
+            return;
+        }
+        if (GameState.Get("ready_to_sleep", false))
+        {
+            DialogueManager.ShowDialogue(getDialog("time_for_bed"));
+            return;
+        }
+        GoToTransition("BurialScene", 0.5f);
+    }
+
+    
     public void GoToSink(SceneTransition transition)
     {
         if (GameState.Get<string>("is_clean") == "true")
@@ -274,9 +302,13 @@ public class Navigation : MonoBehaviour
 
     public void BuryCampborne(SceneTransition transition)
     {
+        MessageBus.Instance.Publish("ClearAllTasks");
         GameState.Set("do_burial", true); // activate burial flag so we can bury this guy
         playSoundClip(transition.travelSound);
         GoToTransition("OutdoorsScene", 0.8f);
+        
+        MessageBus.Instance.Publish("AddTaskString", "generic/bury_body");
+        MessageBus.Instance.Publish("AddTaskString", "generic/go_to_sleep");
     }
 
     private void playSoundClip(AudioClip clip)

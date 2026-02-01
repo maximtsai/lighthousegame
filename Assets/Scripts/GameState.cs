@@ -104,34 +104,35 @@ public static class GameState
 
     // Game specific function
     public static void ResetDay() {
-        GameState.Set("day_began", false);
+        Set("day_began", false);
 
-        GameState.Set("is_clean", "false");
+        Set("is_clean", "false");
 
-        GameState.Set("corn_clicked", false);
-        GameState.Set("pepper_clicked", false);
-        GameState.Set("alcohol_clicked", false);
-        GameState.Set("fish_clicked", false);
+        Set("corn_clicked", false);
+        Set("pepper_clicked", false);
+        Set("alcohol_clicked", false);
+        Set("fish_clicked", false);
 
-        GameState.Set("ate_breakfast", false);
-        GameState.Set("ate_dinner", false);
-        GameState.Set("hungry", true);
-        GameState.Set("can_sleep", false);
+        Set("ate_breakfast", false);
+        Set("ate_dinner", false);
+        Set("hungry", true);
+        Set("can_sleep", false);
         
-        GameState.Set("lighthouse_opened", false);
-        GameState.Set("lighthouse_fixed", false);
-        GameState.Set("wrench_used", false);
-        GameState.Set("oil_used", false);
-        GameState.Set("scissors_used", false);
-        GameState.Set("mercury_used", false);
+        Set("lighthouse_opened", false);
+        Set("lighthouse_fixed", false);
+        Set("wrench_used", false);
+        Set("oil_used", false);
+        Set("scissors_used", false);
+        Set("mercury_used", false);
 
-        GameState.Set("gathered_fish", false);
-        GameState.Set("is_nighttime", false);
+        Set("gathered_fish", false);
+        Set("is_nighttime", false);
 
-        GameState.Set("recorded_weather", false);
+        Set("recorded_weather", false);
         
-        GameState.Set("do_burial", false);
-        GameState.Set("navigationBlocked", false);
+        Set("do_burial", false);
+        Set("navigationBlocked", false);
 
+        Set("ready_to_sleep", false);
     }
 }

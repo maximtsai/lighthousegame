@@ -11,6 +11,7 @@ public class TaskManager : MonoBehaviour
     private MessageBus.SubscriptionHandle addTaskHandle;
     private MessageBus.SubscriptionHandle addTaskImportantHandle;
     private MessageBus.SubscriptionHandle completeTaskHandle;
+    private MessageBus.SubscriptionHandle clearAllTaskHandle;
     private MessageBus.SubscriptionHandle hideTaskHandle;
     
     void Awake()
@@ -43,6 +44,11 @@ public class TaskManager : MonoBehaviour
             CompleteTask(message);
         });
 
+        clearAllTaskHandle = MessageBus.Instance.Subscribe("ClearAllTasks", (args) =>
+        {
+            ClearAllTasks();
+        });
+        
         hideTaskHandle = MessageBus.Instance.Subscribe("HideTask", (args) =>
         {
             HideTask();
@@ -62,6 +68,7 @@ public class TaskManager : MonoBehaviour
         addTaskHandle?.Unsubscribe();
         addTaskImportantHandle?.Unsubscribe();
         completeTaskHandle?.Unsubscribe();
+        clearAllTaskHandle?.Unsubscribe();
         hideTaskHandle?.Unsubscribe();
     }
     

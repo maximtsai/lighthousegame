@@ -265,14 +265,14 @@ public class UITaskTracker : MonoBehaviour
     private IEnumerator HideAnimation(int token)
     {
         float t = 0;
-
+        float startAlpha = tasklist_bg.color.a;
         while (t < hideDuration)
         {
             if (token != animationToken) yield break;
 
             t += Time.deltaTime;
             float eased = Mathf.SmoothStep(0f, 1f, t / hideDuration);
-            float a = Mathf.Lerp(1f, 0f, eased);
+            float a = Mathf.Lerp(startAlpha, 0f, eased);
 
             tasklist_bg.color = new Color(1, 1, 1, a);
             text_tasklist.color = new Color(1, 1, 1, a);

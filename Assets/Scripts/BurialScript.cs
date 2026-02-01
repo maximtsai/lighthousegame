@@ -120,6 +120,11 @@ public class BurialScript : MonoBehaviour
         if (background != null && backgroundCoveredSprite != null)
         {
             background.sprite = backgroundCoveredSprite;
+            MessageBus.Instance.Publish("CompleteTask", "bury_body");
+            // May need to be changed with multibury
+            GameState.Set("ready_to_sleep", true);
+            GameState.Set("do_burial", false);
+
         }
     }
 
