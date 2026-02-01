@@ -14,11 +14,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   text:
   - It's getting dark soon.
-  - But you can't just leave this here.
-  - You pick up body and carry it outside.
+  - But you can't just leave the body here.
+  - You pick up your coworker and head out.
   onDialogueEnd:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 708757768589027116, guid: 8cbb3f24ebba1814dbc6273dd0df8db0, type: 3}
+        m_TargetAssemblyTypeName: Navigation, Assembly-CSharp
+        m_MethodName: BuryCampborne
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 50852199e71d25048b766b24d96957e7, type: 2}
+          m_ObjectArgumentAssemblyTypeName: SceneTransition, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onDialogueEndImmediate:
     m_PersistentCalls:
       m_Calls: []

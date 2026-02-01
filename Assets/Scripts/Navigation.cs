@@ -56,6 +56,10 @@ public class Navigation : MonoBehaviour
 
     public void GoToIndoors()
     {
+        if (GameState.Get("do_burial", false))
+        {
+            DialogueManager.ShowDialogue(getDialog("burial_blocked"));
+        }
         if (GameState.Get<bool>("lighthouse_fixed") && !GameState.Get<bool>("gathered_fish"))
         {
             DialogueManager.ShowDialogue(getDialog("outdoors/missing_fish"));
@@ -65,6 +69,25 @@ public class Navigation : MonoBehaviour
         GoToTransition("KitchenScene", 0.35f);
     }
 
+    public void GoToLighthouse()
+    {
+        if (GameState.Get("do_burial", false))
+        {
+            DialogueManager.ShowDialogue(getDialog("burial_blocked"));
+        }
+
+        GoToTransition("LHFloorScene", 0.35f);
+    }
+
+    public void GoToPier()
+    {
+        if (GameState.Get("do_burial", false))
+        {
+            DialogueManager.ShowDialogue(getDialog("burial_blocked"));
+        }
+
+        GoToTransition("PierScene", 0.35f);
+    }
 
     public void GoToSink(SceneTransition transition)
     {
@@ -248,6 +271,13 @@ public class Navigation : MonoBehaviour
         {
             DialogueManager.ShowDialogue(transition.dialogue_on_stay);
         }
+    }
+
+    public void BuryCampborne(SceneTransition transition)
+    {
+        GameState.Set("do_burial", true); // activate burial flag so we can bury this guy
+        playSoundClip(transition.travelSound);
+        GoToTransition("OutdoorsScene", 0.8f);
     }
 
     private void playSoundClip(AudioClip clip)

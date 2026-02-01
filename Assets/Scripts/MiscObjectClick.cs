@@ -196,12 +196,12 @@ public class MiscObjectClick : MonoBehaviour
         MessageBus.Instance.Publish(
             "ShowThreeChoice",
             "LOOK AWAY",
-            "TOUCH",
+            "FEEL",
             "BURY HIM",
             (Action)(() =>
             {
                 // Option 1 Panic
-                DialogueManager.ShowDialogue(getDialogue("kitchen/camb_choice1"));
+                DialogueManager.ShowDialogue(getDialogue("kitchen/camb_choice1a"));
             }),
             (Action)(() =>
             {
@@ -245,7 +245,7 @@ public class MiscObjectClick : MonoBehaviour
             (Action)(() =>
             {
                 // Option 2
-                DialogueManager.ShowDialogue(getDialogue("kitchen/camb_choice1x"));
+                DialogueManager.ShowDialogue(getDialogue("kitchen/camb_choice1ax"));
             }),
             (Action)(() =>
             {
@@ -255,8 +255,22 @@ public class MiscObjectClick : MonoBehaviour
         );
     }
 
+    public void CamborneChoicesLastClick()
+    {
+        MessageBus.Instance.Publish(
+            "ShowOneChoice",
+            "BURY HIM",
+            (Action)(() =>
+            {
+                // Option 3
+                CamborneChoicesBuryClick();
+            })
+        );
+    }
+    
     public void CamborneChoicesBuryClick()
     {
         DialogueManager.ShowDialogue(getDialogue("kitchen/camb_choice3"));
     }
+    
 }

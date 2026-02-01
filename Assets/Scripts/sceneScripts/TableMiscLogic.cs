@@ -77,8 +77,6 @@ public class TableMiscLogic : MonoBehaviour
 
     public void showCamborneJumpscare()
     {
-        GameState.Set("do_burial", true); // activate burial flag so we can bury this guy
-
         DialogueManager.CloseDialogue();
         tableButton.SetActive(false);
 
@@ -153,5 +151,10 @@ public class TableMiscLogic : MonoBehaviour
     {
         // Always unsubscribe when this object is destroyed
         handle?.Unsubscribe();
+    }
+
+    private IEnumerator ShakeBG(SpriteRenderer bg)
+    {
+        yield return null;
     }
 }

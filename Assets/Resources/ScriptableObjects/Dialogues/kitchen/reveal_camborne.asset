@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: reveal_camborne
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   text:
-  - Oh bother.
-  - What to do...
+  - What do I do now?
   onDialogueEnd:
     m_PersistentCalls:
       m_Calls:

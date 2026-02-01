@@ -68,10 +68,10 @@ public class UITaskTracker : MonoBehaviour
             SetTextDisplay(message);
 
             // 6. Set final visual instantly
+            tasklist_bg.color = Color.white;
             text_tasklist.text = message;
             text_tasklist.color = Color.white;
-            tasklist_bg.color = Color.white;
-
+            
             // 7. Ensure mask is fully open (important if reveal was mid-way)
             if (gotMask && mask != null)
             {
@@ -180,7 +180,9 @@ public class UITaskTracker : MonoBehaviour
         state = newState;
 
         if (driverCoroutine != null)
+        {
             StopCoroutine(driverCoroutine);
+        }
 
         driverCoroutine = StartCoroutine(StateMachineDriver(animationToken));
     }
@@ -285,7 +287,6 @@ public class UITaskTracker : MonoBehaviour
 
     private IEnumerator HideAnimation(int token)
     {
-        Color startC = tasklist_bg.color;
         float t = 0;
 
         while (t < hideDuration)
