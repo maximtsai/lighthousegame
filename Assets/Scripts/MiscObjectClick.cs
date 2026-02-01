@@ -268,6 +268,7 @@ public class MiscObjectClick : MonoBehaviour
             (Action)(() =>
             {
                 // Option 3
+                Debug.Log("last choice clicked");
                 CamborneChoicesBuryClick();
             })
         );

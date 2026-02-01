@@ -73,10 +73,10 @@ public class ChoiceManager : MonoBehaviour
             return;
         }
 
-        string choice1 = args[0] as string;
-        callback1 = args[1] as Action;
+        string choice3 = args[0] as string;
+        callback3 = args[1] as Action;
 
-        SetButtonText(Button1, choice1);
+        SetButtonText(Button3, choice3);
     }
 
     private void OnShowTwoChoice(object[] args)
