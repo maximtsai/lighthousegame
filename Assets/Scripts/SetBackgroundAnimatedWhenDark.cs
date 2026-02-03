@@ -8,7 +8,7 @@ public class SetBackgroundAnimatedWhenDark : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if (GameState.Get<bool>("is_nighttime", false) || true)
+        if (GameState.Get<bool>("is_nighttime", false))
         {
             if (background != null && clipDark != null)
             {
