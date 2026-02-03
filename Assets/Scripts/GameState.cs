@@ -127,7 +127,8 @@ public static class GameState
 
         Set("gathered_fish", false);
         Set("is_nighttime", false);
-
+        Set("near_nighttime", false);
+        
         Set("recorded_weather", false);
         
         Set("do_burial", false);

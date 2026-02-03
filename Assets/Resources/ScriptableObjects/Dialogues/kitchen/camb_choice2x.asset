@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   text:
   - You touch his cheek.
-  - Cold. #And sagging.
+  - Cold. ##And sagging.
   - Your fingers feel uncomfortably slick.
   - You think about wiping your hand on your shirt.
   - But you reconsider and wipe them on the table instead.
@@ -23,7 +23,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5912071456214807691, guid: add25f6ff90e9474990e9f3862207611, type: 3}
         m_TargetAssemblyTypeName: MiscObjectClick, Assembly-CSharp
-        m_MethodName: CamborneChoicesTouchClick
+        m_MethodName: CamborneChoicesLastClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

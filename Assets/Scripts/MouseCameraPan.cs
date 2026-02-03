@@ -11,13 +11,19 @@ public class MouseCameraPan : MonoBehaviour
     public float scrollSpeed = 0.05f;
 
     private Vector2 bounds; // half-size of how far camera can move
+    private MessageBus.SubscriptionHandle handle;
 
     void Start()
     {
         cam = Camera.main;
         RecalculateDimensions();
-        // MessageBus.Instance.Subscribe("ShakeScreen", ShakeScreen, this);
+        handle = MessageBus.Instance.Subscribe("refreshCamera", RecalculateDimensionsMessage, this);
+        
+    }
 
+    private void RecalculateDimensionsMessage(object[] args)
+    {
+	    RecalculateDimensions();
     }
     public void RecalculateDimensions()
     {
@@ -100,7 +106,11 @@ public class MouseCameraPan : MonoBehaviour
         return (value - edgeThreshold) / (1f - 2f * edgeThreshold);
     }
 
-
+    void OnDestroy()
+    {
+	    // Always unsubscribe when this object is destroyed
+	    handle?.Unsubscribe();
+    }
     // private void ShakeScreen()
     // {
 	   //  

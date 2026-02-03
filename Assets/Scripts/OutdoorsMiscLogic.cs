@@ -5,6 +5,7 @@ public class OutdoorsMiscLogic : MonoBehaviour
     [SerializeField] private AudioClip bgLoop1;
     [SerializeField] private AudioClip bgLoop2;
     // [SerializeField] CutsceneManager CsManager;
+    [SerializeField] private MiscObjectClick miscObjectClick;
 
     void Start()
     {
@@ -14,6 +15,12 @@ public class OutdoorsMiscLogic : MonoBehaviour
         UpdateTrack(ambience, bgLoop1, 0.9f, 1);
         // Update track 2
         UpdateTrack(ambience, bgLoop2, 0.35f, 2);
+        if (GameState.Get<bool>("near_nighttime"))
+        {
+            GameState.Set("near_nighttime", false);
+            GameState.Set("is_nighttime", true);
+            DialogueManager.ShowDialogue(miscObjectClick.getDialogue("nearly_dark"));
+        }
     }
 
     private void UpdateTrack(Ambience ambience, AudioClip newClip, float volume, int channel)

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   text:
   - You touch his cheek.
-  - Cold. #And sagging.
+  - Cold. ##And sagging.
   - Your fingers feel uncomfortably slick.
   - You think about wiping your hand on your shirt.
   - But you reconsider and wipe them on the table instead.

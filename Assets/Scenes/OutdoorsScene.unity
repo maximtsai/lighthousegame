@@ -470,7 +470,7 @@ Camera:
     x: 0
     y: 0
     width: 1
-    height: 0.9998536
+    height: 0.99972165
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -705,6 +705,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   bgLoop1: {fileID: 8300000, guid: 3f6c773ae3d76484cbf2270c2150fefd, type: 3}
   bgLoop2: {fileID: 8300000, guid: bb295e81a5802b94f99cacb96173522c, type: 3}
+  miscObjectClick: {fileID: 5912071456214807691, guid: add25f6ff90e9474990e9f3862207611, type: 3}
 --- !u!4 &647772682
 Transform:
   m_ObjectHideFlags: 0
@@ -973,6 +974,7 @@ GameObject:
   - component: {fileID: 1717215370}
   - component: {fileID: 1717215369}
   - component: {fileID: 1717215368}
+  - component: {fileID: 1717215371}
   m_Layer: 0
   m_Name: outside_bg
   m_TagString: Untagged
@@ -1075,6 +1077,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1717215371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1717215367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 398cc17fb22ab9947a2bd734e0873c1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  background: {fileID: 1717215368}
+  clipDark: {fileID: 7400000, guid: 5f034dd84e14d344e825d7f21a91c25e, type: 2}
 --- !u!1001 &2020215862
 PrefabInstance:
   m_ObjectHideFlags: 0
