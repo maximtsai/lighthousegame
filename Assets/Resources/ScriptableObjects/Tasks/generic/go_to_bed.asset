@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5d4a7cb2b5cf7c344b163f980a327405, type: 3}
-  m_Name: head_back_inside
+  m_Name: go_to_bed
   m_EditorClassIdentifier: Assembly-CSharp::Task
-  id: head_back_inside
-  description: Head Back Inside
+  id: go_to_bed
+  description: Go To Bed
   on_completion: {fileID: 0}

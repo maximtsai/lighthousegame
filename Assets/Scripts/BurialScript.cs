@@ -86,7 +86,10 @@ public class BurialScript : MonoBehaviour
         {
             // Haven't dug up the grave yet, do that.
             GameState.Set("has_dug", true);
-	        black.SetActive(true);
+            MessageBus.Instance.Publish("AddTaskString", "generic/go_to_bed");
+            MessageBus.Instance.Publish("CompleteTask", "bury_body");
+
+            black.SetActive(true);
 			StartCoroutine(PlaySoundDelayedRoutine(shovelClip, 0.6f, false, 0.5f));
 			FadeTo(black, 1, 1.2f, () => {
             	Destroy(shovel);

@@ -14,6 +14,8 @@ public class TaskManager : MonoBehaviour
     private MessageBus.SubscriptionHandle clearAllTaskHandle;
     private MessageBus.SubscriptionHandle hideTaskHandle;
     
+    private 
+    
     void Awake()
     {
         ClearAllTasks();

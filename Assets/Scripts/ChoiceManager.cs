@@ -17,6 +17,7 @@ public class ChoiceManager : MonoBehaviour
 
     private void Awake()
     {
+        Debug.Log("swake ");
         SubscribeToMessages();
         HookupButtons();
     }
