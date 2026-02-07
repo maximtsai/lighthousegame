@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: camb_choice3
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   text:
-  - It's getting dark soon.
+  - It's already dark outside.
   - But you can't just leave the body here.
   - You pick up your coworker and head out.
   onDialogueEnd:

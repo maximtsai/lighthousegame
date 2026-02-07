@@ -30,7 +30,11 @@ public class MiscObjectClick : MonoBehaviour
     {
         if (GameState.Get<int>("day") == 1)
         {
-            if (GameState.Get<bool>("choresdone"))
+
+            if (GameState.Get<bool>("time_for_bed", false))
+            {
+                DialogueManager.ShowDialogue(getDialogue("Bedroom/co_bed_3"));
+            } else if (GameState.Get<bool>("ate_dinner"))
             {
                 DialogueManager.ShowDialogue(getDialogue("Bedroom/co_bed_2"));
             }
@@ -46,9 +50,10 @@ public class MiscObjectClick : MonoBehaviour
     }
     public void ClickSelfBed()
     {
-        if (GameState.Get<bool>("checked_weather") && GameState.Get<bool>("lighthouse_fixed") && GameState.Get<bool>("ate_dinner"))
+
+        if (GameState.Get<bool>("time_for_bed", false))
         {
-            Debug.Log("Go to next day");
+            DialogueManager.ShowDialogue(getDialogue("Bedroom/uneasy_sleep"));
         }
         else
         {
@@ -75,6 +80,15 @@ public class MiscObjectClick : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void GotoNextDay()
+    {
+        MessageBus.Instance.Publish("PlayCutscene", "Lighthouse", true, (Action)(() =>
+        {
+            MessageBus.Instance.Publish("goto_next_day");
+        }), true);
+        
     }
     
     public void ClickLighthouseLight()

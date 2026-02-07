@@ -131,7 +131,10 @@ public class Navigation : MonoBehaviour
     
     public void GoToOutdoors(SceneTransition transition)
     {
-        if (!GameState.Get<bool>("ate_breakfast"))
+        if (GameState.Get<bool>("time_for_bed", false))
+        {
+            DialogueManager.ShowDialogue(getDialog("kitchen/time_for_bed"));
+        } else if (!GameState.Get<bool>("ate_breakfast"))
         {
             if (GameState.Get<bool>("corn_clicked"))
             {

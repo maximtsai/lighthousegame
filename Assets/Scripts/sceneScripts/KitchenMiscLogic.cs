@@ -47,7 +47,11 @@ public class KitchenMiscLogic : MonoBehaviour
 		{
             if (GameState.Get<bool>("lighthouse_fixed"))
 			{
-                if (GameState.Get<bool>("ate_dinner"))
+                if (GameState.Get<bool>("has_buried", false))
+                {
+                    DialogueManager.ShowDialogue(miscObjectClick.getDialogue("ellipsis"));
+
+                } else if (GameState.Get<bool>("ate_dinner"))
                 {
                     DialogueManager.ShowDialogue(miscObjectClick.getDialogue("kitchen/check_up_camborne"));
                 } else

@@ -16,7 +16,7 @@ MonoBehaviour:
   - You touch his cheek.
   - Cold. ##And sagging.
   - Your fingers feel uncomfortably slick.
-  - You think about wiping your hand on your shirt.
+  - You feel the urge to wipe your hand on your shirt.
   - But you reconsider and wipe them on the table instead.
   onDialogueEnd:
     m_PersistentCalls:
