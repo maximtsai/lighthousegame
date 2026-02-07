@@ -77,6 +77,7 @@ public class StoveScript : MonoBehaviour
         else
         {
             GameState.Set("corn_clicked", true);
+            MessageBus.Instance.Publish("FloatText", -1.2f, -0.1f, "+CORN");
             GlowPot();
             if (IsDoneCooking())
             {
@@ -99,6 +100,7 @@ public class StoveScript : MonoBehaviour
             DialogueManager.ShowDialogue(miscObjectClick.getDialogue("stove/pepper_already_added"));
         } else {
             GameState.Set("pepper_clicked", true);
+            MessageBus.Instance.Publish("FloatText", -1.35f, -0.1f, "+PEPPER");
             GlowPot();
             if (IsDoneCooking())
             {
@@ -121,6 +123,7 @@ public class StoveScript : MonoBehaviour
             DialogueManager.ShowDialogue(miscObjectClick.getDialogue("stove/alcohol_already_added"));
         } else {
             GameState.Set("alcohol_clicked", true);
+            MessageBus.Instance.Publish("FloatText", -1.25f, 0, "+ALCOHOL");
             GlowPot();
             if (IsDoneCooking())
             {
@@ -145,6 +148,7 @@ public class StoveScript : MonoBehaviour
         else
         {
             GameState.Set("fish_clicked", true);
+            MessageBus.Instance.Publish("FloatText", -1.2f, -0.1f, "+FISH");
             // Change gameObject "fish"'s sprite to a new sprite
             TwitchFish();
             SpriteRenderer sr = fish.GetComponent<SpriteRenderer>();
@@ -173,6 +177,7 @@ public class StoveScript : MonoBehaviour
         if (IsDoneCooking())
         {
             PlaySound(eatSound);
+            MessageBus.Instance.Publish("FloatText", 0, -0.4f, "+SANITY", "green");
             if (GameState.Get<bool>("ate_breakfast"))
             {
                 MessageBus.Instance.Publish("CompleteTask", "task_dinner");

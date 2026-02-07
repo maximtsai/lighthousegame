@@ -564,6 +564,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &189776009
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 189776011}
+  - component: {fileID: 189776010}
+  m_Layer: 0
+  m_Name: TextAppear
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &189776010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 189776009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c06a8ae5bce80fa47905fc5501f632f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FloatingTextFactory
+  prefab_floating_text: {fileID: 2157967296807704477, guid: 8646298343340c74999805917d9713e5, type: 3}
+--- !u!4 &189776011
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 189776009}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.24527, y: -1.01468, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &444086180 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1063340118735209179, guid: 1c51b1f8617e4ee4e86a74e558b2fb52, type: 3}
@@ -1254,10 +1299,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.27234635
     y: 0
-    width: 1
-    height: 1
+    width: 0.988206
+    height: 0.98759305
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -1669,3 +1714,4 @@ SceneRoots:
   - {fileID: 957565993}
   - {fileID: 2832228261116431610}
   - {fileID: 702606381}
+  - {fileID: 189776011}
