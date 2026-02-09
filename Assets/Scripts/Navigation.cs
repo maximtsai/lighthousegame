@@ -131,7 +131,7 @@ public class Navigation : MonoBehaviour
     
     public void GoToOutdoors(SceneTransition transition)
     {
-        if (GameState.Get<bool>("time_for_bed", false))
+        if (GameState.Get<bool>("ready_to_sleep", false))
         {
             DialogueManager.ShowDialogue(getDialog("kitchen/time_for_bed"));
         } else if (!GameState.Get<bool>("ate_breakfast"))
@@ -191,22 +191,7 @@ public class Navigation : MonoBehaviour
 
     public void GoToJournal()
     {
-        if (GameState.Get<bool>("can_sleep"))
-        {
-        }
-        else
-        {
-            if (GameState.Get<int>("day") == 1 && !GameState.Get<bool>("introduced_journal", false))
-            {
-                GameState.Set("introduced_journal", true);
-                DialogueManager.ShowDialogue(getDialog("Bedroom/journal_not_yet_day1"));
-            }
-            else
-            {
-                DialogueManager.ShowDialogue(getDialog("Bedroom/journal_not_yet"));
-            }
-        }
-
+        SceneManager.LoadScene("JournalScene");
     }
     
     public void GoToSlow(string scene)

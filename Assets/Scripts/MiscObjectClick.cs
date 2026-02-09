@@ -30,8 +30,7 @@ public class MiscObjectClick : MonoBehaviour
     {
         if (GameState.Get<int>("day") == 1)
         {
-
-            if (GameState.Get<bool>("time_for_bed", false))
+            if (GameState.Get<bool>("ready_to_sleep", false))
             {
                 DialogueManager.ShowDialogue(getDialogue("Bedroom/co_bed_3"));
             } else if (GameState.Get<bool>("ate_dinner"))
@@ -51,7 +50,7 @@ public class MiscObjectClick : MonoBehaviour
     public void ClickSelfBed()
     {
 
-        if (GameState.Get<bool>("time_for_bed", false))
+        if (GameState.Get<bool>("ready_to_sleep", false))
         {
             DialogueManager.ShowDialogue(getDialogue("Bedroom/uneasy_sleep"));
         }

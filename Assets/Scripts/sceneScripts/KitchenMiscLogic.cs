@@ -18,9 +18,9 @@ public class KitchenMiscLogic : MonoBehaviour
         // GameState.Set("is_nighttime", true);
 
         // Update track 1
-        UpdateTrack(ambience, bgLoop1, 0.75f, 1);
+        UpdateTrack(ambience, bgLoop1, 0.5f, 1);
         // Update track 2
-        UpdateTrack(ambience, bgLoop2, 0.24f, 2);
+        UpdateTrack(ambience, bgLoop2, 0.2f, 2);
 
     }
 
@@ -49,7 +49,7 @@ public class KitchenMiscLogic : MonoBehaviour
 			{
                 if (GameState.Get<bool>("has_buried", false))
                 {
-                    DialogueManager.ShowDialogue(miscObjectClick.getDialogue("ellipsis"));
+                    DialogueManager.ShowDialogue(miscObjectClick.getDialogue("kitchen/cleanup"));
 
                 } else if (GameState.Get<bool>("ate_dinner"))
                 {

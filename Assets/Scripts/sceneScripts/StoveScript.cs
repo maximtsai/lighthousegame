@@ -123,7 +123,7 @@ public class StoveScript : MonoBehaviour
             DialogueManager.ShowDialogue(miscObjectClick.getDialogue("stove/alcohol_already_added"));
         } else {
             GameState.Set("alcohol_clicked", true);
-            MessageBus.Instance.Publish("FloatText", -1.25f, 0, "+ALCOHOL");
+            MessageBus.Instance.Publish("FloatText", -1.25f, 0, "+RUM");
             GlowPot();
             if (IsDoneCooking())
             {

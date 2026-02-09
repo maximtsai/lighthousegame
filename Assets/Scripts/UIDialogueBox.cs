@@ -149,7 +149,7 @@ public class UIDialogueBox : MonoBehaviour
 
         if (typingCoroutine != null) StopCoroutine(typingCoroutine);
         typingCoroutine = null;
-        textmesh.text = text;
+        textmesh.text = text.Replace("#", "");
 
     }
     public void EndDialogue(int choice = -1)
@@ -176,7 +176,7 @@ public class UIDialogueBox : MonoBehaviour
         {
             // Finish typing instantly
             StopCoroutine(typingCoroutine);
-            textmesh.text = dialogue.text[current_line];
+            textmesh.text = dialogue.text[current_line].Replace("#", "");
             typingCoroutine = null;
 
             if (dialogue.choices.Count == 2 && dialogue.choices.Count == dialogue.consequences.Count)
