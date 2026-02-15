@@ -136,7 +136,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!61 &90372504
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -250,8 +250,8 @@ Transform:
   m_GameObject: {fileID: 90372503}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.54, y: 0.1, z: -0.2}
-  m_LocalScale: {x: 10, y: 10, z: 1}
+  m_LocalPosition: {x: 0, y: 0.1, z: -0.2}
+  m_LocalScale: {x: 80, y: 50, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1708277921}
@@ -401,10 +401,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.24460432
     y: 0
-    width: 1
-    height: 0.99937963
+    width: 0.8748201
+    height: 0.8746803
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34

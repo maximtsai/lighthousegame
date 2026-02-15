@@ -262,11 +262,12 @@ public class CutsceneManager : Singleton<CutsceneManager>
         }
         Debug.Log("playing cutscene routine fadein");
 
-        // FADE IN
-        yield return StartCoroutine(FadeOverlay(0f, fadeDuration));
-
-        // SCROLL UP LINEARLY UNTIL PLAYER CAN SEE TOP OF animatorObj
-        yield return StartCoroutine(ScrollUp(cutscene.duration));
+        // FADE IN (simultaneous with scroll)
+        Coroutine fadeCoroutine = StartCoroutine(FadeOverlay(0f, fadeDuration));
+        Coroutine scrollCoroutine = StartCoroutine(ScrollUp(cutscene.duration));
+        
+        yield return fadeCoroutine;
+        yield return scrollCoroutine;
 
         // -------------------------------------------------
         // FADE OUT
@@ -444,8 +445,14 @@ public class CutsceneManager : Singleton<CutsceneManager>
     // ---------------------------------------------------------
     private IEnumerator ScrollUp(float usedDuration = 1f)
     {
+        yield return null; // Wait one frame for animatorObj to be fully activated
+        
         RectTransform rt = animatorObj.GetComponent<RectTransform>();
-        if (rt == null) yield break;
+        if (rt == null)
+        {
+            Debug.LogError("ScrollUp: animatorObj has no RectTransform!");
+            yield break;
+        }
     
         // Starting position (current anchored position)
         Vector2 startPos = new Vector2(0, 0);
@@ -460,8 +467,12 @@ public class CutsceneManager : Singleton<CutsceneManager>
     
         // Only scroll if the content is taller than the parent
         if (rt.rect.height <= parentHeight)
+        {
+            Debug.LogWarning($"ScrollUp: Not scrolling because content height ({rt.rect.height}) <= parent height ({parentHeight})");
             yield break;
+        }
     
+        Debug.Log($"ScrollUp: Starting scroll from {startPos.y} to {targetY} over {usedDuration}s");
         float elapsed = 0f;
     
         while (elapsed < usedDuration)
