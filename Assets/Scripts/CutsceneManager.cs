@@ -73,10 +73,32 @@ public class CutsceneManager : Singleton<CutsceneManager>
         // [1] bool
         // [2] Action
 
-        string cutsceneName = args[0] as string;
-        bool skipFadeout = (bool)args[1];
+        if (args == null || args.Length < 4)
+        {
+            Debug.LogError("PlayCutsceneFromMessage: Invalid args array");
+            return;
+        }
+
+        if (args[0] is not string cutsceneName)
+        {
+            Debug.LogError("PlayCutsceneFromMessage: Expected arg[0] to be string");
+            return;
+        }
+
+        if (args[1] is not bool skipFadeout)
+        {
+            Debug.LogError("PlayCutsceneFromMessage: Expected arg[1] to be bool");
+            return;
+        }
+
         Action onComplete = args[2] as Action;
-        bool switchesScenes = (bool)args[3];
+
+        if (args[3] is not bool switchesScenes)
+        {
+            Debug.LogError("PlayCutsceneFromMessage: Expected arg[3] to be bool");
+            return;
+        }
+
         PlayCutscene(cutsceneName, skipFadeout, onComplete, switchesScenes);
     }
     
@@ -355,7 +377,6 @@ public class CutsceneManager : Singleton<CutsceneManager>
         Color transparentColor = fadeOverlayImg.color;
         transparentColor.a = 0f;
         fadeOverlayImg.color = transparentColor;
-        fadeOverlayImg.color = transparentColor;
 
         isPlaying = false;
         skipFirstClickBlockerClick = false;
@@ -415,9 +436,8 @@ public class CutsceneManager : Singleton<CutsceneManager>
 
     private IEnumerator FadeOverlayThenCleanup(float targetAlpha, float usedDuration = 0f, bool fadeAudio = false)
     {
-        FadeOverlay(targetAlpha, usedDuration, fadeAudio);
+        yield return StartCoroutine(FadeOverlay(targetAlpha, usedDuration, fadeAudio));
         CleanUp();
-        yield return null;
     }
     // ---------------------------------------------------------
     // Scroll up helper

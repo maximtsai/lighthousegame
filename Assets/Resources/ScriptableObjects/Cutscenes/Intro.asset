@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Cutscene
   animation: {fileID: 7400000, guid: 25a301eeca1fa0d45839b01bfca2bd30, type: 2}
   controller: {fileID: 9100000, guid: c318d650dcdf46946be2f02e7b588f77, type: 2}
-  duration: 5
+  duration: 4.5
   backgroundMusic: {fileID: 8300000, guid: bb295e81a5802b94f99cacb96173522c, type: 3}
