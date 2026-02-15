@@ -152,7 +152,6 @@ public class Navigation : MonoBehaviour
         bool cutscenePlayed = GameState.Get<bool>("cutscene_outdoors_played", false) || GameState.Get<int>("day", 1) > 1;
         if (!cutscenePlayed)
         {
-            Debug.Log("play lighthouse cutscene");
             GameState.Set("cutscene_outdoors_played", true);
             MessageBus.Instance.Publish("PlayCutscene", "Lighthouse", true, (Action)(() =>
             {
