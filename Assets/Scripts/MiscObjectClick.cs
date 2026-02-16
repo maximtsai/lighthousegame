@@ -50,7 +50,7 @@ public class MiscObjectClick : MonoBehaviour
     public void ClickSelfBed()
     {
 
-        if (GameState.Get<bool>("ready_to_sleep", false))
+        if (GameState.Get<bool>("ready_to_sleep", false) || true)
         {
             DialogueManager.ShowDialogue(getDialogue("Bedroom/uneasy_sleep"));
         }
@@ -83,9 +83,10 @@ public class MiscObjectClick : MonoBehaviour
 
     public void GotoNextDay()
     {
-        MessageBus.Instance.Publish("PlayCutscene", "Lighthouse", true, (Action)(() =>
+        MessageBus.Instance.Publish("PlayCutscene", "Day2", true, (Action)(() =>
         {
             MessageBus.Instance.Publish("goto_next_day");
+            SceneManager.LoadScene("BedroomScene");
         }), true);
         
     }

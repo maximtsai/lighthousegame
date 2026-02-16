@@ -232,6 +232,7 @@ public class CutsceneManager : Singleton<CutsceneManager>
         if (cutscene.backgroundMusic && AudioManager.Instance)
         {
             AudioManager.Instance.AudioSource.clip = cutscene.backgroundMusic;
+            AudioManager.Instance.AudioSource.volume = 0.7f;
             AudioManager.Instance.AudioSource.Play();
         }
 
@@ -433,7 +434,7 @@ public class CutsceneManager : Singleton<CutsceneManager>
 
         if (fadeAudio && AudioManager.Instance)
         {
-            AudioManager.Instance.AudioSource.volume = 1f;
+            AudioManager.Instance.AudioSource.volume = 0.7f;
         }
     }
 
