@@ -138,6 +138,11 @@ public class MiscObjectClick : MonoBehaviour
 		}
 	}
 
+    public void ClickDock()
+    {
+        DialogueManager.ShowDialogue(getDialogue("dock/empty_dock"));
+    }
+
 	public void GoOutdoors() 
 	{
         DialogueManager.ShowDialogue(getDialogue("go_outside"));

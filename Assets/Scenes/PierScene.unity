@@ -165,7 +165,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1930117940751657890, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: on_click.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: GatherFish
+      value: ClickDock
       objectReference: {fileID: 0}
     - target: {fileID: 1930117940751657890, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: on_click.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -756,10 +756,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.24460432
+    x: 0.07434053
     y: 0
-    width: 0.8748201
-    height: 0.8746803
+    width: 1.1937118
+    height: 1.1914893
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34

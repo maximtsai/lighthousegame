@@ -160,7 +160,15 @@ public class UIDialogueBox : MonoBehaviour
         }
         else
         {
-            dialogue.onDialogueEnd?.Invoke();
+            bool hasImmediateEnd = dialogue.onDialogueEndImmediate.GetPersistentEventCount() > 0;
+            if (hasImmediateEnd)
+            {
+                dialogue.onDialogueEndImmediate?.Invoke();
+            }
+            else
+            {
+                dialogue.onDialogueEnd?.Invoke();
+            }
         }
         CustomCursor.SetCursorToNormal(); // revert cursor to default
         Destroy(gameObject);

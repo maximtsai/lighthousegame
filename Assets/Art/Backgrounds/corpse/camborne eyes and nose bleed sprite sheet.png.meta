@@ -1,0 +1,1576 @@
+fileFormatVersion: 2
+guid: 14936b2112d2155429f2102c2c5f8a46
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4777424223184805255
+    second: camborne eyes and nose bleed sprite sheet_0
+  - first:
+      213: -5678936155895219023
+    second: camborne eyes and nose bleed sprite sheet_1
+  - first:
+      213: 1216846862070338750
+    second: camborne eyes and nose bleed sprite sheet_2
+  - first:
+      213: 3733432190832268118
+    second: camborne eyes and nose bleed sprite sheet_3
+  - first:
+      213: 2715395387425607067
+    second: camborne eyes and nose bleed sprite sheet_4
+  - first:
+      213: 6815921345582669112
+    second: camborne eyes and nose bleed sprite sheet_5
+  - first:
+      213: 215343451564076588
+    second: camborne eyes and nose bleed sprite sheet_6
+  - first:
+      213: -1093768063107371902
+    second: camborne eyes and nose bleed sprite sheet_7
+  - first:
+      213: -3471252687937617814
+    second: camborne eyes and nose bleed sprite sheet_8
+  - first:
+      213: -8448252045833079631
+    second: camborne eyes and nose bleed sprite sheet_9
+  - first:
+      213: -830400977957251102
+    second: camborne eyes and nose bleed sprite sheet_10
+  - first:
+      213: -3345740208228178250
+    second: camborne eyes and nose bleed sprite sheet_11
+  - first:
+      213: -197375928719608728
+    second: camborne eyes and nose bleed sprite sheet_12
+  - first:
+      213: 2024697437522633515
+    second: camborne eyes and nose bleed sprite sheet_13
+  - first:
+      213: 5482014427522779111
+    second: camborne eyes and nose bleed sprite sheet_14
+  - first:
+      213: -2243767083492176087
+    second: camborne eyes and nose bleed sprite sheet_15
+  - first:
+      213: -4459726275781300336
+    second: camborne eyes and nose bleed sprite sheet_16
+  - first:
+      213: 5351665759938156026
+    second: camborne eyes and nose bleed sprite sheet_17
+  - first:
+      213: -4050350219177652058
+    second: camborne eyes and nose bleed sprite sheet_18
+  - first:
+      213: 7444292691227280813
+    second: camborne eyes and nose bleed sprite sheet_19
+  - first:
+      213: -8812038643814034104
+    second: camborne eyes and nose bleed sprite sheet_20
+  - first:
+      213: 5317459101999487835
+    second: camborne eyes and nose bleed sprite sheet_21
+  - first:
+      213: 6366690467580990467
+    second: camborne eyes and nose bleed sprite sheet_22
+  - first:
+      213: -4878435207577645229
+    second: camborne eyes and nose bleed sprite sheet_23
+  - first:
+      213: 8006899803471492156
+    second: camborne eyes and nose bleed sprite sheet_24
+  - first:
+      213: -1666076735555040147
+    second: camborne eyes and nose bleed sprite sheet_25
+  - first:
+      213: -904329834736071239
+    second: camborne eyes and nose bleed sprite sheet_26
+  - first:
+      213: -7158934779440399722
+    second: camborne eyes and nose bleed sprite sheet_27
+  - first:
+      213: -4408352387100855021
+    second: camborne eyes and nose bleed sprite sheet_28
+  - first:
+      213: -2403345534291663161
+    second: camborne eyes and nose bleed sprite sheet_29
+  - first:
+      213: -6855258814092126010
+    second: camborne eyes and nose bleed sprite sheet_30
+  - first:
+      213: 981136960961359623
+    second: camborne eyes and nose bleed sprite sheet_31
+  - first:
+      213: -3787141139014582635
+    second: camborne eyes and nose bleed sprite sheet_32
+  - first:
+      213: 7019938020375368682
+    second: camborne eyes and nose bleed sprite sheet_33
+  - first:
+      213: -3736811811215120024
+    second: camborne eyes and nose bleed sprite sheet_34
+  - first:
+      213: -3869237978430035898
+    second: camborne eyes and nose bleed sprite sheet_35
+  - first:
+      213: -8645207452755701475
+    second: camborne eyes and nose bleed sprite sheet_36
+  - first:
+      213: 4104886973533885800
+    second: camborne eyes and nose bleed sprite sheet_37
+  - first:
+      213: 6728134274396104175
+    second: camborne eyes and nose bleed sprite sheet_38
+  - first:
+      213: -7855315858531952019
+    second: camborne eyes and nose bleed sprite sheet_39
+  - first:
+      213: -7868227980544871105
+    second: camborne eyes and nose bleed sprite sheet_40
+  - first:
+      213: -1313486894149705825
+    second: camborne eyes and nose bleed sprite sheet_41
+  - first:
+      213: -742878501767814142
+    second: camborne eyes and nose bleed sprite sheet_42
+  - first:
+      213: -7312246296833960553
+    second: camborne eyes and nose bleed sprite sheet_43
+  - first:
+      213: -5759605229376289283
+    second: camborne eyes and nose bleed sprite sheet_44
+  - first:
+      213: -4277675160769467192
+    second: camborne eyes and nose bleed sprite sheet_45
+  - first:
+      213: -6740975786464447026
+    second: camborne eyes and nose bleed sprite sheet_46
+  - first:
+      213: -3387514998467406308
+    second: camborne eyes and nose bleed sprite sheet_47
+  - first:
+      213: 8751414315530277683
+    second: camborne eyes and nose bleed sprite sheet_48
+  - first:
+      213: -3290872234571149202
+    second: camborne eyes and nose bleed sprite sheet_49
+  - first:
+      213: -5342578073968831005
+    second: camborne eyes and nose bleed sprite sheet_50
+  - first:
+      213: 2605528778724088405
+    second: camborne eyes and nose bleed sprite sheet_51
+  - first:
+      213: 4263662894803404217
+    second: camborne eyes and nose bleed sprite sheet_52
+  - first:
+      213: -2235112276983348737
+    second: camborne eyes and nose bleed sprite sheet_53
+  - first:
+      213: -7554568342204400306
+    second: camborne eyes and nose bleed sprite sheet_54
+  - first:
+      213: 2506256090138054042
+    second: camborne eyes and nose bleed sprite sheet_55
+  - first:
+      213: 6673206337858043273
+    second: camborne eyes and nose bleed sprite sheet_56
+  - first:
+      213: -1307872068733090482
+    second: camborne eyes and nose bleed sprite sheet_57
+  - first:
+      213: 2653199653027041941
+    second: camborne eyes and nose bleed sprite sheet_58
+  - first:
+      213: 7732313282825826305
+    second: camborne eyes and nose bleed sprite sheet_59
+  - first:
+      213: -1521788007351286772
+    second: camborne eyes and nose bleed sprite sheet_60
+  - first:
+      213: 6635307959665083784
+    second: camborne eyes and nose bleed sprite sheet_61
+  - first:
+      213: 8921925665360187547
+    second: camborne eyes and nose bleed sprite sheet_62
+  - first:
+      213: 2467042405345004020
+    second: camborne eyes and nose bleed sprite sheet_63
+  - first:
+      213: 7064657177665717445
+    second: camborne eyes and nose bleed sprite sheet_64
+  - first:
+      213: -898974935916927370
+    second: camborne eyes and nose bleed sprite sheet_65
+  - first:
+      213: -4552682299166344777
+    second: camborne eyes and nose bleed sprite sheet_66
+  - first:
+      213: 2868871986765664645
+    second: camborne eyes and nose bleed sprite sheet_67
+  - first:
+      213: 5400324734267367164
+    second: camborne eyes and nose bleed sprite sheet_68
+  - first:
+      213: -7182348195743493766
+    second: camborne eyes and nose bleed sprite sheet_69
+  - first:
+      213: 4434613902157458851
+    second: camborne eyes and nose bleed sprite sheet_70
+  - first:
+      213: 161670208386566330
+    second: camborne eyes and nose bleed sprite sheet_71
+  - first:
+      213: -465605294629096182
+    second: camborne eyes and nose bleed sprite sheet_72
+  - first:
+      213: -48505456007746489
+    second: camborne eyes and nose bleed sprite sheet_73
+  - first:
+      213: -6471905809819258226
+    second: camborne eyes and nose bleed sprite sheet_74
+  - first:
+      213: -8436431581809229883
+    second: camborne eyes and nose bleed sprite sheet_75
+  - first:
+      213: -3461830350273954615
+    second: camborne eyes and nose bleed sprite sheet_76
+  - first:
+      213: 2798241778063239769
+    second: camborne eyes and nose bleed sprite sheet_77
+  - first:
+      213: -7701168279456232393
+    second: camborne eyes and nose bleed sprite sheet_78
+  - first:
+      213: -75865297484426406
+    second: camborne eyes and nose bleed sprite sheet_79
+  - first:
+      213: 1945730124130734904
+    second: camborne eyes and nose bleed sprite sheet_80
+  - first:
+      213: 7283147449466318578
+    second: camborne eyes and nose bleed sprite sheet_81
+  - first:
+      213: 4079965345740735243
+    second: camborne eyes and nose bleed sprite sheet_82
+  - first:
+      213: -3102176763004537952
+    second: camborne eyes and nose bleed sprite sheet_83
+  - first:
+      213: -5075144122761103168
+    second: camborne eyes and nose bleed sprite sheet_84
+  - first:
+      213: -7083681748768225447
+    second: camborne eyes and nose bleed sprite sheet_85
+  - first:
+      213: -2356251810870677487
+    second: camborne eyes and nose bleed sprite sheet_86
+  - first:
+      213: 753083230444667167
+    second: camborne eyes and nose bleed sprite sheet_87
+  - first:
+      213: -8910928748493074718
+    second: camborne eyes and nose bleed sprite sheet_88
+  - first:
+      213: -4749646949321793098
+    second: camborne eyes and nose bleed sprite sheet_89
+  - first:
+      213: -8116586545848083410
+    second: camborne eyes and nose bleed sprite sheet_90
+  - first:
+      213: -8602852032893174308
+    second: camborne eyes and nose bleed sprite sheet_91
+  - first:
+      213: -2123616766621068641
+    second: camborne eyes and nose bleed sprite sheet_92
+  - first:
+      213: 3505390094152150022
+    second: camborne eyes and nose bleed sprite sheet_93
+  - first:
+      213: -5840640346111039194
+    second: camborne eyes and nose bleed sprite sheet_94
+  - first:
+      213: -582049459311177080
+    second: camborne eyes and nose bleed sprite sheet_95
+  - first:
+      213: -435807275971639370
+    second: camborne eyes and nose bleed sprite sheet_96
+  - first:
+      213: -5800062260277124367
+    second: camborne eyes and nose bleed sprite sheet_97
+  - first:
+      213: 364877842005289342
+    second: camborne eyes and nose bleed sprite sheet_98
+  - first:
+      213: 4263650397209735993
+    second: camborne eyes and nose bleed sprite sheet_99
+  - first:
+      213: 5586387610197830797
+    second: camborne eyes and nose bleed sprite sheet_100
+  - first:
+      213: -4039677995507222703
+    second: camborne eyes and nose bleed sprite sheet_101
+  - first:
+      213: -7877663420989536410
+    second: camborne eyes and nose bleed sprite sheet_102
+  - first:
+      213: -121248683872255373
+    second: camborne eyes and nose bleed sprite sheet_103
+  - first:
+      213: -6805525194467113487
+    second: camborne eyes and nose bleed sprite sheet_104
+  - first:
+      213: 8107888795018916438
+    second: camborne eyes and nose bleed sprite sheet_105
+  - first:
+      213: -5266177412930127540
+    second: camborne eyes and nose bleed sprite sheet_106
+  - first:
+      213: 5776325967412601563
+    second: camborne eyes and nose bleed sprite sheet_107
+  - first:
+      213: 3057114130503301309
+    second: camborne eyes and nose bleed sprite sheet_108
+  - first:
+      213: -238198678260487730
+    second: camborne eyes and nose bleed sprite sheet_109
+  - first:
+      213: 8269946878400595338
+    second: camborne eyes and nose bleed sprite sheet_110
+  - first:
+      213: 2246645029645841052
+    second: camborne eyes and nose bleed sprite sheet_111
+  - first:
+      213: -3829213907255774886
+    second: camborne eyes and nose bleed sprite sheet_112
+  - first:
+      213: -3179149241656213286
+    second: camborne eyes and nose bleed sprite sheet_113
+  - first:
+      213: 4741801825541752399
+    second: camborne eyes and nose bleed sprite sheet_114
+  - first:
+      213: 8760744888831048070
+    second: camborne eyes and nose bleed sprite sheet_115
+  - first:
+      213: -6642356376584223912
+    second: camborne eyes and nose bleed sprite sheet_116
+  - first:
+      213: 6649692216638367190
+    second: camborne eyes and nose bleed sprite sheet_117
+  - first:
+      213: -2083420428542191353
+    second: camborne eyes and nose bleed sprite sheet_118
+  - first:
+      213: 518307854363396818
+    second: camborne eyes and nose bleed sprite sheet_119
+  - first:
+      213: 3744197112544141914
+    second: camborne eyes and nose bleed sprite sheet_120
+  - first:
+      213: 8002931816656467389
+    second: camborne eyes and nose bleed sprite sheet_121
+  - first:
+      213: -3665475352581146332
+    second: camborne eyes and nose bleed sprite sheet_122
+  - first:
+      213: 6776829546465550870
+    second: camborne eyes and nose bleed sprite sheet_123
+  - first:
+      213: -338467775553489459
+    second: camborne eyes and nose bleed sprite sheet_124
+  - first:
+      213: 3430499959563230736
+    second: camborne eyes and nose bleed sprite sheet_125
+  - first:
+      213: -4308760920636220416
+    second: camborne eyes and nose bleed sprite sheet_126
+  - first:
+      213: -5426206402649210037
+    second: camborne eyes and nose bleed sprite sheet_127
+  - first:
+      213: 7232302914502600841
+    second: camborne eyes and nose bleed sprite sheet_128
+  - first:
+      213: 2478657995271387659
+    second: camborne eyes and nose bleed sprite sheet_129
+  - first:
+      213: 2820758162598342640
+    second: camborne eyes and nose bleed sprite sheet_130
+  - first:
+      213: -2052561575436166249
+    second: camborne eyes and nose bleed sprite sheet_131
+  - first:
+      213: 4775717699787886694
+    second: camborne eyes and nose bleed sprite sheet_132
+  - first:
+      213: -1663591142382861590
+    second: camborne eyes and nose bleed sprite sheet_133
+  - first:
+      213: -4684259864494428956
+    second: camborne eyes and nose bleed sprite sheet_134
+  - first:
+      213: -5294825973890882054
+    second: camborne eyes and nose bleed sprite sheet_135
+  - first:
+      213: -1585483804653623100
+    second: camborne eyes and nose bleed sprite sheet_136
+  - first:
+      213: 7590658564478622337
+    second: camborne eyes and nose bleed sprite sheet_137
+  - first:
+      213: 5672574680545146805
+    second: camborne eyes and nose bleed sprite sheet_138
+  - first:
+      213: 7329821834742547842
+    second: camborne eyes and nose bleed sprite sheet_139
+  - first:
+      213: 5136931135346790493
+    second: camborne eyes and nose bleed sprite sheet_140
+  - first:
+      213: 4405742560158085512
+    second: camborne eyes and nose bleed sprite sheet_141
+  - first:
+      213: -185649420759639298
+    second: camborne eyes and nose bleed sprite sheet_142
+  - first:
+      213: 3224806197483464260
+    second: camborne eyes and nose bleed sprite sheet_143
+  - first:
+      213: 6825347205258298757
+    second: camborne eyes and nose bleed sprite sheet_144
+  - first:
+      213: -6183918478917037435
+    second: camborne eyes and nose bleed sprite sheet_145
+  - first:
+      213: -9179604776044046452
+    second: camborne eyes and nose bleed sprite sheet_146
+  - first:
+      213: 4018006072251441991
+    second: camborne eyes and nose bleed sprite sheet_147
+  - first:
+      213: 4594062689628520519
+    second: camborne eyes and nose bleed sprite sheet_148
+  - first:
+      213: 7515709917340601251
+    second: camborne eyes and nose bleed sprite sheet_149
+  - first:
+      213: 3612647597089914049
+    second: camborne eyes and nose bleed sprite sheet_150
+  - first:
+      213: 53740187093852576
+    second: camborne eyes and nose bleed sprite sheet_151
+  - first:
+      213: 8767156732607912223
+    second: camborne eyes and nose bleed sprite sheet_152
+  - first:
+      213: -6445280088511481345
+    second: camborne eyes and nose bleed sprite sheet_153
+  - first:
+      213: 5083254683149113831
+    second: camborne eyes and nose bleed sprite sheet_154
+  - first:
+      213: 8226434236072959133
+    second: camborne eyes and nose bleed sprite sheet_155
+  - first:
+      213: -6425433261767654772
+    second: camborne eyes and nose bleed sprite sheet_156
+  - first:
+      213: 5816507151507879559
+    second: camborne eyes and nose bleed sprite sheet_157
+  - first:
+      213: 4671046228335620098
+    second: camborne eyes and nose bleed sprite sheet_158
+  - first:
+      213: -3764319208292445439
+    second: camborne eyes and nose bleed sprite sheet_159
+  - first:
+      213: -2943793964725489102
+    second: camborne eyes and nose bleed sprite sheet_160
+  - first:
+      213: -515964242553295747
+    second: camborne eyes and nose bleed sprite sheet_161
+  - first:
+      213: 5073173504859173740
+    second: camborne eyes and nose bleed sprite sheet_162
+  - first:
+      213: -8597615410528304613
+    second: camborne eyes and nose bleed sprite sheet_163
+  - first:
+      213: 1552399501353583639
+    second: camborne eyes and nose bleed sprite sheet_164
+  - first:
+      213: -8765991482297417300
+    second: camborne eyes and nose bleed sprite sheet_165
+  - first:
+      213: -6667310010072868760
+    second: camborne eyes and nose bleed sprite sheet_166
+  - first:
+      213: -312170003336047936
+    second: camborne eyes and nose bleed sprite sheet_167
+  - first:
+      213: -4820614505184600482
+    second: camborne eyes and nose bleed sprite sheet_168
+  - first:
+      213: 3120292620063721437
+    second: camborne eyes and nose bleed sprite sheet_169
+  - first:
+      213: -2785112190330384357
+    second: camborne eyes and nose bleed sprite sheet_170
+  - first:
+      213: 2951741137110410949
+    second: camborne eyes and nose bleed sprite sheet_171
+  - first:
+      213: -8594054017582061702
+    second: camborne eyes and nose bleed sprite sheet_172
+  - first:
+      213: -8114463606248146858
+    second: camborne eyes and nose bleed sprite sheet_173
+  - first:
+      213: -2125720508248030993
+    second: camborne eyes and nose bleed sprite sheet_174
+  - first:
+      213: 7783946350902410812
+    second: camborne eyes and nose bleed sprite sheet_175
+  - first:
+      213: 8855257464676836636
+    second: camborne eyes and nose bleed sprite sheet_176
+  - first:
+      213: -6259491141374311988
+    second: camborne eyes and nose bleed sprite sheet_177
+  - first:
+      213: 7855279576100692439
+    second: camborne eyes and nose bleed sprite sheet_178
+  - first:
+      213: 2461896399306621229
+    second: camborne eyes and nose bleed sprite sheet_179
+  - first:
+      213: -3628754462619782626
+    second: camborne eyes and nose bleed sprite sheet_180
+  - first:
+      213: 7564305975286165511
+    second: camborne eyes and nose bleed sprite sheet_181
+  - first:
+      213: -4743318223928485489
+    second: camborne eyes and nose bleed sprite sheet_182
+  - first:
+      213: 7472560059680123650
+    second: camborne eyes and nose bleed sprite sheet_183
+  - first:
+      213: -2322739241494393698
+    second: camborne eyes and nose bleed sprite sheet_184
+  - first:
+      213: 5920651026249382474
+    second: camborne eyes and nose bleed sprite sheet_185
+  - first:
+      213: -6016503776697715216
+    second: camborne eyes and nose bleed sprite sheet_186
+  - first:
+      213: -6510188858131858140
+    second: camborne eyes and nose bleed sprite sheet_187
+  - first:
+      213: -1440122732997736866
+    second: camborne eyes and nose bleed sprite sheet_188
+  - first:
+      213: 2906443506350494121
+    second: camborne eyes and nose bleed sprite sheet_189
+  - first:
+      213: -6470657321581377986
+    second: camborne eyes and nose bleed sprite sheet_190
+  - first:
+      213: 5124573584026599406
+    second: camborne eyes and nose bleed sprite sheet_191
+  - first:
+      213: -7516087753616752340
+    second: camborne eyes and nose bleed sprite sheet_192
+  - first:
+      213: -6552618723942965451
+    second: camborne eyes and nose bleed sprite sheet_193
+  - first:
+      213: 5883232359940532800
+    second: camborne eyes and nose bleed sprite sheet_194
+  - first:
+      213: -4943795707258713447
+    second: camborne eyes and nose bleed sprite sheet_195
+  - first:
+      213: -3405603818620007701
+    second: camborne eyes and nose bleed sprite sheet_196
+  - first:
+      213: -7256526297644430616
+    second: camborne eyes and nose bleed sprite sheet_197
+  - first:
+      213: 4921481827071580743
+    second: camborne eyes and nose bleed sprite sheet_198
+  - first:
+      213: 1229503350293604181
+    second: camborne eyes and nose bleed sprite sheet_199
+  - first:
+      213: 1951382225222262975
+    second: camborne eyes and nose bleed sprite sheet_200
+  - first:
+      213: -6374433991052503689
+    second: camborne eyes and nose bleed sprite sheet_201
+  - first:
+      213: 7112636789640616056
+    second: camborne eyes and nose bleed sprite sheet_202
+  - first:
+      213: -2524584380721269233
+    second: camborne eyes and nose bleed sprite sheet_203
+  - first:
+      213: -2170157533587116108
+    second: camborne eyes and nose bleed sprite sheet_204
+  - first:
+      213: -2185487101250375051
+    second: camborne eyes and nose bleed sprite sheet_205
+  - first:
+      213: -2978984076054695223
+    second: camborne eyes and nose bleed sprite sheet_206
+  - first:
+      213: 1215940758098807494
+    second: camborne eyes and nose bleed sprite sheet_207
+  - first:
+      213: -7690794021444001015
+    second: camborne eyes and nose bleed sprite sheet_208
+  - first:
+      213: -6596503054528803949
+    second: camborne eyes and nose bleed sprite sheet_209
+  - first:
+      213: 1449192107276228366
+    second: camborne eyes and nose bleed sprite sheet_210
+  - first:
+      213: 8201438331820596244
+    second: camborne eyes and nose bleed sprite sheet_211
+  - first:
+      213: -5356433754719405930
+    second: camborne eyes and nose bleed sprite sheet_212
+  - first:
+      213: -165362124058399208
+    second: camborne eyes and nose bleed sprite sheet_213
+  - first:
+      213: 6220376926940650624
+    second: camborne eyes and nose bleed sprite sheet_214
+  - first:
+      213: 1969788386521406289
+    second: camborne eyes and nose bleed sprite sheet_215
+  - first:
+      213: 7285914097984744910
+    second: camborne eyes and nose bleed sprite sheet_216
+  - first:
+      213: 5462200147384665898
+    second: camborne eyes and nose bleed sprite sheet_217
+  - first:
+      213: 2140117480301237905
+    second: camborne eyes and nose bleed sprite sheet_218
+  - first:
+      213: -1718197559681535374
+    second: camborne eyes and nose bleed sprite sheet_219
+  - first:
+      213: 4003794101378077156
+    second: camborne eyes and nose bleed sprite sheet_220
+  - first:
+      213: -8836869064446726533
+    second: camborne eyes and nose bleed sprite sheet_221
+  - first:
+      213: 1242998672574582109
+    second: camborne eyes and nose bleed sprite sheet_222
+  - first:
+      213: 4021097985544554441
+    second: camborne eyes and nose bleed sprite sheet_223
+  - first:
+      213: -4852303390388199121
+    second: camborne eyes and nose bleed sprite sheet_224
+  - first:
+      213: 1638587094243339553
+    second: camborne eyes and nose bleed sprite sheet_225
+  - first:
+      213: 5096260531969614959
+    second: camborne eyes and nose bleed sprite sheet_226
+  - first:
+      213: -7140006064251614818
+    second: camborne eyes and nose bleed sprite sheet_227
+  - first:
+      213: -5433246364393957358
+    second: camborne eyes and nose bleed sprite sheet_228
+  - first:
+      213: -5008066107252588203
+    second: camborne eyes and nose bleed sprite sheet_229
+  - first:
+      213: 104850069847554092
+    second: camborne eyes and nose bleed sprite sheet_230
+  - first:
+      213: -544001724903489031
+    second: camborne eyes and nose bleed sprite sheet_231
+  - first:
+      213: 886848211514665809
+    second: camborne eyes and nose bleed sprite sheet_232
+  - first:
+      213: -8269328404942756527
+    second: camborne eyes and nose bleed sprite sheet_233
+  - first:
+      213: -8975457950546334702
+    second: camborne eyes and nose bleed sprite sheet_234
+  - first:
+      213: -2051020490587842895
+    second: camborne eyes and nose bleed sprite sheet_235
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: camborne eyes and nose bleed sprite sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1800
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97229bb1bfd23bdb0800000000000000
+      internalID: -4777424223184805255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: camborne eyes and nose bleed sprite sheet_1
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1800
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bc3ebd87ad5031b0800000000000000
+      internalID: -5678936155895219023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: camborne eyes and nose bleed sprite sheet_2
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1800
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb450cf16cb13e010800000000000000
+      internalID: 1216846862070338750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: camborne eyes and nose bleed sprite sheet_3
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1800
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 653d0970cc0dfc330800000000000000
+      internalID: 3733432190832268118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: camborne eyes and nose bleed sprite sheet_4
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 1800
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9dcc34d7b50fa520800000000000000
+      internalID: 2715395387425607067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: camborne eyes and nose bleed sprite sheet_5
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 1800
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83d157cf954079e50800000000000000
+      internalID: 6815921345582669112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: camborne eyes and nose bleed sprite sheet_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1440
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2eee2f6abd0df200800000000000000
+      internalID: 215343451564076588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: camborne eyes and nose bleed sprite sheet_7
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1440
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28c61dbddb722d0f0800000000000000
+      internalID: -1093768063107371902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: camborne eyes and nose bleed sprite sheet_8
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1440
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a60cbd16212a3dfc0800000000000000
+      internalID: -3471252687937617814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: camborne eyes and nose bleed sprite sheet_9
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1440
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b4f62b6687c1ca80800000000000000
+      internalID: -8448252045833079631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: camborne eyes and nose bleed sprite sheet_10
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 1440
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e798bfc5b2d974f0800000000000000
+      internalID: -830400977957251102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: camborne eyes and nose bleed sprite sheet_11
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 1440
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b661d1d10b8191d0800000000000000
+      internalID: -3345740208228178250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: camborne eyes and nose bleed sprite sheet_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1080
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 864747973a7c24df0800000000000000
+      internalID: -197375928719608728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: camborne eyes and nose bleed sprite sheet_13
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1080
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b232e25979b291c10800000000000000
+      internalID: 2024697437522633515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: camborne eyes and nose bleed sprite sheet_14
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1080
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e7cf0ea317041c40800000000000000
+      internalID: 5482014427522779111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: camborne eyes and nose bleed sprite sheet_15
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1080
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92f0cbdb9b98cd0e0800000000000000
+      internalID: -2243767083492176087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: camborne eyes and nose bleed sprite sheet_16
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 1080
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09f6490b49edb12c0800000000000000
+      internalID: -4459726275781300336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: camborne eyes and nose bleed sprite sheet_17
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 1080
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af51cb187afe44a40800000000000000
+      internalID: 5351665759938156026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: camborne eyes and nose bleed sprite sheet_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 720
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a09df17fe34ac7c0800000000000000
+      internalID: -4050350219177652058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: camborne eyes and nose bleed sprite sheet_19
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 720
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da583a8d2c07f4760800000000000000
+      internalID: 7444292691227280813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: camborne eyes and nose bleed sprite sheet_20
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 720
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8451378aa8955b580800000000000000
+      internalID: -8812038643814034104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: camborne eyes and nose bleed sprite sheet_21
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 720
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5bd85251e86bc940800000000000000
+      internalID: 5317459101999487835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: camborne eyes and nose bleed sprite sheet_22
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 720
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 304d7038f370b5850800000000000000
+      internalID: 6366690467580990467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: camborne eyes and nose bleed sprite sheet_23
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 720
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35f439896015c4cb0800000000000000
+      internalID: -4878435207577645229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: camborne eyes and nose bleed sprite sheet_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 360
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c34301ae2f83e1f60800000000000000
+      internalID: 8006899803471492156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: camborne eyes and nose bleed sprite sheet_25
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 360
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6c03b84908e0e8e0800000000000000
+      internalID: -1666076735555040147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: camborne eyes and nose bleed sprite sheet_26
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 360
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bdc4c08ecc2373f0800000000000000
+      internalID: -904329834736071239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: camborne eyes and nose bleed sprite sheet_27
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 360
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69af34d6fba56ac90800000000000000
+      internalID: -7158934779440399722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: camborne eyes and nose bleed sprite sheet_28
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 360
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 315bb124cd262d2c0800000000000000
+      internalID: -4408352387100855021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: camborne eyes and nose bleed sprite sheet_29
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 360
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c6260458f995aed0800000000000000
+      internalID: -2403345534291663161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: camborne eyes and nose bleed sprite sheet_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c85ca6ed6a3dd0a0800000000000000
+      internalID: -6855258814092126010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: camborne eyes and nose bleed sprite sheet_31
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70fab122ed2bd9d00800000000000000
+      internalID: 981136960961359623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 577526b96ef969046b59a1d81de280a6
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":6.0,"y":6.0},"gridSpriteSize":{"x":640.0,"y":360.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      camborne eyes and nose bleed sprite sheet_0: -4777424223184805255
+      camborne eyes and nose bleed sprite sheet_1: -5678936155895219023
+      camborne eyes and nose bleed sprite sheet_10: -830400977957251102
+      camborne eyes and nose bleed sprite sheet_11: -3345740208228178250
+      camborne eyes and nose bleed sprite sheet_12: -197375928719608728
+      camborne eyes and nose bleed sprite sheet_13: 2024697437522633515
+      camborne eyes and nose bleed sprite sheet_14: 5482014427522779111
+      camborne eyes and nose bleed sprite sheet_15: -2243767083492176087
+      camborne eyes and nose bleed sprite sheet_16: -4459726275781300336
+      camborne eyes and nose bleed sprite sheet_17: 5351665759938156026
+      camborne eyes and nose bleed sprite sheet_18: -4050350219177652058
+      camborne eyes and nose bleed sprite sheet_19: 7444292691227280813
+      camborne eyes and nose bleed sprite sheet_2: 1216846862070338750
+      camborne eyes and nose bleed sprite sheet_20: -8812038643814034104
+      camborne eyes and nose bleed sprite sheet_21: 5317459101999487835
+      camborne eyes and nose bleed sprite sheet_22: 6366690467580990467
+      camborne eyes and nose bleed sprite sheet_23: -4878435207577645229
+      camborne eyes and nose bleed sprite sheet_24: 8006899803471492156
+      camborne eyes and nose bleed sprite sheet_25: -1666076735555040147
+      camborne eyes and nose bleed sprite sheet_26: -904329834736071239
+      camborne eyes and nose bleed sprite sheet_27: -7158934779440399722
+      camborne eyes and nose bleed sprite sheet_28: -4408352387100855021
+      camborne eyes and nose bleed sprite sheet_29: -2403345534291663161
+      camborne eyes and nose bleed sprite sheet_3: 3733432190832268118
+      camborne eyes and nose bleed sprite sheet_30: -6855258814092126010
+      camborne eyes and nose bleed sprite sheet_31: 981136960961359623
+      camborne eyes and nose bleed sprite sheet_4: 2715395387425607067
+      camborne eyes and nose bleed sprite sheet_5: 6815921345582669112
+      camborne eyes and nose bleed sprite sheet_6: 215343451564076588
+      camborne eyes and nose bleed sprite sheet_7: -1093768063107371902
+      camborne eyes and nose bleed sprite sheet_8: -3471252687937617814
+      camborne eyes and nose bleed sprite sheet_9: -8448252045833079631
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
