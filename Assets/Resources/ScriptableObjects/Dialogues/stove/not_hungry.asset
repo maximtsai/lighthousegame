@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: not_hungry
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   text:
-  - You're not hungry right now
+  - You need to ration for the next food and water delivery.
   onDialogueEnd:
     m_PersistentCalls:
       m_Calls: []

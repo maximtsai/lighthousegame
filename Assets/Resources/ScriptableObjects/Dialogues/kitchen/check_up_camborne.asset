@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: check_up_camborne
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   text:
-  - Camborne is being a little too lazy...
+  - Wake up Mister Camborne, it's time for your night shift.
   onDialogueEnd:
     m_PersistentCalls:
       m_Calls:

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: sleep_all_day
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   text:
-  - Bad Camborne, sleeping all day.
-  - No fish for you.
+  - "He hasn't moved, how tired is he?"
+  - He better wake up soon for his night shift.
   onDialogueEnd:
     m_PersistentCalls:
       m_Calls: []
