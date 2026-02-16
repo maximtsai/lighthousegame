@@ -190,7 +190,7 @@ public class Navigation : MonoBehaviour
 
     public void GoToJournal()
     {
-        SceneManager.LoadScene("JournalScene");
+        GoToTransition("JournalScene", 0.35f);
     }
     
     public void GoToSlow(string scene)
