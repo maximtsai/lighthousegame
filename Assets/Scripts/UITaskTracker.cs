@@ -37,13 +37,14 @@ public class UITaskTracker : MonoBehaviour
 
     private Vector2 basePos;
     private Vector2 basePosText;
+    private MessageBus.SubscriptionHandle changeQuestTextHandle;
 
     void Start()
     {
         basePos = tasklist_bg.rectTransform.anchoredPosition;
         basePosText = text_tasklist.rectTransform.anchoredPosition;
 
-        MessageBus.Instance.Subscribe("ChangeQuestText", (args) =>
+        changeQuestTextHandle = MessageBus.Instance.Subscribe("ChangeQuestText", (args) =>
         {
             // ================== HARD INTERRUPT MODE ==================
 
@@ -298,5 +299,10 @@ public class UITaskTracker : MonoBehaviour
     {
         if (!clip || !AudioManager.Instance) return;
         AudioManager.Instance.AudioSource.PlayOneShot(clip);
+    }
+    
+    private void OnDestroy()
+    {
+        changeQuestTextHandle?.Unsubscribe();
     }
 }

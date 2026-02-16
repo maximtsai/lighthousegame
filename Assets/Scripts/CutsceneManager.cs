@@ -29,6 +29,7 @@ public class CutsceneManager : Singleton<CutsceneManager>
     private bool postSceneSwapCleanup = false;
     private bool skipFirstClickBlockerClick = true;
     private bool createdOnSceneLoaded = false;
+    private MessageBus.SubscriptionHandle playCutsceneHandle;
 
     protected override void Awake()
     {
@@ -46,6 +47,7 @@ public class CutsceneManager : Singleton<CutsceneManager>
         {
             SceneManager.sceneLoaded -= OnSceneLoaded;
         }
+        playCutsceneHandle?.Unsubscribe();
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
@@ -62,7 +64,7 @@ public class CutsceneManager : Singleton<CutsceneManager>
             ResizeAnimatorObj();
         }
         
-        MessageBus.Instance.Subscribe("PlayCutscene", PlayCutsceneFromMessage);
+        playCutsceneHandle = MessageBus.Instance.Subscribe("PlayCutscene", PlayCutsceneFromMessage, this);
             
     }
 

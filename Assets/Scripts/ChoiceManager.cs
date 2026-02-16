@@ -14,6 +14,11 @@ public class ChoiceManager : MonoBehaviour
     private Action callback1;
     private Action callback2;
     private Action callback3;
+    
+    private MessageBus.SubscriptionHandle showOneChoiceHandle;
+    private MessageBus.SubscriptionHandle showTwoChoiceHandle;
+    private MessageBus.SubscriptionHandle showThreeChoiceHandle;
+    private MessageBus.SubscriptionHandle showChoiceDialogHandle;
 
     private void Awake()
     {
@@ -45,11 +50,19 @@ public class ChoiceManager : MonoBehaviour
         );
         */
 
-        MessageBus.Instance.Subscribe("ShowOneChoice", OnShowOneChoice, this);
-        MessageBus.Instance.Subscribe("ShowTwoChoice", OnShowTwoChoice, this);
-        MessageBus.Instance.Subscribe("ShowThreeChoice", OnShowThreeChoice, this);
+        showOneChoiceHandle = MessageBus.Instance.Subscribe("ShowOneChoice", OnShowOneChoice, this);
+        showTwoChoiceHandle = MessageBus.Instance.Subscribe("ShowTwoChoice", OnShowTwoChoice, this);
+        showThreeChoiceHandle = MessageBus.Instance.Subscribe("ShowThreeChoice", OnShowThreeChoice, this);
 
-        MessageBus.Instance.Subscribe("ShowChoiceDialog", SetChoiceDialog, this);
+        showChoiceDialogHandle = MessageBus.Instance.Subscribe("ShowChoiceDialog", SetChoiceDialog, this);
+    }
+    
+    private void OnDestroy()
+    {
+        showOneChoiceHandle?.Unsubscribe();
+        showTwoChoiceHandle?.Unsubscribe();
+        showThreeChoiceHandle?.Unsubscribe();
+        showChoiceDialogHandle?.Unsubscribe();
     }
 
     private void HookupButtons()

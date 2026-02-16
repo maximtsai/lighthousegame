@@ -55,7 +55,7 @@ public class FloatingTextFactory : MonoBehaviour
         }
     }
     
-    private void onDestroy()
+    private void OnDestroy()
     {
         addTaskHandle?.Unsubscribe();
     }
