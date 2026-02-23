@@ -5,6 +5,8 @@ using UnityEngine;
 public class GameStateManager : MonoBehaviour
 {
     public static GameStateManager instance;
+    private MessageBus.SubscriptionHandle plusSanityHandle;
+
     void Awake()
     {
         if (instance != null)
@@ -17,6 +19,15 @@ public class GameStateManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    void Start()
+    {
+        plusSanityHandle = MessageBus.Instance.Subscribe("PlusSanity", (args) =>
+        {
+            int amount = (int)args[0];
+            GameState.Increment("sanity", amount);
+        }, this);
+    }
+
     public void SetClean(bool is_clean)
     {
 		if (is_clean) {
@@ -24,5 +35,10 @@ public class GameStateManager : MonoBehaviour
 		} else {
 	        GameState.Set("is_clean", "false");
 		}
+    }
+
+    void OnDestroy()
+    {
+        plusSanityHandle?.Unsubscribe();
     }
 }

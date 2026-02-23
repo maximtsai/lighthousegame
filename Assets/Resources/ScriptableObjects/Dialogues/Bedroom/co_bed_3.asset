@@ -13,7 +13,13 @@ MonoBehaviour:
   m_Name: co_bed_3
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   text:
-  - Your ex-coworker's bed.
+  - It sleeps outside now.
   onDialogueEnd:
     m_PersistentCalls:
       m_Calls: []
+  onDialogueEndImmediate:
+    m_PersistentCalls:
+      m_Calls: []
+  choices: []
+  consequences: []
+  startSound: {fileID: 0}

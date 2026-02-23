@@ -23,6 +23,7 @@ public class SinkScript : MonoBehaviour
             // miscObjectClick.PlaySound(cleanSound);
             MessageBus.Instance.Publish("CompleteTask", "task_wash_up");
             MessageBus.Instance.Publish("FloatText", 0, -1.1f, "+SANITY", "green");
+            MessageBus.Instance.Publish("PlusSanity", 1);
 
             DialogueManager.ShowDialogue(miscObjectClick.getDialogue("sink/sink_wash_up"));
             

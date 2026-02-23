@@ -178,6 +178,8 @@ public class StoveScript : MonoBehaviour
         {
             PlaySound(eatSound);
             MessageBus.Instance.Publish("FloatText", 0, -0.4f, "+SANITY", "green");
+            MessageBus.Instance.Publish("PlusSanity", 1);
+
             if (GameState.Get<bool>("ate_breakfast"))
             {
                 MessageBus.Instance.Publish("CompleteTask", "task_dinner");

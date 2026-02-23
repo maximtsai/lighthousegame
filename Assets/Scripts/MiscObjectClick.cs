@@ -49,18 +49,32 @@ public class MiscObjectClick : MonoBehaviour
     }
     public void ClickSelfBed()
     {
-
-        if (GameState.Get<bool>("ready_to_sleep", false) || true)
+        int day = GameState.Get<int>("day");
+        if (GameState.Get<bool>("ready_to_sleep", false))
         {
-            DialogueManager.ShowDialogue(getDialogue("Bedroom/uneasy_sleep"));
+            if (day == 1)
+            {
+                // Check up on coworker first
+                DialogueManager.ShowDialogue(getDialogue("Bedroom/uneasy_sleep"));
+            } else if (day == 2)
+            {
+                DialogueManager.ShowDialogue(getDialogue("Bedroom/sleep_day2"));
+            }
         }
         else
         {
             if (!GameState.Get<bool>("ate_breakfast"))
             {
                 // Just woke up!
-                DialogueManager.ShowDialogue(getDialogue("Bedroom/my_bed_1"));
-            } else if (GameState.Get<int>("day") == 1)
+                if (day == 1)
+                {
+                    DialogueManager.ShowDialogue(getDialogue("Bedroom/my_bed_1"));
+                }
+                else
+                {
+                    DialogueManager.ShowDialogue(getDialogue("Bedroom/my_bed_1a"));
+                }
+            } else if (day == 1)
             {
                 // Check up on coworker first
                 DialogueManager.ShowDialogue(getDialogue("Bedroom/my_bed_3"));
@@ -83,7 +97,21 @@ public class MiscObjectClick : MonoBehaviour
 
     public void GotoNextDay()
     {
-        MessageBus.Instance.Publish("PlayCutscene", "Day2", true, (Action)(() =>
+        int day = GameState.Get<int>("day");
+        string cutsceneToPlay = "Day2";
+        switch (day)
+        {
+            case 1:
+                cutsceneToPlay = "Day2";
+                break;
+            case 2:
+                cutsceneToPlay = "Day3";
+                break;
+            default:
+                cutsceneToPlay = "Day2";
+                break;
+        }
+        MessageBus.Instance.Publish("PlayCutscene", cutsceneToPlay, true, (Action)(() =>
         {
             MessageBus.Instance.Publish("goto_next_day");
             SceneManager.LoadScene("BedroomScene");
@@ -114,7 +142,27 @@ public class MiscObjectClick : MonoBehaviour
     public void ShowDialog(string str)
     {
         DialogueManager.ShowDialogue(getDialogue(str));
+    }
 
+    public void ClickMirror()
+    {
+        int sanity = GameState.Get<int>("sanity");
+        string str = "sink/sanity_low";
+        if (sanity > 3)
+        {
+            str = "sink/sanity_high";
+        } else if (sanity > 0)
+        {
+            str = "sink/sanity_medium";
+        } else if (sanity > -3)
+        {
+            str = "sink/sanity_low";
+        }
+        else
+        {
+            str = "sink/sanity_lowest";
+        }
+        DialogueManager.ShowDialogue(getDialogue(str));
     }
     
 	public void GatherFish()

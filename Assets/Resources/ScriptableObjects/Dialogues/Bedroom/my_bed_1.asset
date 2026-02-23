@@ -13,9 +13,12 @@ MonoBehaviour:
   m_Name: my_bed_1
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   text:
-  - 'Your bed. '
+  - 'My bed. '
   - It is slightly less hard than the floor.
   onDialogueEnd:
+    m_PersistentCalls:
+      m_Calls: []
+  onDialogueEndImmediate:
     m_PersistentCalls:
       m_Calls: []
   choices: []

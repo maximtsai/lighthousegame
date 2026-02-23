@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class DialogueManager : MonoBehaviour
@@ -35,6 +36,13 @@ public class DialogueManager : MonoBehaviour
         activeDialogueBox.GetComponent<UIDialogueBox>().SetDialogue(d);
 
         GameState.Set("dialogue_is_open", true);
+    }
+
+    public static void ShowDialogueFromText(string[] textArray)
+    {
+        Dialogue dialogue = ScriptableObject.CreateInstance<Dialogue>();
+        dialogue.text = new List<string>(textArray);
+        ShowDialogue(dialogue);
     }
 
     public static void ShowDialogueInstant(object[] args)
