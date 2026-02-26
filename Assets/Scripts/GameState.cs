@@ -19,6 +19,7 @@ public static class GameState
         data["ate_breakfast"] = false;
         data["ate_dinner"] = false;
         data["hungry"] = true;
+        data["intro_played"] = false;
     }
 
 
@@ -135,5 +136,6 @@ public static class GameState
         Set("navigationBlocked", false);
 
         Set("ready_to_sleep", false);
+        Set("intro_played", false);
     }
 }

@@ -12,7 +12,7 @@ public class DayHandler : MonoBehaviour
     void Start()
     {
         int currentDay = GameState.Get<int>("day");
-        if (currentDay > 1)
+        if (currentDay > 1 && !GameState.Get<bool>("intro_played"))
         {
             dayText.text = "DAY " + currentDay;
             
@@ -30,6 +30,7 @@ public class DayHandler : MonoBehaviour
             
             StartCoroutine(DaySequence());
         }
+        GameState.Set("intro_played", true);
     }
 
     private System.Collections.IEnumerator DaySequence()
