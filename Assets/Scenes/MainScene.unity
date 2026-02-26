@@ -226,11 +226,11 @@ PrefabInstance:
     - target: {fileID: 1930117940751657890, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: hover_sprite
       value: 
-      objectReference: {fileID: -3095393971291257513, guid: 9128edd4d5784d74d8351c0d95b4a38e, type: 3}
+      objectReference: {fileID: 21300000, guid: 6e618b1f0815d8a4a8a7b227933db20b, type: 3}
     - target: {fileID: 1930117940751657890, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: default_sprite
       value: 
-      objectReference: {fileID: -6936998041092005578, guid: 3d894fe1a075bc84f93e5a5ca3efb1fe, type: 3}
+      objectReference: {fileID: 21300000, guid: 9ef9d3a059b2de64da79ea20b4737bde, type: 3}
     - target: {fileID: 1930117940751657890, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: on_click.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -334,7 +334,7 @@ PrefabInstance:
     - target: {fileID: 4393333540239105687, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -6936998041092005578, guid: 3d894fe1a075bc84f93e5a5ca3efb1fe, type: 3}
+      objectReference: {fileID: 21300000, guid: 9ef9d3a059b2de64da79ea20b4737bde, type: 3}
     - target: {fileID: 4393333540239105687, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
@@ -363,11 +363,11 @@ PrefabInstance:
     - target: {fileID: 1930117940751657890, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: hover_sprite
       value: 
-      objectReference: {fileID: 5950149352139176836, guid: 5dd1b511b94730a4cbbead334ddd9714, type: 3}
+      objectReference: {fileID: 21300000, guid: 4df7241b062278a42bbba721e212513c, type: 3}
     - target: {fileID: 1930117940751657890, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: default_sprite
       value: 
-      objectReference: {fileID: -3500759553075992606, guid: aac502528dc877443b19985f13c96e24, type: 3}
+      objectReference: {fileID: 21300000, guid: ffe03ad1c0c76454e93b6ef2d0554880, type: 3}
     - target: {fileID: 1930117940751657890, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: on_click.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -471,7 +471,7 @@ PrefabInstance:
     - target: {fileID: 4393333540239105687, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -3500759553075992606, guid: aac502528dc877443b19985f13c96e24, type: 3}
+      objectReference: {fileID: 21300000, guid: ffe03ad1c0c76454e93b6ef2d0554880, type: 3}
     - target: {fileID: 4393333540239105687, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
@@ -860,11 +860,11 @@ PrefabInstance:
     - target: {fileID: 1930117940751657890, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: hover_sprite
       value: 
-      objectReference: {fileID: -4792591357819551002, guid: e27595c3d07262841b1687d26871cd9c, type: 3}
+      objectReference: {fileID: 21300000, guid: e2415b00aa5947c43915db6a9ab224e2, type: 3}
     - target: {fileID: 1930117940751657890, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: default_sprite
       value: 
-      objectReference: {fileID: -4399413014318744291, guid: 38274d752513d0a4bbbd772df9557ce9, type: 3}
+      objectReference: {fileID: 21300000, guid: 37d484beac6e3c64bbd09c1e809e6fd0, type: 3}
     - target: {fileID: 1930117940751657890, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: on_click.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -959,16 +959,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4393333540239105687, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: m_Size.x
-      value: 1.1
+      value: 0.85
       objectReference: {fileID: 0}
     - target: {fileID: 4393333540239105687, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: m_Size.y
-      value: 0.25
+      value: 0.33
       objectReference: {fileID: 0}
     - target: {fileID: 4393333540239105687, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -4399413014318744291, guid: 38274d752513d0a4bbbd772df9557ce9, type: 3}
+      objectReference: {fileID: 21300000, guid: 37d484beac6e3c64bbd09c1e809e6fd0, type: 3}
     - target: {fileID: 4393333540239105687, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
@@ -1035,11 +1035,11 @@ PrefabInstance:
     - target: {fileID: 1930117940751657890, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: hover_sprite
       value: 
-      objectReference: {fileID: -1421354871949892469, guid: 912f17b4cd07f764ebe60861f50dc547, type: 3}
+      objectReference: {fileID: 21300000, guid: fa0d42317915e694f922c2b452f6049f, type: 3}
     - target: {fileID: 1930117940751657890, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: default_sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 7c79616dc0e6a7147840376234375daf, type: 3}
+      objectReference: {fileID: 21300000, guid: 19982dec17bce1741a9436646f540b05, type: 3}
     - target: {fileID: 1930117940751657890, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: on_click.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -1134,16 +1134,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4393333540239105687, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: m_Size.x
-      value: 1.1
+      value: 1.06
       objectReference: {fileID: 0}
     - target: {fileID: 4393333540239105687, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: m_Size.y
-      value: 0.25
+      value: 0.37
       objectReference: {fileID: 0}
     - target: {fileID: 4393333540239105687, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 7c79616dc0e6a7147840376234375daf, type: 3}
+      objectReference: {fileID: 21300000, guid: 19982dec17bce1741a9436646f540b05, type: 3}
     - target: {fileID: 4393333540239105687, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
@@ -1301,8 +1301,8 @@ Camera:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1
-    height: 0.9993932
+    width: 0
+    height: 0
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
