@@ -13,6 +13,8 @@ public class StoveScript : MonoBehaviour
 
     [SerializeField] private Sprite choppedFishSprite;
     [SerializeField] private Sprite choppedFishSpriteTwitch;
+    [SerializeField] private Sprite choppedFishSpriteAlive;
+    [SerializeField] private Sprite choppedFishSpriteTransition;
     [SerializeField] private Sprite choppedFishSpriteHover;
 
     [SerializeField] private AudioClip cornSound;
@@ -149,8 +151,10 @@ public class StoveScript : MonoBehaviour
         {
             GameState.Set("fish_clicked", true);
             MessageBus.Instance.Publish("FloatText", -1.2f, -0.1f, "+FISH");
+            PlaySound(fishChopSound);
             // Change gameObject "fish"'s sprite to a new sprite
-            TwitchFish();
+            bool isDay2 = GameState.Get<int>("day") == 2;
+            TwitchFish(isDay2);
             SpriteRenderer sr = fish.GetComponent<SpriteRenderer>();
             sr.sprite = choppedFishSprite;
             InteractableObject interactable = fish.GetComponent<InteractableObject>();
@@ -161,8 +165,6 @@ public class StoveScript : MonoBehaviour
             {
                 EnableEating();
             }
-            
-            PlaySound(fishChopSound);
         }
     }
 
@@ -294,16 +296,16 @@ public class StoveScript : MonoBehaviour
         src.PlayOneShot(clip);
     }
 
-    private void TwitchFish()
+    private void TwitchFish(bool chainJumpscare = false)
     {
         fish.SetActive(false);
         fishAnim.SetActive(true);
         SpriteRenderer sr = fishAnim.GetComponent<SpriteRenderer>();
         sr.sprite = choppedFishSpriteTwitch;
-        StartCoroutine(TwitchFishCoroutine());
+        StartCoroutine(TwitchFishCoroutine(chainJumpscare));
     }
 
-    private IEnumerator TwitchFishCoroutine()
+    private IEnumerator TwitchFishCoroutine(bool chainJumpscare)
     {
         yield return new WaitForSeconds(0.12f);
         SpriteRenderer sr = fishAnim.GetComponent<SpriteRenderer>();
@@ -311,5 +313,53 @@ public class StoveScript : MonoBehaviour
         yield return new WaitForSeconds(1f);
         fish.SetActive(true);
         fishAnim.SetActive(false);
+
+        if (chainJumpscare)
+        {
+            StartCoroutine(JumpscareFishCoroutine());
+        }
+    }
+
+    private IEnumerator JumpscareFishCoroutine()
+    {
+        // Disable interaction during the jumpscare
+        InteractableObject interactable = fish.GetComponent<InteractableObject>();
+        if (interactable != null) interactable.enabled = false;
+
+        SpriteRenderer sr = fish.GetComponent<SpriteRenderer>();
+
+        // choppedFishSprite for 0.75s
+        sr.sprite = choppedFishSprite;
+        yield return new WaitForSeconds(0.75f);
+
+        // choppedFishSpriteTwitch for 0.1s
+        sr.sprite = choppedFishSpriteTwitch;
+        yield return new WaitForSeconds(0.1f);
+
+        // choppedFishSprite for 2s
+        sr.sprite = choppedFishSprite;
+        yield return new WaitForSeconds(2f);
+
+        // choppedFishSpriteTwitch for 0.2s
+        sr.sprite = choppedFishSpriteTwitch;
+        yield return new WaitForSeconds(0.2f);
+
+        // choppedFishSpriteTransition for 0.1s
+        sr.sprite = choppedFishSpriteTransition;
+        yield return new WaitForSeconds(0.1f);
+
+        // choppedFishSpriteAlive (fish_alive) for 0.25s
+        sr.sprite = choppedFishSpriteAlive;
+        yield return new WaitForSeconds(0.25f);
+
+        // choppedFishSpriteTwitch for 0.1s
+        sr.sprite = choppedFishSpriteTwitch;
+        yield return new WaitForSeconds(0.1f);
+
+        // Finish at choppedFishSprite
+        sr.sprite = choppedFishSprite;
+
+        // Re-enable interaction
+        if (interactable != null) interactable.enabled = true;
     }
 }
