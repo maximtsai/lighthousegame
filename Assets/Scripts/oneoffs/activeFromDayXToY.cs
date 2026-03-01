@@ -2,15 +2,20 @@ using UnityEngine;
 
 public class activeFromDayXToY : MonoBehaviour
 {
+    [SerializeField] private int startDay;
+    [SerializeField] private int endDay;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        int currentDay = GameState.Get<int>("day");
+        if (currentDay >= startDay && currentDay <= endDay)
+        {
+            gameObject.SetActive(true);
+        }
+        else
+        {
+            gameObject.SetActive(false);
+        }
     }
 }
