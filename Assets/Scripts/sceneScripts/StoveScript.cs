@@ -22,6 +22,7 @@ public class StoveScript : MonoBehaviour
     [SerializeField] private AudioClip alcoholSound;
     [SerializeField] private AudioClip fishChopSound;
     [SerializeField] private AudioClip eatSound;
+    [SerializeField] private AudioClip squishSound;
 
     private Coroutine glowRoutine;
 
@@ -319,22 +320,19 @@ public class StoveScript : MonoBehaviour
         SpriteRenderer sr = fishAnim.GetComponent<SpriteRenderer>();
         sr.sprite = choppedFishSprite;
         yield return new WaitForSeconds(1f);
-        fish.SetActive(true);
-        fishAnim.SetActive(false);
 
         if (chainJumpscare)
         {
             StartCoroutine(JumpscareFishCoroutine());
+        } else {
+            fish.SetActive(true);
+            fishAnim.SetActive(false);
         }
     }
 
     private IEnumerator JumpscareFishCoroutine()
     {
-        // Disable interaction during the jumpscare
-        InteractableObject interactable = fish.GetComponent<InteractableObject>();
-        if (interactable != null) interactable.enabled = false;
-
-        SpriteRenderer sr = fish.GetComponent<SpriteRenderer>();
+        SpriteRenderer sr = fishAnim.GetComponent<SpriteRenderer>();
 
         // choppedFishSprite for 0.75s
         sr.sprite = choppedFishSprite;
@@ -346,28 +344,32 @@ public class StoveScript : MonoBehaviour
 
         // choppedFishSprite for 2s
         sr.sprite = choppedFishSprite;
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.2f);
 
         // choppedFishSpriteTwitch for 0.2s
         sr.sprite = choppedFishSpriteTwitch;
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.4f);
+        PlaySound(squishSound);
 
         // choppedFishSpriteTransition for 0.1s
         sr.sprite = choppedFishSpriteTransition;
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.05f);
 
         // choppedFishSpriteAlive (fish_alive) for 0.25s
         sr.sprite = choppedFishSpriteAlive;
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.55f);
 
         // choppedFishSpriteTwitch for 0.1s
         sr.sprite = choppedFishSpriteTwitch;
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.05f);
 
         // Finish at choppedFishSprite
         sr.sprite = choppedFishSprite;
-
+        yield return new WaitForSeconds(0.8f);
+        // Play dialog stove/fish_ask
+        DialogueManager.ShowDialogue(miscObjectClick.getDialogue("stove/fish_ask"));
         // Re-enable interaction
-        if (interactable != null) interactable.enabled = true;
+        fish.SetActive(true);
+        fishAnim.SetActive(false);
     }
 }
