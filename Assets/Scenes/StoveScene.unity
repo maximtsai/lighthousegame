@@ -645,10 +645,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.31497175
+    x: 0
     y: 0
-    width: 0.8587571
-    height: 0.8592965
+    width: 1
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -1279,6 +1279,8 @@ MonoBehaviour:
   miscObjectClick: {fileID: 5912071456214807691, guid: add25f6ff90e9474990e9f3862207611, type: 3}
   choppedFishSprite: {fileID: 2070688422914947573, guid: 0ded2271b07a5b641ad100d399e927d1, type: 3}
   choppedFishSpriteTwitch: {fileID: -37318537646506398, guid: fce15cfd82e9f214fa6529a0f92d9228, type: 3}
+  choppedFishSpriteAlive: {fileID: 0}
+  choppedFishSpriteTransition: {fileID: 0}
   choppedFishSpriteHover: {fileID: -8034408336492748928, guid: 5bfd7382b9dcc6842ba6b0f3159e5a14, type: 3}
   cornSound: {fileID: 8300000, guid: aa9246de277ce2440b6af763dd6c0ba4, type: 3}
   pepperSound: {fileID: 8300000, guid: 832e54c49ed5a0b458b087d462aa4bb5, type: 3}

@@ -640,10 +640,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.31497175
+    x: 0
     y: 0
-    width: 0.8587571
-    height: 0.8592965
+    width: 1
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -778,6 +778,7 @@ GameObject:
   m_Component:
   - component: {fileID: 588892269}
   - component: {fileID: 588892268}
+  - component: {fileID: 588892270}
   m_Layer: 0
   m_Name: kitchen_0
   m_TagString: Untagged
@@ -858,6 +859,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &588892270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 588892267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4eeb17b70e128d4ebf0e9fcd2fc6860, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  stainedSprite: {fileID: -4338555496075034150, guid: 6895e85197566f948aae033cc5e9936f, type: 3}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0

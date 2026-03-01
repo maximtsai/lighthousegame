@@ -28,7 +28,9 @@ public class StoveScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if (GameState.Get<bool>("ate_breakfast") && !GameState.Get<bool>("ate_dinner") && GameState.Get<bool>("gathered_fish"))
+        bool isDay2 = GameState.Get<int>("day") == 2;
+        bool gatheredFish = GameState.Get<bool>("gathered_fish");
+        if ((isDay2 || GameState.Get<bool>("ate_breakfast")) && !GameState.Get<bool>("ate_dinner") && (isDay2 || gatheredFish))
         {
             fish.SetActive(true);
             if (GameState.Get<bool>("fish_clicked", false))
@@ -41,6 +43,12 @@ public class StoveScript : MonoBehaviour
                 interactable.default_sprite = choppedFishSprite;
 
             }
+        } else {
+            Debug.Log("fish not active");
+            Debug.Log(isDay2);
+            Debug.Log(GameState.Get<bool>("ate_breakfast"));
+            Debug.Log(GameState.Get<bool>("ate_dinner"));
+            Debug.Log(GameState.Get<bool>("gathered_fish"));
         }
         if (IsDoneCooking())
         {

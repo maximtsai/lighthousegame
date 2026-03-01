@@ -275,6 +275,7 @@ public class Navigation : MonoBehaviour
         {
             playSoundClip(transition.travelSound);
             GoTo(transition.destination_scene);
+            return;
         }
         if (GameState.Get<string>(transition.gamestate_key, "false") == transition.gamestate_value)
         {
