@@ -1,10 +1,12 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class AudioManager : MonoBehaviour
 {
     private static AudioManager instance;
     private AudioSource audioSource;
     private Camera mainCamera;
+    private Dictionary<string, AudioClip> clipCache = new Dictionary<string, AudioClip>();
 
     private AudioManager prefab;
     public static AudioManager Instance
@@ -37,10 +39,54 @@ public class AudioManager : MonoBehaviour
             instance = this;
             audioSource = GetComponent<AudioSource>();
             DontDestroyOnLoad(gameObject);
+            
+            // Subscribe to global sound events
+            MessageBus.Instance.Subscribe("PlaySound", OnPlaySoundMessage);
         }
         else
         {
             Destroy(gameObject);
+        }
+    }
+
+    private void OnPlaySoundMessage(object[] args)
+    {
+        if (args == null || args.Length == 0) return;
+        
+        if (args[0] is AudioClip clip)
+        {
+            if (audioSource != null && clip != null)
+            {
+                audioSource.PlayOneShot(clip);
+            }
+        }
+        else if (args[0] is string clipName)
+        {
+            PlaySoundByName(clipName);
+        }
+    }
+
+    public void PlaySoundByName(string clipName)
+    {
+        if (string.IsNullOrEmpty(clipName)) return;
+
+        if (!clipCache.TryGetValue(clipName, out AudioClip clip))
+        {
+            clip = Resources.Load<AudioClip>("Audio/" + clipName);
+            if (clip != null)
+            {
+                clipCache[clipName] = clip;
+            }
+            else
+            {
+                Debug.LogWarning($"AudioManager: Could not find sound clip 'Audio/{clipName}' in Resources.");
+                return;
+            }
+        }
+
+        if (audioSource != null && clip != null)
+        {
+            audioSource.PlayOneShot(clip);
         }
     }
 

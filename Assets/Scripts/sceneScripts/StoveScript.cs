@@ -22,7 +22,6 @@ public class StoveScript : MonoBehaviour
     [SerializeField] private AudioClip alcoholSound;
     [SerializeField] private AudioClip fishChopSound;
     [SerializeField] private AudioClip eatSound;
-    [SerializeField] private AudioClip squishSound;
 
     private Coroutine glowRoutine;
 
@@ -349,7 +348,7 @@ public class StoveScript : MonoBehaviour
         // choppedFishSpriteTwitch for 0.2s
         sr.sprite = choppedFishSpriteTwitch;
         yield return new WaitForSeconds(0.4f);
-        PlaySound(squishSound);
+        MessageBus.Instance.Publish("PlaySound", "squish");
 
         // choppedFishSpriteTransition for 0.1s
         sr.sprite = choppedFishSpriteTransition;

@@ -5,6 +5,8 @@ using UnityEngine;
 public class GameStateManager : MonoBehaviour
 {
     public static GameStateManager instance;
+    [SerializeField] private AudioClip sanityGainSound;
+    [SerializeField] private AudioClip sanityLossSound;
     private MessageBus.SubscriptionHandle plusSanityHandle;
 
     void Awake()
@@ -25,6 +27,11 @@ public class GameStateManager : MonoBehaviour
         {
             int amount = (int)args[0];
             GameState.Increment("sanity", amount);
+            if (amount > 0) {
+                MessageBus.Instance.Publish("PlaySound", sanityGainSound);
+            } else {
+                MessageBus.Instance.Publish("PlaySound", sanityLossSound);
+            }
         }, this);
     }
 
