@@ -1438,8 +1438,8 @@ Camera:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1
-    height: 0.99976003
+    width: 0.9992887
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -1738,6 +1738,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6244265684674665917, guid: 1c51b1f8617e4ee4e86a74e558b2fb52, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8058658853406059078, guid: 1c51b1f8617e4ee4e86a74e558b2fb52, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8081458995684274466, guid: 1c51b1f8617e4ee4e86a74e558b2fb52, type: 3}

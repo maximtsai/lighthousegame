@@ -103,7 +103,11 @@ public class Navigation : MonoBehaviour
 
     public void GoToBurial()
     {
-        if (!GameState.Get("do_burial", false))
+        // Day 2: Allow access to inspect the uncovered grave
+        bool isDay2 = GameState.Get<int>("day") == 2;
+        bool graveNeedsInspection = isDay2 && GameState.Get<bool>("has_buried") && !GameState.Get<bool>("grave_inspected");
+
+        if (!GameState.Get("do_burial", false) && !graveNeedsInspection)
         {
             DialogueManager.ShowDialogue(getDialog("outdoors/resting_place"));
             return;

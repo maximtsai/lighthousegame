@@ -7,7 +7,14 @@ public class BurialActivate : MonoBehaviour
     {
         if (!GameState.Get<bool>("do_burial", false))
         {
-            gameObject.SetActive(false);
+            if (GameState.Get<int>("day", 1) == 2)
+            {
+                if (GameState.Get<bool>("finished_burial", false)) {
+                    gameObject.SetActive(false);
+                }
+            } else {
+                gameObject.SetActive(false);
+            }
         }
     }
 

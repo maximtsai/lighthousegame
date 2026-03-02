@@ -38,6 +38,19 @@ public class BurialScript : MonoBehaviour
         UpdateTrack(ambience, bgLoop1, 0.65f, 1);
         // Update track 2
         UpdateTrack(ambience, bgLoop2, 0.3f, 2);
+
+        bool isDay2 = GameState.Get<int>("day") == 2;
+
+        // Day 2: Rain has uncovered the grave
+        if (isDay2 && GameState.Get<bool>("has_buried") && !GameState.Get<bool>("grave_inspected"))
+        {
+            Destroy(shovel);
+            background.sprite = backgroundRevealedSprite;
+            GameState.Set("grave_revealed", true);
+            DialogueManager.ShowDialogue(miscObjectClick.getDialogue("burial/grave_uncovered"));
+            return;
+        }
+
         if (GameState.Get<bool>("has_dug"))
         {
             Destroy(shovel);
@@ -49,9 +62,7 @@ public class BurialScript : MonoBehaviour
             {
                 background.sprite = backgroundDugSprite;
             }
-
         }
-
     }
     
     private IEnumerator PlaySoundDelayedRoutine(AudioClip sfx, float volume, bool loop, float delay)
@@ -82,6 +93,33 @@ public class BurialScript : MonoBehaviour
     
     public void ClickMound()
     {
+        // Day 2: Re-bury after rain uncovered the grave
+        if (GameState.Get<bool>("grave_revealed", false))
+        {
+            GameState.Set("grave_revealed", false);
+            GameState.Set("grave_inspected", true);
+            GameState.Set("hand_cut", true);
+
+            black.SetActive(true);
+            StartCoroutine(PlaySoundDelayedRoutine(shovelClip, 0.6f, false, 0.5f));
+            FadeTo(black, 1, 1.2f, () =>
+            {
+                if (background != null && backgroundCoveredSprite != null)
+                {
+                    background.sprite = backgroundCoveredSprite;
+                }
+                FadeTo(black, 1, 1.75f, () =>
+                {
+                    FadeTo(black, 0, 0.85f, () =>
+                    {
+                        black.SetActive(false);
+                        DialogueManager.ShowDialogue(miscObjectClick.getDialogue("burial/rebury"));
+                    });
+                });
+            });
+            return;
+        }
+
         if (!GameState.Get<bool>("has_dug"))
         {
             // Haven't dug up the grave yet, do that.

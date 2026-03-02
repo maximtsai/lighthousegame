@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 6895e85197566f948aae033cc5e9936f
+guid: 0616cfa633de9e14facb7f8345861631
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4338555496075034150
-    second: kitchen_stained_0
+      213: -5870125902678020582
+    second: kitchen_night_stained_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -113,12 +113,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: kitchen_stained_0
+      name: kitchen_night_stained_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1000
+        width: 950
         height: 360
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ad1012253ca5ac3c0800000000000000
-      internalID: -4338555496075034150
+      spriteID: a1eae00c79f198ea0800000000000000
+      internalID: -5870125902678020582
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      kitchen_stained_0: -4338555496075034150
+      kitchen_night_stained_0: -5870125902678020582
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -22,7 +22,6 @@ public class ChoiceManager : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log("swake ");
         SubscribeToMessages();
         HookupButtons();
     }
@@ -80,6 +79,7 @@ public class ChoiceManager : MonoBehaviour
         // [1] Action
 
         Button3.SetActive(true);
+        ClickBlocker.SetActive(true);
 
         if (args.Length < 2)
         {
@@ -103,6 +103,7 @@ public class ChoiceManager : MonoBehaviour
 
         Button1.SetActive(true);
         Button2.SetActive(true);
+        ClickBlocker.SetActive(true);
 
         if (args.Length < 4)
         {
@@ -133,6 +134,7 @@ public class ChoiceManager : MonoBehaviour
         Button1.SetActive(true);
         Button2.SetActive(true);
         Button3.SetActive(true);
+        ClickBlocker.SetActive(true);
 
         if (args.Length < 6)
         {

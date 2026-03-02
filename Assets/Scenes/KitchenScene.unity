@@ -975,7 +975,6 @@ GameObject:
   m_Component:
   - component: {fileID: 588892269}
   - component: {fileID: 588892268}
-  - component: {fileID: 588892270}
   m_Layer: 0
   m_Name: kitchen_0
   m_TagString: Untagged
@@ -1056,19 +1055,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &588892270
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 588892267}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4eeb17b70e128d4ebf0e9fcd2fc6860, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  stainedSprite: {fileID: -4338555496075034150, guid: 6895e85197566f948aae033cc5e9936f, type: 3}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1164,7 +1150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 964ccc7ee312aa04f9419803c59d194c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
---- !u!114 &668411625
+--- !u!114 &668411624
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1173,11 +1159,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 546168759}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c706a754a72c534fa4eb59845f6c9fd, type: 3}
+  m_Script: {fileID: 11500000, guid: 633656aed565f704aa02cc6de9070381, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
   background: {fileID: 588892268}
   dark_bg: {fileID: 738490732054691404, guid: e1750fcffb8c0254e851d4e72f1a7c6d, type: 3}
+  stained_bg: {fileID: 21300000, guid: 6895e85197566f948aae033cc5e9936f, type: 3}
+  stained_dark_bg: {fileID: -5870125902678020582, guid: 0616cfa633de9e14facb7f8345861631, type: 3}
 --- !u!1 &1117445646
 GameObject:
   m_ObjectHideFlags: 0
@@ -1263,7 +1251,7 @@ Transform:
   m_GameObject: {fileID: 1117445646}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.1}
+  m_LocalPosition: {x: -0.05, y: 0, z: -0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1800,7 +1788,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2331009213013426326, guid: c49b1c478a2499442b61b52e81de3217, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 668411625}
+      addedObject: {fileID: 668411624}
   m_SourcePrefab: {fileID: 100100000, guid: c49b1c478a2499442b61b52e81de3217, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

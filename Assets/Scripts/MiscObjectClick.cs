@@ -315,8 +315,6 @@ public class MiscObjectClick : MonoBehaviour
             (Action)(() =>
             {
                 // Make sanity go up
-                MessageBus.Instance.Publish("FloatText", 0, -0.4f, "+SANITY", "green");
-                MessageBus.Instance.Publish("PlusSanity", 1);
             }),
             (Action)(() =>
             {

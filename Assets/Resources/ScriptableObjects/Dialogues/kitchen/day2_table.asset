@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: day2_table
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   text:
-  - I'll clean up that spot later, #maybe.
+  - I'll clean up that spot later, ##maybe.
   onDialogueEnd:
     m_PersistentCalls:
       m_Calls: []
