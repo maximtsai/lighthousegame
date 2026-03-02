@@ -80,6 +80,7 @@ public class ChoiceManager : MonoBehaviour
 
         Button3.SetActive(true);
         ClickBlocker.SetActive(true);
+        GameState.Set("picking_choice", true);
 
         if (args.Length < 2)
         {
@@ -104,6 +105,7 @@ public class ChoiceManager : MonoBehaviour
         Button1.SetActive(true);
         Button2.SetActive(true);
         ClickBlocker.SetActive(true);
+        GameState.Set("picking_choice", true);
 
         if (args.Length < 4)
         {
@@ -135,6 +137,7 @@ public class ChoiceManager : MonoBehaviour
         Button2.SetActive(true);
         Button3.SetActive(true);
         ClickBlocker.SetActive(true);
+        GameState.Set("picking_choice", true);
 
         if (args.Length < 6)
         {
@@ -178,11 +181,12 @@ public class ChoiceManager : MonoBehaviour
         callback1 = null;
         callback2 = null;
         callback3 = null;
-
+ 
         Button1.SetActive(false);
         Button2.SetActive(false);
         Button3.SetActive(false);
-
+        GameState.Set("picking_choice", false);
+ 
         CloseDialog();
     }
 
