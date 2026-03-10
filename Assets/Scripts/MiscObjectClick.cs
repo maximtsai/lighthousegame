@@ -54,7 +54,6 @@ public class MiscObjectClick : MonoBehaviour
         {
             if (day == 1)
             {
-                // Check up on coworker first
                 DialogueManager.ShowDialogue(getDialogue("Bedroom/uneasy_sleep"));
             } else if (day == 2)
             {
@@ -97,14 +96,16 @@ public class MiscObjectClick : MonoBehaviour
 
     public void GotoNextDay()
     {
-        int day = GameState.Get<int>("day");
+        Debug.Log("current day: " + GameState.Get<int>("day"));
+        int newDay = GameState.Get<int>("day") + 1;
+        GameState.Set<int>("day", newDay);
         string cutsceneToPlay = "Day2";
-        switch (day)
+        switch (newDay)
         {
-            case 1:
+            case 2:
                 cutsceneToPlay = "Day2";
                 break;
-            case 2:
+            case 3:
                 cutsceneToPlay = "Day3";
                 break;
             default:

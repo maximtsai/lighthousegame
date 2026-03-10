@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: time_for_bed
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   text:
-  - It's time for bed
+  - It's time for bed.
   onDialogueEnd:
     m_PersistentCalls:
       m_Calls: []

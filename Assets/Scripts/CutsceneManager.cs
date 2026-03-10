@@ -34,14 +34,12 @@ public class CutsceneManager : Singleton<CutsceneManager>
     protected override void Awake()
     {
         base.Awake();
-        Debug.Log("created cutscene manager");
         createdOnSceneLoaded = true;
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     private void OnDestroy()
     {
-        Debug.Log("Destroyed cutscenemanager");
         // Prevent duplicate subscriptions
         if (createdOnSceneLoaded)
         {
@@ -154,9 +152,6 @@ public class CutsceneManager : Singleton<CutsceneManager>
             Debug.LogError("Animator controller has no clips to override");
             return;
         }
-        Debug.Log("-0-0-0");
-        Debug.Log(overrides[0].Key);
-        Debug.Log(clip.name);
         overrides[0] = new KeyValuePair<AnimationClip, AnimationClip>(
             overrides[0].Key,
             clip
@@ -240,11 +235,9 @@ public class CutsceneManager : Singleton<CutsceneManager>
         Color transparentColor = fadeOverlayImg.color;
         transparentColor.a = 0f;
         fadeOverlayImg.color = transparentColor;
-        Debug.Log("playing cutscene routine did audio");
 
         // FADE IN
         yield return StartCoroutine(FadeOverlay(1f, fadeDuration));
-        Debug.Log("playing cutscene routine fade overlay");
 
         // -------------------------------------------------
         // PLAY ANIMATION
@@ -263,7 +256,6 @@ public class CutsceneManager : Singleton<CutsceneManager>
         {
             Debug.LogWarning("Missing animator");
         }
-        Debug.Log("playing cutscene routine fadein");
 
         // FADE IN (simultaneous with scroll)
         Coroutine fadeCoroutine = StartCoroutine(FadeOverlay(0f, fadeDuration));
@@ -475,7 +467,6 @@ public class CutsceneManager : Singleton<CutsceneManager>
             yield break;
         }
     
-        Debug.Log($"ScrollUp: Starting scroll from {startPos.y} to {targetY} over {usedDuration}s");
         float elapsed = 0f;
     
         while (elapsed < usedDuration)
