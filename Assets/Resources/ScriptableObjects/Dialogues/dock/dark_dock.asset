@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c21e5b555f186ac4da729ad4d766dae7, type: 3}
-  m_Name: empty_dock
+  m_Name: dark_dock
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   text:
   - It's been awhile since I've last seen any boats.

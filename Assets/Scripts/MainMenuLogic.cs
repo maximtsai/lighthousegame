@@ -32,7 +32,7 @@ public class MainMenuLogic : MonoBehaviour
     public void StartGame()
     {
         // TODO: Change this to 1 for any release build
-        int startDay = 2;
+        int startDay = 1;
         GameState.Set("day", startDay);
         string introToPlay = "Intro";
         switch (startDay)

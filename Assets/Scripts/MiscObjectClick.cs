@@ -189,7 +189,11 @@ public class MiscObjectClick : MonoBehaviour
 
     public void ClickDock()
     {
-        DialogueManager.ShowDialogue(getDialogue("dock/empty_dock"));
+        if (GameState.Get<bool>("is_nighttime")) {
+            DialogueManager.ShowDialogue(getDialogue("dock/dark_dock"));
+        } else {
+            DialogueManager.ShowDialogue(getDialogue("dock/empty_dock"));
+        }
     }
 
 	public void GoOutdoors() 

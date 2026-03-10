@@ -155,7 +155,7 @@ public class StoveScript : MonoBehaviour
             // Already clicked
             bool isDay1 = GameState.Get<int>("day") == 1;
             if (isDay1) {
-                DialogueManager.ShowDialogue(miscObjectClick.getDialogue("stove/fish_already_added_day2"));
+                DialogueManager.ShowDialogue(miscObjectClick.getDialogue("stove/fish_already_added"));
             } else {
                 DialogueManager.ShowDialogue(miscObjectClick.getDialogue("stove/fish_not_want"));
             }
