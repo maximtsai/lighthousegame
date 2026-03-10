@@ -92,6 +92,7 @@ public class ChoiceManager : MonoBehaviour
         callback3 = args[1] as Action;
 
         SetButtonText(Button3, choice3);
+        StartCoroutine(EnableButtonsAfterMouseUp());
     }
 
     private void OnShowTwoChoice(object[] args)
@@ -121,6 +122,7 @@ public class ChoiceManager : MonoBehaviour
 
         SetButtonText(Button1, choice1);
         SetButtonText(Button2, choice2);
+        StartCoroutine(EnableButtonsAfterMouseUp());
     }
 
     private void OnShowThreeChoice(object[] args)
@@ -156,6 +158,24 @@ public class ChoiceManager : MonoBehaviour
         SetButtonText(Button1, choice1);
         SetButtonText(Button2, choice2);
         SetButtonText(Button3, choice3);
+        StartCoroutine(EnableButtonsAfterMouseUp());
+    }
+
+    private System.Collections.IEnumerator EnableButtonsAfterMouseUp()
+    {
+        UnityEngine.UI.Button b1 = Button1.GetComponent<UnityEngine.UI.Button>();
+        UnityEngine.UI.Button b2 = Button2.GetComponent<UnityEngine.UI.Button>();
+        UnityEngine.UI.Button b3 = Button3.GetComponent<UnityEngine.UI.Button>();
+        
+        if (b1) b1.interactable = false;
+        if (b2) b2.interactable = false;
+        if (b3) b3.interactable = false;
+
+        yield return new WaitUntil(() => !Input.GetMouseButton(0));
+
+        if (b1) b1.interactable = true;
+        if (b2) b2.interactable = true;
+        if (b3) b3.interactable = true;
     }
 
     private void OnButton1Clicked()

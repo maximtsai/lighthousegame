@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: dark_dock
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   text:
-  - It's been awhile since I've last seen any boats.
-  - Maybe they'll send one of those two-masted ships again!
+  - Too dark to see much.
   onDialogueEnd:
     m_PersistentCalls:
       m_Calls: []

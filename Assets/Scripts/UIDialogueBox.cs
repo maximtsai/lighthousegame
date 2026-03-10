@@ -232,5 +232,15 @@ public class UIDialogueBox : MonoBehaviour
         button1.gameObject.SetActive(true);
         button1.GetComponentInChildren<TMP_Text>().text = dialogue.choices[1];
         CustomCursor.SetCursorToNormal(); // revert cursor to default
+        StartCoroutine(EnableButtonsAfterMouseUp());
+    }
+
+    private IEnumerator EnableButtonsAfterMouseUp()
+    {
+        button0.interactable = false;
+        button1.interactable = false;
+        yield return new WaitUntil(() => !Input.GetMouseButton(0));
+        button0.interactable = true;
+        button1.interactable = true;
     }
 }
