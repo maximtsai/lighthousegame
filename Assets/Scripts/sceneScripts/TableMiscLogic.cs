@@ -10,7 +10,9 @@ public class TableMiscLogic : MonoBehaviour
     [SerializeField] private GameObject background;
     [SerializeField] private GameObject background_fried;
     [SerializeField] private GameObject tableButton;
-    [SerializeField] private Sprite bgScare;
+    [SerializeField] private Animator bgScareAnim1;
+    [SerializeField] private Animator bgScareAnim2;
+    [SerializeField] private Animator bgScareAnim3;
     [SerializeField] private Sprite bgScareFried;
     [SerializeField] private MiscObjectClick miscObjectClick;
     [SerializeField] private MouseCameraPan mouseCamPanScript;
@@ -39,6 +41,10 @@ public class TableMiscLogic : MonoBehaviour
         UpdateTrack(ambience, bgLoop2, 0.2f, 2);
         MessageBus.Instance.Publish("HideTask");
         sr_fried = background_fried.GetComponent<SpriteRenderer>();
+
+        if (bgScareAnim1) bgScareAnim1.gameObject.SetActive(false);
+        if (bgScareAnim2) bgScareAnim2.gameObject.SetActive(false);
+        if (bgScareAnim3) bgScareAnim3.gameObject.SetActive(false);
     }
 
     void Update()
@@ -80,12 +86,18 @@ public class TableMiscLogic : MonoBehaviour
         DialogueManager.CloseDialogue();
         tableButton.SetActive(false);
 
-        background.GetComponent<SpriteRenderer>().sprite = bgScare;
+        background.GetComponent<SpriteRenderer>().sprite = bgScareFried;
+
+        if (bgScareAnim1) bgScareAnim1.gameObject.SetActive(true);
+        if (bgScareAnim2) bgScareAnim2.gameObject.SetActive(true);
+        if (bgScareAnim3) bgScareAnim3.gameObject.SetActive(true);
         sr_fried.sprite = bgScareFried;
         Color c = sr_fried.color;
         c.a = 1f;
         sr_fried.color = c;
+        sr_fried.sortingOrder = -3;
         StartCoroutine(FadeToZero(sr_fried));
+        MessageBus.Instance.Publish("refreshCamera");
 
         mouseCamPanScript.RecalculateDimensions();
 

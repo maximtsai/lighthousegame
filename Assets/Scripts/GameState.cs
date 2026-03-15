@@ -24,6 +24,13 @@ public static class GameState
 
 
     // Set a value
+    public static void Set<T>(string key, T value)
+    {
+        data[key] = value;
+        OnDataChanged?.Invoke();
+    }
+
+    // Set a value (non-generic version for convenience or explicitly object type)
     public static void Set(string key, object value)
     {
         data[key] = value;
