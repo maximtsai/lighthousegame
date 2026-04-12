@@ -31,6 +31,7 @@ public class MainMenuLogic : MonoBehaviour
 
     public void StartGame()
     {
+        GameState.FullReset();
         // TODO: Change this to 1 for any release build
         int startDay = 1;
         GameState.Set("day", startDay);
