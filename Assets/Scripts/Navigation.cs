@@ -32,7 +32,7 @@ public class Navigation : MonoBehaviour
     
     public void GoToBedroom()
     {
-        SceneManager.LoadScene("BedroomScene");
+        SceneManager.LoadScene(GameConsts.BEDROOMSCENE);
     }
 
     public void GoTo(string scene)
@@ -56,7 +56,7 @@ public class Navigation : MonoBehaviour
 
     public void GoToIndoors()
     {
-        if (GameState.Get("do_burial", false))
+        if (GameState.Get<bool>("do_burial", false))
         {
             DialogueManager.ShowDialogue(getDialog("outdoors/burial_blocked"));
             return;
@@ -73,12 +73,12 @@ public class Navigation : MonoBehaviour
 
     public void GoToLighthouse()
     {
-        if (GameState.Get("do_burial", false))
+        if (GameState.Get<bool>("do_burial", false))
         {
             DialogueManager.ShowDialogue(getDialog("outdoors/burial_blocked"));
             return;
         }
-        if (GameState.Get("ready_to_sleep", false))
+        if (GameState.Get<bool>("ready_to_sleep", false))
         {
             DialogueManager.ShowDialogue(getDialog("time_for_bed"));
             return;
@@ -88,12 +88,12 @@ public class Navigation : MonoBehaviour
 
     public void GoToPier()
     {
-        if (GameState.Get("do_burial", false))
+        if (GameState.Get<bool>("do_burial", false))
         {
             DialogueManager.ShowDialogue(getDialog("outdoors/burial_blocked"));
             return;
         }
-        if (GameState.Get("ready_to_sleep", false))
+        if (GameState.Get<bool>("ready_to_sleep", false))
         {
             DialogueManager.ShowDialogue(getDialog("time_for_bed"));
             return;
@@ -107,17 +107,17 @@ public class Navigation : MonoBehaviour
         bool isDay2 = GameState.Get<int>("day") == 2;
         bool graveNeedsInspection = isDay2 && GameState.Get<bool>("has_buried") && !GameState.Get<bool>("grave_inspected");
 
-        if (!GameState.Get("do_burial", false) && !graveNeedsInspection)
+        if (!GameState.Get<bool>("do_burial", false) && !graveNeedsInspection)
         {
             DialogueManager.ShowDialogue(getDialog("outdoors/resting_place"));
             return;
         }
-        if (GameState.Get("ready_to_sleep", false))
+        if (GameState.Get<bool>("ready_to_sleep", false))
         {
             DialogueManager.ShowDialogue(getDialog("time_for_bed"));
             return;
         }
-        GoToTransition("BurialScene", 0.5f);
+        GoToTransition(GameConsts.BURIALSCENE, 0.5f);
     }
 
     
@@ -181,7 +181,7 @@ public class Navigation : MonoBehaviour
         }
 
         playSoundClip(transition.travelSound);
-        GoToTransition("BedroomScene", 0.35f);
+        GoToTransition(GameConsts.BEDROOMSCENE, 0.35f);
     }
 
     public void GoToMainMenu()

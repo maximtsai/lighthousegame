@@ -115,7 +115,7 @@ public class MiscObjectClick : MonoBehaviour
         MessageBus.Instance.Publish("PlayCutscene", cutsceneToPlay, true, (Action)(() =>
         {
             GameState.StartNewDay();
-            SceneManager.LoadScene("BedroomScene");
+            SceneManager.LoadScene(GameConsts.BEDROOMSCENE);
         }), true);
         
     }

@@ -50,13 +50,13 @@ public class MainMenuLogic : MonoBehaviour
         }
         MessageBus.Instance.Publish("PlayCutscene", introToPlay, true, (Action)(() =>
         {
-            SceneManager.LoadScene("BedroomScene");
+            SceneManager.LoadScene(GameConsts.BEDROOMSCENE);
         }), true);
         
     }
 
     public void ContinueGame()
     {
-        SceneManager.LoadScene("BedroomScene");
+        SceneManager.LoadScene(GameConsts.BEDROOMSCENE);
     }
 }

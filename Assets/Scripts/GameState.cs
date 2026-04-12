@@ -114,7 +114,7 @@ public static class GameState
     {
         Clear();
         Set("day", 1);
-        Set("sanity", 3); // Starting sanity
+        Set("sanity", GameConsts.SANITY_START); // Starting sanity
         
         // Burial states
         Set("has_dug", false);
@@ -132,6 +132,8 @@ public static class GameState
 
     // Game specific function
     public static void StartNewDay() {
+        int day = Get<int>("day", 1);
+
         Set("day_began", false);
 
         Set("is_clean", "false");
@@ -164,5 +166,16 @@ public static class GameState
 
         Set("ready_to_sleep", false);
         Set("intro_played", false);
+
+        // Day specific start logic
+        if (day >= 2)
+        {
+            Set("has_buried", true);
+        }
+        
+        if (day >= 3 && day <= 7)
+        {
+            Set("hand_cut", true);
+        }
     }
 }
