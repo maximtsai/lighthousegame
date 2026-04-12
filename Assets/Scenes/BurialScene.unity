@@ -1366,6 +1366,14 @@ PrefabInstance:
       propertyPath: backgroundCoveredSprite
       value: 
       objectReference: {fileID: 8292460941425288298, guid: e7a8bce3252373d48a06c750913d48b8, type: 3}
+    - target: {fileID: 5497147221551116059, guid: be95ed95170129849bc8e4ae9113e45c, type: 3}
+      propertyPath: backgroundCoveredSpriteDay
+      value: 
+      objectReference: {fileID: 21300000, guid: fcbac26c145bb474d9e0dbc0ee81d6ba, type: 3}
+    - target: {fileID: 5497147221551116059, guid: be95ed95170129849bc8e4ae9113e45c, type: 3}
+      propertyPath: backgroundRevealedSpriteDay
+      value: 
+      objectReference: {fileID: 21300000, guid: 2546f18e2839a084798aca2c28c2107a, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

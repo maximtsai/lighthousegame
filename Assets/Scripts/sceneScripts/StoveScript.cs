@@ -30,7 +30,9 @@ public class StoveScript : MonoBehaviour
     {
         bool isDay2 = GameState.Get<int>("day") == 2;
         bool gatheredFish = GameState.Get<bool>("gathered_fish");
-        if ((isDay2 || GameState.Get<bool>("ate_breakfast")) && !GameState.Get<bool>("ate_dinner") && (isDay2 || gatheredFish))
+        bool canEatDinner = GameState.Get<bool>("ate_breakfast") && !GameState.Get<bool>("ate_dinner");
+        bool isBreakfastTime = !GameState.Get<bool>("ate_breakfast");
+        if (gatheredFish || (isDay2 && isBreakfastTime))
         {
             fish.SetActive(true);
             if (GameState.Get<bool>("fish_clicked", false))
@@ -43,12 +45,6 @@ public class StoveScript : MonoBehaviour
                 interactable.default_sprite = choppedFishSprite;
 
             }
-        } else {
-            Debug.Log("fish not active");
-            Debug.Log(isDay2);
-            Debug.Log(GameState.Get<bool>("ate_breakfast"));
-            Debug.Log(GameState.Get<bool>("ate_dinner"));
-            Debug.Log(GameState.Get<bool>("gathered_fish"));
         }
         if (IsDoneCooking())
         {
