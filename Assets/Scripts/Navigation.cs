@@ -51,7 +51,7 @@ public class Navigation : MonoBehaviour
             return;
         }
 
-        GoToTransition("StoveScene", 0.25f);
+        GoToTransition(GameConsts.STOVESCENE, 0.25f);
     }
 
     public void GoToIndoors()
@@ -68,7 +68,7 @@ public class Navigation : MonoBehaviour
             return;
         }
 
-        GoToTransition("KitchenScene", 0.35f);
+        GoToTransition(GameConsts.KITCHENSCENE, 0.35f);
     }
 
     public void GoToLighthouse()
@@ -83,7 +83,7 @@ public class Navigation : MonoBehaviour
             DialogueManager.ShowDialogue(getDialog("time_for_bed"));
             return;
         }
-        GoToTransition("LHFloorScene", 0.35f);
+        GoToTransition(GameConsts.LHFLOORSCENE, 0.35f);
     }
 
     public void GoToPier()
@@ -98,7 +98,7 @@ public class Navigation : MonoBehaviour
             DialogueManager.ShowDialogue(getDialog("time_for_bed"));
             return;
         }
-        GoToTransition("PierScene", 0.35f);
+        GoToTransition(GameConsts.PIERSCENE, 0.35f);
     }
 
     public void GoToBurial()
@@ -130,7 +130,7 @@ public class Navigation : MonoBehaviour
         }
 
         playSoundClip(transition.travelSound);
-        GoToTransition("SinkScene", 0.25f);
+        GoToTransition(GameConsts.SINKSCENE, 0.25f);
     }
     
     public void GoToOutdoors(SceneTransition transition)
@@ -160,13 +160,13 @@ public class Navigation : MonoBehaviour
             MessageBus.Instance.Publish("PlayCutscene", "Lighthouse", true, (Action)(() =>
             {
                 Debug.Log("going to outdoors");
-                GoToTransition("OutdoorsScene", 0.35f);
+                GoToTransition(GameConsts.OUTDOORSSCENE, 0.35f);
                 
             }), true);
         }
         else
         {
-            GoToTransition("OutdoorsScene", 0.35f);
+            GoToTransition(GameConsts.OUTDOORSSCENE, 0.35f);
         }
         
         
@@ -189,12 +189,12 @@ public class Navigation : MonoBehaviour
         MessageBus.Instance.Publish("ResetToMainMenu");
         GameState.StartNewDay();
         GameState.Set("pause_open", false);
-        GoToTransition("MainScene", 0.3f);
+        GoToTransition(GameConsts.MAINSCENE, 0.3f);
     }
 
     public void GoToJournal()
     {
-        GoToTransition("JournalScene", 0.35f);
+        GoToTransition(GameConsts.JOURNALSCENE, 0.35f);
     }
     
     public void GoToSlow(string scene)
@@ -297,7 +297,7 @@ public class Navigation : MonoBehaviour
         MessageBus.Instance.Publish("ClearAllTasks");
         GameState.Set("do_burial", true); // activate burial flag so we can bury this guy
         playSoundClip(transition.travelSound);
-        GoToTransition("OutdoorsScene", 0.8f);
+        GoToTransition(GameConsts.OUTDOORSSCENE, 0.8f);
         
         MessageBus.Instance.Publish("AddTaskString", "generic/bury_body");
         MessageBus.Instance.Publish("AddTaskString", "generic/go_to_sleep");
