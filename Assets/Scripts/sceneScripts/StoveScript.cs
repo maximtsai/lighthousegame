@@ -172,7 +172,7 @@ public class StoveScript : MonoBehaviour
             GlowPot();
             if (IsDoneCooking())
             {
-                EnableEating();
+                StartCoroutine(EnableEatingDelayed(0.5f));
             }
         }
     }
@@ -260,6 +260,12 @@ public class StoveScript : MonoBehaviour
             DialogueManager.ShowDialogue(miscObjectClick.getDialogue("stove/ready_to_eat"));
         }
         doneAnim.SetActive(true);
+    }
+
+    private IEnumerator EnableEatingDelayed(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        EnableEating();
     }
 
 

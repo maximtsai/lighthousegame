@@ -175,7 +175,7 @@ public class Navigation : MonoBehaviour
             MessageBus.Instance.Publish("PlayCutscene", "Lighthouse", true, (Action)(() =>
             {
                 Debug.Log("going to outdoors");
-                GoToTransition(GameConsts.OUTDOORSSCENE, 0.35f);
+                GoToTransition(GameConsts.OUTDOORSSCENE, 0.35f, 1f);
                 
             }), true);
         }
@@ -220,7 +220,7 @@ public class Navigation : MonoBehaviour
         GoToTransition(scene, 0.85f);
     }
     
-    private void GoToTransition(string scene, float duration)
+    private void GoToTransition(string scene, float duration, float startAlpha = 0f)
     {
         if (GameState.Get<bool>("navigationBlocked"))
         {
@@ -243,14 +243,14 @@ public class Navigation : MonoBehaviour
         }
 
         GameState.Set("navigationBlocked", true);
-        Instance.StartCoroutine(Instance.FadeInThenGoTo(scene, duration));
+        Instance.StartCoroutine(Instance.FadeInThenGoTo(scene, duration, startAlpha));
     }
     
-    private IEnumerator FadeInThenGoTo(string scene, float duration)
+    private IEnumerator FadeInThenGoTo(string scene, float duration, float startAlpha = 0f)
     {
-        // Start fully transparent
+        // Start from specified alpha
         Color c = new Color(0, 0, 0, blackoutImage.color.a);
-        c.a = 0f;
+        c.a = startAlpha;
         blackoutImage.color = c;
 
         float t = 0f;
