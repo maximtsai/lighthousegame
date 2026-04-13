@@ -64,7 +64,22 @@ public class Navigation : MonoBehaviour
         
         if (GameState.Get<bool>("lighthouse_fixed") && !GameState.Get<bool>("gathered_fish"))
         {
-            DialogueManager.ShowDialogue(getDialog("outdoors/missing_fish"));
+            if (GameState.Get<int>("day") == 2)
+            {
+                DialogueManager.ShowDialogueFromText(new string[] { "I haven't checked the fish traps yet." });
+            }
+            else
+            {
+                DialogueManager.ShowDialogue(getDialog("outdoors/missing_fish"));
+            }
+            return;
+        }
+
+        // Day 2 specific block: Must check the grave before going inside
+        bool isDay2 = GameState.Get<int>("day") == 2;
+        if (isDay2 && GameState.Get<bool>("lighthouse_fixed") && GameState.Get<bool>("gathered_fish") && !GameState.Get<bool>("grave_inspected"))
+        {
+            DialogueManager.ShowDialogueFromText(new string[] { "Something's wrong with the grave." });
             return;
         }
 
@@ -105,7 +120,7 @@ public class Navigation : MonoBehaviour
     {
         // Day 2: Allow access to inspect the uncovered grave
         bool isDay2 = GameState.Get<int>("day") == 2;
-        bool graveNeedsInspection = isDay2 && GameState.Get<bool>("has_buried") && !GameState.Get<bool>("grave_inspected");
+        bool graveNeedsInspection = isDay2 && !GameState.Get<bool>("grave_inspected") && GameState.Get<bool>("lighthouse_fixed") && GameState.Get<bool>("gathered_fish");
 
         if (!GameState.Get<bool>("do_burial", false) && !graveNeedsInspection)
         {

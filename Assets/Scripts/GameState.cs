@@ -132,6 +132,7 @@ public static class GameState
 
     // Game specific function
     public static void StartNewDay() {
+        MessageBus.Instance.Publish("ClearAllTasks");
         int day = Get<int>("day", 1);
 
         Set("day_began", false);

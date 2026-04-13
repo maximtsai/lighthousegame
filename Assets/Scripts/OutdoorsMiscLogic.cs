@@ -18,8 +18,11 @@ public class OutdoorsMiscLogic : MonoBehaviour
         if (GameState.Get<bool>("near_nighttime"))
         {
             GameState.Set("near_nighttime", false);
-            GameState.Set("is_nighttime", true);
-            DialogueManager.ShowDialogue(miscObjectClick.getDialogue("nearly_dark"));
+            if (!GameState.Get<bool>("is_nighttime"))
+            {
+                GameState.Set("is_nighttime", true);
+                DialogueManager.ShowDialogue(miscObjectClick.getDialogue("nearly_dark"));
+            }
         }
     }
 

@@ -96,11 +96,12 @@ public class BurialScript : MonoBehaviour
     public void ClickMound()
     {
         // Day 2: Re-bury after rain uncovered the grave
-        if (GameState.Get<bool>("grave_revealed", false))
+        if (GameState.Get<bool>("grave_revealed") && !GameState.Get<bool>("grave_inspected"))
         {
             GameState.Set("grave_revealed", false);
             GameState.Set("grave_inspected", true);
             GameState.Set("hand_cut", true);
+            GameState.Set("near_nighttime", true);
 
             black.SetActive(true);
             StartCoroutine(PlaySoundDelayedRoutine(shovelClip, 0.6f, false, 0.5f));

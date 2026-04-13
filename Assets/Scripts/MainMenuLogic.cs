@@ -31,32 +31,17 @@ public class MainMenuLogic : MonoBehaviour
 
     public void StartGame()
     {
+        SaveManager.ClearSave(); // Clear any old saves when starting fresh
         GameState.FullReset();
-        // TODO: Change this to 1 for any release build
-        int startDay = 1;
-        GameState.Set("day", startDay);
-        string introToPlay = "Intro";
-        switch (startDay)
-        {
-            case 1:
-                introToPlay = "Intro";
-                break;
-            case 2:
-                introToPlay = "Day2";
-                break;
-            default:
-                introToPlay = "Intro";
-                break;
-        }
-        MessageBus.Instance.Publish("PlayCutscene", introToPlay, true, (Action)(() =>
+        MessageBus.Instance.Publish("PlayCutscene", "Intro", true, (Action)(() =>
         {
             SceneManager.LoadScene(GameConsts.BEDROOMSCENE);
         }), true);
-        
     }
 
     public void ContinueGame()
     {
+        SaveManager.Load(); // Load the saved state
         SceneManager.LoadScene(GameConsts.BEDROOMSCENE);
     }
 }

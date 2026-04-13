@@ -258,10 +258,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.48114285
     y: 0
-    width: 1
-    height: 1
+    width: 0.6806349
+    height: 0.68089426
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -2741,7 +2741,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4825775731924542980, guid: bcf33da3790d41f4b839cf08de6e9eb8, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
-      value: 0
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 7053817113644225021, guid: bcf33da3790d41f4b839cf08de6e9eb8, type: 3}
       propertyPath: m_Pivot.x
@@ -2829,7 +2829,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7592047893097350760, guid: bcf33da3790d41f4b839cf08de6e9eb8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
