@@ -110,8 +110,31 @@ public static class GameState
         return sb.ToString();
     }
 
+    public static void FullReset()
+    {
+        Clear();
+        Set("day", 1);
+        Set("sanity", GameConsts.SANITY_START); // Starting sanity
+        
+        // Burial states
+        Set("has_dug", false);
+        Set("has_buried", false);
+        Set("grave_revealed", false);
+        Set("grave_inspected", false);
+        Set("hand_cut", false);
+
+        // Events
+        Set("introduced_journal", false);
+        Set("cutscene_outdoors_played", false);
+
+        StartNewDay();
+    }
+
     // Game specific function
-    public static void ResetDay() {
+    public static void StartNewDay() {
+        MessageBus.Instance.Publish("ClearAllTasks");
+        int day = Get<int>("day", 1);
+
         Set("day_began", false);
 
         Set("is_clean", "false");
@@ -144,5 +167,16 @@ public static class GameState
 
         Set("ready_to_sleep", false);
         Set("intro_played", false);
+
+        // Day specific start logic
+        if (day >= 2)
+        {
+            Set("has_buried", true);
+        }
+        
+        if (day >= 3 && day <= 7)
+        {
+            Set("hand_cut", true);
+        }
     }
 }

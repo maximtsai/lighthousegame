@@ -96,6 +96,7 @@ public class MiscObjectClick : MonoBehaviour
 
     public void GotoNextDay()
     {
+        MessageBus.Instance.Publish("ClearAllTasks");
         Debug.Log("current day: " + GameState.Get<int>("day"));
         int newDay = GameState.Get<int>("day") + 1;
         GameState.Set<int>("day", newDay);
@@ -114,8 +115,9 @@ public class MiscObjectClick : MonoBehaviour
         }
         MessageBus.Instance.Publish("PlayCutscene", cutsceneToPlay, true, (Action)(() =>
         {
-            GameState.ResetDay();
-            SceneManager.LoadScene("BedroomScene");
+            GameState.StartNewDay();
+            SaveManager.Save(); // Save progress at the start of the new day
+            SceneManager.LoadScene(GameConsts.BEDROOMSCENE);
         }), true);
         
     }
@@ -184,7 +186,14 @@ public class MiscObjectClick : MonoBehaviour
             // GameState.Set("is_nighttime", true);
             
             MessageBus.Instance.Publish("CompleteTask", "task_fish");
-            DialogueManager.ShowDialogue(getDialogue("dock/gather_fish"));
+            if (GameState.Get<int>("day") == 2)
+            {
+                DialogueManager.ShowDialogueFromText(new string[] { "You don't feel like fish for dinner tonight.", "You let the caught fishes go." });
+            }
+            else
+            {
+                DialogueManager.ShowDialogue(getDialogue("dock/gather_fish"));
+            }
 		}
 	}
 

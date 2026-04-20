@@ -14,7 +14,9 @@ public class BurialScript : MonoBehaviour
     [SerializeField] private SpriteRenderer background;
     [SerializeField] private Sprite backgroundDugSprite;
     [SerializeField] private Sprite backgroundCoveredSprite;
-    [SerializeField] private Sprite backgroundRevealedSprite;
+
+    [SerializeField] private Sprite backgroundRevealedSpriteDay;
+    [SerializeField] private Sprite backgroundCoveredSpriteDay;
     
     [SerializeField] private MiscObjectClick miscObjectClick;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -45,7 +47,7 @@ public class BurialScript : MonoBehaviour
         if (isDay2 && GameState.Get<bool>("has_buried") && !GameState.Get<bool>("grave_inspected"))
         {
             Destroy(shovel);
-            background.sprite = backgroundRevealedSprite;
+            background.sprite = backgroundRevealedSpriteDay;
             GameState.Set("grave_revealed", true);
             DialogueManager.ShowDialogue(miscObjectClick.getDialogue("burial/grave_uncovered"));
             return;
@@ -94,19 +96,20 @@ public class BurialScript : MonoBehaviour
     public void ClickMound()
     {
         // Day 2: Re-bury after rain uncovered the grave
-        if (GameState.Get<bool>("grave_revealed", false))
+        if (GameState.Get<bool>("grave_revealed") && !GameState.Get<bool>("grave_inspected"))
         {
             GameState.Set("grave_revealed", false);
             GameState.Set("grave_inspected", true);
             GameState.Set("hand_cut", true);
+            GameState.Set("near_nighttime", true);
 
             black.SetActive(true);
             StartCoroutine(PlaySoundDelayedRoutine(shovelClip, 0.6f, false, 0.5f));
             FadeTo(black, 1, 1.2f, () =>
             {
-                if (background != null && backgroundCoveredSprite != null)
+                if (background != null && backgroundCoveredSpriteDay != null)
                 {
-                    background.sprite = backgroundCoveredSprite;
+                    background.sprite = backgroundCoveredSpriteDay;
                 }
                 FadeTo(black, 1, 1.75f, () =>
                 {

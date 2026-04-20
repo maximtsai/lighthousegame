@@ -32,7 +32,7 @@ public class Navigation : MonoBehaviour
     
     public void GoToBedroom()
     {
-        SceneManager.LoadScene("BedroomScene");
+        SceneManager.LoadScene(GameConsts.BEDROOMSCENE);
     }
 
     public void GoTo(string scene)
@@ -51,12 +51,12 @@ public class Navigation : MonoBehaviour
             return;
         }
 
-        GoToTransition("StoveScene", 0.25f);
+        GoToTransition(GameConsts.STOVESCENE, 0.25f);
     }
 
     public void GoToIndoors()
     {
-        if (GameState.Get("do_burial", false))
+        if (GameState.Get<bool>("do_burial", false))
         {
             DialogueManager.ShowDialogue(getDialog("outdoors/burial_blocked"));
             return;
@@ -64,67 +64,81 @@ public class Navigation : MonoBehaviour
         
         if (GameState.Get<bool>("lighthouse_fixed") && !GameState.Get<bool>("gathered_fish"))
         {
-            DialogueManager.ShowDialogue(getDialog("outdoors/missing_fish"));
+            if (GameState.Get<int>("day") == 2)
+            {
+                DialogueManager.ShowDialogueFromText(new string[] { "I haven't checked the fish traps yet." });
+            }
+            else
+            {
+                DialogueManager.ShowDialogue(getDialog("outdoors/missing_fish"));
+            }
             return;
         }
 
-        GoToTransition("KitchenScene", 0.35f);
+        // Day 2 specific block: Must check the grave before going inside
+        bool isDay2 = GameState.Get<int>("day") == 2;
+        if (isDay2 && GameState.Get<bool>("lighthouse_fixed") && GameState.Get<bool>("gathered_fish") && !GameState.Get<bool>("grave_inspected"))
+        {
+            DialogueManager.ShowDialogueFromText(new string[] { "Something's wrong with the grave." });
+            return;
+        }
+
+        GoToTransition(GameConsts.KITCHENSCENE, 0.35f);
     }
 
     public void GoToLighthouse()
     {
-        if (GameState.Get("do_burial", false))
+        if (GameState.Get<bool>("do_burial", false))
         {
             DialogueManager.ShowDialogue(getDialog("outdoors/burial_blocked"));
             return;
         }
-        if (GameState.Get("ready_to_sleep", false))
+        if (GameState.Get<bool>("ready_to_sleep", false))
         {
             DialogueManager.ShowDialogue(getDialog("time_for_bed"));
             return;
         }
-
         if (!GameState.Get<bool>("recorded_weather", false))
         {
             DialogueManager.ShowDialogueFromText(new string[] { "You need to record the weather first" });
             return;
         }
 
-        GoToTransition("LHFloorScene", 0.35f);
+        GoToTransition(GameConsts.LHFLOORSCENE, 0.35f);
     }
 
     public void GoToPier()
     {
-        if (GameState.Get("do_burial", false))
+        if (GameState.Get<bool>("do_burial", false))
         {
             DialogueManager.ShowDialogue(getDialog("outdoors/burial_blocked"));
             return;
         }
-        if (GameState.Get("ready_to_sleep", false))
+        if (GameState.Get<bool>("ready_to_sleep", false))
         {
             DialogueManager.ShowDialogue(getDialog("time_for_bed"));
             return;
         }
-        GoToTransition("PierScene", 0.35f);
+        GoToTransition(GameConsts.PIERSCENE, 0.35f);
     }
 
     public void GoToBurial()
     {
         // Day 2: Allow access to inspect the uncovered grave
         bool isDay2 = GameState.Get<int>("day") == 2;
-        bool graveNeedsInspection = isDay2 && GameState.Get<bool>("has_buried") && !GameState.Get<bool>("grave_inspected");
+        bool graveNeedsInspection = isDay2 && !GameState.Get<bool>("grave_inspected") && GameState.Get<bool>("lighthouse_fixed") && GameState.Get<bool>("gathered_fish");
 
-        if (!GameState.Get("do_burial", false) && !graveNeedsInspection)
+        if (!GameState.Get<bool>("do_burial", false) && !graveNeedsInspection)
         {
             DialogueManager.ShowDialogue(getDialog("outdoors/resting_place"));
             return;
         }
-        if (GameState.Get("ready_to_sleep", false))
+        if (GameState.Get<bool>("ready_to_sleep", false))
         {
             DialogueManager.ShowDialogue(getDialog("time_for_bed"));
             return;
         }
-        GoToTransition("BurialScene", 0.5f);
+        GoToTransition(GameConsts.BURIALSCENE, 0.5f);
     }
 
     
@@ -137,7 +151,7 @@ public class Navigation : MonoBehaviour
         }
 
         playSoundClip(transition.travelSound);
-        GoToTransition("SinkScene", 0.25f);
+        GoToTransition(GameConsts.SINKSCENE, 0.25f);
     }
     
     public void GoToOutdoors(SceneTransition transition)
@@ -167,13 +181,13 @@ public class Navigation : MonoBehaviour
             MessageBus.Instance.Publish("PlayCutscene", "Lighthouse", true, (Action)(() =>
             {
                 Debug.Log("going to outdoors");
-                GoToTransition("OutdoorsScene", 0.35f);
+                GoToTransition(GameConsts.OUTDOORSSCENE, 0.35f, 1f);
                 
             }), true);
         }
         else
         {
-            GoToTransition("OutdoorsScene", 0.35f);
+            GoToTransition(GameConsts.OUTDOORSSCENE, 0.35f);
         }
         
         
@@ -188,20 +202,20 @@ public class Navigation : MonoBehaviour
         }
 
         playSoundClip(transition.travelSound);
-        GoToTransition("BedroomScene", 0.35f);
+        GoToTransition(GameConsts.BEDROOMSCENE, 0.35f);
     }
 
     public void GoToMainMenu()
     {
         MessageBus.Instance.Publish("ResetToMainMenu");
-        GameState.ResetDay();
+        GameState.StartNewDay();
         GameState.Set("pause_open", false);
-        GoToTransition("MainScene", 0.3f);
+        GoToTransition(GameConsts.MAINSCENE, 0.3f);
     }
 
     public void GoToJournal()
     {
-        GoToTransition("JournalScene", 0.35f);
+        GoToTransition(GameConsts.JOURNALSCENE, 0.35f);
     }
     
     public void GoToSlow(string scene)
@@ -212,7 +226,7 @@ public class Navigation : MonoBehaviour
         GoToTransition(scene, 0.85f);
     }
     
-    private void GoToTransition(string scene, float duration)
+    private void GoToTransition(string scene, float duration, float startAlpha = 0f)
     {
         if (GameState.Get<bool>("navigationBlocked"))
         {
@@ -235,14 +249,14 @@ public class Navigation : MonoBehaviour
         }
 
         GameState.Set("navigationBlocked", true);
-        Instance.StartCoroutine(Instance.FadeInThenGoTo(scene, duration));
+        Instance.StartCoroutine(Instance.FadeInThenGoTo(scene, duration, startAlpha));
     }
     
-    private IEnumerator FadeInThenGoTo(string scene, float duration)
+    private IEnumerator FadeInThenGoTo(string scene, float duration, float startAlpha = 0f)
     {
-        // Start fully transparent
+        // Start from specified alpha
         Color c = new Color(0, 0, 0, blackoutImage.color.a);
-        c.a = 0f;
+        c.a = startAlpha;
         blackoutImage.color = c;
 
         float t = 0f;
@@ -304,7 +318,7 @@ public class Navigation : MonoBehaviour
         MessageBus.Instance.Publish("ClearAllTasks");
         GameState.Set("do_burial", true); // activate burial flag so we can bury this guy
         playSoundClip(transition.travelSound);
-        GoToTransition("OutdoorsScene", 0.8f);
+        GoToTransition(GameConsts.OUTDOORSSCENE, 0.8f);
         
         MessageBus.Instance.Publish("AddTaskString", "generic/bury_body");
         MessageBus.Instance.Publish("AddTaskString", "generic/go_to_sleep");

@@ -11,11 +11,13 @@ public class MouseCameraPan : MonoBehaviour
     public float scrollSpeed = 0.05f;
 
     private Vector2 bounds; // half-size of how far camera can move
+    private Vector2 lastMousePos;
     private MessageBus.SubscriptionHandle handle;
 
     void Start()
     {
         cam = Camera.main;
+        lastMousePos = new Vector2(Screen.width / 2f, Screen.height / 2f); // Start centered
         RecalculateDimensions();
         handle = MessageBus.Instance.Subscribe("refreshCamera", RecalculateDimensionsMessage, this);
         
@@ -48,9 +50,8 @@ public class MouseCameraPan : MonoBehaviour
 
 	void UpdatePosition(float shiftRatio)
 	{
-        if (Mouse.current == null) 
+        if (Pointer.current == null) 
 		{
-			Debug.Log("Missing Mouse");
 			return;
 		}; // safety check
 
@@ -68,12 +69,19 @@ public class MouseCameraPan : MonoBehaviour
 		{
 			shiftRatio = 0;
 		}
-		
-        // Get mouse position in pixels
-        Vector2 mousePos = Mouse.current.position.ReadValue();
 
-        // Normalize (0–1 range)
-        mousePos = new Vector2(mousePos.x / Screen.width, mousePos.y / Screen.height);
+		
+        // Get pointer position (mouse or touch)
+        Vector2 currentPointerPos = Pointer.current.position.ReadValue();
+
+        // Update the tracked position if the pointer is moving or being pressed (important for mobile)
+        if (Pointer.current.delta.ReadValue().sqrMagnitude > 0.01f || Pointer.current.press.isPressed)
+        {
+            lastMousePos = currentPointerPos;
+        }
+
+        // Normalize (0–1 range) based on the last known position
+        Vector2 mousePos = new Vector2(lastMousePos.x / Screen.width, lastMousePos.y / Screen.height);
         // Apply edge threshold
         mousePos.x = ApplyEdgeClamp(mousePos.x);
         mousePos.y = ApplyEdgeClamp(mousePos.y);

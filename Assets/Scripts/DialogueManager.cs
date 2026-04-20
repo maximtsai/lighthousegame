@@ -59,6 +59,10 @@ public class DialogueManager : MonoBehaviour
     {
         Dialogue dialogue = ScriptableObject.CreateInstance<Dialogue>();
         dialogue.text = new List<string>(textArray);
+        dialogue.choices = new List<string>();
+        dialogue.consequences = new List<UnityEngine.Events.UnityEvent>();
+        dialogue.onDialogueEnd = new UnityEngine.Events.UnityEvent();
+        dialogue.onDialogueEndImmediate = new UnityEngine.Events.UnityEvent();
         ShowDialogue(dialogue);
     }
 
