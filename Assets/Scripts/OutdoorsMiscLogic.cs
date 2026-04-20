@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class OutdoorsMiscLogic : MonoBehaviour
 {
@@ -6,6 +7,12 @@ public class OutdoorsMiscLogic : MonoBehaviour
     [SerializeField] private AudioClip bgLoop2;
     // [SerializeField] CutsceneManager CsManager;
     [SerializeField] private MiscObjectClick miscObjectClick;
+    
+    [Header("Weather UI (Optional)")]
+    [SerializeField] private Image weatherImage;
+    [SerializeField] private Button weatherActionButton;
+    [SerializeField] private Animator weatherAnimator;
+    [SerializeField] private string weatherAnimationName = "openbook";
 
     void Start()
     {
@@ -20,6 +27,27 @@ public class OutdoorsMiscLogic : MonoBehaviour
             GameState.Set("near_nighttime", false);
             GameState.Set("is_nighttime", true);
             DialogueManager.ShowDialogue(miscObjectClick.getDialogue("nearly_dark"));
+        }
+
+        // Initialize Weather Button
+        if (weatherActionButton != null)
+        {
+            weatherActionButton.onClick.AddListener(OnWeatherButtonClicked);
+        }
+    }
+
+    private void OnWeatherButtonClicked()
+    {
+        if (weatherAnimator != null)
+        {
+            weatherAnimator.Play(weatherAnimationName);
+        }
+
+        GameState.Set("recorded_weather", true);
+
+        if (weatherActionButton != null)
+        {
+            weatherActionButton.gameObject.SetActive(false);
         }
     }
 

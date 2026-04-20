@@ -80,7 +80,7 @@ public class MiscObjectClick : MonoBehaviour
             }
             else
             {
-                if (GameState.Get<bool>("checked_weather") || GameState.Get<bool>("lighthouse_fixed") || GameState.Get<bool>("gathered_fish"))
+                if (GameState.Get<bool>("lighthouse_fixed") || GameState.Get<bool>("gathered_fish"))
                 {
                     // I still have work to do!
                     DialogueManager.ShowDialogue(getDialogue("Bedroom/my_bed_2a"));

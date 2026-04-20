@@ -15,7 +15,7 @@ public static class GameState
         data["lighthouse_fixed"] = false;
         data["dropped_tool"] = false;
         data["gathered_fish"] = false;
-        data["checked_weather"] = false;
+        data["recorded_weather"] = false;
         data["ate_breakfast"] = false;
         data["ate_dinner"] = false;
         data["hungry"] = true;

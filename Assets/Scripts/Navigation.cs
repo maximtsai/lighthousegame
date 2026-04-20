@@ -83,6 +83,13 @@ public class Navigation : MonoBehaviour
             DialogueManager.ShowDialogue(getDialog("time_for_bed"));
             return;
         }
+
+        if (!GameState.Get<bool>("recorded_weather", false))
+        {
+            DialogueManager.ShowDialogueFromText(new string[] { "You need to record the weather first" });
+            return;
+        }
+
         GoToTransition("LHFloorScene", 0.35f);
     }
 
