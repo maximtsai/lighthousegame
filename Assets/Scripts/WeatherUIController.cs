@@ -170,7 +170,7 @@ public class WeatherUIController : MonoBehaviour
 
     private IEnumerator PostConfirmSequence()
     {
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.1f);
         postConfirmJudgment();
     }
 
@@ -200,14 +200,76 @@ public class WeatherUIController : MonoBehaviour
             dialoguePath = isCorrect ? "ScriptableObjects/Dialogues/outdoors/weather_correct" : "ScriptableObjects/Dialogues/outdoors/weather_incorrect";
         }
 
-        Dialogue dialogue = Resources.Load<Dialogue>(dialoguePath);
-        if (dialogue != null)
+        Dialogue originalDialogue = Resources.Load<Dialogue>(dialoguePath);
+        if (originalDialogue != null)
         {
+            Dialogue dialogue = Instantiate(originalDialogue);
+            dialogue.onDialogueEnd.AddListener(OnDialogueFinished);
             DialogueManager.ShowDialogue(dialogue);
         }
         else
         {
             Debug.LogWarning("Dialogue not found at path: " + dialoguePath);
         }
+    }
+
+    private void OnDialogueFinished()
+    {
+        if (this.gameObject.activeInHierarchy)
+        {
+            StartCoroutine(CloseWeatherUIDelayed());
+        }
+    }
+
+    private IEnumerator CloseWeatherUIDelayed()
+    {
+        if (confirmButton != null)
+        {
+            confirmButton.gameObject.SetActive(false);
+            confirmButton.interactable = true; // reset interactable for next use
+        }
+
+        Vector3 startWeatherImagePos = weatherImage != null ? weatherImage.transform.localPosition : Vector3.zero;
+        Vector3 startDrawImagePos = drawImage != null ? drawImage.transform.localPosition : Vector3.zero;
+        Vector3 startCloudButtonsPos = cloudButtons != null ? cloudButtons.transform.localPosition : Vector3.zero;
+
+        Vector3 endWeatherImagePos = startWeatherImagePos + new Vector3(0, -1200f, 0);
+        Vector3 endDrawImagePos = startDrawImagePos + new Vector3(0, -1200f, 0);
+        Vector3 endCloudButtonsPos = startCloudButtonsPos + new Vector3(0, -1200f, 0);
+
+        float duration = 0.8f;
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / duration;
+            // Smooth step interpolation for a premium animation feel
+            t = t * t * (3f - 2f * t);
+
+            if (weatherImage != null) weatherImage.transform.localPosition = Vector3.Lerp(startWeatherImagePos, endWeatherImagePos, t);
+            if (drawImage != null) drawImage.transform.localPosition = Vector3.Lerp(startDrawImagePos, endDrawImagePos, t);
+            if (cloudButtons != null) cloudButtons.transform.localPosition = Vector3.Lerp(startCloudButtonsPos, endCloudButtonsPos, t);
+
+            yield return null;
+        }
+
+        if (weatherImage != null) weatherImage.transform.localPosition = endWeatherImagePos;
+        if (drawImage != null) drawImage.transform.localPosition = endDrawImagePos;
+        if (cloudButtons != null) cloudButtons.transform.localPosition = endCloudButtonsPos;
+
+        if (clickBlocker != null)
+        {
+            clickBlocker.SetActive(false);
+        }
+
+        // 2. Set GameState and deactivate the entire game object
+        GameState.Set("is_recording_weather", false);
+        this.gameObject.SetActive(false);
+
+        // Restore original positions so they are ready for the next opening
+        if (weatherImage != null) weatherImage.transform.localPosition = startWeatherImagePos;
+        if (drawImage != null) drawImage.transform.localPosition = startDrawImagePos;
+        if (cloudButtons != null) cloudButtons.transform.localPosition = startCloudButtonsPos;
     }
 }
