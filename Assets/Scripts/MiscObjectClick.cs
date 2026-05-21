@@ -329,14 +329,28 @@ public class MiscObjectClick : MonoBehaviour
             (Action)(() =>
             {
                 // Make sanity go up
+                IncreaseSanity();
             }),
             (Action)(() =>
             {
                 // Make sanity go down
-                MessageBus.Instance.Publish("FloatText", 0, -0.4f, "-SANITY", "purple");
-                MessageBus.Instance.Publish("PlusSanity", -1);
+                DecreaseSanity();
             })
         );
+    }
+
+    public void IncreaseSanity()
+    {
+        Debug.Log("Sanity went up");
+        MessageBus.Instance.Publish("FloatText", 0, 0.3f, "+SANITY", "green");
+        MessageBus.Instance.Publish("PlusSanity", 1);
+    }
+
+    public void DecreaseSanity()
+    {
+        Debug.Log("Sanity went down");
+        MessageBus.Instance.Publish("FloatText", 0, 0.3f, "-SANITY", "purple");
+        MessageBus.Instance.Publish("PlusSanity", -1);
     }
 
     public void CamborneChoicesTouchClick()

@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c21e5b555f186ac4da729ad4d766dae7, type: 3}
+  m_Name: weather_correct
+  m_EditorClassIdentifier: Assembly-CSharp::Dialogue
+  text:
+  - You chose..##.##.## correctly!
+  onDialogueEnd:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5912071456214807691, guid: add25f6ff90e9474990e9f3862207611, type: 3}
+        m_TargetAssemblyTypeName: MiscObjectClick, Assembly-CSharp
+        m_MethodName: IncreaseSanity
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onDialogueEndImmediate:
+    m_PersistentCalls:
+      m_Calls: []
+  choices: []
+  consequences: []
+  startSound: {fileID: 0}

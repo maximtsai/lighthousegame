@@ -65,11 +65,6 @@ public class WeatherUIController : MonoBehaviour
 
     private void OnActionButtonClicked()
     {
-        if (GameState.Get<int>("day") == 1)
-        {
-            DialogueManager.ShowDialogueFromText(new string[] { "Time to record the weather." });
-        }
-
         // 1. Play the animation
         if (weatherAnimator != null)
         {
@@ -175,7 +170,7 @@ public class WeatherUIController : MonoBehaviour
 
     private IEnumerator PostConfirmSequence()
     {
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(0.25f);
         postConfirmJudgment();
     }
 
@@ -194,5 +189,25 @@ public class WeatherUIController : MonoBehaviour
 
         string spriteName = drawImage.sprite != null ? drawImage.sprite.name : "None";
         Debug.Log($"Judgment Result - Correct: {isCorrect}, Partial: {isPartialCorrect}, Selected Sprite: {spriteName}");
+
+        string dialoguePath;
+        if (GameState.Get<int>("day") == 2)
+        {
+            dialoguePath = "ScriptableObjects/Dialogues/outdoors/weather_neutral";
+        }
+        else
+        {
+            dialoguePath = isCorrect ? "ScriptableObjects/Dialogues/outdoors/weather_correct" : "ScriptableObjects/Dialogues/outdoors/weather_incorrect";
+        }
+
+        Dialogue dialogue = Resources.Load<Dialogue>(dialoguePath);
+        if (dialogue != null)
+        {
+            DialogueManager.ShowDialogue(dialogue);
+        }
+        else
+        {
+            Debug.LogWarning("Dialogue not found at path: " + dialoguePath);
+        }
     }
 }
