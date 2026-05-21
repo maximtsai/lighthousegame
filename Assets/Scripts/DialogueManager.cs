@@ -43,7 +43,7 @@ public class DialogueManager : MonoBehaviour
         handle = MessageBus.Instance.Subscribe("CloseDialogue", CloseDialogue, this);
     }
 
-    public static void ShowDialogue(Dialogue d)
+    public static Dialogue ShowDialogue(Dialogue d)
     {
         if (activeDialogueBox != null)
         {
@@ -53,9 +53,10 @@ public class DialogueManager : MonoBehaviour
         activeDialogueBox.GetComponent<UIDialogueBox>().SetDialogue(d);
 
         GameState.Set("dialogue_is_open", true);
+        return d;
     }
 
-    public static void ShowDialogueFromText(string[] textArray)
+    public static Dialogue ShowDialogueFromText(string[] textArray)
     {
         Dialogue dialogue = ScriptableObject.CreateInstance<Dialogue>();
         dialogue.text = new List<string>(textArray);
@@ -64,6 +65,7 @@ public class DialogueManager : MonoBehaviour
         dialogue.onDialogueEnd = new UnityEngine.Events.UnityEvent();
         dialogue.onDialogueEndImmediate = new UnityEngine.Events.UnityEvent();
         ShowDialogue(dialogue);
+        return dialogue;
     }
 
     public static void ShowDialogueInstant(object[] args)

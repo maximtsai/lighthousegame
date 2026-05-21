@@ -68,6 +68,11 @@ public class AudioManager : MonoBehaviour
 
     public void PlaySoundByName(string clipName)
     {
+        PlaySoundWithRandomPitch(clipName, 1f, 1f, 1f);
+    }
+
+    public void PlaySoundWithRandomPitch(string clipName, float minPitch, float maxPitch, float volume = 1f)
+    {
         if (string.IsNullOrEmpty(clipName)) return;
 
         if (!clipCache.TryGetValue(clipName, out AudioClip clip))
@@ -86,7 +91,8 @@ public class AudioManager : MonoBehaviour
 
         if (audioSource != null && clip != null)
         {
-            audioSource.PlayOneShot(clip);
+            audioSource.pitch = Random.Range(minPitch, maxPitch);
+            audioSource.PlayOneShot(clip, volume);
         }
     }
 

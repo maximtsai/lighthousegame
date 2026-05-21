@@ -1,0 +1,1144 @@
+fileFormatVersion: 2
+guid: 7a7bfdd6eb2232b40942eb8646c1220c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4390621245458794588
+    second: Line - weather_altocumulus_left_0
+  - first:
+      213: -8243455959495481872
+    second: Line - weather_altocumulus_left_1
+  - first:
+      213: 4812022531128856144
+    second: Line - weather_altocumulus_left_2
+  - first:
+      213: 1919247485004789849
+    second: Line - weather_altocumulus_left_3
+  - first:
+      213: -4471865133596087485
+    second: Line - weather_altocumulus_left_4
+  - first:
+      213: -2364712596593885222
+    second: Line - weather_altocumulus_left_5
+  - first:
+      213: 2222945888385344571
+    second: Line - weather_altocumulus_left_6
+  - first:
+      213: 6959651800113677459
+    second: Line - weather_altocumulus_left_7
+  - first:
+      213: -2168403672405349471
+    second: Line - weather_altocumulus_left_8
+  - first:
+      213: -1127984345068497045
+    second: Line - weather_altocumulus_left_9
+  - first:
+      213: 2500085701876091721
+    second: Line - weather_altocumulus_left_10
+  - first:
+      213: 2756099972876694131
+    second: Line - weather_altocumulus_left_11
+  - first:
+      213: -3667970266023885220
+    second: Line - weather_altocumulus_left_12
+  - first:
+      213: 621174560636400132
+    second: Line - weather_altocumulus_left_13
+  - first:
+      213: -812564263763290840
+    second: Line - weather_altocumulus_left_14
+  - first:
+      213: -7139499167098651500
+    second: Line - weather_altocumulus_left_15
+  - first:
+      213: 4779329092698404579
+    second: Line - weather_altocumulus_left_16
+  - first:
+      213: 2274304215696234717
+    second: Line - weather_altocumulus_left_17
+  - first:
+      213: -1107886024780709491
+    second: Line - weather_altocumulus_left_18
+  - first:
+      213: -1985325774501341935
+    second: Line - weather_altocumulus_left_19
+  - first:
+      213: 4670555670983102313
+    second: Line - weather_altocumulus_left_20
+  - first:
+      213: -635153012090993616
+    second: Line - weather_altocumulus_left_21
+  - first:
+      213: 3185824995323310864
+    second: Line - weather_altocumulus_left_22
+  - first:
+      213: 6377501172132663001
+    second: Line - weather_altocumulus_left_23
+  - first:
+      213: 1553830066578028265
+    second: Line - weather_altocumulus_left_24
+  - first:
+      213: 6694197823046612171
+    second: Line - weather_altocumulus_left_25
+  - first:
+      213: 8958691261409323213
+    second: Line - weather_altocumulus_left_26
+  - first:
+      213: 6462050204845180809
+    second: Line - weather_altocumulus_left_27
+  - first:
+      213: -981628572732037318
+    second: Line - weather_altocumulus_left_28
+  - first:
+      213: 7229087777693795583
+    second: Line - weather_altocumulus_left_29
+  - first:
+      213: 4407267944135914783
+    second: Line - weather_altocumulus_left_30
+  - first:
+      213: 7457150621559813866
+    second: Line - weather_altocumulus_left_31
+  - first:
+      213: -7284799338066632246
+    second: Line - weather_altocumulus_left_32
+  - first:
+      213: 7950082188594082045
+    second: Line - weather_altocumulus_left_33
+  - first:
+      213: 1839377677510158767
+    second: Line - weather_altocumulus_left_34
+  - first:
+      213: -6164963908898635796
+    second: Line - weather_altocumulus_left_35
+  - first:
+      213: -4715383965315737744
+    second: Line - weather_altocumulus_left_36
+  - first:
+      213: 7903948266596127672
+    second: Line - weather_altocumulus_left_37
+  - first:
+      213: 6604162791601091540
+    second: Line - weather_altocumulus_left_38
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Line - weather_altocumulus_left_0
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 133
+        width: 15
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c58cade92ce9eec30800000000000000
+      internalID: 4390621245458794588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Line - weather_altocumulus_left_1
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 137
+        width: 17
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f5e1b40b7c599d80800000000000000
+      internalID: -8243455959495481872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Line - weather_altocumulus_left_2
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 135
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05e8c133ffcb7c240800000000000000
+      internalID: 4812022531128856144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Line - weather_altocumulus_left_3
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 127
+        width: 19
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 958b5c34b6982aa10800000000000000
+      internalID: 1919247485004789849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Line - weather_altocumulus_left_4
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 121
+        width: 10
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34bec8c9a5eb0f1c0800000000000000
+      internalID: -4471865133596087485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Line - weather_altocumulus_left_5
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 137
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adf31241c6ade2fd0800000000000000
+      internalID: -2364712596593885222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Line - weather_altocumulus_left_6
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 114
+        width: 27
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b34af10028d79de10800000000000000
+      internalID: 2222945888385344571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Line - weather_altocumulus_left_7
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 129
+        width: 29
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3940f2a3076a59060800000000000000
+      internalID: 6959651800113677459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Line - weather_altocumulus_left_8
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 123
+        width: 20
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ab60a0495848e1e0800000000000000
+      internalID: -2168403672405349471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Line - weather_altocumulus_left_9
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 128
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b679df7e6389850f0800000000000000
+      internalID: -1127984345068497045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Line - weather_altocumulus_left_10
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 127
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94b8b5823b612b220800000000000000
+      internalID: 2500085701876091721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Line - weather_altocumulus_left_11
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 108
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37277c8a252af3620800000000000000
+      internalID: 2756099972876694131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Line - weather_altocumulus_left_12
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 116
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5683fe0a70c81dc0800000000000000
+      internalID: -3667970266023885220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Line - weather_altocumulus_left_13
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 103
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 402fd36c8fade9800800000000000000
+      internalID: 621174560636400132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Line - weather_altocumulus_left_14
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 118
+        width: 18
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82556357b1139b4f0800000000000000
+      internalID: -812564263763290840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Line - weather_altocumulus_left_15
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 110
+        width: 24
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49c33ee85576bec90800000000000000
+      internalID: -7139499167098651500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Line - weather_altocumulus_left_16
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 117
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e67af2ec76935240800000000000000
+      internalID: 4779329092698404579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Line - weather_altocumulus_left_17
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 106
+        width: 21
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd85fb762a3ff8f10800000000000000
+      internalID: 2274304215696234717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Line - weather_altocumulus_left_18
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 101
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d818351c78fff90f0800000000000000
+      internalID: -1107886024780709491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Line - weather_altocumulus_left_19
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 105
+        width: 27
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1159b6f0ab4b274e0800000000000000
+      internalID: -1985325774501341935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Line - weather_altocumulus_left_20
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 97
+        width: 23
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96f42a813a521d040800000000000000
+      internalID: 4670555670983102313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Line - weather_altocumulus_left_21
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 103
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0340c4063bb7f27f0800000000000000
+      internalID: -635153012090993616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Line - weather_altocumulus_left_22
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 90
+        width: 24
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0137eca34f2563c20800000000000000
+      internalID: 3185824995323310864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Line - weather_altocumulus_left_23
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 99
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9deca9fc68f618850800000000000000
+      internalID: 6377501172132663001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Line - weather_altocumulus_left_24
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 105
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e674b78630509510800000000000000
+      internalID: 1553830066578028265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Line - weather_altocumulus_left_25
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 94
+        width: 17
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc4f2e2e37196ec50800000000000000
+      internalID: 6694197823046612171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Line - weather_altocumulus_left_26
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 83
+        width: 33
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc8e2b0bc3aa35c70800000000000000
+      internalID: 8958691261409323213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Line - weather_altocumulus_left_27
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 86
+        width: 23
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98789848c60dda950800000000000000
+      internalID: 6462050204845180809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Line - weather_altocumulus_left_28
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 97
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a37eee4930e8062f0800000000000000
+      internalID: -981628572732037318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Line - weather_altocumulus_left_29
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 88
+        width: 27
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff48e8f4801e25460800000000000000
+      internalID: 7229087777693795583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Line - weather_altocumulus_left_30
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 66
+        width: 39
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f15ff2038d2c92d30800000000000000
+      internalID: 4407267944135914783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Line - weather_altocumulus_left_31
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 78
+        width: 20
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae6f7aa0bfe1d7760800000000000000
+      internalID: 7457150621559813866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Line - weather_altocumulus_left_32
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 80
+        width: 13
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac1a98a399137ea90800000000000000
+      internalID: -7284799338066632246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Line - weather_altocumulus_left_33
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 78
+        width: 24
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df07f4211ad545e60800000000000000
+      internalID: 7950082188594082045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Line - weather_altocumulus_left_34
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 83
+        width: 13
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa9a6c39048c68910800000000000000
+      internalID: 1839377677510158767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Line - weather_altocumulus_left_35
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 84
+        width: 14
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cef3efcfcf5a17aa0800000000000000
+      internalID: -6164963908898635796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Line - weather_altocumulus_left_36
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 72
+        width: 26
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07758c744479f8eb0800000000000000
+      internalID: -4715383965315737744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Line - weather_altocumulus_left_37
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 40
+        width: 43
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b3d681521770bd60800000000000000
+      internalID: 7903948266596127672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Line - weather_altocumulus_left_38
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 40
+        width: 83
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d33c309113b6ab50800000000000000
+      internalID: 6604162791601091540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Line - weather_altocumulus_left_0: 4390621245458794588
+      Line - weather_altocumulus_left_1: -8243455959495481872
+      Line - weather_altocumulus_left_10: 2500085701876091721
+      Line - weather_altocumulus_left_11: 2756099972876694131
+      Line - weather_altocumulus_left_12: -3667970266023885220
+      Line - weather_altocumulus_left_13: 621174560636400132
+      Line - weather_altocumulus_left_14: -812564263763290840
+      Line - weather_altocumulus_left_15: -7139499167098651500
+      Line - weather_altocumulus_left_16: 4779329092698404579
+      Line - weather_altocumulus_left_17: 2274304215696234717
+      Line - weather_altocumulus_left_18: -1107886024780709491
+      Line - weather_altocumulus_left_19: -1985325774501341935
+      Line - weather_altocumulus_left_2: 4812022531128856144
+      Line - weather_altocumulus_left_20: 4670555670983102313
+      Line - weather_altocumulus_left_21: -635153012090993616
+      Line - weather_altocumulus_left_22: 3185824995323310864
+      Line - weather_altocumulus_left_23: 6377501172132663001
+      Line - weather_altocumulus_left_24: 1553830066578028265
+      Line - weather_altocumulus_left_25: 6694197823046612171
+      Line - weather_altocumulus_left_26: 8958691261409323213
+      Line - weather_altocumulus_left_27: 6462050204845180809
+      Line - weather_altocumulus_left_28: -981628572732037318
+      Line - weather_altocumulus_left_29: 7229087777693795583
+      Line - weather_altocumulus_left_3: 1919247485004789849
+      Line - weather_altocumulus_left_30: 4407267944135914783
+      Line - weather_altocumulus_left_31: 7457150621559813866
+      Line - weather_altocumulus_left_32: -7284799338066632246
+      Line - weather_altocumulus_left_33: 7950082188594082045
+      Line - weather_altocumulus_left_34: 1839377677510158767
+      Line - weather_altocumulus_left_35: -6164963908898635796
+      Line - weather_altocumulus_left_36: -4715383965315737744
+      Line - weather_altocumulus_left_37: 7903948266596127672
+      Line - weather_altocumulus_left_38: 6604162791601091540
+      Line - weather_altocumulus_left_4: -4471865133596087485
+      Line - weather_altocumulus_left_5: -2364712596593885222
+      Line - weather_altocumulus_left_6: 2222945888385344571
+      Line - weather_altocumulus_left_7: 6959651800113677459
+      Line - weather_altocumulus_left_8: -2168403672405349471
+      Line - weather_altocumulus_left_9: -1127984345068497045
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

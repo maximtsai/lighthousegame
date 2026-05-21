@@ -1,202 +1,308 @@
-Dialogue ScriptableObjects located at: Assets/Resources/ScriptableObjects/Dialogues
+GAME DIALOGUE LOG
+================
 
-=== default_tasks_done.asset ===
-Text: You have already completed today's tasks.
+[Dialogues - default_tasks_done]
+  You have already completed today's tasks.
 
-=== default_task_complete.asset ===
-Text: Task completed.
+[Dialogues - default_task_complete]
+  Task completed.
 
-=== default_wrong_task.asset ===
-Text: You have other things to do. | Chop chop.
+[Dialogues - default_wrong_task]
+  You have other things to do.
+  Chop chop.
 
-=== drenched.asset ===
-Text: You are drenched by torrential downpours.
+[Dialogues - drenched]
+  You are drenched by torrential downpours.
 
-=== ellipsis.asset ===
-Text: ...
+[Dialogues - ellipsis]
+  ...
 
-=== go_outside.asset ===
-Text: You go outside.
+[Dialogues - go_outside]
+  You go outside.
 
-=== mirror.asset ===
-Text: Been broken for a long time.
+[Dialogues - mirror]
+  Been broken for a long time.
 
-=== nearly_dark.asset ===
-Text: It's getting dark.
+[Dialogues - nearly_dark]
+  It's getting dark.
 
-=== time_for_bed.asset ===
-Text: It's time for bed
+[Dialogues - time_for_bed]
+  It's time for bed.
 
-=== Bedroom\already_washed.asset ===
-Text: You already washed.
+[Bedroom - already_washed]
+  You already washed.
 
-=== Bedroom\co_bed_1.asset ===
-Text: Your coworker Camborne's bed. | He must be downstairs.
+[Bedroom - co_bed_1]
+  Your coworker Camborne's bed.
+  He must be downstairs.
 
-=== Bedroom\co_bed_2.asset ===
-Text: Strange. #What's Camborne still doing downstairs?
+[Bedroom - co_bed_2]
+  Strange. #What's Camborne still doing downstairs?
 
-=== Bedroom\co_bed_3.asset ===
-Text: Your ex-coworker's bed.
+[Bedroom - co_bed_3]
+  It sleeps outside now.
 
-=== Bedroom\journal_not_yet.asset ===
-Text: Not time to write yet.
+[Bedroom - journal_not_yet]
+  Not time to write yet.
 
-=== Bedroom\journal_not_yet_day1.asset ===
-Text: My journal.## I keep my secrets there.
+[Bedroom - journal_not_yet_day1]
+  My journal.## I keep my secrets there.
 
-=== Bedroom\my_bed_1.asset ===
-Text: 'Your bed. ' | It is slightly less hard than the floor.
+[Bedroom - my_bed_1]
+  My bed. 
+  It is slightly less hard than the floor.
 
-=== Bedroom\my_bed_2.asset ===
-Text: You have work to do!
+[Bedroom - my_bed_1a]
+  My bed. 
 
-=== Bedroom\my_bed_2a.asset ===
-Text: You have work to do!
+[Bedroom - my_bed_2]
+  There's something I forgot to do.
 
-=== Bedroom\my_bed_3.asset ===
-Text: Camborne still hasn't woken up. | What's he doing downstairs?
+[Bedroom - my_bed_2a]
+  You have work to do!
 
-=== Bedroom\not_clean.asset ===
-Text: You're dirty. | Wash your face first.
+[Bedroom - my_bed_3]
+  Camborne still hasn't woken up.
+  What's he doing downstairs?
 
-=== Bedroom\uneasy_sleep.asset ===
-Text: The bed is hard, but you are tired from the day | You look at the other bed across from you, now empty. | You turn the other way and cover yourself with damp blankets. | Sleep soon comes...
+[Bedroom - not_clean]
+  You're dirty.
+  Wash your face first.
 
-=== burial\already_buried.asset ===
-Text: Camborne's under there.
+[Bedroom - sleep_day2]
+  You've managed the day well enough on your own.
+  You dream of living fish, #and dead people.
 
-=== burial\finished_burying.asset ===
-Text: You toss your coworker in, #then cover up the hole.
+[Bedroom - uneasy_sleep]
+  The bed is hard, but you are tired from the day
+  You look at the other bed across from you, now empty.
+  You turn the other way and cover yourself with damp blankets.
+  Sleep soon comes...
 
-=== burial\finished_digging.asset ===
-Text: You dig a shallow grave.
+[burial - already_buried]
+  Camborne's under there.
 
-=== dock\gather_fish.asset ===
-Text: You pick up your daily haul of fish.
+[burial - finished_burying]
+  You toss your coworker in, #then cover up the hole.
 
-=== dock\gather_fish_done.asset ===
-Text: The fish trap is empty.
+[burial - finished_digging]
+  You dig a shallow grave.
 
-=== dock\gather_fish_not_yet.asset ===
-Text: No fish yet. #Come back later.
+[burial - grave_uncovered]
+  The rain's undone the grave. #Camborne's face is poking out.
 
-=== kitchen\bury_first.asset ===
-Text: You can't rest until you've taken care of the body.
+[burial - rebury]
+  You cover him back up. #Something sharp catches your hand. #You're bleeding.
 
-=== kitchen\camborne_breakfast.asset ===
-Text: No breakfast for you, sleepy old man!
+[dock - dark_dock]
+  Too dark to see much.
 
-=== kitchen\camb_choice1a.asset ===
-Text: You try and look away | But you can still smell him. | Like rotting fish mixed with bad gas.
+[dock - empty_dock]
+  It's been awhile since I've last seen any boats.
+  Maybe they'll send one of those two-masted ships again!
+
+[dock - gather_fish]
+  You pick up your daily haul of fish.
+
+[dock - gather_fish_done]
+  The fish trap is empty.
 
-=== kitchen\camb_choice1ax.asset ===
-Text: You try and look away | But you can still smell him. | Like rotting fish mixed with bad gas.
+[dock - gather_fish_not_yet]
+  No fish yet. #Come back later.
 
-=== kitchen\camb_choice2.asset ===
-Text: You touch his cheek. | Cold. ##And sagging. | Your fingers feel uncomfortably slick. | You feel the urge to wipe your hand on your shirt. | But you reconsider and wipe them on the table instead.
+[kitchen - bury_first]
+  You can't rest until you've taken care of the body.
 
-=== kitchen\camb_choice2x.asset ===
-Text: You touch his cheek. | Cold. ##And sagging. | Your fingers feel uncomfortably slick. | You feel the urge to wipe your hand on your shirt. | But you reconsider and wipe them on the table instead.
+[kitchen - camborne_breakfast]
+  He better wake up soon or the food will go cold.
 
-=== kitchen\camb_choice3.asset ===
-Text: It's already dark outside. | But you can't just leave the body here. | You pick up your coworker and head out.
+[kitchen - camb_choice1a]
+  You try and look away
+  But you can still smell him.
+  Like rotting fish mixed with bad gas.
 
-=== kitchen\check_up_camborne.asset ===
-Text: Wake up Mister Camborne, it's time for your night shift.
+[kitchen - camb_choice1ax]
+  You try and look away
+  But you can still smell him.
+  Like rotting fish mixed with bad gas.
 
-=== kitchen\cleanup.asset ===
-Text: Gotta clean that up later
+[kitchen - camb_choice2]
+  You touch his cheek.
+  Cold. ##And sagging.
+  Your fingers feel uncomfortably slick.
+  You feel the urge to wipe your hand on your shirt.
+  But you reconsider and wipe them on the table instead.
 
-=== kitchen\hungry.asset ===
-Text: Hungry. #Need breakfast first.
+[kitchen - camb_choice2x]
+  You touch his cheek.
+  Cold. ##And sagging.
+  Your fingers feel uncomfortably slick.
+  You feel the urge to wipe your hand on your shirt.
+  But you reconsider and wipe them on the table instead.
 
-=== kitchen\hungry_dinner.asset ===
-Text: Hungry. #Need dinner first.
+[kitchen - camb_choice3]
+  It's already dark outside.
+  But you can't just leave the body here.
+  You pick up your coworker and head out.
 
-=== kitchen\hungry_forgot.asset ===
-Text: Wait I haven't actually eaten anything yet.
+[kitchen - check_up_camborne]
+  Wake up Mister Camborne, it's time for your night shift.
 
-=== kitchen\long_night.asset ===
-Text: Camborne must have had a long night.
+[kitchen - cleanup]
+  Gotta clean that up later
 
-=== kitchen\not_hungry.asset ===
-Text: Not hungry right now.
+[kitchen - day2_table]
+  I'll clean up that spot later, ##maybe.
 
-=== kitchen\reveal_camborne.asset ===
-Text: What do I do now?
+[kitchen - hungry]
+  Hungry. #Need breakfast first.
 
-=== kitchen\sleep_all_day.asset ===
-Text: He hasn't moved, how tired is he? | He better wake up soon for his night shift.
+[kitchen - hungry_dinner]
+  Hungry. #Need dinner first.
 
-=== kitchen\wake_camborne.asset ===
-Text: I should probably wake him. | He's not going to get angry right? | ... He'll probably yell and throw some bottles. | But that's fine. I've seen worse. | I poke my coworker. | He doesn't move. | Maybe he'll wake up if I call out to him? | I move his arm aside. | '"...Hey Camborne, it''s time to'
+[kitchen - hungry_forgot]
+  Wait I haven't actually eaten anything yet.
 
-=== Lighthouse\already_fixed.asset ===
-Text: Today's maintenance work is finished.
+[kitchen - long_night]
+  Camborne must have had a long night.
 
-=== Lighthouse\drop_tool.asset ===
-Text: Your screwdriver slips from your hand. | You hear it clang down the stairs.
+[kitchen - not_hungry]
+  Not hungry right now.
 
-=== Lighthouse\fix_complete.asset ===
-Text: The lights are working now.
+[kitchen - reveal_camborne]
+  What do I do now?
 
-=== Lighthouse\missing_tool.asset ===
-Text: You're missing your screwdriver. | It must have fallen down the stairs.
+[kitchen - sleep_all_day]
+  He hasn't moved, how tired is he?
+  He better wake up soon for his night shift.
 
-=== Lighthouse\open_default.asset ===
-Text: You open the lens casing and prepare your tools
+[kitchen - wake_camborne]
+  I should probably wake him.
+  He's not going to get angry right?
+  ... He'll probably yell and throw some bottles.
+  But that's fine. I've seen worse.
+  I poke my coworker.
+  He doesn't move.
+  Maybe he'll wake up if I call out to him?
+  I move his arm aside.
+  ...Hey Camborne, it''s time to
 
-=== Lighthouse\open_lighthouse_first.asset ===
-Text: I need to open the casing first
+[Lighthouse - already_fixed]
+  Today's maintenance work is finished.
 
-=== Lighthouse\tool_not_downstairs.asset ===
-Text: You look everywhere for your screwdriver. | It's not down here. | Maybe there's some other way to fix things upstairs?
+[Lighthouse - drop_tool]
+  Your screwdriver slips from your hand.
+  You hear it clang down the stairs.
 
-=== Lighthouse\work_done.asset ===
-Text: The lights are working now.
+[Lighthouse - fix_complete]
+  The lights are working now.
 
-=== outdoors\burial_blocked.asset ===
-Text: You need to bury this body first
+[Lighthouse - missing_tool]
+  You're missing your screwdriver.
+  It must have fallen down the stairs.
 
-=== outdoors\missing_fish.asset ===
-Text: I still need fish for dinner
+[Lighthouse - open_default]
+  You open the lens casing and prepare your tools
 
-=== outdoors\resting_place.asset ===
-Text: Camborne's resting place
+[Lighthouse - open_lighthouse_first]
+  I need to open the casing first
 
-=== outdoors\work_not_done.asset ===
-Text: You still have stuff to do.
+[Lighthouse - tool_not_downstairs]
+  You look everywhere for your screwdriver.
+  It's not down here.
+  Maybe there's some other way to fix things upstairs?
 
-=== sink\already_washed.asset ===
-Text: You already washed yourself.
+[Lighthouse - work_done]
+  The lights are working now.
 
-=== sink\prompt_wash_up.asset ===
-Text: Wash up?
+[outdoors - burial_blocked]
+  You need to bury this body first
 
-=== sink\sink_wash_up.asset ===
-Text: You wash up. | You are now less dirty.
+[outdoors - missing_fish]
+  I still need fish for dinner
 
-=== stove\alcohol_already_added.asset ===
-Text: You already added booze
+[outdoors - resting_place]
+  Camborne's resting place
 
-=== stove\corn_already_added.asset ===
-Text: You already added corn
+[outdoors - work_not_done]
+  You still have stuff to do.
 
-=== stove\eating.asset ===
-Text: The chowder fills you for now.
+[sink - already_washed]
+  You already washed yourself.
 
-=== stove\fish_already_added.asset ===
-Text: You've already added all the good bits.
+[sink - prompt_wash_up]
+  Wash up?
 
-=== stove\not_hungry.asset ===
-Text: You need to ration for the next food and water delivery.
+[sink - sanity_high]
+  Another day, another day.
+  Sanity Level: HIGH
 
-=== stove\not_ready.asset ===
-Text: Chowder needs more stuff
+[sink - sanity_low]
+  Looking a little haggard.
+  Sanity Level: Low
 
-=== stove\pepper_already_added.asset ===
-Text: You already added seasoning
+[sink - sanity_lowest]
+  What a lovely world!
+  Sanity Level: LOW
 
-=== stove\ready_to_eat.asset ===
-Text: Food's ready
+[sink - sanity_medium]
+  Still keeping it together...
+  Sanity Level: Medium
+
+[sink - sink_wash_up]
+  You wash up.
+  You are now less dirty.
+
+[stove - alcohol_already_added]
+  You already added booze
+
+[stove - corn_already_added]
+  You already added corn
+
+[stove - eating]
+  The chowder fills you for now.
+
+[stove - fish_already_added]
+  You've already added all the good bits.
+
+[stove - fish_ask]
+  #Did the fish just look at me?
+
+[stove - fish_not_want]
+  You don't feel like eating any more fish
+
+[stove - not_hungry]
+  You need to ration for the next food and water delivery.
+
+[stove - not_ready]
+  Chowder needs more stuff
+
+[stove - pepper_already_added]
+  You already added seasoning
+
+[stove - ready_to_eat]
+  Food's ready
+
+
+[Day 2 Night - Gathering Fish]
+SCENE: Dock
+CONTEXT: Player gathers fish on the second day and feels guilt.
+  You don't feel like fish for dinner tonight.
+  You let the caught fishes go.
+
+[Any Day - Missing Tasks]
+SCENE: Navigation Transitions
+CONTEXT: Trying to leave an area or go to bed before completing goals.
+  I haven't checked the fish traps yet.
+  You need to record the weather first.
+
+[Day 2 Morning - Grave Discovery]
+SCENE: Outdoors
+CONTEXT: Approaching the grave site on the second morning.
+  Something's wrong with the grave.
+
+[Day 1 Afternoon - Weather Log]
+SCENE: Weather Station
+CONTEXT: Starting the weather recording task for the first time.
+  Time to record the weather.
+

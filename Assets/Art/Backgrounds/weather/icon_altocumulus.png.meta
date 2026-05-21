@@ -1,0 +1,676 @@
+fileFormatVersion: 2
+guid: 163b4cdd22c0e2a4883ee9de589e5a0e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8041812318300078672
+    second: icon_altocumulus_0
+  - first:
+      213: -5614551946894972577
+    second: icon_altocumulus_1
+  - first:
+      213: 8746156218399044723
+    second: icon_altocumulus_2
+  - first:
+      213: -9094790827310740969
+    second: icon_altocumulus_3
+  - first:
+      213: 8634826584047350159
+    second: icon_altocumulus_4
+  - first:
+      213: 5355002864466771641
+    second: icon_altocumulus_5
+  - first:
+      213: -684870774803882152
+    second: icon_altocumulus_6
+  - first:
+      213: -3525759675327022517
+    second: icon_altocumulus_7
+  - first:
+      213: 3216648396920294907
+    second: icon_altocumulus_8
+  - first:
+      213: -3608671660984038152
+    second: icon_altocumulus_9
+  - first:
+      213: 1704920354915745030
+    second: icon_altocumulus_10
+  - first:
+      213: -5384357187105063238
+    second: icon_altocumulus_11
+  - first:
+      213: -7619639490006595050
+    second: icon_altocumulus_12
+  - first:
+      213: -1764458494947500338
+    second: icon_altocumulus_13
+  - first:
+      213: -3086741123951203878
+    second: icon_altocumulus_14
+  - first:
+      213: -947631967911252749
+    second: icon_altocumulus_15
+  - first:
+      213: 6659804037283153182
+    second: icon_altocumulus_16
+  - first:
+      213: -3796636133310388122
+    second: icon_altocumulus_17
+  - first:
+      213: 1780890131203156692
+    second: icon_altocumulus_18
+  - first:
+      213: 3497284679849448926
+    second: icon_altocumulus_19
+  - first:
+      213: -7390048595802719671
+    second: icon_altocumulus_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: icon_altocumulus_0
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 37
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bdfc59cd4eb56090800000000000000
+      internalID: -8041812318300078672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: icon_altocumulus_1
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 34
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f59e85060ca1512b0800000000000000
+      internalID: -5614551946894972577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: icon_altocumulus_2
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 42
+        width: 15
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 374bfb3ddb6906970800000000000000
+      internalID: 8746156218399044723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: icon_altocumulus_3
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 33
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71a89a7cdefc8c180800000000000000
+      internalID: -9094790827310740969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: icon_altocumulus_4
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 41
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f81fd37670115d770800000000000000
+      internalID: 8634826584047350159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: icon_altocumulus_5
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 37
+        width: 7
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bebdb3bbbac05a40800000000000000
+      internalID: 5355002864466771641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: icon_altocumulus_6
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 37
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85f94cea8a9de76f0800000000000000
+      internalID: -684870774803882152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: icon_altocumulus_7
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 27
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4a7cbc614cf11fc0800000000000000
+      internalID: -3525759675327022517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: icon_altocumulus_8
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 22
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfd83c9aca4d3ac20800000000000000
+      internalID: 3216648396920294907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: icon_altocumulus_9
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 23
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fc07007e3c6bedc0800000000000000
+      internalID: -3608671660984038152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: icon_altocumulus_10
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 34
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60df51d970819a710800000000000000
+      internalID: 1704920354915745030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: icon_altocumulus_11
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 16
+        width: 25
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abef7c67aabe645b0800000000000000
+      internalID: -5384357187105063238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: icon_altocumulus_12
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 33
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61a4e91214a914690800000000000000
+      internalID: -7619639490006595050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: icon_altocumulus_13
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 28
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecedbbbe8526387e0800000000000000
+      internalID: -1764458494947500338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: icon_altocumulus_14
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 16
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad96c415d41b925d0800000000000000
+      internalID: -3086741123951203878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: icon_altocumulus_15
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 10
+        width: 16
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fc68d6feb559d2f0800000000000000
+      internalID: -947631967911252749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: icon_altocumulus_16
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 18
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1589fb9c706c6c50800000000000000
+      internalID: 6659804037283153182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: icon_altocumulus_17
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 17
+        width: 11
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6682f9c5d83af4bc0800000000000000
+      internalID: -3796636133310388122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: icon_altocumulus_18
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 12
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4daec56832ef6b810800000000000000
+      internalID: 1780890131203156692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: icon_altocumulus_19
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 5
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed597dc03e9d88030800000000000000
+      internalID: 3497284679849448926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: icon_altocumulus_20
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 4
+        width: 15
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94afd4ec4f5417990800000000000000
+      internalID: -7390048595802719671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      icon_altocumulus_0: -8041812318300078672
+      icon_altocumulus_1: -5614551946894972577
+      icon_altocumulus_10: 1704920354915745030
+      icon_altocumulus_11: -5384357187105063238
+      icon_altocumulus_12: -7619639490006595050
+      icon_altocumulus_13: -1764458494947500338
+      icon_altocumulus_14: -3086741123951203878
+      icon_altocumulus_15: -947631967911252749
+      icon_altocumulus_16: 6659804037283153182
+      icon_altocumulus_17: -3796636133310388122
+      icon_altocumulus_18: 1780890131203156692
+      icon_altocumulus_19: 3497284679849448926
+      icon_altocumulus_2: 8746156218399044723
+      icon_altocumulus_20: -7390048595802719671
+      icon_altocumulus_3: -9094790827310740969
+      icon_altocumulus_4: 8634826584047350159
+      icon_altocumulus_5: 5355002864466771641
+      icon_altocumulus_6: -684870774803882152
+      icon_altocumulus_7: -3525759675327022517
+      icon_altocumulus_8: 3216648396920294907
+      icon_altocumulus_9: -3608671660984038152
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

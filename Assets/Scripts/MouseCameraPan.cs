@@ -61,7 +61,7 @@ public class MouseCameraPan : MonoBehaviour
 			return;
 		}
 
-		if (GameState.Get<bool>("dialogue_is_open") || GameState.Get<bool>("minigame_open"))
+		if (GameState.Get<bool>("dialogue_is_open") || GameState.Get<bool>("minigame_open") || GameState.Get<bool>("is_recording_weather"))
 		{
 			// Make scrolling much slower when dialog open
 			shiftRatio *= 0.25f;
@@ -89,7 +89,7 @@ public class MouseCameraPan : MonoBehaviour
         // Convert to -1 to 1 range
         mousePos = (mousePos - Vector2.one * 0.5f) * 2f;
 
-        if (GameState.Get<bool>("minigame_open"))
+        if (GameState.Get<bool>("minigame_open") || GameState.Get<bool>("is_recording_weather"))
         {
 	        // Center the camera more when minigame is open
 	        mousePos *= 0.2f;

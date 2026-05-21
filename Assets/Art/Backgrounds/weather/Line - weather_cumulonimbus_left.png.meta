@@ -1,0 +1,222 @@
+fileFormatVersion: 2
+guid: 14c0670aa3b85a846b570b7a5014362d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5587765580830335007
+    second: Line - weather_cumulonimbus_left_0
+  - first:
+      213: 3382406538076823411
+    second: Line - weather_cumulonimbus_left_1
+  - first:
+      213: 5144083720188012127
+    second: Line - weather_cumulonimbus_left_2
+  - first:
+      213: 4051033029401411196
+    second: Line - weather_cumulonimbus_left_3
+  - first:
+      213: -2388240376323127957
+    second: Line - weather_cumulonimbus_left_4
+  - first:
+      213: 3649950601181516646
+    second: Line - weather_cumulonimbus_left_5
+  - first:
+      213: 3346400403665734915
+    second: Line - weather_cumulonimbus_left_6
+  - first:
+      213: -6647952956318560601
+    second: Line - weather_cumulonimbus_left_7
+  - first:
+      213: -7051355815605649710
+    second: Line - weather_cumulonimbus_left_8
+  - first:
+      213: -1048280595600240499
+    second: Line - weather_cumulonimbus_left_9
+  - first:
+      213: 7702391922866973110
+    second: Line - weather_cumulonimbus_left_10
+  - first:
+      213: 72581038056310957
+    second: Line - weather_cumulonimbus_left_11
+  - first:
+      213: -1609833480476304221
+    second: Line - weather_cumulonimbus_left_12
+  - first:
+      213: -5635744969018422922
+    second: Line - weather_cumulonimbus_left_13
+  - first:
+      213: 6155265179878848601
+    second: Line - weather_cumulonimbus_left_14
+  - first:
+      213: -1816650010261769712
+    second: Line - weather_cumulonimbus_left_15
+  - first:
+      213: -8885642294326281228
+    second: Line - weather_cumulonimbus_left_16
+  - first:
+      213: 5250727898715778174
+    second: Line - weather_cumulonimbus_left_17
+  - first:
+      213: 7993567568976573570
+    second: Line - weather_cumulonimbus_left_18
+  - first:
+      213: 5296233663089391159
+    second: Line - weather_cumulonimbus_left_19
+  - first:
+      213: 4583357195231549380
+    second: Line - weather_cumulonimbus_left_20
+  - first:
+      213: -640510825628320606
+    second: Line - weather_cumulonimbus_left_21
+  - first:
+      213: 8755278977918392513
+    second: Line - weather_cumulonimbus_left_22
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: dead_camborne_fried_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 646
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc498defcbd2f46f0800000000000000
+      internalID: -698289127466429235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      dead_camborne_fried_0: -698289127466429235
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
