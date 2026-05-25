@@ -9,7 +9,8 @@ public class BurialActivate : MonoBehaviour
         {
             if (GameState.Get<int>("day", 1) == 2)
             {
-                if (GameState.Get<bool>("finished_burial", false)) {
+                bool finishedFish = GameState.Get<bool>("gathered_fish", false);
+                if (!finishedFish || GameState.Get<bool>("finished_burial", false)) {
                     gameObject.SetActive(false);
                 }
             } else {

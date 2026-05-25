@@ -22,6 +22,7 @@ public class StoveScript : MonoBehaviour
     [SerializeField] private AudioClip alcoholSound;
     [SerializeField] private AudioClip fishChopSound;
     [SerializeField] private AudioClip eatSound;
+    [SerializeField] private GameObject returnButton;
 
     private Coroutine glowRoutine;
 
@@ -313,6 +314,10 @@ public class StoveScript : MonoBehaviour
 
     private void TwitchFish(bool chainJumpscare = false)
     {
+        if (chainJumpscare && returnButton != null)
+        {
+            returnButton.SetActive(false);
+        }
         fish.SetActive(false);
         fishAnim.SetActive(true);
         SpriteRenderer sr = fishAnim.GetComponent<SpriteRenderer>();
@@ -375,6 +380,10 @@ public class StoveScript : MonoBehaviour
         // Play dialog stove/fish_ask
         DialogueManager.ShowDialogue(miscObjectClick.getDialogue("stove/fish_ask"));
         // Re-enable interaction
+        if (returnButton != null)
+        {
+            returnButton.SetActive(true);
+        }
         fish.SetActive(true);
         fishAnim.SetActive(false);
     }

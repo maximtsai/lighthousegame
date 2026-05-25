@@ -37,6 +37,11 @@ public class WeatherUIController : MonoBehaviour
     {
         if (actionButton != null)
         {
+            if (GameState.Get<bool>("recorded_weather", false))
+            {
+                actionButton.gameObject.SetActive(false);
+            }
+            return;
             actionButton.onClick.AddListener(OnActionButtonClicked);
         }
 

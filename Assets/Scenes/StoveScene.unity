@@ -367,6 +367,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
+--- !u!1 &350574387 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8117198677215079408, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
+  m_PrefabInstance: {fileID: 350574386}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &505848655
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1287,7 +1292,7 @@ MonoBehaviour:
   alcoholSound: {fileID: 8300000, guid: 7633a1bcdf94dfb4d83cea3c33c58faf, type: 3}
   fishChopSound: {fileID: 8300000, guid: cb4d2a3cb06eb2840bdd3775f66f9c4c, type: 3}
   eatSound: {fileID: 8300000, guid: 5849f6bded225c0408aaadbd1a650dc3, type: 3}
-  squishSound: {fileID: 8300000, guid: 3eb2c2a7b3ef0e64a8056b70f2c32af0, type: 3}
+  returnButton: {fileID: 350574387}
 --- !u!4 &671257225
 Transform:
   m_ObjectHideFlags: 0

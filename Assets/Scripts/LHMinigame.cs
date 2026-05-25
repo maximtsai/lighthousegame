@@ -300,6 +300,7 @@ public class LHMinigame : MonoBehaviour
         StopMinigame();
         DialogueManager.ShowDialogue(miscObjectClick.getDialogue("Lighthouse/work_done"));
         MessageBus.Instance.Publish("CompleteTask", "task_lighthouse");
+        MessageBus.Instance.Publish("CompleteTask", "task_work");
         miscLogic.UpdateTrackPublic(finishLoop, 1, 2);
 
     }

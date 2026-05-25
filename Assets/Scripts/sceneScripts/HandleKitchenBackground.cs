@@ -15,7 +15,7 @@ public class HandleKitchenBackground : MonoBehaviour
             if (GameState.Get<int>("day") >= 2) {
                 background.sprite = stained_dark_bg;
             } else {
-                background.sprite = dark_bg;
+                background.sprite = stained_dark_bg;
             }
         }
         else if (GameState.Get<int>("day") >= 2)

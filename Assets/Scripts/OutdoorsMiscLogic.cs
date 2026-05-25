@@ -9,11 +9,7 @@ public class OutdoorsMiscLogic : MonoBehaviour
     [SerializeField] private MiscObjectClick miscObjectClick;
     
     [Header("Weather UI (Optional)")]
-    [SerializeField] private Image weatherImage;
     [SerializeField] private Button weatherActionButton;
-    [SerializeField] private Animator weatherAnimator;
-    [SerializeField] private string weatherAnimationName = "openbook";
-    [SerializeField] private GameObject clickBlocker;
 
     void Start()
     {
@@ -34,36 +30,13 @@ public class OutdoorsMiscLogic : MonoBehaviour
         }
 
         // Initialize Weather Button
-        if (weatherActionButton != null)
-        {
-            weatherActionButton.onClick.AddListener(OnWeatherButtonClicked);
-        }
-    }
-
-    private void OnWeatherButtonClicked()
-    {
-        // if (weatherAnimator != null)
-        // {
-        //     weatherAnimator.Play(weatherAnimationName);
-        // }
-
-        // GameState.Set("recorded_weather", true);
-
         // if (weatherActionButton != null)
         // {
-        //     weatherActionButton.gameObject.SetActive(false);
-        // }
-
-        // if (clickBlocker != null)
-        // {
-        //     clickBlocker.SetActive(true);
-        // }
-
-        // if (AudioManager.Instance != null)
-        // {
-        //     AudioManager.Instance.PlaySoundByName("paper_flap");
+        //     weatherActionButton.onClick.AddListener(OnWeatherButtonClicked);
         // }
     }
+
+
 
     private void UpdateTrack(Ambience ambience, AudioClip newClip, float volume, int channel)
     {
