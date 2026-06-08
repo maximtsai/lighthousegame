@@ -19,6 +19,9 @@ public class BurialScript : MonoBehaviour
     [SerializeField] private Sprite backgroundCoveredSpriteDay;
     
     [SerializeField] private MiscObjectClick miscObjectClick;
+    [SerializeField] private GameObject handBleed;
+    private Vector3 initialHandBleedPosition;
+    private bool hasSavedHandPos = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     
     private void OnEnable()
@@ -40,6 +43,17 @@ public class BurialScript : MonoBehaviour
         UpdateTrack(ambience, bgLoop1, 0.65f, 1);
         // Update track 2
         UpdateTrack(ambience, bgLoop2, 0.3f, 2);
+
+        if (handBleed != null)
+        {
+            initialHandBleedPosition = handBleed.transform.position;
+            hasSavedHandPos = true;
+        }
+
+        if (handBleed != null)
+        {
+            handBleed.SetActive(GameState.Get<bool>("hand_cut"));
+        }
 
         bool isDay2 = GameState.Get<int>("day") == 2;
 
@@ -64,6 +78,20 @@ public class BurialScript : MonoBehaviour
             {
                 background.sprite = backgroundDugSprite;
             }
+        }
+    }
+
+    void LateUpdate()
+    {
+        if (handBleed != null && handBleed.activeSelf && Camera.main != null)
+        {
+            if (!hasSavedHandPos)
+            {
+                initialHandBleedPosition = handBleed.transform.position;
+                hasSavedHandPos = true;
+            }
+            Vector3 camPos = Camera.main.transform.position;
+            handBleed.transform.position = initialHandBleedPosition + new Vector3(camPos.x * 0.6f, camPos.y * 0.6f, 0f);
         }
     }
     
@@ -101,6 +129,10 @@ public class BurialScript : MonoBehaviour
             GameState.Set("grave_revealed", false);
             GameState.Set("grave_inspected", true);
             GameState.Set("hand_cut", true);
+            if (handBleed != null)
+            {
+                handBleed.SetActive(true);
+            }
             GameState.Set("near_nighttime", true);
 
             black.SetActive(true);

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: task_fish
   m_EditorClassIdentifier: Assembly-CSharp::Task
   id: task_fish
-  description: Catch Fish
+  description: Check Fish Traps
   on_completion: {fileID: 0}

@@ -20,6 +20,7 @@ public static class GameState
         data["ate_dinner"] = false;
         data["hungry"] = true;
         data["intro_played"] = false;
+        data["hand_cleaned"] = false;
     }
 
 
@@ -122,6 +123,7 @@ public static class GameState
         Set("grave_revealed", false);
         Set("grave_inspected", false);
         Set("hand_cut", false);
+        Set("hand_cleaned", false);
 
         // Events
         Set("introduced_journal", false);
