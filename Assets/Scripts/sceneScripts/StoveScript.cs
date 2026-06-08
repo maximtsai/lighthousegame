@@ -182,16 +182,16 @@ public class StoveScript : MonoBehaviour
         if (holdingKnife != null)
         {
             initialKnifePos = holdingKnife.transform.localPosition;
-            // move it to y position -3 and x position 2
-            holdingKnife.transform.localPosition = new Vector3(2f, -3f, initialKnifePos.z);
+            // move it to y position -3 and x position 2.1 (shifted 0.1 right)
+            holdingKnife.transform.localPosition = new Vector3(2.1f, -3f, initialKnifePos.z);
             holdingKnife.SetActive(true);
         }
 
-        // quickly animate it going to y position 0, x position 2 using cubic.easeOut
+        // quickly animate it going to y position 0, x position 2.1 using cubic.easeOut
         float durationUp = 0.35f;
         float elapsed = 0f;
-        Vector3 upStart = new Vector3(2f, -3f, initialKnifePos.z);
-        Vector3 upEnd = new Vector3(2f, 0f, initialKnifePos.z);
+        Vector3 upStart = new Vector3(2.1f, -3f, initialKnifePos.z);
+        Vector3 upEnd = new Vector3(2.1f, 0f, initialKnifePos.z);
         while (elapsed < durationUp)
         {
             elapsed += Time.deltaTime;
@@ -205,11 +205,11 @@ public class StoveScript : MonoBehaviour
         }
         if (holdingKnife != null) holdingKnife.transform.localPosition = upEnd;
 
-        // then swing down cubic.easeIn by moving to y position -0.8, x position 1.65
+        // then swing down cubic.easeIn by moving to y position -0.8, x position 1.75 (shifted 0.1 right)
         float durationDown = 0.25f;
         elapsed = 0f;
         Vector3 downStart = upEnd;
-        Vector3 downEnd = new Vector3(1.65f, -0.8f, initialKnifePos.z);
+        Vector3 downEnd = new Vector3(1.8f, -0.8f, initialKnifePos.z);
         while (elapsed < durationDown)
         {
             elapsed += Time.deltaTime;
@@ -228,6 +228,7 @@ public class StoveScript : MonoBehaviour
         {
             blackScreenFlash.SetActive(true);
         }
+        PlaySound(fishChopSound);
 
         yield return new WaitForSeconds(0.05f);
 
@@ -241,7 +242,6 @@ public class StoveScript : MonoBehaviour
         // fish appears in its chopped state
         GameState.Set("fish_clicked", true);
         MessageBus.Instance.Publish("FloatText", -1.2f, -0.1f, "+FISH");
-        PlaySound(fishChopSound);
         
         bool isDay2 = GameState.Get<int>("day") == 2;
         TwitchFish(isDay2);

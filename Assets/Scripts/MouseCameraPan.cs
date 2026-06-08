@@ -17,7 +17,14 @@ public class MouseCameraPan : MonoBehaviour
     void Start()
     {
         cam = Camera.main;
-        lastMousePos = new Vector2(Screen.width / 2f, Screen.height / 2f); // Start centered
+        if (Pointer.current != null)
+        {
+            lastMousePos = Pointer.current.position.ReadValue();
+        }
+        else
+        {
+            lastMousePos = new Vector2(Screen.width / 2f, Screen.height / 2f); // Start centered fallback
+        }
         RecalculateDimensions();
         handle = MessageBus.Instance.Subscribe("refreshCamera", RecalculateDimensionsMessage, this);
         
