@@ -1077,10 +1077,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.29483697
+    x: 0
     y: 0
-    width: 0.9782609
-    height: 0.9782609
+    width: 1
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -1445,11 +1445,7 @@ MonoBehaviour:
   bgLoop1: {fileID: 8300000, guid: 3f6c773ae3d76484cbf2270c2150fefd, type: 3}
   bgLoop2: {fileID: 8300000, guid: bb295e81a5802b94f99cacb96173522c, type: 3}
   miscObjectClick: {fileID: 5912071456214807691, guid: add25f6ff90e9474990e9f3862207611, type: 3}
-  weatherImage: {fileID: 0}
   weatherActionButton: {fileID: 0}
-  weatherAnimator: {fileID: 0}
-  weatherAnimationName: openbook
-  clickBlocker: {fileID: 1969580230}
 --- !u!4 &647772682
 Transform:
   m_ObjectHideFlags: 0
@@ -2285,6 +2281,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1393366818}
   - component: {fileID: 1393366817}
+  - component: {fileID: 1393366819}
   m_Layer: 0
   m_Name: weather_bg
   m_TagString: Untagged
@@ -2339,7 +2336,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -3898674435118972281, guid: 1a2ee800e5b939a4198065174ce4c3a5, type: 3}
+  m_Sprite: {fileID: 9090211444249507973, guid: 5807c69e8430391418d3e014588e74d2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2365,6 +2362,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1393366819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1393366816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad7958f87f1e7a94b9381b72637d3db4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  altocumulusSprite: {fileID: 9090211444249507973, guid: 5807c69e8430391418d3e014588e74d2, type: 3}
+  stratusSprite: {fileID: -3898674435118972281, guid: 1a2ee800e5b939a4198065174ce4c3a5, type: 3}
+  cirrocumulusSprite: {fileID: 4792958839853027811, guid: 50f55864a94970e448ef4a29b35f1c2b, type: 3}
+  cirrostratusSprite: {fileID: 8459876662590001216, guid: ca8a4f6b098079f4d8b4b1ca8160a2c6, type: 3}
+  cirrusSprite: {fileID: -892669080446792543, guid: 469447c883c24904eb9393027024e05d, type: 3}
+  cumulonimbusSprite: {fileID: 8811944454374620479, guid: b6728d629f01306419c54c8bbb60e002, type: 3}
 --- !u!1001 &1601745822
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3163,7 +3178,7 @@ Animator:
   m_GameObject: {fileID: 2077416082}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9574bfe78d1f44d4687fdb89e1a3fd3d, type: 2}
+  m_Controller: {fileID: 9100000, guid: e249233f7faad8d4598be41d9cf71f38, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -3222,7 +3237,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0980302a31332f6448a7ef517f09432f, type: 3}
+  m_Sprite: {fileID: 8740280916574672088, guid: fe6dd8464038fb64d9e4863cb52fc8eb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3242,8 +3257,8 @@ Transform:
   m_GameObject: {fileID: 2077416082}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.3, z: 0.9}
-  m_LocalScale: {x: 1.6666666, y: 1.6666666, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.9}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2020215868}

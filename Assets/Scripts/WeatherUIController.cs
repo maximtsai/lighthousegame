@@ -35,13 +35,14 @@ public class WeatherUIController : MonoBehaviour
 
     void Start()
     {
+        if (GameState.Get<bool>("recorded_weather", false))
+        {
+            this.gameObject.SetActive(false);
+            return;
+        }
+
         if (actionButton != null)
         {
-            if (GameState.Get<bool>("recorded_weather", false))
-            {
-                actionButton.gameObject.SetActive(false);
-            }
-            return;
             actionButton.onClick.AddListener(OnActionButtonClicked);
         }
 
@@ -81,7 +82,6 @@ public class WeatherUIController : MonoBehaviour
             Debug.LogWarning("WeatherUIController: No Animator assigned!");
         }
 
-        GameState.Set("recorded_weather", true);
         GameState.Set("is_recording_weather", true);
 
         // 2. Make the button no longer clickable
@@ -170,6 +170,7 @@ public class WeatherUIController : MonoBehaviour
             flasherObject.SetActive(false);
         }
 
+        GameState.Set("recorded_weather", true);
         StartCoroutine(PostConfirmSequence());
     }
 
@@ -181,29 +182,50 @@ public class WeatherUIController : MonoBehaviour
 
     private void postConfirmJudgment()
     {
-        bool isPartialCorrect = GameState.Get<int>("day") == 2;
+        int day = GameState.Get<int>("day");
         bool isCorrect = false;
+
+        string targetSpriteName = "weather_altocumulus_left";
+        switch (day)
+        {
+            case 1:
+                targetSpriteName = "weather_altocumulus_left";
+                break;
+            case 2:
+                targetSpriteName = "weather_stratus_left";
+                break;
+            case 3:
+                targetSpriteName = "weather_cirrocumulus_left";
+                break;
+            case 4:
+                targetSpriteName = "weather_cirrostratus_left";
+                break;
+            case 5:
+                targetSpriteName = "weather_cirrus_left";
+                break;
+            case 6:
+                targetSpriteName = "weather_cumulonimbus_left";
+                break;
+            case 7:
+                targetSpriteName = "weather_stratus_left";
+                break;
+            default:
+                targetSpriteName = "weather_altocumulus_left";
+                break;
+        }
 
         if (drawImage != null && drawImage.sprite != null)
         {
-            if (drawImage.sprite.name == "weather_altocumulus_left")
+            if (drawImage.sprite.name == targetSpriteName)
             {
                 isCorrect = true;
             }
         }
 
         string spriteName = drawImage.sprite != null ? drawImage.sprite.name : "None";
-        Debug.Log($"Judgment Result - Correct: {isCorrect}, Partial: {isPartialCorrect}, Selected Sprite: {spriteName}");
+        Debug.Log($"Judgment Result - Day: {day}, Correct: {isCorrect}, Target: {targetSpriteName}, Selected Sprite: {spriteName}");
 
-        string dialoguePath;
-        if (GameState.Get<int>("day") == 2)
-        {
-            dialoguePath = "ScriptableObjects/Dialogues/outdoors/weather_neutral";
-        }
-        else
-        {
-            dialoguePath = isCorrect ? "ScriptableObjects/Dialogues/outdoors/weather_correct" : "ScriptableObjects/Dialogues/outdoors/weather_incorrect";
-        }
+        string dialoguePath = isCorrect ? "ScriptableObjects/Dialogues/outdoors/weather_correct" : "ScriptableObjects/Dialogues/outdoors/weather_incorrect";
 
         Dialogue originalDialogue = Resources.Load<Dialogue>(dialoguePath);
         if (originalDialogue != null)

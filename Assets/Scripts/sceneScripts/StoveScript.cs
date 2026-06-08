@@ -29,11 +29,15 @@ public class StoveScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        bool isDay1 = GameState.Get<int>("day") == 1;
         bool isDay2 = GameState.Get<int>("day") == 2;
         bool gatheredFish = GameState.Get<bool>("gathered_fish");
-        bool canEatDinner = GameState.Get<bool>("ate_breakfast") && !GameState.Get<bool>("ate_dinner");
         bool isBreakfastTime = !GameState.Get<bool>("ate_breakfast");
-        if (gatheredFish || (isDay2 && isBreakfastTime))
+
+        // Fish is active only on Day 1 dinner (if gathered) or Day 2 breakfast
+        bool shouldShowFish = (isDay1 && gatheredFish) || (isDay2 && isBreakfastTime);
+
+        if (shouldShowFish)
         {
             fish.SetActive(true);
             if (GameState.Get<bool>("fish_clicked", false))
@@ -196,6 +200,10 @@ public class StoveScript : MonoBehaviour
             {
                 MessageBus.Instance.Publish("CompleteTask", "task_dinner");
                 GameState.Set("ate_dinner", true);
+                if (GameState.Get<int>("day") >= 2)
+                {
+                    GameState.Set("ready_to_sleep", true);
+                }
             }
             else
             {
@@ -314,9 +322,13 @@ public class StoveScript : MonoBehaviour
 
     private void TwitchFish(bool chainJumpscare = false)
     {
-        if (chainJumpscare && returnButton != null)
+        if (chainJumpscare)
         {
-            returnButton.SetActive(false);
+            GameState.Set("navigationBlocked", true);
+            if (returnButton != null)
+            {
+                returnButton.SetActive(false);
+            }
         }
         fish.SetActive(false);
         fishAnim.SetActive(true);
@@ -380,6 +392,7 @@ public class StoveScript : MonoBehaviour
         // Play dialog stove/fish_ask
         DialogueManager.ShowDialogue(miscObjectClick.getDialogue("stove/fish_ask"));
         // Re-enable interaction
+        GameState.Set("navigationBlocked", false);
         if (returnButton != null)
         {
             returnButton.SetActive(true);

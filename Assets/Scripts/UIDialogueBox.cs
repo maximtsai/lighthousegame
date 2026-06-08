@@ -48,8 +48,13 @@ public class UIDialogueBox : MonoBehaviour
     }
     private IEnumerator TypeText(string line, bool isFinalLine)
     {
-        textmesh.text = "";
+        string cleanLine = line.Replace("#", "");
+        textmesh.text = cleanLine;
+        textmesh.ForceMeshUpdate();
+        textmesh.maxVisibleCharacters = 0;
+
         int index = 0;
+        int visibleCount = 0;
 
         while (index < line.Length)
         {
@@ -71,9 +76,9 @@ public class UIDialogueBox : MonoBehaviour
                 charsToAdd++;
             }
 
-            // Append characters
-            textmesh.text += line.Substring(index, charsToAdd);
             index += charsToAdd;
+            visibleCount += charsToAdd;
+            textmesh.maxVisibleCharacters = visibleCount;
 
             // Play typing sound
             if (audioSrc && typeSound1)
@@ -150,6 +155,7 @@ public class UIDialogueBox : MonoBehaviour
         if (typingCoroutine != null) StopCoroutine(typingCoroutine);
         typingCoroutine = null;
         textmesh.text = text.Replace("#", "");
+        textmesh.maxVisibleCharacters = textmesh.text.Length;
 
     }
     public void EndDialogue(int choice = -1)
@@ -185,6 +191,7 @@ public class UIDialogueBox : MonoBehaviour
             // Finish typing instantly
             StopCoroutine(typingCoroutine);
             textmesh.text = dialogue.text[current_line].Replace("#", "");
+            textmesh.maxVisibleCharacters = textmesh.text.Length;
             typingCoroutine = null;
 
             if (dialogue.choices.Count == 2 && dialogue.choices.Count == dialogue.consequences.Count)
