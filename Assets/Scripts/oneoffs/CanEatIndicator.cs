@@ -7,13 +7,13 @@ public class CanEatIndicator : MonoBehaviour
     {
         if (GameState.Get<bool>("hungry") && GameState.Get<bool>("corn_clicked") && GameState.Get<bool>("pepper_clicked") && GameState.Get<bool>("alcohol_clicked"))
         {
-            if (!GameState.Get<bool>("ate_breakfast") || GameState.Get<bool>("fish_clicked"))
+            if (!GameState.Get<bool>("ate_breakfast") || GameState.Get<bool>("fish_clicked") || GameState.Get<int>("day") == 2)
             {
                 gameObject.SetActive(true);
             }
             else
             {
-                gameObject.SetActive(true);
+                gameObject.SetActive(false);
             }
         }
     }

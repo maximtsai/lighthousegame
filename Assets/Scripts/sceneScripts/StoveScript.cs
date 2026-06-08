@@ -350,7 +350,8 @@ public class StoveScript : MonoBehaviour
             return true;
         }
         if (GameState.Get<bool>("corn_clicked") && GameState.Get<bool>("pepper_clicked") && GameState.Get<bool>("alcohol_clicked")) {
-            if (GameState.Get<bool>("fish_clicked")) {
+            bool isDay2 = GameState.Get<int>("day") == 2;
+            if (isDay2 || GameState.Get<bool>("fish_clicked")) {
                 return true;
             }
         }
