@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: night_outside
+  m_Name: outside_dark
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -27,7 +27,7 @@ AnimationClip:
     - time: 0.2
       value: {fileID: -8881901153412957895, guid: 0a8affa5b80915f4da5c337c4c07e7e9, type: 3}
     - time: 0.3
-      value: {fileID: -6613255153238638701, guid: af922d1eb2c110c4097bed82f475a163, type: 3}
+      value: {fileID: 21300000, guid: af922d1eb2c110c4097bed82f475a163, type: 3}
     - time: 0.4
       value: {fileID: -3864356176347030460, guid: 7a2d35618c21c6944af2036a3123b30b, type: 3}
     - time: 0.5
@@ -93,7 +93,7 @@ AnimationClip:
     - {fileID: 1321984967588901683, guid: ee1e88396f3fe684e98d2a111bbb55cb, type: 3}
     - {fileID: -7261956179216426507, guid: 97f258aa55469874f9eee05914e55583, type: 3}
     - {fileID: -8881901153412957895, guid: 0a8affa5b80915f4da5c337c4c07e7e9, type: 3}
-    - {fileID: -6613255153238638701, guid: af922d1eb2c110c4097bed82f475a163, type: 3}
+    - {fileID: 21300000, guid: af922d1eb2c110c4097bed82f475a163, type: 3}
     - {fileID: -3864356176347030460, guid: 7a2d35618c21c6944af2036a3123b30b, type: 3}
     - {fileID: 7127932519330116166, guid: cb02843d26a0b5a448c002d714397a38, type: 3}
     - {fileID: -6720648649209516734, guid: da91c18c71da183478b4c11c85b34d59, type: 3}

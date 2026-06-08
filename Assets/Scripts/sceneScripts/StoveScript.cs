@@ -23,6 +23,8 @@ public class StoveScript : MonoBehaviour
     [SerializeField] private AudioClip fishChopSound;
     [SerializeField] private AudioClip eatSound;
     [SerializeField] private GameObject returnButton;
+    [SerializeField] private GameObject holdingKnife;
+    [SerializeField] private GameObject blackScreenFlash;
 
     private Coroutine glowRoutine;
 
@@ -163,21 +165,115 @@ public class StoveScript : MonoBehaviour
         }
         else
         {
-            GameState.Set("fish_clicked", true);
-            MessageBus.Instance.Publish("FloatText", -1.2f, -0.1f, "+FISH");
-            PlaySound(fishChopSound);
-            // Change gameObject "fish"'s sprite to a new sprite
-            bool isDay2 = GameState.Get<int>("day") == 2;
-            TwitchFish(isDay2);
-            SpriteRenderer sr = fish.GetComponent<SpriteRenderer>();
-            sr.sprite = choppedFishSprite;
-            InteractableObject interactable = fish.GetComponent<InteractableObject>();
+            StartCoroutine(FishChoppingSequence());
+        }
+    }
+
+    private IEnumerator FishChoppingSequence()
+    {
+        // Block interaction
+        GameState.Set("navigationBlocked", true);
+        if (returnButton != null)
+        {
+            returnButton.SetActive(false);
+        }
+
+        Vector3 initialKnifePos = Vector3.zero;
+        if (holdingKnife != null)
+        {
+            initialKnifePos = holdingKnife.transform.localPosition;
+            // move it to y position -3 and x position 2
+            holdingKnife.transform.localPosition = new Vector3(2f, -3f, initialKnifePos.z);
+            holdingKnife.SetActive(true);
+        }
+
+        // quickly animate it going to y position 0, x position 2 using cubic.easeOut
+        float durationUp = 0.35f;
+        float elapsed = 0f;
+        Vector3 upStart = new Vector3(2f, -3f, initialKnifePos.z);
+        Vector3 upEnd = new Vector3(2f, 0f, initialKnifePos.z);
+        while (elapsed < durationUp)
+        {
+            elapsed += Time.deltaTime;
+            float t = Mathf.Clamp01(elapsed / durationUp);
+            float tEased = 1f - Mathf.Pow(1f - t, 3f); // Cubic ease-out
+            if (holdingKnife != null)
+            {
+                holdingKnife.transform.localPosition = Vector3.Lerp(upStart, upEnd, tEased);
+            }
+            yield return null;
+        }
+        if (holdingKnife != null) holdingKnife.transform.localPosition = upEnd;
+
+        // then swing down cubic.easeIn by moving to y position -0.8, x position 1.65
+        float durationDown = 0.25f;
+        elapsed = 0f;
+        Vector3 downStart = upEnd;
+        Vector3 downEnd = new Vector3(1.65f, -0.8f, initialKnifePos.z);
+        while (elapsed < durationDown)
+        {
+            elapsed += Time.deltaTime;
+            float t = Mathf.Clamp01(elapsed / durationDown);
+            float tEased = t * t * t; // Cubic ease-in
+            if (holdingKnife != null)
+            {
+                holdingKnife.transform.localPosition = Vector3.Lerp(downStart, downEnd, tEased);
+            }
+            yield return null;
+        }
+        if (holdingKnife != null) holdingKnife.transform.localPosition = downEnd;
+
+        // black screen covering flash appears
+        if (blackScreenFlash != null)
+        {
+            blackScreenFlash.SetActive(true);
+        }
+
+        yield return new WaitForSeconds(0.05f);
+
+        // holding knife game object is deactivated and position reset
+        if (holdingKnife != null)
+        {
+            holdingKnife.SetActive(false);
+            holdingKnife.transform.localPosition = initialKnifePos;
+        }
+
+        // fish appears in its chopped state
+        GameState.Set("fish_clicked", true);
+        MessageBus.Instance.Publish("FloatText", -1.2f, -0.1f, "+FISH");
+        PlaySound(fishChopSound);
+        
+        bool isDay2 = GameState.Get<int>("day") == 2;
+        TwitchFish(isDay2);
+        
+        SpriteRenderer sr = fish.GetComponent<SpriteRenderer>();
+        sr.sprite = choppedFishSprite;
+        InteractableObject interactable = fish.GetComponent<InteractableObject>();
+        if (interactable != null)
+        {
             interactable.hover_sprite = choppedFishSpriteHover;
             interactable.default_sprite = choppedFishSprite;
-            GlowPot();
-            if (IsDoneCooking())
+        }
+        GlowPot();
+
+        if (IsDoneCooking())
+        {
+            StartCoroutine(EnableEatingDelayed(0.5f));
+        }
+
+        yield return new WaitForSeconds(0.15f);
+
+        if (blackScreenFlash != null)
+        {
+            blackScreenFlash.SetActive(false);
+        }
+
+        if (!isDay2)
+        {
+            GameState.Set("navigationBlocked", false);
+            if (returnButton != null)
             {
-                StartCoroutine(EnableEatingDelayed(0.5f));
+                returnButton.SetActive(true);
             }
         }
     }

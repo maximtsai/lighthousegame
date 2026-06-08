@@ -216,7 +216,8 @@ public class WeatherUIController : MonoBehaviour
 
         if (drawImage != null && drawImage.sprite != null)
         {
-            if (drawImage.sprite.name == targetSpriteName)
+            string selectedName = drawImage.sprite.name;
+            if (selectedName == targetSpriteName || selectedName.EndsWith(targetSpriteName))
             {
                 isCorrect = true;
             }

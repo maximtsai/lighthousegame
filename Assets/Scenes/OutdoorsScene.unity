@@ -1077,10 +1077,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.30099502
     y: 0
-    width: 1
-    height: 1
+    width: 0.81149805
+    height: 0.8119469
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -2580,7 +2580,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   background: {fileID: 1717215368}
-  clipDark: {fileID: 7400000, guid: 5f034dd84e14d344e825d7f21a91c25e, type: 2}
+  clipDark: {fileID: 7400000, guid: e4de02f1f92236e45ab2304ad4d2b6e7, type: 2}
 --- !u!1 &1729120153
 GameObject:
   m_ObjectHideFlags: 0
