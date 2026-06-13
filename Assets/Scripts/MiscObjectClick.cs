@@ -49,6 +49,11 @@ public class MiscObjectClick : MonoBehaviour
     }
     public void ClickSelfBed()
     {
+        if (GameState.Get<bool>("day_transition_started", false))
+        {
+            return;
+        }
+
         int day = GameState.Get<int>("day");
         if (GameState.Get<bool>("ready_to_sleep", false))
         {
@@ -96,6 +101,13 @@ public class MiscObjectClick : MonoBehaviour
 
     public void GotoNextDay()
     {
+        if (GameState.Get<bool>("day_transition_started", false))
+        {
+            return;
+        }
+        GameState.Set("day_transition_started", true);
+        GameState.Set("navigationBlocked", true);
+
         MessageBus.Instance.Publish("ClearAllTasks");
         Debug.Log("current day: " + GameState.Get<int>("day"));
         int newDay = GameState.Get<int>("day") + 1;

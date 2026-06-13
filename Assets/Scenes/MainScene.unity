@@ -1438,8 +1438,8 @@ Camera:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 0.99999994
-    height: 0.999496
+    width: 0.99961907
+    height: 0.99999994
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -1536,7 +1536,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
+  m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0

@@ -138,4 +138,9 @@ public static class SaveManager
         PlayerPrefs.Save();
         Debug.Log("Save data cleared.");
     }
+
+    public static bool HasSave()
+    {
+        return PlayerPrefs.HasKey(SaveKey);
+    }
 }

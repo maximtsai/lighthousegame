@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   text:
   - Still keeping it together...
-  - 'Sanity Level: Medium'
+  - 'Sanity Level: <color=yellow>Medium</color>'
   onDialogueEnd:
     m_PersistentCalls:
       m_Calls: []

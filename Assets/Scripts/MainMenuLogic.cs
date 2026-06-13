@@ -31,8 +31,8 @@ public class MainMenuLogic : MonoBehaviour
 
     public void StartGame()
     {
-        SaveManager.ClearSave(); // Clear any old saves when starting fresh
         GameState.FullReset();
+        SaveManager.Save(); // Save initial progress at the start of a new game
         MessageBus.Instance.Publish("PlayCutscene", "Intro", true, (Action)(() =>
         {
             SceneManager.LoadScene(GameConsts.BEDROOMSCENE);

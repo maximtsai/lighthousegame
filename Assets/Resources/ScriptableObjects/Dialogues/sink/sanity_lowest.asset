@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   text:
   - What a lovely world!
-  - 'Sanity Level: LOW'
+  - 'Sanity Level: <color=red>LOW</color>'
   onDialogueEnd:
     m_PersistentCalls:
       m_Calls: []

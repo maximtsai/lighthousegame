@@ -168,6 +168,7 @@ public static class GameState
         Set("navigationBlocked", false);
 
         Set("ready_to_sleep", false);
+        Set("day_transition_started", false);
         Set("intro_played", false);
 
         // Day specific start logic

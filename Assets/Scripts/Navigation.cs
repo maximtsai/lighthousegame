@@ -195,6 +195,12 @@ public class Navigation : MonoBehaviour
     
     public void GoToUpstairs(SceneTransition transition)
     {
+        if (GameState.Get<int>("day") == 1 && GameState.Get<bool>("ate_breakfast") && !GameState.Get<bool>("lighthouse_fixed"))
+        {
+            DialogueManager.ShowDialogueFromText(new string[] { "It's time for work now." });
+            return;
+        }
+
         if (GameState.Get<bool>("lighthouse_fixed") && !GameState.Get<bool>("ate_dinner"))
         {
             DialogueManager.ShowDialogue(getDialog("Kitchen/hungry_dinner"));
