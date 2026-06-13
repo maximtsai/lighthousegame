@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   text:
   - Another day, another day.
-  - 'Sanity Level: <color=green>HIGH</color>'
+  - 'Sanity Level: ##<color=green>HIGH</color>'
   onDialogueEnd:
     m_PersistentCalls:
       m_Calls: []

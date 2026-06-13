@@ -16,7 +16,7 @@ public class FlashLogbook : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         uiImage = GetComponent<Image>();
 
-        if (!GameState.Get<bool>("recorded_weather", false))
+        if (!GameState.Get<bool>("is_recording_weather", false) && !GameState.Get<bool>("recorded_weather", false))
         {
             flashCoroutine = StartCoroutine(FlashSequence());
         }
@@ -24,12 +24,12 @@ public class FlashLogbook : MonoBehaviour
 
     private IEnumerator FlashSequence()
     {
-        while (!GameState.Get<bool>("recorded_weather", false))
+        while (!GameState.Get<bool>("is_recording_weather", false) && !GameState.Get<bool>("recorded_weather", false))
         {
             // Wait 2 seconds before the next blink cycle
             yield return new WaitForSeconds(2f);
 
-            if (GameState.Get<bool>("recorded_weather", false) || GameState.Get<bool>("is_recording_weather", false))
+            if (GameState.Get<bool>("is_recording_weather", false) || GameState.Get<bool>("recorded_weather", false))
                 break;
 
             // Flash 1
@@ -38,7 +38,7 @@ public class FlashLogbook : MonoBehaviour
             SetSprite(btn_normal);
             yield return new WaitForSeconds(0.2f);
 
-            if (GameState.Get<bool>("recorded_weather", false) || GameState.Get<bool>("is_recording_weather", false))
+            if (GameState.Get<bool>("is_recording_weather", false) || GameState.Get<bool>("recorded_weather", false))
                 break;
 
             // Flash 2
