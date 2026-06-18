@@ -1,25 +1,35 @@
+using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class FishingMinigame : MonoBehaviour
 {
     [System.Serializable]
-    public class FishItem
+    public class CatchItem
     {
         public string itemName;
         public Sprite sprite;
-        public bool keepIsCorrect; // true = must keep (fish), false = must discard (coral)
-        public string wrongActionDialogue;
+        public bool isFish;
     }
 
-    [Header("Sequence")]
-    // Day 1: coral (discard), then fish (keep). Can vary by day later.
-    [SerializeField] private List<FishItem> sequence = new List<FishItem>();
+    [Header("Catch pool")]
+    [SerializeField] private List<CatchItem> junkPool = new List<CatchItem>();
+    [SerializeField] private CatchItem fish;
+    [SerializeField] private int openingJunkCount = 4;
 
     [Header("UI References")]
     [SerializeField] private GameObject minigamePanel;
     [SerializeField] private Image itemImage;
+
+    [Header("Sanity popup")]
+    [SerializeField] private TextMeshProUGUI sanityPopup;
+    [SerializeField] private RectTransform keepButtonRect;
+    [SerializeField] private RectTransform discardButtonRect;
+    [SerializeField] private float popupYOffset = 80f;
+    [SerializeField] private float popupRise = 60f;
+    [SerializeField] private float popupDuration = 1f;
 
     [Header("Audio / Helpers")]
     [SerializeField] private MiscObjectClick miscObjectClick;
@@ -27,24 +37,28 @@ public class FishingMinigame : MonoBehaviour
     [SerializeField] private AudioClip discardSound;
 
     [Header("Testing")]
-    // Editor-only: tick this to skip the lighthouse_fixed / gathered_fish gate
-    // so you can open the minigame straight from PierScene. Leave OFF for builds.
     [SerializeField] private bool testModeSkipRequirements = false;
 
-    private int currentIndex = 0;
+    private CatchItem currentItem;
+    private int openingJunkRemaining;
+    private bool loopPhase;
+    private bool finishing;
+    private Coroutine popupRoutine;
 
     void Awake()
     {
-        // On scene load the minigame is never running; clear the flag so a
-        // stuck "minigame_open" (e.g. from disabled domain reload, or exiting
-        // play mid-minigame) can't block clicks and navigation.
         GameState.Set("minigame_open", false);
 
         if (minigamePanel != null)
             minigamePanel.SetActive(false);
+
+        if (itemImage != null)
+            itemImage.preserveAspect = true;
+
+        if (sanityPopup != null)
+            sanityPopup.gameObject.SetActive(false);
     }
 
-    // Called by the net's on_click in place of MiscObjectClick.GatherFish
     public void TryStartFishing()
     {
         if (!testModeSkipRequirements)
@@ -62,59 +76,150 @@ public class FishingMinigame : MonoBehaviour
             }
         }
 
-        currentIndex = 0;
+        openingJunkRemaining = openingJunkCount;
+        loopPhase = false;
+        finishing = false;
         GameState.Set("minigame_open", true);
         minigamePanel.SetActive(true);
-        ShowCurrentItem();
+        ShowRandomJunk();
     }
 
-    private void ShowCurrentItem()
+    private void ShowItem(CatchItem item)
     {
-        if (currentIndex >= sequence.Count)
+        currentItem = item;
+        itemImage.sprite = item.sprite;
+        itemImage.enabled = item.sprite != null;
+    }
+
+    private void ShowRandomJunk()
+    {
+        if (junkPool.Count == 0)
         {
-            FinishMinigame();
+            Debug.LogWarning("FishingMinigame: junk pool is empty.");
             return;
         }
 
-        Sprite sprite = sequence[currentIndex].sprite;
-        itemImage.sprite = sprite;
-        itemImage.enabled = sprite != null;
+        ShowItem(junkPool[Random.Range(0, junkPool.Count)]);
+    }
+
+    private void ShowFish()
+    {
+        ShowItem(fish);
+    }
+
+    // After the opening junk, or after discarding a fish in the loop.
+    private void ShowRandomLoopItem()
+    {
+        int pick = Random.Range(0, junkPool.Count + 1);
+        if (pick == junkPool.Count)
+            ShowFish();
+        else
+            ShowItem(junkPool[pick]);
     }
 
     public void OnKeep()
     {
-        if (currentIndex >= sequence.Count) return;
+        if (finishing || currentItem == null) return;
 
-        FishItem item = sequence[currentIndex];
-        if (item.keepIsCorrect)
+        if (currentItem.isFish)
         {
             if (keepSound != null) miscObjectClick.PlaySound(keepSound);
-            currentIndex++;
-            ShowCurrentItem();
+            ChangeSanity(1, keepButtonRect);
+            finishing = true;
+            StartCoroutine(FinishAfter(popupDuration));
+            return;
         }
-        else
-        {
-            // can't keep this one (coral)
-            DialogueManager.ShowDialogue(miscObjectClick.getDialogue(item.wrongActionDialogue));
-        }
+
+        // Keeping junk costs sanity; stay on the same item.
+        ChangeSanity(-1, keepButtonRect);
     }
 
     public void OnDiscard()
     {
-        if (currentIndex >= sequence.Count) return;
+        if (finishing || currentItem == null) return;
 
-        FishItem item = sequence[currentIndex];
-        if (!item.keepIsCorrect)
+        if (!loopPhase)
         {
+            if (currentItem.isFish) return;
+
             if (discardSound != null) miscObjectClick.PlaySound(discardSound);
-            currentIndex++;
-            ShowCurrentItem();
+            openingJunkRemaining--;
+
+            if (openingJunkRemaining > 0)
+                ShowRandomJunk();
+            else
+            {
+                loopPhase = true;
+                ShowFish();
+            }
+            return;
+        }
+
+        // Loop phase: only ends when the player keeps a fish.
+        if (currentItem.isFish)
+        {
+            ChangeSanity(-1, discardButtonRect);
+            ShowRandomLoopItem();
         }
         else
         {
-            // need this one, can't throw it back (fish)
-            DialogueManager.ShowDialogue(miscObjectClick.getDialogue(item.wrongActionDialogue));
+            if (discardSound != null) miscObjectClick.PlaySound(discardSound);
+            ShowRandomLoopItem();
         }
+    }
+
+    // Applies the sanity change through the same MessageBus path the rest of the
+    // game uses, and shows a self-contained popup above the given button.
+    private void ChangeSanity(int amount, RectTransform anchor)
+    {
+        MessageBus.Instance.Publish("PlusSanity", amount);
+
+        string label = amount >= 0 ? "+SANITY" : "-SANITY";
+        Color color = amount >= 0 ? Color.green : Color.purple;
+        ShowSanityPopup(label, color, anchor);
+    }
+
+    private void ShowSanityPopup(string text, Color color, RectTransform anchor)
+    {
+        if (sanityPopup == null) return;
+
+        if (popupRoutine != null) StopCoroutine(popupRoutine);
+        popupRoutine = StartCoroutine(SanityPopupRoutine(text, color, anchor));
+    }
+
+    private IEnumerator SanityPopupRoutine(string text, Color color, RectTransform anchor)
+    {
+        sanityPopup.gameObject.SetActive(true);
+        sanityPopup.text = text;
+        color.a = 1f;
+        sanityPopup.color = color;
+
+        RectTransform rt = sanityPopup.rectTransform;
+        // Use world position so the popup lines up over the button regardless of
+        // differing anchor/pivot settings between the popup and the buttons.
+        Vector3 basePos = anchor != null ? anchor.position : rt.position;
+        Vector3 start = basePos + new Vector3(0f, popupYOffset, 0f);
+        Vector3 end = start + new Vector3(0f, popupRise, 0f);
+
+        float elapsed = 0f;
+        while (elapsed < popupDuration)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / popupDuration;
+            rt.position = Vector3.Lerp(start, end, t);
+            color.a = Mathf.Lerp(1f, 0f, t);
+            sanityPopup.color = color;
+            yield return null;
+        }
+
+        sanityPopup.gameObject.SetActive(false);
+        popupRoutine = null;
+    }
+
+    private IEnumerator FinishAfter(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        FinishMinigame();
     }
 
     private void FinishMinigame()
@@ -122,7 +227,6 @@ public class FishingMinigame : MonoBehaviour
         GameState.Set("minigame_open", false);
         minigamePanel.SetActive(false);
 
-        // same payoff as MiscObjectClick.GatherFish
         GameState.Set("gathered_fish", true);
         GameState.Set("hungry", true);
         GameState.Set("near_nighttime", true);
