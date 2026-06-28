@@ -54,6 +54,12 @@ public class MiscObjectClick : MonoBehaviour
             return;
         }
 
+        if (GameState.Get<bool>("hand_cut") && !GameState.Get<bool>("hand_cleaned"))
+        {
+            DialogueManager.ShowDialogueFromText(new string[] { "I should clean my hand first." });
+            return;
+        }
+
         int day = GameState.Get<int>("day");
         if (GameState.Get<bool>("ready_to_sleep", false))
         {

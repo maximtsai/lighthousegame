@@ -18,6 +18,11 @@ public class BedroomMiscLogic : MonoBehaviour
         Debug.Log("bedroom misc logic");
 
         BeginDay();
+
+        if (GameState.Get<bool>("hand_cut") && !GameState.Get<bool>("hand_cleaned"))
+        {
+            DialogueManager.ShowDialogueFromText(new string[] { "I should bandage this first." });
+        }
     }
 
     private void BeginDay()

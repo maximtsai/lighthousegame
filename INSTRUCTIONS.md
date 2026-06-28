@@ -148,7 +148,32 @@ void OnDestroy()
 }
 ```
 
+### Trigger a Multi-Choice Dialogue (ChoiceManager)
+To display a choice menu (1, 2, or 3 choices) with an optional prompt/header:
+```csharp
+// 1. (Optional) Set the prompt text
+MessageBus.Instance.Publish("ShowChoiceDialog", "What will you do next?");
+
+// 2. Publish the choice event (ShowThreeChoice)
+MessageBus.Instance.Publish(
+    "ShowThreeChoice",
+    "Option 1 Label",
+    "Option 2 Label",
+    "Option 3 Label",
+    (Action)(() => {
+        // Option 1 Callback
+    }),
+    (Action)(() => {
+        // Option 2 Callback
+    }),
+    (Action)(() => {
+        // Option 3 Callback
+    })
+);
+```
+
 ## Project Structure Overview
+
 
 ```
 Assets/

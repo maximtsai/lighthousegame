@@ -10,6 +10,12 @@ public class DaytimeOnly : MonoBehaviour
     {
         // If it's NOT nighttime, it stays active. 
         // If it IS nighttime, it disappears.
+        // Exception: The sink button should remain active at night.
+        if (gameObject.name.ToLower().Contains("sink"))
+        {
+            return;
+        }
+
         bool isNight = GameState.Get<bool>("is_nighttime", false);
         gameObject.SetActive(!isNight);
     }

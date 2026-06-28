@@ -129,6 +129,7 @@ public class BurialScript : MonoBehaviour
             GameState.Set("grave_revealed", false);
             GameState.Set("grave_inspected", true);
             GameState.Set("hand_cut", true);
+            MessageBus.Instance.Publish("AddTaskString", "generic/task_wash_hand");
             if (handBleed != null)
             {
                 handBleed.SetActive(true);
