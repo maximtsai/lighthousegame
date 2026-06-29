@@ -24,14 +24,11 @@ public class FlashLogbook : MonoBehaviour
 
     private IEnumerator FlashSequence()
     {
+        // Start 1 second in
+        yield return new WaitForSeconds(1f);
+
         while (!GameState.Get<bool>("is_recording_weather", false) && !GameState.Get<bool>("recorded_weather", false))
         {
-            // Wait 2 seconds before the next blink cycle
-            yield return new WaitForSeconds(2f);
-
-            if (GameState.Get<bool>("is_recording_weather", false) || GameState.Get<bool>("recorded_weather", false))
-                break;
-
             // Flash 1
             SetSprite(btn_hover);
             yield return new WaitForSeconds(0.2f);
@@ -45,6 +42,9 @@ public class FlashLogbook : MonoBehaviour
             SetSprite(btn_hover);
             yield return new WaitForSeconds(0.2f);
             SetSprite(btn_normal);
+
+            // Wait 1.75 seconds before the next blink cycle
+            yield return new WaitForSeconds(1.75f);
         }
         
         // Restore to normal at the end
