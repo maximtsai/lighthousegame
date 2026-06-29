@@ -564,10 +564,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.34573004
+    x: 0
     y: 0
-    width: 0.8741965
-    height: 0.87500006
+    width: 0.9994643
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -800,11 +800,11 @@ Transform:
   m_GameObject: {fileID: 562484355}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -320, y: -179.842, z: 0}
-  m_LocalScale: {x: 0.882, y: 0.882, z: -1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: -1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 817633083}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &562484357
 SpriteRenderer:
@@ -854,7 +854,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 687ef9bd4f80be047b3beb348c05a45c, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.19607843}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1262,7 +1262,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1870315435}
-  - {fileID: 562484356}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2329,5 +2328,6 @@ SceneRoots:
   - {fileID: 350574386}
   - {fileID: 1224221387}
   - {fileID: 1820858900}
+  - {fileID: 562484356}
   - {fileID: 817633083}
   - {fileID: 675806198}
