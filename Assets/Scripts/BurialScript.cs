@@ -128,28 +128,33 @@ public class BurialScript : MonoBehaviour
         {
             GameState.Set("grave_revealed", false);
             GameState.Set("grave_inspected", true);
-            GameState.Set("hand_cut", true);
-            MessageBus.Instance.Publish("AddTaskString", "generic/task_wash_hand");
-            if (handBleed != null)
-            {
-                handBleed.SetActive(true);
-            }
             GameState.Set("near_nighttime", true);
 
             black.SetActive(true);
             StartCoroutine(PlaySoundDelayedRoutine(shovelClip, 0.6f, false, 0.5f));
             FadeTo(black, 1, 1.2f, () =>
             {
-                if (background != null && backgroundCoveredSpriteDay != null)
+                if (background != null && backgroundCoveredSprite != null)
                 {
-                    background.sprite = backgroundCoveredSpriteDay;
+                    background.sprite = backgroundCoveredSprite;
                 }
                 FadeTo(black, 1, 1.75f, () =>
                 {
                     FadeTo(black, 0, 0.85f, () =>
                     {
                         black.SetActive(false);
-                        DialogueManager.ShowDialogue(miscObjectClick.getDialogue("burial/rebury"));
+                        Dialogue original = miscObjectClick.getDialogue("burial/rebury");
+                        Dialogue d = Instantiate(original);
+                        d.onDialogueEnd.AddListener(() =>
+                        {
+                            GameState.Set("hand_cut", true);
+                            MessageBus.Instance.Publish("AddTaskString", "generic/task_wash_hand");
+                            if (handBleed != null)
+                            {
+                                handBleed.SetActive(true);
+                            }
+                        });
+                        DialogueManager.ShowDialogue(d);
                     });
                 });
             });

@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI; // Needed for Image
 using System.Collections;
+using System;
 
 public class LHMinigame : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class LHMinigame : MonoBehaviour
     [SerializeField] private SpriteRenderer background;
     [SerializeField] private SpriteRenderer glowEffect;
     [SerializeField] private SpriteRenderer mercuryPool;
+    [SerializeField] private SpriteRenderer wicklessRenderer;
     [SerializeField] private Sprite lighthouseRoomCloseSprite;
     [SerializeField] private Sprite lighthouseRoomOpenSprite;
     [SerializeField] private Sprite glowScissorsSprite;
@@ -92,6 +94,8 @@ public class LHMinigame : MonoBehaviour
     }
     public void ClickWrench()
     {
+        if (GameState.Get<bool>("navigationBlocked", false)) return;
+
         if (GameState.Get<bool>("lighthouse_fixed"))
         {
             DialogueManager.ShowDialogue(miscObjectClick.getDialogue("Lighthouse/already_fixed"));
@@ -119,6 +123,8 @@ public class LHMinigame : MonoBehaviour
     
     public void ClickOil()
     {
+        if (GameState.Get<bool>("navigationBlocked", false)) return;
+
         if (!GameState.Get<bool>("lighthouse_opened"))
         {
             // Need to open lighthouse door first
@@ -153,6 +159,8 @@ public class LHMinigame : MonoBehaviour
     
     public void ClickScissors()
     {
+        if (GameState.Get<bool>("navigationBlocked", false)) return;
+
         if (!GameState.Get<bool>("lighthouse_opened"))
         {
             // Need to open lighthouse door first
@@ -179,14 +187,18 @@ public class LHMinigame : MonoBehaviour
         GameState.Set("scissors_used", true);
         miscObjectClick.PlaySound(scissorsSound);
         
+        StartCoroutine(WicklessFlashRoutine());
+        
         glowEffect.sprite = glowScissorsSprite;
         glowEffect.color = new Color(1f, 1f, 1f, 1f);
-		StartFadeOutDelay(glowEffect, 0.05f, 1.5f);
+        StartFadeOutDelay(glowEffect, 0.05f, 1.5f);
         testIfLighthouseFininshed();
     }
 
     public void ClickMercury()
     {
+        if (GameState.Get<bool>("navigationBlocked", false)) return;
+
         if (!GameState.Get<bool>("lighthouse_opened"))
         {
             // Need to open lighthouse door first
@@ -305,6 +317,42 @@ public class LHMinigame : MonoBehaviour
 
     }
 
+    private IEnumerator WicklessFlashRoutine()
+    {
+        // 1. Block all clicks
+        GameState.Set("navigationBlocked", true);
 
+        // 2. Show the wickless image (full alpha)
+        if (wicklessRenderer != null)
+        {
+            wicklessRenderer.color = new Color(1f, 1f, 1f, 1f);
+        }
 
+        // 3. Stay at full opacity for 0.5s
+        yield return new WaitForSeconds(0.5f);
+
+        // 4. Fade to 0 over 0.5s
+        float fadeDuration = 0.5f;
+        float elapsed = 0f;
+        Color startColor = new Color(1f, 1f, 1f, 1f);
+        Color endColor = new Color(1f, 1f, 1f, 0f);
+
+        while (elapsed < fadeDuration)
+        {
+            elapsed += Time.deltaTime;
+            if (wicklessRenderer != null)
+            {
+                wicklessRenderer.color = Color.Lerp(startColor, endColor, elapsed / fadeDuration);
+            }
+            yield return null;
+        }
+
+        if (wicklessRenderer != null)
+        {
+            wicklessRenderer.color = endColor;
+        }
+
+        // 5. Unblock clicks
+        GameState.Set("navigationBlocked", false);
+    }
 }

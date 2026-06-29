@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: rebury
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   text:
-  - You cover him back up. #Something sharp catches your hand. #You're bleeding.
+  - You cover him back up. ##Something sharp catches your hand. ##You're bleeding.
   onDialogueEnd:
     m_PersistentCalls:
       m_Calls: []

@@ -239,6 +239,18 @@ public class Navigation : MonoBehaviour
             Debug.Log("Navigation blocked");
             return;
         }
+
+        // Intercept leaving LHFloorScene to OutdoorsScene on Day 2 if lighthouse is fixed and stain question not answered
+        if (SceneManager.GetActiveScene().name == GameConsts.LHFLOORSCENE
+            && scene == GameConsts.OUTDOORSSCENE
+            && GameState.Get<int>("day") == 2
+            && GameState.Get<bool>("lighthouse_fixed")
+            && !GameState.Get<bool>("stain_question_answered", false))
+        {
+            TriggerStainQuestion();
+            return;
+        }
+
         // Ensure the Navigation instance exists
         if (Instance == null)
         {
@@ -358,6 +370,33 @@ public class Navigation : MonoBehaviour
             Debug.LogWarning("Dialogue not found: " + fullPath);
         }
         return dialogue;
+    }
+
+    private void TriggerStainQuestion()
+    {
+        Dialogue d = DialogueManager.ShowDialogueFromText(new string[] { "Wait.", "Has that stain always been there?" });
+        d.onDialogueEnd.AddListener(() =>
+        {
+            MessageBus.Instance.Publish("ShowChoiceDialog", "Has that stain always been there?");
+            
+            MessageBus.Instance.Publish(
+                "ShowTwoChoice",
+                "YES",
+                "NO",
+                (Action)(() =>
+                {
+                    MessageBus.Instance.Publish("FloatText", 0f, 0.3f, "+SANITY", "green");
+                    MessageBus.Instance.Publish("PlusSanity", 1);
+                    GameState.Set("stain_question_answered", true);
+                }),
+                (Action)(() =>
+                {
+                    MessageBus.Instance.Publish("FloatText", 0f, 0.3f, "-SANITY", "purple");
+                    MessageBus.Instance.Publish("PlusSanity", -2);
+                    GameState.Set("stain_question_answered", true);
+                })
+            );
+        });
     }
     
 }
