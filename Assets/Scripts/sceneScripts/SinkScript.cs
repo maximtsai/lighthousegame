@@ -47,10 +47,9 @@ public class SinkScript : MonoBehaviour
     {
         string[] cleanDialog = new string[] 
         { 
-            "I turn on the tap and hold my bleeding palm under the freezing water. The sting is sharp and sudden, making me gasp.",
-            "I search around for something to wrap it with. There are no proper medical supplies here.",
-            "I tear a strip of cloth from a clean rag and wrap it clumsily around the cut, tying it off with a tight knot.",
-            "It looks amateurish, but the pressure seems to have stopped the bleeding for now."
+            "I rinse my hand under the grimy tap.",
+            "No medical supplies here. I tear a strip off a spare rag.",
+            "I wrap it tight.##.##. ##It'll do for now."
         };
         
         Dialogue d = DialogueManager.ShowDialogueFromText(cleanDialog);
