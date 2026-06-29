@@ -80,6 +80,11 @@ public class SinkScript : MonoBehaviour
     private void CompleteHandClean()
     {
         GameState.Set("hand_cleaned", true);
-        MessageBus.Instance.Publish("CompleteTask", "task_wash_hand");
+        MessageBus.Instance.Publish("RemoveTaskString", "generic/task_wash_hand");
+
+        if (GameState.Get<int>("day") == 2 && GameState.Get<bool>("lighthouse_fixed", false))
+        {
+            GameState.Set("ready_to_sleep", true);
+        }
     }
 }
