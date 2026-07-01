@@ -74,6 +74,23 @@ public class FishingMinigame : MonoBehaviour
                 DialogueManager.ShowDialogue(miscObjectClick.getDialogue("dock/gather_fish_not_yet"));
                 return;
             }
+
+            // Day 2: no minigame - we don't feel like fish. Keep the previous
+            // day-2 behavior (gather the fish but let them go).
+            if (GameState.Get<int>("day") == 2)
+            {
+                GameState.Set("gathered_fish", true);
+                GameState.Set("hungry", true);
+                GameState.Set("near_nighttime", true);
+
+                MessageBus.Instance.Publish("CompleteTask", "task_fish");
+                DialogueManager.ShowDialogueFromText(new string[]
+                {
+                    "You don't feel like fish for dinner tonight.",
+                    "You let the caught fishes go."
+                });
+                return;
+            }
         }
 
         openingJunkRemaining = openingJunkCount;
@@ -130,21 +147,34 @@ public class FishingMinigame : MonoBehaviour
             return;
         }
 
-        // Keeping junk costs sanity; stay on the same item.
+        // Keeping junk costs sanity, then moves on to the next object.
         ChangeSanity(-1, keepButtonRect);
+        AdvanceJunk();
     }
 
     public void OnDiscard()
     {
         if (finishing || currentItem == null) return;
 
+        // Discarding the fish (only possible in the loop) costs sanity.
+        if (currentItem.isFish)
+        {
+            ChangeSanity(-1, discardButtonRect);
+            ShowRandomLoopItem();
+            return;
+        }
+
+        // Discarding junk is the correct move: no penalty, advance.
+        if (discardSound != null) miscObjectClick.PlaySound(discardSound);
+        AdvanceJunk();
+    }
+
+    // Moves to the next object after acting on a junk item, in either phase.
+    private void AdvanceJunk()
+    {
         if (!loopPhase)
         {
-            if (currentItem.isFish) return;
-
-            if (discardSound != null) miscObjectClick.PlaySound(discardSound);
             openingJunkRemaining--;
-
             if (openingJunkRemaining > 0)
                 ShowRandomJunk();
             else
@@ -152,18 +182,9 @@ public class FishingMinigame : MonoBehaviour
                 loopPhase = true;
                 ShowFish();
             }
-            return;
-        }
-
-        // Loop phase: only ends when the player keeps a fish.
-        if (currentItem.isFish)
-        {
-            ChangeSanity(-1, discardButtonRect);
-            ShowRandomLoopItem();
         }
         else
         {
-            if (discardSound != null) miscObjectClick.PlaySound(discardSound);
             ShowRandomLoopItem();
         }
     }
