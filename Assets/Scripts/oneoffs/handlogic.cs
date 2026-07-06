@@ -9,6 +9,12 @@ public class handlogic : MonoBehaviour
     [Header("Bleeding Sprites")]
     [SerializeField] private Sprite nightHandBleed;
 
+    [Header("Bandaged Sprites")]
+    [SerializeField] private Sprite handBandaged;
+    [SerializeField] private Sprite nightHandBandaged;
+    [SerializeField] private Sprite handBandagedBloody;
+    [SerializeField] private Sprite nightHandBandagedBloody;
+
     private Vector3 initialPosition;
     private bool hasSavedPos = false;
     private Sprite originalSprite;
@@ -60,7 +66,13 @@ public class handlogic : MonoBehaviour
 
         if (GameState.Get<bool>("hand_cleaned", false))
         {
-            Sprite targetCleanSprite = isNight ? nightGash : handGash;
+            Sprite targetCleanSprite = isNight ? nightHandBandaged : handBandaged;
+            // Fallback to gash sprites if bandaged sprites are not assigned
+            if (targetCleanSprite == null)
+            {
+                targetCleanSprite = isNight ? nightGash : handGash;
+            }
+
             if (targetCleanSprite != null && spriteRenderer.sprite != targetCleanSprite)
             {
                 spriteRenderer.sprite = targetCleanSprite;

@@ -374,10 +374,10 @@ public class Navigation : MonoBehaviour
 
     private void TriggerStainQuestion()
     {
-        Dialogue d = DialogueManager.ShowDialogueFromText(new string[] { "Wait.", "Has that stain always been there?" });
+        Dialogue d = DialogueManager.ShowDialogueFromText(new string[] { "Wait.", "Has that crack above the door always been there?" });
         d.onDialogueEnd.AddListener(() =>
         {
-            MessageBus.Instance.Publish("ShowChoiceDialog", "Has that stain always been there?");
+            MessageBus.Instance.Publish("ShowChoiceDialog", "Has that crack above the door always been there?");
             
             MessageBus.Instance.Publish(
                 "ShowTwoChoice",

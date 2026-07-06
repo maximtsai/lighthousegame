@@ -5,7 +5,9 @@ public class SinkScript : MonoBehaviour
 {
     public GameObject cleaningItems;
     [SerializeField] private AudioClip cleanSound;
+    [SerializeField] private AudioClip bandageSound;
     [SerializeField] private MiscObjectClick miscObjectClick;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -81,6 +83,15 @@ public class SinkScript : MonoBehaviour
     {
         GameState.Set("hand_cleaned", true);
         MessageBus.Instance.Publish("RemoveTaskString", "generic/task_wash_hand");
+
+        if (bandageSound != null)
+        {
+            MessageBus.Instance.Publish("PlaySound", bandageSound);
+        }
+        else
+        {
+            MessageBus.Instance.Publish("PlaySound", "bandage");
+        }
 
         if (GameState.Get<int>("day") == 2 && GameState.Get<bool>("lighthouse_fixed", false))
         {

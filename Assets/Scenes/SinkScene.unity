@@ -447,10 +447,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.28634852
     y: 0
-    width: 0.99908173
-    height: 1
+    width: 0.6156123
+    height: 0.61538464
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -1375,6 +1375,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1970956561}
   - component: {fileID: 1970956560}
+  - component: {fileID: 1970956562}
   m_Layer: 0
   m_Name: Misc
   m_TagString: Untagged
@@ -1396,6 +1397,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   cleaningItems: {fileID: 1388416544}
   cleanSound: {fileID: 8300000, guid: f26fe6f2357d51049ad57a3e10f32445, type: 3}
+  bandageSound: {fileID: 8300000, guid: b426d02d172bce742909700e9dc80695, type: 3}
   miscObjectClick: {fileID: 5912071456214807691, guid: add25f6ff90e9474990e9f3862207611, type: 3}
 --- !u!4 &1970956561
 Transform:
@@ -1412,6 +1414,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1970956562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1970956559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c706a754a72c534fa4eb59845f6c9fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SetBackgroundWhenDark
+  background: {fileID: 1764343126}
+  dark_bg: {fileID: 5030272854239282004, guid: 71e94c414024eb04bacd3a7f8992dbd6, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

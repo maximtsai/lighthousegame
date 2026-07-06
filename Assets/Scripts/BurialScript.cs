@@ -148,6 +148,8 @@ public class BurialScript : MonoBehaviour
                         d.onDialogueEnd.AddListener(() =>
                         {
                             GameState.Set("hand_cut", true);
+                            MessageBus.Instance.Publish("FloatText", 0f, 0.3f, "-SANITY", "purple");
+                            MessageBus.Instance.Publish("PlusSanity", -1);
                             MessageBus.Instance.Publish("AddTaskString", "generic/task_wash_hand");
                             if (handBleed != null)
                             {
@@ -192,7 +194,14 @@ public class BurialScript : MonoBehaviour
 
             return;
         }
-        DialogueManager.ShowDialogue(miscObjectClick.getDialogue("burial/already_buried"));
+        if (GameState.Get<int>("day") == 2)
+        {
+            DialogueManager.ShowDialogueFromText(new string[] { "Giving me trouble even after death." });
+        }
+        else
+        {
+            DialogueManager.ShowDialogue(miscObjectClick.getDialogue("burial/already_buried"));
+        }
     }
 
     public void CoverUpHole()

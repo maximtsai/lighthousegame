@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class BedroomMiscLogic : MonoBehaviour
 {
@@ -21,7 +22,10 @@ public class BedroomMiscLogic : MonoBehaviour
 
         if (GameState.Get<bool>("hand_cut") && !GameState.Get<bool>("hand_cleaned"))
         {
-            DialogueManager.ShowDialogueFromText(new string[] { "I should bandage this first." });
+            if (GameState.Get<int>("day") != 3)
+            {
+                DialogueManager.ShowDialogueFromText(new string[] { "I should bandage my hand." });
+            }
         }
     }
 
@@ -53,7 +57,7 @@ public class BedroomMiscLogic : MonoBehaviour
             case 3:
                 MessageBus.Instance.Publish("AddTaskString", "generic/task_wash_hand");
                 MessageBus.Instance.Publish("AddTaskString", "generic/task_work");
-                
+                ShowDay3Dialogue();
                 break;
             case 4:
                 break;
@@ -64,6 +68,42 @@ public class BedroomMiscLogic : MonoBehaviour
             case 7:
                 break;
         }
+    }
+
+    private void ShowDay3Dialogue()
+    {
+        Dialogue dialogue = ScriptableObject.CreateInstance<Dialogue>();
+        dialogue.text = new List<string>(new string[] 
+        { 
+            "You take a look at your hand.", 
+            "Feels like bugs are crawling underneath it." 
+        });
+        dialogue.choices = new List<string>(new string[] { "SCRATCH", "LEAVE IT ALONE" });
+        dialogue.consequences = new List<UnityEngine.Events.UnityEvent>();
+
+        UnityEngine.Events.UnityEvent scratchEvent = new UnityEngine.Events.UnityEvent();
+        scratchEvent.AddListener(() =>
+        {
+            MessageBus.Instance.Publish("FloatText", 0f, 0.3f, "-SANITY", "purple");
+            MessageBus.Instance.Publish("PlusSanity", -1);
+            ShowPostDay3Dialogue();
+        });
+
+        UnityEngine.Events.UnityEvent leaveEvent = new UnityEngine.Events.UnityEvent();
+        leaveEvent.AddListener(() =>
+        {
+            ShowPostDay3Dialogue();
+        });
+
+        dialogue.consequences.Add(scratchEvent);
+        dialogue.consequences.Add(leaveEvent);
+
+        DialogueManager.ShowDialogue(dialogue);
+    }
+
+    private void ShowPostDay3Dialogue()
+    {
+        DialogueManager.ShowDialogueFromText(new string[] { "I should bandage my hand." });
     }
 
     private void UpdateTrack(Ambience ambience, AudioClip newClip, float volume, int channel)
