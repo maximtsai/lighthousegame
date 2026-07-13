@@ -223,6 +223,13 @@ public class Navigation : MonoBehaviour
     {
         GoToTransition(GameConsts.JOURNALSCENE, 0.35f);
     }
+
+    public void ClickCalendar()
+    {
+        int day = GameState.Get<int>("day", 1);
+        DialogueManager.ShowDialogueFromText(new string[] { "Today is Day " + day + "." });
+    }
+
     
     public void GoToSlow(string scene)
     {

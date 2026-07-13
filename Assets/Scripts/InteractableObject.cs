@@ -71,6 +71,8 @@ public class InteractableObject : MonoBehaviour
         on_click.Invoke();
     }
 
+
+
     public string GetObjectId()
     {
         return this.object_id;
