@@ -73,6 +73,7 @@ public class BurialScript : MonoBehaviour
             if (GameState.Get<bool>("has_buried"))
             {
                 background.sprite = backgroundCoveredSprite;
+                MessageBus.Instance.Publish("BurialMoundCovered");
             }
             else
             {
@@ -213,7 +214,7 @@ public class BurialScript : MonoBehaviour
             // May need to be changed with multibury
             GameState.Set("ready_to_sleep", true);
             GameState.Set("do_burial", false);
-
+            MessageBus.Instance.Publish("BurialMoundCovered");
         }
     }
 

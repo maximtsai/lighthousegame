@@ -20,6 +20,13 @@ public class InteractableObject : MonoBehaviour
             on_click = new UnityEvent();
     }
 
+    public void AddClickListener(UnityAction action)
+    {
+        if (on_click == null)
+            on_click = new UnityEvent();
+        on_click.AddListener(action);
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

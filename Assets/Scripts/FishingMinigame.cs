@@ -10,18 +10,35 @@ public class FishingMinigame : MonoBehaviour
     public class CatchItem
     {
         public string itemName;
-        public Sprite sprite;
-        public bool isFish;
+        public Sprite sprite;         // frame 1 / default
+        public Sprite revealSprite;   // frame 2; if set, must click reveal before keep/discard
+        public bool isGoodFish;
+
+        public bool IsTwoFrame => revealSprite != null;
     }
 
-    [Header("Catch pool")]
-    [SerializeField] private List<CatchItem> junkPool = new List<CatchItem>();
-    [SerializeField] private CatchItem fish;
-    [SerializeField] private int openingJunkCount = 4;
+    [System.Serializable]
+    public class DayCatch
+    {
+        public int day;
+        // Day's catch pool. Opening pass: all junk first, then good fish last.
+        // After discarding the good fish: random reshuffles until Keep.
+        public List<CatchItem> items = new List<CatchItem>();
+    }
+
+    [Header("Per-day catch pools")]
+    [SerializeField] private List<DayCatch> dayCatches = new List<DayCatch>();
+    [SerializeField] private DayCatch fallbackCatch;
 
     [Header("UI References")]
     [SerializeField] private GameObject minigamePanel;
     [SerializeField] private Image itemImage;
+
+    [Header("Two-frame reveal")]
+    // placeholder_glow — shown only on 2-frame items (frame 1). Click → fade → frame 2 → keep/discard.
+    [SerializeField] private Button revealButton;
+    [SerializeField] private Image revealFadeOverlay;
+    [SerializeField] private float revealFadeDuration = 0.15f;
 
     [Header("Sanity popup")]
     [SerializeField] private TextMeshProUGUI sanityPopup;
@@ -38,12 +55,21 @@ public class FishingMinigame : MonoBehaviour
 
     [Header("Testing")]
     [SerializeField] private bool testModeSkipRequirements = false;
+    [SerializeField] private int testModeForceDay = 0;
 
     private CatchItem currentItem;
-    private int openingJunkRemaining;
-    private bool loopPhase;
     private bool finishing;
+    private bool awaitingReveal;
+    private bool revealing;
+    private bool choiceLocked;
     private Coroutine popupRoutine;
+
+    private List<CatchItem> activeItems;
+    // Current presentation bag (opening: junk→fish, or random loop after fish discarded).
+    private readonly List<CatchItem> playBag = new List<CatchItem>();
+    private int playIndex;
+    // False = opening pass (junk first, good fish last). True = random loop until Keep.
+    private bool randomLoopPhase;
 
     void Awake()
     {
@@ -57,6 +83,18 @@ public class FishingMinigame : MonoBehaviour
 
         if (sanityPopup != null)
             sanityPopup.gameObject.SetActive(false);
+
+        if (revealButton != null)
+        {
+            revealButton.onClick.AddListener(OnRevealClicked);
+            revealButton.gameObject.SetActive(false);
+        }
+
+        if (revealFadeOverlay != null)
+            revealFadeOverlay.gameObject.SetActive(false);
+
+        // Ensure Keep/Discard start visible (scene defaults).
+        SetChoiceButtonsActive(true);
     }
 
     public void TryStartFishing()
@@ -74,71 +112,193 @@ public class FishingMinigame : MonoBehaviour
                 DialogueManager.ShowDialogue(miscObjectClick.getDialogue("dock/gather_fish_not_yet"));
                 return;
             }
-
-            // Day 2: no minigame - we don't feel like fish. Keep the previous
-            // day-2 behavior (gather the fish but let them go).
-            if (GameState.Get<int>("day") == 2)
-            {
-                GameState.Set("gathered_fish", true);
-                GameState.Set("hungry", true);
-                GameState.Set("near_nighttime", true);
-
-                MessageBus.Instance.Publish("CompleteTask", "task_fish");
-                DialogueManager.ShowDialogueFromText(new string[]
-                {
-                    "You don't feel like fish for dinner tonight.",
-                    "You let the caught fishes go."
-                });
-                return;
-            }
         }
 
-        openingJunkRemaining = openingJunkCount;
-        loopPhase = false;
+        activeItems = GetItemsForDay(GetCurrentDay());
+        if (activeItems == null || activeItems.Count == 0)
+        {
+            Debug.LogWarning($"FishingMinigame: no catch pool configured for day {GetCurrentDay()}.");
+            return;
+        }
+
         finishing = false;
+        choiceLocked = false;
+        BuildOpeningBag();
         GameState.Set("minigame_open", true);
         minigamePanel.SetActive(true);
-        ShowRandomJunk();
+        ShowNextItem();
+    }
+
+    private int GetCurrentDay()
+    {
+        if (testModeSkipRequirements && testModeForceDay > 0)
+            return testModeForceDay;
+        return GameState.Get<int>("day", 1);
+    }
+
+    private List<CatchItem> GetItemsForDay(int day)
+    {
+        foreach (DayCatch dc in dayCatches)
+        {
+            if (dc != null && dc.day == day)
+                return dc.items;
+        }
+        return fallbackCatch != null ? fallbackCatch.items : null;
+    }
+
+    // Opening bag: every junk item first (Inspector order), good fish last.
+    private void BuildOpeningBag()
+    {
+        playBag.Clear();
+        playIndex = 0;
+        randomLoopPhase = false;
+
+        if (activeItems == null)
+            return;
+
+        foreach (CatchItem item in activeItems)
+        {
+            if (item != null && !item.isGoodFish)
+                playBag.Add(item);
+        }
+        foreach (CatchItem item in activeItems)
+        {
+            if (item != null && item.isGoodFish)
+                playBag.Add(item);
+        }
+    }
+
+    // After discarding the good fish: same day's objects in a new random order.
+    private void BuildRandomLoopBag()
+    {
+        playBag.Clear();
+        playIndex = 0;
+        randomLoopPhase = true;
+
+        if (activeItems == null || activeItems.Count == 0)
+            return;
+
+        playBag.AddRange(activeItems);
+        for (int i = playBag.Count - 1; i > 0; i--)
+        {
+            int j = Random.Range(0, i + 1);
+            (playBag[i], playBag[j]) = (playBag[j], playBag[i]);
+        }
+    }
+
+    private void ShowNextItem()
+    {
+        if (activeItems == null || activeItems.Count == 0)
+            return;
+
+        if (playBag.Count == 0 || playIndex >= playBag.Count)
+        {
+            // Opening finished without a Keep, or random bag emptied — keep looping randomly.
+            BuildRandomLoopBag();
+        }
+
+        if (playBag.Count == 0)
+            return;
+
+        ShowItem(playBag[playIndex]);
+        playIndex++;
     }
 
     private void ShowItem(CatchItem item)
     {
         currentItem = item;
+        choiceLocked = false;
+        awaitingReveal = false;
+        revealing = false;
+
         itemImage.sprite = item.sprite;
         itemImage.enabled = item.sprite != null;
+
+        if (item.IsTwoFrame)
+        {
+            // Frame 1: hide Keep/Discard, show reveal glow, wait for click.
+            awaitingReveal = true;
+            SetChoiceButtonsActive(false);
+            if (revealButton != null)
+                revealButton.gameObject.SetActive(true);
+        }
+        else
+        {
+            // Normal items: Keep/Discard available immediately.
+            if (revealButton != null)
+                revealButton.gameObject.SetActive(false);
+            SetChoiceButtonsActive(true);
+        }
     }
 
-    private void ShowRandomJunk()
+    private void SetChoiceButtonsActive(bool active)
     {
-        if (junkPool.Count == 0)
+        if (keepButtonRect != null)
+            keepButtonRect.gameObject.SetActive(active);
+        if (discardButtonRect != null)
+            discardButtonRect.gameObject.SetActive(active);
+    }
+
+    public void OnRevealClicked()
+    {
+        if (!awaitingReveal || revealing || currentItem == null) return;
+
+        revealing = true;
+        if (revealButton != null)
+            revealButton.gameObject.SetActive(false);
+        StartCoroutine(RevealRoutine());
+    }
+
+    private IEnumerator RevealRoutine()
+    {
+        yield return StartCoroutine(FadeReveal(1f));
+
+        if (currentItem != null && currentItem.revealSprite != null)
         {
-            Debug.LogWarning("FishingMinigame: junk pool is empty.");
-            return;
+            itemImage.sprite = currentItem.revealSprite;
+            itemImage.enabled = true;
         }
 
-        ShowItem(junkPool[Random.Range(0, junkPool.Count)]);
+        yield return StartCoroutine(FadeReveal(0f));
+
+        awaitingReveal = false;
+        revealing = false;
+        SetChoiceButtonsActive(true);
     }
 
-    private void ShowFish()
+    private IEnumerator FadeReveal(float targetAlpha)
     {
-        ShowItem(fish);
-    }
+        if (revealFadeOverlay == null)
+            yield break;
 
-    // After the opening junk, or after discarding a fish in the loop.
-    private void ShowRandomLoopItem()
-    {
-        int pick = Random.Range(0, junkPool.Count + 1);
-        if (pick == junkPool.Count)
-            ShowFish();
-        else
-            ShowItem(junkPool[pick]);
+        revealFadeOverlay.gameObject.SetActive(true);
+
+        Color c = revealFadeOverlay.color;
+        float startAlpha = c.a;
+        float elapsed = 0f;
+
+        while (elapsed < revealFadeDuration)
+        {
+            elapsed += Time.deltaTime;
+            c.a = Mathf.Lerp(startAlpha, targetAlpha, elapsed / revealFadeDuration);
+            revealFadeOverlay.color = c;
+            yield return null;
+        }
+
+        c.a = targetAlpha;
+        revealFadeOverlay.color = c;
+
+        if (Mathf.Approximately(targetAlpha, 0f))
+            revealFadeOverlay.gameObject.SetActive(false);
     }
 
     public void OnKeep()
     {
-        if (finishing || currentItem == null) return;
+        if (finishing || choiceLocked || awaitingReveal || revealing || currentItem == null) return;
 
-        if (currentItem.isFish)
+        choiceLocked = true;
+
+        if (currentItem.isGoodFish)
         {
             if (keepSound != null) miscObjectClick.PlaySound(keepSound);
             ChangeSanity(1, keepButtonRect);
@@ -147,50 +307,41 @@ public class FishingMinigame : MonoBehaviour
             return;
         }
 
-        // Keeping junk costs sanity, then moves on to the next object.
         ChangeSanity(-1, keepButtonRect);
-        AdvanceJunk();
+        StartCoroutine(AdvanceAfterSanity());
     }
 
     public void OnDiscard()
     {
-        if (finishing || currentItem == null) return;
+        if (finishing || choiceLocked || awaitingReveal || revealing || currentItem == null) return;
 
-        // Discarding the fish (only possible in the loop) costs sanity.
-        if (currentItem.isFish)
+        choiceLocked = true;
+
+        if (currentItem.isGoodFish)
         {
+            // Discarded the good fish (end of opening bag, or later): random loop
+            // of this day's objects until they Keep it.
             ChangeSanity(-1, discardButtonRect);
-            ShowRandomLoopItem();
+            BuildRandomLoopBag();
+            StartCoroutine(AdvanceAfterSanity());
             return;
         }
 
-        // Discarding junk is the correct move: no penalty, advance.
         if (discardSound != null) miscObjectClick.PlaySound(discardSound);
-        AdvanceJunk();
+        choiceLocked = false;
+        ShowNextItem();
     }
 
-    // Moves to the next object after acting on a junk item, in either phase.
-    private void AdvanceJunk()
+    private IEnumerator AdvanceAfterSanity()
     {
-        if (!loopPhase)
+        yield return new WaitForSeconds(popupDuration);
+        if (!finishing)
         {
-            openingJunkRemaining--;
-            if (openingJunkRemaining > 0)
-                ShowRandomJunk();
-            else
-            {
-                loopPhase = true;
-                ShowFish();
-            }
-        }
-        else
-        {
-            ShowRandomLoopItem();
+            choiceLocked = false;
+            ShowNextItem();
         }
     }
 
-    // Applies the sanity change through the same MessageBus path the rest of the
-    // game uses, and shows a self-contained popup above the given button.
     private void ChangeSanity(int amount, RectTransform anchor)
     {
         MessageBus.Instance.Publish("PlusSanity", amount);
@@ -216,8 +367,6 @@ public class FishingMinigame : MonoBehaviour
         sanityPopup.color = color;
 
         RectTransform rt = sanityPopup.rectTransform;
-        // Use world position so the popup lines up over the button regardless of
-        // differing anchor/pivot settings between the popup and the buttons.
         Vector3 basePos = anchor != null ? anchor.position : rt.position;
         Vector3 start = basePos + new Vector3(0f, popupYOffset, 0f);
         Vector3 end = start + new Vector3(0f, popupRise, 0f);
@@ -246,6 +395,9 @@ public class FishingMinigame : MonoBehaviour
     private void FinishMinigame()
     {
         GameState.Set("minigame_open", false);
+        if (revealButton != null)
+            revealButton.gameObject.SetActive(false);
+        SetChoiceButtonsActive(true);
         minigamePanel.SetActive(false);
 
         GameState.Set("gathered_fish", true);
