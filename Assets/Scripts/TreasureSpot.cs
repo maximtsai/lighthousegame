@@ -4,6 +4,7 @@ using UnityEngine;
 /// <summary>
 /// Day-gated map treasure hotspot. Shows a sparkle in the world; on click,
 /// opens an item inspect popup and plays dialogue via DialogueManager.
+/// Optional revealSprite enables two-part inspect (glow click + fade).
 /// </summary>
 [RequireComponent(typeof(InteractableObject))]
 public class TreasureSpot : MonoBehaviour
@@ -11,6 +12,8 @@ public class TreasureSpot : MonoBehaviour
     [Header("Treasure")]
     [SerializeField] private string treasureId = "boot";
     [SerializeField] private Sprite treasureSprite;
+    [Tooltip("If set, inspect is two-part: closed sprite, click to fade, then this open sprite + dialogue.")]
+    [SerializeField] private Sprite revealSprite;
     [Tooltip("Path under Resources/ScriptableObjects/Dialogues/ (e.g. outdoors/boot)")]
     [SerializeField] private string dialoguePath = "outdoors/boot";
     [SerializeField] private Dialogue dialogueOverride;
@@ -24,6 +27,8 @@ public class TreasureSpot : MonoBehaviour
     [SerializeField] private bool markFoundOnInspect = true;
     [Tooltip("Only show after the burial mound is covered (hill on top).")]
     [SerializeField] private bool requireMoundCovered = false;
+    [Tooltip("World-space Y offset for the inspect popup (e.g. 0.2 = 20px at PPU 100).")]
+    [SerializeField] private float inspectYOffset = 0f;
 
     private bool inspecting;
     private MessageBus.SubscriptionHandle burialHandle;
@@ -66,7 +71,6 @@ public class TreasureSpot : MonoBehaviour
         if (!requireMoundCovered)
             return true;
 
-        // Covered mound: buried, bury flow finished, and not the day-2 uncovered grave.
         return GameState.Get<bool>("has_buried", false)
             && !GameState.Get<bool>("do_burial", false)
             && !GameState.Get<bool>("grave_revealed", false);
@@ -85,7 +89,6 @@ public class TreasureSpot : MonoBehaviour
         foreach (Transform child in transform)
             child.gameObject.SetActive(visible);
 
-        // Fully hide after collect so it can't be re-found this session.
         if (!visible && IsFound() && hideAfterFound)
             gameObject.SetActive(false);
     }
@@ -109,10 +112,23 @@ public class TreasureSpot : MonoBehaviour
         if (IsFound() && hideAfterFound) return;
         if (DialogueManager.DialogueIsOpen()) return;
         if (GameState.Get<bool>("minigame_open", false)) return;
+        if (GameState.Get<bool>("treasure_inspect_open", false)) return;
 
         inspecting = true;
-        TreasureInspectUI.Show(treasureSprite);
 
+        if (revealSprite != null)
+        {
+            TreasureInspectUI.ShowTwoPart(treasureSprite, revealSprite, BeginDialogue, inspectYOffset);
+        }
+        else
+        {
+            TreasureInspectUI.Show(treasureSprite, inspectYOffset);
+            BeginDialogue();
+        }
+    }
+
+    private void BeginDialogue()
+    {
         Dialogue dialogue = ResolveDialogue();
         if (dialogue != null)
             DialogueManager.ShowDialogue(dialogue);
@@ -135,7 +151,6 @@ public class TreasureSpot : MonoBehaviour
 
     private IEnumerator WaitForDialogueThenFinish()
     {
-        // Wait until dialogue has opened, then until it closes.
         yield return null;
         while (DialogueManager.DialogueIsOpen())
             yield return null;

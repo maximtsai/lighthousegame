@@ -1,28 +1,72 @@
+using System;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 /// <summary>
-/// Dimmed inspect view that shows a treasure at its real SpriteRenderer size
-/// (scale 1,1,1 — same as dragging the sprite into a scene). No UI size box.
-/// Dim + item track the main camera every frame so pans stay covered.
-/// Works with Single-mode sprites (fileID 21300000).
+/// Dimmed inspect view at real SpriteRenderer size (scale 1,1,1).
+/// Supports single sprites and two-part reveals (closed → click → fade → open).
 /// </summary>
 public class TreasureInspectUI : MonoBehaviour
 {
     private const int DimSortOrder = 9000;
     private const int ItemSortOrder = 9001;
-    // How far in front of the camera (local +Z) the overlay sits.
+    private const int FadeSortOrder = 9100;
     private const float CameraForward = 1f;
+    private const float RevealFadeDuration = 0.15f;
 
     private static TreasureInspectUI instance;
 
     private SpriteRenderer dimRenderer;
     private SpriteRenderer itemRenderer;
+    private SpriteRenderer fadeRenderer;
     private Transform dimTransform;
     private Transform itemTransform;
+    private Transform fadeTransform;
 
-    public static void Show(Sprite sprite)
+    private Sprite revealSprite;
+    private Action onRevealed;
+    private bool awaitingReveal;
+    private bool revealing;
+    private float itemYOffset;
+
+    public static void Show(Sprite sprite, float yOffset = 0f)
     {
-        // Drop any leftover UI-canvas version from earlier iterations.
+        ShowInternal(sprite, null, null, yOffset);
+    }
+
+    /// <summary>
+    /// Two-part inspect: show closed sprite; next click fades, swaps to open, then onRevealed.
+    /// </summary>
+    public static void ShowTwoPart(Sprite closedSprite, Sprite openSprite, Action onRevealed, float yOffset = 0f)
+    {
+        ShowInternal(closedSprite, openSprite, onRevealed, yOffset);
+    }
+
+    public static void Hide()
+    {
+        if (instance == null) return;
+
+        instance.StopAllCoroutines();
+        instance.awaitingReveal = false;
+        instance.revealing = false;
+        instance.revealSprite = null;
+        instance.onRevealed = null;
+        if (instance.fadeRenderer != null)
+        {
+            Color c = instance.fadeRenderer.color;
+            c.a = 0f;
+            instance.fadeRenderer.color = c;
+            instance.fadeTransform.gameObject.SetActive(false);
+        }
+
+        GameState.Set("treasure_inspect_open", false);
+        instance.itemYOffset = 0f;
+        instance.gameObject.SetActive(false);
+    }
+
+    private static void ShowInternal(Sprite sprite, Sprite openSprite, Action onRevealed, float yOffset)
+    {
         if (instance != null && instance.itemRenderer == null)
         {
             Destroy(instance.gameObject);
@@ -41,19 +85,32 @@ public class TreasureInspectUI : MonoBehaviour
         if (sprite == null)
             Debug.LogWarning("TreasureInspectUI: treasure sprite is null (check Single sprite reference).");
 
+        instance.StopAllCoroutines();
+        instance.revealSprite = openSprite;
+        instance.onRevealed = onRevealed;
+        instance.awaitingReveal = openSprite != null;
+        instance.revealing = false;
+        instance.itemYOffset = yOffset;
+
         instance.itemRenderer.sprite = sprite;
         instance.itemRenderer.color = Color.white;
         instance.itemTransform.localScale = Vector3.one;
         instance.itemTransform.gameObject.SetActive(sprite != null);
 
+        if (instance.fadeRenderer != null)
+        {
+            Color c = instance.fadeRenderer.color;
+            c.a = 0f;
+            instance.fadeRenderer.color = c;
+            instance.fadeTransform.gameObject.SetActive(false);
+        }
+
+        GameState.Set("treasure_inspect_open", true);
         instance.gameObject.SetActive(true);
         instance.SyncToCamera(cam);
-    }
 
-    public static void Hide()
-    {
-        if (instance != null)
-            instance.gameObject.SetActive(false);
+        if (instance.awaitingReveal)
+            instance.StartCoroutine(instance.WaitForRevealClick());
     }
 
     void LateUpdate()
@@ -66,33 +123,125 @@ public class TreasureInspectUI : MonoBehaviour
     private void SyncToCamera(Camera cam)
     {
         Vector3 camPos = cam.transform.position;
-        // Closer to camera than the scene (camera looks +Z).
         float itemZ = camPos.z + CameraForward;
-        float dimZ = itemZ + 0.1f; // slightly behind the item
+        float dimZ = itemZ + 0.1f;
+        float fadeZ = itemZ - 0.05f;
 
         dimTransform.position = new Vector3(camPos.x, camPos.y, dimZ);
         if (cam.orthographic)
         {
             float height = cam.orthographicSize * 2f;
             float width = height * cam.aspect;
-            dimTransform.localScale = new Vector3(width * 1.05f, height * 1.05f, 1f);
+            Vector3 cover = new Vector3(width * 1.05f, height * 1.05f, 1f);
+            dimTransform.localScale = cover;
+            if (fadeTransform != null)
+            {
+                fadeTransform.position = new Vector3(camPos.x, camPos.y, fadeZ);
+                fadeTransform.localScale = cover;
+            }
         }
         else
         {
             dimTransform.localScale = new Vector3(40f, 40f, 1f);
+            if (fadeTransform != null)
+            {
+                fadeTransform.position = new Vector3(camPos.x, camPos.y, fadeZ);
+                fadeTransform.localScale = new Vector3(40f, 40f, 1f);
+            }
         }
 
         if (!itemTransform.gameObject.activeSelf || itemRenderer.sprite == null)
             return;
 
-        // Center the sprite on the camera (works for Single sprites with center pivot).
-        itemTransform.position = new Vector3(camPos.x, camPos.y, itemZ);
+        itemTransform.position = new Vector3(camPos.x, camPos.y + itemYOffset, itemZ);
         itemTransform.localScale = Vector3.one;
 
         Bounds bounds = itemRenderer.bounds;
-        Vector3 delta = new Vector3(camPos.x, camPos.y, bounds.center.z) - bounds.center;
+        Vector3 delta = new Vector3(camPos.x, camPos.y + itemYOffset, bounds.center.z) - bounds.center;
         delta.z = 0f;
         itemTransform.position += delta;
+    }
+
+    private IEnumerator WaitForRevealClick()
+    {
+        // Ignore the sparkle click that opened this inspect.
+        yield return null;
+        yield return new WaitUntil(() => !IsPrimaryPressed());
+
+        while (awaitingReveal && !revealing)
+        {
+            if (IsPrimaryDownThisFrame())
+            {
+                OnRevealClicked();
+                yield break;
+            }
+            yield return null;
+        }
+    }
+
+    private static bool IsPrimaryPressed()
+    {
+        if (Mouse.current != null)
+            return Mouse.current.leftButton.isPressed;
+        return Input.GetMouseButton(0);
+    }
+
+    private static bool IsPrimaryDownThisFrame()
+    {
+        if (Mouse.current != null)
+            return Mouse.current.leftButton.wasPressedThisFrame;
+        return Input.GetMouseButtonDown(0);
+    }
+
+    private void OnRevealClicked()
+    {
+        if (!awaitingReveal || revealing || revealSprite == null) return;
+        revealing = true;
+        StartCoroutine(RevealRoutine());
+    }
+
+    private IEnumerator RevealRoutine()
+    {
+        yield return StartCoroutine(FadeReveal(1f));
+
+        itemRenderer.sprite = revealSprite;
+        Camera cam = Camera.main;
+        if (cam != null)
+            SyncToCamera(cam);
+
+        yield return StartCoroutine(FadeReveal(0f));
+
+        awaitingReveal = false;
+        revealing = false;
+
+        Action callback = onRevealed;
+        onRevealed = null;
+        callback?.Invoke();
+    }
+
+    private IEnumerator FadeReveal(float targetAlpha)
+    {
+        if (fadeRenderer == null)
+            yield break;
+
+        fadeTransform.gameObject.SetActive(true);
+        Color c = fadeRenderer.color;
+        float startAlpha = c.a;
+        float elapsed = 0f;
+
+        while (elapsed < RevealFadeDuration)
+        {
+            elapsed += Time.deltaTime;
+            c.a = Mathf.Lerp(startAlpha, targetAlpha, elapsed / RevealFadeDuration);
+            fadeRenderer.color = c;
+            yield return null;
+        }
+
+        c.a = targetAlpha;
+        fadeRenderer.color = c;
+
+        if (Mathf.Approximately(targetAlpha, 0f))
+            fadeTransform.gameObject.SetActive(false);
     }
 
     private static void EnsureInstance()
@@ -121,6 +270,15 @@ public class TreasureInspectUI : MonoBehaviour
         itemTransform = itemGo.transform;
         itemRenderer = itemGo.AddComponent<SpriteRenderer>();
         itemRenderer.sortingOrder = ItemSortOrder;
+
+        GameObject fadeGo = new GameObject("RevealFade");
+        fadeGo.transform.SetParent(root.transform, false);
+        fadeTransform = fadeGo.transform;
+        fadeRenderer = fadeGo.AddComponent<SpriteRenderer>();
+        fadeRenderer.sprite = CreateUnitWhiteSprite();
+        fadeRenderer.color = new Color(0f, 0f, 0f, 0f);
+        fadeRenderer.sortingOrder = FadeSortOrder;
+        fadeGo.SetActive(false);
     }
 
     private static Sprite CreateUnitWhiteSprite()

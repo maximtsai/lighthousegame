@@ -53,6 +53,7 @@ public class InteractableObject : MonoBehaviour
     {
         if (GameState.Get<bool>("task_list_open", false)) return;
         if (GameState.Get<bool>("minigame_open", false)) return;
+        if (GameState.Get<bool>("treasure_inspect_open", false)) return;
         if (GameState.Get<bool>("navigationBlocked", false)) return;
         if (DialogueManager.DialogueIsOpen()) return;
         transform.GetComponent<SpriteRenderer>().sprite = hover_sprite;
@@ -69,6 +70,7 @@ public class InteractableObject : MonoBehaviour
     {
         if (GameState.Get<bool>("task_list_open", false)) return;
         if (GameState.Get<bool>("minigame_open", false)) return;
+        if (GameState.Get<bool>("treasure_inspect_open", false)) return;
         if (GameState.Get<bool>("navigationBlocked", false)) return;
         if (DialogueManager.DialogueIsOpen()) return;
         if (hasSound)
