@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: fish_not_want
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   text:
-  - You don't feel like eating any more fish
+  - ... That's enough fish for today.
   onDialogueEnd:
     m_PersistentCalls:
       m_Calls: []

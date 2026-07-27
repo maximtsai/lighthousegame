@@ -64,6 +64,7 @@ public class BurialScript : MonoBehaviour
             background.sprite = backgroundRevealedSpriteDay;
             GameState.Set("grave_revealed", true);
             DialogueManager.ShowDialogue(miscObjectClick.getDialogue("burial/grave_uncovered"));
+            MessageBus.Instance.Publish("AddTaskStringImportant", "generic/fix_grave");
             return;
         }
 
@@ -152,6 +153,7 @@ public class BurialScript : MonoBehaviour
                             MessageBus.Instance.Publish("FloatText", 0f, 0.3f, "-SANITY", "purple");
                             MessageBus.Instance.Publish("PlusSanity", -1);
                             MessageBus.Instance.Publish("AddTaskString", "generic/task_wash_hand");
+                            MessageBus.Instance.Publish("CompleteTask", "generic/fix_grave");
                             if (handBleed != null)
                             {
                                 handBleed.SetActive(true);

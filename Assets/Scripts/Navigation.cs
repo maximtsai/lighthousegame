@@ -144,7 +144,8 @@ public class Navigation : MonoBehaviour
     
     public void GoToSink(SceneTransition transition)
     {
-        if (GameState.Get<string>("is_clean") == "true")
+        bool handNeedsCleaning = GameState.Get<bool>("hand_cut") && !GameState.Get<bool>("hand_cleaned");
+        if (GameState.Get<string>("is_clean") == "true" && !handNeedsCleaning)
         {
             DialogueManager.ShowDialogue(getDialog("Bedroom/already_washed"));
             return;
@@ -255,6 +256,16 @@ public class Navigation : MonoBehaviour
             && !GameState.Get<bool>("stain_question_answered", false))
         {
             TriggerStainQuestion();
+            return;
+        }
+
+        // Intercept leaving BurialScene to OutdoorsScene on Day 2 if grave_revealed is true
+        if (SceneManager.GetActiveScene().name == GameConsts.BURIALSCENE
+            && scene == GameConsts.OUTDOORSSCENE
+            && GameState.Get<int>("day") == 2
+            && GameState.Get<bool>("grave_revealed", false))
+        {
+            DialogueManager.ShowDialogueFromText(new string[] { "The weather has undone your shoddy grave.## Go fix your mistake." });
             return;
         }
 

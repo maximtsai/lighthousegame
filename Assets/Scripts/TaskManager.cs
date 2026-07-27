@@ -37,7 +37,7 @@ public class TaskManager : MonoBehaviour
         addTaskImportantHandle = MessageBus.Instance.Subscribe("AddTaskStringImportant", (args) =>
         {
             string message = args[0] as string;
-            AddTaskString(message);
+            AddTaskImportantString(message);
         });
 
         completeTaskHandle = MessageBus.Instance.Subscribe("CompleteTask", (args) =>

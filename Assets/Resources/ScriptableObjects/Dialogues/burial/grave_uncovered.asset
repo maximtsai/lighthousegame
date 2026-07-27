@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: grave_uncovered
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   text:
-  - The rain's undone the grave. #Camborne's face is poking out.
+  - The weather has undone your shoddy grave.
   onDialogueEnd:
     m_PersistentCalls:
       m_Calls: []

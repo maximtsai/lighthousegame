@@ -29,7 +29,7 @@ public class SinkScript : MonoBehaviour
             }
         }
 
-        if (day == 1 && GameState.Get<string>("is_clean") != "true") 
+        if (GameState.Get<string>("is_clean") != "true") 
         {
             Destroy(cleaningItems);
             // miscObjectClick.PlaySound(cleanSound);

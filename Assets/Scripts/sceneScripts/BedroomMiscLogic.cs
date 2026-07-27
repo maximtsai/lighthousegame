@@ -72,38 +72,53 @@ public class BedroomMiscLogic : MonoBehaviour
 
     private void ShowDay3Dialogue()
     {
+        // Phase 1: Plain dialogue with no choices
         Dialogue dialogue = ScriptableObject.CreateInstance<Dialogue>();
         dialogue.text = new List<string>(new string[] 
         { 
             "You take a look at your hand.", 
             "Feels like bugs are crawling underneath it." 
         });
-        dialogue.choices = new List<string>(new string[] { "SCRATCH", "LEAVE IT ALONE" });
+        dialogue.choices = new List<string>();
         dialogue.consequences = new List<UnityEngine.Events.UnityEvent>();
+        dialogue.onDialogueEnd = new UnityEngine.Events.UnityEvent();
+        dialogue.onDialogueEndImmediate = new UnityEngine.Events.UnityEvent();
+
+        // When player clicks through the last line, show a second dialogue with choices
+        dialogue.onDialogueEnd.AddListener(() =>
+        {
+            ShowDay3Choices();
+        });
+
+        DialogueManager.ShowDialogue(dialogue);
+    }
+
+    private void ShowDay3Choices()
+    {
+        // Phase 2: Same last line, now with choice buttons
+        Dialogue choiceDialogue = ScriptableObject.CreateInstance<Dialogue>();
+        choiceDialogue.text = new List<string>(new string[] 
+        { 
+            "Feels like bugs are crawling underneath it." 
+        });
+        choiceDialogue.choices = new List<string>(new string[] { "SCRATCH", "LEAVE IT ALONE" });
+        choiceDialogue.consequences = new List<UnityEngine.Events.UnityEvent>();
+        choiceDialogue.onDialogueEnd = new UnityEngine.Events.UnityEvent();
+        choiceDialogue.onDialogueEndImmediate = new UnityEngine.Events.UnityEvent();
 
         UnityEngine.Events.UnityEvent scratchEvent = new UnityEngine.Events.UnityEvent();
         scratchEvent.AddListener(() =>
         {
             MessageBus.Instance.Publish("FloatText", 0f, 0.3f, "-SANITY", "purple");
             MessageBus.Instance.Publish("PlusSanity", -1);
-            ShowPostDay3Dialogue();
         });
 
         UnityEngine.Events.UnityEvent leaveEvent = new UnityEngine.Events.UnityEvent();
-        leaveEvent.AddListener(() =>
-        {
-            ShowPostDay3Dialogue();
-        });
 
-        dialogue.consequences.Add(scratchEvent);
-        dialogue.consequences.Add(leaveEvent);
+        choiceDialogue.consequences.Add(scratchEvent);
+        choiceDialogue.consequences.Add(leaveEvent);
 
-        DialogueManager.ShowDialogue(dialogue);
-    }
-
-    private void ShowPostDay3Dialogue()
-    {
-        DialogueManager.ShowDialogueFromText(new string[] { "I should bandage my hand." });
+        DialogueManager.ShowDialogue(choiceDialogue);
     }
 
     private void UpdateTrack(Ambience ambience, AudioClip newClip, float volume, int channel)

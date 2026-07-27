@@ -258,10 +258,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.34232366
     y: 0
-    width: 1
-    height: 1.0000744
+    width: 1.538036
+    height: 1.5387454
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -706,7 +706,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 100
   m_TargetDisplay: 0
 --- !u!1001 &699294803
 PrefabInstance:
@@ -3105,6 +3105,7 @@ MonoBehaviour:
   hideAfterFound: 1
   markFoundOnInspect: 1
   requireMoundCovered: 0
+  inspectYOffset: 0
 --- !u!1 &8800400010
 GameObject:
   m_ObjectHideFlags: 0
@@ -3399,6 +3400,7 @@ MonoBehaviour:
   hideAfterFound: 1
   markFoundOnInspect: 1
   requireMoundCovered: 0
+  inspectYOffset: 0
 --- !u!1 &8800500010
 GameObject:
   m_ObjectHideFlags: 0

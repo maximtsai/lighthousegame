@@ -294,6 +294,7 @@ public class MiscObjectClick : MonoBehaviour
     public void ShowDeadCamborneChoices()
     {
         Debug.Log("ShowDeadCamborneChoices");
+        MessageBus.Instance.Publish("ShowChoiceDialog", "Camborne's body lies still.");
         MessageBus.Instance.Publish(
             "ShowThreeChoice",
             "LOOK AWAY",
@@ -320,6 +321,7 @@ public class MiscObjectClick : MonoBehaviour
     public void CamborneChoicesLookAwayClick()
     {
         Debug.Log("CamborneChoicesLookAwayClick");
+        MessageBus.Instance.Publish("ShowChoiceDialog", "Camborne's body lies still.");
         MessageBus.Instance.Publish(
             "ShowTwoChoice",
             "TOUCH",
@@ -340,6 +342,7 @@ public class MiscObjectClick : MonoBehaviour
 
     public void QuestionFishClick()
     {
+        MessageBus.Instance.Publish("ShowChoiceDialog", "Did the fish just look at me?");
         MessageBus.Instance.Publish(
             "ShowTwoChoice",
             "YES",
@@ -375,6 +378,7 @@ public class MiscObjectClick : MonoBehaviour
     {
         Debug.Log("CamborneChoicesTouchClick");
 
+        MessageBus.Instance.Publish("ShowChoiceDialog", "Camborne's body lies still.");
         MessageBus.Instance.Publish(
             "ShowTwoChoice",
             "LOOK AWAY",
@@ -395,6 +399,7 @@ public class MiscObjectClick : MonoBehaviour
     public void CamborneChoicesLastClick()
     {
         Debug.Log("last choice");
+        MessageBus.Instance.Publish("ShowChoiceDialog", "Camborne's body lies still.");
         MessageBus.Instance.Publish(
             "ShowOneChoice",
             "BURY HIM",

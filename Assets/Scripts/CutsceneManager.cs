@@ -245,10 +245,9 @@ public class CutsceneManager : Singleton<CutsceneManager>
         if (cutscene.controller != null && animator != null)
         {
             animatorObj.SetActive(true);
-            // SetAnimation(cutscene.animation);
-            // ChangeAnimatorController(animator, cutscene.controller);
+            ChangeAnimatorController(animator, cutscene.controller);
             animator.Play(cutscene.animation.name, 0, 0f); // layer 0, default state, time = 0
-            // ResizeAnimatorObj();
+            ResizeAnimatorObj();
         } else if (cutscene.animation == null)
         {
             Debug.LogWarning("Missing cutscene.animation");

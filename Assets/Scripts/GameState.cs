@@ -11,7 +11,7 @@ public static class GameState
     {
         data = new Dictionary<string, object>();
         // We can write whatever else code below to initialize data
-        data["day"] = 1;
+        data["day"] = 2;
         data["lighthouse_fixed"] = false;
         data["dropped_tool"] = false;
         data["gathered_fish"] = false;
@@ -114,7 +114,7 @@ public static class GameState
     public static void FullReset()
     {
         Clear();
-        Set("day", 1);
+        Set("day", 2);
         Set("sanity", GameConsts.SANITY_START); // Starting sanity
         
         // Burial states

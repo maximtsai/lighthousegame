@@ -148,11 +148,6 @@ public class StoveScript : MonoBehaviour
 
     public void ClickFish()
     {
-        if (!GameState.Get<bool>("hungry"))
-        {
-            DialogueManager.ShowDialogue(miscObjectClick.getDialogue("stove/not_hungry"));
-            return;
-        }
         if (GameState.Get<bool>("fish_clicked"))
         {
             // Already clicked
@@ -162,11 +157,16 @@ public class StoveScript : MonoBehaviour
             } else {
                 DialogueManager.ShowDialogue(miscObjectClick.getDialogue("stove/fish_not_want"));
             }
+            return;
         }
-        else
+
+        if (!GameState.Get<bool>("hungry"))
         {
-            StartCoroutine(FishChoppingSequence());
+            DialogueManager.ShowDialogue(miscObjectClick.getDialogue("stove/not_hungry"));
+            return;
         }
+
+        StartCoroutine(FishChoppingSequence());
     }
 
     private IEnumerator FishChoppingSequence()
