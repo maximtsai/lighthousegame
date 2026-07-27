@@ -485,7 +485,7 @@ MonoBehaviour:
     items:
     - itemName: Rotten Fish
       sprite: {fileID: 21300000, guid: d616112f927968944a927d4407187d53, type: 3}
-      revealSprite: {fileID: 21300000, guid: 952da4a1c9d933a40970a2ab0509667c, type: 3}
+      revealSprite: {fileID: 0}
       isGoodFish: 0
     - itemName: Worms
       sprite: {fileID: 21300000, guid: cf60cc1c38b844b4d9e1b79f4c0826cd, type: 3}
@@ -514,8 +514,8 @@ MonoBehaviour:
       revealSprite: {fileID: 0}
       isGoodFish: 0
     - itemName: Rotten Fish
-      sprite: {fileID: 21300000, guid: d616112f927968944a927d4407187d53, type: 3}
-      revealSprite: {fileID: 21300000, guid: 952da4a1c9d933a40970a2ab0509667c, type: 3}
+      sprite: {fileID: 21300000, guid: 952da4a1c9d933a40970a2ab0509667c, type: 3}
+      revealSprite: {fileID: 0}
       isGoodFish: 0
     - itemName: Worms
       sprite: {fileID: 21300000, guid: cf60cc1c38b844b4d9e1b79f4c0826cd, type: 3}
@@ -563,7 +563,7 @@ MonoBehaviour:
   keepSound: {fileID: 0}
   discardSound: {fileID: 0}
   testModeSkipRequirements: 1
-  testModeForceDay: 6
+  testModeForceDay: 7
 --- !u!1 &290558259
 GameObject:
   m_ObjectHideFlags: 0
@@ -1440,7 +1440,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -378529724441376976, guid: 0e878ab88bb07224fb9cad281ecde5eb, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -2493,6 +2493,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TreasureSpot
   treasureId: tooth
   treasureSprite: {fileID: 21300000, guid: 11370b5d971b6e64f8635b7705e7ab14, type: 3}
+  revealSprite: {fileID: 0}
   dialoguePath: dock/tooth
   dialogueOverride: {fileID: 0}
   startDay: 1
@@ -2500,6 +2501,7 @@ MonoBehaviour:
   hideAfterFound: 1
   markFoundOnInspect: 1
   requireMoundCovered: 0
+  inspectYOffset: 0
 --- !u!1 &8800300010
 GameObject:
   m_ObjectHideFlags: 0
