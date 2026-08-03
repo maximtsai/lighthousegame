@@ -103,6 +103,43 @@ public class BurialScript : MonoBehaviour
         miscObjectClick.PlaySound(sfx, volume, loop);
     }
 
+    private IEnumerator InjuryFlash()
+    {
+        if (black == null) yield break;
+        SpriteRenderer sr = black.GetComponent<SpriteRenderer>();
+        if (sr == null) yield break;
+
+        black.SetActive(true);
+        sr.color = new Color(1f, 0f, 0f, 0f);
+
+        // Fade in red
+        float t = 0f;
+        while (t < 0.15f)
+        {
+            t += Time.deltaTime;
+            Color c = sr.color;
+            c.a = Mathf.Lerp(0f, 0.6f, t / 0.15f);
+            sr.color = c;
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(0.05f);
+
+        // Fade out
+        t = 0f;
+        while (t < 0.35f)
+        {
+            t += Time.deltaTime;
+            Color c = sr.color;
+            c.a = Mathf.Lerp(0.6f, 0f, t / 0.35f);
+            sr.color = c;
+            yield return null;
+        }
+
+        sr.color = new Color(1f, 1f, 1f, 0f);
+        black.SetActive(false);
+    }
+
     private void UpdateTrack(Ambience ambience, AudioClip newClip, float volume, int channel)
     {
         if (ambience == null)
@@ -158,6 +195,8 @@ public class BurialScript : MonoBehaviour
                             {
                                 handBleed.SetActive(true);
                             }
+                            MessageBus.Instance.Publish("PlaySound", "injury");
+                            StartCoroutine(InjuryFlash());
                         });
                         DialogueManager.ShowDialogue(d);
                     });
