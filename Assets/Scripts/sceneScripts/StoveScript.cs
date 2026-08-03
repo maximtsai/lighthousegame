@@ -439,7 +439,7 @@ public class StoveScript : MonoBehaviour
         yield return new WaitForSeconds(0.12f);
         SpriteRenderer sr = fishAnim.GetComponent<SpriteRenderer>();
         sr.sprite = choppedFishSprite;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.75f);
 
         if (chainJumpscare)
         {
