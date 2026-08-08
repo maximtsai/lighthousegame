@@ -3098,6 +3098,7 @@ MonoBehaviour:
   treasureId: wallet
   treasureSprite: {fileID: 21300000, guid: 594e42f940ab140448719ceb6254643e, type: 3}
   revealSprite: {fileID: 21300000, guid: fd8736bb6e67b744b99485f18d03d8f0, type: 3}
+  revealHoverOutline: {fileID: 21300000, guid: b372c551e34fa444b80ef03cef554e78, type: 3}
   dialoguePath: Bedroom/wallet
   dialogueOverride: {fileID: 0}
   startDay: 2

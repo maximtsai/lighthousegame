@@ -5,12 +5,13 @@ using UnityEngine.InputSystem;
 
 /// <summary>
 /// Dimmed inspect view at real SpriteRenderer size (scale 1,1,1).
-/// Supports single sprites and two-part reveals (closed → click → fade → open).
+/// Supports single sprites and two-part reveals (closed → hover outline → click → fade → open).
 /// </summary>
 public class TreasureInspectUI : MonoBehaviour
 {
     private const int DimSortOrder = 9000;
     private const int ItemSortOrder = 9001;
+    private const int OutlineSortOrder = 9002;
     private const int FadeSortOrder = 9100;
     private const float CameraForward = 1f;
     private const float RevealFadeDuration = 0.15f;
@@ -19,28 +20,38 @@ public class TreasureInspectUI : MonoBehaviour
 
     private SpriteRenderer dimRenderer;
     private SpriteRenderer itemRenderer;
+    private SpriteRenderer outlineRenderer;
     private SpriteRenderer fadeRenderer;
     private Transform dimTransform;
     private Transform itemTransform;
+    private Transform outlineTransform;
     private Transform fadeTransform;
 
+    private Sprite closedSprite;
+    private Sprite hoverOutlineSprite;
     private Sprite revealSprite;
     private Action onRevealed;
     private bool awaitingReveal;
     private bool revealing;
+    private bool outlineHovered;
     private float itemYOffset;
 
     public static void Show(Sprite sprite, float yOffset = 0f)
     {
-        ShowInternal(sprite, null, null, yOffset);
+        ShowInternal(sprite, null, null, yOffset, null);
     }
 
     /// <summary>
-    /// Two-part inspect: show closed sprite; next click fades, swaps to open, then onRevealed.
+    /// Two-part inspect: show closed sprite; hover shows outline; click fades, swaps to open, then onRevealed.
     /// </summary>
-    public static void ShowTwoPart(Sprite closedSprite, Sprite openSprite, Action onRevealed, float yOffset = 0f)
+    public static void ShowTwoPart(
+        Sprite closedSprite,
+        Sprite openSprite,
+        Action onRevealed,
+        float yOffset = 0f,
+        Sprite hoverOutline = null)
     {
-        ShowInternal(closedSprite, openSprite, onRevealed, yOffset);
+        ShowInternal(closedSprite, openSprite, onRevealed, yOffset, hoverOutline);
     }
 
     public static void Hide()
@@ -50,8 +61,13 @@ public class TreasureInspectUI : MonoBehaviour
         instance.StopAllCoroutines();
         instance.awaitingReveal = false;
         instance.revealing = false;
+        instance.outlineHovered = false;
+        instance.closedSprite = null;
+        instance.hoverOutlineSprite = null;
         instance.revealSprite = null;
         instance.onRevealed = null;
+        if (instance.outlineTransform != null)
+            instance.outlineTransform.gameObject.SetActive(false);
         if (instance.fadeRenderer != null)
         {
             Color c = instance.fadeRenderer.color;
@@ -62,12 +78,18 @@ public class TreasureInspectUI : MonoBehaviour
 
         GameState.Set("treasure_inspect_open", false);
         instance.itemYOffset = 0f;
+        CustomCursor.SetCursorToNormal();
         instance.gameObject.SetActive(false);
     }
 
-    private static void ShowInternal(Sprite sprite, Sprite openSprite, Action onRevealed, float yOffset)
+    private static void ShowInternal(
+        Sprite sprite,
+        Sprite openSprite,
+        Action onRevealed,
+        float yOffset,
+        Sprite hoverOutline)
     {
-        if (instance != null && instance.itemRenderer == null)
+        if (instance != null && (instance.itemRenderer == null || instance.outlineRenderer == null))
         {
             Destroy(instance.gameObject);
             instance = null;
@@ -86,16 +108,25 @@ public class TreasureInspectUI : MonoBehaviour
             Debug.LogWarning("TreasureInspectUI: treasure sprite is null (check Single sprite reference).");
 
         instance.StopAllCoroutines();
+        instance.closedSprite = sprite;
+        instance.hoverOutlineSprite = hoverOutline;
         instance.revealSprite = openSprite;
         instance.onRevealed = onRevealed;
         instance.awaitingReveal = openSprite != null;
         instance.revealing = false;
+        instance.outlineHovered = false;
         instance.itemYOffset = yOffset;
 
         instance.itemRenderer.sprite = sprite;
         instance.itemRenderer.color = Color.white;
         instance.itemTransform.localScale = Vector3.one;
         instance.itemTransform.gameObject.SetActive(sprite != null);
+
+        instance.outlineRenderer.sprite = hoverOutline;
+        instance.outlineRenderer.color = Color.white;
+        instance.outlineTransform.localPosition = Vector3.zero;
+        instance.outlineTransform.localScale = Vector3.one;
+        instance.outlineTransform.gameObject.SetActive(false);
 
         if (instance.fadeRenderer != null)
         {
@@ -118,6 +149,7 @@ public class TreasureInspectUI : MonoBehaviour
         Camera cam = Camera.main;
         if (cam == null) return;
         SyncToCamera(cam);
+        UpdateHoverOutline(cam);
     }
 
     private void SyncToCamera(Camera cam)
@@ -162,6 +194,45 @@ public class TreasureInspectUI : MonoBehaviour
         itemTransform.position += delta;
     }
 
+    private void UpdateHoverOutline(Camera cam)
+    {
+        if (!awaitingReveal || revealing || hoverOutlineSprite == null || closedSprite == null)
+        {
+            if (outlineTransform != null && outlineTransform.gameObject.activeSelf)
+                outlineTransform.gameObject.SetActive(false);
+            return;
+        }
+
+        bool hovered = IsPointerOverItem(cam);
+        if (hovered == outlineHovered)
+            return;
+
+        outlineHovered = hovered;
+        // Keep the closed art; toggle outline overlay only.
+        outlineRenderer.sprite = hoverOutlineSprite;
+        outlineTransform.gameObject.SetActive(hovered);
+        if (hovered)
+            CustomCursor.SetCursorToPointer();
+        else
+            CustomCursor.SetCursorToNormal();
+    }
+
+    private bool IsPointerOverItem(Camera cam)
+    {
+        if (itemRenderer == null || itemRenderer.sprite == null)
+            return false;
+
+        Vector2 screenPos;
+        if (Mouse.current != null)
+            screenPos = Mouse.current.position.ReadValue();
+        else
+            screenPos = Input.mousePosition;
+
+        Vector3 world = cam.ScreenToWorldPoint(new Vector3(screenPos.x, screenPos.y, Mathf.Abs(cam.transform.position.z - itemTransform.position.z)));
+        world.z = itemRenderer.bounds.center.z;
+        return itemRenderer.bounds.Contains(world);
+    }
+
     private IEnumerator WaitForRevealClick()
     {
         // Ignore the sparkle click that opened this inspect.
@@ -197,6 +268,10 @@ public class TreasureInspectUI : MonoBehaviour
     {
         if (!awaitingReveal || revealing || revealSprite == null) return;
         revealing = true;
+        outlineHovered = false;
+        if (outlineTransform != null)
+            outlineTransform.gameObject.SetActive(false);
+        CustomCursor.SetCursorToNormal();
         StartCoroutine(RevealRoutine());
     }
 
@@ -205,6 +280,10 @@ public class TreasureInspectUI : MonoBehaviour
         yield return StartCoroutine(FadeReveal(1f));
 
         itemRenderer.sprite = revealSprite;
+        hoverOutlineSprite = null;
+        closedSprite = revealSprite;
+        if (outlineTransform != null)
+            outlineTransform.gameObject.SetActive(false);
         Camera cam = Camera.main;
         if (cam != null)
             SyncToCamera(cam);
@@ -270,6 +349,14 @@ public class TreasureInspectUI : MonoBehaviour
         itemTransform = itemGo.transform;
         itemRenderer = itemGo.AddComponent<SpriteRenderer>();
         itemRenderer.sortingOrder = ItemSortOrder;
+
+        // Outline shares the item transform so same-size art (e.g. 660x400) lines up exactly.
+        GameObject outlineGo = new GameObject("HoverOutline");
+        outlineGo.transform.SetParent(itemTransform, false);
+        outlineTransform = outlineGo.transform;
+        outlineRenderer = outlineGo.AddComponent<SpriteRenderer>();
+        outlineRenderer.sortingOrder = OutlineSortOrder;
+        outlineGo.SetActive(false);
 
         GameObject fadeGo = new GameObject("RevealFade");
         fadeGo.transform.SetParent(root.transform, false);
