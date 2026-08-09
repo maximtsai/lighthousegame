@@ -99,7 +99,7 @@ public class BedroomMiscLogic : MonoBehaviour
         Dialogue choiceDialogue = ScriptableObject.CreateInstance<Dialogue>();
         choiceDialogue.text = new List<string>(new string[] 
         { 
-            "Feels like bugs are crawling underneath it." 
+            "Scratch your hand?" 
         });
         choiceDialogue.choices = new List<string>(new string[] { "SCRATCH", "LEAVE IT ALONE" });
         choiceDialogue.consequences = new List<UnityEngine.Events.UnityEvent>();
@@ -109,11 +109,20 @@ public class BedroomMiscLogic : MonoBehaviour
         UnityEngine.Events.UnityEvent scratchEvent = new UnityEngine.Events.UnityEvent();
         scratchEvent.AddListener(() =>
         {
-            MessageBus.Instance.Publish("FloatText", 0f, 0.3f, "-SANITY", "purple");
-            MessageBus.Instance.Publish("PlusSanity", -1);
+            handlogic hand = FindFirstObjectByType<handlogic>(FindObjectsInactive.Include);
+            if (hand != null)
+            {
+                hand.Scratch();
+            }
+            GameState.Increment("handScratchCounter");
+            MessageBus.Instance.Publish("CompleteTask", "task_wash_hand");
         });
 
         UnityEngine.Events.UnityEvent leaveEvent = new UnityEngine.Events.UnityEvent();
+        leaveEvent.AddListener(() =>
+        {
+            MessageBus.Instance.Publish("CompleteTask", "task_wash_hand");
+        });
 
         choiceDialogue.consequences.Add(scratchEvent);
         choiceDialogue.consequences.Add(leaveEvent);

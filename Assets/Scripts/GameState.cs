@@ -21,6 +21,7 @@ public static class GameState
         data["hungry"] = true;
         data["intro_played"] = false;
         data["hand_cleaned"] = false;
+        data["handScratchCounter"] = 0;
     }
 
 
@@ -124,6 +125,7 @@ public static class GameState
         Set("grave_inspected", false);
         Set("hand_cut", false);
         Set("hand_cleaned", false);
+        Set("handScratchCounter", 0);
 
         // Events
         Set("introduced_journal", false);
