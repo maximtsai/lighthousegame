@@ -22,6 +22,8 @@ public static class GameState
         data["intro_played"] = false;
         data["hand_cleaned"] = false;
         data["handScratchCounter"] = 0;
+        data["handIgnoreCounter"] = 0;
+        data["handInfested"] = false;
     }
 
 
@@ -126,6 +128,8 @@ public static class GameState
         Set("hand_cut", false);
         Set("hand_cleaned", false);
         Set("handScratchCounter", 0);
+        Set("handIgnoreCounter", 0);
+        Set("handInfested", false);
 
         // Events
         Set("introduced_journal", false);

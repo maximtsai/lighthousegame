@@ -258,7 +258,7 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.2039555
+    x: 0.32880098
     y: 0
     width: 0.88339514
     height: 0.88351655
@@ -3394,6 +3394,7 @@ MonoBehaviour:
   treasureId: ace
   treasureSprite: {fileID: 21300000, guid: c9170a236dfafff4caeb776526a77a3c, type: 3}
   revealSprite: {fileID: 0}
+  revealHoverOutline: {fileID: 0}
   dialoguePath: Bedroom/ace
   dialogueOverride: {fileID: 0}
   startDay: 3
@@ -3642,7 +3643,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8604274840906206130, guid: 4b2c6c72aba106a408f5f4fd62532bc6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.32
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8604274840906206130, guid: 4b2c6c72aba106a408f5f4fd62532bc6, type: 3}
       propertyPath: m_LocalPosition.y

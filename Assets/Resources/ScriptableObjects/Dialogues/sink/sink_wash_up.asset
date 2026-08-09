@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   text:
   - You wash up.
-  - You are now less dirty.
+  - You try your best to keep your bandages secure.
   onDialogueEnd:
     m_PersistentCalls:
       m_Calls:

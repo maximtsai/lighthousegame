@@ -251,7 +251,7 @@ GAME DIALOGUE LOG
 
 [sink - sink_wash_up]
   You wash up.
-  You are now less dirty.
+  You try your best to keep your bandages secure.
 
 [stove - alcohol_already_added]
   You already added booze

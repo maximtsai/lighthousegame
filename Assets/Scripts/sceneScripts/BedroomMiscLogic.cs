@@ -56,7 +56,13 @@ public class BedroomMiscLogic : MonoBehaviour
                 break;
             case 3:
                 MessageBus.Instance.Publish("AddTaskString", "generic/task_wash_hand");
+                MessageBus.Instance.Publish("AddTaskString", "generic/task_breakfast");
+                MessageBus.Instance.Publish("AddTaskString", "generic/task_weather");
                 MessageBus.Instance.Publish("AddTaskString", "generic/task_work");
+                MessageBus.Instance.Publish("AddTaskString", "generic/task_find_scissors");
+                MessageBus.Instance.Publish("AddTaskString", "generic/task_finish_maintenance");
+                MessageBus.Instance.Publish("AddTaskString", "generic/task_fish");
+                MessageBus.Instance.Publish("AddTaskString", "generic/go_to_sleep");
                 ShowDay3Dialogue();
                 break;
             case 4:
@@ -109,18 +115,41 @@ public class BedroomMiscLogic : MonoBehaviour
         UnityEngine.Events.UnityEvent scratchEvent = new UnityEngine.Events.UnityEvent();
         scratchEvent.AddListener(() =>
         {
+            int scratchCount = GameState.Increment("handScratchCounter");
             handlogic hand = FindFirstObjectByType<handlogic>(FindObjectsInactive.Include);
             if (hand != null)
             {
-                hand.Scratch();
+                if (scratchCount > 2 && !GameState.Get<bool>("handInfested"))
+                {
+                    GameState.Set("handInfested", true);
+                    hand.ScratchInterrupted();
+                }
+                else if (scratchCount > 2 && GameState.Get<bool>("handInfested"))
+                {
+                    hand.Scratch();
+                    MessageBus.Instance.Publish("PlusSanity", -1);
+                }
+                else
+                {
+                    hand.Scratch();
+                }
             }
-            GameState.Increment("handScratchCounter");
             MessageBus.Instance.Publish("CompleteTask", "task_wash_hand");
         });
 
         UnityEngine.Events.UnityEvent leaveEvent = new UnityEngine.Events.UnityEvent();
         leaveEvent.AddListener(() =>
         {
+            int ignoreCount = GameState.Increment("handIgnoreCounter");
+            if (ignoreCount >= 3)
+            {
+                DialogueManager.ShowDialogueFromText(new string[] { "You are getting used to the discomfort." });
+            }
+            else
+            {
+                DialogueManager.ShowDialogueFromText(new string[] { "You endure the intense itchiness." });
+                MessageBus.Instance.Publish("PlusSanity", -1);
+            }
             MessageBus.Instance.Publish("CompleteTask", "task_wash_hand");
         });
 

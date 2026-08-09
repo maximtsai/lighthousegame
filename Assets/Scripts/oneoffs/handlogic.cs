@@ -16,8 +16,20 @@ public class handlogic : MonoBehaviour
     [SerializeField] private Sprite handBandagedBloody;
     [SerializeField] private Sprite nightHandBandagedBloody;
 
+    [Header("Fester Sprites")]
+    [SerializeField] private Sprite handFester1;
+    [SerializeField] private Sprite nightFester1;
+    [SerializeField] private Sprite handFester2;
+    [SerializeField] private Sprite nightFester2;
+
+    [Header("Flash Sprite")]
+    [SerializeField] private Sprite hand_flash;
+
     [Header("Scratch")]
     [SerializeField] private GameObject handScratch;
+
+    [Header("Screen Flash")]
+    [SerializeField] private GameObject blackScreenFlash;
 
     private Vector3 initialPosition;
     private bool hasSavedPos = false;
@@ -68,6 +80,77 @@ public class handlogic : MonoBehaviour
         StartCoroutine(ScratchRoutine());
     }
 
+    public void ScratchInterrupted()
+    {
+        if (handScratch == null) return;
+        StartCoroutine(ScratchInterruptedRoutine());
+    }
+
+    private IEnumerator ScratchInterruptedRoutine()
+    {
+        if (handScratch == null) yield break;
+
+        SpriteRenderer scratchSpriteRenderer = handScratch.GetComponent<SpriteRenderer>();
+        Sprite originalScratchSprite = scratchSpriteRenderer != null ? scratchSpriteRenderer.sprite : null;
+
+        // Enable and move to position x=0.6, y=0, z=0.1 over 0.3s cubic ease-out
+        handScratch.SetActive(true);
+        Transform scratchTransform = handScratch.transform;
+        Vector3 startPos = scratchTransform.localPosition;
+        Vector3 targetPos = new Vector3(0.6f, 0f, 0.1f);
+        yield return MoveLocal(scratchTransform, startPos, targetPos, 0.3f, true);
+
+        // Scratch down once
+        Vector3 downPos = new Vector3(targetPos.x, -0.7f, targetPos.z);
+        yield return MoveLocal(scratchTransform, targetPos, downPos, 0.2f, true);
+
+        // Hand sprite briefly turns red
+        if (scratchSpriteRenderer != null)
+        {
+            scratchSpriteRenderer.color = Color.red;
+        }
+        yield return new WaitForSeconds(0.1f);
+
+        // Hand turns to hand_flash sprite (no longer red)
+        if (scratchSpriteRenderer != null)
+        {
+            scratchSpriteRenderer.color = Color.white;
+            scratchSpriteRenderer.sprite = hand_flash;
+        }
+        yield return new WaitForSeconds(0.1f);
+
+        // Screen turns black briefly
+        if (blackScreenFlash != null)
+        {
+            blackScreenFlash.SetActive(true);
+        }
+        yield return new WaitForSeconds(0.15f);
+        if (blackScreenFlash != null)
+        {
+            blackScreenFlash.SetActive(false);
+        }
+
+        // Return hand to starting spot and hide
+        yield return MoveLocal(scratchTransform, downPos, startPos, 0.2f, false);
+        handScratch.SetActive(false);
+
+        // Reset scratch sprite back to original
+        if (scratchSpriteRenderer != null)
+        {
+            scratchSpriteRenderer.sprite = originalScratchSprite;
+        }
+
+        // Hand sprite turns to fester sprite
+        if (spriteRenderer != null)
+        {
+            Sprite festerSprite = GameState.Get<bool>("is_nighttime", false) ? nightFester1 : handFester1;
+            if (festerSprite != null)
+            {
+                spriteRenderer.sprite = festerSprite;
+            }
+        }
+    }
+
     private IEnumerator ScratchRoutine()
     {
         if (handScratch == null) yield break;
@@ -114,7 +197,15 @@ public class handlogic : MonoBehaviour
 
         bool isNight = GameState.Get<bool>("is_nighttime", false);
 
-        if (GameState.Get<bool>("hand_cleaned", false))
+        if (GameState.Get<bool>("handInfested", false))
+        {
+            Sprite targetFesterSprite = isNight ? nightFester1 : handFester1;
+            if (targetFesterSprite != null && spriteRenderer.sprite != targetFesterSprite)
+            {
+                spriteRenderer.sprite = targetFesterSprite;
+            }
+        }
+        else if (GameState.Get<bool>("hand_cleaned", false))
         {
             Sprite targetCleanSprite = isNight ? nightHandBandaged : handBandaged;
             // Fallback to gash sprites if bandaged sprites are not assigned
