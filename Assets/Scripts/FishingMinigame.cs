@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class FishingMinigame : MonoBehaviour
@@ -13,6 +14,10 @@ public class FishingMinigame : MonoBehaviour
         public Sprite sprite;         // frame 1 / default
         public Sprite revealSprite;   // frame 2; if set, must click reveal before keep/discard
         public bool isGoodFish;
+        [Tooltip("Optional yellow outline shown on hover while waiting to reveal frame 2.")]
+        public Sprite hoverOutlineSprite;
+        [Tooltip("UI scale for this catch (1 = normal). Use 2 for small items like Lone Worm.")]
+        public float displayScale = 1f;
 
         public bool IsTwoFrame => revealSprite != null;
     }
@@ -35,7 +40,7 @@ public class FishingMinigame : MonoBehaviour
     [SerializeField] private Image itemImage;
 
     [Header("Two-frame reveal")]
-    // placeholder_glow — shown only on 2-frame items (frame 1). Click → fade → frame 2 → keep/discard.
+    // Outline overlay on frame 1. Click → fade → frame 2 → keep/discard.
     [SerializeField] private Button revealButton;
     [SerializeField] private Image revealFadeOverlay;
     [SerializeField] private float revealFadeDuration = 0.15f;
@@ -63,6 +68,7 @@ public class FishingMinigame : MonoBehaviour
     private bool revealing;
     private bool choiceLocked;
     private Coroutine popupRoutine;
+    private Image hoverOutlineImage;
 
     private List<CatchItem> activeItems;
     // Current presentation bag (opening: junk→fish, or random loop after fish discarded).
@@ -79,7 +85,13 @@ public class FishingMinigame : MonoBehaviour
             minigamePanel.SetActive(false);
 
         if (itemImage != null)
+        {
             itemImage.preserveAspect = true;
+            // Catch art must not steal hover/clicks from Keep/Discard.
+            itemImage.raycastTarget = false;
+        }
+
+        EnsureHoverOutlineImage();
 
         if (sanityPopup != null)
             sanityPopup.gameObject.SetActive(false);
@@ -88,13 +100,41 @@ public class FishingMinigame : MonoBehaviour
         {
             revealButton.onClick.AddListener(OnRevealClicked);
             revealButton.gameObject.SetActive(false);
+            WireRevealHover(revealButton.gameObject);
         }
 
         if (revealFadeOverlay != null)
             revealFadeOverlay.gameObject.SetActive(false);
 
+        ConfigureChoiceButton(keepButtonRect);
+        ConfigureChoiceButton(discardButtonRect);
+
         // Ensure Keep/Discard start visible (scene defaults).
         SetChoiceButtonsActive(true);
+    }
+
+    // Avoid sticky UI selection after a click — that was killing Discard's yellow hover
+    // on the next item while Keep still looked fine.
+    private static void ConfigureChoiceButton(RectTransform buttonRect)
+    {
+        if (buttonRect == null) return;
+        Button button = buttonRect.GetComponent<Button>();
+        if (button == null) return;
+
+        // Fully qualify — this project also has a scene Navigation singleton.
+        UnityEngine.UI.Navigation nav = button.navigation;
+        nav.mode = UnityEngine.UI.Navigation.Mode.None;
+        button.navigation = nav;
+
+        ColorBlock colors = button.colors;
+        colors.selectedColor = colors.highlightedColor;
+        button.colors = colors;
+    }
+
+    private static void ClearUiSelection()
+    {
+        if (EventSystem.current != null)
+            EventSystem.current.SetSelectedGameObject(null);
     }
 
     public void TryStartFishing()
@@ -213,14 +253,29 @@ public class FishingMinigame : MonoBehaviour
 
         itemImage.sprite = item.sprite;
         itemImage.enabled = item.sprite != null;
+        float scale = item.displayScale > 0f ? item.displayScale : 1f;
+        itemImage.rectTransform.localScale = Vector3.one * scale;
+        SetHoverOutlineVisible(false);
+        ClearUiSelection();
 
         if (item.IsTwoFrame)
         {
-            // Frame 1: hide Keep/Discard, show reveal glow, wait for click.
+            // Frame 1: hide Keep/Discard, show reveal hit area, wait for click.
             awaitingReveal = true;
             SetChoiceButtonsActive(false);
             if (revealButton != null)
+            {
+                // Invisible hit target — yellow outline overlays the item image on hover.
+                Image revealImage = revealButton.GetComponent<Image>();
+                if (revealImage != null)
+                {
+                    Color c = revealImage.color;
+                    c.a = 0f;
+                    revealImage.color = c;
+                }
+                revealButton.transition = Selectable.Transition.None;
                 revealButton.gameObject.SetActive(true);
+            }
         }
         else
         {
@@ -231,12 +286,83 @@ public class FishingMinigame : MonoBehaviour
         }
     }
 
+    private void EnsureHoverOutlineImage()
+    {
+        if (hoverOutlineImage != null || itemImage == null)
+            return;
+
+        GameObject go = new GameObject("HoverOutline", typeof(RectTransform), typeof(CanvasRenderer), typeof(Image));
+        RectTransform rt = go.GetComponent<RectTransform>();
+        rt.SetParent(itemImage.rectTransform, false);
+        rt.anchorMin = Vector2.zero;
+        rt.anchorMax = Vector2.one;
+        rt.offsetMin = Vector2.zero;
+        rt.offsetMax = Vector2.zero;
+        rt.localScale = Vector3.one;
+
+        hoverOutlineImage = go.GetComponent<Image>();
+        hoverOutlineImage.raycastTarget = false;
+        hoverOutlineImage.preserveAspect = true;
+        hoverOutlineImage.color = Color.white;
+        go.SetActive(false);
+    }
+
+    private void SetHoverOutlineVisible(bool visible)
+    {
+        EnsureHoverOutlineImage();
+        if (hoverOutlineImage == null)
+            return;
+
+        if (visible && currentItem != null && currentItem.hoverOutlineSprite != null)
+        {
+            hoverOutlineImage.sprite = currentItem.hoverOutlineSprite;
+            hoverOutlineImage.enabled = true;
+            hoverOutlineImage.gameObject.SetActive(true);
+        }
+        else
+        {
+            hoverOutlineImage.gameObject.SetActive(false);
+        }
+    }
+
+    private void WireRevealHover(GameObject revealGo)
+    {
+        EventTrigger trigger = revealGo.GetComponent<EventTrigger>();
+        if (trigger == null)
+            trigger = revealGo.AddComponent<EventTrigger>();
+
+        trigger.triggers.Clear();
+
+        EventTrigger.Entry enter = new EventTrigger.Entry { eventID = EventTriggerType.PointerEnter };
+        enter.callback.AddListener(_ => OnRevealHoverEnter());
+        trigger.triggers.Add(enter);
+
+        EventTrigger.Entry exit = new EventTrigger.Entry { eventID = EventTriggerType.PointerExit };
+        exit.callback.AddListener(_ => OnRevealHoverExit());
+        trigger.triggers.Add(exit);
+    }
+
+    private void OnRevealHoverEnter()
+    {
+        if (!awaitingReveal || revealing || currentItem == null) return;
+        if (currentItem.hoverOutlineSprite == null) return;
+        SetHoverOutlineVisible(true);
+    }
+
+    private void OnRevealHoverExit()
+    {
+        SetHoverOutlineVisible(false);
+    }
+
     private void SetChoiceButtonsActive(bool active)
     {
         if (keepButtonRect != null)
             keepButtonRect.gameObject.SetActive(active);
         if (discardButtonRect != null)
             discardButtonRect.gameObject.SetActive(active);
+
+        if (active)
+            ClearUiSelection();
     }
 
     public void OnRevealClicked()
@@ -246,6 +372,7 @@ public class FishingMinigame : MonoBehaviour
         revealing = true;
         if (revealButton != null)
             revealButton.gameObject.SetActive(false);
+        SetHoverOutlineVisible(false);
         StartCoroutine(RevealRoutine());
     }
 
@@ -397,6 +524,7 @@ public class FishingMinigame : MonoBehaviour
         GameState.Set("minigame_open", false);
         if (revealButton != null)
             revealButton.gameObject.SetActive(false);
+        SetHoverOutlineVisible(false);
         SetChoiceButtonsActive(true);
         minigamePanel.SetActive(false);
 

@@ -14,6 +14,8 @@ public class TreasureSpot : MonoBehaviour
     [SerializeField] private Sprite treasureSprite;
     [Tooltip("If set, inspect is two-part: closed sprite, click to fade, then this open sprite + dialogue.")]
     [SerializeField] private Sprite revealSprite;
+    [Tooltip("Optional yellow outline shown while hovering the closed item before reveal.")]
+    [SerializeField] private Sprite revealHoverOutline;
     [Tooltip("Path under Resources/ScriptableObjects/Dialogues/ (e.g. outdoors/boot)")]
     [SerializeField] private string dialoguePath = "outdoors/boot";
     [SerializeField] private Dialogue dialogueOverride;
@@ -118,7 +120,7 @@ public class TreasureSpot : MonoBehaviour
 
         if (revealSprite != null)
         {
-            TreasureInspectUI.ShowTwoPart(treasureSprite, revealSprite, BeginDialogue, inspectYOffset);
+            TreasureInspectUI.ShowTwoPart(treasureSprite, revealSprite, BeginDialogue, inspectYOffset, revealHoverOutline);
         }
         else
         {
