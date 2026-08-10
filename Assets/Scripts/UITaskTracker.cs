@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections;
@@ -22,6 +23,14 @@ public class UITaskTracker : MonoBehaviour
     private float typewriterDelay = 0.055f;
     [SerializeField] float hideDuration = 0.5f;
 
+    [Header("Hover Fade")]
+    [Tooltip("The bar sits over the scene; fade it down while the pointer is on it so you can see through.")]
+    [SerializeField] bool fadeOnHover = true;
+    [SerializeField, Range(0f, 1f)] float hoverFadeAlpha = 0.2f;
+    [SerializeField] float hoverFadeSpeed = 6f;
+    [Tooltip("Pointer zone in quest_box local units. Defaults to the black brush stroke's alpha bounds.")]
+    [SerializeField] Rect hoverZone = new Rect(-302f, 140f, 583f, 38f);
+
     // ============================= INTERNAL STATE =============================
     private enum UIState { Hidden, Revealing, Typing, IdleVisible, Hiding }
     private UIState state = UIState.Hidden;
@@ -32,12 +41,17 @@ public class UITaskTracker : MonoBehaviour
     private RectTransform mask;
 
     private string textToDisplay = "";
+    // Optional live counter drawn after the task text, e.g. "Clean Barnacles  3/14".
+    private string progressSuffix = "";
+    private float hoverAlpha = 1f;
     private bool posflipped = false;
     private int countDownFlip = 30;
 
     private Vector2 basePos;
     private Vector2 basePosText;
     private MessageBus.SubscriptionHandle changeQuestTextHandle;
+    private MessageBus.SubscriptionHandle setProgressHandle;
+    private MessageBus.SubscriptionHandle clearProgressHandle;
 
     void Start()
     {
@@ -87,6 +101,53 @@ public class UITaskTracker : MonoBehaviour
             PlaySound(interrupt);
             StartCoroutine(ShakeTaskList());
         });
+
+        setProgressHandle = MessageBus.Instance.Subscribe("SetTaskProgress", (args) =>
+        {
+            if (args == null || args.Length < 2) return;
+            SetProgress(Convert.ToInt32(args[0]), Convert.ToInt32(args[1]));
+        });
+
+        clearProgressHandle = MessageBus.Instance.Subscribe("ClearTaskProgress", (args) => ClearProgress());
+    }
+
+    private void Update()
+    {
+        if (!fadeOnHover || tasklist_bg == null || !tasklist_bg.IsActive()) return;
+
+        // Only while idle. During Reveal/Type/Hide those coroutines own the colour, and fighting
+        // them mid-animation makes the bar flicker.
+        if (state != UIState.IdleVisible)
+        {
+            hoverAlpha = 1f;
+            return;
+        }
+
+        float target = PointerOverBar() ? hoverFadeAlpha : 1f;
+        hoverAlpha = Mathf.MoveTowards(hoverAlpha, target, hoverFadeSpeed * Time.unscaledDeltaTime);
+
+        tasklist_bg.color = new Color(1f, 1f, 1f, hoverAlpha);
+        text_tasklist.color = new Color(1f, 1f, 1f, hoverAlpha);
+    }
+
+    // Hit-tested by position instead of a GraphicRaycaster on purpose. quest_box is a full-screen
+    // 640x360 frame, so making it raycastable would swallow every click in the scene behind it.
+    private bool PointerOverBar()
+    {
+        if (Pointer.current == null) return false;
+
+        Vector2 screenPos = Pointer.current.position.ReadValue();
+        Camera cam = canvas_full_list != null && canvas_full_list.renderMode != RenderMode.ScreenSpaceOverlay
+            ? canvas_full_list.worldCamera
+            : null;
+
+        if (!RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                tasklist_bg.rectTransform, screenPos, cam, out Vector2 local))
+        {
+            return false;
+        }
+
+        return hoverZone.Contains(local);
     }
 
     private void FixedUpdate()
@@ -133,6 +194,30 @@ public class UITaskTracker : MonoBehaviour
     public void SetTextDisplay(string text)
     {
         textToDisplay = text;
+        // A new task starts with no counter; the owner re-arms it if it wants one.
+        progressSuffix = "";
+    }
+
+    // Shows a live counter after the task text, like "Clean Barnacles  3/14". Updates in place,
+    // no reveal or typewriter or shake, so it's safe to call on every single step.
+    // Also reachable from anywhere via MessageBus.Publish("SetTaskProgress", current, total).
+    public void SetProgress(int current, int total)
+    {
+        progressSuffix = total > 0 ? $"  {current}/{total}" : "";
+        RefreshIdleText();
+    }
+
+    public void ClearProgress()
+    {
+        progressSuffix = "";
+        RefreshIdleText();
+    }
+
+    // Only redraw once the typewriter has finished - mid-type it would fight the animation,
+    // and TypewriterAnimation appends the suffix itself on its last frame.
+    private void RefreshIdleText()
+    {
+        if (state == UIState.IdleVisible) text_tasklist.text = textToDisplay + progressSuffix;
     }
 
     public void AnimateInNewTask()
@@ -261,6 +346,9 @@ public class UITaskTracker : MonoBehaviour
 
             shouldWait = !shouldWait;
         }
+
+        // Counter arrives whole rather than typing out digit by digit.
+        text_tasklist.text = textToDisplay + progressSuffix;
     }
 
     private IEnumerator HideAnimation(int token)
@@ -293,6 +381,7 @@ public class UITaskTracker : MonoBehaviour
         tasklist_bg.gameObject.SetActive(true);
         tasklist_bg.color = Color.white;
         text_tasklist.color = Color.white;
+        hoverAlpha = 1f;
     }
 
     private void PlaySound(AudioClip clip)
@@ -304,5 +393,7 @@ public class UITaskTracker : MonoBehaviour
     private void OnDestroy()
     {
         changeQuestTextHandle?.Unsubscribe();
+        setProgressHandle?.Unsubscribe();
+        clearProgressHandle?.Unsubscribe();
     }
 }
