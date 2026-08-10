@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI; // Needed for Image
 using System.Collections;
+using System.Collections.Generic;
 using System;
 
 public class LHMinigame : MonoBehaviour
@@ -175,6 +176,35 @@ public class LHMinigame : MonoBehaviour
             }
             return;
         }
+
+        // Day 3: scissors drop down stairs
+        if (GameState.Get<int>("day") == 3)
+        {
+            if (scissorsRenderer != null)
+            {
+                scissorsRenderer.color = new Color(0.4f, 0.4f, 0.4f, 1f);
+                scissorsRenderer.gameObject.SetActive(false);
+            }
+            Dialogue dialogue = ScriptableObject.CreateInstance<Dialogue>();
+            dialogue.text = new List<string>(new string[] 
+            { 
+                "You accidentally drop the scissors down the stairs.", 
+                "What a clumsy oaf." 
+            });
+            dialogue.choices = new List<string>();
+            dialogue.consequences = new List<UnityEngine.Events.UnityEvent>();
+            dialogue.onDialogueEnd = new UnityEngine.Events.UnityEvent();
+            dialogue.onDialogueEndImmediate = new UnityEngine.Events.UnityEvent();
+            dialogue.onDialogueEnd.AddListener(() =>
+            {
+                GameState.Set("scissorsDrop", true);
+                MessageBus.Instance.Publish("CompleteTask", "task_work");
+                StopMinigame();
+            });
+            DialogueManager.ShowDialogue(dialogue);
+            return;
+        }
+
         if (scissorsRenderer != null)
         {
             scissorsRenderer.color = new Color(0.4f, 0.4f, 0.4f, 1f); // Make it appear used

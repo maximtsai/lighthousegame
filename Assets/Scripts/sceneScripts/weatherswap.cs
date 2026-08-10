@@ -28,10 +28,10 @@ public class weatherswap : MonoBehaviour
                 targetSprite = altocumulusSprite;
                 break;
             case 2:
-                targetSprite = stratusSprite;
+                targetSprite = cirrocumulusSprite;
                 break;
             case 3:
-                targetSprite = cirrocumulusSprite;
+                targetSprite = stratusSprite;
                 break;
             case 4:
                 targetSprite = cirrostratusSprite;

@@ -260,7 +260,7 @@ GAME DIALOGUE LOG
   You already added corn
 
 [stove - eating]
-  The chowder fills you for now.
+  Just corn chowder is enough for you.
 
 [stove - fish_already_added]
   You've already added all the good bits.

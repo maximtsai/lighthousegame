@@ -24,6 +24,9 @@ public static class GameState
         data["handScratchCounter"] = 0;
         data["handIgnoreCounter"] = 0;
         data["handInfested"] = false;
+        data["scissorsDrop"] = false;
+        data["lighthouseFixForgotten"] = false;
+        data["ScissorsDisappeared"] = false;
     }
 
 
@@ -130,6 +133,9 @@ public static class GameState
         Set("handScratchCounter", 0);
         Set("handIgnoreCounter", 0);
         Set("handInfested", false);
+        Set("scissorsDrop", false);
+        Set("lighthouseFixForgotten", false);
+        Set("ScissorsDisappeared", false);
 
         // Events
         Set("introduced_journal", false);

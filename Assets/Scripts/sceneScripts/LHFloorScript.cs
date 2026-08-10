@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class LHFloorScript : MonoBehaviour
 {
@@ -20,6 +21,28 @@ public class LHFloorScript : MonoBehaviour
         if (GameState.Get<bool>("lighthouse_fixed"))
         {
             StartCoroutine(PlaySoundDelayedRoutine(finishLoop, 0.2f, true, 0.01f));
+        }
+
+        // Day 3: if scissors dropped, show search dialogue
+        if (GameState.Get<int>("day") == 3 && GameState.Get<bool>("scissorsDrop", false))
+        {
+            Dialogue dialogue = ScriptableObject.CreateInstance<Dialogue>();
+            dialogue.text = new List<string>(new string[] 
+            { 
+                "You look around for the dropped scissors.", 
+                "It's dim and you grope damp stones in the dark.", 
+                "You don't find anything." 
+            });
+            dialogue.choices = new List<string>();
+            dialogue.consequences = new List<UnityEngine.Events.UnityEvent>();
+            dialogue.onDialogueEnd = new UnityEngine.Events.UnityEvent();
+            dialogue.onDialogueEndImmediate = new UnityEngine.Events.UnityEvent();
+            dialogue.onDialogueEnd.AddListener(() =>
+            {
+                GameState.Set("ScissorsDisappeared", true);
+                MessageBus.Instance.Publish("CompleteTask", "task_find_scissors");
+            });
+            DialogueManager.ShowDialogue(dialogue);
         }
     }
     

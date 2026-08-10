@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: eating
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   text:
-  - The chowder fills you for now.
+  - Just corn chowder is enough for you.
   onDialogueEnd:
     m_PersistentCalls:
       m_Calls: []

@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 
 public class WeatherUIController : MonoBehaviour
 {
@@ -170,7 +171,11 @@ public class WeatherUIController : MonoBehaviour
             flasherObject.SetActive(false);
         }
 
-        GameState.Set("recorded_weather", true);
+        // Day 3: don't set recorded_weather until after "Are you sure?" -> YES
+        if (GameState.Get<int>("day") != 3)
+        {
+            GameState.Set("recorded_weather", true);
+        }
         StartCoroutine(PostConfirmSequence());
     }
 
@@ -183,6 +188,14 @@ public class WeatherUIController : MonoBehaviour
     private void postConfirmJudgment()
     {
         int day = GameState.Get<int>("day");
+
+        // Day 3 has special flow: no sanity change, "Are you sure?" -> thunderstorm
+        if (day == 3)
+        {
+            ShowDay3WeatherFlow();
+            return;
+        }
+
         bool isCorrect = false;
 
         string targetSpriteName = "weather_altocumulus_left";
@@ -192,9 +205,6 @@ public class WeatherUIController : MonoBehaviour
                 targetSpriteName = "weather_altocumulus_left";
                 break;
             case 2:
-                targetSpriteName = "weather_stratus_left";
-                break;
-            case 3:
                 targetSpriteName = "weather_cirrocumulus_left";
                 break;
             case 4:
@@ -239,6 +249,83 @@ public class WeatherUIController : MonoBehaviour
         {
             Debug.LogWarning("Dialogue not found at path: " + dialoguePath);
         }
+    }
+
+    private void ShowDay3WeatherFlow()
+    {
+        Dialogue areYouSure = ScriptableObject.CreateInstance<Dialogue>();
+        areYouSure.text = new List<string>(new string[] { "Are you sure?" });
+        areYouSure.choices = new List<string>(new string[] { "YES", "NO" });
+        areYouSure.consequences = new List<UnityEngine.Events.UnityEvent>();
+        areYouSure.onDialogueEnd = new UnityEngine.Events.UnityEvent();
+        areYouSure.onDialogueEndImmediate = new UnityEngine.Events.UnityEvent();
+
+        // YES: continue to next question
+        UnityEngine.Events.UnityEvent yesEvent = new UnityEngine.Events.UnityEvent();
+        yesEvent.AddListener(() =>
+        {
+            ShowDay3ThunderstormPrompt();
+        });
+
+        // NO: go back to weather UI
+        UnityEngine.Events.UnityEvent noEvent = new UnityEngine.Events.UnityEvent();
+        noEvent.AddListener(() =>
+        {
+            // Don't set recorded_weather, keep is_recording_weather true
+            // Re-open cloud buttons for selection
+            if (cloudButtons != null)
+            {
+                cloudButtons.SetActive(true);
+            }
+            if (confirmButton != null)
+            {
+                confirmButton.gameObject.SetActive(false);
+                confirmButton.interactable = true;
+            }
+            if (flasherObject != null)
+            {
+                flasherObject.SetActive(false);
+            }
+            if (drawImage != null)
+            {
+                drawImage.sprite = null;
+                drawImage.gameObject.SetActive(false);
+            }
+        });
+
+        areYouSure.consequences.Add(yesEvent);
+        areYouSure.consequences.Add(noEvent);
+
+        DialogueManager.ShowDialogue(areYouSure);
+    }
+
+    private void ShowDay3ThunderstormPrompt()
+    {
+        Dialogue thunderstormDialogue = ScriptableObject.CreateInstance<Dialogue>();
+        thunderstormDialogue.text = new List<string>(new string[] { "Are you certain it's not raining?" });
+        thunderstormDialogue.choices = new List<string>(new string[] { "...Huh?" });
+        thunderstormDialogue.consequences = new List<UnityEngine.Events.UnityEvent>();
+        thunderstormDialogue.onDialogueEnd = new UnityEngine.Events.UnityEvent();
+        thunderstormDialogue.onDialogueEndImmediate = new UnityEngine.Events.UnityEvent();
+
+        UnityEngine.Events.UnityEvent huhEvent = new UnityEngine.Events.UnityEvent();
+        huhEvent.AddListener(() =>
+        {
+            changeToThunderstorm();
+        });
+
+        thunderstormDialogue.consequences.Add(huhEvent);
+
+        DialogueManager.ShowDialogue(thunderstormDialogue);
+    }
+
+    public void changeToThunderstorm()
+    {
+        // TODO: Implement thunderstorm logic
+        Debug.Log("changeToThunderstorm called");
+        GameState.Set("recorded_weather", true);
+        MessageBus.Instance.Publish("CompleteTask", "task_weather");
+        StartCoroutine(CloseWeatherUIDelayed());
     }
 
     private void OnDialogueFinished()

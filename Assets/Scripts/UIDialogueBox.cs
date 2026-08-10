@@ -122,6 +122,10 @@ public class UIDialogueBox : MonoBehaviour
         {
             ShowDialogChoices();
         }
+        else if (dialogue.choices.Count == 1 && dialogue.choices.Count == dialogue.consequences.Count)
+        {
+            ShowSingleChoice();
+        }
     }
 
 
@@ -198,6 +202,10 @@ public class UIDialogueBox : MonoBehaviour
             {
                 ShowDialogChoices();
             }
+            else if (dialogue.choices.Count == 1 && dialogue.choices.Count == dialogue.consequences.Count)
+            {
+                ShowSingleChoice();
+            }
             
             return;
         }
@@ -205,7 +213,7 @@ public class UIDialogueBox : MonoBehaviour
         current_line++;
         if (total_lines <= current_line)
         {
-            if (null == dialogue.choices || 2 > dialogue.choices.Count)
+            if (null == dialogue.choices || 0 == dialogue.choices.Count)
             {
                 EndDialogue();
             }
@@ -217,6 +225,10 @@ public class UIDialogueBox : MonoBehaviour
                 // button1.gameObject.SetActive(true);
                 // button1.GetComponentInChildren<TMP_Text>().text = dialogue.choices[1];
                 // CustomCursor.SetCursorToNormal(); // revert cursor to default
+            }
+            else if (1 == dialogue.choices.Count && dialogue.choices.Count == dialogue.consequences.Count)
+            {
+                // Single choice - handled by ShowSingleChoice when typing finishes
             }
             else
             {
@@ -240,6 +252,23 @@ public class UIDialogueBox : MonoBehaviour
         button1.GetComponentInChildren<TMP_Text>().text = dialogue.choices[1];
         CustomCursor.SetCursorToNormal(); // revert cursor to default
         StartCoroutine(EnableButtonsAfterMouseUp());
+    }
+
+    private void ShowSingleChoice()
+    {
+        GameState.Set("picking_choice", true);
+        button0.gameObject.SetActive(true);
+        button0.GetComponentInChildren<TMP_Text>().text = dialogue.choices[0];
+        button1.gameObject.SetActive(false);
+        CustomCursor.SetCursorToNormal(); // revert cursor to default
+        StartCoroutine(EnableSingleButtonAfterMouseUp());
+    }
+
+    private IEnumerator EnableSingleButtonAfterMouseUp()
+    {
+        button0.interactable = false;
+        yield return new WaitUntil(() => !Input.GetMouseButton(0));
+        button0.interactable = true;
     }
 
     private IEnumerator EnableButtonsAfterMouseUp()

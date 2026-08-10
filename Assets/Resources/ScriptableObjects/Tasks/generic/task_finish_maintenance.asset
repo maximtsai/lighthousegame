@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: task_finish_maintenance
   m_EditorClassIdentifier: Assembly-CSharp::Task
   id: task_finish_maintenance
-  description: Do Your Job
+  description: Go back upstairs
   on_completion: {fileID: 0}
