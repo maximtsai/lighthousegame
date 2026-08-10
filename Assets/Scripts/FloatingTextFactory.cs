@@ -6,6 +6,24 @@ public class FloatingTextFactory : MonoBehaviour
     private static FloatingTextFactory instance;
     private MessageBus.SubscriptionHandle addTaskHandle;
 
+    // Only MainScene has one of these in it, so playing straight from any other scene used to
+    // leave nothing listening for FloatText and the popups just never appeared. Same fallback
+    // Navigation and AudioManager use.
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
+    private static void EnsureExists()
+    {
+        if (instance != null) return;
+
+        GameObject prefab = Resources.Load<GameObject>("FloatingTextFactory");
+        if (prefab == null)
+        {
+            Debug.LogError("FloatingTextFactory prefab not found in Resources folder!");
+            return;
+        }
+
+        Instantiate(prefab).name = "FloatingTextFactory";
+    }
+
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -34,9 +52,9 @@ public class FloatingTextFactory : MonoBehaviour
         GameObject floating_text = Instantiate(prefab_floating_text, new Vector3(x, y, -1.0f), Quaternion.identity);
 
         FloatingText component = floating_text.GetComponent<FloatingText>();
-        if (component != null) component.Instantiate(text);
-        
-        
+        if (component == null) return;
+
+        component.Instantiate(text);
         component.SetColor(ParseColor(color));
     }
 

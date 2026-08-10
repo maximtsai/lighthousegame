@@ -120,7 +120,7 @@ public static class GameState
     public static void FullReset()
     {
         Clear();
-        Set("day", 2);
+        Set("day", 1);
         Set("sanity", GameConsts.SANITY_START); // Starting sanity
         
         // Burial states

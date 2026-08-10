@@ -1132,10 +1132,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.39043826
     y: 0
-    width: 1
-    height: 1.0000744
+    width: 1.9654715
+    height: 1.9663419
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
