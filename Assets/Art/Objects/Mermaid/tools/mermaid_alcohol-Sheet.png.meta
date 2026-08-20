@@ -1,0 +1,647 @@
+fileFormatVersion: 2
+guid: 322137a18a9a42d4f8c8d38aaed00839
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3291677850379854288
+    second: mermaid_alcohol-Sheet_0
+  - first:
+      213: -8125935365736150064
+    second: mermaid_alcohol-Sheet_1
+  - first:
+      213: -4354378806332472284
+    second: mermaid_alcohol-Sheet_2
+  - first:
+      213: 7032640682211933571
+    second: mermaid_alcohol-Sheet_3
+  - first:
+      213: 723156947663393421
+    second: mermaid_alcohol-Sheet_4
+  - first:
+      213: -5355528075712743974
+    second: mermaid_alcohol-Sheet_5
+  - first:
+      213: 4756756930023443981
+    second: mermaid_alcohol-Sheet_6
+  - first:
+      213: 3270707967337355293
+    second: mermaid_alcohol-Sheet_7
+  - first:
+      213: -5011484551783544456
+    second: mermaid_alcohol-Sheet_8
+  - first:
+      213: -8928048287959227767
+    second: mermaid_alcohol-Sheet_9
+  - first:
+      213: 3222156485973718875
+    second: mermaid_alcohol-Sheet_10
+  - first:
+      213: 8133060283032536586
+    second: mermaid_alcohol-Sheet_11
+  - first:
+      213: -4983228825438003554
+    second: mermaid_alcohol-Sheet_12
+  - first:
+      213: 206555194631346459
+    second: mermaid_alcohol-Sheet_13
+  - first:
+      213: -7270460219503896448
+    second: mermaid_alcohol-Sheet_14
+  - first:
+      213: -9046322292049399198
+    second: mermaid_alcohol-Sheet_15
+  - first:
+      213: 3821454521772269318
+    second: mermaid_alcohol-Sheet_16
+  - first:
+      213: -4753240024504904071
+    second: mermaid_alcohol-Sheet_17
+  - first:
+      213: 3563157865289227108
+    second: mermaid_alcohol-Sheet_18
+  - first:
+      213: -3160107667104224933
+    second: mermaid_alcohol-Sheet_19
+  - first:
+      213: -8183269702640517382
+    second: mermaid_alcohol-Sheet_20
+  - first:
+      213: 1094387013363892037
+    second: mermaid_alcohol-Sheet_21
+  - first:
+      213: 4353837698514085976
+    second: mermaid_alcohol-Sheet_22
+  - first:
+      213: -7143335782147897464
+    second: mermaid_alcohol-Sheet_23
+  - first:
+      213: 3420337641599528745
+    second: mermaid_alcohol-Sheet_24
+  - first:
+      213: -2475030055498323752
+    second: mermaid_alcohol-Sheet_25
+  - first:
+      213: 1901301574859140653
+    second: mermaid_alcohol-Sheet_26
+  - first:
+      213: -2404976408535334728
+    second: mermaid_alcohol-Sheet_27
+  - first:
+      213: 7953196586234795773
+    second: mermaid_alcohol-Sheet_28
+  - first:
+      213: -7121832349972023937
+    second: mermaid_alcohol-Sheet_29
+  - first:
+      213: -4445812988036073679
+    second: mermaid_alcohol-Sheet_30
+  - first:
+      213: -5930629547304694551
+    second: mermaid_alcohol-Sheet_31
+  - first:
+      213: -4552317106862687713
+    second: mermaid_alcohol-Sheet_32
+  - first:
+      213: -5186073444607302508
+    second: mermaid_alcohol-Sheet_33
+  - first:
+      213: -1326624772216560968
+    second: mermaid_alcohol-Sheet_34
+  - first:
+      213: 3652066577279169942
+    second: mermaid_alcohol-Sheet_35
+  - first:
+      213: -1469432519216420934
+    second: mermaid_alcohol-Sheet_36
+  - first:
+      213: -1823054207664394677
+    second: mermaid_alcohol-Sheet_37
+  - first:
+      213: -5016870613903781306
+    second: mermaid_alcohol-Sheet_38
+  - first:
+      213: -1434988154720779535
+    second: mermaid_alcohol-Sheet_39
+  - first:
+      213: -1646490747408680484
+    second: mermaid_alcohol-Sheet_40
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: mermaid_alcohol-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1350
+        width: 640
+        height: 450
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d1a9ea90936ead20800000000000000
+      internalID: 3291677850379854288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mermaid_alcohol-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1350
+        width: 640
+        height: 450
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0db438186d0ea3f80800000000000000
+      internalID: -8125935365736150064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mermaid_alcohol-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1350
+        width: 640
+        height: 450
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 424401fcb832293c0800000000000000
+      internalID: -4354378806332472284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mermaid_alcohol-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1350
+        width: 640
+        height: 450
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38df330a075f89160800000000000000
+      internalID: 7032640682211933571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mermaid_alcohol-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 1350
+        width: 640
+        height: 450
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d821556996b290a00800000000000000
+      internalID: 723156947663393421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mermaid_alcohol-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 900
+        width: 640
+        height: 450
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad5b28607975da5b0800000000000000
+      internalID: -5355528075712743974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mermaid_alcohol-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 900
+        width: 640
+        height: 450
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0ecce8b935630240800000000000000
+      internalID: 4756756930023443981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mermaid_alcohol-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 900
+        width: 640
+        height: 450
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d18de2d3193e36d20800000000000000
+      internalID: 3270707967337355293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mermaid_alcohol-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 900
+        width: 640
+        height: 450
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87985952a51a37ab0800000000000000
+      internalID: -5011484551783544456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mermaid_alcohol-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 900
+        width: 640
+        height: 450
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 982e7aa8263391480800000000000000
+      internalID: -8928048287959227767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mermaid_alcohol-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 450
+        width: 640
+        height: 450
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b573f25904667bc20800000000000000
+      internalID: 3222156485973718875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mermaid_alcohol-Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 450
+        width: 640
+        height: 450
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a060ef29c3f6ed070800000000000000
+      internalID: 8133060283032536586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mermaid_alcohol-Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 450
+        width: 640
+        height: 450
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9ed74919c308dab0800000000000000
+      internalID: -4983228825438003554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mermaid_alcohol-Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 450
+        width: 640
+        height: 450
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b19538aead4ddd200800000000000000
+      internalID: 206555194631346459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mermaid_alcohol-Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 450
+        width: 640
+        height: 450
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0889cde63f22a1b90800000000000000
+      internalID: -7270460219503896448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mermaid_alcohol-Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 640
+        height: 450
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 262b2ba0ec1057280800000000000000
+      internalID: -9046322292049399198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mermaid_alcohol-Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 640
+        height: 450
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60fdb8ff3a8880530800000000000000
+      internalID: 3821454521772269318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":5.0,"y":4.0},"gridSpriteSize":{"x":640.0,"y":450.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      mermaid_alcohol-Sheet_0: 3291677850379854288
+      mermaid_alcohol-Sheet_1: -8125935365736150064
+      mermaid_alcohol-Sheet_10: 3222156485973718875
+      mermaid_alcohol-Sheet_11: 8133060283032536586
+      mermaid_alcohol-Sheet_12: -4983228825438003554
+      mermaid_alcohol-Sheet_13: 206555194631346459
+      mermaid_alcohol-Sheet_14: -7270460219503896448
+      mermaid_alcohol-Sheet_15: -9046322292049399198
+      mermaid_alcohol-Sheet_16: 3821454521772269318
+      mermaid_alcohol-Sheet_17: -4753240024504904071
+      mermaid_alcohol-Sheet_2: -4354378806332472284
+      mermaid_alcohol-Sheet_3: 7032640682211933571
+      mermaid_alcohol-Sheet_4: 723156947663393421
+      mermaid_alcohol-Sheet_5: -5355528075712743974
+      mermaid_alcohol-Sheet_6: 4756756930023443981
+      mermaid_alcohol-Sheet_7: 3270707967337355293
+      mermaid_alcohol-Sheet_8: -5011484551783544456
+      mermaid_alcohol-Sheet_9: -8928048287959227767
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
