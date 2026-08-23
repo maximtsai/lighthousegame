@@ -1,0 +1,6 @@
+# Commits that only change line endings. GitHub skips these in blame
+# automatically. Locally, once:
+#   git config blame.ignoreRevsFile .git-blame-ignore-revs
+#
+# After you commit the normalize change, paste its full hash below
+# (git rev-parse HEAD right after that commit).

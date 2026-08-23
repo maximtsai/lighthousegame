@@ -1,0 +1,49 @@
+# Store text as LF in git. Your OS still gets its normal endings on checkout
+# unless a rule below pins them (Unity YAML is always LF).
+* text=auto
+
+*.cs text diff=csharp
+*.shader text
+*.cginc text
+*.hlsl text
+*.compute text
+*.md text
+*.txt text
+*.json text eol=lf
+*.asmdef text eol=lf
+
+# Unity writes these as LF on every platform. Pin that so Windows
+# checkout doesn't flip them and create fake diffs.
+*.meta text eol=lf
+*.unity text eol=lf
+*.prefab text eol=lf
+*.asset text eol=lf
+*.mat text eol=lf
+*.anim text eol=lf
+*.controller text eol=lf
+*.overrideController text eol=lf
+*.physicMaterial text eol=lf
+*.physicsMaterial2D text eol=lf
+
+# Leave binaries alone. Auto-detect usually does this, but be explicit
+# so a bad text rule never rewrites art or audio.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.psd binary
+*.tga binary
+*.tif binary
+*.tiff binary
+*.exr binary
+*.mp3 binary
+*.wav binary
+*.ogg binary
+*.aif binary
+*.aiff binary
+*.mp4 binary
+*.mov binary
+*.ttf binary
+*.otf binary
+*.dll binary
+*.fbx binary
