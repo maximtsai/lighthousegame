@@ -116,10 +116,10 @@ TextureImporter:
       name: up 4 brick outline_0
       rect:
         serializedVersion: 2
-        x: 393
-        y: 58
-        width: 90
-        height: 50
+        x: 0
+        y: 0
+        width: 660
+        height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

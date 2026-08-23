@@ -165,6 +165,8 @@ public static class GameState
         
         Set("lighthouse_opened", false);
         Set("lighthouse_fixed", false);
+        LighthouseClimb.Reset();
+        LighthouseBrick.ResetForNewDay();
         Set("wrench_used", false);
         Set("oil_used", false);
         Set("scissors_used", false);

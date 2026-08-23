@@ -11,8 +11,7 @@ public static class GameConsts
     public const string KITCHENSCENE = "KitchenScene";
     public const string LHFLOORSCENE = "LHFloorScene";
     public const string LHSCENE = "LHScene";
-    public const string LHSTAIRSDOWNSCENE = "LHStairsDownScene";
-    public const string LHSTAIRSUPSCENE = "LHStairsUpScene";
+    public const string LHCLIMBSCENE = "LHClimbScene";
     public const string MAINSCENE = "MainScene";
     public const string MERMAIDSCENE = "MermaidScene";
     public const string OUTDOORSSCENE = "OutdoorsScene";

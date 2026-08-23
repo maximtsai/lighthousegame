@@ -104,7 +104,64 @@ public class Navigation : MonoBehaviour
             return;
         }
 
+        LighthouseClimb.Reset();
         GoToTransition(GameConsts.LHFLOORSCENE, 0.35f);
+    }
+
+    public void EnterLighthouseAscent()
+    {
+        LighthouseClimb.EnterFromGround();
+        GoToSlow(GameConsts.LHCLIMBSCENE);
+    }
+
+    public void EnterLighthouseDescent()
+    {
+        LighthouseClimb.EnterFromLightRoom();
+        GoToSlow(GameConsts.LHCLIMBSCENE);
+    }
+
+    public void GoLighthouseUp()
+    {
+        string scene = LighthouseClimb.StepUp();
+
+        // Climbing onto floor 4 is what shakes the brick loose, so the drop lands over the fade.
+        if (scene == GameConsts.LHCLIMBSCENE)
+        {
+            LighthouseBrick.Arrival arrival =
+                LighthouseBrick.Arrive(LighthouseClimb.Floor, LighthouseClimb.GoingUp);
+
+            if (arrival != LighthouseBrick.Arrival.Nothing)
+            {
+                LHClimbScript climb = FindFirstObjectByType<LHClimbScript>();
+                if (climb != null)
+                    climb.PlayBrickArrival(arrival);
+            }
+        }
+
+        GoToSlow(scene);
+    }
+
+    // Clicking the brick on the floor pushes it back into the wall. The climb scene is already
+    // loaded, so this fades out and in over the same scene rather than reloading it.
+    public static void PlaceBrickInWall()
+    {
+        if (LighthouseBrick.InWall || GameState.Get<bool>("navigationBlocked"))
+            return;
+
+        LighthouseBrick.PutInWall();
+
+        LHClimbScript climb = FindFirstObjectByType<LHClimbScript>();
+        if (climb != null)
+            climb.PlayBrickPlace();
+
+        EnsureInstance();
+        if (Instance != null)
+            Instance.GoToTransition(GameConsts.LHCLIMBSCENE, 0.5f);
+    }
+
+    public void GoLighthouseDown()
+    {
+        GoToSlow(LighthouseClimb.StepDown());
     }
 
     public void GoToPier()
@@ -269,25 +326,29 @@ public class Navigation : MonoBehaviour
             return;
         }
 
-        // Ensure the Navigation instance exists
+        EnsureInstance();
         if (Instance == null)
-        {
-            // Load the Navigation prefab from Resources
-            GameObject prefab = Resources.Load<GameObject>("Navigation");
-            if (prefab == null)
-            {
-                Debug.LogError("Navigation prefab not found in Resources folder!");
-                return;
-            }
-
-            GameObject go = Instantiate(prefab);
-            Instance = go.GetComponent<Navigation>();
-        }
+            return;
 
         GameState.Set("navigationBlocked", true);
         Instance.StartCoroutine(Instance.FadeInThenGoTo(scene, duration, startAlpha));
     }
     
+    private static void EnsureInstance()
+    {
+        if (Instance != null)
+            return;
+
+        GameObject prefab = Resources.Load<GameObject>("Navigation");
+        if (prefab == null)
+        {
+            Debug.LogError("Navigation prefab not found in Resources folder!");
+            return;
+        }
+
+        Instance = Instantiate(prefab).GetComponent<Navigation>();
+    }
+
     private IEnumerator FadeInThenGoTo(string scene, float duration, float startAlpha = 0f)
     {
         // Start from specified alpha
@@ -307,7 +368,18 @@ public class Navigation : MonoBehaviour
         c.a = 1f;
         blackoutImage.color = c;
 
-        SceneManager.LoadScene(scene);
+        if (scene == SceneManager.GetActiveScene().name && scene == GameConsts.LHCLIMBSCENE)
+        {
+            LHClimbScript climb = FindFirstObjectByType<LHClimbScript>();
+            if (climb != null)
+                climb.ShowFloor(LighthouseClimb.Floor, LighthouseClimb.GoingUp);
+            else
+                SceneManager.LoadScene(scene);
+        }
+        else
+        {
+            SceneManager.LoadScene(scene);
+        }
 
         t += 0.15f;
         while (t > 0)

@@ -24,10 +24,7 @@ EditorBuildSettings:
     path: Assets/Scenes/LHFloorScene.unity
     guid: b016dc817d613004cb69c3ce635fab62
   - enabled: 1
-    path: Assets/Scenes/LHStairsDownScene.unity
-    guid: c53cab23c0e0dd046a165ac6c69eab4a
-  - enabled: 1
-    path: Assets/Scenes/LHStairsUpScene.unity
+    path: Assets/Scenes/LHClimbScene.unity
     guid: fbe40890c67dfcd4b94fef5443343e1b
   - enabled: 1
     path: Assets/Scenes/PierScene.unity

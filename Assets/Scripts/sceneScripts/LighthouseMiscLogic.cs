@@ -69,6 +69,10 @@ public class LighthouseMiscLogic : MonoBehaviour
 
     private void UpdateTrack(Ambience ambience, AudioClip newClip, float volume, int channel)
     {
+        // Null when Play Mode is entered straight from this scene instead of MainScene.
+        if (ambience == null)
+            return;
+
         // Check if the new clip is different from the current clip
         AudioClip currentClip = ambience.GetCurrentClip(channel);
         if (currentClip != newClip)
@@ -86,6 +90,9 @@ public class LighthouseMiscLogic : MonoBehaviour
     public void UpdateTrackPublic(AudioClip newClip, float volume, int channel)
     {
         Ambience ambience = Ambience.Instance;
+        if (ambience == null)
+            return;
+
         AudioClip currentClip = ambience.GetCurrentClip(channel);
         if (currentClip != newClip)
         {

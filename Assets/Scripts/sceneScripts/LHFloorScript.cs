@@ -54,6 +54,10 @@ public class LHFloorScript : MonoBehaviour
 
     private void UpdateTrack(Ambience ambience, AudioClip newClip, float volume, int channel)
     {
+        // Null when Play Mode is entered straight from this scene instead of MainScene.
+        if (ambience == null)
+            return;
+
         // Check if the new clip is different from the current clip
         AudioClip currentClip = ambience.GetCurrentClip(channel);
         if (currentClip != newClip)

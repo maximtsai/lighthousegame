@@ -116,10 +116,10 @@ TextureImporter:
       name: down 4 in wall_0
       rect:
         serializedVersion: 2
-        x: 363
-        y: 252
-        width: 38
-        height: 33
+        x: 0
+        y: 0
+        width: 660
+        height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
