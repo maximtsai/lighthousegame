@@ -305,6 +305,17 @@ public class Navigation : MonoBehaviour
             return;
         }
 
+        // Intercept leaving LHFloorScene to OutdoorsScene on Day 3 while looking for scissors
+        if (SceneManager.GetActiveScene().name == GameConsts.LHFLOORSCENE
+            && scene == GameConsts.OUTDOORSSCENE
+            && GameState.Get<int>("day") == 3
+            && GameState.Get<bool>("scissorsDrop", false)
+            && (!GameState.Get<bool>("lighthouse_fixed", false) || (TaskManager.instance != null && TaskManager.instance.GetCurrentTasks().Exists(t => t.id == "task_find_scissors" || t.id == "task_finish_maintenance"))))
+        {
+            DialogueManager.ShowDialogueFromText(new string[] { "You're pretty sure the scissors didn't fall out the lighthouse." });
+            return;
+        }
+
         // Intercept leaving LHFloorScene to OutdoorsScene while the Fix Lighthouse task is still active
         if (SceneManager.GetActiveScene().name == GameConsts.LHFLOORSCENE
             && scene == GameConsts.OUTDOORSSCENE

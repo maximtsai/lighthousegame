@@ -73,7 +73,7 @@ public class KitchenMiscLogic : MonoBehaviour
 	}
 
     public void ClickTableDay2() {
-        if (GameState.Get<int>("day") == 2) {
+        if (GameState.Get<int>("day") >= 2) {
             DialogueManager.ShowDialogue(miscObjectClick.getDialogue("kitchen/day2_table"));
         }
     }

@@ -148,6 +148,7 @@ GameObject:
   - component: {fileID: 5421238342177706540}
   - component: {fileID: 5333172733192726454}
   - component: {fileID: 327629974341873846}
+  - component: {fileID: 834451217926037975}
   m_Layer: 5
   m_Name: Button0
   m_TagString: Untagged
@@ -203,7 +204,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 4231703742466543479, guid: 4c34f70b91e1adf40830fbc5539edaa4, type: 3}
+  m_Sprite: {fileID: 5539383714505805959, guid: 7d38d8e5f0d3650448d8bae0b4759347, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -269,6 +270,28 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!95 &834451217926037975
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 834451217926037974}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ecd976b37c589d942bee78144ad63466, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2114709264496450837
 GameObject:
   m_ObjectHideFlags: 0
@@ -417,6 +440,7 @@ GameObject:
   - component: {fileID: 5935200548739885222}
   - component: {fileID: 4371797653624200326}
   - component: {fileID: 4386316618397467036}
+  - component: {fileID: 2493030312192415124}
   m_Layer: 5
   m_Name: Button1
   m_TagString: Untagged
@@ -472,7 +496,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 4231703742466543479, guid: 4c34f70b91e1adf40830fbc5539edaa4, type: 3}
+  m_Sprite: {fileID: 5539383714505805959, guid: 7d38d8e5f0d3650448d8bae0b4759347, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -538,6 +562,28 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!95 &2493030312192415124
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2493030312192415123}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ecd976b37c589d942bee78144ad63466, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3789041840366733125
 GameObject:
   m_ObjectHideFlags: 0

@@ -30,6 +30,7 @@ public class LHMinigame : MonoBehaviour
     [SerializeField] private AudioClip wrenchSound;
     [SerializeField] private AudioClip oilSound;
     [SerializeField] private AudioClip scissorsSound;
+    [SerializeField] private AudioClip scissorsDropSound;
     [SerializeField] private AudioClip mercurySound;
     [SerializeField] private AudioClip finishClick;
     [SerializeField] private AudioClip finishLoop;
@@ -184,6 +185,10 @@ public class LHMinigame : MonoBehaviour
             {
                 scissorsRenderer.color = new Color(0.4f, 0.4f, 0.4f, 1f);
                 scissorsRenderer.gameObject.SetActive(false);
+            }
+            if (scissorsDropSound != null)
+            {
+                miscObjectClick.PlaySound(scissorsDropSound);
             }
             Dialogue dialogue = ScriptableObject.CreateInstance<Dialogue>();
             dialogue.text = new List<string>(new string[] 

@@ -17,6 +17,7 @@ public class LighthouseMiscLogic : MonoBehaviour
         // Day 3: if task is "Go back upstairs" and scissors disappeared, show scissors dialogue
         if (GameState.Get<int>("day") == 3 && IsTaskActive("task_finish_maintenance") && GameState.Get<bool>("ScissorsDisappeared", false))
         {
+            GameState.Set("scissorsDrop", false);
             GameState.Set("lighthouseFixForgotten", true);
             ShowScissorsDialogue();
         }
