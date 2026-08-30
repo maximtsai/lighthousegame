@@ -7,18 +7,17 @@ public class OutdoorsMiscLogic : MonoBehaviour
     [SerializeField] private AudioClip bgLoop2;
     // [SerializeField] CutsceneManager CsManager;
     [SerializeField] private MiscObjectClick miscObjectClick;
-    
+
+    [Header("Thunderstorm")]
+    [SerializeField] private AudioClip rainLoop;
+
     [Header("Weather UI (Optional)")]
     [SerializeField] private Button weatherActionButton;
 
     void Start()
     {
-        Ambience ambience = Ambience.Instance;
+        UpdateAmbience();
 
-        // Update track 1
-        UpdateTrack(ambience, bgLoop1, 0.9f, 1);
-        // Update track 2
-        UpdateTrack(ambience, bgLoop2, 0.35f, 2);
         if (GameState.Get<bool>("near_nighttime"))
         {
             GameState.Set("near_nighttime", false);
@@ -37,6 +36,17 @@ public class OutdoorsMiscLogic : MonoBehaviour
     }
 
 
+
+    public void UpdateAmbience()
+    {
+        Ambience ambience = Ambience.Instance;
+        bool raining = GameState.Get<bool>("thunderstorm", false);
+
+        // Update track 1
+        UpdateTrack(ambience, bgLoop1, 0.9f, 1);
+        // Update track 2
+        UpdateTrack(ambience, raining && rainLoop != null ? rainLoop : bgLoop2, 0.35f, 2);
+    }
 
     private void UpdateTrack(Ambience ambience, AudioClip newClip, float volume, int channel)
     {

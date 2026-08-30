@@ -31,13 +31,13 @@ public class StoveScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        bool isDay1 = GameState.Get<int>("day") == 1;
-        bool isDay2 = GameState.Get<int>("day") == 2;
+        int day = GameState.Get<int>("day");
         bool gatheredFish = GameState.Get<bool>("gathered_fish");
         bool isBreakfastTime = !GameState.Get<bool>("ate_breakfast");
+        bool isNighttime = GameState.Get<bool>("is_nighttime");
 
-        // Fish is active only on Day 1 dinner (if gathered) or Day 2 breakfast
-        bool shouldShowFish = (isDay1 && gatheredFish) || (isDay2 && isBreakfastTime);
+        // Fish is active on Day 1 dinner (if gathered), Day 2 breakfast, or at night from Day 3 onward
+        bool shouldShowFish = (day == 1 && gatheredFish) || (day == 2 && isBreakfastTime) || (day >= 3 && isNighttime);
 
         if (shouldShowFish)
         {

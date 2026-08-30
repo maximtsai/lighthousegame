@@ -37,10 +37,32 @@ public class LighthouseMiscLogic : MonoBehaviour
     private void ShowScissorsDialogue()
     {
         Dialogue dialogue = ScriptableObject.CreateInstance<Dialogue>();
-        dialogue.text = new List<string>(new string[] 
-        { 
-            "You find the scissors besides the stairs.", 
-            "Did you drop the scissors or not?" 
+        dialogue.text = new List<string>(new string[]
+        {
+            "You find the scissors besides the stairs.",
+            "Did you drop the scissors or not?"
+        });
+        dialogue.choices = new List<string>();
+        dialogue.consequences = new List<UnityEngine.Events.UnityEvent>();
+        dialogue.onDialogueEnd = new UnityEngine.Events.UnityEvent();
+        dialogue.onDialogueEndImmediate = new UnityEngine.Events.UnityEvent();
+
+        // When the player clicks through the drop-scissors line, show the choice buttons
+        dialogue.onDialogueEnd.AddListener(() =>
+        {
+            ShowScissorsChoice();
+        });
+
+        DialogueManager.ShowDialogue(dialogue);
+    }
+
+    private void ShowScissorsChoice()
+    {
+        // Same last line, now with choice buttons
+        Dialogue dialogue = ScriptableObject.CreateInstance<Dialogue>();
+        dialogue.text = new List<string>(new string[]
+        {
+            "Did you drop the scissors or not?"
         });
         dialogue.choices = new List<string>(new string[] { "I swear I did", "I don't know" });
         dialogue.consequences = new List<UnityEngine.Events.UnityEvent>();

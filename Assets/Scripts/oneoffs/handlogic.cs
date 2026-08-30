@@ -27,6 +27,7 @@ public class handlogic : MonoBehaviour
 
     [Header("Scratch")]
     [SerializeField] private GameObject handScratch;
+    [SerializeField] private AudioClip scratchSound;
 
     [Header("Screen Flash")]
     [SerializeField] private GameObject blackScreenFlash;
@@ -77,13 +78,21 @@ public class handlogic : MonoBehaviour
     public void Scratch()
     {
         if (handScratch == null) return;
+        PlayScratchSound();
         StartCoroutine(ScratchRoutine());
     }
 
     public void ScratchInterrupted()
     {
         if (handScratch == null) return;
+        PlayScratchSound();
         StartCoroutine(ScratchInterruptedRoutine());
+    }
+
+    private void PlayScratchSound()
+    {
+        if (scratchSound == null) return;
+        MessageBus.Instance.Publish("PlaySound", scratchSound);
     }
 
     private IEnumerator ScratchInterruptedRoutine()

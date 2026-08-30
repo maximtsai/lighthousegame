@@ -321,8 +321,16 @@ public class WeatherUIController : MonoBehaviour
 
     public void changeToThunderstorm()
     {
-        // TODO: Implement thunderstorm logic
-        Debug.Log("changeToThunderstorm called");
+        GameState.Set("thunderstorm", true);
+        weatherswap weather = FindFirstObjectByType<weatherswap>(FindObjectsInactive.Include);
+        if (weather != null)
+        {
+            weather.TriggerStorm(true);
+        }
+        else
+        {
+            Debug.LogWarning("WeatherUIController: no weatherswap object in scene for storm effects");
+        }
         GameState.Set("recorded_weather", true);
         MessageBus.Instance.Publish("CompleteTask", "task_weather");
         StartCoroutine(CloseWeatherUIDelayed());

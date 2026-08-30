@@ -140,6 +140,7 @@ public static class GameState
         // Events
         Set("introduced_journal", false);
         Set("cutscene_outdoors_played", false);
+        Set("thunderstorm", false);
 
         StartNewDay();
     }
@@ -177,6 +178,7 @@ public static class GameState
         Set("near_nighttime", false);
         
         Set("recorded_weather", false);
+        Set("thunderstorm", false);
         
         Set("do_burial", false);
         Set("navigationBlocked", false);

@@ -12,4 +12,5 @@ public class Dialogue : ScriptableObject
     public List<string> choices;
     public List<UnityEvent> consequences;
     public AudioClip startSound;
+    public List<bool> autoAdvance;
 }

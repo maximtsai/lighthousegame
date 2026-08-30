@@ -1077,10 +1077,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.25142857
     y: 0
-    width: 1
-    height: 1.0000744
+    width: 1.175873
+    height: 1.1751269
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -1256,6 +1256,7 @@ RectTransform:
   - {fileID: 346483393}
   - {fileID: 396955250}
   - {fileID: 1807263532}
+  - {fileID: 743981109}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1445,6 +1446,7 @@ MonoBehaviour:
   bgLoop1: {fileID: 8300000, guid: 3f6c773ae3d76484cbf2270c2150fefd, type: 3}
   bgLoop2: {fileID: 8300000, guid: bb295e81a5802b94f99cacb96173522c, type: 3}
   miscObjectClick: {fileID: 5912071456214807691, guid: add25f6ff90e9474990e9f3862207611, type: 3}
+  rainLoop: {fileID: 8300000, guid: fd34f6d11a3987e41a7d965d9d492b69, type: 3}
   weatherActionButton: {fileID: 0}
 --- !u!4 &647772682
 Transform:
@@ -1461,6 +1463,81 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &743981105
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 743981109}
+  - component: {fileID: 743981107}
+  - component: {fileID: 743981106}
+  m_Layer: 5
+  m_Name: WhiteScreenFlash
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &743981106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 743981105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.90588236}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &743981107
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 743981105}
+  m_CullTransparentMesh: 1
+--- !u!224 &743981109
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 743981105}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 546758295}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &800010888
 GameObject:
   m_ObjectHideFlags: 0
@@ -2395,6 +2472,10 @@ MonoBehaviour:
   cirrostratusSprite: {fileID: 8459876662590001216, guid: ca8a4f6b098079f4d8b4b1ca8160a2c6, type: 3}
   cirrusSprite: {fileID: -892669080446792543, guid: 469447c883c24904eb9393027024e05d, type: 3}
   cumulonimbusSprite: {fileID: 8811944454374620479, guid: b6728d629f01306419c54c8bbb60e002, type: 3}
+  thunderSound: {fileID: 8300000, guid: 46b6e6bc7550a5f46af15a163eb38d48, type: 3}
+  whiteScreenFlash: {fileID: 743981105}
+  flashOnDuration: 0.1
+  flashGapDuration: 0.15
 --- !u!1001 &1601745822
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3621,6 +3702,7 @@ MonoBehaviour:
   treasureId: boot
   treasureSprite: {fileID: 21300000, guid: 15cc97a846aac8147928109f531e6644, type: 3}
   revealSprite: {fileID: 0}
+  revealHoverOutline: {fileID: 0}
   dialoguePath: outdoors/boot
   dialogueOverride: {fileID: 0}
   startDay: 1
@@ -3628,6 +3710,7 @@ MonoBehaviour:
   hideAfterFound: 1
   markFoundOnInspect: 1
   requireMoundCovered: 0
+  inspectYOffset: 0
 --- !u!1 &8800100010
 GameObject:
   m_ObjectHideFlags: 0
@@ -3915,6 +3998,7 @@ MonoBehaviour:
   treasureId: finger
   treasureSprite: {fileID: 21300000, guid: 939f96122a07ba34497d0ec7ea967e53, type: 3}
   revealSprite: {fileID: 0}
+  revealHoverOutline: {fileID: 0}
   dialoguePath: outdoors/finger
   dialogueOverride: {fileID: 0}
   startDay: 5
@@ -3922,6 +4006,7 @@ MonoBehaviour:
   hideAfterFound: 1
   markFoundOnInspect: 1
   requireMoundCovered: 0
+  inspectYOffset: 0
 --- !u!1 &8800600010
 GameObject:
   m_ObjectHideFlags: 0

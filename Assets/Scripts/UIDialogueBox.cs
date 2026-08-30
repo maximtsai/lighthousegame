@@ -16,10 +16,12 @@ public class UIDialogueBox : MonoBehaviour
     [SerializeField] private AudioClip typeSound3;
 
     [SerializeField] private float typeSpeed = 0.016f; // seconds per character
+    [SerializeField] private float autoAdvanceDelay = 0.8f;
     [SerializeField] private Button button0;
     [SerializeField] private Button button1;
     private AudioSource audioSrc;
     private Coroutine typingCoroutine;
+    private Coroutine autoAdvanceCoroutine;
 
     public void Start()
     {
@@ -104,6 +106,12 @@ public class UIDialogueBox : MonoBehaviour
 
         typingCoroutine = null;
 
+        if (IsAutoAdvanceLine(current_line))
+        {
+            autoAdvanceCoroutine = StartCoroutine(AutoAdvanceRoutine(current_line));
+            yield break;
+        }
+
         if (isFinalLine)
         {
             bool hasImmediateEnd = dialogue.onDialogueEndImmediate.GetPersistentEventCount() > 0;
@@ -145,6 +153,11 @@ public class UIDialogueBox : MonoBehaviour
         bool isFinalLine = current_line == total_lines - 1;
         CustomCursor.SetCursorToDialog();
 
+        if (autoAdvanceCoroutine != null)
+        {
+            StopCoroutine(autoAdvanceCoroutine);
+            autoAdvanceCoroutine = null;
+        }
         if (typingCoroutine != null) StopCoroutine(typingCoroutine);
         typingCoroutine = StartCoroutine(TypeText(dialogue.text[current_line], isFinalLine));
     }
@@ -189,6 +202,11 @@ public class UIDialogueBox : MonoBehaviour
         if (dialogue == null)
         {
             return;
+        }
+        if (autoAdvanceCoroutine != null)
+        {
+            StopCoroutine(autoAdvanceCoroutine);
+            autoAdvanceCoroutine = null;
         }
         if (typingCoroutine != null)
         {
@@ -240,6 +258,24 @@ public class UIDialogueBox : MonoBehaviour
         {
             bool isFinalLine = current_line == total_lines - 1;
             typingCoroutine = StartCoroutine(TypeText(dialogue.text[current_line], isFinalLine));
+        }
+    }
+
+    private bool IsAutoAdvanceLine(int lineIndex)
+    {
+        return dialogue != null
+            && dialogue.autoAdvance != null
+            && lineIndex < dialogue.autoAdvance.Count
+            && dialogue.autoAdvance[lineIndex]
+            && lineIndex < total_lines - 1;
+    }
+
+    private IEnumerator AutoAdvanceRoutine(int lineIndex)
+    {
+        yield return new WaitForSeconds(autoAdvanceDelay);
+        if (dialogue != null && current_line == lineIndex && typingCoroutine == null)
+        {
+            AdvanceDialogue();
         }
     }
 

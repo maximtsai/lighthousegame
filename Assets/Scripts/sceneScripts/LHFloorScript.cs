@@ -30,7 +30,7 @@ public class LHFloorScript : MonoBehaviour
             dialogue.text = new List<string>(new string[] 
             { 
                 "You look around for the dropped scissors.", 
-                "It's dim and you grope damp stones in the dark.", 
+                "It's dim and you grope around in the dark.",
                 "You don't find anything." 
             });
             dialogue.choices = new List<string>();

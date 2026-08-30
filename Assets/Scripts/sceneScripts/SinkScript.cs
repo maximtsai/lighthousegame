@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using System.Collections.Generic;
 
 public class SinkScript : MonoBehaviour
 {
@@ -29,20 +30,38 @@ public class SinkScript : MonoBehaviour
             }
         }
 
-        if (GameState.Get<string>("is_clean") != "true") 
+        if (GameState.Get<string>("is_clean") != "true")
         {
             Destroy(cleaningItems);
-            // miscObjectClick.PlaySound(cleanSound);
             MessageBus.Instance.Publish("CompleteTask", "task_wash_up");
-            MessageBus.Instance.Publish("FloatText", 0, -1.1f, "+SANITY", "green");
-            MessageBus.Instance.Publish("PlusSanity", 1);
-
-            DialogueManager.ShowDialogue(miscObjectClick.getDialogue("sink/sink_wash_up"));
             GameState.Set("is_clean", "true");
+
+            if (GameState.Get<bool>("handInfested", false))
+            {
+                Dialogue d = DialogueManager.ShowDialogueFromText(new string[]
+                {
+                    "You wash up-##",
+                    "Gah!### The water feels like ice in your wounds."
+                });
+                d.autoAdvance = new List<bool> { true, false };
+            }
+            else
+            {
+                MessageBus.Instance.Publish("FloatText", 0, -1.1f, "+SANITY", "green");
+                MessageBus.Instance.Publish("PlusSanity", 1);
+                DialogueManager.ShowDialogue(miscObjectClick.getDialogue("sink/sink_wash_up"));
+            }
             return;
         }
 
-        DialogueManager.ShowDialogueFromText(new string[] { "I'm clean enough." });
+        if (GameState.Get<bool>("handInfested", false))
+        {
+            DialogueManager.ShowDialogueFromText(new string[] { "...My hand will be fine" });
+        }
+        else
+        {
+            DialogueManager.ShowDialogueFromText(new string[] { "I'm clean enough." });
+        }
     }
 
     private void CleanAndBandageHand()

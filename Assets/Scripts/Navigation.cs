@@ -305,6 +305,16 @@ public class Navigation : MonoBehaviour
             return;
         }
 
+        // Intercept leaving LHFloorScene to OutdoorsScene while the Fix Lighthouse task is still active
+        if (SceneManager.GetActiveScene().name == GameConsts.LHFLOORSCENE
+            && scene == GameConsts.OUTDOORSSCENE
+            && TaskManager.instance != null
+            && TaskManager.instance.GetCurrentTasks().Exists(t => t.id == "task_lighthouse"))
+        {
+            DialogueManager.ShowDialogueFromText(new string[] { "You have work to do.", "Head upstairs." });
+            return;
+        }
+
         // Intercept leaving LHFloorScene to OutdoorsScene on Day 2 if lighthouse is fixed and stain question not answered
         if (SceneManager.GetActiveScene().name == GameConsts.LHFLOORSCENE
             && scene == GameConsts.OUTDOORSSCENE
