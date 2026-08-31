@@ -178,8 +178,8 @@ public class LHMinigame : MonoBehaviour
             return;
         }
 
-        // Day 3: scissors drop down stairs (first time only)
-        if (GameState.Get<int>("day") == 3 && !GameState.Get<bool>("scissorsDrop", false))
+        // Day 3: scissors drop down stairs (first time only, if not found yet)
+        if (GameState.Get<int>("day") == 3 && !GameState.Get<bool>("scissors_found", false) && !GameState.Get<bool>("scissorsDrop", false))
         {
             if (scissorsRenderer != null)
             {

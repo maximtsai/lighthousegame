@@ -62,6 +62,7 @@ public class BedroomMiscLogic : MonoBehaviour
                 MessageBus.Instance.Publish("AddTaskString", "generic/task_find_scissors");
                 MessageBus.Instance.Publish("AddTaskString", "generic/task_finish_maintenance");
                 MessageBus.Instance.Publish("AddTaskString", "generic/task_fish");
+                MessageBus.Instance.Publish("AddTaskString", "generic/task_dinner");
                 MessageBus.Instance.Publish("AddTaskString", "generic/go_to_sleep");
                 ShowDay3Dialogue();
                 break;

@@ -140,7 +140,18 @@ public class MiscObjectClick : MonoBehaviour
         GameState.Set("day_transition_started", true);
         GameState.Set("navigationBlocked", true);
 
-        StartCoroutine(FadeToBlackDay4Routine());
+        if (DialogueManager.instance != null && DialogueManager.instance.gameObject.activeInHierarchy)
+        {
+            DialogueManager.instance.StartCoroutine(FadeToBlackDay4Routine());
+        }
+        else if (Navigation.Instance != null && Navigation.Instance.gameObject.activeInHierarchy)
+        {
+            Navigation.Instance.StartCoroutine(FadeToBlackDay4Routine());
+        }
+        else if (gameObject.activeInHierarchy)
+        {
+            StartCoroutine(FadeToBlackDay4Routine());
+        }
     }
 
     private IEnumerator FadeToBlackDay4Routine()
@@ -188,6 +199,28 @@ public class MiscObjectClick : MonoBehaviour
         GameState.StartNewDay();
         SaveManager.Save();
         SceneManager.LoadScene(GameConsts.BEDROOMSCENE);
+
+        // Wait a frame for scene load
+        yield return null;
+
+        // Fade in to reveal Bedroom on Day 4 morning
+        float fadeInDuration = 1.0f;
+        elapsed = 0f;
+        if (blackoutImage != null)
+        {
+            Color c = Color.black;
+            while (elapsed < fadeInDuration)
+            {
+                elapsed += Time.deltaTime;
+                c.a = Mathf.Clamp01(1f - (elapsed / fadeInDuration));
+                blackoutImage.color = c;
+                yield return null;
+            }
+            c.a = 0f;
+            blackoutImage.color = c;
+        }
+
+        GameState.Set("navigationBlocked", false);
     }
 
     public void GotoNextDay()

@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 using System.Collections.Generic;
 
 public class LighthouseMiscLogic : MonoBehaviour
@@ -18,6 +19,7 @@ public class LighthouseMiscLogic : MonoBehaviour
         if (GameState.Get<int>("day") == 3 && IsTaskActive("task_finish_maintenance") && GameState.Get<bool>("ScissorsDisappeared", false))
         {
             GameState.Set("scissorsDrop", false);
+            GameState.Set("scissors_found", true);
             GameState.Set("lighthouseFixForgotten", true);
             ShowScissorsDialogue();
         }
@@ -43,29 +45,32 @@ public class LighthouseMiscLogic : MonoBehaviour
             "You find the scissors besides the stairs.",
             "Did you drop the scissors or not?"
         });
-        dialogue.choices = new List<string>(new string[] { "I swear I did", "I don't know" });
+        dialogue.choices = new List<string>();
         dialogue.consequences = new List<UnityEngine.Events.UnityEvent>();
         dialogue.onDialogueEnd = new UnityEngine.Events.UnityEvent();
         dialogue.onDialogueEndImmediate = new UnityEngine.Events.UnityEvent();
 
-        UnityEngine.Events.UnityEvent swearEvent = new UnityEngine.Events.UnityEvent();
-        swearEvent.AddListener(() =>
+        dialogue.onDialogueEnd.AddListener(() =>
         {
-            MessageBus.Instance.Publish("PlusSanity", 1);
-            MessageBus.Instance.Publish("CompleteTask", "task_finish_maintenance");
-            MessageBus.Instance.Publish("AddTaskBefore", "generic/task_lighthouse", "task_fish");
+            MessageBus.Instance.Publish("ShowChoiceDialog", "Did you drop the scissors or not?");
+            MessageBus.Instance.Publish(
+                "ShowTwoChoice",
+                "I swear I did",
+                "I don't know",
+                (Action)(() =>
+                {
+                    MessageBus.Instance.Publish("PlusSanity", 1);
+                    MessageBus.Instance.Publish("CompleteTask", "task_finish_maintenance");
+                    MessageBus.Instance.Publish("AddTaskBefore", "generic/task_lighthouse", "task_fish");
+                }),
+                (Action)(() =>
+                {
+                    MessageBus.Instance.Publish("PlusSanity", -1);
+                    MessageBus.Instance.Publish("CompleteTask", "task_finish_maintenance");
+                    MessageBus.Instance.Publish("AddTaskBefore", "generic/task_lighthouse", "task_fish");
+                })
+            );
         });
-
-        UnityEngine.Events.UnityEvent dontKnowEvent = new UnityEngine.Events.UnityEvent();
-        dontKnowEvent.AddListener(() =>
-        {
-            MessageBus.Instance.Publish("PlusSanity", -1);
-            MessageBus.Instance.Publish("CompleteTask", "task_finish_maintenance");
-            MessageBus.Instance.Publish("AddTaskBefore", "generic/task_lighthouse", "task_fish");
-        });
-
-        dialogue.consequences.Add(swearEvent);
-        dialogue.consequences.Add(dontKnowEvent);
 
         DialogueManager.ShowDialogue(dialogue);
     }

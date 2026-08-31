@@ -26,23 +26,30 @@ public class LHFloorScript : MonoBehaviour
         // Day 3: if scissors dropped, show search dialogue
         if (GameState.Get<int>("day") == 3 && GameState.Get<bool>("scissorsDrop", false))
         {
-            Dialogue dialogue = ScriptableObject.CreateInstance<Dialogue>();
-            dialogue.text = new List<string>(new string[] 
-            { 
-                "You look around for the dropped scissors.", 
-                "It's dim and you grope around in the dark.",
-                "You don't find anything." 
-            });
-            dialogue.choices = new List<string>();
-            dialogue.consequences = new List<UnityEngine.Events.UnityEvent>();
-            dialogue.onDialogueEnd = new UnityEngine.Events.UnityEvent();
-            dialogue.onDialogueEndImmediate = new UnityEngine.Events.UnityEvent();
-            dialogue.onDialogueEnd.AddListener(() =>
+            if (!GameState.Get<bool>("ScissorsDisappeared", false))
             {
-                GameState.Set("ScissorsDisappeared", true);
-                MessageBus.Instance.Publish("CompleteTask", "task_find_scissors");
-            });
-            DialogueManager.ShowDialogue(dialogue);
+                Dialogue dialogue = ScriptableObject.CreateInstance<Dialogue>();
+                dialogue.text = new List<string>(new string[] 
+                { 
+                    "You look around for the dropped scissors.", 
+                    "It's dim and you grope around in the dark.",
+                    "You don't find anything." 
+                });
+                dialogue.choices = new List<string>();
+                dialogue.consequences = new List<UnityEngine.Events.UnityEvent>();
+                dialogue.onDialogueEnd = new UnityEngine.Events.UnityEvent();
+                dialogue.onDialogueEndImmediate = new UnityEngine.Events.UnityEvent();
+                dialogue.onDialogueEnd.AddListener(() =>
+                {
+                    GameState.Set("ScissorsDisappeared", true);
+                    MessageBus.Instance.Publish("CompleteTask", "task_find_scissors");
+                });
+                DialogueManager.ShowDialogue(dialogue);
+            }
+            else
+            {
+                DialogueManager.ShowDialogueFromText(new string[] { "Nope, the scissors definitely aren't down here." });
+            }
         }
     }
     
