@@ -666,7 +666,7 @@ public class FishingMinigame : MonoBehaviour
 
         float keepDuration = PlayKeepSound();
         if (keepDuration > 0f)
-            yield return new WaitForSeconds(keepDuration);
+            yield return new WaitForSeconds(keepDuration * 0.7f);
 
         if (currentItem == null)
             yield break;
