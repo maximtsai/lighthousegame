@@ -159,7 +159,16 @@ public class UIDialogueBox : MonoBehaviour
             autoAdvanceCoroutine = null;
         }
         if (typingCoroutine != null) StopCoroutine(typingCoroutine);
+        TriggerLineStart(current_line);
         typingCoroutine = StartCoroutine(TypeText(dialogue.text[current_line], isFinalLine));
+    }
+
+    private void TriggerLineStart(int lineIndex)
+    {
+        if (dialogue != null && dialogue.onLineStart != null && lineIndex < dialogue.onLineStart.Count)
+        {
+            dialogue.onLineStart[lineIndex]?.Invoke();
+        }
     }
 
     public void SetDialogueInstant(string text)
@@ -257,6 +266,7 @@ public class UIDialogueBox : MonoBehaviour
         else
         {
             bool isFinalLine = current_line == total_lines - 1;
+            TriggerLineStart(current_line);
             typingCoroutine = StartCoroutine(TypeText(dialogue.text[current_line], isFinalLine));
         }
     }

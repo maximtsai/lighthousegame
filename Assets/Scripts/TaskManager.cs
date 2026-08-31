@@ -10,12 +10,11 @@ public class TaskManager : MonoBehaviour
 
     private MessageBus.SubscriptionHandle addTaskHandle;
     private MessageBus.SubscriptionHandle addTaskImportantHandle;
+    private MessageBus.SubscriptionHandle addTaskBeforeHandle;
     private MessageBus.SubscriptionHandle completeTaskHandle;
     private MessageBus.SubscriptionHandle clearAllTaskHandle;
     private MessageBus.SubscriptionHandle hideTaskHandle;
-    
-    private 
-    
+
     void Awake()
     {
         ClearAllTasks();
@@ -38,6 +37,14 @@ public class TaskManager : MonoBehaviour
         {
             string message = args[0] as string;
             AddTaskImportantString(message);
+        });
+
+        addTaskBeforeHandle = MessageBus.Instance.Subscribe("AddTaskBefore", (args) =>
+        {
+            if (args != null && args.Length >= 2 && args[0] is string id && args[1] is string targetId)
+            {
+                AddTaskBeforeString(id, targetId);
+            }
         });
 
         completeTaskHandle = MessageBus.Instance.Subscribe("CompleteTask", (args) =>
@@ -69,6 +76,7 @@ public class TaskManager : MonoBehaviour
         // Always unsubscribe when this object is destroyed
         addTaskHandle?.Unsubscribe();
         addTaskImportantHandle?.Unsubscribe();
+        addTaskBeforeHandle?.Unsubscribe();
         completeTaskHandle?.Unsubscribe();
         clearAllTaskHandle?.Unsubscribe();
         hideTaskHandle?.Unsubscribe();
@@ -104,6 +112,34 @@ public class TaskManager : MonoBehaviour
     {
         Task task = getTaskFromString(id);
         AddTask(task);
+    }
+
+    public void AddTaskBefore(Task task, string targetTaskId)
+    {
+        if (task == null) return;
+        if (!taskList.Contains(task))
+        {
+            int index = taskList.FindIndex(t => t.id == targetTaskId);
+            if (index != -1)
+            {
+                taskList.Insert(index, task);
+            }
+            else
+            {
+                taskList.Add(task);
+            }
+            updateTaskDisplay();
+        }
+        else
+        {
+            Debug.LogWarning("Task already added: " + task.id);
+        }
+    }
+
+    public void AddTaskBeforeString(string id, string targetTaskId)
+    {
+        Task task = getTaskFromString(id);
+        AddTaskBefore(task, targetTaskId);
     }
     
     // Add task to the front (priority)

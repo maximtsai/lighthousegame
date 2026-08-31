@@ -1,5 +1,7 @@
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.SceneManagement; // required for SceneManager
 using System;
 
@@ -69,6 +71,30 @@ public class MiscObjectClick : MonoBehaviour
             } else if (day == 2)
             {
                 DialogueManager.ShowDialogue(getDialogue("Bedroom/sleep_day2"));
+            } else if (day == 3)
+            {
+                Dialogue sleepDialogue = ScriptableObject.CreateInstance<Dialogue>();
+                sleepDialogue.text = new List<string>(new string[]
+                {
+                    "It's been a long day.",
+                    "The sound of rain pattering on the roof lulls you to sleep..."
+                });
+                sleepDialogue.choices = new List<string>();
+                sleepDialogue.consequences = new List<UnityEngine.Events.UnityEvent>();
+                sleepDialogue.onDialogueEnd = new UnityEngine.Events.UnityEvent();
+                sleepDialogue.onDialogueEndImmediate = new UnityEngine.Events.UnityEvent();
+
+                sleepDialogue.onLineStart = new List<UnityEngine.Events.UnityEvent>();
+                UnityEngine.Events.UnityEvent line0Event = new UnityEngine.Events.UnityEvent();
+                UnityEngine.Events.UnityEvent line1Event = new UnityEngine.Events.UnityEvent();
+                line1Event.AddListener(() =>
+                {
+                    FadeToBlackAndTransitionDay4();
+                });
+                sleepDialogue.onLineStart.Add(line0Event);
+                sleepDialogue.onLineStart.Add(line1Event);
+
+                DialogueManager.ShowDialogue(sleepDialogue);
             }
         }
         else
@@ -105,6 +131,65 @@ public class MiscObjectClick : MonoBehaviour
         }
     }
 
+    private void FadeToBlackAndTransitionDay4()
+    {
+        if (GameState.Get<bool>("day_transition_started", false))
+        {
+            return;
+        }
+        GameState.Set("day_transition_started", true);
+        GameState.Set("navigationBlocked", true);
+
+        StartCoroutine(FadeToBlackDay4Routine());
+    }
+
+    private IEnumerator FadeToBlackDay4Routine()
+    {
+        // Fade using Navigation's blackout overlay so dialogue text remains visible on top
+        Image blackoutImage = null;
+        if (Navigation.Instance != null)
+        {
+            blackoutImage = Navigation.Instance.GetComponentInChildren<Image>(true);
+        }
+
+        float duration = 2.5f;
+        float elapsed = 0f;
+
+        if (blackoutImage != null)
+        {
+            Color c = Color.black;
+            c.a = 0f;
+            blackoutImage.color = c;
+            blackoutImage.gameObject.SetActive(true);
+
+            while (elapsed < duration)
+            {
+                elapsed += Time.deltaTime;
+                c.a = Mathf.Clamp01(elapsed / duration);
+                blackoutImage.color = c;
+                yield return null;
+            }
+
+            c.a = 1f;
+            blackoutImage.color = c;
+        }
+        else
+        {
+            yield return new WaitForSeconds(duration);
+        }
+
+        yield return new WaitForSeconds(0.4f);
+
+        // Close dialogue box before loading new scene
+        DialogueManager.CloseDialogue();
+
+        MessageBus.Instance.Publish("ClearAllTasks");
+        GameState.Set<int>("day", 4);
+        GameState.StartNewDay();
+        SaveManager.Save();
+        SceneManager.LoadScene(GameConsts.BEDROOMSCENE);
+    }
+
     public void GotoNextDay()
     {
         if (GameState.Get<bool>("day_transition_started", false))
@@ -118,6 +203,15 @@ public class MiscObjectClick : MonoBehaviour
         Debug.Log("current day: " + GameState.Get<int>("day"));
         int newDay = GameState.Get<int>("day") + 1;
         GameState.Set<int>("day", newDay);
+
+        if (newDay == 4)
+        {
+            GameState.StartNewDay();
+            SaveManager.Save();
+            SceneManager.LoadScene(GameConsts.BEDROOMSCENE);
+            return;
+        }
+
         string cutsceneToPlay = "Day2";
         switch (newDay)
         {

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Ambience : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class Ambience : MonoBehaviour
     // Starting audio tracks
     public AudioClip newTrack1;
     public AudioClip newTrack2;
+    public AudioClip rainIndoorsClip;
     
     // Ensure this object persists across scenes
     private void Awake()
@@ -29,16 +31,81 @@ public class Ambience : MonoBehaviour
             // Configure audio sources
             track1Source.loop = true;
             track2Source.loop = true;
+
+            if (rainIndoorsClip == null)
+            {
+                rainIndoorsClip = Resources.Load<AudioClip>("Audio/rain_indoors");
+            }
+
+            SceneManager.sceneLoaded += OnSceneLoaded;
         }
         else
         {
             Destroy(gameObject);
         }
     }
+
+    private void OnDestroy()
+    {
+        if (instance == this)
+        {
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+        }
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        CheckAndApplyRainIndoors(scene.name);
+    }
+
+    public static bool IsOutdoorScene(string sceneName)
+    {
+        return sceneName == GameConsts.OUTDOORSSCENE ||
+               sceneName == GameConsts.BURIALSCENE ||
+               sceneName == GameConsts.PIERSCENE;
+    }
+
+    public void CheckAndApplyRainIndoors(string sceneName = null)
+    {
+        if (string.IsNullOrEmpty(sceneName))
+        {
+            sceneName = SceneManager.GetActiveScene().name;
+        }
+
+        bool isThunderstorm = GameState.Get<bool>("thunderstorm", false);
+        if (isThunderstorm && !IsOutdoorScene(sceneName))
+        {
+            if (rainIndoorsClip == null)
+            {
+                rainIndoorsClip = Resources.Load<AudioClip>("Audio/rain_indoors");
+            }
+
+            if (rainIndoorsClip != null)
+            {
+                if (GetCurrentClip(2) != rainIndoorsClip)
+                {
+                    PlayTrack(rainIndoorsClip, 0.35f, 2);
+                }
+            }
+        }
+    }
     void Start()
     {
         PlayTrack(newTrack1, 0.5f, 1); // Play track 1 at 50% volume
-        PlayTrack(newTrack2, 0.15f, 2); // Play track 2 at 30% volume
+
+        // Decide which clip to use for track 2 based on weather state
+        bool isThunderstorm = GameState.Get<bool>("thunderstorm", false);
+        string sceneName = SceneManager.GetActiveScene().name;
+        bool useRain = isThunderstorm && !IsOutdoorScene(sceneName);
+
+        if (useRain && rainIndoorsClip != null)
+        {
+            PlayTrack(rainIndoorsClip, 0.35f, 2);
+        }
+        else
+        {
+            PlayTrack(newTrack2, 0.15f, 2); // Play track 2 at 15% volume
+        }
     }
 
     // Play a new track on the specified channel (1 or 2)

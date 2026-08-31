@@ -31,6 +31,10 @@ public class weatherswap : MonoBehaviour
         {
             outdoors.UpdateAmbience();
         }
+        else if (Ambience.Instance != null)
+        {
+            Ambience.Instance.CheckAndApplyRainIndoors();
+        }
 
         if (firstTime && thunderSound != null)
         {
