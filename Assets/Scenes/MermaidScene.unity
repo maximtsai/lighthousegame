@@ -353,7 +353,6 @@ MonoBehaviour:
   spriteRenderer: {fileID: 43026808}
   bodyCollider: {fileID: 43026809}
   hoverTint: {r: 1, g: 0.82, b: 0.82, a: 1}
-  siteNumber: 4
   startSprite: {fileID: 21300000, guid: bf0c7857974c01940a5ede15d7243794, type: 3}
   woundSprite: {fileID: 21300000, guid: 138cd79a485926543a568c7e392d3f47, type: 3}
   sutureStages: []
@@ -714,7 +713,6 @@ MonoBehaviour:
   spriteRenderer: {fileID: 157137107}
   bodyCollider: {fileID: 157137108}
   hoverTint: {r: 1, g: 0.82, b: 0.82, a: 1}
-  bandageNumber: 6
   bandageSprite: {fileID: 21300000, guid: 8de80cff75d1046488d2eefe7d24fb79, type: 3}
   applied: 0
   fadeInDuration: 0.22
@@ -1063,7 +1061,6 @@ MonoBehaviour:
   spriteRenderer: {fileID: 419578426}
   bodyCollider: {fileID: 419578427}
   hoverTint: {r: 1, g: 0.82, b: 0.82, a: 1}
-  siteNumber: 7
   startSprite: {fileID: 21300000, guid: 93d7f58065fff1a4db8d4bb8d98d96a2, type: 3}
   woundSprite: {fileID: 21300000, guid: c6d9a085f3d1c7e4a86f9d9c49748b16, type: 3}
   sutureStages: []
@@ -1172,10 +1169,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.40092167
     y: 0
-    width: 1
-    height: 1
+    width: 1.2862263
+    height: 1.2860068
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -1603,7 +1600,6 @@ MonoBehaviour:
   spriteRenderer: {fileID: 569523743}
   bodyCollider: {fileID: 569523744}
   hoverTint: {r: 1, g: 0.82, b: 0.82, a: 1}
-  bandageNumber: 9
   bandageSprite: {fileID: 21300000, guid: 6579c4a9968b847459b6e590721645e9, type: 3}
   applied: 0
   fadeInDuration: 0.22
@@ -1643,7 +1639,6 @@ MonoBehaviour:
   spriteRenderer: {fileID: 579880852}
   bodyCollider: {fileID: 579880851}
   hoverTint: {r: 1, g: 0.82, b: 0.82, a: 1}
-  bandageNumber: 10
   bandageSprite: {fileID: 21300000, guid: 9e19188d587fe17499f8a5384cb1e697, type: 3}
   applied: 0
   fadeInDuration: 0.22
@@ -1900,6 +1895,7 @@ Transform:
   - {fileID: 1085708343}
   - {fileID: 1188487245}
   - {fileID: 1657422561}
+  - {fileID: 910011002}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &619394800
@@ -2242,7 +2238,6 @@ MonoBehaviour:
   spriteRenderer: {fileID: 623285237}
   bodyCollider: {fileID: 623285238}
   hoverTint: {r: 1, g: 0.82, b: 0.82, a: 1}
-  siteNumber: 14
   startSprite: {fileID: 21300000, guid: fb9dc87ae3b238b489b7336285aa8d97, type: 3}
   woundSprite: {fileID: 21300000, guid: 89b8141a566f85b41b38e2a14405f260, type: 3}
   sutureStages: []
@@ -2284,7 +2279,12 @@ MonoBehaviour:
   - taskResource: mermaid/clean_barnacles
     taskId: task_clean_barnacles
     tool: 1
-    sound: {fileID: 8300000, guid: 52a9d8c0e0b6e3d4f85b8367fb21ace6, type: 3}
+    sound: {fileID: 8300000, guid: fc166ba860d88974e82495a1228c46a6, type: 3}
+    sounds:
+    - {fileID: 8300000, guid: fc166ba860d88974e82495a1228c46a6, type: 3}
+    - {fileID: 8300000, guid: 8cfe7f2631c42474fbb9e0b36c520047, type: 3}
+    - {fileID: 8300000, guid: 30d3a9049b23708479bf4556b72f3382, type: 3}
+    - {fileID: 8300000, guid: 0afe9adff55c15f449d65d6100d34b7a, type: 3}
     targets:
     - {fileID: 1743335360}
     - {fileID: 1069094534}
@@ -2304,6 +2304,7 @@ MonoBehaviour:
     taskId: task_disinfect_wounds
     tool: 2
     sound: {fileID: 8300000, guid: 5e0bb146ab4b61b489d451a0e3e0dba3, type: 3}
+    sounds: []
     targets:
     - {fileID: 1743335360}
     - {fileID: 1069094534}
@@ -2324,6 +2325,7 @@ MonoBehaviour:
     taskId: task_stitch_wounds
     tool: 3
     sound: {fileID: 8300000, guid: b0fdec9c6c144dc47b76199110211f0c, type: 3}
+    sounds: []
     targets:
     - {fileID: 1531357848}
     - {fileID: 1252711204}
@@ -2333,6 +2335,7 @@ MonoBehaviour:
     taskId: task_bandage_wounds
     tool: 4
     sound: {fileID: 8300000, guid: b426d02d172bce742909700e9dc80695, type: 3}
+    sounds: []
     targets:
     - {fileID: 1347903711}
     - {fileID: 1188487248}
@@ -2344,6 +2347,7 @@ MonoBehaviour:
     - {fileID: 1614472066}
     - {fileID: 569523745}
     - {fileID: 579880850}
+    - {fileID: 910011005}
   allTargets:
   - {fileID: 1743335360}
   - {fileID: 1069094534}
@@ -2370,14 +2374,13 @@ MonoBehaviour:
   - {fileID: 1614472066}
   - {fileID: 569523745}
   - {fileID: 579880850}
+  - {fileID: 910011005}
   tray: {fileID: 533935783}
   miscObjectClick: {fileID: 1514359593}
+  alcoholPour: {fileID: 910011013}
   startDelay: 0.9
   phaseGap: 0.9
   finishDialogue: 
-  phaseIndex: -1
-  toolInHand: 0
-  finished: 0
 --- !u!4 &675255874
 Transform:
   m_ObjectHideFlags: 0
@@ -2695,7 +2698,6 @@ MonoBehaviour:
   spriteRenderer: {fileID: 784209824}
   bodyCollider: {fileID: 784209825}
   hoverTint: {r: 1, g: 0.82, b: 0.82, a: 1}
-  siteNumber: 12
   startSprite: {fileID: 21300000, guid: eb5267a0c9a8eb9448e9899ae1358a9b, type: 3}
   woundSprite: {fileID: 21300000, guid: 886bae95fff2d5b43afe97ff892475e6, type: 3}
   sutureStages: []
@@ -2704,6 +2706,296 @@ MonoBehaviour:
   sutureStage: 0
   alcoholFlash: {r: 0.72, g: 0.9, b: 1, a: 1}
   alcoholFlashDuration: 0.35
+--- !u!1 &910011001
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 910011002}
+  - component: {fileID: 910011004}
+  - component: {fileID: 910011003}
+  - component: {fileID: 910011005}
+  m_Layer: 0
+  m_Name: Bandage 11
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &910011002
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 910011001}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.31}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 588892269}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &910011003
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 910011001}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 50
+  m_Sprite: {fileID: 21300000, guid: 91a13ff0882c95543b6f6822755f5b7c, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 6.4, y: 15}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!60 &910011004
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 910011001}
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 6.4, y: 15}
+    newSize: {x: 6.4, y: 15}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.02, y: -6.28}
+      - {x: 1.85, y: -6.28}
+      - {x: 1.85, y: -4.23}
+      - {x: 0.02, y: -4.23}
+  m_UseDelaunayMesh: 0
+--- !u!114 &910011005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 910011001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c92e47a1b0d5f34e8a6b17c2d90e4f68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MermaidBandage
+  minigame: {fileID: 675255873}
+  spriteRenderer: {fileID: 910011003}
+  bodyCollider: {fileID: 910011004}
+  hoverTint: {r: 1, g: 0.82, b: 0.82, a: 1}
+  bandageSprite: {fileID: 21300000, guid: 91a13ff0882c95543b6f6822755f5b7c, type: 3}
+  applied: 0
+  fadeInDuration: 0.22
+  hoverPreviewAlpha: 0.35
+--- !u!1 &910011010
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 910011011}
+  - component: {fileID: 910011012}
+  - component: {fileID: 910011013}
+  m_Layer: 0
+  m_Name: AlcoholPour
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &910011011
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 910011010}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &910011012
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 910011010}
+  m_Enabled: 0
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 200
+  m_Sprite: {fileID: 3291677850379854288, guid: 322137a18a9a42d4f8c8d38aaed00839, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 6.4, y: 4.5}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!114 &910011013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 910011010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8c4e2a01d3f47a89e5c6d7f8a9b0c1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MermaidAlcoholPour
+  spriteRenderer: {fileID: 910011012}
+  frames:
+  - {fileID: 3291677850379854288, guid: 322137a18a9a42d4f8c8d38aaed00839, type: 3}
+  - {fileID: -8125935365736150064, guid: 322137a18a9a42d4f8c8d38aaed00839, type: 3}
+  - {fileID: -4354378806332472284, guid: 322137a18a9a42d4f8c8d38aaed00839, type: 3}
+  - {fileID: 7032640682211933571, guid: 322137a18a9a42d4f8c8d38aaed00839, type: 3}
+  - {fileID: 723156947663393421, guid: 322137a18a9a42d4f8c8d38aaed00839, type: 3}
+  - {fileID: -5355528075712743974, guid: 322137a18a9a42d4f8c8d38aaed00839, type: 3}
+  - {fileID: 4756756930023443981, guid: 322137a18a9a42d4f8c8d38aaed00839, type: 3}
+  - {fileID: 3270707967337355293, guid: 322137a18a9a42d4f8c8d38aaed00839, type: 3}
+  - {fileID: -5011484551783544456, guid: 322137a18a9a42d4f8c8d38aaed00839, type: 3}
+  - {fileID: -8928048287959227767, guid: 322137a18a9a42d4f8c8d38aaed00839, type: 3}
+  - {fileID: 3222156485973718875, guid: 322137a18a9a42d4f8c8d38aaed00839, type: 3}
+  - {fileID: 8133060283032536586, guid: 322137a18a9a42d4f8c8d38aaed00839, type: 3}
+  - {fileID: -4983228825438003554, guid: 322137a18a9a42d4f8c8d38aaed00839, type: 3}
+  - {fileID: 206555194631346459, guid: 322137a18a9a42d4f8c8d38aaed00839, type: 3}
+  - {fileID: -7270460219503896448, guid: 322137a18a9a42d4f8c8d38aaed00839, type: 3}
+  - {fileID: -9046322292049399198, guid: 322137a18a9a42d4f8c8d38aaed00839, type: 3}
+  - {fileID: 3821454521772269318, guid: 322137a18a9a42d4f8c8d38aaed00839, type: 3}
+  framesPerSecond: 14
+  pourHit: {x: -0.85, y: 0.15}
+  bottleMin: {x: -0.2, y: -1.2}
+  bottleMax: {x: 2.4, y: 2}
+  screenPadding: 0.12
 --- !u!1 &915853463
 GameObject:
   m_ObjectHideFlags: 0
@@ -3049,7 +3341,6 @@ MonoBehaviour:
   spriteRenderer: {fileID: 926419565}
   bodyCollider: {fileID: 926419566}
   hoverTint: {r: 1, g: 0.82, b: 0.82, a: 1}
-  siteNumber: 11
   startSprite: {fileID: 21300000, guid: 548bdbead2976b2458f27af846f659b1, type: 3}
   woundSprite: {fileID: 21300000, guid: 290b37951a5476b4aa2bc24d479e4438, type: 3}
   sutureStages: []
@@ -3139,7 +3430,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 24
-  m_Sprite: {fileID: 21300000, guid: ec51aabe5488e644fbc6b9654ed00f82, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a894e50ea1bfd8946b79d73898c06a66, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3196,37 +3487,39 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -1.625, y: 5.775}
-      - {x: -1.565, y: 5.825}
-      - {x: -1.505, y: 5.825}
-      - {x: -1.465, y: 5.875}
-      - {x: -1.365, y: 5.895}
-      - {x: -1.335, y: 6.035}
-      - {x: -1.355, y: 6.055}
-      - {x: -1.265, y: 6.195}
-      - {x: -1.265, y: 6.145}
-      - {x: -1.255, y: 6.235}
-      - {x: -1.365, y: 6.335}
-      - {x: -1.555, y: 6.415}
-      - {x: -1.775, y: 6.745}
-      - {x: -1.825, y: 6.755}
-      - {x: -1.865, y: 6.725}
-      - {x: -1.855, y: 6.675}
-      - {x: -1.705, y: 6.465}
-      - {x: -2.065, y: 6.495}
-      - {x: -1.685, y: 6.295}
-      - {x: -1.545, y: 6.255}
-      - {x: -1.815, y: 6.125}
-      - {x: -2.145, y: 6.065}
-      - {x: -2.145, y: 5.925}
-      - {x: -1.895, y: 5.995}
-      - {x: -1.925, y: 5.925}
-      - {x: -1.905, y: 5.805}
-      - {x: -1.845, y: 6.025}
-      - {x: -1.765, y: 6.045}
-      - {x: -1.705, y: 6.105}
-      - {x: -1.585, y: 6.115}
-      - {x: -1.625, y: 5.775}
+    - - {x: -1.23, y: 6.27}
+      - {x: -1.3, y: 6.3199997}
+      - {x: -1.36, y: 6.3599997}
+      - {x: -1.5999999, y: 6.5299997}
+      - {x: -1.73, y: 6.73}
+      - {x: -1.78, y: 6.7799997}
+      - {x: -1.8399999, y: 6.7799997}
+      - {x: -1.9, y: 6.74}
+      - {x: -1.88, y: 6.64}
+      - {x: -1.77, y: 6.5}
+      - {x: -1.88, y: 6.5299997}
+      - {x: -2.08, y: 6.54}
+      - {x: -2.1, y: 6.48}
+      - {x: -2.06, y: 6.44}
+      - {x: -1.8199999, y: 6.3399997}
+      - {x: -1.8199999, y: 6.17}
+      - {x: -2.1599998, y: 6.0899997}
+      - {x: -2.18, y: 6.0699997}
+      - {x: -2.18, y: 5.91}
+      - {x: -2.12, y: 5.8799996}
+      - {x: -1.99, y: 5.93}
+      - {x: -1.93, y: 5.7999997}
+      - {x: -1.92, y: 5.77}
+      - {x: -1.86, y: 5.79}
+      - {x: -1.8299999, y: 5.8799996}
+      - {x: -1.77, y: 6}
+      - {x: -1.62, y: 6.08}
+      - {x: -1.64, y: 5.95}
+      - {x: -1.67, y: 5.75}
+      - {x: -1.5699999, y: 5.75}
+      - {x: -1.3399999, y: 5.8799996}
+      - {x: -1.31, y: 5.96}
+      - {x: -1.23, y: 6.1299996}
   m_UseDelaunayMesh: 0
 --- !u!114 &971996469
 MonoBehaviour:
@@ -3244,8 +3537,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 971996467}
   bodyCollider: {fileID: 971996468}
   hoverTint: {r: 1, g: 0.82, b: 0.82, a: 1}
-  siteNumber: 5
-  startSprite: {fileID: 21300000, guid: ec51aabe5488e644fbc6b9654ed00f82, type: 3}
+  startSprite: {fileID: 21300000, guid: a894e50ea1bfd8946b79d73898c06a66, type: 3}
   woundSprite: {fileID: 21300000, guid: 53a868a2c499c3d4999e05ac2482f832, type: 3}
   sutureStages: []
   barnacleRemoved: 0
@@ -3465,7 +3757,6 @@ MonoBehaviour:
   spriteRenderer: {fileID: 1069094532}
   bodyCollider: {fileID: 1069094533}
   hoverTint: {r: 1, g: 0.82, b: 0.82, a: 1}
-  siteNumber: 2
   startSprite: {fileID: 21300000, guid: 82f5a4f381eb9794aab295965dffe97c, type: 3}
   woundSprite: {fileID: 21300000, guid: 9b110dde4aacaef4191e2a7be5395feb, type: 3}
   sutureStages: []
@@ -3665,7 +3956,6 @@ MonoBehaviour:
   spriteRenderer: {fileID: 1078069002}
   bodyCollider: {fileID: 1078069003}
   hoverTint: {r: 1, g: 0.82, b: 0.82, a: 1}
-  siteNumber: 8
   startSprite: {fileID: 21300000, guid: 007e792a485b096478ac30db90775cdc, type: 3}
   woundSprite: {fileID: 21300000, guid: 69406f3b9daf3e44ea175f01f7cb2cad, type: 3}
   sutureStages: []
@@ -3842,7 +4132,6 @@ MonoBehaviour:
   spriteRenderer: {fileID: 1085708344}
   bodyCollider: {fileID: 1085708345}
   hoverTint: {r: 1, g: 0.82, b: 0.82, a: 1}
-  bandageNumber: 4
   bandageSprite: {fileID: 21300000, guid: 659058f964801434eac9192505f06d5b, type: 3}
   applied: 0
   fadeInDuration: 0.22
@@ -4206,7 +4495,6 @@ MonoBehaviour:
   spriteRenderer: {fileID: 1188487246}
   bodyCollider: {fileID: 1188487247}
   hoverTint: {r: 1, g: 0.82, b: 0.82, a: 1}
-  bandageNumber: 2
   bandageSprite: {fileID: 21300000, guid: 077881cc2ca23a1428cc188dde71e339, type: 3}
   applied: 0
   fadeInDuration: 0.22
@@ -4526,7 +4814,6 @@ MonoBehaviour:
   spriteRenderer: {fileID: 1252711202}
   bodyCollider: {fileID: 1252711203}
   hoverTint: {r: 1, g: 0.82, b: 0.82, a: 1}
-  siteNumber: 6
   startSprite: {fileID: 21300000, guid: 3f7e069a1967e0b4b9d31e8c4b412e39, type: 3}
   woundSprite: {fileID: 21300000, guid: 5796d1c9c2d766a44877d53f93c3ae6a, type: 3}
   sutureStages:
@@ -4868,7 +5155,6 @@ MonoBehaviour:
   spriteRenderer: {fileID: 1282875452}
   bodyCollider: {fileID: 1282875453}
   hoverTint: {r: 1, g: 0.82, b: 0.82, a: 1}
-  siteNumber: 15
   startSprite: {fileID: 21300000, guid: ebf56aa5f95d7464da8cfe66bf39f85b, type: 3}
   woundSprite: {fileID: 0}
   sutureStages:
@@ -5173,7 +5459,6 @@ MonoBehaviour:
   spriteRenderer: {fileID: 1298453822}
   bodyCollider: {fileID: 1298453823}
   hoverTint: {r: 1, g: 0.82, b: 0.82, a: 1}
-  siteNumber: 13
   startSprite: {fileID: 21300000, guid: abf840728ac1ad14bac5d082d59d06f7, type: 3}
   woundSprite: {fileID: 21300000, guid: 44c18bb1454c7f44791d157071a62f9c, type: 3}
   sutureStages:
@@ -5377,7 +5662,6 @@ MonoBehaviour:
   spriteRenderer: {fileID: 1347903709}
   bodyCollider: {fileID: 1347903710}
   hoverTint: {r: 1, g: 0.82, b: 0.82, a: 1}
-  bandageNumber: 1
   bandageSprite: {fileID: 21300000, guid: 935165c3b8cb61648b61b2c51cef6031, type: 3}
   applied: 0
   fadeInDuration: 0.22
@@ -5624,7 +5908,6 @@ MonoBehaviour:
   spriteRenderer: {fileID: 1387966064}
   bodyCollider: {fileID: 1387966065}
   hoverTint: {r: 1, g: 0.82, b: 0.82, a: 1}
-  siteNumber: 9
   startSprite: {fileID: 21300000, guid: 9d3cf13b0ddc0814cb56239da44cddac, type: 3}
   woundSprite: {fileID: 21300000, guid: 16f89de7f4d22964f8e1cb5e4517e0fd, type: 3}
   sutureStages: []
@@ -5844,7 +6127,6 @@ MonoBehaviour:
   spriteRenderer: {fileID: 1441883455}
   bodyCollider: {fileID: 1441883456}
   hoverTint: {r: 1, g: 0.82, b: 0.82, a: 1}
-  bandageNumber: 3
   bandageSprite: {fileID: 21300000, guid: cbb5b22751e684c4a9d1418775f7faca, type: 3}
   applied: 0
   fadeInDuration: 0.22
@@ -6246,7 +6528,6 @@ MonoBehaviour:
   spriteRenderer: {fileID: 1531357846}
   bodyCollider: {fileID: 1531357847}
   hoverTint: {r: 1, g: 0.82, b: 0.82, a: 1}
-  siteNumber: 3
   startSprite: {fileID: 21300000, guid: 47859f3cea884b14a8b1fd1a01d64c3c, type: 3}
   woundSprite: {fileID: 21300000, guid: 284b7b95762247b49b74b76c925744c5, type: 3}
   sutureStages:
@@ -6513,7 +6794,6 @@ MonoBehaviour:
   spriteRenderer: {fileID: 1556905055}
   bodyCollider: {fileID: 1556905056}
   hoverTint: {r: 1, g: 0.82, b: 0.82, a: 1}
-  siteNumber: 10
   startSprite: {fileID: 21300000, guid: 3d6453cebd7b6c74ba9772a2933d5591, type: 3}
   woundSprite: {fileID: 21300000, guid: a81d92758474901419dd1262f2c85c4f, type: 3}
   sutureStages: []
@@ -6702,7 +6982,6 @@ MonoBehaviour:
   spriteRenderer: {fileID: 1614472064}
   bodyCollider: {fileID: 1614472065}
   hoverTint: {r: 1, g: 0.82, b: 0.82, a: 1}
-  bandageNumber: 8
   bandageSprite: {fileID: 21300000, guid: 32b791583a286424696bc869fc521c3c, type: 3}
   applied: 0
   fadeInDuration: 0.22
@@ -6871,7 +7150,6 @@ MonoBehaviour:
   spriteRenderer: {fileID: 1657422562}
   bodyCollider: {fileID: 1657422563}
   hoverTint: {r: 1, g: 0.82, b: 0.82, a: 1}
-  bandageNumber: 5
   bandageSprite: {fileID: 21300000, guid: d1a998f276c7cb64bb669783231925f8, type: 3}
   applied: 0
   fadeInDuration: 0.22
@@ -7065,7 +7343,6 @@ MonoBehaviour:
   spriteRenderer: {fileID: 1659330032}
   bodyCollider: {fileID: 1659330033}
   hoverTint: {r: 1, g: 0.82, b: 0.82, a: 1}
-  bandageNumber: 7
   bandageSprite: {fileID: 21300000, guid: 331cf1fa69d1954408b14a63ef86ec29, type: 3}
   applied: 0
   fadeInDuration: 0.22
@@ -7259,7 +7536,6 @@ MonoBehaviour:
   spriteRenderer: {fileID: 1743335358}
   bodyCollider: {fileID: 1743335359}
   hoverTint: {r: 1, g: 0.82, b: 0.82, a: 1}
-  siteNumber: 1
   startSprite: {fileID: 21300000, guid: fef6715c90d32d246a8b3273e6a28b2a, type: 3}
   woundSprite: {fileID: 21300000, guid: 67eee61e1c0a841458a3c7862110c58b, type: 3}
   sutureStages: []
@@ -7546,3 +7822,4 @@ SceneRoots:
   - {fileID: 2093686387}
   - {fileID: 675255874}
   - {fileID: 533935787}
+  - {fileID: 910011011}

@@ -7,6 +7,17 @@ public class GameStateManager : MonoBehaviour
     public static GameStateManager instance;
     private MessageBus.SubscriptionHandle plusSanityHandle;
 
+    // Pier and other scenes may be played without visiting Bedroom/Sink first.
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
+    private static void EnsureExists()
+    {
+        if (instance != null)
+            return;
+
+        GameObject go = new GameObject("GameStateManager");
+        go.AddComponent<GameStateManager>();
+    }
+
     void Awake()
     {
         if (instance != null)
@@ -17,19 +28,27 @@ public class GameStateManager : MonoBehaviour
 
         instance = this;
         DontDestroyOnLoad(gameObject);
+        SubscribePlusSanity();
     }
 
-    void Start()
+    private void SubscribePlusSanity()
     {
+        if (plusSanityHandle != null)
+            return;
+
         plusSanityHandle = MessageBus.Instance.Subscribe("PlusSanity", (args) =>
         {
             int amount = (int)args[0];
             GameState.Increment("sanity", amount);
-            if (amount > 0) {
+
+            bool suppressSound = args.Length > 1 && args[1] is bool skip && skip;
+            if (suppressSound)
+                return;
+
+            if (amount > 0)
                 MessageBus.Instance.Publish("PlaySound", "sanity_gain");
-            } else {
+            else if (amount < 0)
                 MessageBus.Instance.Publish("PlaySound", "sanity_loss");
-            }
         }, this);
     }
 

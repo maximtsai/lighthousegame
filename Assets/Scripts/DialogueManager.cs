@@ -20,21 +20,7 @@ public class DialogueManager : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(gameObject);
         SubscribeToMessages();
-        WarmUpFonts();
-    }
-
-    private void WarmUpFonts()
-    {
-        // Warming up fonts on the main thread to avoid "GetName can only be called from the main thread" 
-        // in TextMeshPro/TextCore/UITK background jobs.
-        var fonts = Resources.FindObjectsOfTypeAll<TMPro.TMP_FontAsset>();
-        foreach (var font in fonts)
-        {
-            if (font == null) continue;
-            var _ = font.name;
-            var __ = font.faceInfo.familyName;
-            font.HasCharacter(' ');
-        }
+        TmpFontWarmup.WarmUpAll();
     }
 
 

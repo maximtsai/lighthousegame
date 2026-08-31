@@ -124,7 +124,7 @@ public class Navigation : MonoBehaviour
     {
         string scene = LighthouseClimb.StepUp();
 
-        // Climbing onto floor 4 is what shakes the brick loose, so the drop lands over the fade.
+        // Floor 4 holds the fade through the steps and brick so we don't cut in mid-sound.
         if (scene == GameConsts.LHCLIMBSCENE)
         {
             LighthouseBrick.Arrival arrival =
@@ -134,7 +134,11 @@ public class Navigation : MonoBehaviour
             {
                 LHClimbScript climb = FindFirstObjectByType<LHClimbScript>();
                 if (climb != null)
+                {
                     climb.PlayBrickArrival(arrival);
+                    GoToTransition(scene, climb.BrickFadeOutDuration(), 0f, climb.BrickHoldDuration(arrival));
+                    return;
+                }
             }
         }
 
@@ -156,7 +160,11 @@ public class Navigation : MonoBehaviour
 
         EnsureInstance();
         if (Instance != null)
-            Instance.GoToTransition(GameConsts.LHCLIMBSCENE, 0.5f);
+        {
+            float fadeOut = climb != null ? climb.BrickPlaceFadeOutDuration() : 0.5f;
+            float hold = climb != null ? climb.BrickPlaceHoldDuration() : 0f;
+            Instance.GoToTransition(GameConsts.LHCLIMBSCENE, fadeOut, 0f, hold);
+        }
     }
 
     public void GoLighthouseDown()
@@ -297,7 +305,7 @@ public class Navigation : MonoBehaviour
         GoToTransition(scene, 0.85f);
     }
     
-    private void GoToTransition(string scene, float duration, float startAlpha = 0f)
+    private void GoToTransition(string scene, float duration, float startAlpha = 0f, float holdBlack = 0f)
     {
         if (GameState.Get<bool>("navigationBlocked"))
         {
@@ -352,7 +360,7 @@ public class Navigation : MonoBehaviour
             return;
 
         GameState.Set("navigationBlocked", true);
-        Instance.StartCoroutine(Instance.FadeInThenGoTo(scene, duration, startAlpha));
+        Instance.StartCoroutine(Instance.FadeInThenGoTo(scene, duration, startAlpha, holdBlack));
     }
     
     private static void EnsureInstance()
@@ -370,7 +378,7 @@ public class Navigation : MonoBehaviour
         Instance = Instantiate(prefab).GetComponent<Navigation>();
     }
 
-    private IEnumerator FadeInThenGoTo(string scene, float duration, float startAlpha = 0f)
+    private IEnumerator FadeInThenGoTo(string scene, float duration, float startAlpha = 0f, float holdBlack = 0f)
     {
         // Start from specified alpha
         Color c = new Color(0, 0, 0, blackoutImage.color.a);
@@ -402,11 +410,16 @@ public class Navigation : MonoBehaviour
             SceneManager.LoadScene(scene);
         }
 
-        t += 0.15f;
+        if (holdBlack > 0f)
+            yield return new WaitForSeconds(holdBlack);
+
+        // Long brick fades use the usual climb fade-in so coming back isn't sluggish.
+        float fadeIn = holdBlack > 0f ? 0.85f : duration;
+        t = fadeIn + 0.15f;
         while (t > 0)
         {
             t -= Time.deltaTime * 2.2f;
-            c.a = Mathf.Clamp01(t / duration);
+            c.a = Mathf.Clamp01(t / fadeIn);
             blackoutImage.color = c;
             yield return null;
         }

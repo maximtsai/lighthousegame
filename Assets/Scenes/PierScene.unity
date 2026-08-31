@@ -636,8 +636,21 @@ MonoBehaviour:
   popupRise: 40
   popupDuration: 1
   miscObjectClick: {fileID: 1680848633}
-  keepSound: {fileID: 0}
-  discardSound: {fileID: 0}
+  keepSound: {fileID: 8300000, guid: 304bf51d7394f544d9d573b2935288ae, type: 3}
+  discardSound: {fileID: 8300000, guid: 2f8bcf8579ae85845928ab372a43663e, type: 3}
+  keepSoundVolume: 1.2
+  sanityGainVolume: 1.35
+  discardPitchMin: 0.88
+  discardPitchMax: 1.12
+  discardAudioPoolSize: 4
+  pierAmbientLoop: {fileID: 8300000, guid: 7e192a60ca6c11b4eb9756f7b23daf46, type: 3}
+  pierRainAmbientLoop: {fileID: 8300000, guid: fd34f6d11a3987e41a7d965d9d492b69, type: 3}
+  pierAmbientVolume: 0.12
+  pierAmbientFadeDuration: 0.6
+  buttonPopScale: 0.92
+  buttonPopDuration: 0.1
+  bobAmplitude: 5
+  bobSpeed: 1.4
   testModeSkipRequirements: 0
   testModeForceDay: 0
 --- !u!1 &290558259

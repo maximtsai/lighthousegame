@@ -28,6 +28,8 @@ public class MermaidMinigame : MonoBehaviour
         public MermaidTool tool;
         [Tooltip("Plays each time a target is treated in this phase.")]
         public AudioClip sound;
+        [Tooltip("If set, these rotate instead of sound. Used for the barnacle rip variants.")]
+        public AudioClip[] sounds;
         [Tooltip("Everything this phase's tool works on.")]
         public List<MermaidTarget> targets = new List<MermaidTarget>();
     }
@@ -42,6 +44,7 @@ public class MermaidMinigame : MonoBehaviour
     [Header("References")]
     [SerializeField] private MermaidTray tray;
     [SerializeField] private MiscObjectClick miscObjectClick;
+    [SerializeField] private MermaidAlcoholPour alcoholPour;
 
     [Header("Timing")]
     [Tooltip("Lets the task bar animate in before the tray comes up.")]
@@ -60,6 +63,8 @@ public class MermaidMinigame : MonoBehaviour
     private bool finished;
     private int stepsDone;
     private int stepsTotal;
+    private int soundRotate;
+    private AudioClip[] shuffledSounds;
 
     private Phase CurrentPhase =>
         phaseIndex >= 0 && phaseIndex < phases.Count ? phases[phaseIndex] : null;
@@ -119,7 +124,10 @@ public class MermaidMinigame : MonoBehaviour
         Phase phase = CurrentPhase;
         target.Apply(phase.tool);
 
-        if (miscObjectClick != null && phase.sound != null) miscObjectClick.PlaySound(phase.sound);
+        if (phase.tool == MermaidTool.Alcohol && alcoholPour != null) alcoholPour.Play();
+
+        AudioClip clip = NextPhaseSound(phase);
+        if (miscObjectClick != null && clip != null) miscObjectClick.PlaySound(clip);
 
         stepsDone++;
         MessageBus.Instance.Publish("SetTaskProgress", stepsDone, stepsTotal);
@@ -165,6 +173,8 @@ public class MermaidMinigame : MonoBehaviour
             if (target.BodyCollider != null)
                 target.BodyCollider.enabled = phase.targets.Contains(target);
         }
+
+        ShufflePhaseSounds(phase);
 
         // The counter counts clicks, so a three-stage suture chain contributes three.
         stepsDone = 0;
@@ -218,5 +228,36 @@ public class MermaidMinigame : MonoBehaviour
             Dialogue dialogue = miscObjectClick.getDialogue(finishDialogue);
             if (dialogue != null) DialogueManager.ShowDialogue(dialogue);
         }
+    }
+
+    // Cycle through a shuffled copy of the phase's variant clips so the four barnacle rips
+    // don't play in the same order twice in a row. Falls back to the single sound field.
+    private void ShufflePhaseSounds(Phase phase)
+    {
+        soundRotate = 0;
+        shuffledSounds = null;
+        if (phase == null || phase.sounds == null || phase.sounds.Length == 0) return;
+
+        shuffledSounds = (AudioClip[])phase.sounds.Clone();
+        for (int i = shuffledSounds.Length - 1; i > 0; i--)
+        {
+            int j = Random.Range(0, i + 1);
+            AudioClip swap = shuffledSounds[i];
+            shuffledSounds[i] = shuffledSounds[j];
+            shuffledSounds[j] = swap;
+        }
+    }
+
+    private AudioClip NextPhaseSound(Phase phase)
+    {
+        if (shuffledSounds != null && shuffledSounds.Length > 0)
+        {
+            AudioClip clip = shuffledSounds[soundRotate % shuffledSounds.Length];
+            soundRotate++;
+            if (soundRotate % shuffledSounds.Length == 0) ShufflePhaseSounds(phase);
+            return clip;
+        }
+
+        return phase != null ? phase.sound : null;
     }
 }

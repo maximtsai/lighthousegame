@@ -10,10 +10,9 @@ public class LHClimbScript : MonoBehaviour
     [SerializeField] private SpriteRenderer background;
     [SerializeField] private Sprite[] upSprites;
     [SerializeField] private Sprite[] downSprites;
-    // Not recorded yet, so the brick stays silent until these are filled in.
     [SerializeField] private AudioClip brickFallSound;
-    [SerializeField] private AudioClip brickSettleSound;
     [SerializeField] private AudioClip brickPlaceSound;
+    [SerializeField] private AudioClip footstepsSound;
     // Edit Mode only, for laying out a screen. Play Mode uses the live climb state instead.
     [SerializeField, Range(1, 4)] private int previewFloor = 1;
     [SerializeField] private bool previewGoingUp = true;
@@ -52,20 +51,62 @@ public class LHClimbScript : MonoBehaviour
 
     public void PlayBrickArrival(LighthouseBrick.Arrival arrival)
     {
-        PlayBrickSound(arrival == LighthouseBrick.Arrival.Fell ? brickFallSound : brickSettleSound);
+        if (arrival == LighthouseBrick.Arrival.Nothing || miscObjectClick == null)
+            return;
+
+        // Arrow already started the default steps. Bricks wait until that clip finishes.
+        float delay = ClipLength(footstepsSound);
+        if (brickPlaceSound != null)
+            miscObjectClick.PlaySoundDelayed(brickPlaceSound, 0.6f, false, delay);
+
+        if (arrival != LighthouseBrick.Arrival.Fell || brickFallSound == null)
+            return;
+
+        miscObjectClick.PlaySoundDelayed(brickFallSound, 1f, false, delay + ClipLength(brickPlaceSound));
+    }
+
+    // Fade out over the footsteps so the screen is black when the brick starts.
+    public float BrickFadeOutDuration()
+    {
+        return Mathf.Max(0.85f, ClipLength(footstepsSound));
+    }
+
+    // Stay black through the brick clips, then the fade-in can start.
+    public float BrickHoldDuration(LighthouseBrick.Arrival arrival)
+    {
+        float bricks = ClipLength(brickPlaceSound);
+        if (arrival == LighthouseBrick.Arrival.Fell)
+            bricks += ClipLength(brickFallSound);
+
+        return Mathf.Max(0f, ClipLength(footstepsSound) + bricks - BrickFadeOutDuration());
+    }
+
+    private static float ClipLength(AudioClip clip)
+    {
+        return clip != null ? clip.length : 0f;
     }
 
     public void PlayBrickPlace()
     {
-        PlayBrickSound(brickPlaceSound);
+        PlayBrickSound(brickPlaceSound, 0.6f);
     }
 
-    private void PlayBrickSound(AudioClip clip)
+    public float BrickPlaceFadeOutDuration()
+    {
+        return 0.5f;
+    }
+
+    public float BrickPlaceHoldDuration()
+    {
+        return Mathf.Max(0f, ClipLength(brickPlaceSound) - BrickPlaceFadeOutDuration());
+    }
+
+    private void PlayBrickSound(AudioClip clip, float volume)
     {
         if (clip == null || miscObjectClick == null)
             return;
 
-        miscObjectClick.PlaySound(clip, 0.6f);
+        miscObjectClick.PlaySound(clip, volume);
     }
 
 #if UNITY_EDITOR
