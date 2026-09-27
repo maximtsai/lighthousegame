@@ -2,25 +2,32 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-// Plays the mermaid_alcohol sheet so the stream lands on the cursor and the bottle
-// stays on screen. The unflipped art sits to the right and above the pour; we flip
-// X and/or Y when that would send the bottle off the camera.
+// Plays the mermaid_alcohol frames with the stream landing where you clicked. The pour is pinned to
+// that spot on her body, so if the view scrolls while it plays, it scrolls with her instead of
+// following the cursor.
+//
+// The bottle tips in from the right and pours down to the left; when there isn't room for it on the
+// right it comes in from the left instead. It never turns upside down, so near the top of the view
+// the top of the bottle runs off the screen, but the stream still lands on the spot.
 public class MermaidAlcoholPour : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer spriteRenderer;
+    [Tooltip("The bottle tipping in and starting to pour: the first ten frames of the sheet.")]
     [SerializeField] private Sprite[] frames;
     [SerializeField] private float framesPerSecond = 14f;
-    [Tooltip("Sprite-local point the liquid hits, relative to the frame center.")]
-    [SerializeField] private Vector2 pourHit = new Vector2(-0.85f, 0.15f);
-    [Tooltip("Unflipped bottle AABB in sprite-local space, relative to the frame center.")]
-    [SerializeField] private Vector2 bottleMin = new Vector2(-0.2f, -1.2f);
-    [SerializeField] private Vector2 bottleMax = new Vector2(2.4f, 2.0f);
+    [Tooltip("Where the stream ends on the last frame, relative to the frame centre. This lands on the spot you clicked.")]
+    [SerializeField] private Vector2 pourHit = new Vector2(-0.27f, 0.56f);
+    [Tooltip("Left and right edges of the tipped bottle, relative to the frame centre, before flipping. " +
+             "Used to pick the side that has room for it.")]
+    [SerializeField] private float bottleLeft = -0.67f;
+    [SerializeField] private float bottleRight = 1.87f;
     [SerializeField] private float screenPadding = 0.12f;
+    [Tooltip("The last frame fades out instead of vanishing.")]
+    [SerializeField] private float fadeOutDuration = 0.15f;
 
     private Coroutine playRoutine;
     private Camera cam;
     private bool flipX;
-    private bool flipY;
 
     void Awake()
     {
@@ -33,125 +40,68 @@ public class MermaidAlcoholPour : MonoBehaviour
         if (frames == null || frames.Length == 0 || spriteRenderer == null) return;
 
         if (playRoutine != null) StopCoroutine(playRoutine);
-        ChooseOrientation(CursorWorld());
-        ApplyFlip();
+
+        // Placed once, where the click landed, and left there in the world. It's snapped to the
+        // body's pixel grid so its pixels sit exactly on hers instead of between them.
+        Vector3 spot = CursorWorld();
+        flipX = ChooseFlip(spot);
+        spriteRenderer.flipX = flipX;
+        float hitX = flipX ? -pourHit.x : pourHit.x;
+        float ppu = frames[0] != null ? frames[0].pixelsPerUnit : 100f;
+        transform.position = new Vector3(SnapToPixel(spot.x - hitX, ppu), SnapToPixel(spot.y - pourHit.y, ppu), -0.4f);
+
         playRoutine = StartCoroutine(PlayRoutine());
     }
 
     private IEnumerator PlayRoutine()
     {
+        spriteRenderer.color = Color.white;
         spriteRenderer.enabled = true;
-        FollowCursor();
 
         float frameTime = 1f / Mathf.Max(1f, framesPerSecond);
         for (int i = 0; i < frames.Length; i++)
         {
             spriteRenderer.sprite = frames[i];
-            FollowCursor();
             yield return new WaitForSeconds(frameTime);
+        }
+
+        float elapsed = 0f;
+        while (elapsed < fadeOutDuration)
+        {
+            elapsed += Time.deltaTime;
+            spriteRenderer.color = new Color(1f, 1f, 1f, 1f - Mathf.Clamp01(elapsed / fadeOutDuration));
+            yield return null;
         }
 
         Hide();
         playRoutine = null;
     }
 
-    void LateUpdate()
+    // The authored side, unless the bottle would run off the edge there and has more room on the other.
+    private bool ChooseFlip(Vector3 spot)
     {
-        if (playRoutine != null) FollowCursor();
+        float authored = SideOverflow(spot, false);
+        return authored > 0f && SideOverflow(spot, true) < authored;
     }
 
-    private void ChooseOrientation(Vector3 cursor)
+    private float SideOverflow(Vector3 spot, bool useFlip)
     {
-        // Prefer the authored angle, then horizontal flip, then vertical, then both.
-        bool[] xs = { false, true, false, true };
-        bool[] ys = { false, false, true, true };
-
-        int best = 0;
-        float bestOverflow = float.MaxValue;
-        for (int i = 0; i < 4; i++)
-        {
-            float overflow = BottleOverflow(cursor, xs[i], ys[i]);
-            if (overflow < bestOverflow - 0.0001f)
-            {
-                bestOverflow = overflow;
-                best = i;
-                if (overflow <= 0f) break;
-            }
-        }
-
-        flipX = xs[best];
-        flipY = ys[best];
-    }
-
-    private void ApplyFlip()
-    {
-        spriteRenderer.flipX = flipX;
-        spriteRenderer.flipY = flipY;
-    }
-
-    private void FollowCursor()
-    {
-        Vector3 cursor = CursorWorld();
-        Vector2 hit = Flip(pourHit, flipX, flipY);
-        Vector3 pos = cursor - (Vector3)hit;
-        pos.z = -0.4f;
-        transform.position = ClampBottleOnScreen(pos);
-    }
-
-    private Vector3 ClampBottleOnScreen(Vector3 pos)
-    {
-        Rect view = CameraWorldRect();
-        GetFlippedBottle(flipX, flipY, out Vector2 localMin, out Vector2 localMax);
-
-        float minX = view.xMin - localMin.x;
-        float maxX = view.xMax - localMax.x;
-        float minY = view.yMin - localMin.y;
-        float maxY = view.yMax - localMax.y;
-
-        if (minX > maxX) pos.x = (minX + maxX) * 0.5f;
-        else pos.x = Mathf.Clamp(pos.x, minX, maxX);
-
-        if (minY > maxY) pos.y = (minY + maxY) * 0.5f;
-        else pos.y = Mathf.Clamp(pos.y, minY, maxY);
-
-        return pos;
-    }
-
-    private float BottleOverflow(Vector3 cursor, bool useFlipX, bool useFlipY)
-    {
-        Vector2 hit = Flip(pourHit, useFlipX, useFlipY);
-        Vector3 origin = cursor - (Vector3)hit;
-        GetFlippedBottle(useFlipX, useFlipY, out Vector2 localMin, out Vector2 localMax);
+        float originX = spot.x - (useFlip ? -pourHit.x : pourHit.x);
+        GetBottleSpan(useFlip, out float left, out float right);
         Rect view = CameraWorldRect();
 
-        float overflow = 0f;
-        overflow += Mathf.Max(0f, view.xMin - (origin.x + localMin.x));
-        overflow += Mathf.Max(0f, (origin.x + localMax.x) - view.xMax);
-        overflow += Mathf.Max(0f, view.yMin - (origin.y + localMin.y));
-        overflow += Mathf.Max(0f, (origin.y + localMax.y) - view.yMax);
-        return overflow;
+        return Mathf.Max(0f, view.xMin - (originX + left)) + Mathf.Max(0f, (originX + right) - view.xMax);
     }
 
-    private static void GetFlippedBottle(bool useFlipX, bool useFlipY, Vector2 min, Vector2 max, out Vector2 localMin, out Vector2 localMax)
+    private static float SnapToPixel(float value, float pixelsPerUnit)
     {
-        float x0 = useFlipX ? -max.x : min.x;
-        float x1 = useFlipX ? -min.x : max.x;
-        float y0 = useFlipY ? -max.y : min.y;
-        float y1 = useFlipY ? -min.y : max.y;
-        localMin = new Vector2(Mathf.Min(x0, x1), Mathf.Min(y0, y1));
-        localMax = new Vector2(Mathf.Max(x0, x1), Mathf.Max(y0, y1));
+        return Mathf.Round(value * pixelsPerUnit) / pixelsPerUnit;
     }
 
-    private void GetFlippedBottle(bool useFlipX, bool useFlipY, out Vector2 localMin, out Vector2 localMax)
+    private void GetBottleSpan(bool useFlip, out float left, out float right)
     {
-        GetFlippedBottle(useFlipX, useFlipY, bottleMin, bottleMax, out localMin, out localMax);
-    }
-
-    private static Vector2 Flip(Vector2 value, bool useFlipX, bool useFlipY)
-    {
-        if (useFlipX) value.x = -value.x;
-        if (useFlipY) value.y = -value.y;
-        return value;
+        left = useFlip ? -bottleRight : bottleLeft;
+        right = useFlip ? -bottleLeft : bottleRight;
     }
 
     private Vector3 CursorWorld()
@@ -188,7 +138,7 @@ public class MermaidAlcoholPour : MonoBehaviour
         {
             spriteRenderer.enabled = false;
             spriteRenderer.flipX = false;
-            spriteRenderer.flipY = false;
+            spriteRenderer.color = Color.white;
         }
     }
 }

@@ -2,14 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Runs the mermaid cleaning minigame.
+// Runs one day's mermaid cleaning minigame as a list of phases, each announced by the task bar.
+// There's one of these per day in MermaidScene, and MermaidDaySelector switches on the right one.
 //
-// Four phases go in order, each announced by the task bar:
-//
-//     1. Clean Barnacles    gloves       14 sites (the stomach gash has no barnacle)
-//     2. Disinfect Wounds   alcohol      15 sites
-//     3. Stitch Wounds      fish bones    4 sites, 10 clicks (chains of 2 and 3)
-//     4. Bandage Wounds     bandages     10 patches
+// Day 4:  clean barnacles (gloves), disinfect (alcohol), stitch (fish bones), bandage.
+// Day 5:  pop worms (gloves), remove dirty bandages (gloves), clean pus (alcohol), peel the fish,
+//         drag the fish skin on as a graft, stitch the graft (fish bones), bandage.
 //
 // Each phase raises the tray with only its own tool lit. Pick it up and the tray drops, that
 // phase's targets become clickable, and once they're all treated the task completes and the
@@ -26,7 +24,7 @@ public class MermaidMinigame : MonoBehaviour
         [Tooltip("The id field inside that Task asset, used to complete it.")]
         public string taskId;
         public MermaidTool tool;
-        [Tooltip("Plays each time a target is treated in this phase.")]
+        [Tooltip("Plays each time a target is treated in this phase, climbing in pitch while you keep going.")]
         public AudioClip sound;
         [Tooltip("If set, these rotate instead of sound. Used for the barnacle rip variants.")]
         public AudioClip[] sounds;
@@ -52,6 +50,24 @@ public class MermaidMinigame : MonoBehaviour
     [Tooltip("Breath between finishing a phase and the next task appearing.")]
     [SerializeField] private float phaseGap = 0.9f;
 
+    [Header("Repeated Sounds")]
+    [Tooltip("A phase with a single sound goes up this many semitones each time you treat something " +
+             "in quick succession, like a combo. Phases with variant sounds just take turns instead.")]
+    [SerializeField] private float comboSemitones = 0.5f;
+    [Tooltip("How many steps it climbs before walking back down.")]
+    [SerializeField] private int comboSteps = 3;
+    [Tooltip("A pause longer than this, in seconds, starts the climb again from the bottom.")]
+    [SerializeField] private float comboWindow = 1.2f;
+
+    [Header("Opening")]
+    [Tooltip("Optional. Plays when the minigame starts, i.e. as you first look at her.")]
+    [SerializeField] private AudioClip openingSound;
+    [Tooltip("Keep the opening sound looping until the minigame is finished.")]
+    [SerializeField] private bool openingSoundLoops;
+    [Range(0f, 1f)] [SerializeField] private float openingSoundVolume = 1f;
+    [Tooltip("Seconds a looping opening sound takes to fade out once she's patched up.")]
+    [SerializeField] private float openingFadeOut = 1.5f;
+
     [Header("Finish")]
     [Tooltip("Optional path under Resources/ScriptableObjects/Dialogues/, e.g. mermaid/patched_up")]
     [SerializeField] private string finishDialogue = "";
@@ -66,20 +82,49 @@ public class MermaidMinigame : MonoBehaviour
     private int soundRotate;
     private AudioClip[] shuffledSounds;
 
+    // The treat sounds get a few voices of their own, so changing one sound's pitch never bends
+    // another that's still ringing out, which is what would happen on the shared AudioManager source.
+    private const int VoiceCount = 4;
+    private AudioSource[] voices;
+    private int nextVoice;
+    private int comboCount;
+    private float lastSoundTime = float.NegativeInfinity;
+    private AudioSource openingSource;
+
     private Phase CurrentPhase =>
         phaseIndex >= 0 && phaseIndex < phases.Count ? phases[phaseIndex] : null;
 
     private MermaidTool CurrentTool => CurrentPhase != null ? CurrentPhase.tool : MermaidTool.None;
 
+    void Awake()
+    {
+        voices = new AudioSource[VoiceCount];
+        for (int i = 0; i < VoiceCount; i++)
+        {
+            voices[i] = gameObject.AddComponent<AudioSource>();
+            voices[i].playOnAwake = false;
+        }
+    }
+
     void Start()
     {
         GameState.Set("minigame_open", false);
 
-        // Queue all four up front. Only the top one shows, and completing it reveals the next.
+        // Queue every task up front. Only the top one shows, and completing it reveals the next.
         foreach (Phase phase in phases)
         {
             if (!string.IsNullOrEmpty(phase.taskResource))
                 MessageBus.Instance.Publish("AddTaskString", phase.taskResource);
+        }
+
+        if (openingSound != null)
+        {
+            openingSource = gameObject.AddComponent<AudioSource>();
+            openingSource.playOnAwake = false;
+            openingSource.clip = openingSound;
+            openingSource.loop = openingSoundLoops;
+            openingSource.volume = openingSoundVolume;
+            openingSource.Play();
         }
 
         StartCoroutine(BeginAfterDelay(0, startDelay));
@@ -90,18 +135,25 @@ public class MermaidMinigame : MonoBehaviour
     public void ClickAlcohol() => ChooseTool(MermaidTool.Alcohol);
     public void ClickFishBones() => ChooseTool(MermaidTool.FishBones);
     public void ClickBandages() => ChooseTool(MermaidTool.Bandages);
+    public void ClickFish() => ChooseTool(MermaidTool.Fish);
+    public void ClickFishSkin() => ChooseTool(MermaidTool.FishSkin);
 
     private void ChooseTool(MermaidTool tool)
     {
         if (finished || toolInHand) return;
         if (tray == null || !tray.IsShown) return;
 
-        // The other three are greyed out and not interactable, so this shouldn't ever trip. It
+        // The other tools are greyed out and not interactable, so this shouldn't ever trip. It
         // just stops a stray click from arming the wrong phase.
         if (tool != CurrentTool) return;
 
         toolInHand = true;
         tray.Hide();
+
+        foreach (MermaidTarget target in CurrentPhase.targets)
+        {
+            if (target != null) target.OnToolReady();
+        }
     }
 
     // Whether this target can be acted on right now. Gates the click and the hover tint both,
@@ -110,6 +162,7 @@ public class MermaidMinigame : MonoBehaviour
     {
         if (finished || !toolInHand || target == null) return false;
         if (tray != null && tray.IsShown) return false;
+        if (target.IsBusy) return false;
 
         Phase phase = CurrentPhase;
         if (phase == null || !phase.targets.Contains(target)) return false;
@@ -126,15 +179,14 @@ public class MermaidMinigame : MonoBehaviour
 
         if (phase.tool == MermaidTool.Alcohol && alcoholPour != null) alcoholPour.Play();
 
-        AudioClip clip = NextPhaseSound(phase);
-        if (miscObjectClick != null && clip != null) miscObjectClick.PlaySound(clip);
+        PlayPhaseSound(phase);
 
         stepsDone++;
-        MessageBus.Instance.Publish("SetTaskProgress", stepsDone, stepsTotal);
+        PublishProgress();
 
         if (!target.CanApply(phase.tool)) target.ClearHover();
 
-        if (IsPhaseComplete(phase)) CompletePhase(phase);
+        if (IsPhaseComplete(phase)) StartCoroutine(CompletePhase(phase));
     }
 
     private bool IsPhaseComplete(Phase phase)
@@ -175,6 +227,7 @@ public class MermaidMinigame : MonoBehaviour
         }
 
         ShufflePhaseSounds(phase);
+        comboCount = 0;
 
         // The counter counts clicks, so a three-stage suture chain contributes three.
         stepsDone = 0;
@@ -183,13 +236,14 @@ public class MermaidMinigame : MonoBehaviour
         {
             if (target != null) stepsTotal += target.RemainingSteps(phase.tool);
         }
-        MessageBus.Instance.Publish("SetTaskProgress", stepsDone, stepsTotal);
+        PublishProgress();
 
         if (tray != null) tray.Show(phase.tool);
     }
 
-    private void CompletePhase(Phase phase)
+    private IEnumerator CompletePhase(Phase phase)
     {
+        // Dropping the tool straight away also stops any further clicks landing on this phase.
         toolInHand = false;
 
         foreach (MermaidTarget target in allTargets)
@@ -199,18 +253,31 @@ public class MermaidMinigame : MonoBehaviour
             if (target.BodyCollider != null) target.BodyCollider.enabled = false;
         }
 
+        // Let the last worm pop or fish peel play out before the task ticks over.
+        while (AnyBusy(phase)) yield return null;
+
+        foreach (MermaidTarget target in phase.targets)
+        {
+            if (target != null) target.OnPhaseFinished();
+        }
+
         if (!string.IsNullOrEmpty(phase.taskId))
             MessageBus.Instance.Publish("CompleteTask", phase.taskId);
 
+        yield return new WaitForSeconds(phaseGap);
+
         int next = phaseIndex + 1;
-        if (next < phases.Count) StartCoroutine(BeginAfterDelay(next, phaseGap));
-        else StartCoroutine(FinishAfterDelay(phaseGap));
+        if (next < phases.Count) BeginPhase(next);
+        else Finish();
     }
 
-    private IEnumerator FinishAfterDelay(float delay)
+    private static bool AnyBusy(Phase phase)
     {
-        yield return new WaitForSeconds(delay);
-        Finish();
+        foreach (MermaidTarget target in phase.targets)
+        {
+            if (target != null && target.IsBusy) return true;
+        }
+        return false;
     }
 
     private void Finish()
@@ -223,11 +290,57 @@ public class MermaidMinigame : MonoBehaviour
         GameState.Set("mermaid_treated", true);
         MessageBus.Instance.Publish("ClearTaskProgress");
 
+        if (openingSource != null && openingSource.loop) StartCoroutine(FadeOut(openingSource, openingFadeOut));
+
         if (!string.IsNullOrEmpty(finishDialogue) && miscObjectClick != null)
         {
             Dialogue dialogue = miscObjectClick.getDialogue(finishDialogue);
             if (dialogue != null) DialogueManager.ShowDialogue(dialogue);
         }
+    }
+
+    private static IEnumerator FadeOut(AudioSource source, float duration)
+    {
+        float start = source.volume;
+        float elapsed = 0f;
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            source.volume = Mathf.Lerp(start, 0f, Mathf.Clamp01(elapsed / duration));
+            yield return null;
+        }
+        source.Stop();
+    }
+
+    // A task that's done in one go doesn't need a 0/1 counter after it.
+    private void PublishProgress()
+    {
+        MessageBus.Instance.Publish("SetTaskProgress", stepsDone, stepsTotal > 1 ? stepsTotal : 0);
+    }
+
+    private void PlayPhaseSound(Phase phase)
+    {
+        bool hasVariants = phase.sounds != null && phase.sounds.Length > 0;
+        AudioClip clip = NextPhaseSound(phase);
+        if (clip == null || voices == null) return;
+
+        AudioSource voice = voices[nextVoice];
+        nextVoice = (nextVoice + 1) % voices.Length;
+        voice.pitch = hasVariants ? 1f : NextComboPitch();
+        voice.PlayOneShot(clip);
+    }
+
+    // Up a step for each quick repeat, back down once it reaches the top, and from the bottom again
+    // after a pause, so seven worm pops in a row sound like a run of notes instead of one sound
+    // seven times.
+    private float NextComboPitch()
+    {
+        if (Time.time - lastSoundTime > comboWindow) comboCount = 0;
+        lastSoundTime = Time.time;
+
+        int step = comboSteps > 0 ? Mathf.RoundToInt(Mathf.PingPong(comboCount, comboSteps)) : 0;
+        comboCount++;
+        return Mathf.Pow(2f, step * comboSemitones / 12f);
     }
 
     // Cycle through a shuffled copy of the phase's variant clips so the four barnacle rips

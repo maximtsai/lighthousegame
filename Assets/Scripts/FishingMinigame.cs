@@ -12,6 +12,9 @@ public class FishingMinigame : MonoBehaviour
     {
         public string itemName;
         public Sprite sprite;         // frame 1 / default
+        [Tooltip("Optional layer drawn on top of Sprite in the same frame, e.g. the Day 5 fish's " +
+                 "skin (fish peel 1) over its body (fish base).")]
+        public Sprite overlaySprite;
         public Sprite revealSprite;   // frame 2; if set, must click reveal before keep/discard
         public bool isGoodFish;
         [Tooltip("Optional yellow outline shown on hover while waiting to reveal frame 2.")]
@@ -38,6 +41,8 @@ public class FishingMinigame : MonoBehaviour
     [Header("UI References")]
     [SerializeField] private GameObject minigamePanel;
     [SerializeField] private Image itemImage;
+    [Tooltip("Sits over Item Image at the same size, for catches drawn in two layers.")]
+    [SerializeField] private Image itemOverlayImage;
 
     [Header("Two-frame reveal")]
     // Outline overlay on frame 1. Click → fade → frame 2 → keep/discard.
@@ -305,6 +310,7 @@ public class FishingMinigame : MonoBehaviour
 
         itemImage.sprite = item.sprite;
         itemImage.enabled = item.sprite != null;
+        SetOverlay(item.overlaySprite);
         float scale = item.displayScale > 0f ? item.displayScale : 1f;
         itemImage.rectTransform.localScale = Vector3.one * scale;
         SetHoverOutlineVisible(false);
@@ -337,6 +343,15 @@ public class FishingMinigame : MonoBehaviour
                 revealButton.gameObject.SetActive(false);
             SetChoiceButtonsActive(true);
         }
+    }
+
+    private void SetOverlay(Sprite sprite)
+    {
+        if (itemOverlayImage == null)
+            return;
+
+        itemOverlayImage.sprite = sprite;
+        itemOverlayImage.enabled = sprite != null;
     }
 
     private void EnsureHoverOutlineImage()
@@ -616,6 +631,8 @@ public class FishingMinigame : MonoBehaviour
         {
             itemImage.sprite = currentItem.revealSprite;
             itemImage.enabled = true;
+            // Frame 2 is its own drawing, so the frame 1 overlay no longer belongs on it.
+            SetOverlay(null);
         }
 
         yield return StartCoroutine(FadeReveal(0f));

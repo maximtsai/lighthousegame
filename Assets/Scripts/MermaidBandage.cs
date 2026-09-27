@@ -1,7 +1,8 @@
 using System.Collections;
 using UnityEngine;
 
-// One bandage patch, laid over the finished wounds in the last phase.
+// One patch laid down on the body: a bandage, or on Day 5 a piece of the fish-skin graft or a run
+// of stitches. It's invisible until you hover it, when it ghosts in to show where it'll land.
 //
 // Bandages are their own objects rather than a fourth stage on MermaidSpot because bandage 1
 // covers two sites at once, and four of the sites never get bandaged at all.
@@ -10,6 +11,10 @@ using UnityEngine;
 // saved is already the right starting state and there's nothing to reset when the game starts.
 public class MermaidBandage : MermaidTarget
 {
+    [Header("Tool")]
+    [Tooltip("What lays this patch down. Fish Skin for the graft pieces, Fish Bones for stitches.")]
+    [SerializeField] private MermaidTool appliedWith = MermaidTool.Bandages;
+
     [Header("Stage")]
     [SerializeField] private Sprite bandageSprite;
 
@@ -25,7 +30,7 @@ public class MermaidBandage : MermaidTarget
 
     public override bool CanApply(MermaidTool tool)
     {
-        return tool == MermaidTool.Bandages && !applied;
+        return tool == appliedWith && !applied;
     }
 
     public override void Apply(MermaidTool tool)
@@ -36,7 +41,7 @@ public class MermaidBandage : MermaidTarget
 
     public override int RemainingSteps(MermaidTool tool)
     {
-        return tool == MermaidTool.Bandages && !applied ? 1 : 0;
+        return tool == appliedWith && !applied ? 1 : 0;
     }
 
     protected override void SetHover(bool on)

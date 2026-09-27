@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-// The four tools on the medical tray, in the order you use them.
+// The tools on the medical tray. These values are saved in the scene, so new ones go at the end.
 public enum MermaidTool
 {
     None = 0,
@@ -9,6 +9,8 @@ public enum MermaidTool
     Alcohol = 2,
     FishBones = 3,
     Bandages = 4,
+    Fish = 5,
+    FishSkin = 6,
 }
 
 // Base for anything on the mermaid's body you can treat with a tool.
@@ -42,9 +44,39 @@ public abstract class MermaidTarget : MonoBehaviour
     // makes a three-stage suture chain read as 3 in the task bar counter.
     public abstract int RemainingSteps(MermaidTool tool);
 
+    // True while this target is mid-animation. Clicks wait until it settles, and a phase waits
+    // for every target to settle before moving on, so the last worm pop or fish peel gets to finish.
+    public virtual bool IsBusy => false;
+
+    // Called when the player picks up this phase's tool, and again once the phase is over. Most
+    // targets don't need them; the fish and the fish skin use them to come on screen and leave again.
+    public virtual void OnToolReady() { }
+    public virtual void OnPhaseFinished() { }
+
+    // The middle of this target's outline, in its own local space. The art is drawn on full-size
+    // canvases, so this, rather than the object's position, is where the thing you see actually is.
+    protected Vector2 OutlineMiddle()
+    {
+        if (bodyCollider == null) return Vector2.zero;
+
+        Vector2 min = new Vector2(float.MaxValue, float.MaxValue);
+        Vector2 max = new Vector2(float.MinValue, float.MinValue);
+        for (int i = 0; i < bodyCollider.pathCount; i++)
+        {
+            foreach (Vector2 p in bodyCollider.GetPath(i))
+            {
+                min = Vector2.Min(min, p);
+                max = Vector2.Max(max, p);
+            }
+        }
+
+        if (min.x > max.x) return Vector2.zero;
+        return (min + max) * 0.5f + bodyCollider.offset;
+    }
+
     // World colliders don't know about UI sitting on top of them, so without this a click on
     // the tray while it's still sliding would fall straight through onto the body.
-    private static bool PointerOverUI()
+    protected static bool PointerOverUI()
     {
         return EventSystem.current != null && EventSystem.current.IsPointerOverGameObject();
     }

@@ -7,19 +7,24 @@ using UnityEngine.UI;
 
 // The medical supply tray that slides up from the bottom between tasks.
 //
-// The tray and all four tools are drawn on the same shared canvas as each other, so every Image
-// shares one anchored position and the tools land on the tray on their own. Only the little
-// invisible hit buttons over each tool are placed individually.
+// The tray and its tools are drawn on the same shared canvas as each other, so every Image shares
+// one anchored position and the tools land on the tray on their own. Only the little invisible hit
+// buttons over each tool are placed individually.
 public class MermaidTray : MonoBehaviour
 {
     [Serializable]
     public class ToolButton
     {
         public MermaidTool tool;
-        [Tooltip("The full-frame tool art.")]
+        [Tooltip("The tool art.")]
         public Image art;
         [Tooltip("The small invisible hit rect sitting over it.")]
         public Button button;
+        [Tooltip("Yellow outline shown while you hover a tool you can pick up.")]
+        public GameObject outline;
+        [Tooltip("Tools with the same slot number take turns in one spot on the tray, like the " +
+                 "fish, then its skin, then the fish bones. Leave at 0 for a tool with its own spot.")]
+        public int slot;
     }
 
     [Header("Slide")]
@@ -44,11 +49,15 @@ public class MermaidTray : MonoBehaviour
 
     private Coroutine slideRoutine;
 
+    // Which tool is currently sitting in each shared slot.
+    private readonly Dictionary<int, MermaidTool> slotHolder = new Dictionary<int, MermaidTool>();
+
     public bool IsShown => shown;
 
     // Raise the tray with only this tool lit and clickable.
     public void Show(MermaidTool activeTool)
     {
+        UpdateSlots(activeTool);
         SetToolStates(activeTool, false);
         shown = true;
 
@@ -73,13 +82,34 @@ public class MermaidTray : MonoBehaviour
         StartSlide(hiddenY, () => GameState.Set("minigame_open", false));
     }
 
+    // A shared slot shows this phase's tool if it's one of its tools, and otherwise keeps whichever
+    // tool was last there (the first one listed, to begin with). It swaps while the tray is still
+    // below the screen, so you never see it change.
+    private void UpdateSlots(MermaidTool activeTool)
+    {
+        foreach (ToolButton entry in tools)
+        {
+            if (entry == null || entry.slot == 0) continue;
+            if (!slotHolder.ContainsKey(entry.slot)) slotHolder[entry.slot] = entry.tool;
+            if (entry.tool == activeTool) slotHolder[entry.slot] = activeTool;
+        }
+
+        foreach (ToolButton entry in tools)
+        {
+            if (entry == null || entry.slot == 0 || entry.art == null) continue;
+            entry.art.gameObject.SetActive(slotHolder[entry.slot] == entry.tool);
+        }
+    }
+
     private void SetToolStates(MermaidTool activeTool, bool interactable)
     {
         foreach (ToolButton entry in tools)
         {
             if (entry == null || entry.button == null) continue;
 
-            entry.button.interactable = entry.tool == activeTool && interactable;
+            bool live = entry.tool == activeTool && interactable;
+            entry.button.interactable = live;
+            if (!live && entry.outline != null) entry.outline.SetActive(false);
 
             // Fully qualify, this project also has a scene Navigation singleton.
             UnityEngine.UI.Navigation nav = entry.button.navigation;
