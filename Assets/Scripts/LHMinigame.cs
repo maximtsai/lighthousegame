@@ -220,6 +220,22 @@ public class LHMinigame : MonoBehaviour
             return;
         }
 
+        // Day 3: back up with the scissors from the wall, and they've come out of it broken.
+        // Patch them up as best you can, then trim the wick with them.
+        if (GameState.Get<int>("day") == 3 && GameState.Get<bool>("scissors_found", false)
+            && !GameState.Get<bool>("scissors_used") && !GameState.Get<bool>("day3_scissors_broken_seen", false))
+        {
+            GameState.Set("day3_scissors_broken_seen", true);
+            Dialogue broken = DialogueManager.ShowDialogueFromText(new string[]
+            {
+                "...The blades have come loose at the pivot.",
+                "I try to tighten the bolt, but the nut won't catch.",
+                "There.## That's the best I can do."
+            });
+            broken.onDialogueEnd.AddListener(ClickScissors);
+            return;
+        }
+
         if (scissorsRenderer != null)
         {
             scissorsRenderer.color = new Color(0.4f, 0.4f, 0.4f, 1f); // Make it appear used

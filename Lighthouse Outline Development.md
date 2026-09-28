@@ -155,7 +155,7 @@ Scene outside \-\> Dock
   * Pick any category.  
 - “Are you certain it’s not raining?”  
   * Black out \-\> raging thunderstorm \-\> jolt in weather log  
-  * “You’re soaked to the bone. Freezing.” “...The lighthouse isn’t lit.” “In a storm like this? There could be ships out there!”  
+  * “You’re soaked through. The lighthouse isn’t lit.” “Better get it going.”  
 - **TASK: Maintain the Lighthouse**
 
 ***\[Lighthouse task stays the same.\]***  
@@ -170,10 +170,9 @@ Scene first floor of the lighthouse:
 
 - Click on the stairs \-\> search the first floor of the lighthouse. Nothing there.  
   - On the way back up, the scissors are wedged in a hole in the wall behind the loose brick, as if something was dragging them into the wall \-\> click to pull them out.  
-  - The scissors have broken. You can’t adequately tighten one of the nuts and bolts (reflected through MC dialogue).  
-  - You try your best to fix them up.  
+  - “How did the scissors end up all the way in there?” \-\> click \-\> the close-up fades back to the stairs, and the way up is open again.  
 * **TASK: Finish the rest of your maintenance tasks.**  
-  - Click on the stairs \-\> go back to the top floor of the lighthouse \-\> finish the wick trimming \-\> leave the lighthouse.  
+  - Go back to the top floor of the lighthouse \-\> click the scissors: they have broken, and you can’t adequately tighten one of the nuts and bolts (reflected through MC dialogue). You try your best to fix them up \-\> finish the wick trimming \-\> leave the lighthouse.  
 * **TASK: Check Fish Traps**
 
 Scene Dock
@@ -210,11 +209,14 @@ Scene outside (night)
 Scene: Outside (After the Weather Observation Task is completed)
 
 * **TASK: Survey the beach**  
-  - Things have started washing up on shore for the first time: Broken parts of the ship, canned supplies, corpses (-10 sanity) \-\> Click on the pile.  
-    * “Canned cabbages. Be grateful.”  
+  - Things have started washing up on shore for the first time: broken parts of the supply ship, canned supplies \-\> Click on the pile.  
+    * “The supply ship... what’s left of it.” “The light was flickering all night. They couldn’t see the rocks.” “...This is my fault.”  
+    * Picks through the scraps: “A can of corn chowder. A different brand.” “Be grateful.”  
 * **TASK: Avert your eyes.**  
 * **TASK: Bury them.**  
-  - Click on the pile of dead bodies again \-\> click to smash the giant worms \-. Click to dragging \-\> click to bury next to Camborne.  
+  - Go to the dock: bodies floating in the water (-10 sanity). “Bodies. Floating in the water.”  
+  - Click a body \-\> carry it \-\> click to bury it in the mass grave.  
+  - One of them is a rotting bride: “Her dress... a wedding dress.” “She died on her wedding day.”  
   - Repeat this for four different bodies.  
     * “Scratch?”  
       * Yes (-2 sanity points)  

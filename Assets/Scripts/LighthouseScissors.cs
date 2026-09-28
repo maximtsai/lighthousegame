@@ -11,6 +11,9 @@ public static class LighthouseScissors
 
     public const string CloseUpOpenKey = "scissors_closeup_open";
 
+    // Said when trying to climb on or put the brick back while they're still in the wall.
+    public const string NoticedLine = "Wait,## I see something in the walls.";
+
     // Gone missing and not yet pulled out of the wall.
     public static bool Stuck =>
         GameState.Get<int>("day") == 3

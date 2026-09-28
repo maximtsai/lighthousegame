@@ -344,14 +344,13 @@ public class WeatherUIController : MonoBehaviour
         StartCoroutine(CloseWeatherUIDelayed(ShowLighthouseDarkInStorm));
     }
 
-    // Day 3: soaked through, he looks up and the lighthouse isn't lit
+    // Day 3: soaked through, he notices the lighthouse isn't lit and just gets on with it
     private void ShowLighthouseDarkInStorm()
     {
         DialogueManager.ShowDialogueFromText(new string[]
         {
-            "You're soaked to the bone.## Freezing.",
-            "...The lighthouse isn't lit.",
-            "In a storm like this?## There could be ships out there!"
+            "You're soaked through.## The lighthouse isn't lit.",
+            "Better get it going."
         });
     }
 

@@ -4490,6 +4490,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeeb42b32cbe4be38ecc8ad1070d0769, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScissorsCloseUp
+  hoverSprite: {fileID: -889331057183233969, guid: 26830123fc42a0d4f9084b83b603c34c, type: 3}
   scissorsPivot: {fileID: 2100051}
   scissorsRenderer: {fileID: 2100062}
   wiggleSound: {fileID: 8300000, guid: 49989195102dbb94fb6f8a57e4feaa4c, type: 3}

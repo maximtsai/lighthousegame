@@ -25,10 +25,6 @@ public class OutdoorsMiscLogic : MonoBehaviour
     [Header("Day 4 Beach")]
     // Placeholder wreckage until the washed-up pile art is in: fishing junk sprites.
     [SerializeField] private Sprite[] washedUpPileSprites;
-    // Carrying each of the bodies to be buried, one per body.
-    [SerializeField] private Sprite[] carryBodySprites;
-    [SerializeField] private AudioClip shovelClip;
-    [SerializeField] private AudioClip scratchSound;
 
     void Start()
     {
@@ -48,8 +44,7 @@ public class OutdoorsMiscLogic : MonoBehaviour
 
         if (Day4Beach.IsToday)
         {
-            gameObject.AddComponent<Day4Beach>()
-                .Init(washedUpPileSprites, carryBodySprites, shovelClip, scratchSound, miscObjectClick);
+            gameObject.AddComponent<Day4Beach>().Init(washedUpPileSprites);
         }
 
         // Day 3: the lighthouse hasn't been right since the scissors broke.

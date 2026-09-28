@@ -20,16 +20,22 @@ public class PierMiscLogic : MonoBehaviour
     [SerializeField] private float debrisScale = 0.2f;
     [SerializeField] private float bobHeight = 0.04f;
 
+    [Header("Day 4 Bodies")]
+    // Carrying each of the bodies to the grave, one per body. Also the placeholder floating bodies.
+    [SerializeField] private Sprite[] carryBodySprites;
+    [SerializeField] private AudioClip shovelClip;
+
     private const string Day3FlashPlayedKey = "day3_pier_flash_played";
 
     // In the water either side of the dock, in world units with the dock background at the origin.
+    // Kept out towards the horizon and the edges so the day 4 bodies have the near water.
     private static readonly Vector3[] DebrisPositions =
     {
-        new Vector3(-2.45f, -0.95f, -0.05f),
-        new Vector3(-1.55f, -1.55f, -0.05f),
-        new Vector3(2.35f, -1.45f, -0.05f),
-        new Vector3(2.75f, -0.6f, -0.05f),
-        new Vector3(-2.85f, -1.5f, -0.05f),
+        new Vector3(-2.9f, -0.3f, -0.05f),
+        new Vector3(-1.5f, -0.4f, -0.05f),
+        new Vector3(1.75f, -0.25f, -0.05f),
+        new Vector3(2.95f, -0.35f, -0.05f),
+        new Vector3(-1.95f, -1.1f, -0.05f),
     };
 
     // Both flash images share one screen-space canvas above everything else in the scene.
@@ -70,6 +76,12 @@ public class PierMiscLogic : MonoBehaviour
         if (GameState.Get<int>("day") >= 4)
         {
             SpawnFloatingDebris();
+        }
+
+        // Day 4: the bodies from the wreck, out in the water
+        if (Day4Beach.IsToday)
+        {
+            gameObject.AddComponent<Day4Dock>().Init(carryBodySprites, shovelClip, miscObjectClick);
         }
     }
 

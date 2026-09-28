@@ -2228,6 +2228,12 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e13862e84a48e0d488507bcb007b39e3, type: 3}
   debrisScale: 0.2
   bobHeight: 0.04
+  carryBodySprites:
+  - {fileID: -2665072364750482445, guid: 475c32154b1d60047bdeedcb69071d17, type: 3}
+  - {fileID: 7168746267440240212, guid: 106295a5d15bb934cb8d7130cdaf3c98, type: 3}
+  - {fileID: 525690868507191151, guid: 9acd21b44a008e440971059468ad72fd, type: 3}
+  - {fileID: -4194699557831583787, guid: cc23fea38be16cc4fa6979610b2f734e, type: 3}
+  shovelClip: {fileID: 8300000, guid: 71777ad8bd9f8304d84ddd0c44c1cba5, type: 3}
   finishLoop: {fileID: 8300000, guid: 7e192a60ca6c11b4eb9756f7b23daf46, type: 3}
   rainLoop: {fileID: 8300000, guid: fd34f6d11a3987e41a7d965d9d492b69, type: 3}
   rainOverlay: {fileID: 99203248524}

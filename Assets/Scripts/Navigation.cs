@@ -61,7 +61,7 @@ public class Navigation : MonoBehaviour
             DialogueManager.ShowDialogue(getDialog("outdoors/burial_blocked"));
             return;
         }
-        if (Day4Beach.BlocksLeaving)
+        if (Day4Beach.BlocksHeadingIn)
         {
             DialogueManager.ShowDialogueFromText(new string[] { Day4Beach.BlockedLine });
             return;
@@ -98,7 +98,7 @@ public class Navigation : MonoBehaviour
             DialogueManager.ShowDialogue(getDialog("outdoors/burial_blocked"));
             return;
         }
-        if (Day4Beach.BlocksLeaving)
+        if (Day4Beach.BlocksHeadingIn)
         {
             DialogueManager.ShowDialogueFromText(new string[] { Day4Beach.BlockedLine });
             return;
@@ -134,7 +134,7 @@ public class Navigation : MonoBehaviour
     {
         if (LighthouseScissors.BlocksClimbUp(LighthouseClimb.Floor, LighthouseClimb.GoingUp))
         {
-            DialogueManager.ShowDialogueFromText(new string[] { "Wait,## I see something in the walls." });
+            DialogueManager.ShowDialogueFromText(new string[] { LighthouseScissors.NoticedLine });
             return;
         }
 
@@ -168,6 +168,13 @@ public class Navigation : MonoBehaviour
         if (LighthouseBrick.InWall || GameState.Get<bool>("navigationBlocked"))
             return;
 
+        // The scissors are sparkling in the hole the brick left; they have to come out first.
+        if (LighthouseScissors.Stuck)
+        {
+            DialogueManager.ShowDialogueFromText(new string[] { LighthouseScissors.NoticedLine });
+            return;
+        }
+
         LighthouseBrick.PutInWall();
 
         LHClimbScript climb = FindFirstObjectByType<LHClimbScript>();
@@ -194,10 +201,13 @@ public class Navigation : MonoBehaviour
         FadeClimbScene(0.35f);
     }
 
+    // The close-up fades itself away over the stairs, so this just swaps back to them.
     public static void CloseScissorsCloseUp()
     {
         LighthouseScissors.SetCloseUpOpen(false);
-        FadeClimbScene(0.3f);
+        LHClimbScript climb = FindFirstObjectByType<LHClimbScript>();
+        if (climb != null)
+            climb.ShowFloor(LighthouseClimb.Floor, LighthouseClimb.GoingUp);
     }
 
     private static void FadeClimbScene(float duration)
@@ -219,7 +229,7 @@ public class Navigation : MonoBehaviour
             DialogueManager.ShowDialogue(getDialog("outdoors/burial_blocked"));
             return;
         }
-        if (Day4Beach.BlocksLeaving)
+        if (Day4Beach.BlocksPier)
         {
             DialogueManager.ShowDialogueFromText(new string[] { Day4Beach.BlockedLine });
             return;
