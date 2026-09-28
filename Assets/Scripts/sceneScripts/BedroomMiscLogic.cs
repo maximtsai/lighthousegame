@@ -67,6 +67,15 @@ public class BedroomMiscLogic : MonoBehaviour
                 ShowDay3Dialogue();
                 break;
             case 4:
+                MessageBus.Instance.Publish("AddTaskString", "generic/task_wash_up");
+                MessageBus.Instance.Publish("AddTaskString", "generic/task_breakfast");
+                MessageBus.Instance.Publish("AddTaskString", "generic/task_weather");
+                MessageBus.Instance.Publish("AddTaskString", "generic/task_survey_beach");
+                MessageBus.Instance.Publish("AddTaskString", "generic/task_bury_bodies");
+                MessageBus.Instance.Publish("AddTaskString", "generic/task_work");
+                MessageBus.Instance.Publish("AddTaskString", "generic/task_fish");
+                MessageBus.Instance.Publish("AddTaskString", "generic/task_dinner");
+                MessageBus.Instance.Publish("AddTaskString", "generic/go_to_sleep");
                 break;
             case 5:
                 break;

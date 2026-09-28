@@ -89,12 +89,25 @@ public class MiscObjectClick : MonoBehaviour
                 UnityEngine.Events.UnityEvent line1Event = new UnityEngine.Events.UnityEvent();
                 line1Event.AddListener(() =>
                 {
-                    FadeToBlackAndTransitionDay4();
+                    FadeToBlackAndTransitionDay(4);
                 });
                 sleepDialogue.onLineStart.Add(line0Event);
                 sleepDialogue.onLineStart.Add(line1Event);
 
                 DialogueManager.ShowDialogue(sleepDialogue);
+            } else if (day == 4)
+            {
+                Dialogue sleepDialogue = DialogueManager.ShowDialogueFromText(new string[]
+                {
+                    "Your arms ache from the digging.",
+                    "You can still smell the sea on your hands as you drift off..."
+                });
+                sleepDialogue.onLineStart = new List<UnityEngine.Events.UnityEvent>
+                {
+                    new UnityEngine.Events.UnityEvent(),
+                    new UnityEngine.Events.UnityEvent()
+                };
+                sleepDialogue.onLineStart[1].AddListener(() => FadeToBlackAndTransitionDay(5));
             }
         }
         else
@@ -131,7 +144,7 @@ public class MiscObjectClick : MonoBehaviour
         }
     }
 
-    private void FadeToBlackAndTransitionDay4()
+    private void FadeToBlackAndTransitionDay(int newDay)
     {
         if (GameState.Get<bool>("day_transition_started", false))
         {
@@ -142,19 +155,19 @@ public class MiscObjectClick : MonoBehaviour
 
         if (DialogueManager.instance != null && DialogueManager.instance.gameObject.activeInHierarchy)
         {
-            DialogueManager.instance.StartCoroutine(FadeToBlackDay4Routine());
+            DialogueManager.instance.StartCoroutine(FadeToBlackDayRoutine(newDay));
         }
         else if (Navigation.Instance != null && Navigation.Instance.gameObject.activeInHierarchy)
         {
-            Navigation.Instance.StartCoroutine(FadeToBlackDay4Routine());
+            Navigation.Instance.StartCoroutine(FadeToBlackDayRoutine(newDay));
         }
         else if (gameObject.activeInHierarchy)
         {
-            StartCoroutine(FadeToBlackDay4Routine());
+            StartCoroutine(FadeToBlackDayRoutine(newDay));
         }
     }
 
-    private IEnumerator FadeToBlackDay4Routine()
+    private IEnumerator FadeToBlackDayRoutine(int newDay)
     {
         // Fade using Navigation's blackout overlay so dialogue text remains visible on top
         Image blackoutImage = null;
@@ -195,7 +208,7 @@ public class MiscObjectClick : MonoBehaviour
         DialogueManager.CloseDialogue();
 
         MessageBus.Instance.Publish("ClearAllTasks");
-        GameState.Set<int>("day", 4);
+        GameState.Set<int>("day", newDay);
         GameState.StartNewDay();
         SaveManager.Save();
         SceneManager.LoadScene(GameConsts.BEDROOMSCENE);
@@ -203,7 +216,7 @@ public class MiscObjectClick : MonoBehaviour
         // Wait a frame for scene load
         yield return null;
 
-        // Fade in to reveal Bedroom on Day 4 morning
+        // Fade in to reveal the bedroom on the new morning
         float fadeInDuration = 1.0f;
         elapsed = 0f;
         if (blackoutImage != null)

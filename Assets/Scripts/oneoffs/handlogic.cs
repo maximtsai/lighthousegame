@@ -206,7 +206,16 @@ public class handlogic : MonoBehaviour
 
         bool isNight = GameState.Get<bool>("is_nighttime", false);
 
-        if (GameState.Get<bool>("handInfested", false))
+        if (GameState.Get<bool>("hand_oozing", false))
+        {
+            // Day 4 onward: pus oozing out
+            Sprite targetOozeSprite = isNight ? nightFester2 : handFester2;
+            if (targetOozeSprite != null && spriteRenderer.sprite != targetOozeSprite)
+            {
+                spriteRenderer.sprite = targetOozeSprite;
+            }
+        }
+        else if (GameState.Get<bool>("handInfested", false))
         {
             Sprite targetFesterSprite = isNight ? nightFester1 : handFester1;
             if (targetFesterSprite != null && spriteRenderer.sprite != targetFesterSprite)

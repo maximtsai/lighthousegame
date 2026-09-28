@@ -1,6 +1,4 @@
 using UnityEngine;
-using System;
-using System.Collections.Generic;
 
 public class LighthouseMiscLogic : MonoBehaviour
 {
@@ -15,13 +13,13 @@ public class LighthouseMiscLogic : MonoBehaviour
         // Update track 2
         UpdateTrack(ambience, bgLoop2, 0.17f, 2);
 
-        // Day 3: if task is "Go back upstairs" and scissors disappeared, show scissors dialogue
-        if (GameState.Get<int>("day") == 3 && IsTaskActive("task_finish_maintenance") && GameState.Get<bool>("ScissorsDisappeared", false))
+        // Day 3: back upstairs with the scissors pulled out of the wall, so the lighthouse
+        // can be fixed now.
+        if (GameState.Get<int>("day") == 3 && IsTaskActive("task_finish_maintenance") && GameState.Get<bool>("scissors_found", false))
         {
-            GameState.Set("scissorsDrop", false);
-            GameState.Set("scissors_found", true);
             GameState.Set("lighthouseFixForgotten", true);
-            ShowScissorsDialogue();
+            MessageBus.Instance.Publish("CompleteTask", "task_finish_maintenance");
+            MessageBus.Instance.Publish("AddTaskBefore", "generic/task_lighthouse", "task_fish");
         }
     }
 
@@ -35,44 +33,6 @@ public class LighthouseMiscLogic : MonoBehaviour
                 return true;
         }
         return false;
-    }
-
-    private void ShowScissorsDialogue()
-    {
-        Dialogue dialogue = ScriptableObject.CreateInstance<Dialogue>();
-        dialogue.text = new List<string>(new string[]
-        {
-            "You find the scissors besides the stairs.",
-            "Did you drop the scissors or not?"
-        });
-        dialogue.choices = new List<string>();
-        dialogue.consequences = new List<UnityEngine.Events.UnityEvent>();
-        dialogue.onDialogueEnd = new UnityEngine.Events.UnityEvent();
-        dialogue.onDialogueEndImmediate = new UnityEngine.Events.UnityEvent();
-
-        dialogue.onDialogueEnd.AddListener(() =>
-        {
-            MessageBus.Instance.Publish("ShowChoiceDialog", "Did you drop the scissors or not?");
-            MessageBus.Instance.Publish(
-                "ShowTwoChoice",
-                "I swear I did",
-                "I don't know",
-                (Action)(() =>
-                {
-                    MessageBus.Instance.Publish("PlusSanity", 1);
-                    MessageBus.Instance.Publish("CompleteTask", "task_finish_maintenance");
-                    MessageBus.Instance.Publish("AddTaskBefore", "generic/task_lighthouse", "task_fish");
-                }),
-                (Action)(() =>
-                {
-                    MessageBus.Instance.Publish("PlusSanity", -1);
-                    MessageBus.Instance.Publish("CompleteTask", "task_finish_maintenance");
-                    MessageBus.Instance.Publish("AddTaskBefore", "generic/task_lighthouse", "task_fish");
-                })
-            );
-        });
-
-        DialogueManager.ShowDialogue(dialogue);
     }
 
     private void UpdateTrack(Ambience ambience, AudioClip newClip, float volume, int channel)

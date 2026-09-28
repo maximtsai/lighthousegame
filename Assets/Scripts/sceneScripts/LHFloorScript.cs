@@ -23,7 +23,8 @@ public class LHFloorScript : MonoBehaviour
             StartCoroutine(PlaySoundDelayedRoutine(finishLoop, 0.2f, true, 0.01f));
         }
 
-        // Day 3: if scissors dropped, show search dialogue
+        // Day 3: if the scissors went missing, show search dialogue. They're really stuck in the wall
+        // on the way back up (see LighthouseScissors), so this search never finds them.
         if (GameState.Get<int>("day") == 3 && GameState.Get<bool>("scissorsDrop", false))
         {
             if (!GameState.Get<bool>("ScissorsDisappeared", false))
@@ -31,9 +32,9 @@ public class LHFloorScript : MonoBehaviour
                 Dialogue dialogue = ScriptableObject.CreateInstance<Dialogue>();
                 dialogue.text = new List<string>(new string[] 
                 { 
-                    "You look around for the dropped scissors.", 
+                    "You look around the bottom of the stairs for the scissors.", 
                     "It's dim and you grope around in the dark.",
-                    "You don't find anything." 
+                    "Nothing.## But you heard them fall..." 
                 });
                 dialogue.choices = new List<string>();
                 dialogue.consequences = new List<UnityEngine.Events.UnityEvent>();
@@ -42,7 +43,6 @@ public class LHFloorScript : MonoBehaviour
                 dialogue.onDialogueEnd.AddListener(() =>
                 {
                     GameState.Set("ScissorsDisappeared", true);
-                    MessageBus.Instance.Publish("CompleteTask", "task_find_scissors");
                 });
                 DialogueManager.ShowDialogue(dialogue);
             }

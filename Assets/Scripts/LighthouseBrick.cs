@@ -2,6 +2,7 @@
 /// The loose brick on climb floor 4. It shakes free from the wall the first time you climb
 /// past it each day, then stays wherever you leave it: back in the wall if you push it in,
 /// otherwise on the floor, where it is still lying the next morning.
+/// While the day 3 scissors are stuck in the hole behind it, it falls every time.
 /// </summary>
 public static class LighthouseBrick
 {
@@ -23,7 +24,8 @@ public static class LighthouseBrick
     public static bool OnFloor => !InWall;
 
     // Call straight after a climb move so the result lands over the fade. The brick only comes
-    // loose once a day: push it back in and it stays in until tomorrow.
+    // loose once a day: push it back in and it stays in until tomorrow, unless the day 3
+    // scissors are stuck behind it.
     public static Arrival Arrive(int floor, bool goingUp)
     {
         if (floor != Floor || !goingUp)
@@ -32,7 +34,9 @@ public static class LighthouseBrick
         if (OnFloor)
             return Arrival.AlreadyDown;
 
-        if (GameState.Get(FellTodayKey, false))
+        // The scissors are wedged in the hole behind the brick, so it keeps falling until
+        // they're out.
+        if (GameState.Get(FellTodayKey, false) && !LighthouseScissors.Stuck)
             return Arrival.Nothing;
 
         GameState.Set(InWallKey, false);

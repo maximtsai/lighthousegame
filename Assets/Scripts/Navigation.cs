@@ -61,6 +61,11 @@ public class Navigation : MonoBehaviour
             DialogueManager.ShowDialogue(getDialog("outdoors/burial_blocked"));
             return;
         }
+        if (Day4Beach.BlocksLeaving)
+        {
+            DialogueManager.ShowDialogueFromText(new string[] { Day4Beach.BlockedLine });
+            return;
+        }
         
         if (GameState.Get<bool>("lighthouse_fixed") && !GameState.Get<bool>("gathered_fish"))
         {
@@ -93,6 +98,11 @@ public class Navigation : MonoBehaviour
             DialogueManager.ShowDialogue(getDialog("outdoors/burial_blocked"));
             return;
         }
+        if (Day4Beach.BlocksLeaving)
+        {
+            DialogueManager.ShowDialogueFromText(new string[] { Day4Beach.BlockedLine });
+            return;
+        }
         if (GameState.Get<bool>("ready_to_sleep", false))
         {
             DialogueManager.ShowDialogue(getDialog("time_for_bed"));
@@ -122,6 +132,12 @@ public class Navigation : MonoBehaviour
 
     public void GoLighthouseUp()
     {
+        if (LighthouseScissors.BlocksClimbUp(LighthouseClimb.Floor, LighthouseClimb.GoingUp))
+        {
+            DialogueManager.ShowDialogueFromText(new string[] { "Wait,## I see something in the walls." });
+            return;
+        }
+
         string scene = LighthouseClimb.StepUp();
 
         // Floor 4 holds the fade through the steps and brick so we don't cut in mid-sound.
@@ -167,6 +183,30 @@ public class Navigation : MonoBehaviour
         }
     }
 
+    // The scissors close-up is part of the climb scene, so like the brick this fades over the
+    // same scene and the climb script swaps the view while it's black.
+    public static void OpenScissorsCloseUp()
+    {
+        if (LighthouseScissors.CloseUpOpen || GameState.Get<bool>("navigationBlocked"))
+            return;
+
+        LighthouseScissors.SetCloseUpOpen(true);
+        FadeClimbScene(0.35f);
+    }
+
+    public static void CloseScissorsCloseUp()
+    {
+        LighthouseScissors.SetCloseUpOpen(false);
+        FadeClimbScene(0.3f);
+    }
+
+    private static void FadeClimbScene(float duration)
+    {
+        EnsureInstance();
+        if (Instance != null)
+            Instance.GoToTransition(GameConsts.LHCLIMBSCENE, duration);
+    }
+
     public void GoLighthouseDown()
     {
         GoToSlow(LighthouseClimb.StepDown());
@@ -177,6 +217,11 @@ public class Navigation : MonoBehaviour
         if (GameState.Get<bool>("do_burial", false))
         {
             DialogueManager.ShowDialogue(getDialog("outdoors/burial_blocked"));
+            return;
+        }
+        if (Day4Beach.BlocksLeaving)
+        {
+            DialogueManager.ShowDialogueFromText(new string[] { Day4Beach.BlockedLine });
             return;
         }
         if (GameState.Get<bool>("ready_to_sleep", false))
@@ -320,7 +365,7 @@ public class Navigation : MonoBehaviour
             && GameState.Get<bool>("scissorsDrop", false)
             && (!GameState.Get<bool>("lighthouse_fixed", false) || (TaskManager.instance != null && TaskManager.instance.GetCurrentTasks().Exists(t => t.id == "task_find_scissors" || t.id == "task_finish_maintenance"))))
         {
-            DialogueManager.ShowDialogueFromText(new string[] { "You're pretty sure the scissors didn't fall out the lighthouse." });
+            DialogueManager.ShowDialogueFromText(new string[] { "The scissors have to be somewhere in the lighthouse." });
             return;
         }
 

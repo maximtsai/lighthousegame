@@ -292,7 +292,8 @@ public class StoveScript : MonoBehaviour
             MessageBus.Instance.Publish("FloatText", 0, -0.4f, "+SANITY", "green");
             MessageBus.Instance.Publish("PlusSanity", 1);
 
-            if (GameState.Get<bool>("ate_breakfast"))
+            bool isBreakfast = !GameState.Get<bool>("ate_breakfast");
+            if (!isBreakfast)
             {
                 MessageBus.Instance.Publish("CompleteTask", "task_dinner");
                 GameState.Set("ate_dinner", true);
@@ -315,7 +316,22 @@ public class StoveScript : MonoBehaviour
             GameState.Set("hungry", false);
             doneAnim.SetActive(false);
             soupCover.SetActive(true);
-            DialogueManager.ShowDialogue(miscObjectClick.getDialogue("stove/eating"));
+
+            if (isBreakfast && GameState.Get<int>("day") == 4)
+            {
+                // Day 4: pus starts oozing out of the wound over breakfast
+                Dialogue eating = Instantiate(miscObjectClick.getDialogue("stove/eating"));
+                eating.onDialogueEnd.AddListener(() =>
+                {
+                    GameState.Set("hand_oozing", true);
+                    HandScratch.Prompt("Pus is oozing out of your hand. Scratch?");
+                });
+                DialogueManager.ShowDialogue(eating);
+            }
+            else
+            {
+                DialogueManager.ShowDialogue(miscObjectClick.getDialogue("stove/eating"));
+            }
         }
         else
         {

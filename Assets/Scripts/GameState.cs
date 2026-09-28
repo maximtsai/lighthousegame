@@ -199,5 +199,12 @@ public static class GameState
         {
             Set("hand_cut", true);
         }
+
+        // Day 4 onward the wound has festered, and pus starts oozing at breakfast
+        Set("hand_oozing", false);
+        if (day >= 4)
+        {
+            Set("handInfested", true);
+        }
     }
 }

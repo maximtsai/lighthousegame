@@ -1276,6 +1276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06cd33b50e9320140aeabf3ac493b9a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WeatherUIController
+  scratchSound: {fileID: 8300000, guid: 49989195102dbb94fb6f8a57e4feaa4c, type: 3}
   weatherImage: {fileID: 1729120155}
   actionButton: {fileID: 1278400141}
   clickBlocker: {fileID: 1969580230}
@@ -1443,11 +1444,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e2b2764841ea147ae30b2ccd0826bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  washedUpPileSprites:
+  - {fileID: 21300000, guid: 2f6b126e1f24d6847ae4d0b379cbfaa0, type: 3}
+  - {fileID: 21300000, guid: 6928f5b076b4d464594a04bc4ac88b90, type: 3}
+  - {fileID: 21300000, guid: e13862e84a48e0d488507bcb007b39e3, type: 3}
+  - {fileID: 21300000, guid: d616112f927968944a927d4407187d53, type: 3}
+  - {fileID: 21300000, guid: eafd6ad76ca23214bab81ee82a7eba71, type: 3}
+  carryBodySprites:
+  - {fileID: -2665072364750482445, guid: 475c32154b1d60047bdeedcb69071d17, type: 3}
+  - {fileID: 7168746267440240212, guid: 106295a5d15bb934cb8d7130cdaf3c98, type: 3}
+  - {fileID: 525690868507191151, guid: 9acd21b44a008e440971059468ad72fd, type: 3}
+  - {fileID: -4194699557831583787, guid: cc23fea38be16cc4fa6979610b2f734e, type: 3}
+  shovelClip: {fileID: 8300000, guid: 71777ad8bd9f8304d84ddd0c44c1cba5, type: 3}
+  scratchSound: {fileID: 8300000, guid: 49989195102dbb94fb6f8a57e4feaa4c, type: 3}
   bgLoop1: {fileID: 8300000, guid: 3f6c773ae3d76484cbf2270c2150fefd, type: 3}
   bgLoop2: {fileID: 8300000, guid: bb295e81a5802b94f99cacb96173522c, type: 3}
   miscObjectClick: {fileID: 5912071456214807691, guid: add25f6ff90e9474990e9f3862207611, type: 3}
   rainLoop: {fileID: 8300000, guid: fd34f6d11a3987e41a7d965d9d492b69, type: 3}
   weatherActionButton: {fileID: 0}
+  background: {fileID: 1717215369}
+  blackoutSprite: {fileID: 5230644827929433145, guid: 689cba0c00624f3cb47fc18cb6f29a64, type: 3}
 --- !u!4 &647772682
 Transform:
   m_ObjectHideFlags: 0

@@ -34,6 +34,10 @@ public class WeatherUIController : MonoBehaviour
     [Tooltip("The button to confirm the selection.")]
     [SerializeField] private Button confirmButton;
 
+    [Header("Day 4")]
+    // No hand on screen outside, so this plays instead when you scratch.
+    [SerializeField] private AudioClip scratchSound;
+
     void Start()
     {
         if (GameState.Get<bool>("recorded_weather", false))
@@ -175,6 +179,10 @@ public class WeatherUIController : MonoBehaviour
         if (GameState.Get<int>("day") != 3)
         {
             GameState.Set("recorded_weather", true);
+            if (TaskManager.instance != null && TaskManager.instance.GetCurrentTasks().Exists(t => t.id == "task_weather"))
+            {
+                MessageBus.Instance.Publish("CompleteTask", "task_weather");
+            }
         }
         StartCoroutine(PostConfirmSequence());
     }
@@ -333,18 +341,35 @@ public class WeatherUIController : MonoBehaviour
         }
         GameState.Set("recorded_weather", true);
         MessageBus.Instance.Publish("CompleteTask", "task_weather");
-        StartCoroutine(CloseWeatherUIDelayed());
+        StartCoroutine(CloseWeatherUIDelayed(ShowLighthouseDarkInStorm));
+    }
+
+    // Day 3: soaked through, he looks up and the lighthouse isn't lit
+    private void ShowLighthouseDarkInStorm()
+    {
+        DialogueManager.ShowDialogueFromText(new string[]
+        {
+            "You're soaked to the bone.## Freezing.",
+            "...The lighthouse isn't lit.",
+            "In a storm like this?## There could be ships out there!"
+        });
     }
 
     private void OnDialogueFinished()
     {
         if (this.gameObject.activeInHierarchy)
         {
-            StartCoroutine(CloseWeatherUIDelayed());
+            System.Action onClosed = null;
+            if (GameState.Get<int>("day") == 4)
+            {
+                // Day 4: the itch comes back once the log is put away
+                onClosed = () => HandScratch.Prompt("Your hand itches. Scratch?", null, scratchSound);
+            }
+            StartCoroutine(CloseWeatherUIDelayed(onClosed));
         }
     }
 
-    private IEnumerator CloseWeatherUIDelayed()
+    private IEnumerator CloseWeatherUIDelayed(System.Action onClosed = null)
     {
         if (confirmButton != null)
         {
@@ -385,6 +410,8 @@ public class WeatherUIController : MonoBehaviour
         {
             clickBlocker.SetActive(false);
         }
+
+        onClosed?.Invoke();
 
         // 2. Set GameState and deactivate the entire game object
         GameState.Set("is_recording_weather", false);

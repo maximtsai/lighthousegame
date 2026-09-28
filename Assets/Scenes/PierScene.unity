@@ -425,12 +425,6 @@ MonoBehaviour:
       isGoodFish: 0
       hoverOutlineSprite: {fileID: 0}
       displayScale: 1
-    - itemName: Can
-      sprite: {fileID: 21300000, guid: 2f6b126e1f24d6847ae4d0b379cbfaa0, type: 3}
-      revealSprite: {fileID: 0}
-      isGoodFish: 0
-      hoverOutlineSprite: {fileID: 0}
-      displayScale: 1
     - itemName: Good Fish
       sprite: {fileID: 21300000, guid: 75106a57526cedc438f93fab2883f8b6, type: 3}
       revealSprite: {fileID: 0}
@@ -451,18 +445,6 @@ MonoBehaviour:
       isGoodFish: 0
       hoverOutlineSprite: {fileID: 0}
       displayScale: 1
-    - itemName: Bottle
-      sprite: {fileID: 21300000, guid: 6928f5b076b4d464594a04bc4ac88b90, type: 3}
-      revealSprite: {fileID: 0}
-      isGoodFish: 0
-      hoverOutlineSprite: {fileID: 0}
-      displayScale: 1
-    - itemName: Can
-      sprite: {fileID: 21300000, guid: 2f6b126e1f24d6847ae4d0b379cbfaa0, type: 3}
-      revealSprite: {fileID: 0}
-      isGoodFish: 0
-      hoverOutlineSprite: {fileID: 0}
-      displayScale: 1
     - itemName: Good Fish
       sprite: {fileID: 21300000, guid: 75106a57526cedc438f93fab2883f8b6, type: 3}
       revealSprite: {fileID: 0}
@@ -471,6 +453,18 @@ MonoBehaviour:
       displayScale: 1
   - day: 4
     items:
+    - itemName: Can
+      sprite: {fileID: 21300000, guid: 2f6b126e1f24d6847ae4d0b379cbfaa0, type: 3}
+      revealSprite: {fileID: 0}
+      isGoodFish: 0
+      hoverOutlineSprite: {fileID: 0}
+      displayScale: 1
+    - itemName: Bottle
+      sprite: {fileID: 21300000, guid: 6928f5b076b4d464594a04bc4ac88b90, type: 3}
+      revealSprite: {fileID: 0}
+      isGoodFish: 0
+      hoverOutlineSprite: {fileID: 0}
+      displayScale: 1
     - itemName: Good Fish
       sprite: {fileID: 21300000, guid: 75106a57526cedc438f93fab2883f8b6, type: 3}
       revealSprite: {fileID: 0}
@@ -2226,10 +2220,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0f03e219ddb9324a88b1fc73e722327, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PierMiscLogic
+  floatingDebrisSprites:
+  - {fileID: 21300000, guid: 2f6b126e1f24d6847ae4d0b379cbfaa0, type: 3}
+  - {fileID: 21300000, guid: d616112f927968944a927d4407187d53, type: 3}
+  - {fileID: 21300000, guid: 6928f5b076b4d464594a04bc4ac88b90, type: 3}
+  - {fileID: 21300000, guid: eafd6ad76ca23214bab81ee82a7eba71, type: 3}
+  - {fileID: 21300000, guid: e13862e84a48e0d488507bcb007b39e3, type: 3}
+  debrisScale: 0.2
+  bobHeight: 0.04
   finishLoop: {fileID: 8300000, guid: 7e192a60ca6c11b4eb9756f7b23daf46, type: 3}
   rainLoop: {fileID: 8300000, guid: fd34f6d11a3987e41a7d965d9d492b69, type: 3}
   rainOverlay: {fileID: 99203248524}
   miscObjectClick: {fileID: 1680848633}
+  corpseFlashSprite: {fileID: 3088427565571349694, guid: 1846aabe3b0208b4ab53eff95c020573, type: 3}
+  redFlashColor: {r: 0.55, g: 0, b: 0, a: 0.75}
 --- !u!4 &1680848635
 Transform:
   m_ObjectHideFlags: 0

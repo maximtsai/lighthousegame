@@ -13,10 +13,14 @@ public class LHClimbScript : MonoBehaviour
     [SerializeField] private AudioClip brickFallSound;
     [SerializeField] private AudioClip brickPlaceSound;
     [SerializeField] private AudioClip footstepsSound;
+    // Day 3: the view into the hole on floor 4 where the missing scissors are stuck.
+    [SerializeField] private GameObject scissorsCloseUp;
     // Edit Mode only, for laying out a screen. Play Mode uses the live climb state instead.
     [SerializeField, Range(1, 4)] private int previewFloor = 1;
     [SerializeField] private bool previewGoingUp = true;
     [SerializeField] private bool previewBrickOnFloor = true;
+    [SerializeField] private bool previewScissorsStuck = true;
+    [SerializeField] private bool previewScissorsCloseUp = false;
 
     void Start()
     {
@@ -29,7 +33,11 @@ public class LHClimbScript : MonoBehaviour
             StartCoroutine(PlaySoundDelayedRoutine(finishLoop, 0.4f, true, 0.01f));
         }
 
+        // Nothing leaves the close-up but its own fade, so a fresh load never starts in it.
+        LighthouseScissors.SetCloseUpOpen(false);
+
         WireBricks();
+        WireScissors();
         ShowFloor(LighthouseClimb.Floor, LighthouseClimb.GoingUp);
     }
 
@@ -46,6 +54,20 @@ public class LHClimbScript : MonoBehaviour
             InteractableObject interactable = t.GetComponent<InteractableObject>();
             if (interactable != null)
                 interactable.AddClickListener(Navigation.PlaceBrickInWall);
+        }
+    }
+
+    private void WireScissors()
+    {
+        Transform[] transforms = FindObjectsByType<Transform>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+        foreach (Transform t in transforms)
+        {
+            if (t.gameObject.scene != gameObject.scene || !t.name.EndsWith("_ScissorsSparkle"))
+                continue;
+
+            InteractableObject interactable = t.GetComponent<InteractableObject>();
+            if (interactable != null)
+                interactable.AddClickListener(Navigation.OpenScissorsCloseUp);
         }
     }
 
@@ -144,6 +166,13 @@ public class LHClimbScript : MonoBehaviour
 
         string screen = (goingUp ? "up" : "down") + floor + "_";
         bool brickInWall = BrickInWall();
+        bool scissorsStuck = ScissorsStuck();
+
+        // The close-up covers the whole screen, so the screen's own objects go away while it's
+        // up and can't be clicked through it.
+        bool closeUp = ScissorsCloseUpOpen() && floor == LighthouseScissors.Floor && goingUp;
+        if (scissorsCloseUp != null)
+            scissorsCloseUp.SetActive(closeUp);
 
         Transform[] transforms = FindObjectsByType<Transform>(FindObjectsInactive.Include, FindObjectsSortMode.None);
         foreach (Transform t in transforms)
@@ -154,7 +183,7 @@ public class LHClimbScript : MonoBehaviour
             if (!IsScreenObject(t.name))
                 continue;
 
-            bool onThisScreen = t.name.StartsWith(screen);
+            bool onThisScreen = t.name.StartsWith(screen) && !closeUp;
 
             // Only one brick shows at a time. The outline is a child of the loose one and
             // follows it, so it needs no case of its own.
@@ -162,6 +191,9 @@ public class LHClimbScript : MonoBehaviour
                 t.gameObject.SetActive(onThisScreen && brickInWall);
             else if (t.name.EndsWith("_Brick"))
                 t.gameObject.SetActive(onThisScreen && !brickInWall);
+            // The sparkle sits in the hole the brick leaves.
+            else if (t.name.EndsWith("_ScissorsSparkle"))
+                t.gameObject.SetActive(onThisScreen && scissorsStuck && !brickInWall);
             else
                 t.gameObject.SetActive(onThisScreen);
         }
@@ -175,6 +207,24 @@ public class LHClimbScript : MonoBehaviour
             return !previewBrickOnFloor;
 #endif
         return LighthouseBrick.InWall;
+    }
+
+    private bool ScissorsStuck()
+    {
+#if UNITY_EDITOR
+        if (!Application.isPlaying)
+            return previewScissorsStuck;
+#endif
+        return LighthouseScissors.Stuck;
+    }
+
+    private bool ScissorsCloseUpOpen()
+    {
+#if UNITY_EDITOR
+        if (!Application.isPlaying)
+            return previewScissorsCloseUp;
+#endif
+        return LighthouseScissors.CloseUpOpen;
     }
 
     // Anything named "up3_DownArrow", "down4_Brick" and so on belongs to a single climb screen.

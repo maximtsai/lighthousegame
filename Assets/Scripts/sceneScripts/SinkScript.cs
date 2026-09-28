@@ -44,6 +44,11 @@ public class SinkScript : MonoBehaviour
                     "Gah!### The water feels like ice in your wounds."
                 });
                 d.autoAdvance = new List<bool> { true, false };
+                if (day == 4)
+                {
+                    d.onDialogueEnd.AddListener(() =>
+                        HandScratch.Prompt("Your wound is festering. Scratch?"));
+                }
             }
             else
             {

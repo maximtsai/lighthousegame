@@ -178,7 +178,8 @@ public class LHMinigame : MonoBehaviour
             return;
         }
 
-        // Day 3: scissors drop down stairs (first time only, if not found yet)
+        // Day 3: the scissors are gone when you reach for them (first time only, if not found yet).
+        // Something in the walls has taken them; they turn up stuck in the hole behind the brick.
         if (GameState.Get<int>("day") == 3 && !GameState.Get<bool>("scissors_found", false) && !GameState.Get<bool>("scissorsDrop", false))
         {
             if (scissorsRenderer != null)
@@ -186,20 +187,29 @@ public class LHMinigame : MonoBehaviour
                 scissorsRenderer.color = new Color(0.4f, 0.4f, 0.4f, 1f);
                 scissorsRenderer.gameObject.SetActive(false);
             }
-            if (scissorsDropSound != null)
-            {
-                miscObjectClick.PlaySound(scissorsDropSound);
-            }
             Dialogue dialogue = ScriptableObject.CreateInstance<Dialogue>();
-            dialogue.text = new List<string>(new string[] 
-            { 
-                "You accidentally drop the scissors down the stairs.", 
-                "What a clumsy oaf." 
+            dialogue.text = new List<string>(new string[]
+            {
+                "You reach for the scissors.##.##.## They're gone.",
+                "They were right here.",
+                "Something clatters,## somewhere down the stairwell."
             });
             dialogue.choices = new List<string>();
             dialogue.consequences = new List<UnityEngine.Events.UnityEvent>();
             dialogue.onDialogueEnd = new UnityEngine.Events.UnityEvent();
             dialogue.onDialogueEndImmediate = new UnityEngine.Events.UnityEvent();
+            // The clatter from below plays with its line
+            dialogue.onLineStart = new List<UnityEngine.Events.UnityEvent>
+            {
+                new UnityEngine.Events.UnityEvent(),
+                new UnityEngine.Events.UnityEvent(),
+                new UnityEngine.Events.UnityEvent()
+            };
+            dialogue.onLineStart[2].AddListener(() =>
+            {
+                if (scissorsDropSound != null)
+                    miscObjectClick.PlaySound(scissorsDropSound, 0.5f);
+            });
             dialogue.onDialogueEnd.AddListener(() =>
             {
                 GameState.Set("scissorsDrop", true);
