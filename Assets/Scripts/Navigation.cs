@@ -239,6 +239,7 @@ public class Navigation : MonoBehaviour
             DialogueManager.ShowDialogue(getDialog("time_for_bed"));
             return;
         }
+        MessageBus.Instance.Publish("PlaySound", "wooden_steps3");
         GoToTransition(GameConsts.PIERSCENE, 0.35f);
     }
 
@@ -271,7 +272,14 @@ public class Navigation : MonoBehaviour
             return;
         }
 
-        playSoundClip(transition.travelSound);
+        if (transition != null && transition.travelSound != null)
+        {
+            playSoundClip(transition.travelSound);
+        }
+        else
+        {
+            MessageBus.Instance.Publish("PlaySound", "floorboard_creak");
+        }
         GoToTransition(GameConsts.SINKSCENE, 0.25f);
     }
     
@@ -408,6 +416,12 @@ public class Navigation : MonoBehaviour
         {
             DialogueManager.ShowDialogueFromText(new string[] { "The weather has undone your shoddy grave.## Go fix your mistake." });
             return;
+        }
+
+        string currentScene = SceneManager.GetActiveScene().name;
+        if (currentScene == GameConsts.PIERSCENE && scene != GameConsts.PIERSCENE)
+        {
+            MessageBus.Instance.Publish("PlaySound", "wooden_steps3");
         }
 
         EnsureInstance();

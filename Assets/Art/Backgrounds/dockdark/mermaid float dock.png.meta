@@ -1,0 +1,494 @@
+fileFormatVersion: 2
+guid: 9aff4e0b0bf7fc547813852343ddf4cf
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7710002450982629287
+    second: mermaid float dock_0
+  - first:
+      213: -2367075672067562757
+    second: mermaid float dock_1
+  - first:
+      213: 3525898381094870887
+    second: mermaid float dock_2
+  - first:
+      213: 4052029306199502498
+    second: mermaid float dock_3
+  - first:
+      213: 2877698768487446600
+    second: mermaid float dock_4
+  - first:
+      213: 4423855647752576688
+    second: mermaid float dock_5
+  - first:
+      213: -5257580167797916958
+    second: mermaid float dock_6
+  - first:
+      213: -6592926779640895358
+    second: mermaid float dock_7
+  - first:
+      213: 6718825676927513944
+    second: mermaid float dock_8
+  - first:
+      213: -5252499242351366751
+    second: mermaid float dock_9
+  - first:
+      213: -5966740364043114819
+    second: mermaid float dock_10
+  - first:
+      213: -1104651159961034950
+    second: mermaid float dock_11
+  - first:
+      213: -3161739796358695936
+    second: mermaid float dock_12
+  - first:
+      213: 7306151375442078524
+    second: mermaid float dock_13
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: mermaid float dock_0
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 36
+        width: 222
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9501ac3ce91900590800000000000000
+      internalID: -7710002450982629287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mermaid float dock_1
+      rect:
+        serializedVersion: 2
+        x: 669
+        y: 37
+        width: 222
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf2a1f1b735762fd0800000000000000
+      internalID: -2367075672067562757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mermaid float dock_2
+      rect:
+        serializedVersion: 2
+        x: 1329
+        y: 38
+        width: 222
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76fd84785e18ee030800000000000000
+      internalID: 3525898381094870887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mermaid float dock_3
+      rect:
+        serializedVersion: 2
+        x: 1989
+        y: 40
+        width: 222
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ae6e777f23bb3830800000000000000
+      internalID: 4052029306199502498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mermaid float dock_4
+      rect:
+        serializedVersion: 2
+        x: 2649
+        y: 41
+        width: 223
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 848f54288c3afe720800000000000000
+      internalID: 2877698768487446600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mermaid float dock_5
+      rect:
+        serializedVersion: 2
+        x: 3309
+        y: 41
+        width: 223
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bed5e5e541b46d30800000000000000
+      internalID: 4423855647752576688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mermaid float dock_6
+      rect:
+        serializedVersion: 2
+        x: 3969
+        y: 41
+        width: 223
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ea344871b25907b0800000000000000
+      internalID: -5257580167797916958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mermaid float dock_7
+      rect:
+        serializedVersion: 2
+        x: 4629
+        y: 41
+        width: 223
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 288285556083184a0800000000000000
+      internalID: -6592926779640895358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mermaid float dock_8
+      rect:
+        serializedVersion: 2
+        x: 5289
+        y: 40
+        width: 222
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 855b905fa501e3d50800000000000000
+      internalID: 6718825676927513944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mermaid float dock_9
+      rect:
+        serializedVersion: 2
+        x: 5949
+        y: 38
+        width: 222
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ad63ac94cf5b17b0800000000000000
+      internalID: -5252499242351366751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mermaid float dock_10
+      rect:
+        serializedVersion: 2
+        x: 6609
+        y: 37
+        width: 222
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db6a9368041e13da0800000000000000
+      internalID: -5966740364043114819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mermaid float dock_11
+      rect:
+        serializedVersion: 2
+        x: 7269
+        y: 36
+        width: 222
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3f9cc96f9d7ba0f0800000000000000
+      internalID: -1104651159961034950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mermaid float dock_12
+      rect:
+        serializedVersion: 2
+        x: 7929
+        y: 36
+        width: 222
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 004f2d5286e3f14d0800000000000000
+      internalID: -3161739796358695936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mermaid float dock_13
+      rect:
+        serializedVersion: 2
+        x: 8589
+        y: 36
+        width: 222
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3be47067f9a46560800000000000000
+      internalID: 7306151375442078524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      mermaid float dock_0: -7710002450982629287
+      mermaid float dock_1: -2367075672067562757
+      mermaid float dock_10: -5966740364043114819
+      mermaid float dock_11: -1104651159961034950
+      mermaid float dock_12: -3161739796358695936
+      mermaid float dock_13: 7306151375442078524
+      mermaid float dock_2: 3525898381094870887
+      mermaid float dock_3: 4052029306199502498
+      mermaid float dock_4: 2877698768487446600
+      mermaid float dock_5: 4423855647752576688
+      mermaid float dock_6: -5257580167797916958
+      mermaid float dock_7: -6592926779640895358
+      mermaid float dock_8: 6718825676927513944
+      mermaid float dock_9: -5252499242351366751
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

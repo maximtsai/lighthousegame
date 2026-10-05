@@ -31,6 +31,7 @@ public class ScissorsCloseUp : MonoBehaviour
     [SerializeField] private float fadeAwayDuration = 0.6f;
 
     private MiscObjectClick miscObjectClick;
+    private Collider2D closeUpCollider;
     private Vector3 restPosition;
     private Vector3 restScale;
     private bool restCaptured;
@@ -40,6 +41,7 @@ public class ScissorsCloseUp : MonoBehaviour
 
     void Awake()
     {
+        closeUpCollider = GetComponent<Collider2D>();
         miscObjectClick = FindFirstObjectByType<MiscObjectClick>();
         CaptureRest();
         CaptureOutline();
@@ -108,6 +110,11 @@ public class ScissorsCloseUp : MonoBehaviour
 
     void OnEnable()
     {
+        if (closeUpCollider == null)
+            closeUpCollider = GetComponent<Collider2D>();
+        if (closeUpCollider != null)
+            closeUpCollider.enabled = true;
+
         CaptureRest();
         pulling = false;
         scissorsPivot.localPosition = restPosition;
@@ -129,6 +136,16 @@ public class ScissorsCloseUp : MonoBehaviour
         restCaptured = true;
     }
 
+    void OnMouseDown()
+    {
+        if (DialogueManager.DialogueIsOpen())
+        {
+            UIDialogueBox dialogueBox = FindFirstObjectByType<UIDialogueBox>();
+            if (dialogueBox != null)
+                dialogueBox.AdvanceDialogue();
+        }
+    }
+
     void OnMouseOver()
     {
         if (CanClick())
@@ -146,6 +163,9 @@ public class ScissorsCloseUp : MonoBehaviour
             return;
 
         pulling = true;
+        if (closeUpCollider != null)
+            closeUpCollider.enabled = false;
+
         if (normalSprite != null)
             scissorsRenderer.sprite = normalSprite;
         CustomCursor.SetCursorToNormal();
@@ -187,6 +207,9 @@ public class ScissorsCloseUp : MonoBehaviour
 
         scissorsRenderer.gameObject.SetActive(false);
         LighthouseScissors.PullOut();
+
+        if (closeUpCollider != null)
+            closeUpCollider.enabled = false;
 
         yield return new WaitForSeconds(0.25f);
 

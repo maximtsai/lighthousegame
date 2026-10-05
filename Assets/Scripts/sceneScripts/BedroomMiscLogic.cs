@@ -6,6 +6,8 @@ public class BedroomMiscLogic : MonoBehaviour
 {
     [SerializeField] private AudioClip bgLoop1;
     [SerializeField] private AudioClip bgLoop2;
+    [SerializeField] private AudioClip wakeupSound;
+
     void Start()
     {
         if (Ambience.Instance != null) {
@@ -13,8 +15,17 @@ public class BedroomMiscLogic : MonoBehaviour
     
             // Update track 1
             UpdateTrack(ambience, bgLoop1, 0.6f, 1);
-            // Update track 2
-            UpdateTrack(ambience, bgLoop2, 0.21f, 2);
+
+            bool isThunderstorm = GameState.Get<bool>("thunderstorm", false);
+            if (isThunderstorm)
+            {
+                ambience.CheckAndApplyRainIndoors(GameConsts.BEDROOMSCENE);
+            }
+            else
+            {
+                // Update track 2
+                UpdateTrack(ambience, bgLoop2, 0.21f, 2);
+            }
         }
         Debug.Log("bedroom misc logic");
 
@@ -38,6 +49,8 @@ public class BedroomMiscLogic : MonoBehaviour
 
         int day = GameState.Get<int>("day");
         Debug.Log("Begin day " + day);
+
+        PlayWakeupSound();
         switch (day)
         {
             case 1:
@@ -185,5 +198,15 @@ public class BedroomMiscLogic : MonoBehaviour
         }
     }
 
+    private void PlayWakeupSound()
+    {
+        if (wakeupSound != null)
+        {
+            MessageBus.Instance.Publish("PlaySound", wakeupSound);
+            return;
+        }
 
+        string clip = UnityEngine.Random.value < 0.5f ? "wakeup" : "wakeup2";
+        MessageBus.Instance.Publish("PlaySound", clip);
+    }
 }

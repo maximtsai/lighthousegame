@@ -982,6 +982,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   newTrack1: {fileID: 8300000, guid: 3f6c773ae3d76484cbf2270c2150fefd, type: 3}
   newTrack2: {fileID: 8300000, guid: bb295e81a5802b94f99cacb96173522c, type: 3}
+  rainIndoorsClip: {fileID: 0}
 --- !u!1001 &1342511765
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1436,10 +1437,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.25142857
+    x: 0
     y: 0
-    width: 1.175873
-    height: 1.1751269
+    width: 1
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34

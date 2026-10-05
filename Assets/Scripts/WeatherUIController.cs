@@ -262,7 +262,7 @@ public class WeatherUIController : MonoBehaviour
     private void ShowDay3WeatherFlow()
     {
         Dialogue areYouSure = ScriptableObject.CreateInstance<Dialogue>();
-        areYouSure.text = new List<string>(new string[] { "Are you sure?" });
+        areYouSure.text = new List<string>(new string[] { "Are you sure you chose right?" });
         areYouSure.choices = new List<string>(new string[] { "YES", "NO" });
         areYouSure.consequences = new List<UnityEngine.Events.UnityEvent>();
         areYouSure.onDialogueEnd = new UnityEngine.Events.UnityEvent();
@@ -330,6 +330,7 @@ public class WeatherUIController : MonoBehaviour
     public void changeToThunderstorm()
     {
         GameState.Set("thunderstorm", true);
+        MessageBus.Instance.Publish("ThunderstormStarted");
         weatherswap weather = FindFirstObjectByType<weatherswap>(FindObjectsInactive.Include);
         if (weather != null)
         {
@@ -344,13 +345,13 @@ public class WeatherUIController : MonoBehaviour
         StartCoroutine(CloseWeatherUIDelayed(ShowLighthouseDarkInStorm));
     }
 
-    // Day 3: soaked through, he notices the lighthouse isn't lit and just gets on with it
+    // Day 3: he notices the lighthouse isn't lit and the storm is dangerous for ships
     private void ShowLighthouseDarkInStorm()
     {
         DialogueManager.ShowDialogueFromText(new string[]
         {
-            "You're soaked through.## The lighthouse isn't lit.",
-            "Better get it going."
+            "The storm's going to be bad for ships.",
+            "Better get the lighthouse going."
         });
     }
 

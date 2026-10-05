@@ -1,0 +1,5226 @@
+fileFormatVersion: 2
+guid: 6249274ed6c5c7744a877153800e1e1c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2467935601067011752
+    second: driftwood float dock_0
+  - first:
+      213: 536836398856681464
+    second: driftwood float dock_1
+  - first:
+      213: -2676278755252275988
+    second: driftwood float dock_2
+  - first:
+      213: 8633218958497119859
+    second: driftwood float dock_3
+  - first:
+      213: -2242876665177126002
+    second: driftwood float dock_4
+  - first:
+      213: -644137287955349167
+    second: driftwood float dock_5
+  - first:
+      213: -5835993618177207983
+    second: driftwood float dock_6
+  - first:
+      213: -4653688786068940240
+    second: driftwood float dock_7
+  - first:
+      213: -6454786077620631088
+    second: driftwood float dock_8
+  - first:
+      213: 6789289923362696781
+    second: driftwood float dock_9
+  - first:
+      213: 3792879425105680881
+    second: driftwood float dock_10
+  - first:
+      213: 71035964374353868
+    second: driftwood float dock_11
+  - first:
+      213: 4002540557544119644
+    second: driftwood float dock_12
+  - first:
+      213: -3247652063624821983
+    second: driftwood float dock_13
+  - first:
+      213: 7395923165993816702
+    second: driftwood float dock_14
+  - first:
+      213: -8048760012620016875
+    second: driftwood float dock_15
+  - first:
+      213: -5979114513558854530
+    second: driftwood float dock_16
+  - first:
+      213: -1666921006686117277
+    second: driftwood float dock_17
+  - first:
+      213: 7654135285468644050
+    second: driftwood float dock_18
+  - first:
+      213: 4970961444681139779
+    second: driftwood float dock_19
+  - first:
+      213: -6207866413224326423
+    second: driftwood float dock_20
+  - first:
+      213: 6426648182579564739
+    second: driftwood float dock_21
+  - first:
+      213: 7532953966561897806
+    second: driftwood float dock_22
+  - first:
+      213: -6760941046099692729
+    second: driftwood float dock_23
+  - first:
+      213: 2426456277594024721
+    second: driftwood float dock_24
+  - first:
+      213: -8678817135280586191
+    second: driftwood float dock_25
+  - first:
+      213: 2804557364824335859
+    second: driftwood float dock_26
+  - first:
+      213: -3951019575427804114
+    second: driftwood float dock_27
+  - first:
+      213: -5216617601869940031
+    second: driftwood float dock_28
+  - first:
+      213: 772448437888803870
+    second: driftwood float dock_29
+  - first:
+      213: -6888200115926615447
+    second: driftwood float dock_30
+  - first:
+      213: -6971610869367525882
+    second: driftwood float dock_31
+  - first:
+      213: 2864494095903779689
+    second: driftwood float dock_32
+  - first:
+      213: 1896395766928583440
+    second: driftwood float dock_33
+  - first:
+      213: -7152092419526496050
+    second: driftwood float dock_34
+  - first:
+      213: -4775577655708476051
+    second: driftwood float dock_35
+  - first:
+      213: 956262632672789596
+    second: driftwood float dock_36
+  - first:
+      213: -3857593582803445878
+    second: driftwood float dock_37
+  - first:
+      213: 5881517324483516945
+    second: driftwood float dock_38
+  - first:
+      213: -1351495825526332476
+    second: driftwood float dock_39
+  - first:
+      213: 4344823759777820005
+    second: driftwood float dock_40
+  - first:
+      213: 626689528391467527
+    second: driftwood float dock_41
+  - first:
+      213: -7316697474114752286
+    second: driftwood float dock_42
+  - first:
+      213: -4864315842967142158
+    second: driftwood float dock_43
+  - first:
+      213: 3677875098409249746
+    second: driftwood float dock_44
+  - first:
+      213: 8475929900334666862
+    second: driftwood float dock_45
+  - first:
+      213: -8750841758920249687
+    second: driftwood float dock_46
+  - first:
+      213: -8988219253932647449
+    second: driftwood float dock_47
+  - first:
+      213: -8861462968163149359
+    second: driftwood float dock_48
+  - first:
+      213: -5331300391647409451
+    second: driftwood float dock_49
+  - first:
+      213: -7856727245769301169
+    second: driftwood float dock_50
+  - first:
+      213: -3618883195354095943
+    second: driftwood float dock_51
+  - first:
+      213: 8824926641597727514
+    second: driftwood float dock_52
+  - first:
+      213: -9125009519787312919
+    second: driftwood float dock_53
+  - first:
+      213: -5723463749565318267
+    second: driftwood float dock_54
+  - first:
+      213: -110056632631336164
+    second: driftwood float dock_55
+  - first:
+      213: -6457422884660593728
+    second: driftwood float dock_56
+  - first:
+      213: 3857849587403294615
+    second: driftwood float dock_57
+  - first:
+      213: -3296996675204158538
+    second: driftwood float dock_58
+  - first:
+      213: -1316556092931346707
+    second: driftwood float dock_59
+  - first:
+      213: 5812623911093918507
+    second: driftwood float dock_60
+  - first:
+      213: -6528598827015938314
+    second: driftwood float dock_61
+  - first:
+      213: 2339308415723802681
+    second: driftwood float dock_62
+  - first:
+      213: 3292424666628546844
+    second: driftwood float dock_63
+  - first:
+      213: 3032090097690905005
+    second: driftwood float dock_64
+  - first:
+      213: -2338890200893453521
+    second: driftwood float dock_65
+  - first:
+      213: -5322724356411164824
+    second: driftwood float dock_66
+  - first:
+      213: 116072276411948875
+    second: driftwood float dock_67
+  - first:
+      213: -4732848103628820805
+    second: driftwood float dock_68
+  - first:
+      213: 111429666957128630
+    second: driftwood float dock_69
+  - first:
+      213: -8565908926098210038
+    second: driftwood float dock_70
+  - first:
+      213: -6028521410476798690
+    second: driftwood float dock_71
+  - first:
+      213: -1827097432071657256
+    second: driftwood float dock_72
+  - first:
+      213: 6854750466374986363
+    second: driftwood float dock_73
+  - first:
+      213: 4389191676941537682
+    second: driftwood float dock_74
+  - first:
+      213: -1330429833155088537
+    second: driftwood float dock_75
+  - first:
+      213: 5441286853988190586
+    second: driftwood float dock_76
+  - first:
+      213: 6468756750800164266
+    second: driftwood float dock_77
+  - first:
+      213: -3452888683817575554
+    second: driftwood float dock_78
+  - first:
+      213: 6529700675804465250
+    second: driftwood float dock_79
+  - first:
+      213: 7501329480657635260
+    second: driftwood float dock_80
+  - first:
+      213: -1739646758298362822
+    second: driftwood float dock_81
+  - first:
+      213: 1967074673475974542
+    second: driftwood float dock_82
+  - first:
+      213: -8908480894080591992
+    second: driftwood float dock_83
+  - first:
+      213: 4925853812668002013
+    second: driftwood float dock_84
+  - first:
+      213: 5782120962625431834
+    second: driftwood float dock_85
+  - first:
+      213: 8805096637042895350
+    second: driftwood float dock_86
+  - first:
+      213: -145767311438633988
+    second: driftwood float dock_87
+  - first:
+      213: -2270496916388047524
+    second: driftwood float dock_88
+  - first:
+      213: 5883990227360485692
+    second: driftwood float dock_89
+  - first:
+      213: -900936051482536943
+    second: driftwood float dock_90
+  - first:
+      213: -3231273132232857714
+    second: driftwood float dock_91
+  - first:
+      213: -6768723357172370379
+    second: driftwood float dock_92
+  - first:
+      213: -5253600960791892441
+    second: driftwood float dock_93
+  - first:
+      213: 2471255601652011924
+    second: driftwood float dock_94
+  - first:
+      213: 1489140207128229344
+    second: driftwood float dock_95
+  - first:
+      213: 5794248751148988364
+    second: driftwood float dock_96
+  - first:
+      213: 8145534378984320394
+    second: driftwood float dock_97
+  - first:
+      213: 251514382271008359
+    second: driftwood float dock_98
+  - first:
+      213: 1465074200097456936
+    second: driftwood float dock_99
+  - first:
+      213: -1160782210421135863
+    second: driftwood float dock_100
+  - first:
+      213: 5594169871435557840
+    second: driftwood float dock_101
+  - first:
+      213: -8688161621682040653
+    second: driftwood float dock_102
+  - first:
+      213: -9051913099545894933
+    second: driftwood float dock_103
+  - first:
+      213: 2851881708667412950
+    second: driftwood float dock_104
+  - first:
+      213: 9134853283710505464
+    second: driftwood float dock_105
+  - first:
+      213: 6788079389244672206
+    second: driftwood float dock_106
+  - first:
+      213: -1529713639191468526
+    second: driftwood float dock_107
+  - first:
+      213: 3962972121743441781
+    second: driftwood float dock_108
+  - first:
+      213: 7652283762577195349
+    second: driftwood float dock_109
+  - first:
+      213: 2657111195001797969
+    second: driftwood float dock_110
+  - first:
+      213: 3928908519420756836
+    second: driftwood float dock_111
+  - first:
+      213: -4147046274161467641
+    second: driftwood float dock_112
+  - first:
+      213: 9214806462107531010
+    second: driftwood float dock_113
+  - first:
+      213: 3046149720972152841
+    second: driftwood float dock_114
+  - first:
+      213: -4251026567237178085
+    second: driftwood float dock_115
+  - first:
+      213: -1900521876492767385
+    second: driftwood float dock_116
+  - first:
+      213: -7811607087558136157
+    second: driftwood float dock_117
+  - first:
+      213: 2983397330983446627
+    second: driftwood float dock_118
+  - first:
+      213: 2016388040079581719
+    second: driftwood float dock_119
+  - first:
+      213: -6733448719565842998
+    second: driftwood float dock_120
+  - first:
+      213: 5285630655004087574
+    second: driftwood float dock_121
+  - first:
+      213: -176705919521047199
+    second: driftwood float dock_122
+  - first:
+      213: -5296312185144423885
+    second: driftwood float dock_123
+  - first:
+      213: 7415373286513200195
+    second: driftwood float dock_124
+  - first:
+      213: 2120353107490081525
+    second: driftwood float dock_125
+  - first:
+      213: 1430581978872957468
+    second: driftwood float dock_126
+  - first:
+      213: 1709903614809296755
+    second: driftwood float dock_127
+  - first:
+      213: -4440627023374563507
+    second: driftwood float dock_128
+  - first:
+      213: -4182493639214089082
+    second: driftwood float dock_129
+  - first:
+      213: -3930806241212322482
+    second: driftwood float dock_130
+  - first:
+      213: 3617350390006000990
+    second: driftwood float dock_131
+  - first:
+      213: 9090102976041643715
+    second: driftwood float dock_132
+  - first:
+      213: 607980346477384724
+    second: driftwood float dock_133
+  - first:
+      213: -9100221626436323620
+    second: driftwood float dock_134
+  - first:
+      213: -5348739284142964382
+    second: driftwood float dock_135
+  - first:
+      213: -3115816586064336641
+    second: driftwood float dock_136
+  - first:
+      213: 3661491223077834866
+    second: driftwood float dock_137
+  - first:
+      213: -6319227636766330796
+    second: driftwood float dock_138
+  - first:
+      213: 6172415362955205554
+    second: driftwood float dock_139
+  - first:
+      213: -9025757289620350611
+    second: driftwood float dock_140
+  - first:
+      213: -7295051797322490089
+    second: driftwood float dock_141
+  - first:
+      213: 502378418475014551
+    second: driftwood float dock_142
+  - first:
+      213: 1805128406865891117
+    second: driftwood float dock_143
+  - first:
+      213: -3479076126798519987
+    second: driftwood float dock_144
+  - first:
+      213: -8882711610762922287
+    second: driftwood float dock_145
+  - first:
+      213: -3931053137921014335
+    second: driftwood float dock_146
+  - first:
+      213: 267482945774164160
+    second: driftwood float dock_147
+  - first:
+      213: -5275814582370290039
+    second: driftwood float dock_148
+  - first:
+      213: -795752162498601161
+    second: driftwood float dock_149
+  - first:
+      213: -3316893286088341680
+    second: driftwood float dock_150
+  - first:
+      213: 4323428685542122217
+    second: driftwood float dock_151
+  - first:
+      213: -5026060076751635894
+    second: driftwood float dock_152
+  - first:
+      213: -1453916642128842517
+    second: driftwood float dock_153
+  - first:
+      213: 3889401832734418174
+    second: driftwood float dock_154
+  - first:
+      213: 4438759308658176298
+    second: driftwood float dock_155
+  - first:
+      213: 9013043220562565865
+    second: driftwood float dock_156
+  - first:
+      213: -351602373111075182
+    second: driftwood float dock_157
+  - first:
+      213: 6536703400468073168
+    second: driftwood float dock_158
+  - first:
+      213: 1818181186455725445
+    second: driftwood float dock_159
+  - first:
+      213: 9214356376365896705
+    second: driftwood float dock_160
+  - first:
+      213: 4935973733797166988
+    second: driftwood float dock_161
+  - first:
+      213: 4916698713072647378
+    second: driftwood float dock_162
+  - first:
+      213: -1334996169659549484
+    second: driftwood float dock_163
+  - first:
+      213: 6209552590549599815
+    second: driftwood float dock_164
+  - first:
+      213: -1984943088757090110
+    second: driftwood float dock_165
+  - first:
+      213: 3432335264896414632
+    second: driftwood float dock_166
+  - first:
+      213: -3822852043200379430
+    second: driftwood float dock_167
+  - first:
+      213: -5075337637879171396
+    second: driftwood float dock_168
+  - first:
+      213: 5542768629672228507
+    second: driftwood float dock_169
+  - first:
+      213: 7587652444924608668
+    second: driftwood float dock_170
+  - first:
+      213: 968230598335046131
+    second: driftwood float dock_171
+  - first:
+      213: -4216289546079093734
+    second: driftwood float dock_172
+  - first:
+      213: -6019569361391228281
+    second: driftwood float dock_173
+  - first:
+      213: 8713747004989839883
+    second: driftwood float dock_174
+  - first:
+      213: -6615563571937357127
+    second: driftwood float dock_175
+  - first:
+      213: -4291962141921808195
+    second: driftwood float dock_176
+  - first:
+      213: -5161381397129016556
+    second: driftwood float dock_177
+  - first:
+      213: 5315402332302731164
+    second: driftwood float dock_178
+  - first:
+      213: 5822709511779203553
+    second: driftwood float dock_179
+  - first:
+      213: 5282028383089225969
+    second: driftwood float dock_180
+  - first:
+      213: -3682413080665719186
+    second: driftwood float dock_181
+  - first:
+      213: -7889136804938421057
+    second: driftwood float dock_182
+  - first:
+      213: 3987728008806337687
+    second: driftwood float dock_183
+  - first:
+      213: 1995541940256708458
+    second: driftwood float dock_184
+  - first:
+      213: 1620409336436071639
+    second: driftwood float dock_185
+  - first:
+      213: -2542808726132531622
+    second: driftwood float dock_186
+  - first:
+      213: 3518983094901536125
+    second: driftwood float dock_187
+  - first:
+      213: -8335847512686177278
+    second: driftwood float dock_188
+  - first:
+      213: 1318929636262679816
+    second: driftwood float dock_189
+  - first:
+      213: 4947454753487228629
+    second: driftwood float dock_190
+  - first:
+      213: -8108041821507615685
+    second: driftwood float dock_191
+  - first:
+      213: -5210600122930844056
+    second: driftwood float dock_192
+  - first:
+      213: -9082564876580208477
+    second: driftwood float dock_193
+  - first:
+      213: 2460009395862678605
+    second: driftwood float dock_194
+  - first:
+      213: -8498069867758664605
+    second: driftwood float dock_195
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: driftwood float dock_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 173
+        width: 37
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8aea32e7a5edf3220800000000000000
+      internalID: 2467935601067011752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_1
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 171
+        width: 30
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f73a584cd9337700800000000000000
+      internalID: 536836398856681464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_2
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 141
+        width: 74
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce47341d6a2fbdad0800000000000000
+      internalID: -2676278755252275988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_3
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 175
+        width: 42
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37e7369e6ea5fc770800000000000000
+      internalID: 8633218958497119859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_4
+      rect:
+        serializedVersion: 2
+        x: 586
+        y: 168
+        width: 75
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8bca196e83bfd0e0800000000000000
+      internalID: -2242876665177126002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_5
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 174
+        width: 37
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15186d4ac809f07f0800000000000000
+      internalID: -644137287955349167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_6
+      rect:
+        serializedVersion: 2
+        x: 766
+        y: 172
+        width: 30
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 151d91589b2620fa0800000000000000
+      internalID: -5835993618177207983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_7
+      rect:
+        serializedVersion: 2
+        x: 1072
+        y: 143
+        width: 74
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03a542394b6ca6fb0800000000000000
+      internalID: -4653688786068940240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_8
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 176
+        width: 42
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d90946e24efb66a0800000000000000
+      internalID: -6454786077620631088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_9
+      rect:
+        serializedVersion: 2
+        x: 1246
+        y: 169
+        width: 75
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4e2c2fc637683e50800000000000000
+      internalID: 6789289923362696781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_10
+      rect:
+        serializedVersion: 2
+        x: 1322
+        y: 177
+        width: 37
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f9df49ddb303a430800000000000000
+      internalID: 3792879425105680881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_11
+      rect:
+        serializedVersion: 2
+        x: 1426
+        y: 175
+        width: 30
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc78fce45de5cf000800000000000000
+      internalID: 71035964374353868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_12
+      rect:
+        serializedVersion: 2
+        x: 1732
+        y: 144
+        width: 74
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5dd2834e61eb8730800000000000000
+      internalID: 4002540557544119644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_13
+      rect:
+        serializedVersion: 2
+        x: 1860
+        y: 179
+        width: 42
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1230499a7a50ee2d0800000000000000
+      internalID: -3247652063624821983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_14
+      rect:
+        serializedVersion: 2
+        x: 1906
+        y: 172
+        width: 75
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e72d4272fe893a660800000000000000
+      internalID: 7395923165993816702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_15
+      rect:
+        serializedVersion: 2
+        x: 1982
+        y: 179
+        width: 37
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5135a65a96f0d4090800000000000000
+      internalID: -8048760012620016875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_16
+      rect:
+        serializedVersion: 2
+        x: 2086
+        y: 177
+        width: 30
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7421f3570be50da0800000000000000
+      internalID: -5979114513558854530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_17
+      rect:
+        serializedVersion: 2
+        x: 2392
+        y: 145
+        width: 74
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36266d71d28edd8e0800000000000000
+      internalID: -1666921006686117277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_18
+      rect:
+        serializedVersion: 2
+        x: 2520
+        y: 181
+        width: 42
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d244212d73f83a60800000000000000
+      internalID: 7654135285468644050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_19
+      rect:
+        serializedVersion: 2
+        x: 2566
+        y: 174
+        width: 75
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 346c16eb8176cf440800000000000000
+      internalID: 4970961444681139779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_20
+      rect:
+        serializedVersion: 2
+        x: 2642
+        y: 180
+        width: 37
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ea8faa436a39d9a0800000000000000
+      internalID: -6207866413224326423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_21
+      rect:
+        serializedVersion: 2
+        x: 2746
+        y: 178
+        width: 30
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c09013e87a003950800000000000000
+      internalID: 6426648182579564739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_22
+      rect:
+        serializedVersion: 2
+        x: 3052
+        y: 146
+        width: 74
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4daa46a8bd6a8860800000000000000
+      internalID: 7532953966561897806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_23
+      rect:
+        serializedVersion: 2
+        x: 3180
+        y: 182
+        width: 42
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 743bed780ff4c22a0800000000000000
+      internalID: -6760941046099692729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_24
+      rect:
+        serializedVersion: 2
+        x: 3226
+        y: 175
+        width: 75
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11b2209e0218ca120800000000000000
+      internalID: 2426456277594024721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_25
+      rect:
+        serializedVersion: 2
+        x: 3302
+        y: 180
+        width: 37
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 132070d3cc5ae8780800000000000000
+      internalID: -8678817135280586191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_26
+      rect:
+        serializedVersion: 2
+        x: 3406
+        y: 178
+        width: 30
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f56f8a601acbe620800000000000000
+      internalID: 2804557364824335859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_27
+      rect:
+        serializedVersion: 2
+        x: 3712
+        y: 146
+        width: 74
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e24d20a21a82b29c0800000000000000
+      internalID: -3951019575427804114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_28
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 182
+        width: 42
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cafd7f0ee9da97b0800000000000000
+      internalID: -5216617601869940031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_29
+      rect:
+        serializedVersion: 2
+        x: 3886
+        y: 175
+        width: 75
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e14eaabf2c948ba00800000000000000
+      internalID: 772448437888803870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_30
+      rect:
+        serializedVersion: 2
+        x: 3962
+        y: 179
+        width: 37
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96ab3646d723860a0800000000000000
+      internalID: -6888200115926615447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_31
+      rect:
+        serializedVersion: 2
+        x: 4066
+        y: 177
+        width: 30
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60ea81bf9dcdf3f90800000000000000
+      internalID: -6971610869367525882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_32
+      rect:
+        serializedVersion: 2
+        x: 4372
+        y: 146
+        width: 74
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96b6c87143ab0c720800000000000000
+      internalID: 2864494095903779689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_33
+      rect:
+        serializedVersion: 2
+        x: 4500
+        y: 181
+        width: 42
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01b255907e9515a10800000000000000
+      internalID: 1896395766928583440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_34
+      rect:
+        serializedVersion: 2
+        x: 4546
+        y: 174
+        width: 75
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec0fb5d76d9aebc90800000000000000
+      internalID: -7152092419526496050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_35
+      rect:
+        serializedVersion: 2
+        x: 4622
+        y: 177
+        width: 37
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6d143a9c6db9bdb0800000000000000
+      internalID: -4775577655708476051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_36
+      rect:
+        serializedVersion: 2
+        x: 4726
+        y: 175
+        width: 30
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5401744cc3554d00800000000000000
+      internalID: 956262632672789596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_37
+      rect:
+        serializedVersion: 2
+        x: 5032
+        y: 145
+        width: 74
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a879c292313177ac0800000000000000
+      internalID: -3857593582803445878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_38
+      rect:
+        serializedVersion: 2
+        x: 5160
+        y: 179
+        width: 42
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11a552258d85f9150800000000000000
+      internalID: 5881517324483516945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_39
+      rect:
+        serializedVersion: 2
+        x: 5206
+        y: 172
+        width: 75
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c3641c05b58e3de0800000000000000
+      internalID: -1351495825526332476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_40
+      rect:
+        serializedVersion: 2
+        x: 5282
+        y: 176
+        width: 37
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56deb3d803aeb4c30800000000000000
+      internalID: 4344823759777820005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_41
+      rect:
+        serializedVersion: 2
+        x: 5386
+        y: 174
+        width: 30
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7020b344ec272b800800000000000000
+      internalID: 626689528391467527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_42
+      rect:
+        serializedVersion: 2
+        x: 5692
+        y: 144
+        width: 74
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e0746ea96ed57a90800000000000000
+      internalID: -7316697474114752286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_43
+      rect:
+        serializedVersion: 2
+        x: 5820
+        y: 178
+        width: 42
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f083a8538a7e7cb0800000000000000
+      internalID: -4864315842967142158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_44
+      rect:
+        serializedVersion: 2
+        x: 5866
+        y: 171
+        width: 75
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2db20f07aef6a0330800000000000000
+      internalID: 3677875098409249746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_45
+      rect:
+        serializedVersion: 2
+        x: 5942
+        y: 173
+        width: 37
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e645f82465d80a570800000000000000
+      internalID: 8475929900334666862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_46
+      rect:
+        serializedVersion: 2
+        x: 6046
+        y: 171
+        width: 30
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ae67e1c8c3ce8680800000000000000
+      internalID: -8750841758920249687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_47
+      rect:
+        serializedVersion: 2
+        x: 6352
+        y: 143
+        width: 74
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7eb940ec53e634380800000000000000
+      internalID: -8988219253932647449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_48
+      rect:
+        serializedVersion: 2
+        x: 6480
+        y: 175
+        width: 42
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d95b586162c50580800000000000000
+      internalID: -8861462968163149359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_49
+      rect:
+        serializedVersion: 2
+        x: 6526
+        y: 168
+        width: 75
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5da84fc4a8a6306b0800000000000000
+      internalID: -5331300391647409451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_50
+      rect:
+        serializedVersion: 2
+        x: 6602
+        y: 173
+        width: 37
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f43a9ca523c47f290800000000000000
+      internalID: -7856727245769301169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_51
+      rect:
+        serializedVersion: 2
+        x: 6706
+        y: 171
+        width: 30
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bed94158e427cdc0800000000000000
+      internalID: -3618883195354095943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_52
+      rect:
+        serializedVersion: 2
+        x: 7012
+        y: 141
+        width: 74
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1340592600787a70800000000000000
+      internalID: 8824926641597727514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_53
+      rect:
+        serializedVersion: 2
+        x: 7140
+        y: 175
+        width: 42
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e8f40920347d5180800000000000000
+      internalID: -9125009519787312919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_54
+      rect:
+        serializedVersion: 2
+        x: 7186
+        y: 168
+        width: 75
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58b75524b0c2290b0800000000000000
+      internalID: -5723463749565318267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_55
+      rect:
+        serializedVersion: 2
+        x: 7262
+        y: 175
+        width: 37
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1365d26310097ef0800000000000000
+      internalID: -110056632631336164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_56
+      rect:
+        serializedVersion: 2
+        x: 7366
+        y: 173
+        width: 30
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cbb35b6910a266a0800000000000000
+      internalID: -6457422884660593728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_57
+      rect:
+        serializedVersion: 2
+        x: 7672
+        y: 141
+        width: 74
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7978f0e82c5d98530800000000000000
+      internalID: 3857849587403294615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_58
+      rect:
+        serializedVersion: 2
+        x: 7800
+        y: 177
+        width: 42
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bbefccfdf6be32d0800000000000000
+      internalID: -3296996675204158538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_59
+      rect:
+        serializedVersion: 2
+        x: 7846
+        y: 170
+        width: 75
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dee63f97537aabde0800000000000000
+      internalID: -1316556092931346707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_60
+      rect:
+        serializedVersion: 2
+        x: 7922
+        y: 175
+        width: 37
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2bd1b986a69aa050800000000000000
+      internalID: 5812623911093918507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_61
+      rect:
+        serializedVersion: 2
+        x: 8026
+        y: 173
+        width: 30
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fedea2f4f1c565a0800000000000000
+      internalID: -6528598827015938314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_62
+      rect:
+        serializedVersion: 2
+        x: 8332
+        y: 141
+        width: 74
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9309c432c94e67020800000000000000
+      internalID: 2339308415723802681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_63
+      rect:
+        serializedVersion: 2
+        x: 8460
+        y: 177
+        width: 42
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c11e0205aca01bd20800000000000000
+      internalID: 3292424666628546844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_64
+      rect:
+        serializedVersion: 2
+        x: 8506
+        y: 170
+        width: 75
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da988df01e5241a20800000000000000
+      internalID: 3032090097690905005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_65
+      rect:
+        serializedVersion: 2
+        x: 8582
+        y: 174
+        width: 37
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2b8a1711c79a8fd0800000000000000
+      internalID: -2338890200893453521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_66
+      rect:
+        serializedVersion: 2
+        x: 8686
+        y: 172
+        width: 30
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 867faca1662e126b0800000000000000
+      internalID: -5322724356411164824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_67
+      rect:
+        serializedVersion: 2
+        x: 8992
+        y: 141
+        width: 74
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4f1ec3de1f5c9100800000000000000
+      internalID: 116072276411948875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_68
+      rect:
+        serializedVersion: 2
+        x: 9120
+        y: 176
+        width: 42
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbea257b9bb815eb0800000000000000
+      internalID: -4732848103628820805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_69
+      rect:
+        serializedVersion: 2
+        x: 9166
+        y: 169
+        width: 74
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b37b6411b0eb8100800000000000000
+      internalID: 111429666957128630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_70
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 128
+        width: 76
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0381914737cf1980800000000000000
+      internalID: -8565908926098210038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_71
+      rect:
+        serializedVersion: 2
+        x: 476
+        y: 157
+        width: 32
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1d81b7b7b3665ca0800000000000000
+      internalID: -6028521410476798690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_72
+      rect:
+        serializedVersion: 2
+        x: 753
+        y: 129
+        width: 76
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d8275fd098d4a6e0800000000000000
+      internalID: -1827097432071657256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_73
+      rect:
+        serializedVersion: 2
+        x: 1136
+        y: 157
+        width: 32
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7a693c2b37f02f50800000000000000
+      internalID: 6854750466374986363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_74
+      rect:
+        serializedVersion: 2
+        x: 1413
+        y: 132
+        width: 77
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2919333439a89ec30800000000000000
+      internalID: 4389191676941537682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_75
+      rect:
+        serializedVersion: 2
+        x: 1796
+        y: 157
+        width: 32
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76f653c9d1d598de0800000000000000
+      internalID: -1330429833155088537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_76
+      rect:
+        serializedVersion: 2
+        x: 2073
+        y: 134
+        width: 77
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7908f48095538b40800000000000000
+      internalID: 5441286853988190586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_77
+      rect:
+        serializedVersion: 2
+        x: 2456
+        y: 162
+        width: 32
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa59addedf3a5c950800000000000000
+      internalID: 6468756750800164266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_78
+      rect:
+        serializedVersion: 2
+        x: 2461
+        y: 155
+        width: 24
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7b56184900e410d0800000000000000
+      internalID: -3452888683817575554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_79
+      rect:
+        serializedVersion: 2
+        x: 2733
+        y: 135
+        width: 77
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26804f63b282e9a50800000000000000
+      internalID: 6529700675804465250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_80
+      rect:
+        serializedVersion: 2
+        x: 3116
+        y: 163
+        width: 32
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb783cd3b631a1860800000000000000
+      internalID: 7501329480657635260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_81
+      rect:
+        serializedVersion: 2
+        x: 3121
+        y: 157
+        width: 18
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3c57f88d788bd7e0800000000000000
+      internalID: -1739646758298362822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_82
+      rect:
+        serializedVersion: 2
+        x: 3393
+        y: 135
+        width: 77
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e85f3375ef37c4b10800000000000000
+      internalID: 1967074673475974542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_83
+      rect:
+        serializedVersion: 2
+        x: 3776
+        y: 163
+        width: 32
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 887d8f373d7be5480800000000000000
+      internalID: -8908480894080591992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_84
+      rect:
+        serializedVersion: 2
+        x: 3781
+        y: 157
+        width: 18
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dde649fb1f52c5440800000000000000
+      internalID: 4925853812668002013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_85
+      rect:
+        serializedVersion: 2
+        x: 4053
+        y: 134
+        width: 77
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a19e0a961683e3050800000000000000
+      internalID: 5782120962625431834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_86
+      rect:
+        serializedVersion: 2
+        x: 4436
+        y: 163
+        width: 32
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f9adef6dbcf13a70800000000000000
+      internalID: 8805096637042895350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_87
+      rect:
+        serializedVersion: 2
+        x: 4441
+        y: 157
+        width: 18
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf326dd07612afdf0800000000000000
+      internalID: -145767311438633988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_88
+      rect:
+        serializedVersion: 2
+        x: 4713
+        y: 132
+        width: 77
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c55121b85139d70e0800000000000000
+      internalID: -2270496916388047524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_89
+      rect:
+        serializedVersion: 2
+        x: 5096
+        y: 162
+        width: 32
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3111b3efe128a150800000000000000
+      internalID: 5883990227360485692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_90
+      rect:
+        serializedVersion: 2
+        x: 5101
+        y: 156
+        width: 18
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1145a0e3f6b3f73f0800000000000000
+      internalID: -900936051482536943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_91
+      rect:
+        serializedVersion: 2
+        x: 5373
+        y: 131
+        width: 77
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e872ffcc4363823d0800000000000000
+      internalID: -3231273132232857714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_92
+      rect:
+        serializedVersion: 2
+        x: 5756
+        y: 161
+        width: 32
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 534f9d808f9a012a0800000000000000
+      internalID: -6768723357172370379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_93
+      rect:
+        serializedVersion: 2
+        x: 6033
+        y: 128
+        width: 76
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72e295cc2c57717b0800000000000000
+      internalID: -5253600960791892441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_94
+      rect:
+        serializedVersion: 2
+        x: 6416
+        y: 160
+        width: 32
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49399ad50e9ab4220800000000000000
+      internalID: 2471255601652011924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_95
+      rect:
+        serializedVersion: 2
+        x: 6693
+        y: 128
+        width: 76
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e531aae02d7aa410800000000000000
+      internalID: 1489140207128229344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_96
+      rect:
+        serializedVersion: 2
+        x: 7076
+        y: 158
+        width: 32
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc77c783a8e496050800000000000000
+      internalID: 5794248751148988364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_97
+      rect:
+        serializedVersion: 2
+        x: 7353
+        y: 130
+        width: 77
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8da71d5c50ca0170800000000000000
+      internalID: 8145534378984320394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_98
+      rect:
+        serializedVersion: 2
+        x: 7736
+        y: 158
+        width: 32
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76e4a238ffe8d7300800000000000000
+      internalID: 251514382271008359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_99
+      rect:
+        serializedVersion: 2
+        x: 8013
+        y: 130
+        width: 77
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8230662093df45410800000000000000
+      internalID: 1465074200097456936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_100
+      rect:
+        serializedVersion: 2
+        x: 8396
+        y: 155
+        width: 32
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 906614ecab214efe0800000000000000
+      internalID: -1160782210421135863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_101
+      rect:
+        serializedVersion: 2
+        x: 8673
+        y: 129
+        width: 76
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0dbeb10ebdb72ad40800000000000000
+      internalID: 5594169871435557840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_102
+      rect:
+        serializedVersion: 2
+        x: 9056
+        y: 157
+        width: 32
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b0d57479037d6780800000000000000
+      internalID: -8688161621682040653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_103
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 152
+        width: 18
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bef9cdbbef4216280800000000000000
+      internalID: -9051913099545894933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_104
+      rect:
+        serializedVersion: 2
+        x: 1141
+        y: 154
+        width: 18
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d12e8add4be39720800000000000000
+      internalID: 2851881708667412950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_105
+      rect:
+        serializedVersion: 2
+        x: 1801
+        y: 155
+        width: 18
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f110eab9a485ce70800000000000000
+      internalID: 9134853283710505464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_106
+      rect:
+        serializedVersion: 2
+        x: 5761
+        y: 155
+        width: 18
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec8441f5d3a143e50800000000000000
+      internalID: 6788079389244672206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_107
+      rect:
+        serializedVersion: 2
+        x: 6421
+        y: 154
+        width: 18
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2162ce7cc8d55cae0800000000000000
+      internalID: -1529713639191468526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_108
+      rect:
+        serializedVersion: 2
+        x: 7081
+        y: 152
+        width: 18
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57f3b43e52e4ff630800000000000000
+      internalID: 3962972121743441781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_109
+      rect:
+        serializedVersion: 2
+        x: 7741
+        y: 152
+        width: 18
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55147ecd98f523a60800000000000000
+      internalID: 7652283762577195349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_110
+      rect:
+        serializedVersion: 2
+        x: 8401
+        y: 152
+        width: 18
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15dbbcacd84ffd420800000000000000
+      internalID: 2657111195001797969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_111
+      rect:
+        serializedVersion: 2
+        x: 9061
+        y: 152
+        width: 18
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 463841f6b79468630800000000000000
+      internalID: 3928908519420756836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_112
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 96
+        width: 24
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70f9f79b26bb276c0800000000000000
+      internalID: -4147046274161467641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_113
+      rect:
+        serializedVersion: 2
+        x: 667
+        y: 97
+        width: 24
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 207b4e7b7a191ef70800000000000000
+      internalID: 9214806462107531010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_114
+      rect:
+        serializedVersion: 2
+        x: 1327
+        y: 100
+        width: 24
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90053333809164a20800000000000000
+      internalID: 3046149720972152841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_115
+      rect:
+        serializedVersion: 2
+        x: 1987
+        y: 102
+        width: 24
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1d64192cd15105c0800000000000000
+      internalID: -4251026567237178085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_116
+      rect:
+        serializedVersion: 2
+        x: 2453
+        y: 15
+        width: 163
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76f2ac73c6dff95e0800000000000000
+      internalID: -1900521876492767385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_117
+      rect:
+        serializedVersion: 2
+        x: 2647
+        y: 103
+        width: 24
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ae6c25ddb8979390800000000000000
+      internalID: -7811607087558136157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_118
+      rect:
+        serializedVersion: 2
+        x: 3307
+        y: 103
+        width: 24
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 368ed19d018276920800000000000000
+      internalID: 2983397330983446627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_119
+      rect:
+        serializedVersion: 2
+        x: 3773
+        y: 12
+        width: 163
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7122a4a3d36abfb10800000000000000
+      internalID: 2016388040079581719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_120
+      rect:
+        serializedVersion: 2
+        x: 3967
+        y: 102
+        width: 24
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac518fc901cfd82a0800000000000000
+      internalID: -6733448719565842998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_121
+      rect:
+        serializedVersion: 2
+        x: 4627
+        y: 100
+        width: 24
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6151f6583155a5940800000000000000
+      internalID: 5285630655004087574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_122
+      rect:
+        serializedVersion: 2
+        x: 5287
+        y: 99
+        width: 24
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16d3d3507e63c8df0800000000000000
+      internalID: -176705919521047199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_123
+      rect:
+        serializedVersion: 2
+        x: 5947
+        y: 96
+        width: 24
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33ac4e0f028bf76b0800000000000000
+      internalID: -5296312185144423885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_124
+      rect:
+        serializedVersion: 2
+        x: 6607
+        y: 96
+        width: 24
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34c4a8b37b2b8e660800000000000000
+      internalID: 7415373286513200195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_125
+      rect:
+        serializedVersion: 2
+        x: 7267
+        y: 98
+        width: 24
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fa875acae10d6d10800000000000000
+      internalID: 2120353107490081525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_126
+      rect:
+        serializedVersion: 2
+        x: 7927
+        y: 98
+        width: 24
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1a4cc0fab27ad310800000000000000
+      internalID: 1430581978872957468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_127
+      rect:
+        serializedVersion: 2
+        x: 8587
+        y: 97
+        width: 24
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37f4dd8374ccab710800000000000000
+      internalID: 1709903614809296755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_128
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 24
+        width: 50
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4742cbef39bf52c0800000000000000
+      internalID: -4440627023374563507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_129
+      rect:
+        serializedVersion: 2
+        x: 473
+        y: 17
+        width: 163
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68c3057e13cc4f5c0800000000000000
+      internalID: -4182493639214089082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_130
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 0
+        width: 179
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4da6a7cc88f279c0800000000000000
+      internalID: -3930806241212322482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_131
+      rect:
+        serializedVersion: 2
+        x: 741
+        y: 25
+        width: 50
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5dad60a309633230800000000000000
+      internalID: 3617350390006000990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_132
+      rect:
+        serializedVersion: 2
+        x: 1133
+        y: 17
+        width: 163
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ceeeaace78862e70800000000000000
+      internalID: 9090102976041643715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_133
+      rect:
+        serializedVersion: 2
+        x: 1142
+        y: 0
+        width: 179
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 414143667eaff6800800000000000000
+      internalID: 607980346477384724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_134
+      rect:
+        serializedVersion: 2
+        x: 1401
+        y: 28
+        width: 50
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd67fe255a485b180800000000000000
+      internalID: -9100221626436323620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_135
+      rect:
+        serializedVersion: 2
+        x: 1417
+        y: 26
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2614b7cb5f575c5b0800000000000000
+      internalID: -5348739284142964382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_136
+      rect:
+        serializedVersion: 2
+        x: 1793
+        y: 17
+        width: 163
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff86d52c25562c4d0800000000000000
+      internalID: -3115816586064336641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_137
+      rect:
+        serializedVersion: 2
+        x: 1802
+        y: 0
+        width: 179
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 270d3c33eda30d230800000000000000
+      internalID: 3661491223077834866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_138
+      rect:
+        serializedVersion: 2
+        x: 2062
+        y: 30
+        width: 49
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45036bfe1f79d48a0800000000000000
+      internalID: -6319227636766330796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_139
+      rect:
+        serializedVersion: 2
+        x: 2077
+        y: 28
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2bbdb1bd113d8a550800000000000000
+      internalID: 6172415362955205554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_140
+      rect:
+        serializedVersion: 2
+        x: 2462
+        y: 0
+        width: 179
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d69594bc0911eb280800000000000000
+      internalID: -9025757289620350611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_141
+      rect:
+        serializedVersion: 2
+        x: 2722
+        y: 31
+        width: 49
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71f948a8a05c2ca90800000000000000
+      internalID: -7295051797322490089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_142
+      rect:
+        serializedVersion: 2
+        x: 2737
+        y: 29
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7999608828ec8f600800000000000000
+      internalID: 502378418475014551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_143
+      rect:
+        serializedVersion: 2
+        x: 2739
+        y: 25
+        width: 14
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2f4539d8ba1d0910800000000000000
+      internalID: 1805128406865891117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_144
+      rect:
+        serializedVersion: 2
+        x: 3113
+        y: 13
+        width: 163
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d41e1a312b6d7bfc0800000000000000
+      internalID: -3479076126798519987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_145
+      rect:
+        serializedVersion: 2
+        x: 3122
+        y: 0
+        width: 179
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d6fc364ad44ab480800000000000000
+      internalID: -8882711610762922287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_146
+      rect:
+        serializedVersion: 2
+        x: 3382
+        y: 31
+        width: 49
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c58809aff71279c0800000000000000
+      internalID: -3931053137921014335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_147
+      rect:
+        serializedVersion: 2
+        x: 3397
+        y: 29
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c8185e625a46b300800000000000000
+      internalID: 267482945774164160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_148
+      rect:
+        serializedVersion: 2
+        x: 3399
+        y: 25
+        width: 14
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9863efcf69a88c6b0800000000000000
+      internalID: -5275814582370290039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_149
+      rect:
+        serializedVersion: 2
+        x: 3782
+        y: 0
+        width: 179
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73f9501df9be4f4f0800000000000000
+      internalID: -795752162498601161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_150
+      rect:
+        serializedVersion: 2
+        x: 4042
+        y: 30
+        width: 49
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05783d4412708f1d0800000000000000
+      internalID: -3316893286088341680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_151
+      rect:
+        serializedVersion: 2
+        x: 4057
+        y: 28
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e2e875ab77effb30800000000000000
+      internalID: 4323428685542122217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_152
+      rect:
+        serializedVersion: 2
+        x: 4433
+        y: 11
+        width: 163
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4a32794df8df3ab0800000000000000
+      internalID: -5026060076751635894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_153
+      rect:
+        serializedVersion: 2
+        x: 4442
+        y: 0
+        width: 179
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be0b1e46486a2dbe0800000000000000
+      internalID: -1453916642128842517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_154
+      rect:
+        serializedVersion: 2
+        x: 4701
+        y: 28
+        width: 50
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef463e42c5ee9f530800000000000000
+      internalID: 3889401832734418174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_155
+      rect:
+        serializedVersion: 2
+        x: 4717
+        y: 26
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a21770cd214a99d30800000000000000
+      internalID: 4438759308658176298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_156
+      rect:
+        serializedVersion: 2
+        x: 5093
+        y: 11
+        width: 163
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9eadfd25e03c41d70800000000000000
+      internalID: 9013043220562565865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_157
+      rect:
+        serializedVersion: 2
+        x: 5102
+        y: 0
+        width: 179
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29ea788218bde1bf0800000000000000
+      internalID: -351602373111075182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_158
+      rect:
+        serializedVersion: 2
+        x: 5361
+        y: 27
+        width: 50
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0daccfa1c1907ba50800000000000000
+      internalID: 6536703400468073168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_159
+      rect:
+        serializedVersion: 2
+        x: 5377
+        y: 25
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 585edfbe72a7b3910800000000000000
+      internalID: 1818181186455725445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_160
+      rect:
+        serializedVersion: 2
+        x: 5753
+        y: 11
+        width: 163
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1041527fd48ffdf70800000000000000
+      internalID: 9214356376365896705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_161
+      rect:
+        serializedVersion: 2
+        x: 5762
+        y: 0
+        width: 179
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8f73af75f9108440800000000000000
+      internalID: 4935973733797166988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_162
+      rect:
+        serializedVersion: 2
+        x: 6021
+        y: 24
+        width: 50
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2dcb0540e6f9b3440800000000000000
+      internalID: 4916698713072647378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_163
+      rect:
+        serializedVersion: 2
+        x: 6413
+        y: 11
+        width: 163
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d87fea8e04297de0800000000000000
+      internalID: -1334996169659549484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_164
+      rect:
+        serializedVersion: 2
+        x: 6422
+        y: 0
+        width: 179
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 746c0d57e23cc2650800000000000000
+      internalID: 6209552590549599815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_165
+      rect:
+        serializedVersion: 2
+        x: 6681
+        y: 24
+        width: 50
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c8544707c01474e0800000000000000
+      internalID: -1984943088757090110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_166
+      rect:
+        serializedVersion: 2
+        x: 7073
+        y: 12
+        width: 163
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a37236fcba12af20800000000000000
+      internalID: 3432335264896414632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_167
+      rect:
+        serializedVersion: 2
+        x: 7082
+        y: 0
+        width: 179
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad54a20325082fac0800000000000000
+      internalID: -3822852043200379430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_168
+      rect:
+        serializedVersion: 2
+        x: 7341
+        y: 26
+        width: 50
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb6ba030f47c099b0800000000000000
+      internalID: -5075337637879171396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_169
+      rect:
+        serializedVersion: 2
+        x: 7733
+        y: 13
+        width: 163
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b96bacba3bedbec40800000000000000
+      internalID: 5542768629672228507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_170
+      rect:
+        serializedVersion: 2
+        x: 7742
+        y: 0
+        width: 179
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c900bd292b1cc4960800000000000000
+      internalID: 7587652444924608668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_171
+      rect:
+        serializedVersion: 2
+        x: 8001
+        y: 26
+        width: 50
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f1ac6a6998df6d00800000000000000
+      internalID: 968230598335046131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_172
+      rect:
+        serializedVersion: 2
+        x: 8393
+        y: 15
+        width: 163
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1c33c72ffabc75c0800000000000000
+      internalID: -4216289546079093734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_173
+      rect:
+        serializedVersion: 2
+        x: 8402
+        y: 0
+        width: 179
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78a63711f81367ca0800000000000000
+      internalID: -6019569361391228281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_174
+      rect:
+        serializedVersion: 2
+        x: 8661
+        y: 25
+        width: 50
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0a1b0fcbb27de870800000000000000
+      internalID: 8713747004989839883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_175
+      rect:
+        serializedVersion: 2
+        x: 9053
+        y: 17
+        width: 163
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b2d8a96bfbc034a0800000000000000
+      internalID: -6615563571937357127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_176
+      rect:
+        serializedVersion: 2
+        x: 9062
+        y: 0
+        width: 178
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db07355fb23ef64c0800000000000000
+      internalID: -4291962141921808195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_177
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 22
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41bc0d927f61f58b0800000000000000
+      internalID: -5161381397129016556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_178
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 18
+        width: 14
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c97ef2f424a14c940800000000000000
+      internalID: 5315402332302731164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_179
+      rect:
+        serializedVersion: 2
+        x: 757
+        y: 23
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e933ef637b6ec050800000000000000
+      internalID: 5822709511779203553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_180
+      rect:
+        serializedVersion: 2
+        x: 759
+        y: 19
+        width: 14
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f0709b34d88d4940800000000000000
+      internalID: 5282028383089225969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_181
+      rect:
+        serializedVersion: 2
+        x: 1419
+        y: 22
+        width: 14
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6efaaa30d075ecc0800000000000000
+      internalID: -3682413080665719186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_182
+      rect:
+        serializedVersion: 2
+        x: 2079
+        y: 24
+        width: 14
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbc6f25dfd7248290800000000000000
+      internalID: -7889136804938421057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_183
+      rect:
+        serializedVersion: 2
+        x: 4059
+        y: 24
+        width: 14
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79c07c10f71475730800000000000000
+      internalID: 3987728008806337687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_184
+      rect:
+        serializedVersion: 2
+        x: 4719
+        y: 22
+        width: 14
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a67156362d691bb10800000000000000
+      internalID: 1995541940256708458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_185
+      rect:
+        serializedVersion: 2
+        x: 5379
+        y: 21
+        width: 14
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7dc9ff8c4b9dc7610800000000000000
+      internalID: 1620409336436071639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_186
+      rect:
+        serializedVersion: 2
+        x: 6037
+        y: 22
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5e5b1b9fe026bcd0800000000000000
+      internalID: -2542808726132531622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_187
+      rect:
+        serializedVersion: 2
+        x: 6039
+        y: 18
+        width: 14
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d75f53efa70f5d030800000000000000
+      internalID: 3518983094901536125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_188
+      rect:
+        serializedVersion: 2
+        x: 6697
+        y: 22
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20454883ade115c80800000000000000
+      internalID: -8335847512686177278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_189
+      rect:
+        serializedVersion: 2
+        x: 6699
+        y: 18
+        width: 14
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8051c252487cd4210800000000000000
+      internalID: 1318929636262679816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_190
+      rect:
+        serializedVersion: 2
+        x: 7357
+        y: 24
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5de8ce3b2e3e8a440800000000000000
+      internalID: 4947454753487228629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_191
+      rect:
+        serializedVersion: 2
+        x: 7359
+        y: 20
+        width: 14
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b34070debe27a7f80800000000000000
+      internalID: -8108041821507615685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_192
+      rect:
+        serializedVersion: 2
+        x: 8017
+        y: 24
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86ea91e8bca30b7b0800000000000000
+      internalID: -5210600122930844056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_193
+      rect:
+        serializedVersion: 2
+        x: 8019
+        y: 20
+        width: 14
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a04ff1cd5f34f180800000000000000
+      internalID: -9082564876580208477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_194
+      rect:
+        serializedVersion: 2
+        x: 8677
+        y: 23
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4ca4880385b32220800000000000000
+      internalID: 2460009395862678605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: driftwood float dock_195
+      rect:
+        serializedVersion: 2
+        x: 8679
+        y: 19
+        width: 14
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3644bcfda7ac01a80800000000000000
+      internalID: -8498069867758664605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      driftwood float dock_0: 2467935601067011752
+      driftwood float dock_1: 536836398856681464
+      driftwood float dock_10: 3792879425105680881
+      driftwood float dock_100: -1160782210421135863
+      driftwood float dock_101: 5594169871435557840
+      driftwood float dock_102: -8688161621682040653
+      driftwood float dock_103: -9051913099545894933
+      driftwood float dock_104: 2851881708667412950
+      driftwood float dock_105: 9134853283710505464
+      driftwood float dock_106: 6788079389244672206
+      driftwood float dock_107: -1529713639191468526
+      driftwood float dock_108: 3962972121743441781
+      driftwood float dock_109: 7652283762577195349
+      driftwood float dock_11: 71035964374353868
+      driftwood float dock_110: 2657111195001797969
+      driftwood float dock_111: 3928908519420756836
+      driftwood float dock_112: -4147046274161467641
+      driftwood float dock_113: 9214806462107531010
+      driftwood float dock_114: 3046149720972152841
+      driftwood float dock_115: -4251026567237178085
+      driftwood float dock_116: -1900521876492767385
+      driftwood float dock_117: -7811607087558136157
+      driftwood float dock_118: 2983397330983446627
+      driftwood float dock_119: 2016388040079581719
+      driftwood float dock_12: 4002540557544119644
+      driftwood float dock_120: -6733448719565842998
+      driftwood float dock_121: 5285630655004087574
+      driftwood float dock_122: -176705919521047199
+      driftwood float dock_123: -5296312185144423885
+      driftwood float dock_124: 7415373286513200195
+      driftwood float dock_125: 2120353107490081525
+      driftwood float dock_126: 1430581978872957468
+      driftwood float dock_127: 1709903614809296755
+      driftwood float dock_128: -4440627023374563507
+      driftwood float dock_129: -4182493639214089082
+      driftwood float dock_13: -3247652063624821983
+      driftwood float dock_130: -3930806241212322482
+      driftwood float dock_131: 3617350390006000990
+      driftwood float dock_132: 9090102976041643715
+      driftwood float dock_133: 607980346477384724
+      driftwood float dock_134: -9100221626436323620
+      driftwood float dock_135: -5348739284142964382
+      driftwood float dock_136: -3115816586064336641
+      driftwood float dock_137: 3661491223077834866
+      driftwood float dock_138: -6319227636766330796
+      driftwood float dock_139: 6172415362955205554
+      driftwood float dock_14: 7395923165993816702
+      driftwood float dock_140: -9025757289620350611
+      driftwood float dock_141: -7295051797322490089
+      driftwood float dock_142: 502378418475014551
+      driftwood float dock_143: 1805128406865891117
+      driftwood float dock_144: -3479076126798519987
+      driftwood float dock_145: -8882711610762922287
+      driftwood float dock_146: -3931053137921014335
+      driftwood float dock_147: 267482945774164160
+      driftwood float dock_148: -5275814582370290039
+      driftwood float dock_149: -795752162498601161
+      driftwood float dock_15: -8048760012620016875
+      driftwood float dock_150: -3316893286088341680
+      driftwood float dock_151: 4323428685542122217
+      driftwood float dock_152: -5026060076751635894
+      driftwood float dock_153: -1453916642128842517
+      driftwood float dock_154: 3889401832734418174
+      driftwood float dock_155: 4438759308658176298
+      driftwood float dock_156: 9013043220562565865
+      driftwood float dock_157: -351602373111075182
+      driftwood float dock_158: 6536703400468073168
+      driftwood float dock_159: 1818181186455725445
+      driftwood float dock_16: -5979114513558854530
+      driftwood float dock_160: 9214356376365896705
+      driftwood float dock_161: 4935973733797166988
+      driftwood float dock_162: 4916698713072647378
+      driftwood float dock_163: -1334996169659549484
+      driftwood float dock_164: 6209552590549599815
+      driftwood float dock_165: -1984943088757090110
+      driftwood float dock_166: 3432335264896414632
+      driftwood float dock_167: -3822852043200379430
+      driftwood float dock_168: -5075337637879171396
+      driftwood float dock_169: 5542768629672228507
+      driftwood float dock_17: -1666921006686117277
+      driftwood float dock_170: 7587652444924608668
+      driftwood float dock_171: 968230598335046131
+      driftwood float dock_172: -4216289546079093734
+      driftwood float dock_173: -6019569361391228281
+      driftwood float dock_174: 8713747004989839883
+      driftwood float dock_175: -6615563571937357127
+      driftwood float dock_176: -4291962141921808195
+      driftwood float dock_177: -5161381397129016556
+      driftwood float dock_178: 5315402332302731164
+      driftwood float dock_179: 5822709511779203553
+      driftwood float dock_18: 7654135285468644050
+      driftwood float dock_180: 5282028383089225969
+      driftwood float dock_181: -3682413080665719186
+      driftwood float dock_182: -7889136804938421057
+      driftwood float dock_183: 3987728008806337687
+      driftwood float dock_184: 1995541940256708458
+      driftwood float dock_185: 1620409336436071639
+      driftwood float dock_186: -2542808726132531622
+      driftwood float dock_187: 3518983094901536125
+      driftwood float dock_188: -8335847512686177278
+      driftwood float dock_189: 1318929636262679816
+      driftwood float dock_19: 4970961444681139779
+      driftwood float dock_190: 4947454753487228629
+      driftwood float dock_191: -8108041821507615685
+      driftwood float dock_192: -5210600122930844056
+      driftwood float dock_193: -9082564876580208477
+      driftwood float dock_194: 2460009395862678605
+      driftwood float dock_195: -8498069867758664605
+      driftwood float dock_2: -2676278755252275988
+      driftwood float dock_20: -6207866413224326423
+      driftwood float dock_21: 6426648182579564739
+      driftwood float dock_22: 7532953966561897806
+      driftwood float dock_23: -6760941046099692729
+      driftwood float dock_24: 2426456277594024721
+      driftwood float dock_25: -8678817135280586191
+      driftwood float dock_26: 2804557364824335859
+      driftwood float dock_27: -3951019575427804114
+      driftwood float dock_28: -5216617601869940031
+      driftwood float dock_29: 772448437888803870
+      driftwood float dock_3: 8633218958497119859
+      driftwood float dock_30: -6888200115926615447
+      driftwood float dock_31: -6971610869367525882
+      driftwood float dock_32: 2864494095903779689
+      driftwood float dock_33: 1896395766928583440
+      driftwood float dock_34: -7152092419526496050
+      driftwood float dock_35: -4775577655708476051
+      driftwood float dock_36: 956262632672789596
+      driftwood float dock_37: -3857593582803445878
+      driftwood float dock_38: 5881517324483516945
+      driftwood float dock_39: -1351495825526332476
+      driftwood float dock_4: -2242876665177126002
+      driftwood float dock_40: 4344823759777820005
+      driftwood float dock_41: 626689528391467527
+      driftwood float dock_42: -7316697474114752286
+      driftwood float dock_43: -4864315842967142158
+      driftwood float dock_44: 3677875098409249746
+      driftwood float dock_45: 8475929900334666862
+      driftwood float dock_46: -8750841758920249687
+      driftwood float dock_47: -8988219253932647449
+      driftwood float dock_48: -8861462968163149359
+      driftwood float dock_49: -5331300391647409451
+      driftwood float dock_5: -644137287955349167
+      driftwood float dock_50: -7856727245769301169
+      driftwood float dock_51: -3618883195354095943
+      driftwood float dock_52: 8824926641597727514
+      driftwood float dock_53: -9125009519787312919
+      driftwood float dock_54: -5723463749565318267
+      driftwood float dock_55: -110056632631336164
+      driftwood float dock_56: -6457422884660593728
+      driftwood float dock_57: 3857849587403294615
+      driftwood float dock_58: -3296996675204158538
+      driftwood float dock_59: -1316556092931346707
+      driftwood float dock_6: -5835993618177207983
+      driftwood float dock_60: 5812623911093918507
+      driftwood float dock_61: -6528598827015938314
+      driftwood float dock_62: 2339308415723802681
+      driftwood float dock_63: 3292424666628546844
+      driftwood float dock_64: 3032090097690905005
+      driftwood float dock_65: -2338890200893453521
+      driftwood float dock_66: -5322724356411164824
+      driftwood float dock_67: 116072276411948875
+      driftwood float dock_68: -4732848103628820805
+      driftwood float dock_69: 111429666957128630
+      driftwood float dock_7: -4653688786068940240
+      driftwood float dock_70: -8565908926098210038
+      driftwood float dock_71: -6028521410476798690
+      driftwood float dock_72: -1827097432071657256
+      driftwood float dock_73: 6854750466374986363
+      driftwood float dock_74: 4389191676941537682
+      driftwood float dock_75: -1330429833155088537
+      driftwood float dock_76: 5441286853988190586
+      driftwood float dock_77: 6468756750800164266
+      driftwood float dock_78: -3452888683817575554
+      driftwood float dock_79: 6529700675804465250
+      driftwood float dock_8: -6454786077620631088
+      driftwood float dock_80: 7501329480657635260
+      driftwood float dock_81: -1739646758298362822
+      driftwood float dock_82: 1967074673475974542
+      driftwood float dock_83: -8908480894080591992
+      driftwood float dock_84: 4925853812668002013
+      driftwood float dock_85: 5782120962625431834
+      driftwood float dock_86: 8805096637042895350
+      driftwood float dock_87: -145767311438633988
+      driftwood float dock_88: -2270496916388047524
+      driftwood float dock_89: 5883990227360485692
+      driftwood float dock_9: 6789289923362696781
+      driftwood float dock_90: -900936051482536943
+      driftwood float dock_91: -3231273132232857714
+      driftwood float dock_92: -6768723357172370379
+      driftwood float dock_93: -5253600960791892441
+      driftwood float dock_94: 2471255601652011924
+      driftwood float dock_95: 1489140207128229344
+      driftwood float dock_96: 5794248751148988364
+      driftwood float dock_97: 8145534378984320394
+      driftwood float dock_98: 251514382271008359
+      driftwood float dock_99: 1465074200097456936
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

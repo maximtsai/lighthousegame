@@ -190,9 +190,8 @@ public class LHMinigame : MonoBehaviour
             Dialogue dialogue = ScriptableObject.CreateInstance<Dialogue>();
             dialogue.text = new List<string>(new string[]
             {
-                "You reach for the scissors.##.##.## They're gone.",
-                "They were right here.",
-                "Something clatters,## somewhere down the stairwell."
+                "You accidentally drop the scissors.",
+                "Something clatters down the stairwell."
             });
             dialogue.choices = new List<string>();
             dialogue.consequences = new List<UnityEngine.Events.UnityEvent>();
@@ -202,10 +201,9 @@ public class LHMinigame : MonoBehaviour
             dialogue.onLineStart = new List<UnityEngine.Events.UnityEvent>
             {
                 new UnityEngine.Events.UnityEvent(),
-                new UnityEngine.Events.UnityEvent(),
                 new UnityEngine.Events.UnityEvent()
             };
-            dialogue.onLineStart[2].AddListener(() =>
+            dialogue.onLineStart[1].AddListener(() =>
             {
                 if (scissorsDropSound != null)
                     miscObjectClick.PlaySound(scissorsDropSound, 0.5f);
@@ -228,9 +226,7 @@ public class LHMinigame : MonoBehaviour
             GameState.Set("day3_scissors_broken_seen", true);
             Dialogue broken = DialogueManager.ShowDialogueFromText(new string[]
             {
-                "...The blades have come loose at the pivot.",
-                "I try to tighten the bolt, but the nut won't catch.",
-                "There.## That's the best I can do."
+                "The scissors are bent and don't cut well anymore."
             });
             broken.onDialogueEnd.AddListener(ClickScissors);
             return;
@@ -383,21 +379,26 @@ public class LHMinigame : MonoBehaviour
         // 1. Block all clicks
         GameState.Set("navigationBlocked", true);
 
-        // 2. Show the wickless image (full alpha)
-        if (wicklessRenderer != null)
-        {
-            wicklessRenderer.color = new Color(1f, 1f, 1f, 1f);
-        }
+        // Day 3 onwards: dark flash starts with less opacity and lasts slightly shorter
+        bool isDay3OrLater = GameState.Get<int>("day") >= 3;
+        float startAlpha = isDay3OrLater ? 0.65f : 1f;
+        float holdDuration = isDay3OrLater ? 0.3f : 0.5f;
+        float fadeDuration = isDay3OrLater ? 0.35f : 0.5f;
 
-        // 3. Stay at full opacity for 0.5s
-        yield return new WaitForSeconds(0.5f);
-
-        // 4. Fade to 0 over 0.5s
-        float fadeDuration = 0.5f;
-        float elapsed = 0f;
-        Color startColor = new Color(1f, 1f, 1f, 1f);
+        Color startColor = new Color(1f, 1f, 1f, startAlpha);
         Color endColor = new Color(1f, 1f, 1f, 0f);
 
+        // 2. Show the wickless image
+        if (wicklessRenderer != null)
+        {
+            wicklessRenderer.color = startColor;
+        }
+
+        // 3. Stay at start opacity
+        yield return new WaitForSeconds(holdDuration);
+
+        // 4. Fade to 0
+        float elapsed = 0f;
         while (elapsed < fadeDuration)
         {
             elapsed += Time.deltaTime;

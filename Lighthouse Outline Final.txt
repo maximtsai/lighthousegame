@@ -1,0 +1,473 @@
+﻿Day 1:
+
+
+Opening Cutscene: Camborne’s life flashing before his eyes, including images of corpses/people brutalized on the battlefield, can squeeze in some imagery of being underwater, a red light above, then drinking from a bottle before going black. Sounds of the lighthouse creaking and spinning.
+* Motif: Red light calling out to the souls trapped in the lighthouse
+   * Red light always looming in the distance => bottle reflects a red light
+   * Red light reflecting on goggles
+   * Red flashlights in the distance
+Then stone cracking/crumbling until there’s a gap to peek out of. Sees the stone wall in front of him, and stairs.
+  
+
+  
+
+
+
+Journal: normal wildlife
+
+
+MC wakes up and does his daily routine as usual, including washing up, cooking breakfast, fixing the lighthouse. There’s always a stain that he passes by while going through the staircase (Main stain). Checking the weather, emptying the fish net. Around the environment he may find hints such as (things left behind by past lighthouse keepers, stains/cracks (that may change shape later).
+
+
+600 x 250
+
+
+TREASURE ITEM LOCATION + DIALOGUE
+
+
+Day 1
+	Item
+	Location
+	Dialogue
+	Pen
+	Graveyard
+	“I will keep this.”
+	Oversized Boot
+	Lighthouse outside
+	“Doesn’t really fit me.”
+	Golden tooth
+	Dock
+	“As if anyone working here could afford this.”
+	1. Seaweed
+2. good fish, 
+3. coral, 
+4. pebbles
+	Fishnet (random order, keep cycling until player successfully “keeps” good fish)
+	
+
+	
+
+
+
+Day 2
+	Item
+	Location
+	Dialogue
+	Wallet
+
+
+
+
+
+
+	Under camborne’s mattress
+	“What the… who would marry him?
+	Bifocal glasses 
+
+
+
+
+	Top of the lighthouse room
+	“Looks like it belonged to someone smart. Why would they want to work here?”
+	1. Seaweed, 
+2. coral, 
+3. good fish, 
+4. sea glass,
+5. can
+	Fishnet (randomorder, keep cycling until player successfully “keeps” good fish)
+	
+
+	
+
+
+
+Day 3
+	Item
+	Location
+	Dialogue
+	Ace of Spades poker card 
+	bedroom floorboards
+	“Where’s the rest of the deck?” 
+	Flask
+	Inside one of the lighthouse staircases, nearby the fallen brick (coz it’s camborne’s!)
+	“Smells gross. Was this Camborne’s?”
+	1. Seaworm (single), 
+2. good fish, 
+3. coral, 
+4. normal bottle
+5. can
+	Fishnet (randomorder, keep cycling until player successfully “keeps” good fish)
+	
+
+	
+
+
+
+Day 4
+	Item
+	Location
+	Dialogue
+	Lighter
+	Lighthouse floor 1
+	“Doesn’t work anymore after being submerged in water.”
+	1. Good fish, 
+2. seaworm (single)
+3. Seaweed
+4. coral
+
+
+	Fishnet (randomorder, keep cycling until player successfully “keeps” good fish)
+	
+
+	5.Pocket watch
+	Fishnet (once)
+	
+
+	6.Crucifix
+	Fishnet (once)
+	
+
+	
+
+
+
+Day 5
+	Item
+	Location
+	Dialogue
+	Bony ring finger with ring 
+
+
+	Outside in the field
+	The ring could fetch some money.
+	Medium sized lid
+	Inside one of the lighthouse staircases
+	Has this always been here?
+	1. Rotten seaweed, 2. good fish, 
+3. coral, 
+4. sea glass
+5. sea worms (bunch)
+	Fishnet (randomorder, keep cycling until player successfully “keeps” good fish)
+	
+
+	
+
+
+
+Day 6
+	Item
+	Location
+	Dialogue
+	1. Rotten fish 1 
+2. Seaworms (bunch)
+3. seaweed, 
+4. rotten seaweed, 
+5. Can
+6. Good fish
+	Fishnet (randomorder, keep cycling until player successfully “keeps” good fish)
+	
+
+	
+
+Day 7
+	Item
+	Location
+	Dialogue
+	1. Rotten seaweed, 2. Rotten fish 2 
+3. seaworms, 
+4. rotten bottle with worms (2 frames)
+5. Good Fish
+	Fishnet (randomorder, keep cycling until player successfully “keeps” good fish)
+
+
+	
+
+	
+
+
+
+* Bony ring finger with ring 
+   * (Outside in the field)         
+   * “Is this real gold?”
+   * Corpse: arm with missing ring finger
+* Oversized boots 
+   * (Inside the fishnet) 
+   * “Doesn’t really fit me.”
+* Golden tooth
+   * “As if anyone working here could afford this. 
+   * Corpse: Possibly from one of the shipwreck victims.”
+* Lighter
+   * (Inside lighthouse, floor 1)
+   * “Doesn’t work anymore after being submerged in water.”
+* Wallet
+   * (Under camborne’s mattress)
+   * “What the… who would marry him?” >Camborne’s face
+* Cigarettes “Damp and unusable.” >smokers lung
+* Ace of Spades poker card 
+   * (bedroom floorboards): 
+   * “Where’s the rest of the deck?” >Rest of the deck in the walls
+* Bifocal glasses: 
+   * (Fishnet)
+   * “What kind of scholar will visit this place.”
+* Pen: “I will keep this.”
+* Old jacket: 
+   * “This has more holes than my own.”
+* Flask
+   * (Fishnet)
+   * “Smells gross.” (Maybe you can click on it and there’s a jumpscare of seaworms being poured out)
+* Crucifix cross
+   * (In between dock boards)
+   * “It looks nice. Is it a decorative part of a ship?”
+* Pocket watch
+* Medium sized lid
+   * (
+   * “It’s either for a massive teapot, or a tiny cooking pot.”
+* Hidden photographs of older generations of keepers, and each subsequent photo the lighthouse is taller. Do not acknowledge.
+   * (Inside brick that keeps falling out)
+   * 
+
+Fish net content:
+* Bifocal glasses
+* Oversized boots 
+* Flask 
+* Pebbles
+* Lone seaworm
+* Pile of seaworms
+* Inedible fish (Maybe large and boney)
+* Worm infested fish
+* Gross creepy face fish
+* Worm infested seaweed
+* Bottle full of sea worms (Jumpscare where when you click on it, seaworms pour out)
+
+
+This day is mostly to establish the status quo. He chops up the fish for the day, then tries to wake Camborne up, then realized he’s been dead for hours. He has a brief mental breakdown before deciding to take the corpse outside.
+
+
+
+
+*********
+
+
+
+
+Day 2: 
+
+
+Dream Sequence: Camborne’s in the water.
+
+
+Journal: 
+
+
+MC is alone now, but he sticks to the routine because wtf else will he do. He chops fish as usual, but the fish suddenly turns to look at him. He doesn’t know if it’s real or not. He steps out to do his usual chores, but reality has started to shift. When he went to fix the lighthouse, there might’ve been a stain/crack that changed places (a random stain). There is a loose brick that he always has to put back in place every time he passes, but it happens every day that he doesn’t even think about it anymore. When he went to pick up fish, there might have been a large shadow in the water. Maybe pick up some items. But before being able to go back inside for dinner, he notices Camborne’s grave has been washed away by the storm last night. He goes to rebury, and notices Camborne’s face has caved in and is completely gone, though the rest of the body is rotting at a normal rate. He reburies Camborne, but accidentally injures his hand. He goes back to the bathroom to bandage his hand, before eating dinner. He refuses to use fish again because the thought of flesh makes him sick.
+
+
+
+
+
+
+********************
+
+
+
+
+Before the next day, show that it’s a very stormy night
+
+
+
+
+******************************
+
+
+
+
+Day 3: 
+
+
+Dream Sequence: 
+
+
+Journal: Maggots n Corn
+
+
+The next morning his wound is festering and itching like crazy. He can either scratch or resist (“scratch” prompt popping up all over the screen, and will only go away if player clicks on them). He can’t swallow anything more than corn chowder for breakfast. He goes outside and the weather is sweltering hot, not a cloud in sight. His routine goes on as usual, with him finding a few treasures here and there, and even the stains are back in their original spot, so it’s as if everything has gone back to normal. But when he goes to check the weather, and marks that it’s sunny, he suddenly gets a strange feeling and starts second guessing himself. (“are you sure?”) He blinks and realizes it’s been thunderstorming like crazy, and he’s freezing to his underpants. He looks up and realizes the lighthouse is not even on, which is a huge danger to nearby ships. He rushes over to try to fix the lighthouse, but the scissors are missing. He looks around in a panic, and sees it’s actually stuck between 2 bricks on the staircase, as if something within the walls stole it and was trying to drag it into the wall. He grabs the scissors and gets back to work. After he finally gets the lighthouse working, he eats dinner and collapses to sleep.
+
+
+*********
+
+
+
+Day 4: 
+
+
+Dream Sequence: He is working on the lighthouse as usual, but the scissors are missing again. He goes downstairs and finds it in a larger gap in the wall. When he tries to reach for it, the scissors suddenly gets dragged into dark hole. He reaches his hand, then slowly his whole arm into the hole, trying to find the scissors. There are strange squelching flesh sound effects that should not be there. He manages to get the scissors out, but his hand is covered in sea worms and rotting flesh. He wonders why there is all that junk inside, so he looks inside the hole again, and is subjected to horror sfx of breathing/groaning/rotted flesh moving around. But suddenly jumpscare fleshy rotted hand reaches out from the wall and grabs his arm, ending the dream.
+
+
+Journal:
+
+
+He wakes up with flies and maggots in his festering wound (on the same hand!), and washes it out at the sink a few extra times. The prompt to scratch continues to torment him. After breakfast he goes outside and sees a giant shipwreck, and it was his fault they all died. He starts picking up treasures and scraps from the docks (different brand of corn chowder). He finally goes to the dock and sees floating corpses. One of them is a rotting bride. “Died on her wedding day”. He takes them one by one to bury into the mass grave. When he goes back one more time, he sees one corpse that is not like the others…a beautiful woman. Her chest is moving up and down, so she looks alive. He quickly takes her back inside, and the old task of “fixing the lighthouse” is crossed out, because there are more important things to tend to right now. His new tasks consist of new minigame:
+
+
+-Remove Barnacles/Seaweed (click on each so they disappear, Tool: Gloves)
+-Disinfecting wound (Tool: Alcohol)
+-Suturing wound (Tool: Needle)
+-Wrap wound (Tool: Bandage)
+-Feed her (bowl of chowder)
+
+
+Because he gave her all the food, he eats no dinner and collapses after attending to her all night.
+
+
+Day 5: 
+
+
+Dream Sequence: He sees the mermaid sleeping peacefully next to him, but there’s a jumpscare of her being a nasty corpse. He wakes up.
+
+
+Journal:
+
+
+MC wakes up in a panic, and starts feeling unreasonably anxious that she’s going to rot away like in the dream. He does see that she has some worms coming out from her legs. Minigame:
+
+
+1. Splat worms (No need to implement tool)
+2. wrap pus/blood filled bandages to assess the damage
+3. Disinfect and clean wound (wipe yellow pus off with alcohol)
+4. Peel fish skin x3 and fish skin graft #1 (stomach) (On top of gnarlier wounds)
+5. Rewrap (smaller wounds)
+
+
+Goes outside, there’s a task of “fix lighthouse” but gets crossed out and replaced with “pick flowers for her” → “fishing minigame format, but now it’s the flower minigame” → “keep” good flowers, “Toss” bugs/other crap”
+“Usual fishing minigame, but task is now called “collect fish for her”
+
+
+
+
+Anytime he goes to the lighthouse door, get blocked by text: “She’s waiting for me”
+
+
+Day 5.1
+
+
+-MORE WORMS, Splat worms (Tool: Gloves)
+-Disinfecting wound (Tool: Alcohol)
+-Graft open gash #2 (legs) (Tool: fish)
+-Cover the smell (Tool: flowers, morning glory + red poppy)
+
+
+Go outside, flower minigame, fish minigame, ignore lighthouse (Lighthouse flashes at night through the bedroom window, MC thought it’s just the lightning)
+
+
+
+
+Day 5.2
+
+
+-Splat EVEN MORE worms (Tool: Gloves)
+- Rip off morning glory tangled around mermaid (Tool: GLoves)
+-Disinfecting wound (Tool: Alcohol)
+-Graft open gash #3 (arms) (Tool: fish)
+-Cover the smell (Tool: red poppy + sea holly)
+
+
+Go outside, flower minigame, fish minigame, ignore lighthouse
+
+
+Day 6:
+
+
+Dream Sequence: Continuation of the previous dream. It’s nighttime, and she’s gone from her bed. He looks around in the dark room, and suddenly sees her wormy hand reach up from below his bed. She slowly peeks up, but her face is completely in shadow, until we get a jumpscare of the red light coming out of her eyes 
+Inspo:   
+
+
+  
+
+
+
+Journal:
+
+
+MC wakes up in a cold sweat, He sees the mermaid, and her legs have exploded into worms (2 frames). Some dialogue addressing the stench.
+
+
+Day 6 mermaid mini game:
+-Splat EVEN MORE worms (Tool: Gloves)
+- Rip off the sea holly, they have torn the mermaid’s skin (Tool: Gloves)
+-Disinfecting wound (Tool: Alcohol)
+-Graft open gash #4 (chest) (Tool: fish)
+-Cover the smell (Tool: Red poppy + white daisies)
+
+
+Goes outside to pick up flowers again, but notices a loud creaking/broken sound coming from the lighthouse. It must be breaking down because he neglected it.
+
+
+“I haven’t checked the lighthouse in 2 days. I’m in big trouble”
+
+
+Foreboding sense of being in trouble for forgetting the lighthouse. Lighthouse is angry for being forgotten for being cucked.
+
+
+Task of caring for mermaid crossed out, replace with lighthouse.
+
+
+
+
+he’s going outside. (It’s taller now) He is filled with unease as he approaches it, and it feels more ominous than usual. He goes up the stairs, it feels longer than usual, fixing the loose brick as usual, 
+
+
+but it seems to take an extra 2 flights to get to the top for some reason. (I need to catch my breath) He fixes the lighthouse as usual but on the way down for some reason the stairs are getting darker and neverending, and getting darker and darker. (back button disappears) Suddenly he sees the familiar loose brick, as if it’s looping. weird shit starts happening, bricks are falling out, revealing worms, and corpses that allude to various treasures that he found, and flesh. Finally he loops back to the loose brick, and on the other side of the stain, he finds camborne. In terror, he keeps running downstairs for an unspecified amount of time until he gets back outside. 
+
+
+“I’m not going back in there. I just need to take care of her.”
+
+
+(After this, every time player clicks the lighthouse: “I’m not going back in there”)
+
+
+
+
+Day 7: 
+
+
+Dream Sequence
+
+
+Journal
+
+
+MC completely rejects the lighthouse, and refuses to go back in there. Now he will focus on using the mermaid to cope with his life.
+
+
+-Disinfecting wound (Tool: Alcohol)
+-Replace flowers, the white daisies have wilted (Tool: only red poppy)
+-Dress up (tool: dress)
+
+
+He does the usual mermaid chores, and thinks that some fresh air will do her some good. He takes her outside to the docks, passing by the lighthouse. He gets 25 seconds of romantic docks date. Screen slowly fades to black and MC falls asleep, then wakes up at night to see the mermaid gone, and the water has reached his waist. He looks around and finds the mermaid floating a little distance away. MC fishes her out of the water, then makes a choice:
+
+
+“Oh, she’s gone fr” > Bury her
+
+
+“No, she’s ok. She just needs more rest” > take her back to bed
+
+
+
+
+Day 8 INSANITY MERMAID ENDING: 
+
+
+Mermaid is awake and staring at you. If you click on her, she can nuzzle your hand. Usual mermaid chores, but now she actually looks like an ethereal mermaid. Take her downstairs and make her breakfast. There’s a knock at the door, A delivery person comes onto the dock, takes one look at you, screams and runs away.
+
+
+Day 8 LIGHTHOUSE ENDING: 
+MC fixes the lighthouse one last time, as he’s going downstairs, he sees the loose brick had fallen again. But the hole opens up so it’s bigger. MC clicks on it, starts crawling inside the hole to join the other dead. Briefly sees a vision of all the past lighthouse keepers before flashing to him being stuck in the wall screaming in agony just like the rest of them, and the lighthouse getting taller. Flashing spooky images, cut to black.
+  
+
+
+
+IF NO MERMAID:
+
+
+The next morning, MC sees Camborne’s sheets are all stained with rot and worms, so he takes it out and buries it, along with all the trinkets he collected. He goes through all the tasks from day 1, with nothing strange happening anymore.

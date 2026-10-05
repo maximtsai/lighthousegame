@@ -13,15 +13,22 @@ public class KitchenMiscLogic : MonoBehaviour
     void Start()
     {
         Ambience ambience = Ambience.Instance;
-        // GameState.Set("lighthouse_fixed", true);
-        // GameState.Set("ate_dinner", true);
-        // GameState.Set("is_nighttime", true);
+        if (ambience != null)
+        {
+            // Update track 1
+            UpdateTrack(ambience, bgLoop1, 0.5f, 1);
 
-        // Update track 1
-        UpdateTrack(ambience, bgLoop1, 0.5f, 1);
-        // Update track 2
-        UpdateTrack(ambience, bgLoop2, 0.2f, 2);
-
+            bool isThunderstorm = GameState.Get<bool>("thunderstorm", false);
+            if (isThunderstorm)
+            {
+                ambience.CheckAndApplyRainIndoors(GameConsts.KITCHENSCENE);
+            }
+            else
+            {
+                // Update track 2
+                UpdateTrack(ambience, bgLoop2, 0.2f, 2);
+            }
+        }
     }
 
     private void UpdateTrack(Ambience ambience, AudioClip newClip, float volume, int channel)

@@ -33,6 +33,7 @@ public class SinkScript : MonoBehaviour
         if (GameState.Get<string>("is_clean") != "true")
         {
             Destroy(cleaningItems);
+            PlayCleanSound();
             MessageBus.Instance.Publish("CompleteTask", "task_wash_up");
             GameState.Set("is_clean", "true");
 
@@ -71,9 +72,10 @@ public class SinkScript : MonoBehaviour
 
     private void CleanAndBandageHand()
     {
+        PlayCleanSound();
         string[] cleanDialog = new string[] 
         { 
-            "I rinse my hand under the grimy tap.",
+            "I rinse my hand under the crusty tap.",
             "No medical supplies here. I tear a strip off a spare rag.",
             "I wrap it tight.##.##. ##It'll do for now."
         };
@@ -101,6 +103,18 @@ public class SinkScript : MonoBehaviour
                 })
             );
         });
+    }
+
+    private void PlayCleanSound()
+    {
+        if (cleanSound != null)
+        {
+            MessageBus.Instance.Publish("PlaySound", cleanSound);
+        }
+        else
+        {
+            MessageBus.Instance.Publish("PlaySound", "washingface");
+        }
     }
 
     private void CompleteHandClean()

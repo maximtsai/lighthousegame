@@ -19,6 +19,8 @@ public class TreasureSpot : MonoBehaviour
     [Tooltip("Path under Resources/ScriptableObjects/Dialogues/ (e.g. outdoors/boot)")]
     [SerializeField] private string dialoguePath = "outdoors/boot";
     [SerializeField] private Dialogue dialogueOverride;
+    [SerializeField] private AudioClip inspectSound;
+    [SerializeField] private AudioClip revealSound;
 
     [Header("Day window (inclusive)")]
     [SerializeField] private int startDay = 1;
@@ -41,7 +43,13 @@ public class TreasureSpot : MonoBehaviour
     {
         InteractableObject interactable = GetComponent<InteractableObject>();
         if (interactable != null)
+        {
             interactable.AddClickListener(Inspect);
+            if (interactable.clickSound == null)
+            {
+                interactable.clickSound = ResolveInspectAudioClip();
+            }
+        }
 
         if (requireMoundCovered)
             burialHandle = MessageBus.Instance.Subscribe("BurialMoundCovered", OnBurialMoundCovered, this);
@@ -118,14 +126,65 @@ public class TreasureSpot : MonoBehaviour
 
         inspecting = true;
 
+        InteractableObject interactable = GetComponent<InteractableObject>();
+        if (interactable == null || interactable.clickSound == null)
+        {
+            AudioClip clip = ResolveInspectAudioClip();
+            if (clip != null)
+            {
+                MessageBus.Instance.Publish("PlaySound", clip);
+            }
+        }
+
         if (revealSprite != null)
         {
-            TreasureInspectUI.ShowTwoPart(treasureSprite, revealSprite, BeginDialogue, inspectYOffset, revealHoverOutline);
+            AudioClip rSound = revealSound;
+            if (rSound == null && treasureId?.ToLower() == "wallet")
+            {
+                rSound = Resources.Load<AudioClip>("Audio/Keep (Bag Handling");
+            }
+            TreasureInspectUI.ShowTwoPart(treasureSprite, revealSprite, BeginDialogue, inspectYOffset, revealHoverOutline, rSound);
         }
         else
         {
             TreasureInspectUI.Show(treasureSprite, inspectYOffset);
             BeginDialogue();
+        }
+    }
+
+    private AudioClip ResolveInspectAudioClip()
+    {
+        if (inspectSound != null)
+            return inspectSound;
+
+        string soundName = GetDefaultSoundForTreasure(treasureId);
+        if (!string.IsNullOrEmpty(soundName))
+        {
+            return Resources.Load<AudioClip>("Audio/" + soundName);
+        }
+        return null;
+    }
+
+    private static string GetDefaultSoundForTreasure(string id)
+    {
+        switch (id?.ToLower())
+        {
+            case "pen":
+                return "quill_short";
+            case "ace":
+                return "paper_flap";
+            case "finger":
+                return "injury";
+            case "tooth":
+                return "Dropping Key";
+            case "glasses":
+                return "glass_scratch";
+            case "wallet":
+                return "Keep (Bag Handling";
+            case "boot":
+                return "drop_item";
+            default:
+                return null;
         }
     }
 

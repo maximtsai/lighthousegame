@@ -38,6 +38,7 @@ public class Ambience : MonoBehaviour
             }
 
             SceneManager.sceneLoaded += OnSceneLoaded;
+            MessageBus.Instance.Subscribe("ThunderstormStarted", OnThunderstormStarted);
         }
         else
         {
@@ -50,7 +51,13 @@ public class Ambience : MonoBehaviour
         if (instance == this)
         {
             SceneManager.sceneLoaded -= OnSceneLoaded;
+            MessageBus.Instance.Unsubscribe("ThunderstormStarted", OnThunderstormStarted);
         }
+    }
+
+    private void OnThunderstormStarted(object[] args)
+    {
+        CheckAndApplyRainIndoors();
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)

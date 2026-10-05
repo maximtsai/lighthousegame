@@ -357,6 +357,7 @@ public class MiscObjectClick : MonoBehaviour
 
     public void ClickDock()
     {
+        MessageBus.Instance.Publish("PlaySound", "wood_creak");
         if (GameState.Get<bool>("is_nighttime")) {
             DialogueManager.ShowDialogue(getDialogue("dock/dark_dock"));
         } else {

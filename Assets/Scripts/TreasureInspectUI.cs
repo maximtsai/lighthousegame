@@ -30,6 +30,7 @@ public class TreasureInspectUI : MonoBehaviour
     private Sprite closedSprite;
     private Sprite hoverOutlineSprite;
     private Sprite revealSprite;
+    private AudioClip revealSoundClip;
     private Action onRevealed;
     private bool awaitingReveal;
     private bool revealing;
@@ -38,7 +39,7 @@ public class TreasureInspectUI : MonoBehaviour
 
     public static void Show(Sprite sprite, float yOffset = 0f)
     {
-        ShowInternal(sprite, null, null, yOffset, null);
+        ShowInternal(sprite, null, null, yOffset, null, null);
     }
 
     /// <summary>
@@ -49,9 +50,10 @@ public class TreasureInspectUI : MonoBehaviour
         Sprite openSprite,
         Action onRevealed,
         float yOffset = 0f,
-        Sprite hoverOutline = null)
+        Sprite hoverOutline = null,
+        AudioClip revealSound = null)
     {
-        ShowInternal(closedSprite, openSprite, onRevealed, yOffset, hoverOutline);
+        ShowInternal(closedSprite, openSprite, onRevealed, yOffset, hoverOutline, revealSound);
     }
 
     public static void Hide()
@@ -65,6 +67,7 @@ public class TreasureInspectUI : MonoBehaviour
         instance.closedSprite = null;
         instance.hoverOutlineSprite = null;
         instance.revealSprite = null;
+        instance.revealSoundClip = null;
         instance.onRevealed = null;
         if (instance.outlineTransform != null)
             instance.outlineTransform.gameObject.SetActive(false);
@@ -87,7 +90,8 @@ public class TreasureInspectUI : MonoBehaviour
         Sprite openSprite,
         Action onRevealed,
         float yOffset,
-        Sprite hoverOutline)
+        Sprite hoverOutline,
+        AudioClip revealSound)
     {
         if (instance != null && (instance.itemRenderer == null || instance.outlineRenderer == null))
         {
@@ -111,6 +115,7 @@ public class TreasureInspectUI : MonoBehaviour
         instance.closedSprite = sprite;
         instance.hoverOutlineSprite = hoverOutline;
         instance.revealSprite = openSprite;
+        instance.revealSoundClip = revealSound;
         instance.onRevealed = onRevealed;
         instance.awaitingReveal = openSprite != null;
         instance.revealing = false;
@@ -272,6 +277,10 @@ public class TreasureInspectUI : MonoBehaviour
         if (outlineTransform != null)
             outlineTransform.gameObject.SetActive(false);
         CustomCursor.SetCursorToNormal();
+        if (revealSoundClip != null)
+        {
+            MessageBus.Instance.Publish("PlaySound", revealSoundClip);
+        }
         StartCoroutine(RevealRoutine());
     }
 
