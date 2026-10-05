@@ -14,6 +14,7 @@ public class Ambience : MonoBehaviour
     public AudioClip newTrack1;
     public AudioClip newTrack2;
     public AudioClip rainIndoorsClip;
+    private MessageBus.SubscriptionHandle thunderstormHandle;
     
     // Ensure this object persists across scenes
     private void Awake()
@@ -38,7 +39,7 @@ public class Ambience : MonoBehaviour
             }
 
             SceneManager.sceneLoaded += OnSceneLoaded;
-            MessageBus.Instance.Subscribe("ThunderstormStarted", OnThunderstormStarted);
+            thunderstormHandle = MessageBus.Instance.Subscribe("ThunderstormStarted", OnThunderstormStarted);
         }
         else
         {
@@ -51,7 +52,7 @@ public class Ambience : MonoBehaviour
         if (instance == this)
         {
             SceneManager.sceneLoaded -= OnSceneLoaded;
-            MessageBus.Instance.Unsubscribe("ThunderstormStarted", OnThunderstormStarted);
+            thunderstormHandle?.Unsubscribe();
         }
     }
 
