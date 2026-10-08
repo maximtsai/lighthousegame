@@ -23,6 +23,12 @@ public static class LighthouseBrick
     public static bool InWall => GameState.Get(InWallKey, true);
     public static bool OnFloor => !InWall;
 
+    public static bool WillFallOnArrival(int floor, bool goingUp)
+    {
+        return floor == Floor && goingUp && InWall
+            && (!GameState.Get(FellTodayKey, false) || LighthouseScissors.Stuck);
+    }
+
     // Call straight after a climb move so the result lands over the fade. The brick only comes
     // loose once a day: push it back in and it stays in until tomorrow, unless the day 3
     // scissors are stuck behind it.
@@ -36,7 +42,7 @@ public static class LighthouseBrick
 
         // The scissors are wedged in the hole behind the brick, so it keeps falling until
         // they're out.
-        if (GameState.Get(FellTodayKey, false) && !LighthouseScissors.Stuck)
+        if (!WillFallOnArrival(floor, goingUp))
             return Arrival.Nothing;
 
         GameState.Set(InWallKey, false);

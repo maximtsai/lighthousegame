@@ -120,18 +120,27 @@ public class Navigation : MonoBehaviour
 
     public void EnterLighthouseAscent()
     {
+        if (LighthouseNavigationBlocked())
+            return;
+
         LighthouseClimb.EnterFromGround();
         GoToSlow(GameConsts.LHCLIMBSCENE);
     }
 
     public void EnterLighthouseDescent()
     {
+        if (LighthouseNavigationBlocked())
+            return;
+
         LighthouseClimb.EnterFromLightRoom();
         GoToSlow(GameConsts.LHCLIMBSCENE);
     }
 
     public void GoLighthouseUp()
     {
+        if (LighthouseNavigationBlocked())
+            return;
+
         if (LighthouseScissors.BlocksClimbUp(LighthouseClimb.Floor, LighthouseClimb.GoingUp))
         {
             DialogueManager.ShowDialogueFromText(new string[] { LighthouseScissors.NoticedLine });
@@ -140,25 +149,56 @@ public class Navigation : MonoBehaviour
 
         string scene = LighthouseClimb.StepUp();
 
-        // Floor 4 holds the fade through the steps and brick so we don't cut in mid-sound.
+        // Fade through the footsteps, then keep black only for the brick drop sound.
         if (scene == GameConsts.LHCLIMBSCENE)
         {
             LighthouseBrick.Arrival arrival =
                 LighthouseBrick.Arrive(LighthouseClimb.Floor, LighthouseClimb.GoingUp);
 
-            if (arrival != LighthouseBrick.Arrival.Nothing)
+            if (arrival == LighthouseBrick.Arrival.Fell)
             {
                 LHClimbScript climb = FindFirstObjectByType<LHClimbScript>();
-                if (climb != null)
+                EnsureInstance();
+                if (climb != null && Instance != null)
                 {
-                    climb.PlayBrickArrival(arrival);
-                    GoToTransition(scene, climb.BrickFadeOutDuration(), 0f, climb.BrickHoldDuration(arrival));
+                    GameState.Set("navigationBlocked", true);
+                    Instance.StartCoroutine(Instance.PlayBrickDrop(climb));
                     return;
                 }
             }
         }
 
         GoToSlow(scene);
+    }
+
+    private IEnumerator PlayBrickDrop(LHClimbScript climb)
+    {
+        Color c = blackoutImage.color;
+        c.a = 0f;
+        blackoutImage.color = c;
+
+        // The arrow already started the footsteps; let them finish before the brick drops.
+        float footstepsDuration = climb.FootstepsDuration;
+        float elapsed = 0f;
+        while (elapsed < footstepsDuration)
+        {
+            elapsed += Time.deltaTime;
+            c.a = Mathf.Clamp01(elapsed / footstepsDuration);
+            blackoutImage.color = c;
+            yield return null;
+        }
+
+        c.a = 1f;
+        blackoutImage.color = c;
+        climb.PlayBrickDrop();
+
+        if (climb.BrickDropDuration > 0f)
+            yield return new WaitForSeconds(climb.BrickDropDuration);
+
+        climb.ShowFloor(LighthouseClimb.Floor, LighthouseClimb.GoingUp);
+        c.a = 0f;
+        blackoutImage.color = c;
+        GameState.Set("navigationBlocked", false);
     }
 
     // Clicking the brick on the floor pushes it back into the wall. The climb scene is already
@@ -219,7 +259,15 @@ public class Navigation : MonoBehaviour
 
     public void GoLighthouseDown()
     {
+        if (LighthouseNavigationBlocked())
+            return;
+
         GoToSlow(LighthouseClimb.StepDown());
+    }
+
+    private static bool LighthouseNavigationBlocked()
+    {
+        return GameState.Get<bool>("navigationBlocked") || GameState.Get<bool>("task_list_open") || GameState.Get<bool>("minigame_open");
     }
 
     public void GoToPier()

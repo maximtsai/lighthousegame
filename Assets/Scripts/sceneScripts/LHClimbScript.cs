@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class LHClimbScript : MonoBehaviour
 {
@@ -12,7 +13,9 @@ public class LHClimbScript : MonoBehaviour
     [SerializeField] private Sprite[] downSprites;
     [SerializeField] private AudioClip brickFallSound;
     [SerializeField] private AudioClip brickPlaceSound;
-    [SerializeField] private AudioClip footstepsSound;
+    [SerializeField] private AudioClip brickFootstepSound;
+    private readonly Dictionary<InteractableObject, AudioClip> defaultFootstepSounds = new Dictionary<InteractableObject, AudioClip>();
+    private AudioClip activeFootstepsSound;
     // Day 3: the view into the hole on floor 4 where the missing scissors are stuck.
     [SerializeField] private GameObject scissorsCloseUp;
     // Edit Mode only, for laying out a screen. Play Mode uses the live climb state instead.
@@ -71,36 +74,12 @@ public class LHClimbScript : MonoBehaviour
         }
     }
 
-    public void PlayBrickArrival(LighthouseBrick.Arrival arrival)
+    public float FootstepsDuration => ClipLength(activeFootstepsSound);
+    public float BrickDropDuration => ClipLength(brickFallSound);
+
+    public void PlayBrickDrop()
     {
-        if (arrival == LighthouseBrick.Arrival.Nothing || miscObjectClick == null)
-            return;
-
-        // Arrow already started the default steps. Bricks wait until that clip finishes.
-        float delay = ClipLength(footstepsSound);
-        if (brickPlaceSound != null)
-            miscObjectClick.PlaySoundDelayed(brickPlaceSound, 0.6f, false, delay);
-
-        if (arrival != LighthouseBrick.Arrival.Fell || brickFallSound == null)
-            return;
-
-        miscObjectClick.PlaySoundDelayed(brickFallSound, 1f, false, delay + ClipLength(brickPlaceSound));
-    }
-
-    // Fade out over the footsteps so the screen is black when the brick starts.
-    public float BrickFadeOutDuration()
-    {
-        return Mathf.Max(0.85f, ClipLength(footstepsSound));
-    }
-
-    // Stay black through the brick clips, then the fade-in can start.
-    public float BrickHoldDuration(LighthouseBrick.Arrival arrival)
-    {
-        float bricks = ClipLength(brickPlaceSound);
-        if (arrival == LighthouseBrick.Arrival.Fell)
-            bricks += ClipLength(brickFallSound);
-
-        return Mathf.Max(0f, ClipLength(footstepsSound) + bricks - BrickFadeOutDuration());
+        PlayBrickSound(brickFallSound, 1f);
     }
 
     private static float ClipLength(AudioClip clip)
@@ -185,6 +164,10 @@ public class LHClimbScript : MonoBehaviour
 
             bool onThisScreen = t.name.StartsWith(screen) && !closeUp;
 
+            // Either view of floor 3 can lead up to the brick. Use one step only when it will fall.
+            if (t.name == "up3_UpArrow" || t.name == "down3_UpArrow")
+                UpdateBrickFootstepSound(t.GetComponent<InteractableObject>(), onThisScreen);
+
             // Only one brick shows at a time. The outline is a child of the loose one and
             // follows it, so it needs no case of its own.
             if (t.name.EndsWith("_BrickInWall"))
@@ -197,6 +180,28 @@ public class LHClimbScript : MonoBehaviour
             else
                 t.gameObject.SetActive(onThisScreen);
         }
+    }
+
+    private void UpdateBrickFootstepSound(InteractableObject arrow, bool onThisScreen)
+    {
+#if UNITY_EDITOR
+        // Scene previews must keep the saved default sounds intact.
+        if (!Application.isPlaying)
+            return;
+#endif
+        if (arrow == null)
+            return;
+
+        if (!defaultFootstepSounds.TryGetValue(arrow, out AudioClip defaultSound))
+        {
+            defaultSound = arrow.clickSound;
+            defaultFootstepSounds.Add(arrow, defaultSound);
+        }
+
+        arrow.clickSound = brickFootstepSound != null && LighthouseBrick.WillFallOnArrival(LighthouseBrick.Floor, true)
+            ? brickFootstepSound : defaultSound;
+        if (onThisScreen)
+            activeFootstepsSound = arrow.clickSound;
     }
 
     private bool BrickInWall()

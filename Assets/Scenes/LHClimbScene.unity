@@ -2168,7 +2168,7 @@ MonoBehaviour:
   - {fileID: -2987189504308844693, guid: dfffc5211f59a704ea28502f0e45ca51, type: 3}
   brickFallSound: {fileID: 8300000, guid: 39dced29b26b90b4a8c7ad8d5765213a, type: 3}
   brickPlaceSound: {fileID: 8300000, guid: e124ad3d06118eb47ba9acfd98f2d32e, type: 3}
-  footstepsSound: {fileID: 8300000, guid: e0469ea1cef8ba349b026aab2cb97765, type: 3}
+  brickFootstepSound: {fileID: 8300000, guid: 6d577aa1a31045198209b6521c9a0f05, type: 3}
   scissorsCloseUp: {fileID: 2100030}
   previewFloor: 1
   previewGoingUp: 0
