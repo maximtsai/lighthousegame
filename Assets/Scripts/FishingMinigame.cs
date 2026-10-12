@@ -768,28 +768,8 @@ public class FishingMinigame : MonoBehaviour
 
     private IEnumerator SanityPopupRoutine(string text, Color color, RectTransform anchor)
     {
-        sanityPopup.gameObject.SetActive(true);
-        sanityPopup.text = text;
-        color.a = 1f;
-        sanityPopup.color = color;
-
-        RectTransform rt = sanityPopup.rectTransform;
-        Vector3 basePos = anchor != null ? anchor.position : rt.position;
-        Vector3 start = basePos + new Vector3(0f, popupYOffset, 0f);
-        Vector3 end = start + new Vector3(0f, popupRise, 0f);
-
-        float elapsed = 0f;
-        while (elapsed < popupDuration)
-        {
-            elapsed += Time.deltaTime;
-            float t = elapsed / popupDuration;
-            rt.position = Vector3.Lerp(start, end, t);
-            color.a = Mathf.Lerp(1f, 0f, t);
-            sanityPopup.color = color;
-            yield return null;
-        }
-
-        sanityPopup.gameObject.SetActive(false);
+        yield return SanityPopupAnimation.Play(sanityPopup, text, color, anchor,
+            popupYOffset, popupRise, popupDuration);
         popupRoutine = null;
     }
 

@@ -53,6 +53,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CalendarScene.unity
     guid: 9fdede346bb0b1545920d3fabe524485
+  - enabled: 1
+    path: Assets/Scenes/FlowerScene.unity
+    guid: ef5870756487c9f488df211d6cfa81fa
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
