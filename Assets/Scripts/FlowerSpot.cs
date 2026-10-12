@@ -12,11 +12,18 @@ public class FlowerSpot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     [SerializeField] private bool healthy;
     [SerializeField, Range(1, 2)] private int flowerCount = 1;
 
-    public Sprite PickedSprite => pickedSprite;
-    public Vector2 InspectionSize => inspectionSize;
-    public Vector2 InspectionPosition => inspectionPosition;
-    public bool Healthy => healthy;
+    private FlowerSpot revealSource;
+    public Sprite PickedSprite => revealSource != null ? revealSource.pickedSprite : pickedSprite;
+    public Vector2 InspectionSize => revealSource != null ? revealSource.inspectionSize : inspectionSize;
+    public Vector2 InspectionPosition => revealSource != null ? revealSource.inspectionPosition : inspectionPosition;
+    public bool Healthy => revealSource != null ? revealSource.healthy : healthy;
     public int FlowerCount => flowerCount;
+
+    internal void SetRevealSource(FlowerSpot source)
+    {
+        // Only the inspection result moves; the saved background art and hit area stay put.
+        revealSource = flowerCount == 1 && source.flowerCount == 1 ? source : null;
+    }
 
     public void Pick()
     {

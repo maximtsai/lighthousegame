@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -8,8 +9,9 @@ using UnityEngine.UI;
 
 public class FlowerMinigame : MonoBehaviour
 {
-    public const string ResolvedKey = "flowers_day5_resolved";
-    public const string KeptKey = "flowers_day5_kept";
+    private static string DayKey => $"flowers_day{GameState.Get<int>("day", 1)}";
+    public static string ResolvedKey => DayKey + "_resolved";
+    public static string KeptKey => DayKey + "_kept";
     public const string CompleteKey = "gathered_flowers";
 
     [Header("Saved scene objects")]
@@ -54,7 +56,40 @@ public class FlowerMinigame : MonoBehaviour
         GameState.Set("minigame_open", true);
         inspectionPanel.SetActive(false);
         feedbackLabel.gameObject.SetActive(false);
+        AssignDailyFlowers();
         RefreshField();
+    }
+
+    private void AssignDailyFlowers()
+    {
+        var singles = new List<int>();
+        for (int i = 0; i < flowers.Length; i++)
+            if (flowers[i].FlowerCount == 1) singles.Add(i);
+
+        string key = DayKey + "_layout";
+        string saved = GameState.Get<string>(key, "");
+        string[] entries = saved.Split(',');
+        int[] order = singles.ToArray();
+        var seen = new HashSet<int>();
+        bool valid = entries.Length == order.Length;
+        for (int i = 0; valid && i < order.Length; i++)
+            valid = int.TryParse(entries[i], out order[i]) && singles.Contains(order[i]) && seen.Add(order[i]);
+
+        if (!valid)
+        {
+            order = singles.ToArray();
+            // Retain authored results for an older, partially completed Day 5 save.
+            if (GameState.Get<int>(ResolvedKey) == 0)
+                for (int i = order.Length - 1; i > 0; i--)
+                {
+                    int j = UnityEngine.Random.Range(0, i + 1);
+                    (order[i], order[j]) = (order[j], order[i]);
+                }
+            GameState.Set(key, string.Join(",", order));
+        }
+
+        for (int i = 0; i < singles.Count; i++)
+            flowers[singles[i]].SetRevealSource(flowers[order[i]]);
     }
 
     private void Update()
@@ -185,7 +220,7 @@ public class FlowerMinigame : MonoBehaviour
         }
         progressLabel.text = $"{sorted} / {flowers.Length} picked";
         complete = flowers.Length > 0 && sorted == flowers.Length;
-        if (complete) GameState.Set(CompleteKey, true);
+        GameState.Set(CompleteKey, complete);
     }
 
     private static void ClearSelection()
