@@ -68,13 +68,14 @@ public class MouseCameraPan : MonoBehaviour
 			return;
 		}
 
-		if (GameState.Get<bool>("dialogue_is_open") || GameState.Get<bool>("minigame_open") || GameState.Get<bool>("is_recording_weather"))
+		// Check pause first so it wins over the dialogue/minigame slowdown
+		if (GameState.Get<bool>("pause_open"))
+		{
+			shiftRatio = 0;
+		} else if (GameState.Get<bool>("dialogue_is_open") || GameState.Get<bool>("minigame_open") || GameState.Get<bool>("is_recording_weather"))
 		{
 			// Make scrolling much slower when dialog open
 			shiftRatio *= 0.25f;
-		} else if (GameState.Get<bool>("pause_open"))
-		{
-			shiftRatio = 0;
 		}
 
 		

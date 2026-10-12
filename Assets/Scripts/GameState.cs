@@ -21,8 +21,6 @@ public static class GameState
         data["hungry"] = true;
         data["intro_played"] = false;
         data["hand_cleaned"] = false;
-        data["handScratchCounter"] = 0;
-        data["handIgnoreCounter"] = 0;
         data["handInfested"] = false;
         data["scissorsDrop"] = false;
         data["scissors_found"] = false;
@@ -131,8 +129,6 @@ public static class GameState
         Set("grave_inspected", false);
         Set("hand_cut", false);
         Set("hand_cleaned", false);
-        Set("handScratchCounter", 0);
-        Set("handIgnoreCounter", 0);
         Set("handInfested", false);
         Set("scissorsDrop", false);
         Set("scissors_found", false);
@@ -200,8 +196,8 @@ public static class GameState
             Set("hand_cut", true);
         }
 
-        // Day 4 onward the wound has festered, and pus starts oozing at breakfast
-        Set("hand_oozing", false);
+        // Day 4 onward the wound has festered, and pus starts oozing at Day 4 breakfast (then stays)
+        Set("hand_oozing", day >= 5);
         if (day >= 4)
         {
             Set("handInfested", true);

@@ -24,7 +24,8 @@ public class AudioManager : MonoBehaviour
             return instance;
         }
     }
-    public AudioSource AudioSource => audioSource;
+    // Fetched lazily in case another script's Awake asks for it before ours has run
+    public AudioSource AudioSource => audioSource != null ? audioSource : (audioSource = GetComponent<AudioSource>());
     
     void Awake()
     {
@@ -34,7 +35,8 @@ public class AudioManager : MonoBehaviour
             transform.position = mainCamera.transform.position;
         }
         
-        if (instance == null)
+        // Instance may already point at us if another script's Awake ran first and found us
+        if (instance == null || instance == this)
         {
             instance = this;
             audioSource = GetComponent<AudioSource>();

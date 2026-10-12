@@ -250,11 +250,16 @@ public class MiscObjectClick : MonoBehaviour
         int newDay = GameState.Get<int>("day") + 1;
         GameState.Set<int>("day", newDay);
 
-        if (newDay == 4)
+        Action startNewDay = () =>
         {
             GameState.StartNewDay();
-            SaveManager.Save();
+            SaveManager.Save(); // Save progress at the start of the new day
             SceneManager.LoadScene(GameConsts.BEDROOMSCENE);
+        };
+
+        if (newDay == 4)
+        {
+            startNewDay();
             return;
         }
 
@@ -271,12 +276,12 @@ public class MiscObjectClick : MonoBehaviour
                 cutsceneToPlay = "Day2";
                 break;
         }
-        MessageBus.Instance.Publish("PlayCutscene", cutsceneToPlay, true, (Action)(() =>
+        // The day has already been bumped, so if the cutscene can't play (no CutsceneManager in
+        // this play session, or one already running) go straight to the new day instead of hanging.
+        if (CutsceneManager.Instance == null || !CutsceneManager.Instance.PlayCutscene(cutsceneToPlay, true, startNewDay, true))
         {
-            GameState.StartNewDay();
-            SaveManager.Save(); // Save progress at the start of the new day
-            SceneManager.LoadScene(GameConsts.BEDROOMSCENE);
-        }), true);
+            startNewDay();
+        }
         
     }
     
@@ -360,6 +365,11 @@ public class MiscObjectClick : MonoBehaviour
         MessageBus.Instance.Publish("PlaySound", "wood_creak");
         if (GameState.Get<bool>("is_nighttime")) {
             DialogueManager.ShowDialogue(getDialogue("dock/dark_dock"));
+        } else if (GameState.Get<int>("day") >= 4) {
+            // The supply ship has wrecked by Day 4
+            DialogueManager.ShowDialogueFromText(new string[] { "No more ships are coming." });
+        } else if (GameState.Get<int>("day") == 3) {
+            DialogueManager.ShowDialogueFromText(new string[] { "Still no boats." });
         } else {
             DialogueManager.ShowDialogue(getDialogue("dock/empty_dock"));
         }

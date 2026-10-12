@@ -67,6 +67,13 @@ public class Navigation : MonoBehaviour
             return;
         }
         
+        // Days 1-3: no heading back in until the lighthouse is fixed
+        if (GameState.Get<int>("day") <= 3 && !GameState.Get<bool>("lighthouse_fixed"))
+        {
+            DialogueManager.ShowDialogueFromText(new string[] { "I should finish my work first." });
+            return;
+        }
+
         if (GameState.Get<bool>("lighthouse_fixed") && !GameState.Get<bool>("gathered_fish"))
         {
             if (GameState.Get<int>("day") == 2)
@@ -333,9 +340,18 @@ public class Navigation : MonoBehaviour
     
     public void GoToOutdoors(SceneTransition transition)
     {
+        // Day 2: after dinner, the hand needs seeing to at the sink before anything else (checked ahead of
+        // ready_to_sleep, which the stove already sets at Day 2 dinner)
+        if (GameState.Get<int>("day") == 2 && GameState.Get<bool>("ate_dinner") && GameState.Get<bool>("hand_cut") && !GameState.Get<bool>("hand_cleaned"))
+        {
+            DialogueManager.ShowDialogueFromText(new string[] { "I should take care of my hand first." });
+            return;
+        }
+
         if (GameState.Get<bool>("ready_to_sleep", false))
         {
-            DialogueManager.ShowDialogue(getDialog("kitchen/time_for_bed"));
+            DialogueManager.ShowDialogue(getDialog("time_for_bed"));
+            return;
         } else if (!GameState.Get<bool>("ate_breakfast"))
         {
             if (GameState.Get<bool>("corn_clicked"))
@@ -346,6 +362,13 @@ public class Navigation : MonoBehaviour
             {
                 DialogueManager.ShowDialogue(getDialog("kitchen/hungry"));
             }
+            return;
+        }
+
+        // Day 1: after dinner, Camborne at the table comes next
+        if (GameState.Get<int>("day") == 1 && GameState.Get<bool>("ate_dinner") && !GameState.Get<bool>("has_buried", false))
+        {
+            DialogueManager.ShowDialogueFromText(new string[] { "Camborne still hasn't woken up." });
             return;
         }
 
@@ -372,7 +395,7 @@ public class Navigation : MonoBehaviour
     
     public void GoToUpstairs(SceneTransition transition)
     {
-        if (GameState.Get<int>("day") == 1 && GameState.Get<bool>("ate_breakfast") && !GameState.Get<bool>("lighthouse_fixed"))
+        if (GameState.Get<int>("day") <= 3 && GameState.Get<bool>("ate_breakfast") && !GameState.Get<bool>("lighthouse_fixed"))
         {
             DialogueManager.ShowDialogueFromText(new string[] { "It's time for work now." });
             return;

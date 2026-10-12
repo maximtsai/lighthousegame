@@ -55,7 +55,15 @@ public class SinkScript : MonoBehaviour
             {
                 MessageBus.Instance.Publish("FloatText", 0, -1.1f, "+SANITY", "green");
                 MessageBus.Instance.Publish("PlusSanity", 1);
-                DialogueManager.ShowDialogue(miscObjectClick.getDialogue("sink/sink_wash_up"));
+                Dialogue d = miscObjectClick.getDialogue("sink/sink_wash_up");
+                // The hand only gets bandaged at this sink on Day 2, so swap out the bandage line before then.
+                bool bandaged = GameState.Get<bool>("hand_cut") && (GameState.Get<bool>("hand_cleaned") || day >= 3);
+                if (!bandaged)
+                {
+                    d = Instantiate(d);
+                    d.text = new List<string> { d.text[0], "You are now less dirty." };
+                }
+                DialogueManager.ShowDialogue(d);
             }
             return;
         }
@@ -120,7 +128,7 @@ public class SinkScript : MonoBehaviour
     private void CompleteHandClean()
     {
         GameState.Set("hand_cleaned", true);
-        MessageBus.Instance.Publish("RemoveTaskString", "generic/task_wash_hand");
+        MessageBus.Instance.Publish("CompleteTask", "task_wash_hand");
 
         if (bandageSound != null)
         {

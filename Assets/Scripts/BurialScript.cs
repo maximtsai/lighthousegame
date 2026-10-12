@@ -189,7 +189,7 @@ public class BurialScript : MonoBehaviour
                             GameState.Set("hand_cut", true);
                             MessageBus.Instance.Publish("FloatText", 0f, 0.3f, "-SANITY", "purple");
                             MessageBus.Instance.Publish("PlusSanity", -1);
-                            MessageBus.Instance.Publish("AddTaskString", "generic/task_wash_hand");
+                            MessageBus.Instance.Publish("AddTaskStringImportant", "generic/task_wash_hand");
                             MessageBus.Instance.Publish("CompleteTask", "generic/fix_grave");
                             if (handBleed != null)
                             {

@@ -17,7 +17,11 @@ public class LHFloorScript : MonoBehaviour
         // Update track 1
         UpdateTrack(ambience, bgLoop1, 0.5f, 1);
         // Update track 2
-        UpdateTrack(ambience, bgLoop2, 0.23f, 2);
+        // Keep the storm's indoor rain on channel 2 instead of the usual loop
+        if (GameState.Get<bool>("thunderstorm", false) && ambience != null)
+            ambience.CheckAndApplyRainIndoors();
+        else
+            UpdateTrack(ambience, bgLoop2, 0.23f, 2);
         if (GameState.Get<bool>("lighthouse_fixed"))
         {
             StartCoroutine(PlaySoundDelayedRoutine(finishLoop, 0.2f, true, 0.01f));

@@ -38,7 +38,11 @@ public class TableMiscLogic : MonoBehaviour
         // Update track 1
         UpdateTrack(ambience, bgLoop1, 0.6f, 1);
         // Update track 2
-        UpdateTrack(ambience, bgLoop2, 0.2f, 2);
+        // Keep the storm's indoor rain on channel 2 instead of the usual loop
+        if (GameState.Get<bool>("thunderstorm", false) && ambience != null)
+            ambience.CheckAndApplyRainIndoors();
+        else
+            UpdateTrack(ambience, bgLoop2, 0.2f, 2);
         MessageBus.Instance.Publish("HideTask");
         sr_fried = background_fried.GetComponent<SpriteRenderer>();
 

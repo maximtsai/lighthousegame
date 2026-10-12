@@ -70,6 +70,12 @@ public class LHMinigame : MonoBehaviour
             scissorsRenderer.color = new Color(0.4f, 0.4f, 0.4f, 1f); // Make it appear used
         }
 
+        // Day 3: the scissors stay gone from the light room until they're pulled out of the wall.
+        if (LighthouseScissors.Stuck && scissorsRenderer != null)
+        {
+            scissorsRenderer.gameObject.SetActive(false);
+        }
+
     }
 
 	private IEnumerator PlaySoundDelayedRoutine(AudioClip sfx, float volume, bool loop, float delay)
@@ -162,6 +168,7 @@ public class LHMinigame : MonoBehaviour
     public void ClickScissors()
     {
         if (GameState.Get<bool>("navigationBlocked", false)) return;
+        if (LighthouseScissors.Stuck) return;
 
         if (!GameState.Get<bool>("lighthouse_opened"))
         {

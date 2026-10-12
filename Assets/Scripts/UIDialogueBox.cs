@@ -22,6 +22,7 @@ public class UIDialogueBox : MonoBehaviour
     private AudioSource audioSrc;
     private Coroutine typingCoroutine;
     private Coroutine autoAdvanceCoroutine;
+    private bool showedChoices = false;
 
     public void Start()
     {
@@ -139,8 +140,16 @@ public class UIDialogueBox : MonoBehaviour
 
     public void OnDestroy()
     {
-        GameState.Set("picking_choice", false);
-        GameState.Set("dialogue_is_open", false);
+        // Destroy lands at end of frame, after any dialogue or choice our callbacks opened,
+        // so only clear the flags that are still ours.
+        if (showedChoices)
+        {
+            GameState.Set("picking_choice", false);
+        }
+        if (DialogueManager.ReleaseBox(gameObject))
+        {
+            GameState.Set("dialogue_is_open", false);
+        }
     }
     public void SetDialogue(Dialogue d)
     {
@@ -291,6 +300,7 @@ public class UIDialogueBox : MonoBehaviour
 
     private void ShowDialogChoices()
     {
+        showedChoices = true;
         GameState.Set("picking_choice", true);
         button0.gameObject.SetActive(true);
         button0.GetComponentInChildren<TMP_Text>().text = dialogue.choices[0];
@@ -302,6 +312,7 @@ public class UIDialogueBox : MonoBehaviour
 
     private void ShowSingleChoice()
     {
+        showedChoices = true;
         GameState.Set("picking_choice", true);
         button0.gameObject.SetActive(true);
         button0.GetComponentInChildren<TMP_Text>().text = dialogue.choices[0];

@@ -56,12 +56,14 @@ public class BedroomMiscLogic : MonoBehaviour
             case 1:
                 MessageBus.Instance.Publish("AddTaskString", "generic/task_wash_up");
                 MessageBus.Instance.Publish("AddTaskString", "generic/task_breakfast");
+                MessageBus.Instance.Publish("AddTaskString", "generic/task_weather");
                 MessageBus.Instance.Publish("AddTaskString", "generic/task_lighthouse");
                 MessageBus.Instance.Publish("AddTaskString", "generic/task_fish");
                 MessageBus.Instance.Publish("AddTaskString", "generic/task_dinner");
                 break;
             case 2:
                 MessageBus.Instance.Publish("AddTaskString", "generic/task_breakfast");
+                MessageBus.Instance.Publish("AddTaskString", "generic/task_weather");
                 MessageBus.Instance.Publish("AddTaskString", "generic/task_work");
                 MessageBus.Instance.Publish("AddTaskString", "generic/task_fish");
                 MessageBus.Instance.Publish("AddTaskString", "generic/task_dinner");
@@ -138,24 +140,11 @@ public class BedroomMiscLogic : MonoBehaviour
         UnityEngine.Events.UnityEvent scratchEvent = new UnityEngine.Events.UnityEvent();
         scratchEvent.AddListener(() =>
         {
-            int scratchCount = GameState.Increment("handScratchCounter");
+            // This choice only comes up once (Day 3 morning); Day 4's scratching goes through HandScratch.
             handlogic hand = FindFirstObjectByType<handlogic>(FindObjectsInactive.Include);
             if (hand != null)
             {
-                if (scratchCount > 2 && !GameState.Get<bool>("handInfested"))
-                {
-                    GameState.Set("handInfested", true);
-                    hand.ScratchInterrupted();
-                }
-                else if (scratchCount > 2 && GameState.Get<bool>("handInfested"))
-                {
-                    hand.Scratch();
-                    MessageBus.Instance.Publish("PlusSanity", -1);
-                }
-                else
-                {
-                    hand.Scratch();
-                }
+                hand.Scratch();
             }
             MessageBus.Instance.Publish("CompleteTask", "task_wash_hand");
         });
@@ -163,16 +152,8 @@ public class BedroomMiscLogic : MonoBehaviour
         UnityEngine.Events.UnityEvent leaveEvent = new UnityEngine.Events.UnityEvent();
         leaveEvent.AddListener(() =>
         {
-            int ignoreCount = GameState.Increment("handIgnoreCounter");
-            if (ignoreCount >= 3)
-            {
-                DialogueManager.ShowDialogueFromText(new string[] { "You are getting used to the discomfort." });
-            }
-            else
-            {
-                DialogueManager.ShowDialogueFromText(new string[] { "You endure the intense itchiness." });
-                MessageBus.Instance.Publish("PlusSanity", -1);
-            }
+            DialogueManager.ShowDialogueFromText(new string[] { "You endure the intense itchiness." });
+            MessageBus.Instance.Publish("PlusSanity", -1);
             MessageBus.Instance.Publish("CompleteTask", "task_wash_hand");
         });
 

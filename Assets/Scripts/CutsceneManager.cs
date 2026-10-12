@@ -26,6 +26,8 @@ public class CutsceneManager : Singleton<CutsceneManager>
     private float doubleClickTimeout = 4f;
     private Coroutine resetClickRoutine;
     private System.Action cutsceneOnComplete;
+    // Set once onComplete has run, so a late skip click can't run it (and e.g. start the next day) twice.
+    private bool cutsceneCompleted = false;
     private bool postSceneSwapCleanup = false;
     private bool skipFirstClickBlockerClick = true;
     private bool createdOnSceneLoaded = false;
@@ -198,19 +200,22 @@ public class CutsceneManager : Singleton<CutsceneManager>
     // ---------------------------------------------------------
     // Play cutscene
     // ---------------------------------------------------------
-    public void PlayCutscene(string cutsceneName, bool skipFadeout = false, System.Action onComplete = null, bool switchesScenes = false)
+    // Returns false if the cutscene didn't start, in which case onComplete will never run.
+    public bool PlayCutscene(string cutsceneName, bool skipFadeout = false, System.Action onComplete = null, bool switchesScenes = false)
     {
-        if (isPlaying) return;
+        if (isPlaying) return false;
         Cutscene cutscene = getCutsceneScriptable(cutsceneName);
 
         if (cutscene == null)
         {
             Debug.LogError($"Cutscene '{cutsceneName}' not found! Make sure it’s in a Resources folder.");
-            return;
+            return false;
         }
 
         cutsceneOnComplete = onComplete;
+        cutsceneCompleted = false;
         StartCoroutine(PlayCutsceneRoutine(cutscene, skipFadeout, onComplete, switchesScenes));
+        return true;
     }
 
     private IEnumerator PlayCutsceneRoutine(Cutscene cutscene, bool skipFadeout, System.Action onComplete, bool switchesScenes)
@@ -276,12 +281,12 @@ public class CutsceneManager : Singleton<CutsceneManager>
 
         if (switchesScenes)
         {
-            cutsceneOnComplete?.Invoke();
+            CompleteCutscene();
             postSceneSwapCleanup = true;
         }
         else
         {
-            cutsceneOnComplete?.Invoke();
+            CompleteCutscene();
             // Optional fade back to transparent
             if (skipFadeout)
             {
@@ -336,7 +341,7 @@ public class CutsceneManager : Singleton<CutsceneManager>
 
     private void SkipCutscene()
     {
-        if (!isPlaying) return;
+        if (!isPlaying || cutsceneCompleted) return;
 
         StopAllCoroutines();
         StartCoroutine(SkipCutsceneRoutine());
@@ -352,13 +357,22 @@ public class CutsceneManager : Singleton<CutsceneManager>
         {
             AudioManager.Instance.AudioSource.Stop();
         }
-        cutsceneOnComplete?.Invoke();
+        CompleteCutscene();
         yield return new WaitForSeconds(0.02f);
 
         CleanUp();
 
     }
 
+
+    private void CompleteCutscene()
+    {
+        if (cutsceneCompleted) return;
+        cutsceneCompleted = true;
+        System.Action onComplete = cutsceneOnComplete;
+        cutsceneOnComplete = null;
+        onComplete?.Invoke();
+    }
 
     private void PreCleanUp()
     {

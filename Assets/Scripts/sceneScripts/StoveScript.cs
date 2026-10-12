@@ -293,6 +293,7 @@ public class StoveScript : MonoBehaviour
             MessageBus.Instance.Publish("PlusSanity", 1);
 
             bool isBreakfast = !GameState.Get<bool>("ate_breakfast");
+            bool ateFish = !isBreakfast && GameState.Get<bool>("fish_clicked");
             if (!isBreakfast)
             {
                 MessageBus.Instance.Publish("CompleteTask", "task_dinner");
@@ -327,6 +328,10 @@ public class StoveScript : MonoBehaviour
                     HandScratch.Prompt("Pus is oozing out of your hand. Scratch?");
                 });
                 DialogueManager.ShowDialogue(eating);
+            }
+            else if (ateFish)
+            {
+                DialogueManager.ShowDialogueFromText(new string[] { "Corn chowder with fish tonight." });
             }
             else
             {

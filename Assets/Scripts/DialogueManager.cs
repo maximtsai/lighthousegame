@@ -82,6 +82,18 @@ public class DialogueManager : MonoBehaviour
         GameState.Set("dialogue_is_open", false);
         Debug.Log("dialogue closed");
     }
+    // Called by a box as it's destroyed. Returns false when a newer box has already replaced it,
+    // so the old box's late OnDestroy doesn't mark the new dialogue as closed.
+    public static bool ReleaseBox(GameObject box)
+    {
+        if (activeDialogueBox == box)
+        {
+            activeDialogueBox = null;
+            return true;
+        }
+        return activeDialogueBox == null;
+    }
+
     public static bool DialogueIsOpen()
     {
         return GameState.Get<bool>("dialogue_is_open", false);

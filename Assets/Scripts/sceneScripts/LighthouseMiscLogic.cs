@@ -11,7 +11,11 @@ public class LighthouseMiscLogic : MonoBehaviour
         // Update track 1
         UpdateTrack(ambience, bgLoop1, 0.3f, 1);
         // Update track 2
-        UpdateTrack(ambience, bgLoop2, 0.17f, 2);
+        // Keep the storm's indoor rain on channel 2 instead of the usual loop
+        if (GameState.Get<bool>("thunderstorm", false) && ambience != null)
+            ambience.CheckAndApplyRainIndoors();
+        else
+            UpdateTrack(ambience, bgLoop2, 0.17f, 2);
 
         // Day 3: back upstairs with the scissors pulled out of the wall, so the lighthouse
         // can be fixed now.
