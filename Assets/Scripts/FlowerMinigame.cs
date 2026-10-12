@@ -138,7 +138,12 @@ public class FlowerMinigame : MonoBehaviour
 
         int sanity = ChoiceSanity(current.Healthy, keep);
         if (sanity != 0)
-            MessageBus.Instance.Publish("PlusSanity", sanity);
+        {
+            // Apply normal scoring, but play this minigame's sanity feedback at half volume.
+            MessageBus.Instance.Publish("PlusSanity", sanity, true);
+            AudioManager.Instance.PlaySoundWithRandomPitch(
+                sanity > 0 ? "sanity_gain" : "sanity_loss", 1f, 1f, 0.5f);
+        }
         AudioClip sound = keep ? keepSound : discardSound;
         if (sound != null) choiceAudio.PlayOneShot(sound);
         StartCoroutine(FinishChoice(sanity, (RectTransform)(keep ? keepButton : discardButton).transform));
