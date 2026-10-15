@@ -13,6 +13,10 @@ public class Day4Beach : MonoBehaviour
     public const int BodyCount = 4;
     public const string SurveyedKey = "day4_beach_surveyed";
     public const string BuriedKey = "day4_bodies_buried";
+    // The fifth body at the dock is the mermaid. She's alive, and she goes to Camborne's bed.
+    public const string MermaidRescuedKey = "day4_mermaid_rescued";
+    public const string MermaidInBedKey = "day4_mermaid_in_bed";
+    public const string MermaidTreatedKey = "mermaid_treated";
 
     // Placeholder pile, until there's washed-up wreckage art: some of the fishing junk, shrunk
     // down and scattered on the shore.
@@ -33,17 +37,27 @@ public class Day4Beach : MonoBehaviour
     public static bool IsToday => GameState.Get<int>("day") == Day;
     public static int Buried => GameState.Get<int>(BuriedKey, 0);
     public static bool Surveyed => GameState.Get<bool>(SurveyedKey, false);
+    public static bool MermaidRescued => GameState.Get<bool>(MermaidRescuedKey, false);
+
+    // Tending to her replaces the lighthouse on Day 4, so it counts as the day's work being done
+    // (the fish traps wait on that).
+    public static bool WorkDone =>
+        GameState.Get<bool>("lighthouse_fixed", false)
+        || (IsToday && GameState.Get<bool>(MermaidTreatedKey, false));
 
     private static bool WreckageWashedUp => IsToday && GameState.Get<bool>("recorded_weather", false);
 
-    // Home and the lighthouse wait until the shore's been seen to and the bodies are buried.
-    public static bool BlocksHeadingIn => WreckageWashedUp && Buried < BodyCount;
+    // Home and the lighthouse wait until the shore's been seen to, the bodies are buried and
+    // she's been brought in.
+    public static bool BlocksHeadingIn => WreckageWashedUp && (Buried < BodyCount || !MermaidRescued);
 
     // The dock waits until the shore's been seen to.
     public static bool BlocksPier => WreckageWashedUp && !Surveyed;
 
     public static string BlockedLine =>
-        Surveyed ? "There are still bodies in the water." : "Something's washed up on the shore.";
+        !Surveyed ? "Something's washed up on the shore."
+        : Buried < BodyCount ? "There are still bodies in the water."
+        : "There's still someone in the water.";
 
     public void Init(Sprite[] pileSprites)
     {

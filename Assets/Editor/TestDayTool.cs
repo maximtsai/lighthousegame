@@ -4,7 +4,7 @@ using UnityEngine;
 
 /// <summary>
 /// Edit Mode tool: pick which day GameState should use when you enter Play Mode.
-/// For testing day-gated content (treasures, etc.) through day 5.
+/// For testing day-gated content (treasures, etc.) through day 7.
 /// Menu: Tools / Lighthouse / Test Day
 /// </summary>
 public static class TestDayTool
@@ -50,6 +50,18 @@ public static class TestDayTool
 
     [MenuItem("Tools/Lighthouse/Test Day/Day 5", true)]
     public static bool SetDay5Validate() => ValidateDayItem(5);
+
+    [MenuItem("Tools/Lighthouse/Test Day/Day 6", false, 25)]
+    public static void SetDay6() => SetDay(6);
+
+    [MenuItem("Tools/Lighthouse/Test Day/Day 6", true)]
+    public static bool SetDay6Validate() => ValidateDayItem(6);
+
+    [MenuItem("Tools/Lighthouse/Test Day/Day 7", false, 26)]
+    public static void SetDay7() => SetDay(7);
+
+    [MenuItem("Tools/Lighthouse/Test Day/Day 7", true)]
+    public static bool SetDay7Validate() => ValidateDayItem(7);
 
     private static bool ValidateDayItem(int day)
     {

@@ -21,6 +21,9 @@ public class FishingMinigame : MonoBehaviour
         public Sprite hoverOutlineSprite;
         [Tooltip("UI scale for this catch (1 = normal). Use 2 for small items like Lone Worm.")]
         public float displayScale = 1f;
+        [Tooltip("Only comes up in the opening pass, not in the random loop after, e.g. the Day 4 " +
+                 "pocket watch and crucifix that only turn up once.")]
+        public bool openingOnly;
 
         public bool IsTwoFrame => revealSprite != null;
     }
@@ -203,7 +206,7 @@ public class FishingMinigame : MonoBehaviour
                 return;
             }
 
-            if (!GameState.Get<bool>("lighthouse_fixed", false))
+            if (!Day4Beach.WorkDone)
             {
                 DialogueManager.ShowDialogue(miscObjectClick.getDialogue("dock/gather_fish_not_yet"));
                 return;
@@ -275,7 +278,11 @@ public class FishingMinigame : MonoBehaviour
         if (activeItems == null || activeItems.Count == 0)
             return;
 
-        playBag.AddRange(activeItems);
+        foreach (CatchItem item in activeItems)
+        {
+            if (item != null && !item.openingOnly)
+                playBag.Add(item);
+        }
         for (int i = playBag.Count - 1; i > 0; i--)
         {
             int j = Random.Range(0, i + 1);

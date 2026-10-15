@@ -10,22 +10,9 @@ public static class GameState
     static GameState()
     {
         data = new Dictionary<string, object>();
-        // We can write whatever else code below to initialize data
-        data["day"] = 2;
-        data["lighthouse_fixed"] = false;
-        data["dropped_tool"] = false;
-        data["gathered_fish"] = false;
-        data["recorded_weather"] = false;
-        data["ate_breakfast"] = false;
-        data["ate_dinner"] = false;
-        data["hungry"] = true;
-        data["intro_played"] = false;
-        data["hand_cleaned"] = false;
-        data["handInfested"] = false;
-        data["scissorsDrop"] = false;
-        data["scissors_found"] = false;
-        data["lighthouseFixForgotten"] = false;
-        data["ScissorsDisappeared"] = false;
+        // Start from the same state as New Game, so pressing Play in any scene (not just
+        // MainScene) gives a clean Day 1 instead of a half-set-up day.
+        FullReset();
     }
 
 

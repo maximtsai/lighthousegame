@@ -489,6 +489,20 @@ MonoBehaviour:
       isGoodFish: 0
       hoverOutlineSprite: {fileID: 0}
       displayScale: 1
+    - itemName: Pocket Watch
+      sprite: {fileID: 21300000, guid: adecdeba0279c2e4fb9c817d0732a993, type: 3}
+      revealSprite: {fileID: 0}
+      isGoodFish: 0
+      hoverOutlineSprite: {fileID: 0}
+      displayScale: 1
+      openingOnly: 1
+    - itemName: Crucifix
+      sprite: {fileID: 21300000, guid: 294cfb793ffce2f47b1415e1a94e1378, type: 3}
+      revealSprite: {fileID: 0}
+      isGoodFish: 0
+      hoverOutlineSprite: {fileID: 0}
+      displayScale: 1
+      openingOnly: 1
   - day: 5
     items:
     - itemName: Rotten Seaweed
@@ -2233,6 +2247,7 @@ MonoBehaviour:
   - {fileID: 7168746267440240212, guid: 106295a5d15bb934cb8d7130cdaf3c98, type: 3}
   - {fileID: 525690868507191151, guid: 9acd21b44a008e440971059468ad72fd, type: 3}
   - {fileID: -4194699557831583787, guid: cc23fea38be16cc4fa6979610b2f734e, type: 3}
+  mermaidCarrySprite: {fileID: 3218532058039104415, guid: 07d32a21d6e385e4ba773b37afaca321, type: 3}
   shovelClip: {fileID: 8300000, guid: 71777ad8bd9f8304d84ddd0c44c1cba5, type: 3}
   finishLoop: {fileID: 8300000, guid: 7e192a60ca6c11b4eb9756f7b23daf46, type: 3}
   rainLoop: {fileID: 8300000, guid: fd34f6d11a3987e41a7d965d9d492b69, type: 3}

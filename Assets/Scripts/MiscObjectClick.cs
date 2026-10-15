@@ -30,6 +30,31 @@ public class MiscObjectClick : MonoBehaviour
     }
     public void ClickPartnerBed()
     {
+        // Day 4: she's brought up from the dock and tended to in Camborne's bed
+        if (Day4Beach.IsToday && Day4Beach.MermaidRescued)
+        {
+            if (GameState.Get<bool>(Day4Beach.MermaidTreatedKey, false))
+            {
+                DialogueManager.ShowDialogueFromText(new string[] { "She's resting." });
+                return;
+            }
+
+            if (!GameState.Get<bool>(Day4Beach.MermaidInBedKey, false))
+            {
+                Dialogue layDown = DialogueManager.ShowDialogueFromText(new string[] { "You lay her down in Camborne's bed." });
+                layDown.onDialogueEnd.AddListener(() =>
+                {
+                    GameState.Set(Day4Beach.MermaidInBedKey, true);
+                    MessageBus.Instance.Publish("CompleteTask", "task_mermaid_bed");
+                    Navigation.GoToScene(GameConsts.MERMAIDSCENE);
+                });
+                return;
+            }
+
+            Navigation.GoToScene(GameConsts.MERMAIDSCENE);
+            return;
+        }
+
         if (GameState.Get<int>("day") == 1)
         {
             if (GameState.Get<bool>("ready_to_sleep", false))
@@ -337,7 +362,7 @@ public class MiscObjectClick : MonoBehaviour
         {
         	DialogueManager.ShowDialogue(getDialogue("dock/gather_fish_done"));
 
-		} else if (GameState.Get<bool>("lighthouse_fixed", false) == false)
+		} else if (!Day4Beach.WorkDone)
         {
             DialogueManager.ShowDialogue(getDialogue("dock/gather_fish_not_yet"));
         } else

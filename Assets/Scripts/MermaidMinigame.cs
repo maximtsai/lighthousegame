@@ -110,11 +110,12 @@ public class MermaidMinigame : MonoBehaviour
     {
         GameState.Set("minigame_open", false);
 
-        // Queue every task up front. Only the top one shows, and completing it reveals the next.
-        foreach (Phase phase in phases)
+        // Queue every task up front, ahead of the rest of the day's list. Only the top one shows,
+        // and completing it reveals the next. Added to the front in reverse so they keep their order.
+        for (int i = phases.Count - 1; i >= 0; i--)
         {
-            if (!string.IsNullOrEmpty(phase.taskResource))
-                MessageBus.Instance.Publish("AddTaskString", phase.taskResource);
+            if (!string.IsNullOrEmpty(phases[i].taskResource))
+                MessageBus.Instance.Publish("AddTaskStringImportant", phases[i].taskResource);
         }
 
         if (openingSound != null)
@@ -292,11 +293,25 @@ public class MermaidMinigame : MonoBehaviour
 
         if (openingSource != null && openingSource.loop) StartCoroutine(FadeOut(openingSource, openingFadeOut));
 
+        Dialogue dialogue = null;
         if (!string.IsNullOrEmpty(finishDialogue) && miscObjectClick != null)
         {
-            Dialogue dialogue = miscObjectClick.getDialogue(finishDialogue);
-            if (dialogue != null) DialogueManager.ShowDialogue(dialogue);
+            Dialogue asset = miscObjectClick.getDialogue(finishDialogue);
+            if (asset != null) dialogue = DialogueManager.ShowDialogue(Instantiate(asset));
         }
+        if (dialogue == null)
+        {
+            dialogue = DialogueManager.ShowDialogueFromText(GameState.Get<int>("day", 1) == 4
+                ? new string[] { "That's all I can do for her.", "She needs to eat something." }
+                : new string[] { "That's all I can do for her." });
+        }
+
+        // Day 4: feeding her the dinner comes next (see StoveScript)
+        if (GameState.Get<int>("day", 1) == 4)
+            MessageBus.Instance.Publish("AddTaskBefore", "generic/task_feed_her", "task_dinner");
+
+        // The scene has no way out of its own, so head back to the bedroom once she's patched up
+        dialogue.onDialogueEnd.AddListener(() => Navigation.GoToScene(GameConsts.BEDROOMSCENE));
     }
 
     private static IEnumerator FadeOut(AudioSource source, float duration)

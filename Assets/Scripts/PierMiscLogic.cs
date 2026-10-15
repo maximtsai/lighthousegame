@@ -23,6 +23,8 @@ public class PierMiscLogic : MonoBehaviour
     [Header("Day 4 Bodies")]
     // Carrying each of the bodies to the grave, one per body. Also the placeholder floating bodies.
     [SerializeField] private Sprite[] carryBodySprites;
+    // Carrying her inside. Also her placeholder floating sprite, like the bodies.
+    [SerializeField] private Sprite mermaidCarrySprite;
     [SerializeField] private AudioClip shovelClip;
 
     private const string Day3FlashPlayedKey = "day3_pier_flash_played";
@@ -81,7 +83,7 @@ public class PierMiscLogic : MonoBehaviour
         // Day 4: the bodies from the wreck, out in the water
         if (Day4Beach.IsToday)
         {
-            gameObject.AddComponent<Day4Dock>().Init(carryBodySprites, shovelClip, miscObjectClick);
+            gameObject.AddComponent<Day4Dock>().Init(carryBodySprites, mermaidCarrySprite, shovelClip, miscObjectClick);
         }
     }
 

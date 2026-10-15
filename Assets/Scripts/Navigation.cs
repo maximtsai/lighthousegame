@@ -35,6 +35,14 @@ public class Navigation : MonoBehaviour
         SceneManager.LoadScene(GameConsts.BEDROOMSCENE);
     }
 
+    // For code-driven scene changes from scenes that have no Navigation object of their own.
+    public static void GoToScene(string scene)
+    {
+        EnsureInstance();
+        if (Instance != null)
+            Instance.GoToTransition(scene, 0.35f);
+    }
+
     public void GoTo(string scene)
     {
         if (GameState.Get<bool>("task_list_open", false) || GameState.Get<bool>("minigame_open"))

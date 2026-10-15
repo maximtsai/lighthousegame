@@ -5,12 +5,17 @@ using UnityEngine.UI;
 /// <summary>
 /// Day 4 at the dock: the bodies from the wreck are floating in the water. Clicking one carries
 /// it off to the mass grave, with the usual "Scratch?" after. One of them is a bride.
+/// Once they're all buried a fifth turns up: the mermaid. She's breathing, so instead of the
+/// grave she's carried inside to Camborne's bed (see MiscObjectClick.ClickPartnerBed).
 /// </summary>
 public class Day4Dock : MonoBehaviour
 {
     private const string SeenKey = "day4_dock_bodies_seen";
     private const string BodyBuriedKeyPrefix = "day4_body_buried_";
     private const int BrideIndex = 2;
+    // Where she floats once the others are gone.
+    private static readonly Vector3 MermaidPosition = new Vector3(-2.5f, -1.1f, -0.06f);
+    private const int MermaidBobIndex = 4;
 
     // Where each body floats, as the middle of the body itself, clear of the dock and fish trap.
     private static readonly Vector3[] BodyPositions =
@@ -29,6 +34,7 @@ public class Day4Dock : MonoBehaviour
     private const float BobHeight = 0.035f;
 
     private Sprite[] carrySprites;
+    private Sprite mermaidSprite;
     private AudioClip shovelClip;
     private MiscObjectClick miscObjectClick;
 
@@ -37,17 +43,25 @@ public class Day4Dock : MonoBehaviour
     private Image carryImage;
     private bool busy;
 
-    public void Init(Sprite[] carrySprites, AudioClip shovelClip, MiscObjectClick miscObjectClick)
+    public void Init(Sprite[] carrySprites, Sprite mermaidSprite, AudioClip shovelClip, MiscObjectClick miscObjectClick)
     {
         this.carrySprites = carrySprites;
+        this.mermaidSprite = mermaidSprite;
         this.shovelClip = shovelClip;
         this.miscObjectClick = miscObjectClick;
     }
 
     void Start()
     {
-        if (!Day4Beach.Surveyed || Day4Beach.Buried >= Day4Beach.BodyCount)
+        if (!Day4Beach.Surveyed)
             return;
+
+        if (Day4Beach.Buried >= Day4Beach.BodyCount)
+        {
+            if (!Day4Beach.MermaidRescued)
+                SpawnMermaid();
+            return;
+        }
 
         for (int i = 0; i < Day4Beach.BodyCount && i < BodyPositions.Length; i++)
         {
@@ -154,9 +168,76 @@ public class Day4Dock : MonoBehaviour
             if (buried >= Day4Beach.BodyCount)
             {
                 MessageBus.Instance.Publish("CompleteTask", "task_bury_bodies");
-                DialogueManager.ShowDialogueFromText(new string[] { "That's all of them.## All in one grave." });
+                Dialogue done = DialogueManager.ShowDialogueFromText(new string[] { "That's all of them.## All in one grave." });
+                done.onDialogueEnd.AddListener(() =>
+                {
+                    SpawnMermaid();
+                    DialogueManager.ShowDialogueFromText(new string[] { "Wait.## There's one more." });
+                });
             }
         });
+    }
+
+    private void SpawnMermaid()
+    {
+        GameObject body = new GameObject("day4_floating_mermaid");
+        body.transform.SetParent(transform, false);
+        body.transform.position = MermaidPosition - BodyInSprite * BodyScale;
+        body.transform.localScale = Vector3.one * BodyScale;
+
+        SpriteRenderer sr = body.AddComponent<SpriteRenderer>();
+        sr.sprite = mermaidSprite != null ? mermaidSprite : CarrySprite(0);
+
+        BoxCollider2D box = body.AddComponent<BoxCollider2D>();
+        box.size = BodyColliderSize;
+        box.offset = BodyInSprite;
+
+        body.AddComponent<Day4ClickTarget>().onClick = () => OnMermaidClicked(body);
+        StartCoroutine(BobRoutine(body.transform, MermaidBobIndex));
+    }
+
+    private void OnMermaidClicked(GameObject body)
+    {
+        if (busy) return;
+
+        Dialogue d = DialogueManager.ShowDialogueFromText(new string[]
+        {
+            "She's not like the others.",
+            "Her chest.##.##.## it's moving.",
+            "She's alive.## She can be saved."
+        });
+        d.onDialogueEnd.AddListener(() => StartCoroutine(CarryInsideRoutine(body)));
+    }
+
+    // Not to the grave: up to the house, and Camborne's empty bed.
+    private IEnumerator CarryInsideRoutine(GameObject body)
+    {
+        busy = true;
+        GameState.Set("navigationBlocked", true);
+        EnsureOverlay();
+
+        Sprite carry = mermaidSprite != null ? mermaidSprite : CarrySprite(0);
+        carryImage.sprite = carry;
+        carryImage.enabled = carry != null;
+        yield return Fade(carryImage, 0f, 1f, 0.35f);
+
+        yield return null;
+        while (!Input.GetMouseButtonDown(0))
+            yield return null;
+
+        blackImage.enabled = true;
+        yield return Fade(blackImage, 0f, 1f, 0.6f);
+        carryImage.enabled = false;
+        if (body != null) Destroy(body);
+
+        GameState.Set(Day4Beach.MermaidRescuedKey, true);
+        // There are more important things than the lighthouse now
+        MessageBus.Instance.Publish("CompleteTask", "task_work");
+        MessageBus.Instance.Publish("AddTaskStringImportant", "generic/task_mermaid_bed");
+
+        GameState.Set("navigationBlocked", false);
+        busy = false;
+        Navigation.GoToScene(GameConsts.BEDROOMSCENE);
     }
 
     // Rises and falls with the waves, each body out of step with the rest.

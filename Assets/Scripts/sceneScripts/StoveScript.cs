@@ -288,14 +288,24 @@ public class StoveScript : MonoBehaviour
         
         if (IsDoneCooking())
         {
-            PlaySound(eatSound);
-            MessageBus.Instance.Publish("FloatText", 0, -0.4f, "+SANITY", "green");
-            MessageBus.Instance.Publish("PlusSanity", 1);
-
             bool isBreakfast = !GameState.Get<bool>("ate_breakfast");
             bool ateFish = !isBreakfast && GameState.Get<bool>("fish_clicked");
+            // Day 4: the whole pot goes to her, and there's nothing left for him (no sanity from eating)
+            bool feedingHer = !isBreakfast && Day4Beach.IsToday && GameState.Get<bool>(Day4Beach.MermaidTreatedKey, false);
+
+            PlaySound(eatSound);
+            if (!feedingHer)
+            {
+                MessageBus.Instance.Publish("FloatText", 0, -0.4f, "+SANITY", "green");
+                MessageBus.Instance.Publish("PlusSanity", 1);
+            }
+
             if (!isBreakfast)
             {
+                if (feedingHer)
+                {
+                    MessageBus.Instance.Publish("CompleteTask", "task_feed_her");
+                }
                 MessageBus.Instance.Publish("CompleteTask", "task_dinner");
                 GameState.Set("ate_dinner", true);
                 if (GameState.Get<int>("day") >= 2)
@@ -328,6 +338,14 @@ public class StoveScript : MonoBehaviour
                     HandScratch.Prompt("Pus is oozing out of your hand. Scratch?");
                 });
                 DialogueManager.ShowDialogue(eating);
+            }
+            else if (feedingHer)
+            {
+                DialogueManager.ShowDialogueFromText(new string[]
+                {
+                    "You bring the bowl up to her.",
+                    "She manages a few mouthfuls.## There's none left for you."
+                });
             }
             else if (ateFish)
             {
