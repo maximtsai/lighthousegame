@@ -425,6 +425,12 @@ MonoBehaviour:
       isGoodFish: 0
       hoverOutlineSprite: {fileID: 0}
       displayScale: 1
+    - itemName: Can
+      sprite: {fileID: 21300000, guid: 2f6b126e1f24d6847ae4d0b379cbfaa0, type: 3}
+      revealSprite: {fileID: 0}
+      isGoodFish: 0
+      hoverOutlineSprite: {fileID: 0}
+      displayScale: 1
     - itemName: Good Fish
       sprite: {fileID: 21300000, guid: 75106a57526cedc438f93fab2883f8b6, type: 3}
       revealSprite: {fileID: 0}
@@ -441,6 +447,18 @@ MonoBehaviour:
       displayScale: 2
     - itemName: Coral
       sprite: {fileID: 21300000, guid: 2f2454fae10f48042b5c773dffbabb42, type: 3}
+      revealSprite: {fileID: 0}
+      isGoodFish: 0
+      hoverOutlineSprite: {fileID: 0}
+      displayScale: 1
+    - itemName: Bottle
+      sprite: {fileID: 21300000, guid: 6928f5b076b4d464594a04bc4ac88b90, type: 3}
+      revealSprite: {fileID: 0}
+      isGoodFish: 0
+      hoverOutlineSprite: {fileID: 0}
+      displayScale: 1
+    - itemName: Can
+      sprite: {fileID: 21300000, guid: 2f6b126e1f24d6847ae4d0b379cbfaa0, type: 3}
       revealSprite: {fileID: 0}
       isGoodFish: 0
       hoverOutlineSprite: {fileID: 0}
