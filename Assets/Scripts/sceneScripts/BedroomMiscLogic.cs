@@ -8,8 +8,17 @@ public class BedroomMiscLogic : MonoBehaviour
     [SerializeField] private AudioClip bgLoop2;
     [SerializeField] private AudioClip wakeupSound;
 
+    [Header("Day 4: Mermaid In Camborne's Bed")]
+    [SerializeField] private Sprite mermaidOnBedDay;
+    [SerializeField] private Sprite mermaidOnBedNight;
+    [Tooltip("Shown over her while Camborne's bed is hovered.")]
+    [SerializeField] private Sprite mermaidOnBedOutline;
+    [SerializeField] private Vector3 mermaidOnBedPosition = new Vector3(-2.4f, -0.3f, -1.1f);
+
     void Start()
     {
+        gameObject.AddComponent<MermaidOnBed>().Init(mermaidOnBedDay, mermaidOnBedNight, mermaidOnBedOutline, mermaidOnBedPosition);
+
         if (Ambience.Instance != null) {
             Ambience ambience = Ambience.Instance;
     

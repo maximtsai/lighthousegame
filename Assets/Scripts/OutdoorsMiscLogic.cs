@@ -15,10 +15,19 @@ public class OutdoorsMiscLogic : MonoBehaviour
     [Header("Weather UI (Optional)")]
     [SerializeField] private Button weatherActionButton;
 
-    [Header("Day 3 Lighthouse Flicker")]
+    [Header("Lighthouse Light")]
     [SerializeField] private SpriteRenderer background;
-    // Night background with the lights out, lined up 1:1 with the night background frames.
+    // The light, separate from the day background and lined up 1:1 with its frames. Only on once
+    // the lighthouse has been fixed. The night background still has the light painted in.
+    [SerializeField] private Sprite[] lighthouseLightSprites;
+    [SerializeField] private float lighthouseLightFrameRate = 4f;
+
+    [Header("Day 3 Lighthouse Flicker")]
+    // Night background with the lights out, lined up 1:1 with the night background frames. Only
+    // needed at night: by day the separate light is just switched off instead.
     [SerializeField] private Sprite blackoutSprite;
+
+    private SpriteRenderer lighthouseLight;
 
     private const string Day3FlickerSeenKey = "day3_flicker_seen";
 
@@ -47,8 +56,16 @@ public class OutdoorsMiscLogic : MonoBehaviour
             gameObject.AddComponent<Day4Beach>().Init(washedUpPileSprites);
         }
 
+        bool lit = GameState.Get<bool>("lighthouse_fixed", false);
+        if (lit && !GameState.Get<bool>("is_nighttime"))
+            CreateLighthouseLight();
+
         // Day 3: the lighthouse hasn't been right since the scissors broke.
-        if (GameState.Get<int>("day") == 3 && GameState.Get<bool>("is_nighttime"))
+        if (GameState.Get<int>("day") == 3 && lit && lighthouseLight != null)
+        {
+            StartCoroutine(FlickerRoutine(off => lighthouseLight.enabled = !off));
+        }
+        else if (GameState.Get<int>("day") == 3 && GameState.Get<bool>("is_nighttime"))
         {
             StartLighthouseFlicker();
             if (!GameState.Get<bool>(Day3FlickerSeenKey, false))
@@ -79,6 +96,40 @@ public class OutdoorsMiscLogic : MonoBehaviour
         });
     }
 
+    private void CreateLighthouseLight()
+    {
+        if (background == null || lighthouseLightSprites == null || lighthouseLightSprites.Length == 0)
+        {
+            Debug.LogWarning("OutdoorsMiscLogic: background or lighthouseLightSprites not assigned");
+            return;
+        }
+
+        // Child of the background so it pans and scales with it, just in front of it like the blackout.
+        GameObject lightObject = new GameObject("lighthouse_light");
+        lightObject.transform.SetParent(background.transform, false);
+        lightObject.transform.localPosition = new Vector3(0f, 0f, -0.05f);
+        lighthouseLight = lightObject.AddComponent<SpriteRenderer>();
+        lighthouseLight.sprite = lighthouseLightSprites[0];
+        lighthouseLight.sharedMaterial = background.sharedMaterial;
+        lighthouseLight.sortingLayerID = background.sortingLayerID;
+        lighthouseLight.sortingOrder = background.sortingOrder;
+
+        if (lighthouseLightSprites.Length > 1)
+            StartCoroutine(AnimateLighthouseLight());
+    }
+
+    private IEnumerator AnimateLighthouseLight()
+    {
+        float frameTime = 1f / Mathf.Max(1f, lighthouseLightFrameRate);
+        int frame = 0;
+        while (lighthouseLight != null)
+        {
+            yield return new WaitForSeconds(frameTime);
+            frame = (frame + 1) % lighthouseLightSprites.Length;
+            lighthouseLight.sprite = lighthouseLightSprites[frame];
+        }
+    }
+
     private void StartLighthouseFlicker()
     {
         if (background == null || blackoutSprite == null)
@@ -99,23 +150,24 @@ public class OutdoorsMiscLogic : MonoBehaviour
         blackout.sortingOrder = background.sortingOrder;
         blackout.enabled = false;
 
-        StartCoroutine(FlickerRoutine(blackout));
+        StartCoroutine(FlickerRoutine(off => blackout.enabled = off));
     }
 
-    private IEnumerator FlickerRoutine(SpriteRenderer blackout)
+    // setLightOff(true) puts the light out: hides the separate light by day, shows the blackout at night.
+    private IEnumerator FlickerRoutine(System.Action<bool> setLightOff)
     {
         while (true)
         {
             yield return new WaitForSeconds(Random.Range(1.5f, 3f));
 
             // Stutter off, back on for a moment, then out for a bit longer.
-            blackout.enabled = true;
+            setLightOff(true);
             yield return new WaitForSeconds(0.08f);
-            blackout.enabled = false;
+            setLightOff(false);
             yield return new WaitForSeconds(0.06f);
-            blackout.enabled = true;
+            setLightOff(true);
             yield return new WaitForSeconds(Random.Range(0.4f, 0.9f));
-            blackout.enabled = false;
+            setLightOff(false);
         }
     }
 

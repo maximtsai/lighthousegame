@@ -1,49 +1,7 @@
 fileFormatVersion: 2
 guid: c0408ce1a3ac9a3448038253e16c6a15
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: -4227844119204727812
-    second: corpse 2 float dock_0
-  - first:
-      213: -8483453863257145892
-    second: corpse 2 float dock_1
-  - first:
-      213: -4863730564393220100
-    second: corpse 2 float dock_2
-  - first:
-      213: 4078727435889253987
-    second: corpse 2 float dock_3
-  - first:
-      213: -3719043190574534259
-    second: corpse 2 float dock_4
-  - first:
-      213: 1838141230941522637
-    second: corpse 2 float dock_5
-  - first:
-      213: -7062968720885968769
-    second: corpse 2 float dock_6
-  - first:
-      213: -4916528876749502449
-    second: corpse 2 float dock_7
-  - first:
-      213: 3131503907276329840
-    second: corpse 2 float dock_8
-  - first:
-      213: 1158375022958753310
-    second: corpse 2 float dock_9
-  - first:
-      213: -8052006279005494254
-    second: corpse 2 float dock_10
-  - first:
-      213: -226422805320678642
-    second: corpse 2 float dock_11
-  - first:
-      213: 1631344090538520994
-    second: corpse 2 float dock_12
-  - first:
-      213: 4319476001260176562
-    second: corpse 2 float dock_13
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -73,7 +31,7 @@ TextureImporter:
   cubemapConvolution: 0
   seamlessCubemap: 0
   textureFormat: 1
-  maxTextureSize: 2048
+  maxTextureSize: 4096
   textureSettings:
     serializedVersion: 2
     filterMode: 0
@@ -111,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -156,6 +114,270 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
+        y: 1200
+        width: 660
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdf7362f77d64ed38a043c8e426d4e43
+      internalID: -4227844119204727812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: corpse 2 float dock_1
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 1200
+        width: 660
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a9ca1d44fdd4432aa11b935d622f992
+      internalID: -8483453863257145892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: corpse 2 float dock_2
+      rect:
+        serializedVersion: 2
+        x: 1320
+        y: 1200
+        width: 660
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90667b5f85294aecbb2d347223646e9d
+      internalID: -4863730564393220100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: corpse 2 float dock_3
+      rect:
+        serializedVersion: 2
+        x: 1980
+        y: 1200
+        width: 660
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7d858719b9b4dc98c2b912cf4b6ecec
+      internalID: 4078727435889253987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: corpse 2 float dock_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 800
+        width: 660
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e35f4b7d6e04458aaf38dfc4d3d212c
+      internalID: -3719043190574534259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: corpse 2 float dock_5
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 800
+        width: 660
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b91e49268664a2da8d7c60af32d2276
+      internalID: 1838141230941522637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: corpse 2 float dock_6
+      rect:
+        serializedVersion: 2
+        x: 1320
+        y: 800
+        width: 660
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 752cc2d42efc4dc6a3acb977f3b795f7
+      internalID: -7062968720885968769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: corpse 2 float dock_7
+      rect:
+        serializedVersion: 2
+        x: 1980
+        y: 800
+        width: 660
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4f1c501744b41bb93e3038663e3c28e
+      internalID: -4916528876749502449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: corpse 2 float dock_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 400
+        width: 660
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74b1eda05ac544fca3aeca3447bc2bcd
+      internalID: 3131503907276329840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: corpse 2 float dock_9
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 400
+        width: 660
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a32f232be77d41a6a9147d5559910927
+      internalID: 1158375022958753310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: corpse 2 float dock_10
+      rect:
+        serializedVersion: 2
+        x: 1320
+        y: 400
+        width: 660
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0ac6d031edb453090fc14184d66782d
+      internalID: -8052006279005494254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: corpse 2 float dock_11
+      rect:
+        serializedVersion: 2
+        x: 1980
+        y: 400
+        width: 660
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f4e4f1cbcec4cd7a60dc5e5da1a8467
+      internalID: -226422805320678642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: corpse 2 float dock_12
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 0
         width: 660
         height: 400
@@ -167,14 +389,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cf3f3157c2ea355c0800000000000000
-      internalID: -4227844119204727812
+      spriteID: eaa0308ba2ee423f946fa4ab18db3d4e
+      internalID: 1631344090538520994
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: corpse 2 float dock_1
+      name: corpse 2 float dock_13
       rect:
         serializedVersion: 2
         x: 660
@@ -189,271 +411,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cdd742c98a7b44a80800000000000000
-      internalID: -8483453863257145892
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: corpse 2 float dock_2
-      rect:
-        serializedVersion: 2
-        x: 1320
-        y: 0
-        width: 660
-        height: 400
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: cf7c12222de808cb0800000000000000
-      internalID: -4863730564393220100
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: corpse 2 float dock_3
-      rect:
-        serializedVersion: 2
-        x: 1980
-        y: 0
-        width: 660
-        height: 400
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 36e91df2efc8a9830800000000000000
-      internalID: 4078727435889253987
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: corpse 2 float dock_4
-      rect:
-        serializedVersion: 2
-        x: 2640
-        y: 0
-        width: 660
-        height: 400
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d8138792ced436cc0800000000000000
-      internalID: -3719043190574534259
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: corpse 2 float dock_5
-      rect:
-        serializedVersion: 2
-        x: 3300
-        y: 0
-        width: 660
-        height: 400
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: dcac44de5b3628910800000000000000
-      internalID: 1838141230941522637
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: corpse 2 float dock_6
-      rect:
-        serializedVersion: 2
-        x: 3960
-        y: 0
-        width: 660
-        height: 400
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f7095eb9e5b4bfd90800000000000000
-      internalID: -7062968720885968769
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: corpse 2 float dock_7
-      rect:
-        serializedVersion: 2
-        x: 4620
-        y: 0
-        width: 660
-        height: 400
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f084565190bf4cbb0800000000000000
-      internalID: -4916528876749502449
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: corpse 2 float dock_8
-      rect:
-        serializedVersion: 2
-        x: 5280
-        y: 0
-        width: 660
-        height: 400
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 07314f55636557b20800000000000000
-      internalID: 3131503907276329840
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: corpse 2 float dock_9
-      rect:
-        serializedVersion: 2
-        x: 5940
-        y: 0
-        width: 660
-        height: 400
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e16342032ff531010800000000000000
-      internalID: 1158375022958753310
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: corpse 2 float dock_10
-      rect:
-        serializedVersion: 2
-        x: 6600
-        y: 0
-        width: 660
-        height: 400
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 214a9aa53f6814090800000000000000
-      internalID: -8052006279005494254
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: corpse 2 float dock_11
-      rect:
-        serializedVersion: 2
-        x: 7260
-        y: 0
-        width: 660
-        height: 400
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e0340df78a59bdcf0800000000000000
-      internalID: -226422805320678642
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: corpse 2 float dock_12
-      rect:
-        serializedVersion: 2
-        x: 7920
-        y: 0
-        width: 660
-        height: 400
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2a13bfe9ec2b3a610800000000000000
-      internalID: 1631344090538520994
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: corpse 2 float dock_13
-      rect:
-        serializedVersion: 2
-        x: 8580
-        y: 0
-        width: 660
-        height: 400
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2b400fe998cd1fb30800000000000000
+      spriteID: b4479a6adecc4c139d8d24c78efe4165
       internalID: 4319476001260176562
       vertices: []
       indices: 
@@ -473,14 +431,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":14.0,"y":1.0},"gridSpriteSize":{"x":660.0,"y":400.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":4.0,"y":4.0},"gridSpriteSize":{"x":660.0,"y":400.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       corpse 2 float dock_0: -4227844119204727812
       corpse 2 float dock_1: -8483453863257145892
-      corpse 2 float dock_10: -8052006279005494254
-      corpse 2 float dock_11: -226422805320678642
-      corpse 2 float dock_12: 1631344090538520994
-      corpse 2 float dock_13: 4319476001260176562
       corpse 2 float dock_2: -4863730564393220100
       corpse 2 float dock_3: 4078727435889253987
       corpse 2 float dock_4: -3719043190574534259
@@ -489,6 +443,10 @@ TextureImporter:
       corpse 2 float dock_7: -4916528876749502449
       corpse 2 float dock_8: 3131503907276329840
       corpse 2 float dock_9: 1158375022958753310
+      corpse 2 float dock_10: -8052006279005494254
+      corpse 2 float dock_11: -226422805320678642
+      corpse 2 float dock_12: 1631344090538520994
+      corpse 2 float dock_13: 4319476001260176562
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

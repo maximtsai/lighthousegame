@@ -46,6 +46,13 @@ public class LHClimbScript : MonoBehaviour
         WireBricks();
         WireScissors();
         ShowFloor(LighthouseClimb.Floor, LighthouseClimb.GoingUp);
+
+        // Came straight from the ground floor onto the brick's flight and it fell as we arrived
+        if (GameState.Get<bool>(LighthouseBrick.FellOnEntryKey, false))
+        {
+            GameState.Set(LighthouseBrick.FellOnEntryKey, false);
+            PlayBrickDrop();
+        }
     }
 
     // Every brick outline does the same thing, so they share one listener here rather than

@@ -39,14 +39,16 @@ public class MiscObjectClick : MonoBehaviour
                 return;
             }
 
+            // First click lays her down (MermaidOnBed shows her there); the next starts tending to her
             if (!GameState.Get<bool>(Day4Beach.MermaidInBedKey, false))
             {
-                Dialogue layDown = DialogueManager.ShowDialogueFromText(new string[] { "You lay her down in Camborne's bed." });
-                layDown.onDialogueEnd.AddListener(() =>
+                GameState.Set(Day4Beach.MermaidInBedKey, true);
+                MessageBus.Instance.Publish("CompleteTask", "task_mermaid_bed");
+                MessageBus.Instance.Publish("AddTaskStringImportant", "generic/task_tend_her");
+                DialogueManager.ShowDialogueFromText(new string[]
                 {
-                    GameState.Set(Day4Beach.MermaidInBedKey, true);
-                    MessageBus.Instance.Publish("CompleteTask", "task_mermaid_bed");
-                    Navigation.GoToScene(GameConsts.MERMAIDSCENE);
+                    "You lay her down in Camborne's bed.",
+                    "She's covered in barnacles.## I have to clean her up."
                 });
                 return;
             }
@@ -424,6 +426,16 @@ public class MiscObjectClick : MonoBehaviour
             return;
         }
 
+        if (loop && sourceOverride == null)
+        {
+            // Loops live on AudioManager's own loop source, never the shared one-shot source
+            if (AudioManager.Instance != null)
+                AudioManager.Instance.PlayLoop(sfx, volume);
+            else
+                Debug.LogWarning("No AudioManager available to play loop!");
+            return;
+        }
+
         AudioSource src = sourceOverride;
 
         if (src == null)
@@ -441,25 +453,23 @@ public class MiscObjectClick : MonoBehaviour
         }
         if (loop)
     	{
-        	// Configure and play looping sound
-        	audioSource.clip = sfx;
-        	audioSource.loop = true;
-        	audioSource.volume = volume;
-        	audioSource.Play();
-            // audiorandomcontainer
-            // pitch by range randomness
+        	// Configure and play looping sound on the caller's own source
+        	src.clip = sfx;
+        	src.loop = true;
+        	src.volume = volume;
+        	src.Play();
     	}
     	else
     	{
         	// Play one-shot sound
-        	audioSource.PlayOneShot(sfx, volume);
+        	src.PlayOneShot(sfx, volume);
     	}
     }
 
     public void StopLoop()
     {
-        if (audioSource != null && audioSource.loop)
-            audioSource.Stop();
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.StopLoop();
     }
 
     public void PublishMessage(string message)
@@ -470,7 +480,7 @@ public class MiscObjectClick : MonoBehaviour
     public void ShowDeadCamborneChoices()
     {
         Debug.Log("ShowDeadCamborneChoices");
-        MessageBus.Instance.Publish("ShowChoiceDialog", "Camborne's body lies still.");
+        MessageBus.Instance.Publish("ShowChoiceDialog", "What do I do now?");
         MessageBus.Instance.Publish(
             "ShowThreeChoice",
             "LOOK AWAY",
@@ -497,7 +507,7 @@ public class MiscObjectClick : MonoBehaviour
     public void CamborneChoicesLookAwayClick()
     {
         Debug.Log("CamborneChoicesLookAwayClick");
-        MessageBus.Instance.Publish("ShowChoiceDialog", "Camborne's body lies still.");
+        MessageBus.Instance.Publish("ShowChoiceDialog", "What do I do now?");
         MessageBus.Instance.Publish(
             "ShowTwoChoice",
             "TOUCH",
@@ -554,7 +564,7 @@ public class MiscObjectClick : MonoBehaviour
     {
         Debug.Log("CamborneChoicesTouchClick");
 
-        MessageBus.Instance.Publish("ShowChoiceDialog", "Camborne's body lies still.");
+        MessageBus.Instance.Publish("ShowChoiceDialog", "What do I do now?");
         MessageBus.Instance.Publish(
             "ShowTwoChoice",
             "LOOK AWAY",
@@ -575,7 +585,7 @@ public class MiscObjectClick : MonoBehaviour
     public void CamborneChoicesLastClick()
     {
         Debug.Log("last choice");
-        MessageBus.Instance.Publish("ShowChoiceDialog", "Camborne's body lies still.");
+        MessageBus.Instance.Publish("ShowChoiceDialog", "What do I do now?");
         MessageBus.Instance.Publish(
             "ShowOneChoice",
             "BURY HIM",

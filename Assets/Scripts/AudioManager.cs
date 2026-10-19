@@ -1,10 +1,15 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 
 public class AudioManager : MonoBehaviour
 {
     private static AudioManager instance;
     private AudioSource audioSource;
+    // Scene loops (lighthouse hum, pier water) get their own source so the one-shot source's
+    // loop flag, volume and pitch never change under them, and they can't leak into other scenes.
+    private AudioSource loopSource;
+    private MessageBus.SubscriptionHandle playSoundHandle;
     private Camera mainCamera;
     private Dictionary<string, AudioClip> clipCache = new Dictionary<string, AudioClip>();
 
@@ -41,14 +46,60 @@ public class AudioManager : MonoBehaviour
             instance = this;
             audioSource = GetComponent<AudioSource>();
             DontDestroyOnLoad(gameObject);
-            
+
             // Subscribe to global sound events
-            MessageBus.Instance.Subscribe("PlaySound", OnPlaySoundMessage);
+            playSoundHandle = MessageBus.Instance.Subscribe("PlaySound", OnPlaySoundMessage);
+            SceneManager.sceneLoaded += OnSceneLoaded;
         }
         else
         {
             Destroy(gameObject);
         }
+    }
+
+    void OnDestroy()
+    {
+        if (instance != this) return;
+
+        // The bus is static and outlives Play Mode when domain reload is off
+        playSoundHandle?.Unsubscribe();
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    // Each scene starts its own loop in Start (which runs after this), so whatever the last scene
+    // was looping stops at the door.
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (mode == LoadSceneMode.Single)
+            StopLoop();
+    }
+
+    public void PlayLoop(AudioClip clip, float volume = 1f)
+    {
+        if (clip == null) return;
+
+        if (loopSource == null)
+        {
+            loopSource = gameObject.AddComponent<AudioSource>();
+            loopSource.playOnAwake = false;
+            loopSource.loop = true;
+            if (AudioSource != null)
+                loopSource.outputAudioMixerGroup = AudioSource.outputAudioMixerGroup;
+        }
+
+        loopSource.volume = Mathf.Clamp01(volume);
+        if (loopSource.clip == clip && loopSource.isPlaying) return;
+
+        loopSource.clip = clip;
+        loopSource.Play();
+    }
+
+    public void StopLoop()
+    {
+        if (loopSource == null) return;
+
+        loopSource.Stop();
+        loopSource.clip = null;
     }
 
     private void OnPlaySoundMessage(object[] args)

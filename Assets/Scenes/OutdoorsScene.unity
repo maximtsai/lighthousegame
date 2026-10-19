@@ -1456,6 +1456,11 @@ MonoBehaviour:
   rainLoop: {fileID: 8300000, guid: fd34f6d11a3987e41a7d965d9d492b69, type: 3}
   weatherActionButton: {fileID: 0}
   background: {fileID: 1717215369}
+  lighthouseLightSprites:
+  - {fileID: 1263628473064149552, guid: 27d3ab70d9554a0b84dfd1418dbd696d, type: 3}
+  - {fileID: 4399685949165269399, guid: 27d3ab70d9554a0b84dfd1418dbd696d, type: 3}
+  - {fileID: 2537168569487817866, guid: 27d3ab70d9554a0b84dfd1418dbd696d, type: 3}
+  lighthouseLightFrameRate: 4
   blackoutSprite: {fileID: 5230644827929433145, guid: 689cba0c00624f3cb47fc18cb6f29a64, type: 3}
 --- !u!4 &647772682
 Transform:
@@ -2646,7 +2651,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -4420781712680604251, guid: 79aac1a4a783eb04eb79a540186d7284, type: 3}
+  m_Sprite: {fileID: 2963723188268210969, guid: 34552a251e354cdcaf86ce39c3ee8a67, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

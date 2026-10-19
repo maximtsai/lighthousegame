@@ -121,14 +121,7 @@ public class Day4ClickTarget : MonoBehaviour
 {
     public Action onClick;
 
-    private static bool Blocked =>
-        GameState.Get<bool>("task_list_open", false)
-        || GameState.Get<bool>("minigame_open", false)
-        || GameState.Get<bool>("treasure_inspect_open", false)
-        || GameState.Get<bool>("navigationBlocked", false)
-        || GameState.Get<bool>("is_recording_weather", false)
-        || GameState.Get<bool>("picking_choice", false)
-        || DialogueManager.DialogueIsOpen();
+    private static bool Blocked => InputGate.WorldBlocked;
 
     void OnMouseOver()
     {

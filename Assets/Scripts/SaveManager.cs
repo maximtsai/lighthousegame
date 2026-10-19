@@ -123,6 +123,7 @@ public static class SaveManager
             var serializable = JsonUtility.FromJson<SerializableGameState>(json);
             var data = serializable.ToDictionary();
             GameState.SetAllData(data);
+            GameState.ResetTransientFlags();
 
             Debug.Log("Game loaded from PlayerPrefs.");
         }

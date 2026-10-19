@@ -1,49 +1,7 @@
 fileFormatVersion: 2
 guid: 9aff4e0b0bf7fc547813852343ddf4cf
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: -7710002450982629287
-    second: mermaid float dock_0
-  - first:
-      213: -2367075672067562757
-    second: mermaid float dock_1
-  - first:
-      213: 3525898381094870887
-    second: mermaid float dock_2
-  - first:
-      213: 4052029306199502498
-    second: mermaid float dock_3
-  - first:
-      213: 2877698768487446600
-    second: mermaid float dock_4
-  - first:
-      213: 4423855647752576688
-    second: mermaid float dock_5
-  - first:
-      213: -5257580167797916958
-    second: mermaid float dock_6
-  - first:
-      213: -6592926779640895358
-    second: mermaid float dock_7
-  - first:
-      213: 6718825676927513944
-    second: mermaid float dock_8
-  - first:
-      213: -5252499242351366751
-    second: mermaid float dock_9
-  - first:
-      213: -5966740364043114819
-    second: mermaid float dock_10
-  - first:
-      213: -1104651159961034950
-    second: mermaid float dock_11
-  - first:
-      213: -3161739796358695936
-    second: mermaid float dock_12
-  - first:
-      213: 7306151375442078524
-    second: mermaid float dock_13
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -73,7 +31,7 @@ TextureImporter:
   cubemapConvolution: 0
   seamlessCubemap: 0
   textureFormat: 1
-  maxTextureSize: 2048
+  maxTextureSize: 4096
   textureSettings:
     serializedVersion: 2
     filterMode: 0
@@ -111,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -155,19 +113,19 @@ TextureImporter:
       name: mermaid float dock_0
       rect:
         serializedVersion: 2
-        x: 9
-        y: 36
-        width: 222
-        height: 118
+        x: 0
+        y: 1200
+        width: 660
+        height: 400
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9501ac3ce91900590800000000000000
+      spriteID: 3653c5c67ce047f4b8925c170d1f94a1
       internalID: -7710002450982629287
       vertices: []
       indices: 
@@ -177,19 +135,19 @@ TextureImporter:
       name: mermaid float dock_1
       rect:
         serializedVersion: 2
-        x: 669
-        y: 37
-        width: 222
-        height: 118
+        x: 660
+        y: 1200
+        width: 660
+        height: 400
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bf2a1f1b735762fd0800000000000000
+      spriteID: a656c733463c42adae3dc429488a539d
       internalID: -2367075672067562757
       vertices: []
       indices: 
@@ -199,19 +157,19 @@ TextureImporter:
       name: mermaid float dock_2
       rect:
         serializedVersion: 2
-        x: 1329
-        y: 38
-        width: 222
-        height: 118
+        x: 1320
+        y: 1200
+        width: 660
+        height: 400
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 76fd84785e18ee030800000000000000
+      spriteID: 73bb9a58c4a241e28ee96e275ac99f6d
       internalID: 3525898381094870887
       vertices: []
       indices: 
@@ -221,19 +179,19 @@ TextureImporter:
       name: mermaid float dock_3
       rect:
         serializedVersion: 2
-        x: 1989
-        y: 40
-        width: 222
-        height: 118
+        x: 1980
+        y: 1200
+        width: 660
+        height: 400
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2ae6e777f23bb3830800000000000000
+      spriteID: 3c9f4e1fa8024ae29fcbb22bbc31d745
       internalID: 4052029306199502498
       vertices: []
       indices: 
@@ -243,19 +201,19 @@ TextureImporter:
       name: mermaid float dock_4
       rect:
         serializedVersion: 2
-        x: 2649
-        y: 41
-        width: 223
-        height: 118
+        x: 0
+        y: 800
+        width: 660
+        height: 400
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 848f54288c3afe720800000000000000
+      spriteID: 3c02272e00004c729df5f4add8f1d153
       internalID: 2877698768487446600
       vertices: []
       indices: 
@@ -265,19 +223,19 @@ TextureImporter:
       name: mermaid float dock_5
       rect:
         serializedVersion: 2
-        x: 3309
-        y: 41
-        width: 223
-        height: 118
+        x: 660
+        y: 800
+        width: 660
+        height: 400
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0bed5e5e541b46d30800000000000000
+      spriteID: 887a0f7ffb0148f7891245b6694368aa
       internalID: 4423855647752576688
       vertices: []
       indices: 
@@ -287,19 +245,19 @@ TextureImporter:
       name: mermaid float dock_6
       rect:
         serializedVersion: 2
-        x: 3969
-        y: 41
-        width: 223
-        height: 118
+        x: 1320
+        y: 800
+        width: 660
+        height: 400
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2ea344871b25907b0800000000000000
+      spriteID: 463074aa5b704d9b94bbf33d498db53c
       internalID: -5257580167797916958
       vertices: []
       indices: 
@@ -309,19 +267,19 @@ TextureImporter:
       name: mermaid float dock_7
       rect:
         serializedVersion: 2
-        x: 4629
-        y: 41
-        width: 223
-        height: 118
+        x: 1980
+        y: 800
+        width: 660
+        height: 400
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 288285556083184a0800000000000000
+      spriteID: 73f17ada7a2e4fd4876de4b8b97236eb
       internalID: -6592926779640895358
       vertices: []
       indices: 
@@ -331,19 +289,19 @@ TextureImporter:
       name: mermaid float dock_8
       rect:
         serializedVersion: 2
-        x: 5289
-        y: 40
-        width: 222
-        height: 118
+        x: 0
+        y: 400
+        width: 660
+        height: 400
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 855b905fa501e3d50800000000000000
+      spriteID: 40a9a8cbfd4e45e38a6809f9c1cfeabb
       internalID: 6718825676927513944
       vertices: []
       indices: 
@@ -353,19 +311,19 @@ TextureImporter:
       name: mermaid float dock_9
       rect:
         serializedVersion: 2
-        x: 5949
-        y: 38
-        width: 222
-        height: 118
+        x: 660
+        y: 400
+        width: 660
+        height: 400
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1ad63ac94cf5b17b0800000000000000
+      spriteID: 16525791ae114ea799dd0cba3a05f68d
       internalID: -5252499242351366751
       vertices: []
       indices: 
@@ -375,19 +333,19 @@ TextureImporter:
       name: mermaid float dock_10
       rect:
         serializedVersion: 2
-        x: 6609
-        y: 37
-        width: 222
-        height: 118
+        x: 1320
+        y: 400
+        width: 660
+        height: 400
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: db6a9368041e13da0800000000000000
+      spriteID: ba98fad4d49649db96b39126ff2f1cc1
       internalID: -5966740364043114819
       vertices: []
       indices: 
@@ -397,19 +355,19 @@ TextureImporter:
       name: mermaid float dock_11
       rect:
         serializedVersion: 2
-        x: 7269
-        y: 36
-        width: 222
-        height: 118
+        x: 1980
+        y: 400
+        width: 660
+        height: 400
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a3f9cc96f9d7ba0f0800000000000000
+      spriteID: 22984f4a6fc64e4a9bfd5dce036b142b
       internalID: -1104651159961034950
       vertices: []
       indices: 
@@ -419,19 +377,19 @@ TextureImporter:
       name: mermaid float dock_12
       rect:
         serializedVersion: 2
-        x: 7929
-        y: 36
-        width: 222
-        height: 118
+        x: 0
+        y: 0
+        width: 660
+        height: 400
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 004f2d5286e3f14d0800000000000000
+      spriteID: 8a966db2c9fb42b7979f7fc00583a216
       internalID: -3161739796358695936
       vertices: []
       indices: 
@@ -441,19 +399,19 @@ TextureImporter:
       name: mermaid float dock_13
       rect:
         serializedVersion: 2
-        x: 8589
-        y: 36
-        width: 222
-        height: 118
+        x: 660
+        y: 0
+        width: 660
+        height: 400
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c3be47067f9a46560800000000000000
+      spriteID: 671e787d6e5f4ebcadae315ac0a73666
       internalID: 7306151375442078524
       vertices: []
       indices: 
@@ -475,10 +433,6 @@ TextureImporter:
     nameFileIdTable:
       mermaid float dock_0: -7710002450982629287
       mermaid float dock_1: -2367075672067562757
-      mermaid float dock_10: -5966740364043114819
-      mermaid float dock_11: -1104651159961034950
-      mermaid float dock_12: -3161739796358695936
-      mermaid float dock_13: 7306151375442078524
       mermaid float dock_2: 3525898381094870887
       mermaid float dock_3: 4052029306199502498
       mermaid float dock_4: 2877698768487446600
@@ -487,6 +441,10 @@ TextureImporter:
       mermaid float dock_7: -6592926779640895358
       mermaid float dock_8: 6718825676927513944
       mermaid float dock_9: -5252499242351366751
+      mermaid float dock_10: -5966740364043114819
+      mermaid float dock_11: -1104651159961034950
+      mermaid float dock_12: -3161739796358695936
+      mermaid float dock_13: 7306151375442078524
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

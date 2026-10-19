@@ -371,7 +371,6 @@ public class LHMinigame : MonoBehaviour
 		shadowScrollScript.startScale = 1.05f;
 
         miscObjectClick.PlaySound(finishClick);
-        miscObjectClick.PlaySound(finishLoop, 0.98f, true);
 
         StopMinigame();
         DialogueManager.ShowDialogue(miscObjectClick.getDialogue("Lighthouse/work_done"));

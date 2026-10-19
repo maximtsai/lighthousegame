@@ -1,44 +1,43 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 
 public class PierMiscLogic : MonoBehaviour
 {
+    // The frames of one "float dock" sheet (see FloatingLayer).
+    [System.Serializable]
+    public class FloatSheet
+    {
+        public Sprite[] frames;
+    }
+
     [SerializeField] private AudioClip finishLoop;
     [SerializeField] private AudioClip rainLoop;
     [SerializeField] private GameObject rainOverlay;
     [SerializeField] private MiscObjectClick miscObjectClick;
 
+    [Header("Floating In The Water")]
+    // The dock background the floating layers sit on.
+    [SerializeField] private SpriteRenderer dockBackground;
+    // "corpse 1-5 float dock": the drowned. The first four are the Day 4 bodies; all five show in
+    // the Day 3 flash.
+    [SerializeField] private FloatSheet[] floatingCorpses;
+    [SerializeField] private FloatSheet mermaidFloat;
+    // Day 4 on: wreckage from the supply ship.
+    [SerializeField] private FloatSheet driftwoodFloat;
+
     [Header("Day 3 Corpse Flash")]
-    // Placeholder until the drowned corpses art is in: Camborne's dead body.
-    [SerializeField] private Sprite corpseFlashSprite;
     [SerializeField] private Color redFlashColor = new Color(0.55f, 0f, 0f, 0.75f);
 
-    [Header("Day 4+ Floating Wreckage")]
-    // Placeholder until there's floating wreckage art: fishing junk sprites, shrunk down.
-    [SerializeField] private Sprite[] floatingDebrisSprites;
-    [SerializeField] private float debrisScale = 0.2f;
-    [SerializeField] private float bobHeight = 0.04f;
-
     [Header("Day 4 Bodies")]
-    // Carrying each of the bodies to the grave, one per body. Also the placeholder floating bodies.
+    // Carrying each of the bodies to the grave, one per body.
     [SerializeField] private Sprite[] carryBodySprites;
-    // Carrying her inside. Also her placeholder floating sprite, like the bodies.
+    // Carrying her inside.
     [SerializeField] private Sprite mermaidCarrySprite;
     [SerializeField] private AudioClip shovelClip;
 
     private const string Day3FlashPlayedKey = "day3_pier_flash_played";
-
-    // In the water either side of the dock, in world units with the dock background at the origin.
-    // Kept out towards the horizon and the edges so the day 4 bodies have the near water.
-    private static readonly Vector3[] DebrisPositions =
-    {
-        new Vector3(-2.9f, -0.3f, -0.05f),
-        new Vector3(-1.5f, -0.4f, -0.05f),
-        new Vector3(1.75f, -0.25f, -0.05f),
-        new Vector3(2.95f, -0.35f, -0.05f),
-        new Vector3(-1.95f, -1.1f, -0.05f),
-    };
 
     // Both flash images share one screen-space canvas above everything else in the scene.
     private Canvas flashCanvas;
@@ -74,47 +73,23 @@ public class PierMiscLogic : MonoBehaviour
             StartCoroutine(Day3CorpseFlashRoutine());
         }
 
-        // Day 4 on: things have started washing up
-        if (GameState.Get<int>("day") >= 4)
+        // Day 4 on: the supply ship's wreckage has started washing up
+        if (GameState.Get<int>("day") >= 4 && driftwoodFloat != null)
         {
-            SpawnFloatingDebris();
+            FloatingLayer.Spawn("floating_driftwood", dockBackground, driftwoodFloat.frames);
         }
 
         // Day 4: the bodies from the wreck, out in the water
         if (Day4Beach.IsToday)
         {
-            gameObject.AddComponent<Day4Dock>().Init(carryBodySprites, mermaidCarrySprite, shovelClip, miscObjectClick);
-        }
-    }
+            int count = floatingCorpses != null ? floatingCorpses.Length : 0;
+            Sprite[][] bodyFrames = new Sprite[count][];
+            for (int i = 0; i < count; i++)
+                bodyFrames[i] = floatingCorpses[i] != null ? floatingCorpses[i].frames : null;
 
-    private void SpawnFloatingDebris()
-    {
-        if (floatingDebrisSprites == null) return;
-
-        for (int i = 0; i < floatingDebrisSprites.Length && i < DebrisPositions.Length; i++)
-        {
-            if (floatingDebrisSprites[i] == null) continue;
-            GameObject piece = new GameObject("floating_debris_" + i);
-            piece.transform.position = DebrisPositions[i];
-            piece.transform.localScale = Vector3.one * debrisScale;
-            SpriteRenderer sr = piece.AddComponent<SpriteRenderer>();
-            sr.sprite = floatingDebrisSprites[i];
-            StartCoroutine(BobRoutine(piece.transform, i));
-        }
-    }
-
-    // Rises and falls with the waves, rocking a little, each piece out of step with the rest.
-    private IEnumerator BobRoutine(Transform piece, int index)
-    {
-        Vector3 rest = piece.position;
-        float phase = index * 1.7f;
-        float speed = 1.1f + index * 0.15f;
-        while (piece != null)
-        {
-            float t = Time.time * speed + phase;
-            piece.position = rest + new Vector3(0f, Mathf.Sin(t) * bobHeight, 0f);
-            piece.rotation = Quaternion.Euler(0f, 0f, Mathf.Sin(t * 0.7f) * 6f);
-            yield return null;
+            gameObject.AddComponent<Day4Dock>().Init(dockBackground, bodyFrames,
+                mermaidFloat != null ? mermaidFloat.frames : null,
+                carryBodySprites, mermaidCarrySprite, shovelClip, miscObjectClick);
         }
     }
 
@@ -132,7 +107,20 @@ public class PierMiscLogic : MonoBehaviour
     private IEnumerator Day3CorpseFlashRoutine()
     {
         Image red = CreateOverlayImage("Day3RedFlash", null, redFlashColor);
-        Image corpse = CreateOverlayImage("Day3CorpseFlash", corpseFlashSprite, Color.white);
+
+        // The drowned, out in the water, hidden until the flash
+        List<FloatingLayer> corpses = new List<FloatingLayer>();
+        if (floatingCorpses != null)
+        {
+            for (int i = 0; i < floatingCorpses.Length; i++)
+            {
+                if (floatingCorpses[i] == null) continue;
+                FloatingLayer layer = FloatingLayer.Spawn("day3_flash_corpse_" + i, dockBackground, floatingCorpses[i].frames);
+                if (layer == null) continue;
+                layer.Renderer.enabled = false;
+                corpses.Add(layer);
+            }
+        }
 
         yield return new WaitForSeconds(1f);
         yield return FadeOutFlash(red, 0.08f, 0.35f);
@@ -142,11 +130,11 @@ public class PierMiscLogic : MonoBehaviour
         red.color = redFlashColor;
         yield return new WaitForSeconds(0.1f);
         red.enabled = false;
-        if (corpseFlashSprite != null)
+        if (corpses.Count > 0)
         {
-            corpse.enabled = true;
+            foreach (FloatingLayer layer in corpses) layer.Renderer.enabled = true;
             yield return new WaitForSeconds(0.18f);
-            corpse.enabled = false;
+            foreach (FloatingLayer layer in corpses) Destroy(layer.gameObject);
         }
 
         GameState.Set(Day3FlashPlayedKey, true);

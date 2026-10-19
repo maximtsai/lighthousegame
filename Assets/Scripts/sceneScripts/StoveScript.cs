@@ -347,12 +347,25 @@ public class StoveScript : MonoBehaviour
                     "She manages a few mouthfuls.## There's none left for you."
                 });
             }
+            else if (GameState.Get<int>("day") == 2 && !isBreakfast)
+            {
+                // Day 2: after Camborne's grave, the thought of flesh puts him off
+                DialogueManager.ShowDialogueFromText(new string[] { "Don't feel like eating fish tonight." });
+            }
+            else if (GameState.Get<int>("day") <= 2)
+            {
+                // Days 1-2: the same meal again and again, counting up from the 17th
+                int meal = 17 + (GameState.Get<int>("day") - 1) * 2 + (isBreakfast ? 0 : 1);
+                string dish = ateFish ? "Fish and corn chowder" : "Corn chowder";
+                DialogueManager.ShowDialogueFromText(new string[] { dish + " for the " + meal + "th meal in a row." });
+            }
             else if (ateFish)
             {
                 DialogueManager.ShowDialogueFromText(new string[] { "Corn chowder with fish tonight." });
             }
             else
             {
+                // Day 3 on: the wound's festering and he can't stomach anything more
                 DialogueManager.ShowDialogue(miscObjectClick.getDialogue("stove/eating"));
             }
         }

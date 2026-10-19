@@ -139,6 +139,11 @@ public class Navigation : MonoBehaviour
             return;
 
         LighthouseClimb.EnterFromGround();
+
+        // A short climb can start right at the loose brick, so it can come out as you arrive
+        if (LighthouseBrick.Arrive(LighthouseClimb.Floor, LighthouseClimb.GoingUp) == LighthouseBrick.Arrival.Fell)
+            GameState.Set(LighthouseBrick.FellOnEntryKey, true);
+
         GoToSlow(GameConsts.LHCLIMBSCENE);
     }
 

@@ -130,6 +130,22 @@ public static class GameState
         StartNewDay();
     }
 
+    // Flags that only mean something while a piece of UI or a transition is on screen. The UI is
+    // gone after a new day or a load, so a stale true here would swallow every click. Saves happen
+    // at day transitions, so these can also end up in a save file.
+    public static void ResetTransientFlags()
+    {
+        Set("navigationBlocked", false);
+        Set("day_transition_started", false);
+        Set("dialogue_is_open", false);
+        Set("minigame_open", false);
+        Set("picking_choice", false);
+        Set("treasure_inspect_open", false);
+        Set("task_list_open", false);
+        Set("pause_open", false);
+        Set("is_recording_weather", false);
+    }
+
     // Game specific function
     public static void StartNewDay() {
         MessageBus.Instance.Publish("ClearAllTasks");
@@ -166,11 +182,10 @@ public static class GameState
         Set("thunderstorm", false);
         
         Set("do_burial", false);
-        Set("navigationBlocked", false);
 
         Set("ready_to_sleep", false);
-        Set("day_transition_started", false);
         Set("intro_played", false);
+        ResetTransientFlags();
 
         // Day specific start logic
         if (day >= 2)

@@ -1,49 +1,7 @@
 fileFormatVersion: 2
 guid: e07c2b71f22c21143a535ff453aac678
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: 6810283997983534400
-    second: corpse 5 float dock_0
-  - first:
-      213: 2111941348963622654
-    second: corpse 5 float dock_1
-  - first:
-      213: 2394610982376047307
-    second: corpse 5 float dock_2
-  - first:
-      213: -8748841561302055283
-    second: corpse 5 float dock_3
-  - first:
-      213: 594056943833295099
-    second: corpse 5 float dock_4
-  - first:
-      213: 5437967410859243263
-    second: corpse 5 float dock_5
-  - first:
-      213: -5930816826790921632
-    second: corpse 5 float dock_6
-  - first:
-      213: 1457655524218634924
-    second: corpse 5 float dock_7
-  - first:
-      213: 84079130536293408
-    second: corpse 5 float dock_8
-  - first:
-      213: -3292817960134424387
-    second: corpse 5 float dock_9
-  - first:
-      213: -8970665249906843373
-    second: corpse 5 float dock_10
-  - first:
-      213: 3433681832705985048
-    second: corpse 5 float dock_11
-  - first:
-      213: -3075690817081797649
-    second: corpse 5 float dock_12
-  - first:
-      213: -5216310808617586361
-    second: corpse 5 float dock_13
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -73,7 +31,7 @@ TextureImporter:
   cubemapConvolution: 0
   seamlessCubemap: 0
   textureFormat: 1
-  maxTextureSize: 2048
+  maxTextureSize: 4096
   textureSettings:
     serializedVersion: 2
     filterMode: 0
@@ -111,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -155,19 +113,19 @@ TextureImporter:
       name: corpse 5 float dock_0
       rect:
         serializedVersion: 2
-        x: 540
-        y: 65
-        width: 121
-        height: 65
+        x: 0
+        y: 1200
+        width: 660
+        height: 400
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 04de557b63df28e50800000000000000
+      spriteID: f29ead0d07c449fd99075059060eb402
       internalID: 6810283997983534400
       vertices: []
       indices: 
@@ -177,19 +135,19 @@ TextureImporter:
       name: corpse 5 float dock_1
       rect:
         serializedVersion: 2
-        x: 1200
-        y: 68
-        width: 121
-        height: 64
+        x: 660
+        y: 1200
+        width: 660
+        height: 400
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: efe9f63a77f1f4d10800000000000000
+      spriteID: ec3f9afd1cf844d2a075fbc3a2701293
       internalID: 2111941348963622654
       vertices: []
       indices: 
@@ -199,19 +157,19 @@ TextureImporter:
       name: corpse 5 float dock_2
       rect:
         serializedVersion: 2
-        x: 1860
-        y: 68
-        width: 121
-        height: 65
+        x: 1320
+        y: 1200
+        width: 660
+        height: 400
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bc206c3500e5b3120800000000000000
+      spriteID: e24a4fbdbf34480395fe5be1369da6a5
       internalID: 2394610982376047307
       vertices: []
       indices: 
@@ -221,19 +179,19 @@ TextureImporter:
       name: corpse 5 float dock_3
       rect:
         serializedVersion: 2
-        x: 2520
-        y: 62
-        width: 121
-        height: 72
+        x: 1980
+        y: 1200
+        width: 660
+        height: 400
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d86ca6e04fed59680800000000000000
+      spriteID: 5aac129d16554049a2b7c2eb89f5abc3
       internalID: -8748841561302055283
       vertices: []
       indices: 
@@ -243,19 +201,19 @@ TextureImporter:
       name: corpse 5 float dock_4
       rect:
         serializedVersion: 2
-        x: 3180
-        y: 70
-        width: 121
-        height: 65
+        x: 0
+        y: 800
+        width: 660
+        height: 400
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bf8a98994a38e3800800000000000000
+      spriteID: 4ee63d2a2cf74493a5949f000b169da0
       internalID: 594056943833295099
       vertices: []
       indices: 
@@ -265,19 +223,19 @@ TextureImporter:
       name: corpse 5 float dock_5
       rect:
         serializedVersion: 2
-        x: 3840
-        y: 70
-        width: 121
-        height: 66
+        x: 660
+        y: 800
+        width: 660
+        height: 400
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ff67a607c8a877b40800000000000000
+      spriteID: 1df88c11d18f4a3f87384dec84b20d17
       internalID: 5437967410859243263
       vertices: []
       indices: 
@@ -287,19 +245,19 @@ TextureImporter:
       name: corpse 5 float dock_6
       rect:
         serializedVersion: 2
-        x: 4500
-        y: 70
-        width: 121
-        height: 65
+        x: 1320
+        y: 800
+        width: 660
+        height: 400
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 06ab733d48181bda0800000000000000
+      spriteID: 7467865985b94186a554668935525790
       internalID: -5930816826790921632
       vertices: []
       indices: 
@@ -309,19 +267,19 @@ TextureImporter:
       name: corpse 5 float dock_7
       rect:
         serializedVersion: 2
-        x: 5160
-        y: 69
-        width: 121
-        height: 65
+        x: 1980
+        y: 800
+        width: 660
+        height: 400
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ca200fde9f1aa3410800000000000000
+      spriteID: fb4889238a394ca3940f92ef1ffea661
       internalID: 1457655524218634924
       vertices: []
       indices: 
@@ -331,19 +289,19 @@ TextureImporter:
       name: corpse 5 float dock_8
       rect:
         serializedVersion: 2
-        x: 5820
-        y: 68
-        width: 121
-        height: 65
+        x: 0
+        y: 400
+        width: 660
+        height: 400
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 024b3a41685ba2100800000000000000
+      spriteID: 08c06b1f77f84f71bbc1984ff55655df
       internalID: 84079130536293408
       vertices: []
       indices: 
@@ -353,19 +311,19 @@ TextureImporter:
       name: corpse 5 float dock_9
       rect:
         serializedVersion: 2
-        x: 6480
-        y: 67
-        width: 121
-        height: 65
+        x: 660
+        y: 400
+        width: 660
+        height: 400
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: db84928e28f8d42d0800000000000000
+      spriteID: 0362ef1a9b13497fb0e171c114019e84
       internalID: -3292817960134424387
       vertices: []
       indices: 
@@ -375,19 +333,19 @@ TextureImporter:
       name: corpse 5 float dock_10
       rect:
         serializedVersion: 2
-        x: 7140
-        y: 65
-        width: 121
-        height: 65
+        x: 1320
+        y: 400
+        width: 660
+        height: 400
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 311ac5cdb7bc18380800000000000000
+      spriteID: c9031e81165842da8d497f86e8f11523
       internalID: -8970665249906843373
       vertices: []
       indices: 
@@ -397,19 +355,19 @@ TextureImporter:
       name: corpse 5 float dock_11
       rect:
         serializedVersion: 2
-        x: 7800
-        y: 65
-        width: 121
-        height: 65
+        x: 1980
+        y: 400
+        width: 660
+        height: 400
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 81a07263f63e6af20800000000000000
+      spriteID: f3ed98ef73564f6dadea585fbfc7e0e3
       internalID: 3433681832705985048
       vertices: []
       indices: 
@@ -419,19 +377,19 @@ TextureImporter:
       name: corpse 5 float dock_12
       rect:
         serializedVersion: 2
-        x: 8460
-        y: 65
-        width: 121
-        height: 65
+        x: 0
+        y: 0
+        width: 660
+        height: 400
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fe398e06f73f055d0800000000000000
+      spriteID: ce23b59243b543398ff7bbcae22b1f82
       internalID: -3075690817081797649
       vertices: []
       indices: 
@@ -441,19 +399,19 @@ TextureImporter:
       name: corpse 5 float dock_13
       rect:
         serializedVersion: 2
-        x: 9120
-        y: 65
-        width: 120
-        height: 65
+        x: 660
+        y: 0
+        width: 660
+        height: 400
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 741715ee4f0fb97b0800000000000000
+      spriteID: ae6a9b062c67444a8c4d7a8f4732a017
       internalID: -5216310808617586361
       vertices: []
       indices: 
@@ -475,10 +433,6 @@ TextureImporter:
     nameFileIdTable:
       corpse 5 float dock_0: 6810283997983534400
       corpse 5 float dock_1: 2111941348963622654
-      corpse 5 float dock_10: -8970665249906843373
-      corpse 5 float dock_11: 3433681832705985048
-      corpse 5 float dock_12: -3075690817081797649
-      corpse 5 float dock_13: -5216310808617586361
       corpse 5 float dock_2: 2394610982376047307
       corpse 5 float dock_3: -8748841561302055283
       corpse 5 float dock_4: 594056943833295099
@@ -487,6 +441,10 @@ TextureImporter:
       corpse 5 float dock_7: 1457655524218634924
       corpse 5 float dock_8: 84079130536293408
       corpse 5 float dock_9: -3292817960134424387
+      corpse 5 float dock_10: -8970665249906843373
+      corpse 5 float dock_11: 3433681832705985048
+      corpse 5 float dock_12: -3075690817081797649
+      corpse 5 float dock_13: -5216310808617586361
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -19,6 +19,9 @@ public static class LighthouseBrick
 
     public const string InWallKey = "brick_in_wall";
     public const string FellTodayKey = "brick_fell_today";
+    // Set when the brick falls as you step onto floor 4 straight from the ground floor (the short
+    // early climbs), so the climb scene plays the drop as it loads.
+    public const string FellOnEntryKey = "brick_fell_on_entry";
 
     public static bool InWall => GameState.Get(InWallKey, true);
     public static bool OnFloor => !InWall;

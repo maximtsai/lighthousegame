@@ -137,8 +137,16 @@ public class MessageBus
 
         List<Exception> errors = new();
 
-        foreach (var pair in subscribers)
+        // Iterate a copy: a callback may subscribe or unsubscribe on this topic, which would
+        // otherwise throw out of the loop and skip every listener after it.
+        var snapshot = new List<KeyValuePair<int, Subscription>>(subscribers);
+
+        foreach (var pair in snapshot)
         {
+            // Unsubscribed by an earlier callback in this same publish
+            if (!subscribers.ContainsKey(pair.Key))
+                continue;
+
             try
             {
                 pair.Value.Callback?.Invoke(args);

@@ -14,6 +14,11 @@ public class InteractableObject : MonoBehaviour
     public AudioClip clickSound;
     private bool hasSound;
 
+    // Raised when the hover highlight turns on (true) or off (false), for extra highlights that
+    // live on other objects (e.g. the mermaid's outline on Camborne's bed).
+    public event Action<bool> HoverChanged;
+    private bool hovering;
+
     void Awake()
     {
         if (on_click == null)
@@ -51,28 +56,48 @@ public class InteractableObject : MonoBehaviour
 
     void OnMouseOver()
     {
-        if (GameState.Get<bool>("task_list_open", false)) return;
-        if (GameState.Get<bool>("minigame_open", false)) return;
-        if (GameState.Get<bool>("treasure_inspect_open", false)) return;
-        if (GameState.Get<bool>("navigationBlocked", false)) return;
-        if (DialogueManager.DialogueIsOpen()) return;
+        if (InputGate.WorldBlocked)
+        {
+            // Something opened on top while we were hovered; drop the highlight until it closes.
+            // Whatever opened owns the cursor now (the dialogue box sets its own), so leave it.
+            if (hovering) ClearHover(false);
+            return;
+        }
         transform.GetComponent<SpriteRenderer>().sprite = hover_sprite;
         CustomCursor.SetCursorToPointer();
+        SetHovering(true);
     }
 
     void OnMouseExit()
     {
-        transform.GetComponent<SpriteRenderer>().sprite = default_sprite;
-        CustomCursor.SetCursorToNormal();
+        if (hovering) ClearHover(true);
+    }
+
+    // OnMouseExit never comes if the collider or object is switched off under the cursor
+    // (e.g. a treasure spot hiding once found), so the pointer and hover sprite would stick.
+    void OnDisable()
+    {
+        if (hovering) ClearHover(!InputGate.WorldBlocked);
+    }
+
+    private void ClearHover(bool resetCursor)
+    {
+        SpriteRenderer srender = GetComponent<SpriteRenderer>();
+        if (srender != null) srender.sprite = default_sprite;
+        if (resetCursor) CustomCursor.SetCursorToNormal();
+        SetHovering(false);
+    }
+
+    private void SetHovering(bool value)
+    {
+        if (hovering == value) return;
+        hovering = value;
+        HoverChanged?.Invoke(value);
     }
 
     void OnMouseUp()
     {
-        if (GameState.Get<bool>("task_list_open", false)) return;
-        if (GameState.Get<bool>("minigame_open", false)) return;
-        if (GameState.Get<bool>("treasure_inspect_open", false)) return;
-        if (GameState.Get<bool>("navigationBlocked", false)) return;
-        if (DialogueManager.DialogueIsOpen()) return;
+        if (InputGate.WorldBlocked) return;
         if (hasSound)
         {
             audioSource.PlayOneShot(clickSound);

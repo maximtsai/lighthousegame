@@ -13,26 +13,22 @@ public class Day4Dock : MonoBehaviour
     private const string SeenKey = "day4_dock_bodies_seen";
     private const string BodyBuriedKeyPrefix = "day4_body_buried_";
     private const int BrideIndex = 2;
-    // Where she floats once the others are gone.
-    private static readonly Vector3 MermaidPosition = new Vector3(-2.5f, -1.1f, -0.06f);
-    private const int MermaidBobIndex = 4;
 
-    // Where each body floats, as the middle of the body itself, clear of the dock and fish trap.
-    private static readonly Vector3[] BodyPositions =
+    // Where each floating sheet's body is in its 660x400 frames (pixels from the top-left, covering
+    // every frame of its bob), for the click boxes. Body i is "corpse i+1 float dock".
+    private static readonly RectInt[] BodyBoxes =
     {
-        new Vector3(-2.45f, -1.45f, -0.06f),
-        new Vector3(2.4f, -1.35f, -0.06f),
-        new Vector3(-2.6f, -0.75f, -0.06f),
-        new Vector3(2.5f, -0.65f, -0.06f),
+        new RectInt(10, 289, 170, 76),
+        new RectInt(13, 224, 103, 52),
+        new RectInt(133, 229, 101, 60),
+        new RectInt(494, 235, 162, 55),
     };
+    // She floats where the first body was.
+    private static readonly RectInt MermaidBox = new RectInt(10, 242, 221, 122);
 
-    // Placeholder floating bodies, until there's floating corpse art: the carrying images, shrunk
-    // down. The body runs along the bottom of those, so the sprite sits above where it floats.
-    private const float BodyScale = 0.25f;
-    private static readonly Vector3 BodyInSprite = new Vector3(0f, -1.2f, 0f);
-    private static readonly Vector2 BodyColliderSize = new Vector2(6.4f, 1.3f);
-    private const float BobHeight = 0.035f;
-
+    private SpriteRenderer background;
+    private Sprite[][] bodyFrames;
+    private Sprite[] mermaidFrames;
     private Sprite[] carrySprites;
     private Sprite mermaidSprite;
     private AudioClip shovelClip;
@@ -43,8 +39,12 @@ public class Day4Dock : MonoBehaviour
     private Image carryImage;
     private bool busy;
 
-    public void Init(Sprite[] carrySprites, Sprite mermaidSprite, AudioClip shovelClip, MiscObjectClick miscObjectClick)
+    public void Init(SpriteRenderer background, Sprite[][] bodyFrames, Sprite[] mermaidFrames,
+        Sprite[] carrySprites, Sprite mermaidSprite, AudioClip shovelClip, MiscObjectClick miscObjectClick)
     {
+        this.background = background;
+        this.bodyFrames = bodyFrames;
+        this.mermaidFrames = mermaidFrames;
         this.carrySprites = carrySprites;
         this.mermaidSprite = mermaidSprite;
         this.shovelClip = shovelClip;
@@ -63,7 +63,7 @@ public class Day4Dock : MonoBehaviour
             return;
         }
 
-        for (int i = 0; i < Day4Beach.BodyCount && i < BodyPositions.Length; i++)
+        for (int i = 0; i < Day4Beach.BodyCount && i < BodyBoxes.Length; i++)
         {
             if (!GameState.Get<bool>(BodyBuriedKeyPrefix + i, false))
                 SpawnBody(i);
@@ -89,20 +89,13 @@ public class Day4Dock : MonoBehaviour
 
     private void SpawnBody(int index)
     {
-        GameObject body = new GameObject("day4_floating_body_" + index);
-        body.transform.SetParent(transform, false);
-        body.transform.position = BodyPositions[index] - BodyInSprite * BodyScale;
-        body.transform.localScale = Vector3.one * BodyScale;
+        Sprite[] frames = bodyFrames != null && index < bodyFrames.Length ? bodyFrames[index] : null;
+        FloatingLayer layer = FloatingLayer.Spawn("day4_floating_body_" + index, background, frames);
+        if (layer == null) return;
 
-        SpriteRenderer sr = body.AddComponent<SpriteRenderer>();
-        sr.sprite = CarrySprite(index);
-
-        BoxCollider2D box = body.AddComponent<BoxCollider2D>();
-        box.size = BodyColliderSize;
-        box.offset = BodyInSprite;
-
+        layer.AddClickBox(BodyBoxes[index]);
+        GameObject body = layer.gameObject;
         body.AddComponent<Day4ClickTarget>().onClick = () => OnBodyClicked(index, body);
-        StartCoroutine(BobRoutine(body.transform, index));
     }
 
     private Sprite CarrySprite(int index)
@@ -137,8 +130,7 @@ public class Day4Dock : MonoBehaviour
 
         // Haul them out of the water
         Sprite carry = CarrySprite(index);
-        carryImage.sprite = carry;
-        carryImage.enabled = carry != null;
+        SetCarrySprite(carry);
         yield return Fade(carryImage, 0f, 1f, 0.35f);
 
         // Drag them up to the grave until you click
@@ -180,20 +172,12 @@ public class Day4Dock : MonoBehaviour
 
     private void SpawnMermaid()
     {
-        GameObject body = new GameObject("day4_floating_mermaid");
-        body.transform.SetParent(transform, false);
-        body.transform.position = MermaidPosition - BodyInSprite * BodyScale;
-        body.transform.localScale = Vector3.one * BodyScale;
+        FloatingLayer layer = FloatingLayer.Spawn("day4_floating_mermaid", background, mermaidFrames);
+        if (layer == null) return;
 
-        SpriteRenderer sr = body.AddComponent<SpriteRenderer>();
-        sr.sprite = mermaidSprite != null ? mermaidSprite : CarrySprite(0);
-
-        BoxCollider2D box = body.AddComponent<BoxCollider2D>();
-        box.size = BodyColliderSize;
-        box.offset = BodyInSprite;
-
+        layer.AddClickBox(MermaidBox);
+        GameObject body = layer.gameObject;
         body.AddComponent<Day4ClickTarget>().onClick = () => OnMermaidClicked(body);
-        StartCoroutine(BobRoutine(body.transform, MermaidBobIndex));
     }
 
     private void OnMermaidClicked(GameObject body)
@@ -217,8 +201,7 @@ public class Day4Dock : MonoBehaviour
         EnsureOverlay();
 
         Sprite carry = mermaidSprite != null ? mermaidSprite : CarrySprite(0);
-        carryImage.sprite = carry;
-        carryImage.enabled = carry != null;
+        SetCarrySprite(carry);
         yield return Fade(carryImage, 0f, 1f, 0.35f);
 
         yield return null;
@@ -240,21 +223,6 @@ public class Day4Dock : MonoBehaviour
         Navigation.GoToScene(GameConsts.BEDROOMSCENE);
     }
 
-    // Rises and falls with the waves, each body out of step with the rest.
-    private IEnumerator BobRoutine(Transform body, int index)
-    {
-        Vector3 rest = body.position;
-        float phase = index * 2.1f;
-        float speed = 0.8f + index * 0.1f;
-        while (body != null)
-        {
-            float t = Time.time * speed + phase;
-            body.position = rest + new Vector3(0f, Mathf.Sin(t) * BobHeight, 0f);
-            body.rotation = Quaternion.Euler(0f, 0f, Mathf.Sin(t * 0.6f) * 2f);
-            yield return null;
-        }
-    }
-
     private void EnsureOverlay()
     {
         if (overlayCanvas != null) return;
@@ -266,8 +234,40 @@ public class Day4Dock : MonoBehaviour
         // Above the scene, under the dialogue box
         overlayCanvas.sortingOrder = 50;
 
-        carryImage = CreateFullScreenImage("carry", Color.white);
+        carryImage = CreateCarryImage();
         blackImage = CreateFullScreenImage("black", Color.black);
+    }
+
+    // The carrying images are a strip along the bottom of the screen, as wide as the screen and as
+    // tall as their own proportions make them, like looking down at what you're hauling.
+    private Image CreateCarryImage()
+    {
+        GameObject imageObject = new GameObject("carry");
+        imageObject.transform.SetParent(overlayCanvas.transform, false);
+        RectTransform rect = imageObject.AddComponent<RectTransform>();
+        rect.anchorMin = Vector2.zero;
+        rect.anchorMax = new Vector2(1f, 0f);
+        rect.pivot = new Vector2(0.5f, 0f);
+        rect.offsetMin = Vector2.zero;
+        rect.offsetMax = Vector2.zero;
+
+        Image image = imageObject.AddComponent<Image>();
+        image.color = Color.white;
+        image.raycastTarget = false;
+        image.preserveAspect = true;
+        image.enabled = false;
+
+        AspectRatioFitter fitter = imageObject.AddComponent<AspectRatioFitter>();
+        fitter.aspectMode = AspectRatioFitter.AspectMode.WidthControlsHeight;
+        return image;
+    }
+
+    private void SetCarrySprite(Sprite sprite)
+    {
+        carryImage.sprite = sprite;
+        carryImage.enabled = sprite != null;
+        if (sprite != null)
+            carryImage.GetComponent<AspectRatioFitter>().aspectRatio = sprite.rect.width / sprite.rect.height;
     }
 
     private Image CreateFullScreenImage(string name, Color color)
