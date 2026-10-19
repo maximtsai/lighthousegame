@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 
 // One patch laid down on the body: a bandage, or on Day 5 a piece of the fish-skin graft or a run
-// of stitches. It's invisible until you hover it, when it ghosts in to show where it'll land.
+// of stitches, or a Day 6 flower. It's invisible until you hover it, when it ghosts in to show where it'll land.
 //
 // Bandages are their own objects rather than a fourth stage on MermaidSpot because bandage 1
 // covers two sites at once, and four of the sites never get bandaged at all.
