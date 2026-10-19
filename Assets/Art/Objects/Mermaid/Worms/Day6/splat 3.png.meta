@@ -1,0 +1,1135 @@
+fileFormatVersion: 2
+guid: a5827d51de099dc4db049816b80a3ca2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8922473140133160449
+    second: splat 3_0
+  - first:
+      213: -4848086976433591827
+    second: splat 3_1
+  - first:
+      213: 150364509590654741
+    second: splat 3_2
+  - first:
+      213: -346333603345004112
+    second: splat 3_3
+  - first:
+      213: 8071506149094491778
+    second: splat 3_4
+  - first:
+      213: -5913001000173407474
+    second: splat 3_5
+  - first:
+      213: 7256859406330108472
+    second: splat 3_6
+  - first:
+      213: 6185809376218763358
+    second: splat 3_7
+  - first:
+      213: -5427028602501809546
+    second: splat 3_8
+  - first:
+      213: 3673539598823100599
+    second: splat 3_9
+  - first:
+      213: -1442446003603718900
+    second: splat 3_10
+  - first:
+      213: 5517292687536562616
+    second: splat 3_11
+  - first:
+      213: -8123726556443338562
+    second: splat 3_12
+  - first:
+      213: 7618616553003988229
+    second: splat 3_13
+  - first:
+      213: 985242046341017263
+    second: splat 3_14
+  - first:
+      213: -9014699546839086343
+    second: splat 3_15
+  - first:
+      213: -6481816781707743308
+    second: splat 3_16
+  - first:
+      213: -5825346645670515744
+    second: splat 3_17
+  - first:
+      213: -1732009771421414876
+    second: splat 3_18
+  - first:
+      213: 8046105298391382780
+    second: splat 3_19
+  - first:
+      213: 7580979489870095124
+    second: splat 3_20
+  - first:
+      213: 7725850196170585435
+    second: splat 3_21
+  - first:
+      213: 4575388118593627143
+    second: splat 3_22
+  - first:
+      213: 2694888318627811627
+    second: splat 3_23
+  - first:
+      213: -1314130395351903330
+    second: splat 3_24
+  - first:
+      213: -3463226623100894981
+    second: splat 3_25
+  - first:
+      213: -6592588943789549094
+    second: splat 3_26
+  - first:
+      213: 1933390161829449888
+    second: splat 3_27
+  - first:
+      213: 6642079450025085865
+    second: splat 3_28
+  - first:
+      213: 2040245140643447535
+    second: splat 3_29
+  - first:
+      213: -5996211334464332782
+    second: splat 3_30
+  - first:
+      213: 5794281391198635535
+    second: splat 3_31
+  - first:
+      213: -3316590426088096802
+    second: splat 3_32
+  - first:
+      213: 9182355618637629328
+    second: splat 3_33
+  - first:
+      213: 6631815580647608846
+    second: splat 3_34
+  - first:
+      213: -6482178217498617768
+    second: splat 3_35
+  - first:
+      213: 3391372879653751282
+    second: splat 3_36
+  - first:
+      213: -3520134674483925838
+    second: splat 3_37
+  - first:
+      213: 1950123154652080073
+    second: splat 3_38
+  - first:
+      213: -6198587740335622165
+    second: splat 3_39
+  - first:
+      213: -4122872832635329575
+    second: splat 3_40
+  - first:
+      213: -8044657850768609612
+    second: splat 3_41
+  - first:
+      213: 5773830840757387855
+    second: splat 3_42
+  - first:
+      213: -6948832439287872052
+    second: splat 3_43
+  - first:
+      213: 4647379306617965241
+    second: splat 3_44
+  - first:
+      213: -910944019393208197
+    second: splat 3_45
+  - first:
+      213: 9107443446329048879
+    second: splat 3_46
+  - first:
+      213: -4433034864937910554
+    second: splat 3_47
+  - first:
+      213: -4855407747635835439
+    second: splat 3_48
+  - first:
+      213: 686183258181187530
+    second: splat 3_49
+  - first:
+      213: -5870785341189174864
+    second: splat 3_50
+  - first:
+      213: 3075569584611446579
+    second: splat 3_51
+  - first:
+      213: -8768984440424737923
+    second: splat 3_52
+  - first:
+      213: 192087402676333829
+    second: splat 3_53
+  - first:
+      213: 9042329745408209125
+    second: splat 3_54
+  - first:
+      213: -771914263000706231
+    second: splat 3_55
+  - first:
+      213: -8491096747338313199
+    second: splat 3_56
+  - first:
+      213: -2334261973681945229
+    second: splat 3_57
+  - first:
+      213: -3921222106282889487
+    second: splat 3_58
+  - first:
+      213: 9156675732675135227
+    second: splat 3_59
+  - first:
+      213: 2009043618742502541
+    second: splat 3_60
+  - first:
+      213: -506362786873971971
+    second: splat 3_61
+  - first:
+      213: 3709914331957894429
+    second: splat 3_62
+  - first:
+      213: -2337731391374495418
+    second: splat 3_63
+  - first:
+      213: 3244658837457899458
+    second: splat 3_64
+  - first:
+      213: 2715551369091914374
+    second: splat 3_65
+  - first:
+      213: 2030124192126870640
+    second: splat 3_66
+  - first:
+      213: -6960744592300112337
+    second: splat 3_67
+  - first:
+      213: 2669674611889457604
+    second: splat 3_68
+  - first:
+      213: -7153665124646646680
+    second: splat 3_69
+  - first:
+      213: 5568764523831004090
+    second: splat 3_70
+  - first:
+      213: -8559915211811896905
+    second: splat 3_71
+  - first:
+      213: -2988036042944396973
+    second: splat 3_72
+  - first:
+      213: 6515716024766207719
+    second: splat 3_73
+  - first:
+      213: -527643891148887019
+    second: splat 3_74
+  - first:
+      213: 3899107093691347160
+    second: splat 3_75
+  - first:
+      213: 7129613975138387723
+    second: splat 3_76
+  - first:
+      213: -3185533518735845118
+    second: splat 3_77
+  - first:
+      213: 1455233300089970218
+    second: splat 3_78
+  - first:
+      213: -1281812718643932948
+    second: splat 3_79
+  - first:
+      213: 4059326718772701946
+    second: splat 3_80
+  - first:
+      213: 1583481287694169382
+    second: splat 3_81
+  - first:
+      213: -2098696675314454307
+    second: splat 3_82
+  - first:
+      213: 4818219908769392102
+    second: splat 3_83
+  - first:
+      213: 7804982917560120950
+    second: splat 3_84
+  - first:
+      213: 709473942286998068
+    second: splat 3_85
+  - first:
+      213: 3326526490825188746
+    second: splat 3_86
+  - first:
+      213: -2266823458199476115
+    second: splat 3_87
+  - first:
+      213: 4043027008714445665
+    second: splat 3_88
+  - first:
+      213: 321845350337977642
+    second: splat 3_89
+  - first:
+      213: -3530564667439613117
+    second: splat 3_90
+  - first:
+      213: -5079111422448315886
+    second: splat 3_91
+  - first:
+      213: 1689413881004938333
+    second: splat 3_92
+  - first:
+      213: 2481756474764815374
+    second: splat 3_93
+  - first:
+      213: -6212199006102192299
+    second: splat 3_94
+  - first:
+      213: -7048785396592697714
+    second: splat 3_95
+  - first:
+      213: -1314048379292874772
+    second: splat 3_96
+  - first:
+      213: 2501850037975203031
+    second: splat 3_97
+  - first:
+      213: 890296084017038665
+    second: splat 3_98
+  - first:
+      213: -2537584338518781301
+    second: splat 3_99
+  - first:
+      213: 9078715938552750563
+    second: splat 3_100
+  - first:
+      213: -7501870850292864196
+    second: splat 3_101
+  - first:
+      213: 4425932881878842484
+    second: splat 3_102
+  - first:
+      213: -8760348314724856011
+    second: splat 3_103
+  - first:
+      213: 8882574270446864211
+    second: splat 3_104
+  - first:
+      213: -6903715192004591654
+    second: splat 3_105
+  - first:
+      213: -4723896482986012997
+    second: splat 3_106
+  - first:
+      213: -3674492353136479707
+    second: splat 3_107
+  - first:
+      213: 2766152438491881858
+    second: splat 3_108
+  - first:
+      213: 4915442229837719708
+    second: splat 3_109
+  - first:
+      213: 5237077572324236880
+    second: splat 3_110
+  - first:
+      213: -9184619215185643110
+    second: splat 3_111
+  - first:
+      213: -2348293766882950211
+    second: splat 3_112
+  - first:
+      213: 6981386357858609313
+    second: splat 3_113
+  - first:
+      213: -8253601188878288723
+    second: splat 3_114
+  - first:
+      213: -6215233674667379201
+    second: splat 3_115
+  - first:
+      213: 2200729097744826980
+    second: splat 3_116
+  - first:
+      213: 8725362905015552622
+    second: splat 3_117
+  - first:
+      213: 7162406665463921997
+    second: splat 3_118
+  - first:
+      213: 4293694877749447280
+    second: splat 3_119
+  - first:
+      213: 1254667245436178244
+    second: splat 3_120
+  - first:
+      213: 7348162335827161411
+    second: splat 3_121
+  - first:
+      213: 6047304744828196970
+    second: splat 3_122
+  - first:
+      213: 4652404859953490172
+    second: splat 3_123
+  - first:
+      213: 1056207033187639716
+    second: splat 3_124
+  - first:
+      213: 8324920069749172037
+    second: splat 3_125
+  - first:
+      213: -1518684093930292682
+    second: splat 3_126
+  - first:
+      213: 8462796735932214337
+    second: splat 3_127
+  - first:
+      213: -2483280219464506586
+    second: splat 3_128
+  - first:
+      213: -5711463816783496401
+    second: splat 3_129
+  - first:
+      213: 6083787800585099744
+    second: splat 3_130
+  - first:
+      213: -5098583472222779164
+    second: splat 3_131
+  - first:
+      213: -8365815119276627197
+    second: splat 3_132
+  - first:
+      213: -4199612436380235806
+    second: splat 3_133
+  - first:
+      213: 8583898130138426238
+    second: splat 3_134
+  - first:
+      213: -9048339108380829363
+    second: splat 3_135
+  - first:
+      213: -252397591623142489
+    second: splat 3_136
+  - first:
+      213: 840667019957102269
+    second: splat 3_137
+  - first:
+      213: -2089927518233294702
+    second: splat 3_138
+  - first:
+      213: 7054765484944611444
+    second: splat 3_139
+  - first:
+      213: -3647826304722752975
+    second: splat 3_140
+  - first:
+      213: 4476798893471173709
+    second: splat 3_141
+  - first:
+      213: -7042114271870446437
+    second: splat 3_142
+  - first:
+      213: -5902576136369613212
+    second: splat 3_143
+  - first:
+      213: -8482682229906260326
+    second: splat 3_144
+  - first:
+      213: -908166899219699640
+    second: splat 3_145
+  - first:
+      213: 8932068409987780729
+    second: splat 3_146
+  - first:
+      213: 4324359005798559917
+    second: splat 3_147
+  - first:
+      213: -1227876251593806882
+    second: splat 3_148
+  - first:
+      213: 5596658354670229356
+    second: splat 3_149
+  - first:
+      213: -5090160685069374841
+    second: splat 3_150
+  - first:
+      213: -7785926956242526734
+    second: splat 3_151
+  - first:
+      213: -7420373872365193833
+    second: splat 3_152
+  - first:
+      213: -4759130877397490548
+    second: splat 3_153
+  - first:
+      213: 6895131923259717811
+    second: splat 3_154
+  - first:
+      213: -470056691571598791
+    second: splat 3_155
+  - first:
+      213: 6812753279614484236
+    second: splat 3_156
+  - first:
+      213: 6910343118891190939
+    second: splat 3_157
+  - first:
+      213: -4088773887155490335
+    second: splat 3_158
+  - first:
+      213: -8201691862375899479
+    second: splat 3_159
+  - first:
+      213: 242605338836721752
+    second: splat 3_160
+  - first:
+      213: -7984466254953707315
+    second: splat 3_161
+  - first:
+      213: 6924201584934202597
+    second: splat 3_162
+  - first:
+      213: -7613818341995027247
+    second: splat 3_163
+  - first:
+      213: 8891952670201560459
+    second: splat 3_164
+  - first:
+      213: -8101442297296950956
+    second: splat 3_165
+  - first:
+      213: 50146728204716126
+    second: splat 3_166
+  - first:
+      213: 2359097436336071810
+    second: splat 3_167
+  - first:
+      213: 6154373486287840081
+    second: splat 3_168
+  - first:
+      213: 2468881011956020940
+    second: splat 3_169
+  - first:
+      213: 4208280745411812263
+    second: splat 3_170
+  - first:
+      213: 5287947883804245686
+    second: splat 3_171
+  - first:
+      213: -2217495038045106633
+    second: splat 3_172
+  - first:
+      213: 6729197006278106774
+    second: splat 3_173
+  - first:
+      213: -1576161959159097354
+    second: splat 3_174
+  - first:
+      213: 3894102084464480113
+    second: splat 3_175
+  - first:
+      213: -2101393896112847390
+    second: splat 3_176
+  - first:
+      213: -4670075565627824048
+    second: splat 3_177
+  - first:
+      213: -4554097069996907882
+    second: splat 3_178
+  - first:
+      213: 7726641883316458112
+    second: splat 3_179
+  - first:
+      213: -169405140434673265
+    second: splat 3_180
+  - first:
+      213: -1108394631673440721
+    second: splat 3_181
+  - first:
+      213: 2250947271821194825
+    second: splat 3_182
+  - first:
+      213: 4438229885308375252
+    second: splat 3_183
+  - first:
+      213: -825776046863793742
+    second: splat 3_184
+  - first:
+      213: 3804128402628595303
+    second: splat 3_185
+  - first:
+      213: -7721319339522127659
+    second: splat 3_186
+  - first:
+      213: 2779312711251632690
+    second: splat 3_187
+  - first:
+      213: -925055418397309115
+    second: splat 3_188
+  - first:
+      213: -5974637787426012974
+    second: splat 3_189
+  - first:
+      213: 7174327847020398419
+    second: splat 3_190
+  - first:
+      213: -7370803300480279752
+    second: splat 3_191
+  - first:
+      213: 4632358463450092692
+    second: splat 3_192
+  - first:
+      213: 5656277841373593511
+    second: splat 3_193
+  - first:
+      213: 1111032226946427073
+    second: splat 3_194
+  - first:
+      213: -7053059083119409547
+    second: splat 3_195
+  - first:
+      213: 813668731922050113
+    second: splat 3_196
+  - first:
+      213: -8510893545262191099
+    second: splat 3_197
+  - first:
+      213: -8652979006710244281
+    second: splat 3_198
+  - first:
+      213: -1610755346489372007
+    second: splat 3_199
+  - first:
+      213: 5868699100340285992
+    second: splat 3_200
+  - first:
+      213: -5789916649982470926
+    second: splat 3_201
+  - first:
+      213: 3545732882005519857
+    second: splat 3_202
+  - first:
+      213: 8136603418777260051
+    second: splat 3_203
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 4096
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: splat 3_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1095
+        width: 547
+        height: 365
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff9166cc3f10d2480800000000000000
+      internalID: -8922473140133160449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splat 3_1
+      rect:
+        serializedVersion: 2
+        x: 547
+        y: 1095
+        width: 547
+        height: 365
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de96a79c49228bcb0800000000000000
+      internalID: -4848086976433591827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splat 3_2
+      rect:
+        serializedVersion: 2
+        x: 1094
+        y: 1095
+        width: 547
+        height: 365
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51f0afc89b3361200800000000000000
+      internalID: 150364509590654741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splat 3_3
+      rect:
+        serializedVersion: 2
+        x: 1641
+        y: 1095
+        width: 547
+        height: 365
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b907d63c63913bf0800000000000000
+      internalID: -346333603345004112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splat 3_4
+      rect:
+        serializedVersion: 2
+        x: 2188
+        y: 1095
+        width: 547
+        height: 365
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2868823f310c30070800000000000000
+      internalID: 8071506149094491778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splat 3_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 730
+        width: 547
+        height: 365
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0372243becc0fda0800000000000000
+      internalID: -5913001000173407474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splat 3_6
+      rect:
+        serializedVersion: 2
+        x: 547
+        y: 730
+        width: 547
+        height: 365
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83a124b7e2b85b460800000000000000
+      internalID: 7256859406330108472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splat 3_7
+      rect:
+        serializedVersion: 2
+        x: 1094
+        y: 730
+        width: 547
+        height: 365
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e50dcc59ad868d550800000000000000
+      internalID: 6185809376218763358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splat 3_8
+      rect:
+        serializedVersion: 2
+        x: 1641
+        y: 730
+        width: 547
+        height: 365
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67abef95d325fa4b0800000000000000
+      internalID: -5427028602501809546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splat 3_9
+      rect:
+        serializedVersion: 2
+        x: 2188
+        y: 730
+        width: 547
+        height: 365
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b09e284dc80bf230800000000000000
+      internalID: 3673539598823100599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splat 3_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 365
+        width: 547
+        height: 365
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0db48b80076bfbe0800000000000000
+      internalID: -1442446003603718900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splat 3_11
+      rect:
+        serializedVersion: 2
+        x: 547
+        y: 365
+        width: 547
+        height: 365
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b12a7aa77c519c40800000000000000
+      internalID: 5517292687536562616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splat 3_12
+      rect:
+        serializedVersion: 2
+        x: 1094
+        y: 365
+        width: 547
+        height: 365
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb899cefcb9b24f80800000000000000
+      internalID: -8123726556443338562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splat 3_13
+      rect:
+        serializedVersion: 2
+        x: 1641
+        y: 365
+        width: 547
+        height: 365
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 505b6b9c363cab960800000000000000
+      internalID: 7618616553003988229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splat 3_14
+      rect:
+        serializedVersion: 2
+        x: 2188
+        y: 365
+        width: 547
+        height: 365
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fae6fedcb684cad00800000000000000
+      internalID: 985242046341017263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splat 3_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 547
+        height: 365
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fa08c9268a55e280800000000000000
+      internalID: -9014699546839086343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splat 3_16
+      rect:
+        serializedVersion: 2
+        x: 547
+        y: 0
+        width: 547
+        height: 365
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4bfe42baaf5fb06a0800000000000000
+      internalID: -6481816781707743308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 7c86cf36aeed6cf4c8861ff4d3038d4e
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":5.0,"y":4.0},"gridSpriteSize":{"x":547.0,"y":365.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      splat 3_0: -8922473140133160449
+      splat 3_1: -4848086976433591827
+      splat 3_10: -1442446003603718900
+      splat 3_11: 5517292687536562616
+      splat 3_12: -8123726556443338562
+      splat 3_13: 7618616553003988229
+      splat 3_14: 985242046341017263
+      splat 3_15: -9014699546839086343
+      splat 3_16: -6481816781707743308
+      splat 3_2: 150364509590654741
+      splat 3_3: -346333603345004112
+      splat 3_4: 8071506149094491778
+      splat 3_5: -5913001000173407474
+      splat 3_6: 7256859406330108472
+      splat 3_7: 6185809376218763358
+      splat 3_8: -5427028602501809546
+      splat 3_9: 3673539598823100599
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

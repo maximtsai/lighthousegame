@@ -1,0 +1,841 @@
+fileFormatVersion: 2
+guid: bed696630234c9245a67b4ac2db57c31
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 9084888032754189347
+    second: splat 4_0
+  - first:
+      213: -2025594545573771000
+    second: splat 4_1
+  - first:
+      213: 7726258047171678854
+    second: splat 4_2
+  - first:
+      213: 3083188981970318870
+    second: splat 4_3
+  - first:
+      213: 5556700840328507119
+    second: splat 4_4
+  - first:
+      213: 2437606804726109322
+    second: splat 4_5
+  - first:
+      213: 2862573619789499974
+    second: splat 4_6
+  - first:
+      213: 4951619431132490592
+    second: splat 4_7
+  - first:
+      213: 5642476209117356278
+    second: splat 4_8
+  - first:
+      213: 1395803672252812936
+    second: splat 4_9
+  - first:
+      213: -5439094510401896045
+    second: splat 4_10
+  - first:
+      213: 2059787168689360862
+    second: splat 4_11
+  - first:
+      213: 7901330518608347036
+    second: splat 4_12
+  - first:
+      213: 2525517776788964910
+    second: splat 4_13
+  - first:
+      213: 7371817914124306077
+    second: splat 4_14
+  - first:
+      213: 9151534238706681540
+    second: splat 4_15
+  - first:
+      213: 571995941827349627
+    second: splat 4_16
+  - first:
+      213: 48686162392214377
+    second: splat 4_17
+  - first:
+      213: -1082327452243936335
+    second: splat 4_18
+  - first:
+      213: 1521660346226093965
+    second: splat 4_19
+  - first:
+      213: 8927836223650533796
+    second: splat 4_20
+  - first:
+      213: -6132238817782914769
+    second: splat 4_21
+  - first:
+      213: 747955179427436244
+    second: splat 4_22
+  - first:
+      213: -8131766375739093244
+    second: splat 4_23
+  - first:
+      213: -6498186364478603758
+    second: splat 4_24
+  - first:
+      213: -4484958242849092398
+    second: splat 4_25
+  - first:
+      213: 7593685047488953625
+    second: splat 4_26
+  - first:
+      213: 2972107777081393766
+    second: splat 4_27
+  - first:
+      213: -6103180373427545375
+    second: splat 4_28
+  - first:
+      213: 3497529833063205507
+    second: splat 4_29
+  - first:
+      213: -2880726514581177674
+    second: splat 4_30
+  - first:
+      213: 8440328338187505791
+    second: splat 4_31
+  - first:
+      213: -1246604655143906873
+    second: splat 4_32
+  - first:
+      213: 8821645033677198284
+    second: splat 4_33
+  - first:
+      213: 1149204562161724910
+    second: splat 4_34
+  - first:
+      213: -3440064683343954052
+    second: splat 4_35
+  - first:
+      213: -8614925633288543750
+    second: splat 4_36
+  - first:
+      213: -2291700960388096829
+    second: splat 4_37
+  - first:
+      213: 2442795591041408378
+    second: splat 4_38
+  - first:
+      213: -7363178846888000240
+    second: splat 4_39
+  - first:
+      213: 2740635813394635014
+    second: splat 4_40
+  - first:
+      213: -7190168935208044657
+    second: splat 4_41
+  - first:
+      213: -3976398794823011615
+    second: splat 4_42
+  - first:
+      213: 6242692966046482070
+    second: splat 4_43
+  - first:
+      213: 1055519944421118678
+    second: splat 4_44
+  - first:
+      213: 5543866083575032266
+    second: splat 4_45
+  - first:
+      213: 6892519350344901123
+    second: splat 4_46
+  - first:
+      213: -1638166947684622967
+    second: splat 4_47
+  - first:
+      213: -6394979694515740829
+    second: splat 4_48
+  - first:
+      213: -5564639240224839197
+    second: splat 4_49
+  - first:
+      213: 7629177889402835625
+    second: splat 4_50
+  - first:
+      213: -6526135053080297932
+    second: splat 4_51
+  - first:
+      213: 7505683866331071751
+    second: splat 4_52
+  - first:
+      213: -8296337887890135528
+    second: splat 4_53
+  - first:
+      213: 717031440758329777
+    second: splat 4_54
+  - first:
+      213: 4469928488306564779
+    second: splat 4_55
+  - first:
+      213: 2529672024840259595
+    second: splat 4_56
+  - first:
+      213: -787791444375123383
+    second: splat 4_57
+  - first:
+      213: 4061077510116206184
+    second: splat 4_58
+  - first:
+      213: -8175251135279152842
+    second: splat 4_59
+  - first:
+      213: -195621017201198451
+    second: splat 4_60
+  - first:
+      213: 790649538330740364
+    second: splat 4_61
+  - first:
+      213: 7966231186837721979
+    second: splat 4_62
+  - first:
+      213: 2862284212948499974
+    second: splat 4_63
+  - first:
+      213: 8634739955099098231
+    second: splat 4_64
+  - first:
+      213: 1148891809780719835
+    second: splat 4_65
+  - first:
+      213: -3438637498276543866
+    second: splat 4_66
+  - first:
+      213: -8909418693784265850
+    second: splat 4_67
+  - first:
+      213: 4476758251760390061
+    second: splat 4_68
+  - first:
+      213: 7140764968104537177
+    second: splat 4_69
+  - first:
+      213: 4482482940241882564
+    second: splat 4_70
+  - first:
+      213: -2350487863116999465
+    second: splat 4_71
+  - first:
+      213: -6504641442804290742
+    second: splat 4_72
+  - first:
+      213: -7730057488196901537
+    second: splat 4_73
+  - first:
+      213: -6853439944270317215
+    second: splat 4_74
+  - first:
+      213: -8667944682883899897
+    second: splat 4_75
+  - first:
+      213: 1959145882775204173
+    second: splat 4_76
+  - first:
+      213: -3782911229201315669
+    second: splat 4_77
+  - first:
+      213: 6240630124007956242
+    second: splat 4_78
+  - first:
+      213: -1338461727952729052
+    second: splat 4_79
+  - first:
+      213: 7111483286177332185
+    second: splat 4_80
+  - first:
+      213: 5855411698633094589
+    second: splat 4_81
+  - first:
+      213: -4204419834210605325
+    second: splat 4_82
+  - first:
+      213: 5541899449115160860
+    second: splat 4_83
+  - first:
+      213: -5628687205660206945
+    second: splat 4_84
+  - first:
+      213: -3255869627657603332
+    second: splat 4_85
+  - first:
+      213: 2010721405083253334
+    second: splat 4_86
+  - first:
+      213: -8331458368766311813
+    second: splat 4_87
+  - first:
+      213: -4116494883213382341
+    second: splat 4_88
+  - first:
+      213: -8040167026276686982
+    second: splat 4_89
+  - first:
+      213: -5015025782615810009
+    second: splat 4_90
+  - first:
+      213: -4458140424962434977
+    second: splat 4_91
+  - first:
+      213: 2164657188235920834
+    second: splat 4_92
+  - first:
+      213: -1117529963953949923
+    second: splat 4_93
+  - first:
+      213: -5518570269496522023
+    second: splat 4_94
+  - first:
+      213: 8527195845693410222
+    second: splat 4_95
+  - first:
+      213: -4298030628216455252
+    second: splat 4_96
+  - first:
+      213: -1744945258806958434
+    second: splat 4_97
+  - first:
+      213: 2132316843772771911
+    second: splat 4_98
+  - first:
+      213: 4445479895759693454
+    second: splat 4_99
+  - first:
+      213: 4010765811842669449
+    second: splat 4_100
+  - first:
+      213: -7958630006709406846
+    second: splat 4_101
+  - first:
+      213: 9217585497551057128
+    second: splat 4_102
+  - first:
+      213: -2684292653669645531
+    second: splat 4_103
+  - first:
+      213: -4998083518981064926
+    second: splat 4_104
+  - first:
+      213: -7032378704427236767
+    second: splat 4_105
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 4096
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: splat 4_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1224
+        width: 551
+        height: 408
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 324c2803881041e70800000000000000
+      internalID: 9084888032754189347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splat 4_1
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 1224
+        width: 551
+        height: 408
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8094b1c2e74a3e3e0800000000000000
+      internalID: -2025594545573771000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splat 4_2
+      rect:
+        serializedVersion: 2
+        x: 1102
+        y: 1224
+        width: 551
+        height: 408
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 682dba822ce293b60800000000000000
+      internalID: 7726258047171678854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splat 4_3
+      rect:
+        serializedVersion: 2
+        x: 1653
+        y: 1224
+        width: 551
+        height: 408
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6163dbd2b00b9ca20800000000000000
+      internalID: 3083188981970318870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splat 4_4
+      rect:
+        serializedVersion: 2
+        x: 2204
+        y: 1224
+        width: 551
+        height: 408
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fee25ee39fd5d1d40800000000000000
+      internalID: 5556700840328507119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splat 4_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 816
+        width: 551
+        height: 408
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8456c1597e14d120800000000000000
+      internalID: 2437606804726109322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splat 4_6
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 816
+        width: 551
+        height: 408
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64e05f66a87e9b720800000000000000
+      internalID: 2862573619789499974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splat 4_7
+      rect:
+        serializedVersion: 2
+        x: 1102
+        y: 816
+        width: 551
+        height: 408
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06be29743afa7b440800000000000000
+      internalID: 4951619431132490592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splat 4_8
+      rect:
+        serializedVersion: 2
+        x: 1653
+        y: 816
+        width: 551
+        height: 408
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f06802973a1e4e40800000000000000
+      internalID: 5642476209117356278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splat 4_9
+      rect:
+        serializedVersion: 2
+        x: 2204
+        y: 816
+        width: 551
+        height: 408
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88e80dc6b04ee5310800000000000000
+      internalID: 1395803672252812936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splat 4_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 408
+        width: 551
+        height: 408
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 391c7bf3c547484b0800000000000000
+      internalID: -5439094510401896045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splat 4_11
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 408
+        width: 551
+        height: 408
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edf03a64485d59c10800000000000000
+      internalID: 2059787168689360862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splat 4_12
+      rect:
+        serializedVersion: 2
+        x: 1102
+        y: 408
+        width: 551
+        height: 408
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9f7a9e5e3a27ad60800000000000000
+      internalID: 7901330518608347036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splat 4_13
+      rect:
+        serializedVersion: 2
+        x: 1653
+        y: 408
+        width: 551
+        height: 408
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e26c07789017c0320800000000000000
+      internalID: 2525517776788964910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splat 4_14
+      rect:
+        serializedVersion: 2
+        x: 2204
+        y: 408
+        width: 551
+        height: 408
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d968d38d555fd4660800000000000000
+      internalID: 7371817914124306077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splat 4_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 551
+        height: 408
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c6cfe737e7c00f70800000000000000
+      internalID: 9151534238706681540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splat 4_16
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 0
+        width: 551
+        height: 408
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7c859d474320f700800000000000000
+      internalID: 571995941827349627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: f929670ab4fe1e2478efad2f2f3038f6
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":5.0,"y":4.0},"gridSpriteSize":{"x":551.0,"y":408.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      splat 4_0: 9084888032754189347
+      splat 4_1: -2025594545573771000
+      splat 4_10: -5439094510401896045
+      splat 4_11: 2059787168689360862
+      splat 4_12: 7901330518608347036
+      splat 4_13: 2525517776788964910
+      splat 4_14: 7371817914124306077
+      splat 4_15: 9151534238706681540
+      splat 4_16: 571995941827349627
+      splat 4_2: 7726258047171678854
+      splat 4_3: 3083188981970318870
+      splat 4_4: 5556700840328507119
+      splat 4_5: 2437606804726109322
+      splat 4_6: 2862573619789499974
+      splat 4_7: 4951619431132490592
+      splat 4_8: 5642476209117356278
+      splat 4_9: 1395803672252812936
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

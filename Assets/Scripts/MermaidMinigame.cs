@@ -8,6 +8,7 @@ using UnityEngine;
 // Day 4:  clean barnacles (gloves), disinfect (alcohol), stitch (fish bones), bandage.
 // Day 5:  pop worms (gloves), remove dirty bandages (gloves), clean pus (alcohol), peel the fish,
 //         drag the fish skin on as a graft, stitch the graft (fish bones), bandage.
+// Day 6:  the same treatment with more worms and leg grafts, followed by placing flowers.
 //
 // Each phase raises the tray with only its own tool lit. Pick it up and the tray drops, that
 // phase's targets become clickable, and once they're all treated the task completes and the
@@ -69,6 +70,8 @@ public class MermaidMinigame : MonoBehaviour
     [SerializeField] private float openingFadeOut = 1.5f;
 
     [Header("Finish")]
+    [Tooltip("Finish in this scene without dialogue, follow-up tasks, or navigation.")]
+    [SerializeField] private bool finishInPlace;
     [Tooltip("Optional path under Resources/ScriptableObjects/Dialogues/, e.g. mermaid/patched_up")]
     [SerializeField] private string finishDialogue = "";
 
@@ -138,6 +141,7 @@ public class MermaidMinigame : MonoBehaviour
     public void ClickBandages() => ChooseTool(MermaidTool.Bandages);
     public void ClickFish() => ChooseTool(MermaidTool.Fish);
     public void ClickFishSkin() => ChooseTool(MermaidTool.FishSkin);
+    public void ClickFlowers() => ChooseTool(MermaidTool.Flowers);
 
     private void ChooseTool(MermaidTool tool)
     {
@@ -292,6 +296,8 @@ public class MermaidMinigame : MonoBehaviour
         MessageBus.Instance.Publish("ClearTaskProgress");
 
         if (openingSource != null && openingSource.loop) StartCoroutine(FadeOut(openingSource, openingFadeOut));
+
+        if (finishInPlace) return;
 
         Dialogue dialogue = null;
         if (!string.IsNullOrEmpty(finishDialogue) && miscObjectClick != null)

@@ -11,6 +11,7 @@ public enum MermaidTool
     Bandages = 4,
     Fish = 5,
     FishSkin = 6,
+    Flowers = 7,
 }
 
 // Base for anything on the mermaid's body you can treat with a tool.
