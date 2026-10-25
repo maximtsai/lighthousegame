@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: camborne_breakfast
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   text:
-  - He better wake up soon or the food will go cold.
+  - He'd better wake up soon or the food will go cold.
   onDialogueEnd:
     m_PersistentCalls:
       m_Calls: []

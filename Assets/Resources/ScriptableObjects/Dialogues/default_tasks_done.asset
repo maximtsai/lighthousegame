@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: default_tasks_done
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   text:
-  - You have already completed today's tasks.
+  - Nothing left to do today.
   onDialogueEnd:
     m_PersistentCalls:
       m_Calls: []

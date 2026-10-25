@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: burial_blocked
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   text:
-  - You need to bury this body first
+  - You need to bury this body first.
   onDialogueEnd:
     m_PersistentCalls:
       m_Calls: []

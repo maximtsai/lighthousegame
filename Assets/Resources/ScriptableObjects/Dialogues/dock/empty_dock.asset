@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: empty_dock
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   text:
-  - It's been awhile since I've last seen any boats.
-  - Maybe they'll send one of those two-masted ships again!
+  - No boats in a while.
+  - Maybe they'll send those two-masted ships again.
+  - That'd be nice.
   onDialogueEnd:
     m_PersistentCalls:
       m_Calls: []

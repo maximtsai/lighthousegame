@@ -104,7 +104,7 @@ public class MiscObjectClick : MonoBehaviour
                 sleepDialogue.text = new List<string>(new string[]
                 {
                     "It's been a long day.",
-                    "The sound of rain pattering on the roof lulls you to sleep..."
+                    "The rain doesn't stop. You don't notice yourself falling asleep."
                 });
                 sleepDialogue.choices = new List<string>();
                 sleepDialogue.consequences = new List<UnityEngine.Events.UnityEvent>();

@@ -13,10 +13,9 @@ MonoBehaviour:
   m_Name: uneasy_sleep
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   text:
-  - The bed is hard, but you are tired from the day
-  - You look at the other bed across from you, now empty.
-  - You turn the other way and cover yourself with damp blankets.
-  - Sleep soon comes...
+  - The bed is hard.
+  - The other one is empty.
+  - You face the wall.
   onDialogueEnd:
     m_PersistentCalls:
       m_Calls: []

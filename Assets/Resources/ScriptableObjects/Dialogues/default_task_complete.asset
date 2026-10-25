@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: default_task_complete
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   text:
-  - Task completed.
+  - Done.

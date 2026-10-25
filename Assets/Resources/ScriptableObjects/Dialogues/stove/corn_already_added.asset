@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: corn_already_added
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   text:
-  - You already added corn
+  - You already added corn.
   onDialogueEnd:
     m_PersistentCalls:
       m_Calls: []

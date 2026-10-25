@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: open_lighthouse_first
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   text:
-  - I need to open the casing first
+  - I need to open the casing first.
   onDialogueEnd:
     m_PersistentCalls:
       m_Calls: []

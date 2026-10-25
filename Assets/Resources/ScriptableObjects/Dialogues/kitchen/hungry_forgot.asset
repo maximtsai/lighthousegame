@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: hungry_forgot
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   text:
-  - Wait I haven't actually eaten anything yet.
+  - Wait. I haven't actually eaten anything yet.
   onDialogueEnd:
     m_PersistentCalls:
       m_Calls: []

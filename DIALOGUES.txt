@@ -2,10 +2,10 @@ GAME DIALOGUE LOG
 ================
 
 [Dialogues - default_tasks_done]
-  You have already completed today's tasks.
+  Nothing left to do today.
 
 [Dialogues - default_task_complete]
-  Task completed.
+  Done.
 
 [Dialogues - default_wrong_task]
   You have other things to do.
@@ -74,10 +74,9 @@ GAME DIALOGUE LOG
   You dream of living fish, #and dead people.
 
 [Bedroom - uneasy_sleep]
-  The bed is hard, but you are tired from the day
-  You look at the other bed across from you, now empty.
-  You turn the other way and cover yourself with damp blankets.
-  Sleep soon comes...
+  The bed is hard.
+  The other one is empty.
+  You face the wall.
 
 [burial - already_buried]
   Camborne's under there.
@@ -98,11 +97,12 @@ GAME DIALOGUE LOG
   Too dark to see much.
 
 [dock - empty_dock]
-  It's been awhile since I've last seen any boats.
-  Maybe they'll send one of those two-masted ships again!
+  No boats in a while.
+  Maybe they'll send those two-masted ships again.
+  That'd be nice.
 
 [dock - gather_fish]
-  You pick up your daily haul of fish.
+  Today's fish. Same as yesterday's.
 
 [dock - gather_fish_done]
   The fish trap is empty.
@@ -114,15 +114,15 @@ GAME DIALOGUE LOG
   You can't rest until you've taken care of the body.
 
 [kitchen - camborne_breakfast]
-  He better wake up soon or the food will go cold.
+  He'd better wake up soon or the food will go cold.
 
 [kitchen - camb_choice1a]
-  You try and look away
+  You try and look away.
   But you can still smell him.
   Like rotting fish mixed with bad gas.
 
 [kitchen - camb_choice1ax]
-  You try and look away
+  You try and look away.
   But you can still smell him.
   Like rotting fish mixed with bad gas.
 
@@ -149,7 +149,7 @@ GAME DIALOGUE LOG
   Wake up Mister Camborne, it's time for your night shift.
 
 [kitchen - cleanup]
-  Gotta clean that up later
+  Gotta clean that up later.
 
 [kitchen - day2_table]
   I'll clean up that spot later, ##maybe.
@@ -161,7 +161,7 @@ GAME DIALOGUE LOG
   Hungry. #Need dinner first.
 
 [kitchen - hungry_forgot]
-  Wait I haven't actually eaten anything yet.
+  Wait. I haven't actually eaten anything yet.
 
 [kitchen - long_night]
   Camborne must have had a long night.
@@ -173,8 +173,8 @@ GAME DIALOGUE LOG
   What do I do now?
 
 [kitchen - sleep_all_day]
-  He hasn't moved, how tired is he?
-  He better wake up soon for his night shift.
+  He hasn't moved. How tired is he?
+  He'd better wake up soon for his night shift.
 
 [kitchen - wake_camborne]
   I should probably wake him.
@@ -188,7 +188,7 @@ GAME DIALOGUE LOG
   ...Hey Camborne, it''s time to
 
 [Lighthouse - already_fixed]
-  Today's maintenance work is finished.
+  Done. It'll need doing again tomorrow.
 
 [Lighthouse - drop_tool]
   Your screwdriver slips from your hand.
@@ -202,10 +202,10 @@ GAME DIALOGUE LOG
   It must have fallen down the stairs.
 
 [Lighthouse - open_default]
-  You open the lens casing and prepare your tools
+  You open the lens casing and prepare your tools.
 
 [Lighthouse - open_lighthouse_first]
-  I need to open the casing first
+  I need to open the casing first.
 
 [Lighthouse - tool_not_downstairs]
   You look everywhere for your screwdriver.
@@ -216,13 +216,13 @@ GAME DIALOGUE LOG
   The lights are working now.
 
 [outdoors - burial_blocked]
-  You need to bury this body first
+  You need to bury this body first.
 
 [outdoors - missing_fish]
-  I still need fish for dinner
+  I still need fish for dinner.
 
 [outdoors - resting_place]
-  Camborne's resting place
+  Camborne's down there. Resting.
 
 [outdoors - work_not_done]
   You still have stuff to do.
@@ -254,10 +254,10 @@ GAME DIALOGUE LOG
   You try your best to keep your bandages secure.
 
 [stove - alcohol_already_added]
-  You already added booze
+  You already added booze.
 
 [stove - corn_already_added]
-  You already added corn
+  You already added corn.
 
 [stove - eating]
   Just corn chowder is enough for you.
@@ -272,16 +272,16 @@ GAME DIALOGUE LOG
   You don't feel like eating any more fish
 
 [stove - not_hungry]
-  You need to ration for the next food and water delivery.
+  Save it. The next delivery's a while off.
 
 [stove - not_ready]
-  Chowder needs more stuff
+  Chowder needs more stuff.
 
 [stove - pepper_already_added]
-  You already added seasoning
+  You already added seasoning.
 
 [stove - ready_to_eat]
-  Food's ready
+  Food's ready.
 
 
 [Day 2 Night - Gathering Fish]

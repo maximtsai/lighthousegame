@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: alcohol_already_added
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   text:
-  - You already added booze
+  - You already added booze.
   onDialogueEnd:
     m_PersistentCalls:
       m_Calls: []

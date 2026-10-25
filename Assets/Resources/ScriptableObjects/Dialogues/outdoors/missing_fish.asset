@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: missing_fish
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   text:
-  - I still need fish for dinner
+  - I still need fish for dinner.
   onDialogueEnd:
     m_PersistentCalls:
       m_Calls: []

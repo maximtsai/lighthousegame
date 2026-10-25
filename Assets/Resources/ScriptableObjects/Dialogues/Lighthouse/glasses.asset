@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: glasses
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   text:
-  - Looks like it belonged to someone smart. Why would they want to work here?
+  - Someone smart wore these.
+  - Then they came here.
   onDialogueEnd:
     m_PersistentCalls:
       m_Calls: []

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: lighter
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   text:
-  - Doesn't work anymore after being submerged in water.
+  - Waterlogged. Won't light.
   onDialogueEnd:
     m_PersistentCalls:
       m_Calls: []

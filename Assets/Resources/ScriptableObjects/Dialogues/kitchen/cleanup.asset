@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: cleanup
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   text:
-  - Gotta clean that up later
+  - Gotta clean that up later.
   onDialogueEnd:
     m_PersistentCalls:
       m_Calls: []

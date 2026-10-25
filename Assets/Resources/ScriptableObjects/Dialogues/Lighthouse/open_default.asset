@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: open_default
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   text:
-  - You open the lens casing and prepare your tools
+  - You open the lens casing and prepare your tools.
   onDialogueEnd:
     m_PersistentCalls:
       m_Calls:

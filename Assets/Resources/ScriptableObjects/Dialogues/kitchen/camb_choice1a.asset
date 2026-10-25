@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: camb_choice1a
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   text:
-  - You try and look away
+  - You try and look away.
   - But you can still smell him.
   - Like rotting fish mixed with bad gas.
   onDialogueEnd:

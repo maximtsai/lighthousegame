@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: gather_fish
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   text:
-  - You pick up your daily haul of fish.
+  - Today's fish. Same as yesterday's.
   onDialogueEnd:
     m_PersistentCalls:
       m_Calls: []

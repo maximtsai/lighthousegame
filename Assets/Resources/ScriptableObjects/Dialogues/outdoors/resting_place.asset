@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: resting_place
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   text:
-  - Camborne's resting place
+  - Camborne's down there. Resting.
   onDialogueEnd:
     m_PersistentCalls:
       m_Calls: []

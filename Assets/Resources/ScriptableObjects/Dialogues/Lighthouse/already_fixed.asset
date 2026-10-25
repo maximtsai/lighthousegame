@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: already_fixed
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   text:
-  - Today's maintenance work is finished.
+  - Done. It'll need doing again tomorrow.
   onDialogueEnd:
     m_PersistentCalls:
       m_Calls: []

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ready_to_eat
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   text:
-  - Food's ready
+  - Food's ready.
   onDialogueEnd:
     m_PersistentCalls:
       m_Calls: []

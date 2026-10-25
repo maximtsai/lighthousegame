@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: pepper_already_added
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   text:
-  - You already added seasoning
+  - You already added seasoning.
   onDialogueEnd:
     m_PersistentCalls:
       m_Calls: []

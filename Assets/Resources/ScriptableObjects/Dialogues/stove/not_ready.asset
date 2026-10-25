@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: not_ready
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   text:
-  - Chowder needs more stuff
+  - Chowder needs more stuff.
   onDialogueEnd:
     m_PersistentCalls:
       m_Calls: []
