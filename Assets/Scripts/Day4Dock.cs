@@ -3,8 +3,9 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// Day 4 at the dock: the bodies from the wreck are floating in the water. Clicking one carries
-/// it off to the mass grave, with the usual "Scratch?" after. One of them is a bride.
+/// Day 4 at the dock: the wreck has washed in with the weather. Picking through the scraps of it
+/// is the survey; after that the floating bodies can be carried off to the mass grave, with the
+/// usual "Scratch?" after each. One of them is a bride.
 /// Once they're all buried a fifth turns up: the mermaid. She's breathing, so instead of the
 /// grave she's carried inside to Camborne's bed (see MiscObjectClick.ClickPartnerBed).
 /// </summary>
@@ -25,8 +26,11 @@ public class Day4Dock : MonoBehaviour
     };
     // She floats where the first body was.
     private static readonly RectInt MermaidBox = new RectInt(10, 242, 221, 122);
+    // The washed-up planks in the bottom-right corner of the driftwood layer, for the survey.
+    private static readonly RectInt ScrapsBox = new RectInt(490, 315, 170, 85);
 
     private SpriteRenderer background;
+    private FloatingLayer driftwood;
     private Sprite[][] bodyFrames;
     private Sprite[] mermaidFrames;
     private Sprite[] carrySprites;
@@ -39,10 +43,11 @@ public class Day4Dock : MonoBehaviour
     private Image carryImage;
     private bool busy;
 
-    public void Init(SpriteRenderer background, Sprite[][] bodyFrames, Sprite[] mermaidFrames,
+    public void Init(SpriteRenderer background, FloatingLayer driftwood, Sprite[][] bodyFrames, Sprite[] mermaidFrames,
         Sprite[] carrySprites, Sprite mermaidSprite, AudioClip shovelClip, MiscObjectClick miscObjectClick)
     {
         this.background = background;
+        this.driftwood = driftwood;
         this.bodyFrames = bodyFrames;
         this.mermaidFrames = mermaidFrames;
         this.carrySprites = carrySprites;
@@ -53,8 +58,11 @@ public class Day4Dock : MonoBehaviour
 
     void Start()
     {
-        if (!Day4Beach.Surveyed)
+        if (!Day4Beach.WreckageWashedUp)
             return;
+
+        if (!Day4Beach.Surveyed)
+            WireScraps();
 
         if (Day4Beach.Buried >= Day4Beach.BodyCount)
         {
@@ -107,6 +115,12 @@ public class Day4Dock : MonoBehaviour
     private void OnBodyClicked(int index, GameObject body)
     {
         if (busy) return;
+
+        if (!Day4Beach.Surveyed)
+        {
+            DialogueManager.ShowDialogueFromText(new string[] { "I should see what else washed up first." });
+            return;
+        }
 
         if (index == BrideIndex)
         {
@@ -168,6 +182,33 @@ public class Day4Dock : MonoBehaviour
                 });
             }
         });
+    }
+
+    private void WireScraps()
+    {
+        if (driftwood == null) return;
+
+        BoxCollider2D box = driftwood.AddClickBox(ScrapsBox);
+        Day4ClickTarget target = driftwood.gameObject.AddComponent<Day4ClickTarget>();
+        target.onClick = () =>
+        {
+            // Only once: the scraps go back to just floating there
+            Destroy(target);
+            Destroy(box);
+            Survey();
+        };
+    }
+
+    private void Survey()
+    {
+        GameState.Set(Day4Beach.SurveyedKey, true);
+        DialogueManager.ShowDialogueFromText(new string[]
+        {
+            "You pick through the scraps on the shore.",
+            "A can of corn chowder.## A different brand.",
+            "Be grateful."
+        });
+        MessageBus.Instance.Publish("CompleteTask", "task_survey_beach");
     }
 
     private void SpawnMermaid()

@@ -73,10 +73,12 @@ public class PierMiscLogic : MonoBehaviour
             StartCoroutine(Day3CorpseFlashRoutine());
         }
 
-        // Day 4 on: the supply ship's wreckage has started washing up
-        if (GameState.Get<int>("day") >= 4 && driftwoodFloat != null)
+        // The supply ship's wreckage, from the Day 4 weather on
+        FloatingLayer driftwood = null;
+        int day = GameState.Get<int>("day");
+        if ((day > Day4Beach.Day || Day4Beach.WreckageWashedUp) && driftwoodFloat != null)
         {
-            FloatingLayer.Spawn("floating_driftwood", dockBackground, driftwoodFloat.frames);
+            driftwood = FloatingLayer.Spawn("floating_driftwood", dockBackground, driftwoodFloat.frames);
         }
 
         // Day 4: the bodies from the wreck, out in the water
@@ -87,7 +89,7 @@ public class PierMiscLogic : MonoBehaviour
             for (int i = 0; i < count; i++)
                 bodyFrames[i] = floatingCorpses[i] != null ? floatingCorpses[i].frames : null;
 
-            gameObject.AddComponent<Day4Dock>().Init(dockBackground, bodyFrames,
+            gameObject.AddComponent<Day4Dock>().Init(dockBackground, driftwood, bodyFrames,
                 mermaidFloat != null ? mermaidFloat.frames : null,
                 carryBodySprites, mermaidCarrySprite, shovelClip, miscObjectClick);
         }

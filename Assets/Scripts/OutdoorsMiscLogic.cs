@@ -31,10 +31,6 @@ public class OutdoorsMiscLogic : MonoBehaviour
 
     private const string Day3FlickerSeenKey = "day3_flicker_seen";
 
-    [Header("Day 4 Beach")]
-    // Placeholder wreckage until the washed-up pile art is in: fishing junk sprites.
-    [SerializeField] private Sprite[] washedUpPileSprites;
-
     void Start()
     {
         UpdateAmbience();
@@ -49,11 +45,6 @@ public class OutdoorsMiscLogic : MonoBehaviour
                 nearlyDark = Instantiate(miscObjectClick.getDialogue("nearly_dark"));
                 DialogueManager.ShowDialogue(nearlyDark);
             }
-        }
-
-        if (Day4Beach.IsToday)
-        {
-            gameObject.AddComponent<Day4Beach>().Init(washedUpPileSprites);
         }
 
         bool lit = GameState.Get<bool>("lighthouse_fixed", false);

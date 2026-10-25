@@ -297,11 +297,6 @@ public class Navigation : MonoBehaviour
             DialogueManager.ShowDialogue(getDialog("outdoors/burial_blocked"));
             return;
         }
-        if (Day4Beach.BlocksPier)
-        {
-            DialogueManager.ShowDialogueFromText(new string[] { Day4Beach.BlockedLine });
-            return;
-        }
         if (GameState.Get<bool>("ready_to_sleep", false))
         {
             DialogueManager.ShowDialogue(getDialog("time_for_bed"));
