@@ -26,8 +26,12 @@ public class Day4Dock : MonoBehaviour
     };
     // She floats where the first body was.
     private static readonly RectInt MermaidBox = new RectInt(10, 242, 221, 122);
-    // The washed-up planks in the bottom-right corner of the driftwood layer, for the survey.
-    private static readonly RectInt ScrapsBox = new RectInt(490, 315, 170, 85);
+    // The survey: the washed-up planks are in the bottom-right corner, but the click covers the
+    // whole frame down to the Return strip along the bottom, so it's hard to miss.
+    private static readonly RectInt ScrapsBox = new RectInt(0, 0, 660, 336);
+    // It sits in front of the bodies' boxes, so clicking a body surveys first, but stays behind the
+    // dialogue box's click catcher (z -3 or nearer) so dialogues still advance.
+    private const float ScrapsBoxForward = 0.5f;
 
     private SpriteRenderer background;
     private FloatingLayer driftwood;
@@ -90,8 +94,7 @@ public class Day4Dock : MonoBehaviour
         DialogueManager.ShowDialogueFromText(new string[]
         {
             "Bodies.## Floating in the water.",
-            "The tide keeps bringing them in.",
-            "I can't leave them like this."
+            "The tide keeps bringing them in."
         });
     }
 
@@ -141,8 +144,10 @@ public class Day4Dock : MonoBehaviour
         busy = true;
         GameState.Set("navigationBlocked", true);
         EnsureOverlay();
+        SetInjuredHandVisible(false);
 
-        // Haul them out of the water
+        // Haul them out of the water, so they're no longer floating in it
+        if (body != null) body.SetActive(false);
         Sprite carry = CarrySprite(index);
         SetCarrySprite(carry);
         yield return Fade(carryImage, 0f, 1f, 0.35f);
@@ -156,6 +161,8 @@ public class Day4Dock : MonoBehaviour
         blackImage.enabled = true;
         yield return Fade(blackImage, 0f, 1f, 0.6f);
         carryImage.enabled = false;
+        // Back under the black, so it's there again when the screen comes back
+        SetInjuredHandVisible(true);
         Destroy(body);
         if (shovelClip != null && miscObjectClick != null)
             miscObjectClick.PlaySound(shovelClip, 0.6f);
@@ -189,6 +196,7 @@ public class Day4Dock : MonoBehaviour
         if (driftwood == null) return;
 
         BoxCollider2D box = driftwood.AddClickBox(ScrapsBox);
+        box.transform.localPosition += new Vector3(0f, 0f, -ScrapsBoxForward);
         box.gameObject.AddComponent<Day4ClickTarget>().onClick = () =>
         {
             // Only once: the scraps go back to just floating there
@@ -238,7 +246,10 @@ public class Day4Dock : MonoBehaviour
         busy = true;
         GameState.Set("navigationBlocked", true);
         EnsureOverlay();
+        // Stays hidden: handlogic keeps it off while he's carrying her up to the house
+        SetInjuredHandVisible(false);
 
+        if (body != null) body.SetActive(false);
         Sprite carry = mermaidSprite != null ? mermaidSprite : CarrySprite(0);
         SetCarrySprite(carry);
         yield return Fade(carryImage, 0f, 1f, 0.35f);
@@ -255,11 +266,14 @@ public class Day4Dock : MonoBehaviour
         GameState.Set(Day4Beach.MermaidRescuedKey, true);
         // There are more important things than the lighthouse now
         MessageBus.Instance.Publish("CompleteTask", "task_work");
-        MessageBus.Instance.Publish("AddTaskStringImportant", "generic/task_mermaid_bed");
+
+        // He carries her up to the house himself; Navigation keeps him on the way to the bedroom
+        yield return Fade(blackImage, 1f, 0f, 0.6f);
+        blackImage.enabled = false;
 
         GameState.Set("navigationBlocked", false);
         busy = false;
-        Navigation.GoToScene(GameConsts.BEDROOMSCENE);
+        MessageBus.Instance.Publish("AddTaskStringImportant", "generic/task_mermaid_bed");
     }
 
     private void EnsureOverlay()
@@ -299,6 +313,14 @@ public class Day4Dock : MonoBehaviour
         AspectRatioFitter fitter = imageObject.AddComponent<AspectRatioFitter>();
         fitter.aspectMode = AspectRatioFitter.AspectMode.WidthControlsHeight;
         return image;
+    }
+
+    // His own hand stays off screen while his arms are full
+    private static void SetInjuredHandVisible(bool visible)
+    {
+        handlogic hand = FindFirstObjectByType<handlogic>();
+        if (hand != null && hand.TryGetComponent(out SpriteRenderer handRenderer))
+            handRenderer.enabled = visible;
     }
 
     private void SetCarrySprite(Sprite sprite)

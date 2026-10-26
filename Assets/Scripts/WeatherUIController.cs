@@ -34,10 +34,6 @@ public class WeatherUIController : MonoBehaviour
     [Tooltip("The button to confirm the selection.")]
     [SerializeField] private Button confirmButton;
 
-    [Header("Day 4")]
-    // No hand on screen outside, so this plays instead when you scratch.
-    [SerializeField] private AudioClip scratchSound;
-
     void Start()
     {
         if (GameState.Get<bool>("recorded_weather", false))
@@ -359,13 +355,7 @@ public class WeatherUIController : MonoBehaviour
     {
         if (this.gameObject.activeInHierarchy)
         {
-            System.Action onClosed = null;
-            if (GameState.Get<int>("day") == 4)
-            {
-                // Day 4: the itch comes back once the log is put away
-                onClosed = () => HandScratch.Prompt("Your hand itches. Scratch?", null, scratchSound);
-            }
-            StartCoroutine(CloseWeatherUIDelayed(onClosed));
+            StartCoroutine(CloseWeatherUIDelayed());
         }
     }
 

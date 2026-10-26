@@ -13,7 +13,7 @@ public class BedroomMiscLogic : MonoBehaviour
     [SerializeField] private Sprite mermaidOnBedNight;
     [Tooltip("Shown over her while Camborne's bed is hovered.")]
     [SerializeField] private Sprite mermaidOnBedOutline;
-    [SerializeField] private Vector3 mermaidOnBedPosition = new Vector3(-2.4f, -0.3f, -1.1f);
+    [SerializeField] private Vector3 mermaidOnBedPosition = new Vector3(-2.8f, -0.1f, -1.1f);
 
     void Start()
     {
@@ -91,12 +91,11 @@ public class BedroomMiscLogic : MonoBehaviour
                 ShowDay3Dialogue();
                 break;
             case 4:
-                MessageBus.Instance.Publish("AddTaskString", "generic/task_wash_up");
                 MessageBus.Instance.Publish("AddTaskString", "generic/task_breakfast");
                 MessageBus.Instance.Publish("AddTaskString", "generic/task_weather");
+                MessageBus.Instance.Publish("AddTaskString", "generic/task_work");
                 MessageBus.Instance.Publish("AddTaskString", "generic/task_survey_beach");
                 MessageBus.Instance.Publish("AddTaskString", "generic/task_bury_bodies");
-                MessageBus.Instance.Publish("AddTaskString", "generic/task_work");
                 MessageBus.Instance.Publish("AddTaskString", "generic/task_fish");
                 MessageBus.Instance.Publish("AddTaskString", "generic/task_dinner");
                 MessageBus.Instance.Publish("AddTaskString", "generic/go_to_sleep");

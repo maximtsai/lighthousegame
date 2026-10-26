@@ -33,8 +33,17 @@ public static class Day4Beach
     public static bool WreckageWashedUp => IsToday && GameState.Get<bool>("recorded_weather", false);
 
     // Home and the lighthouse wait until the dock's been seen to, the bodies are buried and
-    // she's been brought in.
+    // she's been picked up.
     public static bool BlocksHeadingIn => WreckageWashedUp && (Buried < BodyCount || !MermaidRescued);
+
+    // From picking her up at the dock until she's laid in Camborne's bed, he's carrying her, and the
+    // only way to go is up to the bedroom (see Navigation.BlockedWhileCarryingHer).
+    public static bool CarryingHer =>
+        IsToday && MermaidRescued && !GameState.Get<bool>(MermaidInBedKey, false);
+
+    public static string CarryingLine(string destination) =>
+        destination == GameConsts.LHFLOORSCENE ? "The lighthouse can wait.## She can't."
+        : "Camborne's bed first.";
 
     public static string BlockedLine =>
         !Surveyed ? "Something's washed up by the dock."

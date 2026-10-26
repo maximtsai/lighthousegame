@@ -198,6 +198,12 @@ public class FishingMinigame : MonoBehaviour
 
     public void TryStartFishing()
     {
+        if (Day4Beach.CarryingHer)
+        {
+            DialogueManager.ShowDialogueFromText(new string[] { "Not with her in my arms." });
+            return;
+        }
+
         if (!testModeSkipRequirements)
         {
             if (GameState.Get<bool>("gathered_fish", false))

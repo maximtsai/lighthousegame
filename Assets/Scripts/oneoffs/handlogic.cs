@@ -39,17 +39,19 @@ public class handlogic : MonoBehaviour
 
     void Awake()
     {
+        // Set up before the early return: the hand can be cut mid-scene (Day 2 burial) and
+        // switched back on, and Awake won't run again then
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer != null)
+        {
+            originalSprite = spriteRenderer.sprite;
+        }
+
         // If the hand is not cut, deactivate this game object immediately
         if (!GameState.Get<bool>("hand_cut", false))
         {
             gameObject.SetActive(false);
             return;
-        }
-
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        if (spriteRenderer != null)
-        {
-            originalSprite = spriteRenderer.sprite;
         }
 
         initialPosition = transform.position;
@@ -59,6 +61,27 @@ public class handlogic : MonoBehaviour
     void Update()
     {
         UpdateSprite();
+        UpdateCarryingHer();
+    }
+
+    // Day 4: his arms are full carrying her up from the dock, so the hand stays off screen until
+    // she's laid down. Only undoes its own hiding, so others (Day4Dock's carries) can hide it too.
+    private bool hiddenForCarry;
+
+    private void UpdateCarryingHer()
+    {
+        if (spriteRenderer == null) return;
+
+        if (Day4Beach.CarryingHer)
+        {
+            spriteRenderer.enabled = false;
+            hiddenForCarry = true;
+        }
+        else if (hiddenForCarry)
+        {
+            spriteRenderer.enabled = true;
+            hiddenForCarry = false;
+        }
     }
 
     void LateUpdate()
@@ -72,6 +95,18 @@ public class handlogic : MonoBehaviour
             }
             Vector3 camPos = Camera.main.transform.position;
             transform.position = initialPosition + new Vector3(camPos.x * 0.6f, camPos.y * 0.6f, 0f);
+
+            // The parallax lifts the hand when the camera pans down. The wrist runs off the sprite's
+            // bottom edge, so keep that edge at or below the bottom of the screen or the hand floats.
+            if (spriteRenderer != null && Camera.main.orthographic)
+            {
+                float screenBottom = camPos.y - Camera.main.orthographicSize;
+                float gap = spriteRenderer.bounds.min.y - screenBottom;
+                if (gap > 0f)
+                {
+                    transform.position -= new Vector3(0f, gap, 0f);
+                }
+            }
         }
     }
 

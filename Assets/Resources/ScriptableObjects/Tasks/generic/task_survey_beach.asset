@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: task_survey_beach
   m_EditorClassIdentifier: Assembly-CSharp::Task
   id: task_survey_beach
-  description: Survey The Beach
+  description: Survey The Pier
   on_completion: {fileID: 0}

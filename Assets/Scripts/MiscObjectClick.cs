@@ -83,6 +83,12 @@ public class MiscObjectClick : MonoBehaviour
             return;
         }
 
+        if (Day4Beach.CarryingHer)
+        {
+            DialogueManager.ShowDialogueFromText(new string[] { "Not my bed.## Camborne's." });
+            return;
+        }
+
         if (GameState.Get<bool>("hand_cut") && !GameState.Get<bool>("hand_cleaned"))
         {
             DialogueManager.ShowDialogueFromText(new string[] { "I should clean my hand first." });
@@ -360,6 +366,11 @@ public class MiscObjectClick : MonoBehaviour
     
 	public void GatherFish()
     {
+		if (Day4Beach.CarryingHer)
+		{
+			DialogueManager.ShowDialogueFromText(new string[] { "Not with her in my arms." });
+			return;
+		}
 		if (GameState.Get<bool>("gathered_fish", false))
         {
         	DialogueManager.ShowDialogue(getDialogue("dock/gather_fish_done"));

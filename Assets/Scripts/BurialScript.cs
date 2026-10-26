@@ -20,8 +20,6 @@ public class BurialScript : MonoBehaviour
     
     [SerializeField] private MiscObjectClick miscObjectClick;
     [SerializeField] private GameObject handBleed;
-    private Vector3 initialHandBleedPosition;
-    private bool hasSavedHandPos = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     
     private void OnEnable()
@@ -43,12 +41,6 @@ public class BurialScript : MonoBehaviour
         UpdateTrack(ambience, bgLoop1, 0.65f, 1);
         // Update track 2
         UpdateTrack(ambience, bgLoop2, 0.3f, 2);
-
-        if (handBleed != null)
-        {
-            initialHandBleedPosition = handBleed.transform.position;
-            hasSavedHandPos = true;
-        }
 
         if (handBleed != null)
         {
@@ -83,20 +75,6 @@ public class BurialScript : MonoBehaviour
         }
     }
 
-    void LateUpdate()
-    {
-        if (handBleed != null && handBleed.activeSelf && Camera.main != null)
-        {
-            if (!hasSavedHandPos)
-            {
-                initialHandBleedPosition = handBleed.transform.position;
-                hasSavedHandPos = true;
-            }
-            Vector3 camPos = Camera.main.transform.position;
-            handBleed.transform.position = initialHandBleedPosition + new Vector3(camPos.x * 0.6f, camPos.y * 0.6f, 0f);
-        }
-    }
-    
     private IEnumerator PlaySoundDelayedRoutine(AudioClip sfx, float volume, bool loop, float delay)
     {
         yield return new WaitForSeconds(delay);

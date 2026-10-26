@@ -53,6 +53,8 @@ public class Navigation : MonoBehaviour
 
     public void GoToStove()
     {
+        if (BlockedWhileCarryingHer(GameConsts.STOVESCENE))
+            return;
         if (!GameState.Get<bool>("hungry"))
         {
             DialogueManager.ShowDialogue(getDialog("kitchen/not_hungry"));
@@ -108,6 +110,8 @@ public class Navigation : MonoBehaviour
 
     public void GoToLighthouse()
     {
+        if (BlockedWhileCarryingHer(GameConsts.LHFLOORSCENE))
+            return;
         if (GameState.Get<bool>("do_burial", false))
         {
             DialogueManager.ShowDialogue(getDialog("outdoors/burial_blocked"));
@@ -115,7 +119,14 @@ public class Navigation : MonoBehaviour
         }
         if (Day4Beach.BlocksHeadingIn)
         {
-            DialogueManager.ShowDialogueFromText(new string[] { Day4Beach.BlockedLine });
+            if (Day4Beach.Surveyed)
+            {
+                DialogueManager.ShowDialogueFromText(new string[] { Day4Beach.BlockedLine });
+                return;
+            }
+            // Heading off to work is when he first notices the wreck, and that's the job done for now
+            Dialogue d = DialogueManager.ShowDialogueFromText(new string[] { "Wait, something is down at the dock." });
+            d.onDialogueEnd.AddListener(() => MessageBus.Instance.Publish("CompleteTask", "task_work"));
             return;
         }
         if (GameState.Get<bool>("ready_to_sleep", false))
@@ -292,6 +303,8 @@ public class Navigation : MonoBehaviour
 
     public void GoToPier()
     {
+        if (BlockedWhileCarryingHer(GameConsts.PIERSCENE))
+            return;
         if (GameState.Get<bool>("do_burial", false))
         {
             DialogueManager.ShowDialogue(getDialog("outdoors/burial_blocked"));
@@ -308,6 +321,8 @@ public class Navigation : MonoBehaviour
 
     public void GoToBurial()
     {
+        if (BlockedWhileCarryingHer(GameConsts.BURIALSCENE))
+            return;
         // Day 2: Allow access to inspect the uncovered grave
         bool isDay2 = GameState.Get<int>("day") == 2;
         bool graveNeedsInspection = isDay2 && !GameState.Get<bool>("grave_inspected") && GameState.Get<bool>("lighthouse_fixed") && GameState.Get<bool>("gathered_fish");
@@ -328,6 +343,8 @@ public class Navigation : MonoBehaviour
     
     public void GoToSink(SceneTransition transition)
     {
+        if (BlockedWhileCarryingHer(GameConsts.SINKSCENE))
+            return;
         bool handNeedsCleaning = GameState.Get<bool>("hand_cut") && !GameState.Get<bool>("hand_cleaned");
         if (GameState.Get<string>("is_clean") == "true" && !handNeedsCleaning)
         {
@@ -348,6 +365,9 @@ public class Navigation : MonoBehaviour
     
     public void GoToOutdoors(SceneTransition transition)
     {
+        if (BlockedWhileCarryingHer(GameConsts.OUTDOORSSCENE))
+            return;
+
         // Day 2: after dinner, the hand needs seeing to at the sink before anything else (checked ahead of
         // ready_to_sleep, which the stove already sets at Day 2 dinner)
         if (GameState.Get<int>("day") == 2 && GameState.Get<bool>("ate_dinner") && GameState.Get<bool>("hand_cut") && !GameState.Get<bool>("hand_cleaned"))
@@ -447,6 +467,25 @@ public class Navigation : MonoBehaviour
         GoToTransition(scene, 0.85f);
     }
     
+    // Day 4: carrying her from the dock, the only way to go is up to Camborne's bed. Checked at the top
+    // of each way out (ahead of their own lines and sounds) and again in GoToTransition to catch the rest.
+    private static bool BlockedWhileCarryingHer(string scene)
+    {
+        if (!Day4Beach.CarryingHer)
+            return false;
+
+        string from = SceneManager.GetActiveScene().name;
+        bool onTheWay = scene == GameConsts.MAINSCENE
+            || (from == GameConsts.PIERSCENE && scene == GameConsts.OUTDOORSSCENE)
+            || (from == GameConsts.OUTDOORSSCENE && scene == GameConsts.KITCHENSCENE)
+            || (from == GameConsts.KITCHENSCENE && scene == GameConsts.BEDROOMSCENE);
+        if (onTheWay)
+            return false;
+
+        DialogueManager.ShowDialogueFromText(new string[] { Day4Beach.CarryingLine(scene) });
+        return true;
+    }
+
     private void GoToTransition(string scene, float duration, float startAlpha = 0f, float holdBlack = 0f)
     {
         if (GameState.Get<bool>("navigationBlocked"))
@@ -454,6 +493,9 @@ public class Navigation : MonoBehaviour
             Debug.Log("Navigation blocked");
             return;
         }
+
+        if (BlockedWhileCarryingHer(scene))
+            return;
 
         // Intercept leaving LHFloorScene to OutdoorsScene on Day 3 while looking for scissors
         if (SceneManager.GetActiveScene().name == GameConsts.LHFLOORSCENE
@@ -583,6 +625,9 @@ public class Navigation : MonoBehaviour
     // Sorry J3ranch, I needed some additional custom logic for this function
     public void LeaveBedroom(SceneTransition transition)
     {
+        if (BlockedWhileCarryingHer(transition.destination_scene))
+            return;
+
         // query GameState static class and check value 
         // optionally play dialogue if go to is not possible via DialogueManager
         // Debug.Log(transition.gamestate_key + " " + GameState.Get<string>(transition.gamestate_key, "false"));
