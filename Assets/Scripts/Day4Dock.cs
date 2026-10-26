@@ -101,9 +101,9 @@ public class Day4Dock : MonoBehaviour
         FloatingLayer layer = FloatingLayer.Spawn("day4_floating_body_" + index, background, frames);
         if (layer == null) return;
 
-        layer.AddClickBox(BodyBoxes[index]);
+        BoxCollider2D box = layer.AddClickBox(BodyBoxes[index]);
         GameObject body = layer.gameObject;
-        body.AddComponent<Day4ClickTarget>().onClick = () => OnBodyClicked(index, body);
+        box.gameObject.AddComponent<Day4ClickTarget>().onClick = () => OnBodyClicked(index, body);
     }
 
     private Sprite CarrySprite(int index)
@@ -189,12 +189,10 @@ public class Day4Dock : MonoBehaviour
         if (driftwood == null) return;
 
         BoxCollider2D box = driftwood.AddClickBox(ScrapsBox);
-        Day4ClickTarget target = driftwood.gameObject.AddComponent<Day4ClickTarget>();
-        target.onClick = () =>
+        box.gameObject.AddComponent<Day4ClickTarget>().onClick = () =>
         {
             // Only once: the scraps go back to just floating there
-            Destroy(target);
-            Destroy(box);
+            Destroy(box.gameObject);
             Survey();
         };
     }
@@ -216,9 +214,9 @@ public class Day4Dock : MonoBehaviour
         FloatingLayer layer = FloatingLayer.Spawn("day4_floating_mermaid", background, mermaidFrames);
         if (layer == null) return;
 
-        layer.AddClickBox(MermaidBox);
+        BoxCollider2D box = layer.AddClickBox(MermaidBox);
         GameObject body = layer.gameObject;
-        body.AddComponent<Day4ClickTarget>().onClick = () => OnMermaidClicked(body);
+        box.gameObject.AddComponent<Day4ClickTarget>().onClick = () => OnMermaidClicked(body);
     }
 
     private void OnMermaidClicked(GameObject body)

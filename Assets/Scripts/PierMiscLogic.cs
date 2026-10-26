@@ -73,10 +73,12 @@ public class PierMiscLogic : MonoBehaviour
             StartCoroutine(Day3CorpseFlashRoutine());
         }
 
-        // The supply ship's wreckage, from the Day 4 weather on
+        // The supply ship's wreckage, from the Day 4 weather on. The floating art is drawn to line
+        // up with the daytime dock; the night dock is a different, closer view, so it only floats by day.
         FloatingLayer driftwood = null;
         int day = GameState.Get<int>("day");
-        if ((day > Day4Beach.Day || Day4Beach.WreckageWashedUp) && driftwoodFloat != null)
+        bool night = GameState.Get<bool>("is_nighttime", false);
+        if (!night && (day > Day4Beach.Day || Day4Beach.WreckageWashedUp) && driftwoodFloat != null)
         {
             driftwood = FloatingLayer.Spawn("floating_driftwood", dockBackground, driftwoodFloat.frames);
         }

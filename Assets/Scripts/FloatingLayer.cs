@@ -40,14 +40,23 @@ public class FloatingLayer : MonoBehaviour
         return layer;
     }
 
+    // How far in front of the layer its click boxes sit. The layer itself draws just in front of
+    // the background, behind the scene's own clickables (z -1, e.g. the dock's Return strip and
+    // fish trap), and clicks go to the nearest collider, so the boxes get their own object up front.
+    private const float ClickBoxZ = -2f;
+
     // A click box around the floating thing, given in pixels from the frame's top-left corner.
+    // It's on a child object; put click handlers on the returned collider's GameObject.
     public BoxCollider2D AddClickBox(RectInt pixels)
     {
         Sprite first = frames[0];
         float ppu = first.pixelsPerUnit;
         Vector2 frameSize = first.rect.size;
 
-        BoxCollider2D box = gameObject.AddComponent<BoxCollider2D>();
+        GameObject boxObject = new GameObject("click_box");
+        boxObject.transform.SetParent(transform, false);
+        boxObject.transform.localPosition = new Vector3(0f, 0f, ClickBoxZ);
+        BoxCollider2D box = boxObject.AddComponent<BoxCollider2D>();
         box.size = new Vector2(pixels.width, pixels.height) / ppu;
         box.offset = new Vector2(
             (pixels.x + pixels.width * 0.5f - frameSize.x * 0.5f) / ppu,

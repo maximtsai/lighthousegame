@@ -512,14 +512,14 @@ MonoBehaviour:
       revealSprite: {fileID: 0}
       isGoodFish: 0
       hoverOutlineSprite: {fileID: 0}
-      displayScale: 1
+      displayScale: 2
       openingOnly: 1
     - itemName: Crucifix
       sprite: {fileID: 21300000, guid: 294cfb793ffce2f47b1415e1a94e1378, type: 3}
       revealSprite: {fileID: 0}
       isGoodFish: 0
       hoverOutlineSprite: {fileID: 0}
-      displayScale: 1
+      displayScale: 1.5
       openingOnly: 1
   - day: 5
     items:
