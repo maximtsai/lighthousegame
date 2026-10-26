@@ -56,10 +56,11 @@ public class MermaidScreenSplat : MonoBehaviour
         slot.enabled = true;
 
         float frameTime = 1f / Mathf.Max(1f, framesPerSecond);
+        var frameWait = new WaitForSeconds(frameTime);
         for (int i = fromFrame; i < frames.Length; i++)
         {
             slot.sprite = frames[i];
-            yield return new WaitForSeconds(frameTime);
+            yield return frameWait;
         }
 
         yield return new WaitForSeconds(hold);

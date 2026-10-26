@@ -36,6 +36,8 @@ public class CutsceneManager : Singleton<CutsceneManager>
     protected override void Awake()
     {
         base.Awake();
+        // The separate clickBlocker owns cutscene input. This image persists after fading out.
+        if (fadeOverlayImg != null) fadeOverlayImg.raycastTarget = false;
         createdOnSceneLoaded = true;
         SceneManager.sceneLoaded += OnSceneLoaded;
     }

@@ -30,6 +30,7 @@ public class CustomCursor : MonoBehaviour
 
         Cursor.visible = false; // hide system cursor
         cursorImage = GetComponent<Image>(); // assumes this object has an Image
+        cursorImage.raycastTarget = false;
         if (normalCursor != null)
             cursorImage.sprite = normalCursor;
     }

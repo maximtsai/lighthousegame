@@ -40,6 +40,18 @@ public class MermaidFishPeel : MermaidTarget
     private bool onScreen;
     private Camera cam;
 
+    void Awake()
+    {
+        SetLayersEnabled(false);
+    }
+
+    private void SetLayersEnabled(bool on)
+    {
+        if (spriteRenderer != null) spriteRenderer.enabled = on;
+        if (skinRenderer != null) skinRenderer.enabled = on;
+        if (overlay != null) overlay.enabled = on;
+    }
+
     public override bool IsBusy => animating;
 
     private int LastStage => peelFrames != null ? peelFrames.Length - 1 : 0;
@@ -65,6 +77,7 @@ public class MermaidFishPeel : MermaidTarget
     public override void OnToolReady()
     {
         onScreen = true;
+        SetLayersEnabled(true);
         FollowCamera();
         if (skinRenderer != null && peelFrames != null && peelFrames.Length > 0)
             skinRenderer.sprite = peelFrames[stage];
@@ -97,6 +110,7 @@ public class MermaidFishPeel : MermaidTarget
     {
         yield return FadeAsOnePicture(peeledFish, 1f, 0f);
         onScreen = false;
+        SetLayersEnabled(false);
     }
 
     // Faded as two layers, the bare fish would show through the half-faded skin. So while it fades,

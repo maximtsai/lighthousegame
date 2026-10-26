@@ -20,6 +20,7 @@ public class MermaidBandage : MermaidTarget
 
     [Header("Progress")]
     [SerializeField] private bool applied;
+    public bool IsApplied => applied;
 
     [Header("Fade In")]
     [SerializeField] private float fadeInDuration = 0.22f;
@@ -27,6 +28,12 @@ public class MermaidBandage : MermaidTarget
     [Header("Hover")]
     [Tooltip("An unapplied patch is invisible, so hovering ghosts it in to show where it lands.")]
     [SerializeField] private float hoverPreviewAlpha = 0.35f;
+
+    void Awake()
+    {
+        // Invisible patches still need colliders, but don't need to submit a sprite draw.
+        if (spriteRenderer != null) spriteRenderer.enabled = applied;
+    }
 
     public override bool CanApply(MermaidTool tool)
     {
@@ -36,6 +43,7 @@ public class MermaidBandage : MermaidTarget
     public override void Apply(MermaidTool tool)
     {
         applied = true;
+        if (spriteRenderer != null) spriteRenderer.enabled = true;
         StartCoroutine(FadeIn());
     }
 
@@ -57,6 +65,7 @@ public class MermaidBandage : MermaidTarget
         // The base class keeps whatever alpha is there, which would leave an unapplied patch
         // invisible and you clicking blind. Ghost it in instead.
         spriteRenderer.color = new Color(1f, 1f, 1f, on ? hoverPreviewAlpha : 0f);
+        spriteRenderer.enabled = on;
     }
 
     private IEnumerator FadeIn()

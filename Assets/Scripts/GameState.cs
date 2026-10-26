@@ -5,6 +5,10 @@ public static class GameState
 {
     public static System.Action OnDataChanged;
 
+    // These catches supply skin for the mermaid rather than ingredients for dinner.
+    public static bool FishIsForTreatment(int day) => day >= 5 && day <= 7;
+    public static bool DinnerRequiresFish(int day) => day != 2 && !FishIsForTreatment(day);
+
     private static Dictionary<string, object> data;
 
     static GameState()

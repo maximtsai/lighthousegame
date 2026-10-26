@@ -1,0 +1,540 @@
+fileFormatVersion: 2
+guid: c02d19280d75efa4293ab865459f482e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 873213954273528237
+    second: big worm 2 half_0
+  - first:
+      213: 8478450956268269067
+    second: big worm 2 half_1
+  - first:
+      213: -4391255085747244914
+    second: big worm 2 half_2
+  - first:
+      213: 6818877665679283501
+    second: big worm 2 half_3
+  - first:
+      213: 2456379748621955301
+    second: big worm 2 half_4
+  - first:
+      213: 1441653075698602412
+    second: big worm 2 half_5
+  - first:
+      213: 6885435301339873726
+    second: big worm 2 half_6
+  - first:
+      213: 5823207732676839330
+    second: big worm 2 half_7
+  - first:
+      213: -8773822737157127324
+    second: big worm 2 half_8
+  - first:
+      213: -9112254224888935538
+    second: big worm 2 half_9
+  - first:
+      213: -8871102536990872294
+    second: big worm 2 half_10
+  - first:
+      213: 6244120050958304119
+    second: big worm 2 half_11
+  - first:
+      213: -7669864094962172942
+    second: big worm 2 half_12
+  - first:
+      213: 1480948930786326356
+    second: big worm 2 half_13
+  - first:
+      213: 6726060451464669260
+    second: big worm 2 half_14
+  - first:
+      213: 3588404241162908632
+    second: big worm 2 half_15
+  - first:
+      213: -1939016513921470284
+    second: big worm 2 half_16
+  - first:
+      213: -3968061054970402003
+    second: big worm 2 half_17
+  - first:
+      213: -1055592056729853087
+    second: big worm 2 half_18
+  - first:
+      213: 4969129098440148467
+    second: big worm 2 half_19
+  - first:
+      213: -7620415490730774051
+    second: big worm 2 half_20
+  - first:
+      213: -193204989755615985
+    second: big worm 2 half_21
+  - first:
+      213: -69305070545272113
+    second: big worm 2 half_22
+  - first:
+      213: -4587906570072591326
+    second: big worm 2 half_23
+  - first:
+      213: -8445191694326358652
+    second: big worm 2 half_24
+  - first:
+      213: -2319493814564274801
+    second: big worm 2 half_25
+  - first:
+      213: -6926594496265223706
+    second: big worm 2 half_26
+  - first:
+      213: 7235563946032653929
+    second: big worm 2 half_27
+  - first:
+      213: 6881627849066660360
+    second: big worm 2 half_28
+  - first:
+      213: -3849046474082964411
+    second: big worm 2 half_29
+  - first:
+      213: 5444618081140202563
+    second: big worm 2 half_30
+  - first:
+      213: 5369422229338248275
+    second: big worm 2 half_31
+  - first:
+      213: 2797903981904202997
+    second: big worm 2 half_32
+  - first:
+      213: -2003201432820680844
+    second: big worm 2 half_33
+  - first:
+      213: 1739600221793464640
+    second: big worm 2 half_34
+  - first:
+      213: -2960482610551090333
+    second: big worm 2 half_35
+  - first:
+      213: 3273161386412870796
+    second: big worm 2 half_36
+  - first:
+      213: 5586138647462320967
+    second: big worm 2 half_37
+  - first:
+      213: 7697092023568699623
+    second: big worm 2 half_38
+  - first:
+      213: -8913710404575082628
+    second: big worm 2 half_39
+  - first:
+      213: 384310925230118093
+    second: big worm 2 half_40
+  - first:
+      213: 8772311464568824382
+    second: big worm 2 half_41
+  - first:
+      213: -1018300992899414702
+    second: big worm 2 half_42
+  - first:
+      213: 983973236149457771
+    second: big worm 2 half_43
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 8192
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: big worm 2 half_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3000
+        width: 640
+        height: 1500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da9436507774e1c00800000000000000
+      internalID: 873213954273528237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: big worm 2 half_1
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 3000
+        width: 640
+        height: 1500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0ee0f5593289a570800000000000000
+      internalID: 8478450956268269067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: big worm 2 half_2
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 3000
+        width: 640
+        height: 1500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8078efe3c02f03c0800000000000000
+      internalID: -4391255085747244914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: big worm 2 half_3
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 3000
+        width: 640
+        height: 1500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2598a5eb1581ae50800000000000000
+      internalID: 6818877665679283501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: big worm 2 half_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1500
+        width: 640
+        height: 1500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e0331eed50d61220800000000000000
+      internalID: 2456379748621955301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: big worm 2 half_5
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1500
+        width: 640
+        height: 1500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca15d5a85d7c10410800000000000000
+      internalID: 1441653075698602412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: big worm 2 half_6
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1500
+        width: 640
+        height: 1500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb14c4c0deafd8f50800000000000000
+      internalID: 6885435301339873726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: big worm 2 half_7
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1500
+        width: 640
+        height: 1500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a7c287849030d050800000000000000
+      internalID: 5823207732676839330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: big worm 2 half_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 640
+        height: 1500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 463018dc4be1d3680800000000000000
+      internalID: -8773822737157127324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: big worm 2 half_9
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 640
+        height: 1500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8b417eaf05ca8180800000000000000
+      internalID: -9112254224888935538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: big worm 2 half_10
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 640
+        height: 1500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1da7946e3383e480800000000000000
+      internalID: -8871102536990872294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: big worm 2 half_11
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 0
+        width: 640
+        height: 1500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77383448a1297a650800000000000000
+      internalID: 6244120050958304119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 7c24e0e17323b0a48b01f24c40fe7c7d
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":4.0,"y":3.0},"gridSpriteSize":{"x":640.0,"y":1500.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      big worm 2 half_0: 873213954273528237
+      big worm 2 half_1: 8478450956268269067
+      big worm 2 half_10: -8871102536990872294
+      big worm 2 half_11: 6244120050958304119
+      big worm 2 half_2: -4391255085747244914
+      big worm 2 half_3: 6818877665679283501
+      big worm 2 half_4: 2456379748621955301
+      big worm 2 half_5: 1441653075698602412
+      big worm 2 half_6: 6885435301339873726
+      big worm 2 half_7: 5823207732676839330
+      big worm 2 half_8: -8773822737157127324
+      big worm 2 half_9: -9112254224888935538
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

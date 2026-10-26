@@ -17,6 +17,8 @@ public class MermaidSpot : MermaidTarget
     [SerializeField] private Sprite woundSprite;
     [Tooltip("Applied in order by the fish bones. Empty for sites that never get stitched.")]
     [SerializeField] private Sprite[] sutureStages;
+    [Tooltip("Saved rectangular hit area used during stitching, including the gaps between sutures.")]
+    [SerializeField] private Vector2[] stitchHitArea;
 
     [Header("Progress")]
     [SerializeField] private bool barnacleRemoved;
@@ -33,6 +35,16 @@ public class MermaidSpot : MermaidTarget
     private bool HasBarnacle => woundSprite != null;
     private bool HasSutures => sutureStages != null && sutureStages.Length > 0;
     private bool Cleaned => barnacleRemoved || !HasBarnacle;
+
+    public override void OnToolReady()
+    {
+        if (!CanApply(MermaidTool.FishBones) || bodyCollider == null ||
+            stitchHitArea == null || stitchHitArea.Length != 4) return;
+
+        bodyCollider.offset = Vector2.zero;
+        bodyCollider.pathCount = 1;
+        bodyCollider.SetPath(0, stitchHitArea);
+    }
 
     public override bool CanApply(MermaidTool tool)
     {

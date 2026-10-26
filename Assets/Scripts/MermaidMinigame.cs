@@ -180,16 +180,22 @@ public class MermaidMinigame : MonoBehaviour
         if (!IsTargetLive(target)) return;
 
         Phase phase = CurrentPhase;
+        PlayPhaseSound(phase);
         target.Apply(phase.tool);
 
         if (phase.tool == MermaidTool.Alcohol && alcoholPour != null) alcoholPour.Play();
 
-        PlayPhaseSound(phase);
-
         stepsDone++;
         PublishProgress();
 
-        if (!target.CanApply(phase.tool)) target.ClearHover();
+        if (!target.CanApply(phase.tool))
+        {
+            target.ClearHover();
+            // Finished targets must not intercept overlapping unfinished ones. The next phase
+            // enables shared wound targets again when it needs them.
+            if (target.BodyCollider != null)
+                target.BodyCollider.enabled = false;
+        }
 
         if (IsPhaseComplete(phase)) StartCoroutine(CompletePhase(phase));
     }

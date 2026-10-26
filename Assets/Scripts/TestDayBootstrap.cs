@@ -14,9 +14,31 @@ public static class TestDayBootstrap
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     private static void ApplyForcedTestDay()
     {
+        TryApplyForcedTestDay();
+    }
+#endif
+
+    public static bool HasForcedTestDay
+    {
+        get
+        {
+#if UNITY_EDITOR
+            int day = UnityEditor.EditorPrefs.GetInt(PrefKey, 0);
+            return day >= 1 && day <= 7;
+#else
+            return false;
+#endif
+        }
+    }
+
+    // Continue can replace the state initialized before scene load with an older save.
+    // Reapply the selected test day there, while leaving New Game and player builds on the normal flow.
+    public static bool TryApplyForcedTestDay()
+    {
+#if UNITY_EDITOR
         int day = UnityEditor.EditorPrefs.GetInt(PrefKey, 0);
         if (day < 1 || day > 7)
-            return;
+            return false;
 
         // Same setup a real playthrough reaches at the start of this day: reset, then run the
         // day's own setup (hand cut, infestation, ...) and fill in what earlier days leave behind.
@@ -37,6 +59,9 @@ public static class TestDayBootstrap
         }
         GameState.StartNewDay();
         Debug.Log("TestDayBootstrap: forced GameState day = " + day);
-    }
+        return true;
+#else
+        return false;
 #endif
+    }
 }

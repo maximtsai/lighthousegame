@@ -4,7 +4,7 @@ using UnityEngine;
 
 /// <summary>
 /// Edit Mode tool: pick which day GameState should use when you enter Play Mode.
-/// For testing day-gated content (treasures, etc.) through day 7.
+/// Continue also honors this selection. New Game always starts on Day 1.
 /// Menu: Tools / Lighthouse / Test Day
 /// </summary>
 public static class TestDayTool
@@ -75,7 +75,7 @@ public static class TestDayTool
         if (day <= 0)
             Debug.Log("Test Day: Off — next Play uses the saved/default GameState day.");
         else
-            Debug.Log("Test Day: Day " + day + " will be forced the next time you enter Play Mode.");
+            Debug.Log("Test Day: Day " + day + " will be used on Play and Continue. New Game still starts on Day 1. Choose Off to continue from the saved day.");
     }
 
     public static int GetForcedDay()

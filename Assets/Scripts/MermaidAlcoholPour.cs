@@ -59,10 +59,11 @@ public class MermaidAlcoholPour : MonoBehaviour
         spriteRenderer.enabled = true;
 
         float frameTime = 1f / Mathf.Max(1f, framesPerSecond);
+        var frameWait = new WaitForSeconds(frameTime);
         for (int i = 0; i < frames.Length; i++)
         {
             spriteRenderer.sprite = frames[i];
-            yield return new WaitForSeconds(frameTime);
+            yield return frameWait;
         }
 
         float elapsed = 0f;

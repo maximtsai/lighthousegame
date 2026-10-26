@@ -50,12 +50,16 @@ public class MermaidGraft : MermaidTarget
     private Camera cam;
 
     public override bool IsBusy => finishing;
+    public bool IsComplete => piecesOn >= pieces.Length && !finishing;
 
     void Awake()
     {
         artMiddle = OutlineMiddle();
         progress = new float[pieces.Length];
         done = new bool[pieces.Length];
+        if (spriteRenderer != null) spriteRenderer.enabled = false;
+        foreach (Piece piece in pieces)
+            if (piece.art != null) piece.art.enabled = piece.art.color.a > 0f;
     }
 
     public override bool CanApply(MermaidTool tool)
@@ -72,6 +76,9 @@ public class MermaidGraft : MermaidTarget
     public override void OnToolReady()
     {
         inHand = true;
+        if (spriteRenderer != null) spriteRenderer.enabled = true;
+        foreach (Piece piece in pieces)
+            if (piece.art != null) piece.art.enabled = true;
         rubbing = false;
         SetAreas(true);
         transform.position = OnPixelGrid(CursorWorld() - (Vector3)artMiddle);
@@ -138,6 +145,7 @@ public class MermaidGraft : MermaidTarget
 
     private void Rub(int piece, float distance)
     {
+        if (distance <= 0f) return;
         progress[piece] = Mathf.Min(1f, progress[piece] + distance / Mathf.Max(0.01f, rubPerPiece));
         ShowPieces();
 
@@ -167,6 +175,7 @@ public class MermaidGraft : MermaidTarget
     {
         finishing = true;
         yield return Fade(spriteRenderer, spriteRenderer.color.a, 0f, finishFadeDuration);
+        spriteRenderer.enabled = false;
         finishing = false;
     }
 
@@ -238,6 +247,7 @@ public class MermaidGraft : MermaidTarget
     private static void SetAlpha(SpriteRenderer r, float a)
     {
         Color c = r.color;
+        if (c.a == a) return;
         r.color = new Color(c.r, c.g, c.b, a);
     }
 }

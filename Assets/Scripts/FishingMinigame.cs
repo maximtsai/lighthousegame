@@ -81,7 +81,7 @@ public class FishingMinigame : MonoBehaviour
 
     [Header("Item bob")]
     [SerializeField] private float bobAmplitude = 5f;
-    [SerializeField] private float bobSpeed = 1.4f;
+    [SerializeField] private float bobSpeed = 0.7f;
 
     [Header("Testing")]
     [SerializeField] private bool testModeSkipRequirements = false;

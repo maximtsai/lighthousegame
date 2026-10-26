@@ -41,7 +41,8 @@ public class MainMenuLogic : MonoBehaviour
 
     public void ContinueGame()
     {
-        SaveManager.Load(); // Load the saved state
+        if (!TestDayBootstrap.TryApplyForcedTestDay())
+            SaveManager.Load(); // Load the saved state
         SceneManager.LoadScene(GameConsts.BEDROOMSCENE);
     }
 }

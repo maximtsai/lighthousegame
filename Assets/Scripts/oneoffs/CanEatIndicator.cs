@@ -7,7 +7,7 @@ public class CanEatIndicator : MonoBehaviour
     {
         if (GameState.Get<bool>("hungry") && GameState.Get<bool>("corn_clicked") && GameState.Get<bool>("pepper_clicked") && GameState.Get<bool>("alcohol_clicked"))
         {
-            if (!GameState.Get<bool>("ate_breakfast") || GameState.Get<bool>("fish_clicked") || GameState.Get<int>("day") == 2)
+            if (!GameState.Get<bool>("ate_breakfast") || GameState.Get<bool>("fish_clicked") || !GameState.DinnerRequiresFish(GameState.Get<int>("day")))
             {
                 gameObject.SetActive(true);
             }

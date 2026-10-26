@@ -7,6 +7,8 @@ public class MermaidRemovable : MermaidTarget
 {
     [Header("Tool")]
     [SerializeField] private MermaidTool removedWith = MermaidTool.Gloves;
+    [Tooltip("Optional saved yellow outline for removable flowers.")]
+    [SerializeField] private SpriteRenderer hoverOutline;
 
     [Header("Progress")]
     [SerializeField] private bool removed;
@@ -26,7 +28,14 @@ public class MermaidRemovable : MermaidTarget
     public override void Apply(MermaidTool tool)
     {
         removed = true;
+        if (hoverOutline != null) hoverOutline.enabled = false;
         StartCoroutine(FadeOut());
+    }
+
+    protected override void SetHover(bool on)
+    {
+        if (hoverOutline != null) hoverOutline.enabled = on && !removed;
+        else base.SetHover(on);
     }
 
     public override int RemainingSteps(MermaidTool tool)

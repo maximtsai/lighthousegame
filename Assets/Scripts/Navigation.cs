@@ -28,6 +28,14 @@ public class Navigation : MonoBehaviour
             blackoutImage = gameObject.AddComponent<Image>();
             Debug.LogWarning("Navigation prefab had no Image. Added one dynamically.");
         }
+        blackoutImage.raycastTarget = GameState.Get<bool>("navigationBlocked", false);
+    }
+
+    void LateUpdate()
+    {
+        // The overlay survives scene loads. A transparent Image still intercepts UI clicks.
+        if (blackoutImage != null)
+            blackoutImage.raycastTarget = GameState.Get<bool>("navigationBlocked", false);
     }
     
     public void GoToBedroom()

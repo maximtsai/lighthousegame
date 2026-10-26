@@ -383,132 +383,173 @@ MonoBehaviour:
     items:
     - itemName: Seaweed
       sprite: {fileID: 21300000, guid: e13862e84a48e0d488507bcb007b39e3, type: 3}
+      overlaySprite: {fileID: 0}
       revealSprite: {fileID: 0}
       isGoodFish: 0
       hoverOutlineSprite: {fileID: 0}
       displayScale: 1
+      openingOnly: 0
     - itemName: Coral
       sprite: {fileID: 21300000, guid: 2f2454fae10f48042b5c773dffbabb42, type: 3}
+      overlaySprite: {fileID: 0}
       revealSprite: {fileID: 0}
       isGoodFish: 0
       hoverOutlineSprite: {fileID: 0}
       displayScale: 1
+      openingOnly: 0
     - itemName: Sea Glass
       sprite: {fileID: 21300000, guid: b6b30870307c1574ab08f2f8b7466412, type: 3}
+      overlaySprite: {fileID: 0}
       revealSprite: {fileID: 0}
       isGoodFish: 0
       hoverOutlineSprite: {fileID: 0}
       displayScale: 1
+      openingOnly: 0
     - itemName: Good Fish
       sprite: {fileID: 21300000, guid: 75106a57526cedc438f93fab2883f8b6, type: 3}
+      overlaySprite: {fileID: 0}
       revealSprite: {fileID: 0}
       isGoodFish: 1
       hoverOutlineSprite: {fileID: 0}
       displayScale: 1
+      openingOnly: 0
   - day: 2
     items:
     - itemName: Seaweed
       sprite: {fileID: 21300000, guid: e13862e84a48e0d488507bcb007b39e3, type: 3}
+      overlaySprite: {fileID: 0}
       revealSprite: {fileID: 0}
       isGoodFish: 0
       hoverOutlineSprite: {fileID: 0}
       displayScale: 1
+      openingOnly: 0
     - itemName: Coral
       sprite: {fileID: 21300000, guid: 2f2454fae10f48042b5c773dffbabb42, type: 3}
+      overlaySprite: {fileID: 0}
       revealSprite: {fileID: 0}
       isGoodFish: 0
       hoverOutlineSprite: {fileID: 0}
       displayScale: 1
+      openingOnly: 0
     - itemName: Sea Glass
       sprite: {fileID: 21300000, guid: b6b30870307c1574ab08f2f8b7466412, type: 3}
+      overlaySprite: {fileID: 0}
       revealSprite: {fileID: 0}
       isGoodFish: 0
       hoverOutlineSprite: {fileID: 0}
       displayScale: 1
+      openingOnly: 0
     - itemName: Can
       sprite: {fileID: 21300000, guid: 2f6b126e1f24d6847ae4d0b379cbfaa0, type: 3}
+      overlaySprite: {fileID: 0}
       revealSprite: {fileID: 0}
       isGoodFish: 0
       hoverOutlineSprite: {fileID: 0}
       displayScale: 1
+      openingOnly: 0
     - itemName: Good Fish
       sprite: {fileID: 21300000, guid: 75106a57526cedc438f93fab2883f8b6, type: 3}
+      overlaySprite: {fileID: 0}
       revealSprite: {fileID: 0}
       isGoodFish: 1
       hoverOutlineSprite: {fileID: 0}
       displayScale: 1
+      openingOnly: 0
   - day: 3
     items:
     - itemName: Lone Worm
       sprite: {fileID: 21300000, guid: b21a31172ee84074fa23f00dc0b45c0a, type: 3}
+      overlaySprite: {fileID: 0}
       revealSprite: {fileID: 0}
       isGoodFish: 0
       hoverOutlineSprite: {fileID: 0}
       displayScale: 2
+      openingOnly: 0
     - itemName: Coral
       sprite: {fileID: 21300000, guid: 2f2454fae10f48042b5c773dffbabb42, type: 3}
+      overlaySprite: {fileID: 0}
       revealSprite: {fileID: 0}
       isGoodFish: 0
       hoverOutlineSprite: {fileID: 0}
       displayScale: 1
+      openingOnly: 0
     - itemName: Bottle
       sprite: {fileID: 21300000, guid: 6928f5b076b4d464594a04bc4ac88b90, type: 3}
+      overlaySprite: {fileID: 0}
       revealSprite: {fileID: 0}
       isGoodFish: 0
       hoverOutlineSprite: {fileID: 0}
       displayScale: 1
+      openingOnly: 0
     - itemName: Can
       sprite: {fileID: 21300000, guid: 2f6b126e1f24d6847ae4d0b379cbfaa0, type: 3}
+      overlaySprite: {fileID: 0}
       revealSprite: {fileID: 0}
       isGoodFish: 0
       hoverOutlineSprite: {fileID: 0}
       displayScale: 1
+      openingOnly: 0
     - itemName: Good Fish
       sprite: {fileID: 21300000, guid: 75106a57526cedc438f93fab2883f8b6, type: 3}
+      overlaySprite: {fileID: 0}
       revealSprite: {fileID: 0}
       isGoodFish: 1
       hoverOutlineSprite: {fileID: 0}
       displayScale: 1
+      openingOnly: 0
   - day: 4
     items:
     - itemName: Can
       sprite: {fileID: 21300000, guid: 2f6b126e1f24d6847ae4d0b379cbfaa0, type: 3}
+      overlaySprite: {fileID: 0}
       revealSprite: {fileID: 0}
       isGoodFish: 0
       hoverOutlineSprite: {fileID: 0}
       displayScale: 1
+      openingOnly: 0
     - itemName: Bottle
       sprite: {fileID: 21300000, guid: 6928f5b076b4d464594a04bc4ac88b90, type: 3}
+      overlaySprite: {fileID: 0}
       revealSprite: {fileID: 0}
       isGoodFish: 0
       hoverOutlineSprite: {fileID: 0}
       displayScale: 1
+      openingOnly: 0
     - itemName: Good Fish
       sprite: {fileID: 21300000, guid: 75106a57526cedc438f93fab2883f8b6, type: 3}
+      overlaySprite: {fileID: 0}
       revealSprite: {fileID: 0}
       isGoodFish: 1
       hoverOutlineSprite: {fileID: 0}
       displayScale: 1
+      openingOnly: 0
     - itemName: Lone Worm
       sprite: {fileID: 21300000, guid: b21a31172ee84074fa23f00dc0b45c0a, type: 3}
+      overlaySprite: {fileID: 0}
       revealSprite: {fileID: 0}
       isGoodFish: 0
       hoverOutlineSprite: {fileID: 0}
       displayScale: 2
+      openingOnly: 0
     - itemName: Seaweed
       sprite: {fileID: 21300000, guid: e13862e84a48e0d488507bcb007b39e3, type: 3}
+      overlaySprite: {fileID: 0}
       revealSprite: {fileID: 0}
       isGoodFish: 0
       hoverOutlineSprite: {fileID: 0}
       displayScale: 1
+      openingOnly: 0
     - itemName: Coral
       sprite: {fileID: 21300000, guid: 2f2454fae10f48042b5c773dffbabb42, type: 3}
+      overlaySprite: {fileID: 0}
       revealSprite: {fileID: 0}
       isGoodFish: 0
       hoverOutlineSprite: {fileID: 0}
       displayScale: 1
+      openingOnly: 0
     - itemName: Pocket Watch
       sprite: {fileID: 21300000, guid: adecdeba0279c2e4fb9c817d0732a993, type: 3}
+      overlaySprite: {fileID: 0}
       revealSprite: {fileID: 0}
       isGoodFish: 0
       hoverOutlineSprite: {fileID: 0}
@@ -516,6 +557,7 @@ MonoBehaviour:
       openingOnly: 1
     - itemName: Crucifix
       sprite: {fileID: 21300000, guid: 294cfb793ffce2f47b1415e1a94e1378, type: 3}
+      overlaySprite: {fileID: 0}
       revealSprite: {fileID: 0}
       isGoodFish: 0
       hoverOutlineSprite: {fileID: 0}
@@ -525,28 +567,36 @@ MonoBehaviour:
     items:
     - itemName: Rotten Seaweed
       sprite: {fileID: 21300000, guid: 69c2ce4604b0f1242a915dea8aa45ea1, type: 3}
+      overlaySprite: {fileID: 0}
       revealSprite: {fileID: 0}
       isGoodFish: 0
       hoverOutlineSprite: {fileID: 0}
       displayScale: 1
+      openingOnly: 0
     - itemName: Coral
       sprite: {fileID: 21300000, guid: 2f2454fae10f48042b5c773dffbabb42, type: 3}
+      overlaySprite: {fileID: 0}
       revealSprite: {fileID: 0}
       isGoodFish: 0
       hoverOutlineSprite: {fileID: 0}
       displayScale: 1
+      openingOnly: 0
     - itemName: Sea Glass
       sprite: {fileID: 21300000, guid: b6b30870307c1574ab08f2f8b7466412, type: 3}
+      overlaySprite: {fileID: 0}
       revealSprite: {fileID: 0}
       isGoodFish: 0
       hoverOutlineSprite: {fileID: 0}
       displayScale: 1
+      openingOnly: 0
     - itemName: Worms
       sprite: {fileID: 21300000, guid: cf60cc1c38b844b4d9e1b79f4c0826cd, type: 3}
+      overlaySprite: {fileID: 0}
       revealSprite: {fileID: 0}
       isGoodFish: 0
       hoverOutlineSprite: {fileID: 0}
       displayScale: 1
+      openingOnly: 0
     - itemName: Good Fish
       sprite: {fileID: 21300000, guid: eb71ae959dc316b40a2c7be75dacd26b, type: 3}
       overlaySprite: {fileID: 21300000, guid: dfb747281e04e6e4084a13583c9fd44d, type: 3}
@@ -554,38 +604,49 @@ MonoBehaviour:
       isGoodFish: 1
       hoverOutlineSprite: {fileID: 0}
       displayScale: 1
+      openingOnly: 0
   - day: 6
     items:
     - itemName: Rotten Fish
       sprite: {fileID: 21300000, guid: d616112f927968944a927d4407187d53, type: 3}
+      overlaySprite: {fileID: 0}
       revealSprite: {fileID: 0}
       isGoodFish: 0
       hoverOutlineSprite: {fileID: 0}
       displayScale: 1
+      openingOnly: 0
     - itemName: Worms
       sprite: {fileID: 21300000, guid: cf60cc1c38b844b4d9e1b79f4c0826cd, type: 3}
+      overlaySprite: {fileID: 0}
       revealSprite: {fileID: 0}
       isGoodFish: 0
       hoverOutlineSprite: {fileID: 0}
       displayScale: 1
+      openingOnly: 0
     - itemName: Seaweed
       sprite: {fileID: 21300000, guid: e13862e84a48e0d488507bcb007b39e3, type: 3}
+      overlaySprite: {fileID: 0}
       revealSprite: {fileID: 0}
       isGoodFish: 0
       hoverOutlineSprite: {fileID: 0}
       displayScale: 1
+      openingOnly: 0
     - itemName: Rotten Seaweed
       sprite: {fileID: 21300000, guid: 69c2ce4604b0f1242a915dea8aa45ea1, type: 3}
+      overlaySprite: {fileID: 0}
       revealSprite: {fileID: 0}
       isGoodFish: 0
       hoverOutlineSprite: {fileID: 0}
       displayScale: 1
+      openingOnly: 0
     - itemName: Can
       sprite: {fileID: 21300000, guid: 2f6b126e1f24d6847ae4d0b379cbfaa0, type: 3}
+      overlaySprite: {fileID: 0}
       revealSprite: {fileID: 0}
       isGoodFish: 0
       hoverOutlineSprite: {fileID: 0}
       displayScale: 1
+      openingOnly: 0
     - itemName: Good Fish
       sprite: {fileID: 21300000, guid: eb71ae959dc316b40a2c7be75dacd26b, type: 3}
       overlaySprite: {fileID: 21300000, guid: dfb747281e04e6e4084a13583c9fd44d, type: 3}
@@ -593,65 +654,84 @@ MonoBehaviour:
       isGoodFish: 1
       hoverOutlineSprite: {fileID: 0}
       displayScale: 1
+      openingOnly: 0
   - day: 7
     items:
     - itemName: Rotten Seaweed
       sprite: {fileID: 21300000, guid: 69c2ce4604b0f1242a915dea8aa45ea1, type: 3}
+      overlaySprite: {fileID: 0}
       revealSprite: {fileID: 0}
       isGoodFish: 0
       hoverOutlineSprite: {fileID: 0}
       displayScale: 1
+      openingOnly: 0
     - itemName: Rotten Fish
       sprite: {fileID: 21300000, guid: 952da4a1c9d933a40970a2ab0509667c, type: 3}
+      overlaySprite: {fileID: 0}
       revealSprite: {fileID: 0}
       isGoodFish: 0
       hoverOutlineSprite: {fileID: 0}
       displayScale: 1
+      openingOnly: 0
     - itemName: Worms
       sprite: {fileID: 21300000, guid: cf60cc1c38b844b4d9e1b79f4c0826cd, type: 3}
+      overlaySprite: {fileID: 0}
       revealSprite: {fileID: 0}
       isGoodFish: 0
       hoverOutlineSprite: {fileID: 0}
       displayScale: 1
+      openingOnly: 0
     - itemName: Bottle of Worms
       sprite: {fileID: 21300000, guid: eff3650f9c2cb3740ba71794eb484d56, type: 3}
+      overlaySprite: {fileID: 0}
       revealSprite: {fileID: 21300000, guid: e16a48d47c868a04194a8536a55f395c, type: 3}
       isGoodFish: 0
       hoverOutlineSprite: {fileID: 21300000, guid: 8392b4ee3ee4bf04f997c5977507d04e, type: 3}
       displayScale: 1
+      openingOnly: 0
     - itemName: Good Fish
-      sprite: {fileID: 21300000, guid: 75106a57526cedc438f93fab2883f8b6, type: 3}
+      sprite: {fileID: 21300000, guid: eb71ae959dc316b40a2c7be75dacd26b, type: 3}
+      overlaySprite: {fileID: 21300000, guid: dfb747281e04e6e4084a13583c9fd44d, type: 3}
       revealSprite: {fileID: 0}
       isGoodFish: 1
       hoverOutlineSprite: {fileID: 0}
       displayScale: 1
+      openingOnly: 0
   fallbackCatch:
     day: 1
     items:
     - itemName: Seaweed
       sprite: {fileID: 21300000, guid: e13862e84a48e0d488507bcb007b39e3, type: 3}
+      overlaySprite: {fileID: 0}
       revealSprite: {fileID: 0}
       isGoodFish: 0
       hoverOutlineSprite: {fileID: 0}
       displayScale: 1
+      openingOnly: 0
     - itemName: Good Fish
       sprite: {fileID: 21300000, guid: 75106a57526cedc438f93fab2883f8b6, type: 3}
+      overlaySprite: {fileID: 0}
       revealSprite: {fileID: 0}
       isGoodFish: 1
       hoverOutlineSprite: {fileID: 0}
       displayScale: 1
+      openingOnly: 0
     - itemName: Coral
       sprite: {fileID: 21300000, guid: 2f2454fae10f48042b5c773dffbabb42, type: 3}
+      overlaySprite: {fileID: 0}
       revealSprite: {fileID: 0}
       isGoodFish: 0
       hoverOutlineSprite: {fileID: 0}
       displayScale: 1
+      openingOnly: 0
     - itemName: Sea Glass
       sprite: {fileID: 21300000, guid: b6b30870307c1574ab08f2f8b7466412, type: 3}
+      overlaySprite: {fileID: 0}
       revealSprite: {fileID: 0}
       isGoodFish: 0
       hoverOutlineSprite: {fileID: 0}
       displayScale: 1
+      openingOnly: 0
   minigamePanel: {fileID: 236215515}
   itemImage: {fileID: 824003409}
   itemOverlayImage: {fileID: 1700000004}
@@ -679,7 +759,7 @@ MonoBehaviour:
   buttonPopScale: 0.92
   buttonPopDuration: 0.1
   bobAmplitude: 5
-  bobSpeed: 1.4
+  bobSpeed: 0.7
   testModeSkipRequirements: 0
   testModeForceDay: 0
 --- !u!1 &290558259
@@ -1174,10 +1254,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.39043826
+    x: 0
     y: 0
-    width: 1.9654715
-    height: 1.9663419
+    width: 1
+    height: 1.0000744
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -2253,6 +2333,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0f03e219ddb9324a88b1fc73e722327, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PierMiscLogic
+  finishLoop: {fileID: 8300000, guid: 7e192a60ca6c11b4eb9756f7b23daf46, type: 3}
+  rainLoop: {fileID: 8300000, guid: fd34f6d11a3987e41a7d965d9d492b69, type: 3}
+  rainOverlay: {fileID: 99203248524}
+  miscObjectClick: {fileID: 1680848633}
   dockBackground: {fileID: 427814636}
   floatingCorpses:
   - frames:
@@ -2362,6 +2446,7 @@ MonoBehaviour:
     - {fileID: 71035964374353868, guid: 6249274ed6c5c7744a877153800e1e1c, type: 3}
     - {fileID: 4002540557544119644, guid: 6249274ed6c5c7744a877153800e1e1c, type: 3}
     - {fileID: -3247652063624821983, guid: 6249274ed6c5c7744a877153800e1e1c, type: 3}
+  redFlashColor: {r: 0.55, g: 0, b: 0, a: 0.75}
   carryBodySprites:
   - {fileID: -2665072364750482445, guid: 475c32154b1d60047bdeedcb69071d17, type: 3}
   - {fileID: 7168746267440240212, guid: 106295a5d15bb934cb8d7130cdaf3c98, type: 3}
@@ -2369,11 +2454,6 @@ MonoBehaviour:
   - {fileID: -4194699557831583787, guid: cc23fea38be16cc4fa6979610b2f734e, type: 3}
   mermaidCarrySprite: {fileID: 3218532058039104415, guid: 07d32a21d6e385e4ba773b37afaca321, type: 3}
   shovelClip: {fileID: 8300000, guid: 71777ad8bd9f8304d84ddd0c44c1cba5, type: 3}
-  finishLoop: {fileID: 8300000, guid: 7e192a60ca6c11b4eb9756f7b23daf46, type: 3}
-  rainLoop: {fileID: 8300000, guid: fd34f6d11a3987e41a7d965d9d492b69, type: 3}
-  rainOverlay: {fileID: 99203248524}
-  miscObjectClick: {fileID: 1680848633}
-  redFlashColor: {r: 0.55, g: 0, b: 0, a: 0.75}
 --- !u!4 &1680848635
 Transform:
   m_ObjectHideFlags: 0
@@ -2530,7 +2610,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2779666543188052440, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: m_Size.x
-      value: 7
+      value: 3.013338
       objectReference: {fileID: 0}
     - target: {fileID: 2779666543188052440, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: m_Size.y
@@ -2538,11 +2618,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2779666543188052440, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: m_Offset.x
-      value: 0
+      value: 0.020981848
       objectReference: {fileID: 0}
     - target: {fileID: 2779666543188052440, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: m_Offset.y
-      value: -0.1
+      value: -0.099999994
       objectReference: {fileID: 0}
     - target: {fileID: 2779666543188052440, guid: d87cb16be8e087c4094b8cf13ef594af, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
@@ -2810,6 +2890,8 @@ MonoBehaviour:
   revealHoverOutline: {fileID: 0}
   dialoguePath: dock/tooth
   dialogueOverride: {fileID: 0}
+  inspectSound: {fileID: 0}
+  revealSound: {fileID: 0}
   startDay: 1
   endDay: 1
   hideAfterFound: 1

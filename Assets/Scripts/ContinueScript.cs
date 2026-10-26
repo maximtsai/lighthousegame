@@ -6,7 +6,7 @@ public class ContinueScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if (!SaveManager.HasSave())
+        if (!SaveManager.HasSave() && !TestDayBootstrap.HasForcedTestDay)
         {
             gameObject.SetActive(false);
         }
