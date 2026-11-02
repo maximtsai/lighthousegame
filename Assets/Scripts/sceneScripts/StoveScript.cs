@@ -181,6 +181,8 @@ public class StoveScript : MonoBehaviour
         {
             returnButton.SetActive(false);
         }
+        // Both hands are on the knife for the chop
+        handlogic.SetVisible(false);
 
         Vector3 initialKnifePos = Vector3.zero;
         if (holdingKnife != null)
@@ -271,6 +273,7 @@ public class StoveScript : MonoBehaviour
         {
             blackScreenFlash.SetActive(false);
         }
+        handlogic.SetVisible(true);
 
         if (!isDay2)
         {

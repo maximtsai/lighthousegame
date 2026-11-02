@@ -224,7 +224,7 @@ public class Day4Dock : MonoBehaviour
         GameState.Set("navigationBlocked", true);
         EnsureOverlay();
         // Stays hidden: handlogic keeps it off while he's carrying her up to the house
-        SetInjuredHandVisible(false);
+        handlogic.SetVisible(false);
 
         if (body != null) body.SetActive(false);
         Sprite carry = mermaidSprite != null ? mermaidSprite : CarrySprite(0);
@@ -292,13 +292,6 @@ public class Day4Dock : MonoBehaviour
         return image;
     }
 
-    // His own hand stays off screen while his arms are full
-    private static void SetInjuredHandVisible(bool visible)
-    {
-        handlogic hand = FindFirstObjectByType<handlogic>();
-        if (hand != null && hand.TryGetComponent(out SpriteRenderer handRenderer))
-            handRenderer.enabled = visible;
-    }
 
     private void SetCarrySprite(Sprite sprite)
     {

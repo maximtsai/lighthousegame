@@ -64,6 +64,15 @@ public class handlogic : MonoBehaviour
         UpdateArmsFull();
     }
 
+    // For moments when his hands are busy on screen (carrying, the knife at the stove). The arms-full
+    // hiding below still wins while he's carrying something.
+    public static void SetVisible(bool visible)
+    {
+        handlogic hand = FindFirstObjectByType<handlogic>();
+        if (hand != null && hand.spriteRenderer != null)
+            hand.spriteRenderer.enabled = visible;
+    }
+
     // Day 4: his arms are full carrying a body up to the grave or her up to the house, so the hand
     // stays off screen until he puts them down. Only undoes its own hiding, so others (Day4Dock's
     // carries) can hide it too.
