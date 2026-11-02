@@ -54,11 +54,10 @@ public static class Day4Beach
     public static bool CarryingHer =>
         IsToday && MermaidRescued && !GameState.Get<bool>(MermaidInBedKey, false);
 
-    // Picked up but not yet tended to. The lighthouse waits until she has been: fixing it would count as
-    // the day's work and open the fish traps, skipping her care. Feeding her needs no guard, since once
-    // she's tended the dinner always goes to her.
-    public static bool NeedsTending =>
-        IsToday && MermaidRescued && !GameState.Get<bool>(MermaidTreatedKey, false);
+    // Once she's been picked up, the lighthouse is off for the rest of the day: she comes first, and
+    // fixing it would count as the day's work and open the fish traps without her being tended.
+    public static bool LighthouseSetAside => IsToday && MermaidRescued;
+    public const string LighthouseSetAsideLine = "I have more important things to handle now.";
 
     // Carrying her or one of the bodies: no hand on screen, nothing else to be done but get there.
     public static bool ArmsFull => CarryingHer || CarryingBody;

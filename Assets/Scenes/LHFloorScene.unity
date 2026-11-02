@@ -1240,8 +1240,8 @@ MonoBehaviour:
   revealHoverOutline: {fileID: 0}
   dialoguePath: Lighthouse/lighter
   dialogueOverride: {fileID: 0}
-  startDay: 4
-  endDay: 4
+  startDay: 3
+  endDay: 3
   hideAfterFound: 1
   markFoundOnInspect: 1
   requireMoundCovered: 0

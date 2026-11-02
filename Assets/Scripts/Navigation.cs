@@ -122,10 +122,10 @@ public class Navigation : MonoBehaviour
     {
         if (BlockedWhileCarrying(GameConsts.LHFLOORSCENE))
             return;
-        // Day 4: not until she's been seen to
-        if (Day4Beach.NeedsTending)
+        // Day 4: from picking her up, the lighthouse is set aside for the rest of the day
+        if (Day4Beach.LighthouseSetAside)
         {
-            DialogueManager.ShowDialogueFromText(new string[] { "The lighthouse can wait.## She can't." });
+            DialogueManager.ShowDialogueFromText(new string[] { Day4Beach.LighthouseSetAsideLine });
             return;
         }
         // Day 5: the lighthouse goes untended, all day
