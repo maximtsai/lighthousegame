@@ -1730,6 +1730,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: fcbac26c145bb474d9e0dbc0ee81d6ba, type: 3}
     - target: {fileID: 5497147221551116059, guid: be95ed95170129849bc8e4ae9113e45c, type: 3}
+      propertyPath: backgroundDugSpriteDay
+      value: 
+      objectReference: {fileID: 21300000, guid: f71604aa9cb6bd94ea44f0575121c0ed, type: 3}
+    - target: {fileID: 5497147221551116059, guid: be95ed95170129849bc8e4ae9113e45c, type: 3}
       propertyPath: backgroundRevealedSpriteDay
       value: 
       objectReference: {fileID: 21300000, guid: 2546f18e2839a084798aca2c28c2107a, type: 3}

@@ -391,6 +391,7 @@ MonoBehaviour:
   mermaidOnBedNight: {fileID: 21300000, guid: e6f4e6ab9ca4419ebdd525a2a74773a2, type: 3}
   mermaidOnBedOutline: {fileID: 21300000, guid: 5cad5c0d261c436fa26e9f34b8cdfcc3, type: 3}
   mermaidOnBedPosition: {x: -2.8, y: -0.1, z: -1.1}
+  day5DreamCorpse: {fileID: 21300000, guid: aa2577a78b8baf3419fb3f75dee09396, type: 3}
 --- !u!4 &234607255
 Transform:
   m_ObjectHideFlags: 0

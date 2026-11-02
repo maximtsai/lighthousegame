@@ -1,7 +1,7 @@
 using UnityEngine;
 
 /// <summary>
-/// Day 4: the mermaid lying in Camborne's bed once she's been laid down there (see
+/// Days 4 and 5: the mermaid lying in Camborne's bed once she's been laid down there (see
 /// MiscObjectClick.ClickPartnerBed). While she's there, hovering the bed shows her yellow outline
 /// in place of the bed's own highlight. Added by BedroomMiscLogic.
 /// </summary>
@@ -16,8 +16,9 @@ public class MermaidOnBed : MonoBehaviour
     private SpriteRenderer outline;
     private InteractableObject bed;
 
+    // Laid down on Day 4, and still there all through Day 5
     public static bool ShouldShow =>
-        Day4Beach.IsToday && GameState.Get<bool>(Day4Beach.MermaidInBedKey, false);
+        (Day4Beach.IsToday && GameState.Get<bool>(Day4Beach.MermaidInBedKey, false)) || Day5.IsToday;
 
     public void Init(Sprite daySprite, Sprite nightSprite, Sprite outlineSprite, Vector3 position)
     {

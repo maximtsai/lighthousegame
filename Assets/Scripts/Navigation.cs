@@ -61,7 +61,7 @@ public class Navigation : MonoBehaviour
 
     public void GoToStove()
     {
-        if (BlockedWhileCarryingHer(GameConsts.STOVESCENE))
+        if (BlockedWhileCarrying(GameConsts.STOVESCENE))
             return;
         if (!GameState.Get<bool>("hungry"))
         {
@@ -74,6 +74,8 @@ public class Navigation : MonoBehaviour
 
     public void GoToIndoors()
     {
+        if (BlockedWhileCarrying(GameConsts.KITCHENSCENE))
+            return;
         if (GameState.Get<bool>("do_burial", false))
         {
             DialogueManager.ShowDialogue(getDialog("outdoors/burial_blocked"));
@@ -118,8 +120,20 @@ public class Navigation : MonoBehaviour
 
     public void GoToLighthouse()
     {
-        if (BlockedWhileCarryingHer(GameConsts.LHFLOORSCENE))
+        if (BlockedWhileCarrying(GameConsts.LHFLOORSCENE))
             return;
+        // Day 4: not until she's been seen to
+        if (Day4Beach.NeedsTending)
+        {
+            DialogueManager.ShowDialogueFromText(new string[] { "The lighthouse can wait.## She can't." });
+            return;
+        }
+        // Day 5: the lighthouse goes untended, all day
+        if (Day5.IsToday)
+        {
+            DialogueManager.ShowDialogueFromText(new string[] { Day5.LighthouseLine });
+            return;
+        }
         if (GameState.Get<bool>("do_burial", false))
         {
             DialogueManager.ShowDialogue(getDialog("outdoors/burial_blocked"));
@@ -311,7 +325,7 @@ public class Navigation : MonoBehaviour
 
     public void GoToPier()
     {
-        if (BlockedWhileCarryingHer(GameConsts.PIERSCENE))
+        if (BlockedWhileCarrying(GameConsts.PIERSCENE))
             return;
         if (GameState.Get<bool>("do_burial", false))
         {
@@ -329,8 +343,22 @@ public class Navigation : MonoBehaviour
 
     public void GoToBurial()
     {
-        if (BlockedWhileCarryingHer(GameConsts.BURIALSCENE))
+        if (BlockedWhileCarrying(GameConsts.BURIALSCENE))
             return;
+        // Day 4: up to the mass grave with a body; nothing to do there empty-handed until they're all in
+        if (Day4Beach.CarryingBody)
+        {
+            GoToTransition(GameConsts.BURIALSCENE, 0.5f);
+            return;
+        }
+        if (Day4Beach.MassGraveOpen)
+        {
+            DialogueManager.ShowDialogueFromText(new string[]
+            {
+                Day4Beach.Buried == 0 ? "The bodies are still down at the dock." : "The rest are still down at the dock."
+            });
+            return;
+        }
         // Day 2: Allow access to inspect the uncovered grave
         bool isDay2 = GameState.Get<int>("day") == 2;
         bool graveNeedsInspection = isDay2 && !GameState.Get<bool>("grave_inspected") && GameState.Get<bool>("lighthouse_fixed") && GameState.Get<bool>("gathered_fish");
@@ -351,7 +379,7 @@ public class Navigation : MonoBehaviour
     
     public void GoToSink(SceneTransition transition)
     {
-        if (BlockedWhileCarryingHer(GameConsts.SINKSCENE))
+        if (BlockedWhileCarrying(GameConsts.SINKSCENE))
             return;
         bool handNeedsCleaning = GameState.Get<bool>("hand_cut") && !GameState.Get<bool>("hand_cleaned");
         if (GameState.Get<string>("is_clean") == "true" && !handNeedsCleaning)
@@ -373,7 +401,7 @@ public class Navigation : MonoBehaviour
     
     public void GoToOutdoors(SceneTransition transition)
     {
-        if (BlockedWhileCarryingHer(GameConsts.OUTDOORSSCENE))
+        if (BlockedWhileCarrying(GameConsts.OUTDOORSSCENE))
             return;
 
         // Day 2: after dinner, the hand needs seeing to at the sink before anything else (checked ahead of
@@ -475,18 +503,23 @@ public class Navigation : MonoBehaviour
         GoToTransition(scene, 0.85f);
     }
     
-    // Day 4: carrying her from the dock, the only way to go is up to Camborne's bed. Checked at the top
-    // of each way out (ahead of their own lines and sounds) and again in GoToTransition to catch the rest.
-    private static bool BlockedWhileCarryingHer(string scene)
+    // Day 4: with his arms full, the only way to go is where he's taking them: her up to Camborne's bed,
+    // a body up to the grave (or straight there from the dock, the fade that skips later trips). Checked
+    // at the top of each way out (ahead of their own lines and sounds) and again in GoToTransition to
+    // catch the rest.
+    private static bool BlockedWhileCarrying(string scene)
     {
-        if (!Day4Beach.CarryingHer)
+        if (!Day4Beach.ArmsFull)
             return false;
 
         string from = SceneManager.GetActiveScene().name;
-        bool onTheWay = scene == GameConsts.MAINSCENE
-            || (from == GameConsts.PIERSCENE && scene == GameConsts.OUTDOORSSCENE)
-            || (from == GameConsts.OUTDOORSSCENE && scene == GameConsts.KITCHENSCENE)
-            || (from == GameConsts.KITCHENSCENE && scene == GameConsts.BEDROOMSCENE);
+        bool onTheWay = scene == GameConsts.MAINSCENE || (Day4Beach.CarryingHer
+            ? (from == GameConsts.PIERSCENE && scene == GameConsts.OUTDOORSSCENE)
+              || (from == GameConsts.OUTDOORSSCENE && scene == GameConsts.KITCHENSCENE)
+              || (from == GameConsts.KITCHENSCENE && scene == GameConsts.BEDROOMSCENE)
+            : (from == GameConsts.PIERSCENE && scene == GameConsts.OUTDOORSSCENE)
+              || (from == GameConsts.OUTDOORSSCENE && scene == GameConsts.BURIALSCENE)
+              || (from == GameConsts.PIERSCENE && scene == GameConsts.BURIALSCENE));
         if (onTheWay)
             return false;
 
@@ -502,7 +535,7 @@ public class Navigation : MonoBehaviour
             return;
         }
 
-        if (BlockedWhileCarryingHer(scene))
+        if (BlockedWhileCarrying(scene))
             return;
 
         // Intercept leaving LHFloorScene to OutdoorsScene on Day 3 while looking for scissors
@@ -633,7 +666,7 @@ public class Navigation : MonoBehaviour
     // Sorry J3ranch, I needed some additional custom logic for this function
     public void LeaveBedroom(SceneTransition transition)
     {
-        if (BlockedWhileCarryingHer(transition.destination_scene))
+        if (BlockedWhileCarrying(transition.destination_scene))
             return;
 
         // query GameState static class and check value 

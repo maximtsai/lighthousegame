@@ -205,6 +205,16 @@ public class FlowerMinigame : MonoBehaviour
         feedbackLabel.gameObject.SetActive(false);
         ClearSelection();
         RefreshField();
+        if (complete)
+            FinishField();
+    }
+
+    // Every flower's been seen to: done for the day, and back out to the field.
+    private void FinishField()
+    {
+        MessageBus.Instance.Publish("CompleteTask", "task_flowers");
+        Dialogue d = DialogueManager.ShowDialogueFromText(new string[] { "That's enough for her." });
+        d.onDialogueEnd.AddListener(() => Navigation.GoToScene(GameConsts.OUTDOORSSCENE));
     }
 
     private bool IsResolved(int index) => (GameState.Get<int>(ResolvedKey) & (1 << index)) != 0;

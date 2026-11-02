@@ -17,7 +17,9 @@ public class BurialScript : MonoBehaviour
 
     [SerializeField] private Sprite backgroundRevealedSpriteDay;
     [SerializeField] private Sprite backgroundCoveredSpriteDay;
-    
+    // Day 4's mass grave, open in daylight
+    [SerializeField] private Sprite backgroundDugSpriteDay;
+
     [SerializeField] private MiscObjectClick miscObjectClick;
     [SerializeField] private GameObject handBleed;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -72,6 +74,14 @@ public class BurialScript : MonoBehaviour
             {
                 background.sprite = backgroundDugSprite;
             }
+        }
+
+        // Day 4: the mass grave stands open until the last of the wreck's dead are in it
+        if (Day4Beach.WreckageWashedUp)
+        {
+            Sprite day4Sprite = Day4Beach.MassGraveOpen ? backgroundDugSpriteDay : backgroundCoveredSpriteDay;
+            if (day4Sprite != null)
+                background.sprite = day4Sprite;
         }
     }
 
@@ -140,6 +150,25 @@ public class BurialScript : MonoBehaviour
     
     public void ClickMound()
     {
+        // Day 4: the wreck's dead go in the mass grave, one at a time
+        if (Day4Beach.WreckageWashedUp)
+        {
+            if (Day4Beach.CarryingBody)
+            {
+                if (!droppingBody)
+                    StartCoroutine(DropBodyRoutine());
+            }
+            else if (Day4Beach.MassGraveOpen)
+            {
+                DialogueManager.ShowDialogueFromText(new string[] { "Nothing to put in it yet." });
+            }
+            else
+            {
+                DialogueManager.ShowDialogueFromText(new string[] { "They're all in there now." });
+            }
+            return;
+        }
+
         // Day 2: Re-bury after rain uncovered the grave
         if (GameState.Get<bool>("grave_revealed") && !GameState.Get<bool>("grave_inspected"))
         {
@@ -222,6 +251,57 @@ public class BurialScript : MonoBehaviour
         {
             DialogueManager.ShowDialogue(miscObjectClick.getDialogue("burial/already_buried"));
         }
+    }
+
+    // Day 4: in it goes. Then the usual "Scratch?", a line about how many are left, and back to the
+    // dock. The first one also gets him realising how long this is going to take, and the last one
+    // fills the grave in on the way back.
+    private bool droppingBody;
+    private static readonly string[] CountWords = { "None", "One", "Two", "Three", "Four" };
+
+    private IEnumerator DropBodyRoutine()
+    {
+        droppingBody = true;
+        GameState.Set("navigationBlocked", true);
+
+        int index = Day4Beach.CarriedBody;
+        Day4Beach.SetCarriedBody(-1);
+        Day4CarryStrip.Hide();
+        GameState.Set(Day4Beach.BodyBuriedKeyPrefix + index, true);
+        int buried = GameState.Increment(Day4Beach.BuriedKey);
+        int left = Day4Beach.BodyCount - buried;
+        if (shovelClip != null)
+            miscObjectClick.PlaySound(shovelClip, 0.6f);
+        yield return new WaitForSeconds(0.8f);
+
+        HandScratch.Prompt("Scratch?", () =>
+        {
+            string[] lines;
+            if (left <= 0)
+            {
+                MessageBus.Instance.Publish("CompleteTask", "task_bury_bodies");
+                lines = new[] { "That's all of them.## All in one grave." };
+            }
+            else if (buried == 1)
+            {
+                lines = new[] { "One.## " + CountWords[Mathf.Min(left, CountWords.Length - 1)] + " more in the water.", "This is going to take all day." };
+            }
+            else
+            {
+                lines = new[] { left == 1 ? "One more." : CountWords[Mathf.Min(left, CountWords.Length - 1)] + " left." };
+            }
+
+            Dialogue d = DialogueManager.ShowDialogueFromText(lines);
+            d.onDialogueEnd.AddListener(() =>
+            {
+                // The last one: filled in while the screen's dark, so it's covered next time
+                if (left <= 0 && shovelClip != null)
+                    miscObjectClick.PlaySound(shovelClip, 0.6f);
+                GameState.Set("navigationBlocked", false);
+                droppingBody = false;
+                Navigation.GoToScene(GameConsts.PIERSCENE);
+            });
+        });
     }
 
     public void CoverUpHole()

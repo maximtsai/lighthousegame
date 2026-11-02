@@ -57,6 +57,16 @@ public class MiscObjectClick : MonoBehaviour
             return;
         }
 
+        // Day 5: the worms first thing, then she rests while he sees to the rest of the day for her
+        if (Day5.IsToday)
+        {
+            if (Day5.Treated)
+                DialogueManager.ShowDialogueFromText(new string[] { "She's resting." });
+            else
+                Navigation.GoToScene(GameConsts.MERMAIDSCENE);
+            return;
+        }
+
         if (GameState.Get<int>("day") == 1)
         {
             if (GameState.Get<bool>("ready_to_sleep", false))
@@ -141,6 +151,19 @@ public class MiscObjectClick : MonoBehaviour
                     new UnityEngine.Events.UnityEvent()
                 };
                 sleepDialogue.onLineStart[1].AddListener(() => FadeToBlackAndTransitionDay(5));
+            } else if (day == Day5.Day)
+            {
+                Dialogue sleepDialogue = DialogueManager.ShowDialogueFromText(new string[]
+                {
+                    "She's still breathing.## That's something.",
+                    "You fall asleep to the sound of it..."
+                });
+                sleepDialogue.onLineStart = new List<UnityEngine.Events.UnityEvent>
+                {
+                    new UnityEngine.Events.UnityEvent(),
+                    new UnityEngine.Events.UnityEvent()
+                };
+                sleepDialogue.onLineStart[1].AddListener(() => FadeToBlackAndTransitionDay(6));
             }
         }
         else
@@ -366,9 +389,9 @@ public class MiscObjectClick : MonoBehaviour
     
 	public void GatherFish()
     {
-		if (Day4Beach.CarryingHer)
+		if (Day4Beach.ArmsFull)
 		{
-			DialogueManager.ShowDialogueFromText(new string[] { "Not with her in my arms." });
+			DialogueManager.ShowDialogueFromText(new string[] { Day4Beach.ArmsFullLine });
 			return;
 		}
 		if (GameState.Get<bool>("gathered_fish", false))

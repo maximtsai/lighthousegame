@@ -15,6 +15,11 @@ public class BedroomMiscLogic : MonoBehaviour
     [SerializeField] private Sprite mermaidOnBedOutline;
     [SerializeField] private Vector3 mermaidOnBedPosition = new Vector3(-2.8f, -0.1f, -1.1f);
 
+    [Header("Day 5: Dream")]
+    [Tooltip("Her as a rotting corpse, for the jumpscare. Placeholder: the Day 7 body. The peaceful half " +
+             "of the dream uses Mermaid On Bed Night.")]
+    [SerializeField] private Sprite day5DreamCorpse;
+
     void Start()
     {
         gameObject.AddComponent<MermaidOnBed>().Init(mermaidOnBedDay, mermaidOnBedNight, mermaidOnBedOutline, mermaidOnBedPosition);
@@ -59,7 +64,9 @@ public class BedroomMiscLogic : MonoBehaviour
         int day = GameState.Get<int>("day");
         Debug.Log("Begin day " + day);
 
-        PlayWakeupSound();
+        // Day 5 wakes from its dream first, so the sound waits until then
+        if (day != Day5.Day)
+            PlayWakeupSound();
         switch (day)
         {
             case 1:
@@ -101,6 +108,26 @@ public class BedroomMiscLogic : MonoBehaviour
                 MessageBus.Instance.Publish("AddTaskString", "generic/go_to_sleep");
                 break;
             case 5:
+                // Her first, then the routine. "Do Your Job" is swapped for her flowers once he's
+                // outside (OutdoorsMiscLogic), and the fish are for her today.
+                MessageBus.Instance.Publish("AddTaskString", "generic/task_tend_her");
+                MessageBus.Instance.Publish("AddTaskString", "generic/task_breakfast");
+                MessageBus.Instance.Publish("AddTaskString", "generic/task_weather");
+                MessageBus.Instance.Publish("AddTaskString", "generic/task_work");
+                MessageBus.Instance.Publish("AddTaskString", "generic/task_fish_her");
+                MessageBus.Instance.Publish("AddTaskString", "generic/task_dinner");
+                MessageBus.Instance.Publish("AddTaskString", "generic/go_to_sleep");
+                // The dream of her rotting beside him, then waking to find her still there
+                Day5Dream.Play(mermaidOnBedNight, day5DreamCorpse, () =>
+                {
+                    PlayWakeupSound();
+                    DialogueManager.ShowDialogueFromText(new string[]
+                    {
+                        "Just a dream.",
+                        "She's still there.## Still breathing.",
+                        "Something is wriggling out of her legs."
+                    });
+                });
                 break;
             case 6:
                 break;

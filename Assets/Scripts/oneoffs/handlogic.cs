@@ -61,18 +61,19 @@ public class handlogic : MonoBehaviour
     void Update()
     {
         UpdateSprite();
-        UpdateCarryingHer();
+        UpdateArmsFull();
     }
 
-    // Day 4: his arms are full carrying her up from the dock, so the hand stays off screen until
-    // she's laid down. Only undoes its own hiding, so others (Day4Dock's carries) can hide it too.
+    // Day 4: his arms are full carrying a body up to the grave or her up to the house, so the hand
+    // stays off screen until he puts them down. Only undoes its own hiding, so others (Day4Dock's
+    // carries) can hide it too.
     private bool hiddenForCarry;
 
-    private void UpdateCarryingHer()
+    private void UpdateArmsFull()
     {
         if (spriteRenderer == null) return;
 
-        if (Day4Beach.CarryingHer)
+        if (Day4Beach.ArmsFull)
         {
             spriteRenderer.enabled = false;
             hiddenForCarry = true;

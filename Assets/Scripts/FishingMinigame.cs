@@ -198,9 +198,9 @@ public class FishingMinigame : MonoBehaviour
 
     public void TryStartFishing()
     {
-        if (Day4Beach.CarryingHer)
+        if (Day4Beach.ArmsFull)
         {
-            DialogueManager.ShowDialogueFromText(new string[] { "Not with her in my arms." });
+            DialogueManager.ShowDialogueFromText(new string[] { Day4Beach.ArmsFullLine });
             return;
         }
 
@@ -802,6 +802,9 @@ public class FishingMinigame : MonoBehaviour
         GameState.Set("near_nighttime", true);
 
         MessageBus.Instance.Publish("CompleteTask", "task_fish");
-        DialogueManager.ShowDialogue(miscObjectClick.getDialogue("dock/gather_fish"));
+        if (GetCurrentDay() == 2)
+            DialogueManager.ShowDialogueFromText(new string[] { "You don't feel like fish for dinner tonight.", "You let the caught fishes go." });
+        else
+            DialogueManager.ShowDialogue(miscObjectClick.getDialogue("dock/gather_fish"));
     }
 }

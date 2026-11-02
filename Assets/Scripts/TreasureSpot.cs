@@ -83,7 +83,8 @@ public class TreasureSpot : MonoBehaviour
 
         return GameState.Get<bool>("has_buried", false)
             && !GameState.Get<bool>("do_burial", false)
-            && !GameState.Get<bool>("grave_revealed", false);
+            && !GameState.Get<bool>("grave_revealed", false)
+            && !Day4Beach.MassGraveOpen;
     }
 
     private void SetSpotVisible(bool visible)

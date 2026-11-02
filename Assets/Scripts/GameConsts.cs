@@ -7,6 +7,7 @@ public static class GameConsts
     public const string BEDROOMSCENE = "BedroomScene";
     public const string BEDSCENE = "BedScene";
     public const string BURIALSCENE = "BurialScene";
+    public const string FLOWERSCENE = "FlowerScene";
     public const string JOURNALSCENE = "JournalScene";
     public const string KITCHENSCENE = "KitchenScene";
     public const string LHFLOORSCENE = "LHFloorScene";

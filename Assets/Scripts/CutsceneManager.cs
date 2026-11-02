@@ -354,10 +354,11 @@ public class CutsceneManager : Singleton<CutsceneManager>
         // fade to black quickly
         yield return StartCoroutine(FadeOverlay(1f, 0.25f));
 
-        // stop audio
+        // stop audio, and restore the volume in case the skip cut off the end fade-out
         if (AudioManager.Instance)
         {
             AudioManager.Instance.AudioSource.Stop();
+            AudioManager.Instance.AudioSource.volume = 0.7f;
         }
         CompleteCutscene();
         yield return new WaitForSeconds(0.02f);

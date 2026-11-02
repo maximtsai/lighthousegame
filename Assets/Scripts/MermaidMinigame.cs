@@ -319,11 +319,11 @@ public class MermaidMinigame : MonoBehaviour
         }
 
         // Day 4: she's been tended to, and feeding her the dinner comes next (see StoveScript)
-        if (GameState.Get<int>("day", 1) == 4)
-        {
+        int day = GameState.Get<int>("day", 1);
+        if (day == 4 || day == Day5.Day)
             MessageBus.Instance.Publish("CompleteTask", "task_tend_her");
+        if (day == 4)
             MessageBus.Instance.Publish("AddTaskBefore", "generic/task_feed_her", "task_dinner");
-        }
 
         // The scene has no way out of its own, so head back to the bedroom once she's patched up
         dialogue.onDialogueEnd.AddListener(() => Navigation.GoToScene(GameConsts.BEDROOMSCENE));

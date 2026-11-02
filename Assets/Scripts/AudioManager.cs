@@ -9,6 +9,7 @@ public class AudioManager : MonoBehaviour
     // Scene loops (lighthouse hum, pier water) get their own source so the one-shot source's
     // loop flag, volume and pitch never change under them, and they can't leak into other scenes.
     private AudioSource loopSource;
+    private AudioSource pitchedSource;
     private MessageBus.SubscriptionHandle playSoundHandle;
     private Camera mainCamera;
     private Dictionary<string, AudioClip> clipCache = new Dictionary<string, AudioClip>();
@@ -144,9 +145,24 @@ public class AudioManager : MonoBehaviour
 
         if (audioSource != null && clip != null)
         {
-            audioSource.pitch = Random.Range(minPitch, maxPitch);
-            audioSource.PlayOneShot(clip, volume);
+            // Pitched sounds get their own source so the shared one (dialogue blips, cutscene music)
+            // never inherits a random pitch
+            AudioSource source = minPitch == 1f && maxPitch == 1f ? audioSource : GetPitchedSource();
+            source.volume = audioSource.volume;
+            source.pitch = Random.Range(minPitch, maxPitch);
+            source.PlayOneShot(clip, volume);
         }
+    }
+
+    private AudioSource GetPitchedSource()
+    {
+        if (pitchedSource == null)
+        {
+            pitchedSource = gameObject.AddComponent<AudioSource>();
+            pitchedSource.playOnAwake = false;
+            pitchedSource.outputAudioMixerGroup = audioSource.outputAudioMixerGroup;
+        }
+        return pitchedSource;
     }
 
     private static void CreateFromPrefab()

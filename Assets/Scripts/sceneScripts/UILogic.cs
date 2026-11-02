@@ -15,6 +15,9 @@ public class UILogic : Singleton<UILogic>
 	void Start()
 	{
 		muteButtonImage = muteButton.GetComponent<Image>();
+		// The UI is rebuilt on Exit to Main Menu, but the mute itself is global
+		muted = AudioListener.pause;
+		muteButtonImage.sprite = muted ? mutedSprite : soundOnSprite;
 	}
 
 	// Update is called once per frame

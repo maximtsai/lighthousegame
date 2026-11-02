@@ -35,7 +35,6 @@ public class PierMiscLogic : MonoBehaviour
     [SerializeField] private Sprite[] carryBodySprites;
     // Carrying her inside.
     [SerializeField] private Sprite mermaidCarrySprite;
-    [SerializeField] private AudioClip shovelClip;
 
     private const string Day3FlashPlayedKey = "day3_pier_flash_played";
 
@@ -93,7 +92,7 @@ public class PierMiscLogic : MonoBehaviour
 
             gameObject.AddComponent<Day4Dock>().Init(dockBackground, driftwood, bodyFrames,
                 mermaidFloat != null ? mermaidFloat.frames : null,
-                carryBodySprites, mermaidCarrySprite, shovelClip, miscObjectClick);
+                carryBodySprites, mermaidCarrySprite);
         }
     }
 

@@ -27,6 +27,12 @@ public class OutdoorsMiscLogic : MonoBehaviour
     // needed at night: by day the separate light is just switched off instead.
     [SerializeField] private Sprite blackoutSprite;
 
+    [Header("Day 5 Flower Field")]
+    // Click area over the meadow that leads into the flower minigame, in world units. It sits
+    // behind the scene's own clickables (z -1) and the treasure, so it only catches open grass.
+    [SerializeField] private Vector2 day5FieldCenter = new Vector2(-0.6f, -1.0f);
+    [SerializeField] private Vector2 day5FieldSize = new Vector2(6f, 1.3f);
+
     private SpriteRenderer lighthouseLight;
 
     private const string Day3FlickerSeenKey = "day3_flicker_seen";
@@ -68,6 +74,13 @@ public class OutdoorsMiscLogic : MonoBehaviour
             }
         }
 
+        if (Day5.IsToday)
+        {
+            SpawnFlowerField();
+            if (!GameState.Get<bool>(Day5.WorkReplacedKey, false))
+                ReplaceWorkWithFlowers(nearlyDark);
+        }
+
         // Initialize Weather Button
         // if (weatherActionButton != null)
         // {
@@ -76,6 +89,43 @@ public class OutdoorsMiscLogic : MonoBehaviour
     }
 
 
+
+    // Day 5: the first time he steps out, the day's work is crossed off for something better
+    private void ReplaceWorkWithFlowers(Dialogue showAfter)
+    {
+        GameState.Set(Day5.WorkReplacedKey, true);
+        MessageBus.Instance.Publish("CompleteTask", "task_work");
+        MessageBus.Instance.Publish("AddTaskBefore", "generic/task_flowers", "task_fish");
+
+        System.Action line = () => DialogueManager.ShowDialogueFromText(new string[]
+        {
+            "The lighthouse can wait.",
+            "She'd like some flowers."
+        });
+        if (showAfter != null)
+            showAfter.onDialogueEnd.AddListener(() => line());
+        else
+            line();
+    }
+
+    private void SpawnFlowerField()
+    {
+        GameObject field = new GameObject("day5_flower_field");
+        field.transform.position = new Vector3(day5FieldCenter.x, day5FieldCenter.y, -0.1f);
+        BoxCollider2D box = field.AddComponent<BoxCollider2D>();
+        box.size = day5FieldSize;
+        field.AddComponent<Day4ClickTarget>().onClick = ClickFlowerField;
+    }
+
+    private void ClickFlowerField()
+    {
+        if (Day5.FlowersPicked)
+            DialogueManager.ShowDialogueFromText(new string[] { "That's enough flowers for today." });
+        else if (!Day5.Treated)
+            DialogueManager.ShowDialogueFromText(new string[] { Day5.TendHerFirstLine });
+        else
+            Navigation.GoToScene(GameConsts.FLOWERSCENE);
+    }
 
     private void ShowFlickerDialogue()
     {

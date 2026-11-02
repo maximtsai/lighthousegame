@@ -4,16 +4,26 @@ using UnityEngine.UI;
 
 /// <summary>
 /// Day 4 at the dock: the wreck has washed in with the weather. Picking through the scraps of it
-/// is the survey; after that the floating bodies can be carried off to the mass grave, with the
-/// usual "Scratch?" after each. One of them is a bride.
+/// is the survey; after that the floating bodies are picked up one at a time and dropped into the
+/// mass grave (see BurialScript). The first he carries up there himself; after that the trip is
+/// skipped with a fade. One of them is a bride.
 /// Once they're all buried a fifth turns up: the mermaid. She's breathing, so instead of the
 /// grave she's carried inside to Camborne's bed (see MiscObjectClick.ClickPartnerBed).
 /// </summary>
 public class Day4Dock : MonoBehaviour
 {
     private const string SeenKey = "day4_dock_bodies_seen";
-    private const string BodyBuriedKeyPrefix = "day4_body_buried_";
+    private const string MermaidSeenKey = "day4_dock_mermaid_seen";
     private const int BrideIndex = 2;
+
+    // What he notices picking each one up. Body i is "corpse i+1 float dock".
+    private static readonly string[][] PickUpLines =
+    {
+        new[] { "His eyes are still open." },
+        new[] { "His coat is full of seawater." },
+        new[] { "Her dress.##.##.## a wedding dress.", "She died on her wedding day." },
+        new[] { "Younger than me." },
+    };
 
     // Where each floating sheet's body is in its 660x400 frames (pixels from the top-left, covering
     // every frame of its bob), for the click boxes. Body i is "corpse i+1 float dock".
@@ -39,8 +49,6 @@ public class Day4Dock : MonoBehaviour
     private Sprite[] mermaidFrames;
     private Sprite[] carrySprites;
     private Sprite mermaidSprite;
-    private AudioClip shovelClip;
-    private MiscObjectClick miscObjectClick;
 
     private Canvas overlayCanvas;
     private Image blackImage;
@@ -48,7 +56,7 @@ public class Day4Dock : MonoBehaviour
     private bool busy;
 
     public void Init(SpriteRenderer background, FloatingLayer driftwood, Sprite[][] bodyFrames, Sprite[] mermaidFrames,
-        Sprite[] carrySprites, Sprite mermaidSprite, AudioClip shovelClip, MiscObjectClick miscObjectClick)
+        Sprite[] carrySprites, Sprite mermaidSprite)
     {
         this.background = background;
         this.driftwood = driftwood;
@@ -56,8 +64,6 @@ public class Day4Dock : MonoBehaviour
         this.mermaidFrames = mermaidFrames;
         this.carrySprites = carrySprites;
         this.mermaidSprite = mermaidSprite;
-        this.shovelClip = shovelClip;
-        this.miscObjectClick = miscObjectClick;
     }
 
     void Start()
@@ -71,13 +77,18 @@ public class Day4Dock : MonoBehaviour
         if (Day4Beach.Buried >= Day4Beach.BodyCount)
         {
             if (!Day4Beach.MermaidRescued)
+            {
                 SpawnMermaid();
+                // Back from the grave with the last of them in it, and someone's still out there
+                if (!GameState.Get<bool>(MermaidSeenKey, false))
+                    StartCoroutine(MermaidFirstSightRoutine());
+            }
             return;
         }
 
         for (int i = 0; i < Day4Beach.BodyCount && i < BodyBoxes.Length; i++)
         {
-            if (!GameState.Get<bool>(BodyBuriedKeyPrefix + i, false))
+            if (!Day4Beach.BodyBuried(i) && Day4Beach.CarriedBody != i)
                 SpawnBody(i);
         }
 
@@ -96,6 +107,13 @@ public class Day4Dock : MonoBehaviour
             "Bodies.## Floating in the water.",
             "The tide keeps bringing them in."
         });
+    }
+
+    private IEnumerator MermaidFirstSightRoutine()
+    {
+        yield return new WaitForSeconds(0.6f);
+        GameState.Set(MermaidSeenKey, true);
+        DialogueManager.ShowDialogueFromText(new string[] { "Wait.## There's one more." });
     }
 
     private void SpawnBody(int index)
@@ -125,70 +143,29 @@ public class Day4Dock : MonoBehaviour
             return;
         }
 
-        if (index == BrideIndex)
+        if (Day4Beach.CarryingBody)
         {
-            Dialogue d = DialogueManager.ShowDialogueFromText(new string[]
-            {
-                "Her dress.##.##.## a wedding dress.",
-                "She died on her wedding day."
-            });
-            d.onDialogueEnd.AddListener(() => StartCoroutine(CarryAndBuryRoutine(index, body)));
+            DialogueManager.ShowDialogueFromText(new string[] { "One at a time." });
             return;
         }
 
-        StartCoroutine(CarryAndBuryRoutine(index, body));
+        PickUp(index, body);
     }
 
-    private IEnumerator CarryAndBuryRoutine(int index, GameObject body)
+    // Out of the water and into his arms. The first one he carries up to the grave himself (the strip
+    // follows him there); after that the walk is skipped and it fades straight to the grave.
+    private void PickUp(int index, GameObject body)
     {
-        busy = true;
-        GameState.Set("navigationBlocked", true);
-        EnsureOverlay();
-        SetInjuredHandVisible(false);
+        bool firstTrip = Day4Beach.Buried == 0;
 
-        // Haul them out of the water, so they're no longer floating in it
-        if (body != null) body.SetActive(false);
-        Sprite carry = CarrySprite(index);
-        SetCarrySprite(carry);
-        yield return Fade(carryImage, 0f, 1f, 0.35f);
-
-        // Drag them up to the grave until you click
-        yield return null;
-        while (!Input.GetMouseButtonDown(0))
-            yield return null;
-
-        // Into the mass grave
-        blackImage.enabled = true;
-        yield return Fade(blackImage, 0f, 1f, 0.6f);
-        carryImage.enabled = false;
-        // Back under the black, so it's there again when the screen comes back
-        SetInjuredHandVisible(true);
+        Day4Beach.SetCarriedBody(index);
         Destroy(body);
-        if (shovelClip != null && miscObjectClick != null)
-            miscObjectClick.PlaySound(shovelClip, 0.6f);
-        yield return new WaitForSeconds(1.6f);
+        Day4CarryStrip.Show(CarrySprite(index));
 
-        GameState.Set(BodyBuriedKeyPrefix + index, true);
-        int buried = GameState.Increment(Day4Beach.BuriedKey);
-        yield return Fade(blackImage, 1f, 0f, 0.6f);
-        blackImage.enabled = false;
-
-        GameState.Set("navigationBlocked", false);
-        busy = false;
-
-        HandScratch.Prompt("Scratch?", () =>
-        {
-            if (buried >= Day4Beach.BodyCount)
-            {
-                MessageBus.Instance.Publish("CompleteTask", "task_bury_bodies");
-                Dialogue done = DialogueManager.ShowDialogueFromText(new string[] { "That's all of them.## All in one grave." });
-                done.onDialogueEnd.AddListener(() =>
-                {
-                    SpawnMermaid();
-                    DialogueManager.ShowDialogueFromText(new string[] { "Wait.## There's one more." });
-                });
-            }
-        });
+        string[] lines = index < PickUpLines.Length ? PickUpLines[index] : new[] { "Heavier than they look." };
+        Dialogue d = DialogueManager.ShowDialogueFromText(lines);
+        if (!firstTrip)
+            d.onDialogueEnd.AddListener(() => Navigation.GoToScene(GameConsts.BURIALSCENE));
     }
 
     private void WireScraps()

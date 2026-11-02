@@ -19,6 +19,13 @@ public static class GameState
         FullReset();
     }
 
+    // With domain reload off, the static ctor only runs once per editor domain, so reset again each Play
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+    private static void ResetOnPlay()
+    {
+        FullReset();
+    }
+
 
     // Set a value
     public static void Set<T>(string key, T value)
@@ -186,6 +193,10 @@ public static class GameState
         Set("thunderstorm", false);
         
         Set("do_burial", false);
+
+        // Tending to her and picking her flowers are daily chores from Day 4 on
+        Set("mermaid_treated", false);
+        Set("gathered_flowers", false);
 
         Set("ready_to_sleep", false);
         Set("intro_played", false);
