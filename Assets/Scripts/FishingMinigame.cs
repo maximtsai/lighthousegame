@@ -111,8 +111,6 @@ public class FishingMinigame : MonoBehaviour
     // Current presentation bag (opening: junk→fish, or random loop after fish discarded).
     private readonly List<CatchItem> playBag = new List<CatchItem>();
     private int playIndex;
-    // False = opening pass (junk first, good fish last). True = random loop until Keep.
-    private bool randomLoopPhase;
 
     void Awake()
     {
@@ -257,7 +255,6 @@ public class FishingMinigame : MonoBehaviour
     {
         playBag.Clear();
         playIndex = 0;
-        randomLoopPhase = false;
 
         if (activeItems == null)
             return;
@@ -279,7 +276,6 @@ public class FishingMinigame : MonoBehaviour
     {
         playBag.Clear();
         playIndex = 0;
-        randomLoopPhase = true;
 
         if (activeItems == null || activeItems.Count == 0)
             return;

@@ -133,6 +133,20 @@ public static class SaveManager
         }
     }
 
+    // Records one flag in the save without re-saving everything else. The save is a snapshot from the
+    // start of the day, and the rest of it should stay that way; this is for one-off moments mid-day
+    // (like a dream that's been seen) that shouldn't come back after Continue.
+    public static void SaveFlag(string key, bool value)
+    {
+        if (!PlayerPrefs.HasKey(SaveKey)) return;
+
+        var serializable = JsonUtility.FromJson<SerializableGameState>(PlayerPrefs.GetString(SaveKey));
+        var data = serializable.ToDictionary();
+        data[key] = value;
+        PlayerPrefs.SetString(SaveKey, JsonUtility.ToJson(new SerializableGameState(data), true));
+        PlayerPrefs.Save();
+    }
+
     public static void ClearSave()
     {
         PlayerPrefs.DeleteKey(SaveKey);

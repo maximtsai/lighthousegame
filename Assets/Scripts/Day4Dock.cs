@@ -124,7 +124,7 @@ public class Day4Dock : MonoBehaviour
 
         BoxCollider2D box = layer.AddClickBox(BodyBoxes[index]);
         GameObject body = layer.gameObject;
-        box.gameObject.AddComponent<Day4ClickTarget>().onClick = () => OnBodyClicked(index, body);
+        box.gameObject.AddComponent<ClickTarget>().onClick = () => OnBodyClicked(index, body);
     }
 
     private Sprite CarrySprite(int index)
@@ -174,7 +174,7 @@ public class Day4Dock : MonoBehaviour
 
         BoxCollider2D box = driftwood.AddClickBox(ScrapsBox);
         box.transform.localPosition += new Vector3(0f, 0f, -ScrapsBoxForward);
-        box.gameObject.AddComponent<Day4ClickTarget>().onClick = () =>
+        box.gameObject.AddComponent<ClickTarget>().onClick = () =>
         {
             // Only once: the scraps go back to just floating there
             Destroy(box.gameObject);
@@ -201,7 +201,7 @@ public class Day4Dock : MonoBehaviour
 
         BoxCollider2D box = layer.AddClickBox(MermaidBox);
         GameObject body = layer.gameObject;
-        box.gameObject.AddComponent<Day4ClickTarget>().onClick = () => OnMermaidClicked(body);
+        box.gameObject.AddComponent<ClickTarget>().onClick = () => OnMermaidClicked(body);
     }
 
     private void OnMermaidClicked(GameObject body)

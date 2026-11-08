@@ -114,7 +114,7 @@ public class OutdoorsMiscLogic : MonoBehaviour
         field.transform.position = new Vector3(day5FieldCenter.x, day5FieldCenter.y, -0.1f);
         BoxCollider2D box = field.AddComponent<BoxCollider2D>();
         box.size = day5FieldSize;
-        field.AddComponent<Day4ClickTarget>().onClick = ClickFlowerField;
+        field.AddComponent<ClickTarget>().onClick = ClickFlowerField;
     }
 
     private void ClickFlowerField()

@@ -3,7 +3,7 @@
 This document provides an overview of major scripts and instructions for editing dialogues.
 
 ## Project Root
-`C:\Users\maxim\Desktop\UnityProj\Lighthouse\lighthouse`
+`C:\Users\Maxim\Desktop\gameprojects\Unity\lighthousegame`
 
 ## Major Scripts
 
@@ -80,6 +80,8 @@ DIALOGUES.txt (at project root)
 ```
 
 This file contains all dialogue text organized by file path for easy searching.
+
+Some lines are written directly in scripts (mostly from Day 4 on) instead of in dialogue assets. They are listed under **LINES WRITTEN IN CODE** at the end of `DIALOGUES.txt`, each with the script to edit.
 
 ## Important Notes
 

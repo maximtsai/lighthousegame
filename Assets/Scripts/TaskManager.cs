@@ -193,7 +193,8 @@ public class TaskManager : MonoBehaviour
                 return;
             }
         }
-        Debug.LogWarning("Did not find task " + id);
+        // Not on the list: either already done (some tasks have more than one way to finish, like
+        // Day 4's "Do Your Job") or not part of today, so there's nothing to complete.
     }
 
     public void HideTask()

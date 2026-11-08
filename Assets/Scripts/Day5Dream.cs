@@ -95,6 +95,9 @@ public class Day5Dream : MonoBehaviour
         sleeping.enabled = false;
         corpse.enabled = corpse.sprite != null;
         MessageBus.Instance.Publish("PlaySound", ScareSound);
+        // Seen once, seen for good: the morning save is otherwise from before the dream
+        GameState.Set(Day5.DreamSeenKey, true);
+        SaveManager.SaveFlag(Day5.DreamSeenKey, true);
         yield return Shake(corpse.rectTransform, 0.7f, 14f);
 
         // Snap awake

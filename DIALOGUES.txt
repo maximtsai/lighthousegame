@@ -306,3 +306,176 @@ SCENE: Weather Station
 CONTEXT: Starting the weather recording task for the first time.
   Time to record the weather.
 
+LINES WRITTEN IN CODE
+=====================
+These lines live in the scripts rather than in dialogue assets. Edit them in the named file.
+Parts in {braces} are filled in by the game.
+
+[Code - BurialScript]
+FILE: Assets/Scripts/BurialScript.cs
+  Nothing to put in it yet.
+  They're all in there now.
+  Giving me trouble even after death.
+  Scratch?
+  That's all of them.## All in one grave.
+  One.## {Three} more in the water.
+  This is going to take all day.
+  One more.
+  {Two} left.
+
+[Code - Day4Beach]
+FILE: Assets/Scripts/Day4Beach.cs
+  I have more important things to handle now.
+  Not with her in my arms.
+  Not with my arms full.
+  The lighthouse can wait.## She can't.
+  Camborne's bed first.
+  The lighthouse can wait.
+  The grave first.
+  Something's washed up by the dock.
+  There are still bodies in the water.
+  There's still someone in the water.
+
+[Code - Day4Dock]
+FILE: Assets/Scripts/Day4Dock.cs
+  His eyes are still open.
+  His coat is full of seawater.
+  Her dress.##.##.## a wedding dress.
+  She died on her wedding day.
+  Younger than me.
+  Bodies.## Floating in the water.
+  The tide keeps bringing them in.
+  Wait.## There's one more.
+  I should see what else washed up first.
+  One at a time.
+  You pick through the scraps on the shore.
+  A can of corn chowder.## A different brand.
+  Be grateful.
+  She's not like the others.
+  Her chest.##.##.## it's moving.
+  She's alive.## She can be saved.
+
+[Code - Day5]
+FILE: Assets/Scripts/Day5.cs
+  She's waiting for me.
+  She needs tending first.
+
+[Code - Day5Dream]
+FILE: Assets/Scripts/Day5Dream.cs
+  She looks peaceful.
+
+[Code - FishingMinigame]
+FILE: Assets/Scripts/FishingMinigame.cs
+  You don't feel like fish for dinner tonight.
+  You let the caught fishes go.
+
+[Code - FlowerMinigame]
+FILE: Assets/Scripts/FlowerMinigame.cs
+  That's enough for her.
+
+[Code - LHMinigame]
+FILE: Assets/Scripts/LHMinigame.cs
+  You accidentally drop the scissors.
+  Something clatters down the stairwell.
+  The scissors are bent and don't cut well anymore.
+
+[Code - LighthouseScissors]
+FILE: Assets/Scripts/LighthouseScissors.cs
+  Wait,## I see something in the walls.
+
+[Code - MermaidMinigame]
+FILE: Assets/Scripts/MermaidMinigame.cs
+  That's all I can do for her.
+
+[Code - MiscObjectClick]
+FILE: Assets/Scripts/MiscObjectClick.cs
+  She's resting.
+  You lay her down in Camborne's bed.
+  She's covered in barnacles.## I have to clean her up.
+  Not my bed.## Camborne's.
+  I should clean my hand first.
+  It's been a long day.
+  The rain doesn't stop. You don't notice yourself falling asleep.
+  Your arms ache from the digging.
+  You can still smell the sea on your hands as you drift off...
+  She's still breathing.## That's something.
+  You fall asleep to the sound of it...
+  You don't feel like fish for dinner tonight.
+  You let the caught fishes go.
+  No more ships are coming.
+  Still no boats.
+  What do I do now?
+  Did the fish just look at me?
+
+[Code - Navigation]
+FILE: Assets/Scripts/Navigation.cs
+  I should finish my work first.
+  I haven't checked the fish traps yet.
+  Something's wrong with the grave.
+  Wait, something is down at the dock.
+  You need to record the weather first
+  The bodies are still down at the dock.
+  The rest are still down at the dock.
+  I should take care of my hand first.
+  Camborne still hasn't woken up.
+  It's time for work now.
+  Today is Day {n}.
+  The scissors have to be somewhere in the lighthouse.
+  You have work to do.
+  Head upstairs.
+  The weather has undone your shoddy grave.## Go fix your mistake.
+  Wait.
+  Has that crack above the door always been there?
+
+[Code - OutdoorsMiscLogic]
+FILE: Assets/Scripts/OutdoorsMiscLogic.cs
+  The lighthouse can wait.
+  She'd like some flowers.
+  That's enough flowers for today.
+  The lighthouse is flickering.
+  Eh.## Good enough.
+
+[Code - ScissorsCloseUp]
+FILE: Assets/Scripts/ScissorsCloseUp.cs
+  How did the scissors end up all the way in there?
+
+[Code - WeatherUIController]
+FILE: Assets/Scripts/WeatherUIController.cs
+  Are you sure you chose right?
+  Are you certain it's not raining?
+  The storm's going to be bad for ships.
+  Better get the lighthouse going.
+
+[Code - BedroomMiscLogic]
+FILE: Assets/Scripts/sceneScripts/BedroomMiscLogic.cs
+  I should bandage my hand.
+  Just a dream.
+  She's still there.## Still breathing.
+  Something is wriggling out of her legs.
+  You take a look at your hand.
+  Feels like bugs are crawling underneath it.
+  Scratch your hand?
+  You endure the intense itchiness.
+
+[Code - LHFloorScript]
+FILE: Assets/Scripts/sceneScripts/LHFloorScript.cs
+  You look around the bottom of the stairs for the scissors.
+  It's dim and you grope around in the dark.
+  Nothing.## But you heard them fall...
+  Nope, the scissors definitely aren't down here.
+
+[Code - SinkScript]
+FILE: Assets/Scripts/sceneScripts/SinkScript.cs
+  You wash up-##
+  Gah!### The water feels like ice in your wounds.
+  Your wound is festering. Scratch?
+  ...My hand will be fine
+  I'm clean enough.
+  Are you going to get an infection and die?
+
+[Code - StoveScript]
+FILE: Assets/Scripts/sceneScripts/StoveScript.cs
+  Pus is oozing out of your hand. Scratch?
+  Don't feel like eating fish tonight.
+  {Fish and corn chowder / Corn chowder} for the {17}th meal in a row.
+  Corn chowder with fish tonight.

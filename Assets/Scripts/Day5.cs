@@ -9,6 +9,8 @@ public static class Day5
     public const int Day = 5;
     // Set once "Do Your Job" has been crossed off for "Pick Flowers For Her"
     public const string WorkReplacedKey = "day5_work_replaced";
+    // Set (and written into the save) once the dream's scare has played, so Continue doesn't replay it
+    public const string DreamSeenKey = "day5_dream_seen";
 
     public const string LighthouseLine = "She's waiting for me.";
     public const string TendHerFirstLine = "She needs tending first.";

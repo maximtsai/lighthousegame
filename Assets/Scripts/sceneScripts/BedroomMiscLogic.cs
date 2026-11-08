@@ -117,8 +117,9 @@ public class BedroomMiscLogic : MonoBehaviour
                 MessageBus.Instance.Publish("AddTaskString", "generic/task_fish_her");
                 MessageBus.Instance.Publish("AddTaskString", "generic/task_dinner");
                 MessageBus.Instance.Publish("AddTaskString", "generic/go_to_sleep");
-                // The dream of her rotting beside him, then waking to find her still there
-                Day5Dream.Play(mermaidOnBedNight, day5DreamCorpse, () =>
+                // The dream of her rotting beside him, then waking to find her still there. After a
+                // Continue the dream's already been seen, so it's straight to waking.
+                System.Action wake = () =>
                 {
                     PlayWakeupSound();
                     DialogueManager.ShowDialogueFromText(new string[]
@@ -127,7 +128,11 @@ public class BedroomMiscLogic : MonoBehaviour
                         "She's still there.## Still breathing.",
                         "Something is wriggling out of her legs."
                     });
-                });
+                };
+                if (GameState.Get<bool>(Day5.DreamSeenKey, false))
+                    wake();
+                else
+                    Day5Dream.Play(mermaidOnBedNight, day5DreamCorpse, wake);
                 break;
             case 6:
                 break;

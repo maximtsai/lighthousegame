@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 /// <summary>
@@ -73,30 +72,4 @@ public static class Day4Beach
         !Surveyed ? "Something's washed up by the dock."
         : Buried < BodyCount ? "There are still bodies in the water."
         : "There's still someone in the water.";
-}
-
-/// <summary>Click target for the day 4 pile and bodies, with the same guards as InteractableObject.</summary>
-public class Day4ClickTarget : MonoBehaviour
-{
-    public Action onClick;
-
-    private static bool Blocked => InputGate.WorldBlocked;
-
-    void OnMouseOver()
-    {
-        if (!Blocked)
-            CustomCursor.SetCursorToPointer();
-    }
-
-    void OnMouseExit()
-    {
-        CustomCursor.SetCursorToNormal();
-    }
-
-    void OnMouseUp()
-    {
-        if (Blocked) return;
-        CustomCursor.SetCursorToNormal();
-        onClick?.Invoke();
-    }
 }

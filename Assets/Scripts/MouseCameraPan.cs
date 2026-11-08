@@ -9,6 +9,9 @@ public class MouseCameraPan : MonoBehaviour
     private Camera cam;
     public float edgeThreshold = 0.25f; // 25% by default
     public float scrollSpeed = 0.05f;
+    // Above 1, eases the pan around the middle of the screen, so small cursor moves there barely
+    // shift the view and clicks land on what you aimed at. The edges still reach the same limits.
+    public float centerSoftness = 1.5f;
 
     private Vector2 bounds; // half-size of how far camera can move
     private Vector2 lastMousePos;
@@ -96,6 +99,7 @@ public class MouseCameraPan : MonoBehaviour
         
         // Convert to -1 to 1 range
         mousePos = (mousePos - Vector2.one * 0.5f) * 2f;
+        mousePos = new Vector2(SoftenCenter(mousePos.x), SoftenCenter(mousePos.y));
 
         if (GameState.Get<bool>("minigame_open") || GameState.Get<bool>("is_recording_weather"))
         {
@@ -113,6 +117,11 @@ public class MouseCameraPan : MonoBehaviour
         transform.position = targetPos * shiftRatio + transform.position * (1-shiftRatio);
 	}
 
+
+    private float SoftenCenter(float value)
+    {
+        return Mathf.Sign(value) * Mathf.Pow(Mathf.Abs(value), Mathf.Max(1f, centerSoftness));
+    }
 
     private float ApplyEdgeClamp(float value)
     {
