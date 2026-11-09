@@ -9,7 +9,7 @@ Scene references use clips in `Assets/Audio/SFX Review`. Existing preferred worm
 | Hover flower | Flower Hover Tick (quiet, rate limited) |
 | Reveal spider / flies | Spider Chatter / Quick Fly Buzz |
 | Worm movement on Days 5-7 | Eight clips. Four excerpts from [d0 Maggots by dav0r](https://freesound.org/people/dav0r/sounds/223964/). Wet Worm Wriggle 71.92-72.31s, Soft Worm Slither 46.69-47.32s from [squishes.wav by Eneasz](https://freesound.org/people/Eneasz/sounds/216882/). Sticky Worm Twist 96.83-97.25s, Worm Ripple 108.85-109.37s from [slime - squishing sounds by rubberduck9999](https://freesound.org/people/rubberduck9999/sounds/680447/). All three sources are CC0. |
-| Remove dirty bandage | Sticky Bandage Removal ([Tape Bandages Rip by SecureSubset](https://freesound.org/people/SecureSubset/sounds/800275/), CC0, trimmed and level-matched) |
+| Remove dirty bandage | Sticky Bandage Removal plus Quick Bandage Removal, shuffled on Days 5-7. Quick variant removes the first 0.215 seconds of the approved clip, retaining the rip and tail. Original: (approved natural removal preview; [SoundDino: The sound of a torn band-aid from the body](https://sounddino.com/en/effects/bandage-plaster/)). Source trimmed to 0.15-0.65 seconds and volume multiplied by 0.85; no pitch, speed, or texture processing. |
 | Alcohol treatment | Original pouring.mp3 |
 | Place fish-skin graft | Fish Skin Graft |
 | Stitch | Quick Stitch / Tight Stitch, shuffled variants |

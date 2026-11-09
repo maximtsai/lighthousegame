@@ -7545,7 +7545,9 @@ MonoBehaviour:
     taskId: task_day5_remove_bandages
     tool: 1
     sound: {fileID: 8300000, guid: 2f213d9522714394ab1d634684d1d0b6, type: 3}
-    sounds: []
+    sounds:
+    - {fileID: 8300000, guid: 2f213d9522714394ab1d634684d1d0b6, type: 3}
+    - {fileID: 8300000, guid: b5d1cfdcc9a443bd985f4877cb962c68, type: 3}
     targets:
     - {fileID: 1700000301}
     - {fileID: 1700000306}
@@ -45268,7 +45270,9 @@ MonoBehaviour:
     taskId: task_day6_remove_bandages
     tool: 1
     sound: {fileID: 8300000, guid: 2f213d9522714394ab1d634684d1d0b6, type: 3}
-    sounds: []
+    sounds:
+    - {fileID: 8300000, guid: 2f213d9522714394ab1d634684d1d0b6, type: 3}
+    - {fileID: 8300000, guid: b5d1cfdcc9a443bd985f4877cb962c68, type: 3}
     targets:
     - {fileID: 233957781}
     - {fileID: 871389658}
@@ -65467,7 +65471,9 @@ MonoBehaviour:
     taskId: task_day7_remove_bandages
     tool: 1
     sound: {fileID: 8300000, guid: 2f213d9522714394ab1d634684d1d0b6, type: 3}
-    sounds: []
+    sounds:
+    - {fileID: 8300000, guid: 2f213d9522714394ab1d634684d1d0b6, type: 3}
+    - {fileID: 8300000, guid: b5d1cfdcc9a443bd985f4877cb962c68, type: 3}
     targets:
     - {fileID: 1353144809}
     - {fileID: 102661485}
