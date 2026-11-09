@@ -1,0 +1,280 @@
+[
+  {
+    "name": "Crisp Flower Pick",
+    "duration": 0.414,
+    "sources": [
+      "S3 grass foley",
+      "original transient"
+    ],
+    "note": "Single stem pluck; rustle tail",
+    "peak_dBFS": -3
+  },
+  {
+    "name": "Soft Flower Pick",
+    "duration": 0.476,
+    "sources": [
+      "S3 grass foley"
+    ],
+    "note": "Softer alternative",
+    "peak_dBFS": -5
+  },
+  {
+    "name": "Bag Rustle",
+    "duration": 0.228,
+    "sources": [
+      "R050"
+    ],
+    "note": "One short cloth movement",
+    "peak_dBFS": -5
+  },
+  {
+    "name": "Discarded Flower Rustle",
+    "duration": 0.415,
+    "sources": [
+      "S3 grass foley"
+    ],
+    "note": "Brief foliage brush",
+    "peak_dBFS": -5
+  },
+  {
+    "name": "F05_Spider_Skitter",
+    "duration": 0.185,
+    "sources": [
+      "original procedural synthesis"
+    ],
+    "note": "Four complete decaying dry taps; designed skitter",
+    "peak_dBFS": -5
+  },
+  {
+    "name": "F06_Fly_Reveal_Short_Buzz",
+    "duration": 0.55,
+    "sources": [
+      "R066"
+    ],
+    "note": "Shaped 0.55 s reveal buzz with gradual release",
+    "peak_dBFS": -6
+  },
+  {
+    "name": "F07_Fly_Reveal_Punchy_Buzz",
+    "duration": 0.52,
+    "sources": [
+      "original procedural synthesis"
+    ],
+    "note": "Dry harmonic insect buzz, fast reveal",
+    "peak_dBFS": -6
+  },
+  {
+    "name": "Flower Hover Tick",
+    "duration": 0.063,
+    "sources": [
+      "original procedural synthesis"
+    ],
+    "note": "Optional quiet tick",
+    "peak_dBFS": -12
+  },
+  {
+    "name": "Quick Stitch",
+    "duration": 0.248,
+    "sources": [
+      "R067"
+    ],
+    "note": "One complete dry snip",
+    "peak_dBFS": -3
+  },
+  {
+    "name": "Tight Stitch",
+    "duration": 0.165,
+    "sources": [
+      "existing snip.mp3"
+    ],
+    "note": "Shorter alternative based on current game sound",
+    "peak_dBFS": -3
+  },
+  {
+    "name": "M03_Worm_Pop",
+    "duration": 0.35,
+    "sources": [
+      "R047"
+    ],
+    "note": "Single wet pop",
+    "peak_dBFS": -3
+  },
+  {
+    "name": "M04_Worm_Pop_Alt",
+    "duration": 0.37,
+    "sources": [
+      "R043"
+    ],
+    "note": "Second wet pop",
+    "peak_dBFS": -3
+  },
+  {
+    "name": "M05_Big_Worm_Burst",
+    "duration": 0.444,
+    "sources": [
+      "R048",
+      "R041",
+      "original noise layer"
+    ],
+    "note": "Compact heavier burst",
+    "peak_dBFS": -3
+  },
+  {
+    "name": "M06_Small_Worm_Landing",
+    "duration": 0.149,
+    "sources": [
+      "R048"
+    ],
+    "note": "Small brief wet splat",
+    "peak_dBFS": -8
+  },
+  {
+    "name": "Dirty Bandage Peel",
+    "duration": 0.558,
+    "sources": [
+      "R063",
+      "R016"
+    ],
+    "note": "Fast cloth rip with wet release",
+    "peak_dBFS": -3
+  },
+  {
+    "name": "M08_Clean_Bandage_Place",
+    "duration": 0.228,
+    "sources": [
+      "R050"
+    ],
+    "note": "Complete soft wrap contact",
+    "peak_dBFS": -5
+  },
+  {
+    "name": "Alcohol Sizzle",
+    "duration": 0.55,
+    "sources": [
+      "original procedural synthesis"
+    ],
+    "note": "Complete designed sizzle decay",
+    "peak_dBFS": -6
+  },
+  {
+    "name": "M10_Fish_Skin_Crack_Peel",
+    "duration": 0.562,
+    "sources": [
+      "existing Fish Skin Peel.wav",
+      "R015"
+    ],
+    "note": "Immediate crack with short wet tail",
+    "peak_dBFS": -3
+  },
+  {
+    "name": "M11_Graft_Wet_Slap",
+    "duration": 0.563,
+    "sources": [
+      "R048",
+      "R019"
+    ],
+    "note": "Quick sticky contact",
+    "peak_dBFS": -3
+  },
+  {
+    "name": "Wilted Flower Pluck",
+    "duration": 0.414,
+    "sources": [
+      "S3 grass foley"
+    ],
+    "note": "Brittle short pluck",
+    "peak_dBFS": -3
+  },
+  {
+    "name": "Fresh Flower Placement",
+    "duration": 0.501,
+    "sources": [
+      "S3 grass foley"
+    ],
+    "note": "Short leaf touch, quieter than picking",
+    "peak_dBFS": -8
+  },
+  {
+    "name": "T01_Gloves_Pickup",
+    "duration": 0.228,
+    "sources": [
+      "R050"
+    ],
+    "note": "Complete short cloth lift",
+    "peak_dBFS": -6
+  },
+  {
+    "name": "Bottle Clink",
+    "duration": 0.185,
+    "sources": [
+      "S11 impactGlass_light_001"
+    ],
+    "note": "Single light glass contact",
+    "peak_dBFS": -6
+  },
+  {
+    "name": "Fish Flop",
+    "duration": 0.604,
+    "sources": [
+      "R028"
+    ],
+    "note": "Short damp flop",
+    "peak_dBFS": -3
+  },
+  {
+    "name": "Fish Bone Clack",
+    "duration": 0.165,
+    "sources": [
+      "S11 impactWood_light_002"
+    ],
+    "note": "Single dry clack",
+    "peak_dBFS": -5
+  },
+  {
+    "name": "Bandage Roll Pickup",
+    "duration": 1.123,
+    "sources": [
+      "R054"
+    ],
+    "note": "Small fabric roll movement",
+    "peak_dBFS": -6
+  },
+  {
+    "name": "T06_Tray_Slide_Stop",
+    "duration": 1.675,
+    "sources": [
+      "R070",
+      "S11 impactPlate_light_001"
+    ],
+    "note": "Quick slide and soft end-stop",
+    "peak_dBFS": -5
+  },
+  {
+    "name": "Brick Sliding into Place",
+    "duration": 1.625,
+    "sources": [
+      "R073",
+      "S11 impactWood_heavy_000"
+    ],
+    "note": "Scrape followed by distinct thunk",
+    "peak_dBFS": -3
+  },
+  {
+    "name": "Brick Drop",
+    "duration": 0.61,
+    "sources": [
+      "S11 impactMining_002"
+    ],
+    "note": "Short rough impact",
+    "peak_dBFS": -3
+  },
+  {
+    "name": "M14_Worm_Wriggle_Burst",
+    "duration": 0.621,
+    "sources": [
+      "R018"
+    ],
+    "note": "Short movement cue, not an endless ASMR loop",
+    "peak_dBFS": -12
+  }
+]

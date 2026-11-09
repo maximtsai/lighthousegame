@@ -1,0 +1,74 @@
+[
+  {
+    "file": "A01_Worm_Pop_Alt_Dry.wav",
+    "duration_s": 0.295,
+    "peak_dbfs": -4.000508460444033,
+    "end_10ms_relative_db": -58.20380627341361,
+    "first_sample": 0.0,
+    "last_sample": 0.0,
+    "clipped_samples": 0
+  },
+  {
+    "file": "A02_Worm_Burst_Single_Dry.wav",
+    "duration_s": 0.295,
+    "peak_dbfs": -4.000508460444033,
+    "end_10ms_relative_db": -63.54546817778028,
+    "first_sample": 0.0,
+    "last_sample": 0.0,
+    "clipped_samples": 0
+  },
+  {
+    "file": "A03_Worm_Landing_Dry.wav",
+    "duration_s": 0.19,
+    "peak_dbfs": -8.000782896515972,
+    "end_10ms_relative_db": -59.03911682571354,
+    "first_sample": 0.0,
+    "last_sample": 0.0,
+    "clipped_samples": 0
+  },
+  {
+    "file": "Fish Skin Graft.wav",
+    "duration_s": 0.45,
+    "peak_dbfs": -6.000477743319013,
+    "end_10ms_relative_db": -64.36529444671652,
+    "first_sample": 0.0,
+    "last_sample": 0.0,
+    "clipped_samples": 0
+  },
+  {
+    "file": "Glove Snap.wav",
+    "duration_s": 0.38,
+    "peak_dbfs": -4.000508460444033,
+    "end_10ms_relative_db": -207.08241994645633,
+    "first_sample": 0.0,
+    "last_sample": 0.0,
+    "clipped_samples": 0
+  },
+  {
+    "file": "Close Fly Buzz.wav",
+    "duration_s": 2.72,
+    "peak_dbfs": -7.0005506829029605,
+    "end_10ms_relative_db": -204.03035295362275,
+    "first_sample": 0.0,
+    "last_sample": 0.0,
+    "clipped_samples": 0
+  },
+  {
+    "file": "Quick Fly Buzz.wav",
+    "duration_s": 2.33,
+    "peak_dbfs": -7.0005506829029605,
+    "end_10ms_relative_db": -66.67463295970116,
+    "first_sample": 0.0,
+    "last_sample": 0.0,
+    "clipped_samples": 0
+  },
+  {
+    "file": "A08_Spider_Dry_Surface_Scuttle.wav",
+    "duration_s": 0.3549791666666667,
+    "peak_dbfs": -9.000392326786972,
+    "end_10ms_relative_db": -68.65884517346197,
+    "first_sample": 0.0,
+    "last_sample": 0.0,
+    "clipped_samples": 0
+  }
+]

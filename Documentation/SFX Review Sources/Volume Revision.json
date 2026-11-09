@@ -1,0 +1,112 @@
+[
+  {
+    "file": "Fish Skin Graft.wav",
+    "gain": 0.75,
+    "frames": 21600
+  },
+  {
+    "file": "Glove Snap.wav",
+    "gain": 0.75,
+    "frames": 18240
+  },
+  {
+    "file": "Close Fly Buzz.wav",
+    "gain": 0.75,
+    "frames": 130560
+  },
+  {
+    "file": "Quick Fly Buzz.wav",
+    "gain": 0.75,
+    "frames": 111840
+  },
+  {
+    "file": "Brick Sliding into Place.wav",
+    "gain": 0.75,
+    "frames": 78000
+  },
+  {
+    "file": "Brick Drop.wav",
+    "gain": 0.75,
+    "frames": 29280
+  },
+  {
+    "file": "Crisp Flower Pick.wav",
+    "gain": 0.75,
+    "frames": 19867
+  },
+  {
+    "file": "Soft Flower Pick.wav",
+    "gain": 0.75,
+    "frames": 22836
+  },
+  {
+    "file": "Bag Rustle.wav",
+    "gain": 0.75,
+    "frames": 10944
+  },
+  {
+    "file": "Discarded Flower Rustle.wav",
+    "gain": 0.75,
+    "frames": 19920
+  },
+  {
+    "file": "Flower Hover Tick.wav",
+    "gain": 0.75,
+    "frames": 3024
+  },
+  {
+    "file": "Quick Stitch.wav",
+    "gain": 0.75,
+    "frames": 11904
+  },
+  {
+    "file": "Tight Stitch.wav",
+    "gain": 0.75,
+    "frames": 7928
+  },
+  {
+    "file": "Dirty Bandage Peel.wav",
+    "gain": 0.75,
+    "frames": 26784
+  },
+  {
+    "file": "Alcohol Sizzle.wav",
+    "gain": 0.75,
+    "frames": 26400
+  },
+  {
+    "file": "Wilted Flower Pluck.wav",
+    "gain": 0.75,
+    "frames": 19867
+  },
+  {
+    "file": "Fresh Flower Placement.wav",
+    "gain": 0.75,
+    "frames": 24059
+  },
+  {
+    "file": "Spider Chatter.wav",
+    "gain": 0.75,
+    "frames": 51360
+  },
+  {
+    "file": "Bottle Clink.wav",
+    "gain": 0.75,
+    "frames": 8880
+  },
+  {
+    "file": "Fish Flop.wav",
+    "gain": 0.75,
+    "frames": 29000
+  },
+  {
+    "file": "Fish Bone Clack.wav",
+    "gain": 0.75,
+    "frames": 7920
+  },
+  {
+    "file": "Bandage Roll Pickup.wav",
+    "gain": 0.75,
+    "frames": 53904
+  }
+]

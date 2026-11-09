@@ -17,6 +17,8 @@ public class FishingMinigame : MonoBehaviour
         public Sprite overlaySprite;
         public Sprite revealSprite;   // frame 2; if set, must click reveal before keep/discard
         public bool isGoodFish;
+        [Tooltip("Skin fish reserved for mermaid treatment; keep a separate food fish too.")]
+        public bool isGraftFish;
         [Tooltip("Optional yellow outline shown on hover while waiting to reveal frame 2.")]
         public Sprite hoverOutlineSprite;
         [Tooltip("UI scale for this catch (1 = normal). Use 2 for small items like Lone Worm.")]
@@ -108,6 +110,19 @@ public class FishingMinigame : MonoBehaviour
     private AudioClip sanityGainClip;
 
     private List<CatchItem> activeItems;
+    private string FoodCatchKey => $"fishing_day{GetCurrentDay()}_food";
+    private string GraftCatchKey => $"fishing_day{GetCurrentDay()}_graft";
+
+    private bool AlreadyKept(CatchItem item) => item != null && item.isGoodFish &&
+        GameState.Get<bool>(item.isGraftFish ? GraftCatchKey : FoodCatchKey);
+
+    private bool RequiredFishKept => GameState.Get<bool>(FoodCatchKey) &&
+        (!GameState.FishIsForTreatment(GetCurrentDay()) || GameState.Get<bool>(GraftCatchKey));
+
+    private void RecordCatch(CatchItem item)
+    {
+        GameState.Set(item.isGraftFish ? GraftCatchKey : FoodCatchKey, true);
+    }
     // Current presentation bag (opening: junk→fish, or random loop after fish discarded).
     private readonly List<CatchItem> playBag = new List<CatchItem>();
     private int playIndex;
@@ -224,8 +239,20 @@ public class FishingMinigame : MonoBehaviour
             return;
         }
 
+        if (testModeSkipRequirements)
+        {
+            GameState.Set(FoodCatchKey, false);
+            GameState.Set(GraftCatchKey, false);
+        }
         finishing = false;
         choiceLocked = false;
+        // Resume safely if both catches were saved just before the completion animation.
+        if (RequiredFishKept)
+        {
+            finishing = true;
+            FinishMinigame();
+            return;
+        }
         BuildOpeningBag();
         GameState.Set("minigame_open", true);
         minigamePanel.SetActive(true);
@@ -266,7 +293,7 @@ public class FishingMinigame : MonoBehaviour
         }
         foreach (CatchItem item in activeItems)
         {
-            if (item != null && item.isGoodFish)
+            if (item != null && item.isGoodFish && !AlreadyKept(item))
                 playBag.Add(item);
         }
     }
@@ -282,7 +309,7 @@ public class FishingMinigame : MonoBehaviour
 
         foreach (CatchItem item in activeItems)
         {
-            if (item != null && !item.openingOnly)
+            if (item != null && !item.openingOnly && !AlreadyKept(item))
                 playBag.Add(item);
         }
         for (int i = playBag.Count - 1; i > 0; i--)
@@ -700,9 +727,15 @@ public class FishingMinigame : MonoBehaviour
         if (currentItem.isGoodFish)
         {
             ChangeSanity(1, keepButtonRect);
-            finishing = true;
+            RecordCatch(currentItem);
+            finishing = RequiredFishKept;
             yield return new WaitForSeconds(popupDuration);
-            FinishMinigame();
+            if (finishing) FinishMinigame();
+            else
+            {
+                SetChoiceButtonsInteractable(true);
+                ShowNextItem();
+            }
             yield break;
         }
 

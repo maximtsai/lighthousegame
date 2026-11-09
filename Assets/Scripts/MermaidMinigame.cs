@@ -153,6 +153,15 @@ public class MermaidMinigame : MonoBehaviour
         if (tool != CurrentTool) return;
 
         toolInHand = true;
+        StartCoroutine(PickUpTool(tool));
+    }
+
+    private IEnumerator PickUpTool(MermaidTool tool)
+    {
+        float pickupDuration = tray.PlayPickupSound(tool);
+        if (pickupDuration > 0f)
+            yield return new WaitForSecondsRealtime(pickupDuration);
+
         tray.Hide();
 
         foreach (MermaidTarget target in CurrentPhase.targets)

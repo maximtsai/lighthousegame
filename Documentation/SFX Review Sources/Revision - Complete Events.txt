@@ -1,0 +1,4 @@
+Previous versions used fixed windows near a strong transient; this could cut both attack and decay.
+Re-extracted complete events with quiet context, retained decays, replaced unsuitable foliage excerpts, and placed end impacts after scrapes. Removed peak saturation from mastering.
+All 30 files checked for clipping, edge discontinuities, and trailing energy. Last 10ms is at least 28dB below whole-clip RMS. These numerical checks do not establish subjective sound quality; listening feedback remains necessary.
+Source Event Boundaries.json records pre-mastering source excerpts. Previous files preserved in .utmp/sfx-download/short-cues-before-tail-fix.

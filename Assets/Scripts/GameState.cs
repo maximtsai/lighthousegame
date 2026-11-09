@@ -5,9 +5,9 @@ public static class GameState
 {
     public static System.Action OnDataChanged;
 
-    // These catches supply skin for the mermaid rather than ingredients for dinner.
+    // Treatment days need a skin fish in addition to the usual dinner fish.
     public static bool FishIsForTreatment(int day) => day >= 5 && day <= 7;
-    public static bool DinnerRequiresFish(int day) => day != 2 && !FishIsForTreatment(day);
+    public static bool DinnerRequiresFish(int day) => day != 2;
 
     private static Dictionary<string, object> data;
 
@@ -186,6 +186,8 @@ public static class GameState
         Set("mercury_used", false);
 
         Set("gathered_fish", false);
+        Set($"fishing_day{day}_food", false);
+        Set($"fishing_day{day}_graft", false);
         Set("is_nighttime", false);
         Set("near_nighttime", false);
         

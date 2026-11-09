@@ -1,0 +1,38 @@
+[
+  {
+    "name": "S01_Spider_Hiss",
+    "source": "https://freesound.org/people/columbia23/sounds/395395/",
+    "author": "columbia23",
+    "license": "CC BY 4.0",
+    "start": 0,
+    "end": 1,
+    "edits": "Excerpt, mono, peak -5 dBFS, 2ms/10ms edge fades. No pitch change, layering or added reverb.",
+    "source_format": "HQ MP3 preview",
+    "peak_dbfs": -5.0,
+    "tail_10ms_dbfs": -48.79484558105469
+  },
+  {
+    "name": "S02_Spider_Short_Hiss",
+    "source": "https://freesound.org/people/columbia23/sounds/395395/",
+    "author": "columbia23",
+    "license": "CC BY 4.0",
+    "start": 1.95,
+    "end": 2.85,
+    "edits": "Excerpt, mono, peak -5 dBFS, 2ms/10ms edge fades. No pitch change, layering or added reverb.",
+    "source_format": "HQ MP3 preview",
+    "peak_dbfs": -5.0,
+    "tail_10ms_dbfs": -69.34609985351562
+  },
+  {
+    "name": "Spider Chatter",
+    "source": "https://opengameart.org/content/spider-chattering",
+    "author": "spookymodem",
+    "license": "CC BY 3.0",
+    "start": 0.35,
+    "end": 1.42,
+    "edits": "Excerpt, mono, peak -5 dBFS, 2ms/10ms edge fades. No pitch change, layering or added reverb.",
+    "source_format": "Original WAV",
+    "peak_dbfs": -5.0,
+    "tail_10ms_dbfs": -60.73979949951172
+  }
+]

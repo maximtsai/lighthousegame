@@ -1,0 +1,234 @@
+[
+  {
+    "source": ".utmp/sfx-download/S3/unpacked/Footsteps/grassy-footstep2.wav",
+    "start_s": 0.0,
+    "end_s": 0.41389583333333335,
+    "duration_s": 0.41389583333333335,
+    "threshold_relative_db": -50.45757490560675,
+    "tail_rms_relative_db": -27.4208250878846
+  },
+  {
+    "source": "R050",
+    "start_s": 0.842,
+    "end_s": 1.07,
+    "duration_s": 0.228,
+    "threshold_relative_db": -46.020599913279625,
+    "tail_rms_relative_db": -35.018151663489064
+  },
+  {
+    "source": ".utmp/sfx-download/S3/unpacked/Footsteps/grassy-footstep3.wav",
+    "start_s": 0.0,
+    "end_s": 0.498,
+    "duration_s": 0.498,
+    "threshold_relative_db": -50.45757490560675,
+    "tail_rms_relative_db": -26.061981377247
+  },
+  {
+    "source": "R067",
+    "start_s": 7.102,
+    "end_s": 7.35,
+    "duration_s": 0.248,
+    "threshold_relative_db": -46.020599913279625,
+    "tail_rms_relative_db": -37.03848420556675
+  },
+  {
+    "source": "Assets/Audio/snip.mp3",
+    "start_s": 0.0,
+    "end_s": 0.19,
+    "duration_s": 0.19,
+    "threshold_relative_db": -50.45757490560675,
+    "tail_rms_relative_db": -38.566147143700825
+  },
+  {
+    "source": "R047",
+    "start_s": 0.0,
+    "end_s": 0.35,
+    "duration_s": 0.35,
+    "threshold_relative_db": -50.45757490560675,
+    "tail_rms_relative_db": -55.110976220917784
+  },
+  {
+    "source": "R043",
+    "start_s": 0.0,
+    "end_s": 0.37,
+    "duration_s": 0.37,
+    "threshold_relative_db": -50.45757490560675,
+    "tail_rms_relative_db": -41.197469510122616
+  },
+  {
+    "source": "R048",
+    "start_s": 0.0,
+    "end_s": 0.2391875,
+    "duration_s": 0.2391875,
+    "threshold_relative_db": -50.45757490560675,
+    "tail_rms_relative_db": -50.335223448707666
+  },
+  {
+    "source": "R041",
+    "start_s": 0.0,
+    "end_s": 0.35,
+    "duration_s": 0.35,
+    "threshold_relative_db": -50.45757490560675,
+    "tail_rms_relative_db": -51.72532168046125
+  },
+  {
+    "source": "R063",
+    "start_s": 0.057,
+    "end_s": 0.335,
+    "duration_s": 0.278,
+    "threshold_relative_db": -50.45757490560675,
+    "tail_rms_relative_db": -49.35804970799381
+  },
+  {
+    "source": "R016",
+    "start_s": 0.007,
+    "end_s": 0.405,
+    "duration_s": 0.398,
+    "threshold_relative_db": -50.45757490560675,
+    "tail_rms_relative_db": -81.060614833576
+  },
+  {
+    "source": "R050",
+    "start_s": 0.842,
+    "end_s": 1.07,
+    "duration_s": 0.228,
+    "threshold_relative_db": -46.020599913279625,
+    "tail_rms_relative_db": -35.018151663489064
+  },
+  {
+    "source": "Assets/Audio/Fish Skin Peel.wav",
+    "start_s": 0.0,
+    "end_s": 0.515,
+    "duration_s": 0.515,
+    "threshold_relative_db": -50.45757490560675,
+    "tail_rms_relative_db": -82.73009787202481
+  },
+  {
+    "source": "R015",
+    "start_s": 0.012,
+    "end_s": 0.41358333333333336,
+    "duration_s": 0.40158333333333335,
+    "threshold_relative_db": -50.45757490560675,
+    "tail_rms_relative_db": -27.428007608011526
+  },
+  {
+    "source": "R048",
+    "start_s": 0.0,
+    "end_s": 0.2391875,
+    "duration_s": 0.2391875,
+    "threshold_relative_db": -50.45757490560675,
+    "tail_rms_relative_db": -50.26078142604887
+  },
+  {
+    "source": "R019",
+    "start_s": 0.002,
+    "end_s": 0.505,
+    "duration_s": 0.503,
+    "threshold_relative_db": -50.45757490560675,
+    "tail_rms_relative_db": -132.73551204123595
+  },
+  {
+    "source": ".utmp/sfx-download/S3/unpacked/Footsteps/grassy-footstep2.wav",
+    "start_s": 0.0,
+    "end_s": 0.41389583333333335,
+    "duration_s": 0.41389583333333335,
+    "threshold_relative_db": -50.45757490560675,
+    "tail_rms_relative_db": -25.840696083600122
+  },
+  {
+    "source": ".utmp/sfx-download/S3/unpacked/Footsteps/grassy-footstep4.wav",
+    "start_s": 0.0,
+    "end_s": 0.5012291666666666,
+    "duration_s": 0.5012291666666666,
+    "threshold_relative_db": -50.45757490560675,
+    "tail_rms_relative_db": -22.497563466958326
+  },
+  {
+    "source": "R050",
+    "start_s": 0.842,
+    "end_s": 1.07,
+    "duration_s": 0.228,
+    "threshold_relative_db": -46.020599913279625,
+    "tail_rms_relative_db": -35.018151663489064
+  },
+  {
+    "source": ".utmp\\sfx-download\\S11\\unpacked\\Audio\\impactGlass_light_001.ogg",
+    "start_s": 0.0,
+    "end_s": 0.185,
+    "duration_s": 0.185,
+    "threshold_relative_db": -50.45757490560675,
+    "tail_rms_relative_db": -53.49514472305505
+  },
+  {
+    "source": "R028",
+    "start_s": 0.007,
+    "end_s": 0.62,
+    "duration_s": 0.613,
+    "threshold_relative_db": -50.45757490560675,
+    "tail_rms_relative_db": -58.48256079993955
+  },
+  {
+    "source": ".utmp\\sfx-download\\S11\\unpacked\\Audio\\impactWood_light_002.ogg",
+    "start_s": 0.0,
+    "end_s": 0.165,
+    "duration_s": 0.165,
+    "threshold_relative_db": -50.45757490560675,
+    "tail_rms_relative_db": -48.7837923832505
+  },
+  {
+    "source": "R054",
+    "start_s": 0.012,
+    "end_s": 1.135,
+    "duration_s": 1.123,
+    "threshold_relative_db": -50.45757490560675,
+    "tail_rms_relative_db": -54.705835235797416
+  },
+  {
+    "source": "R070",
+    "start_s": 0.0,
+    "end_s": 1.2849583333333334,
+    "duration_s": 1.2849583333333334,
+    "threshold_relative_db": -50.45757490560675,
+    "tail_rms_relative_db": -40.52188467599122
+  },
+  {
+    "source": ".utmp\\sfx-download\\S11\\unpacked\\Audio\\impactPlate_light_001.ogg",
+    "start_s": 0.0,
+    "end_s": 0.41,
+    "duration_s": 0.41,
+    "threshold_relative_db": -50.45757490560675,
+    "tail_rms_relative_db": -38.0934707033949
+  },
+  {
+    "source": "R073",
+    "start_s": 0.0,
+    "end_s": 1.385,
+    "duration_s": 1.385,
+    "threshold_relative_db": -38.8753905020302,
+    "tail_rms_relative_db": -33.89410122149934
+  },
+  {
+    "source": ".utmp\\sfx-download\\S11\\unpacked\\Audio\\impactWood_heavy_000.ogg",
+    "start_s": 0.0,
+    "end_s": 0.26,
+    "duration_s": 0.26,
+    "threshold_relative_db": -50.45757490560675,
+    "tail_rms_relative_db": -47.81914286324641
+  },
+  {
+    "source": ".utmp\\sfx-download\\S11\\unpacked\\Audio\\impactMining_002.ogg",
+    "start_s": 0.0,
+    "end_s": 0.61,
+    "duration_s": 0.61,
+    "threshold_relative_db": -50.45757490560675,
+    "tail_rms_relative_db": -37.820648753648655
+  },
+  {
+    "source": "R018",
+    "start_s": 0.007,
+    "end_s": 0.635,
+    "duration_s": 0.628,
+    "threshold_relative_db": -50.45757490560675,
+    "tail_rms_relative_db": -135.709848898149
+  }
+]

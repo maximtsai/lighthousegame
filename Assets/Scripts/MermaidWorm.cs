@@ -15,6 +15,8 @@ using UnityEngine;
 public class MermaidWorm : MermaidTarget
 {
     [Header("Squirm")]
+    [SerializeField] private AudioSource squirmAudio;
+    [SerializeField] private AudioClip[] squirmClips;
     [SerializeField] private Sprite[] squirmFrames;
     [Tooltip("Optional second stage for a large worm. It takes another click to burst.")]
     [SerializeField] private Sprite[] halfFrames;
@@ -88,6 +90,12 @@ public class MermaidWorm : MermaidTarget
     private int landingSplatFrame;
     private Sprite shownSquirmFrame;
     private float poseSize = -1f;
+    private Camera viewCamera;
+    private float nextSquirm;
+    private float squirmInterval;
+    private int lastSquirmClip = -1;
+    private float clipPitch = 1f;
+    private bool advancedSquirmFrame;
 
     public override bool IsBusy => splatting || scattering;
 
@@ -96,6 +104,7 @@ public class MermaidWorm : MermaidTarget
         restPosition = transform.localPosition;
         middle = OutlineMiddle();
         originalMiddle = middle;
+        viewCamera = Camera.main;
         if (splatRenderer != null)
         {
             splatRestPosition = splatRenderer.transform.localPosition;
@@ -109,17 +118,51 @@ public class MermaidWorm : MermaidTarget
     void OnEnable()
     {
         Burst += OnOtherBurst;
+        squirmInterval = Random.Range(1.4f, 4.5f);
+        nextSquirm = Time.time + Random.Range(0f, squirmInterval);
     }
 
     void OnDisable()
     {
         Burst -= OnOtherBurst;
+        if (squirmAudio != null) squirmAudio.Stop();
         landingSplat = false;
     }
 
     void LateUpdate()
     {
         if (landingSplat) AlignLandingSplat();
+        if (squirmAudio == null || popped || splatting || scattering || spriteRenderer == null ||
+            !spriteRenderer.enabled || viewCamera == null) return;
+
+        bool playing = squirmAudio.isPlaying;
+        if (!playing && (!advancedSquirmFrame || (!thrashing && Time.time < nextSquirm))) return;
+
+        // Full-body sprites share a pivot. Measure from the visible worm to the camera centre.
+        Vector3 point = viewCamera.WorldToViewportPoint(transform.TransformPoint(middle));
+        Vector2 fromCentre = new Vector2(point.x - 0.5f, point.y - 0.5f) * 2f;
+        squirmAudio.volume = 0.4f / (1f + fromCentre.sqrMagnitude);
+        squirmAudio.panStereo = Mathf.Clamp(fromCentre.x * 0.45f, -0.7f, 0.7f);
+        if (!playing)
+        {
+            if (squirmClips != null && squirmClips.Length > 0)
+            {
+                int count = squirmClips.Length;
+                int index = lastSquirmClip < 0 || count == 1 ? Random.Range(0, count)
+                    : (lastSquirmClip + Random.Range(1, count)) % count;
+                squirmAudio.clip = squirmClips[index];
+                lastSquirmClip = index;
+            }
+            clipPitch = Random.Range(0.93f, 1.07f);
+        }
+        // Speed up the current take as well, so entering hover never cuts a squirm in half.
+        float motionSpeed = thrashing ? thrashSpeed : mood == Mood.Frenzy ? frenzySpeed : 1f;
+        squirmAudio.pitch = clipPitch * Mathf.Sqrt(Mathf.Max(1f, motionSpeed));
+        if (playing) return;
+
+        squirmAudio.Play();
+        nextSquirm = Time.time + squirmAudio.clip.length / squirmAudio.pitch
+            + squirmInterval * Random.Range(0.7f, 1.35f);
     }
 
     private void AlignLandingSplat()
@@ -144,6 +187,7 @@ public class MermaidWorm : MermaidTarget
 
     void Update()
     {
+        advancedSquirmFrame = false;
         if (popped || splatting || scattering || spriteRenderer == null || squirmFrames == null || squirmFrames.Length == 0) return;
 
         UpdateMood();
@@ -153,6 +197,7 @@ public class MermaidWorm : MermaidTarget
         Sprite frame = frames[(startFrame + (int)framePosition) % frames.Length];
         if (frame != shownSquirmFrame)
         {
+            advancedSquirmFrame = speed > 0f;
             spriteRenderer.sprite = frame;
             shownSquirmFrame = frame;
         }
@@ -220,6 +265,8 @@ public class MermaidWorm : MermaidTarget
     // tint or shake, so the art stays exactly as drawn and the frantic wriggling is the only sign.
     protected override void SetHover(bool on)
     {
+        if (thrashing && !on)
+            nextSquirm = Time.time + squirmInterval;
         thrashing = on;
     }
 
@@ -230,6 +277,7 @@ public class MermaidWorm : MermaidTarget
 
     public override void Apply(MermaidTool tool)
     {
+        if (squirmAudio != null) squirmAudio.Stop();
         StopAllCoroutines();
         landingSplat = false;
         // A landing splat may still be fading when the player squishes this worm.

@@ -18,6 +18,9 @@ public class MermaidTray : MonoBehaviour
         public MermaidTool tool;
         [Tooltip("The tool art.")]
         public Image art;
+        [Tooltip("Subtle glow saved beside the tool art in the scene.")]
+        public Image glow;
+        public AudioClip pickupSound;
         [Tooltip("The small invisible hit rect sitting over it.")]
         public Button button;
         [Tooltip("Yellow outline shown while you hover a tool you can pick up.")]
@@ -36,8 +39,7 @@ public class MermaidTray : MonoBehaviour
     [SerializeField] private float slideDuration = 0.55f;
 
     [Header("Tools")]
-    [Tooltip("Lit and greyed states come from each Button's own Color Tint block. This list only " +
-             "decides which one is interactable.")]
+    [Tooltip("Saved tool art, glow and pickup sounds for each phase.")]
     [SerializeField] private List<ToolButton> tools = new List<ToolButton>();
 
     [Header("Audio")]
@@ -108,7 +110,18 @@ public class MermaidTray : MonoBehaviour
             if (entry == null || entry.button == null) continue;
 
             bool live = entry.tool == activeTool && interactable;
+            // Disable automatic tinting before changing interactability. A previous Button
+            // fade can otherwise leave the CanvasRenderer dark even when Image.color is white.
+            entry.button.transition = Selectable.Transition.None;
             entry.button.interactable = live;
+            if (entry.art != null)
+            {
+                entry.art.CrossFadeColor(Color.white, 0f, true, true);
+                entry.art.canvasRenderer.SetColor(Color.white);
+                entry.art.color = entry.tool == activeTool ? Color.white : new Color(0.42f, 0.42f, 0.42f, 1f);
+            }
+            if (entry.glow != null)
+                entry.glow.gameObject.SetActive(false);
             if (!live && entry.outline != null) entry.outline.SetActive(false);
 
             // Fully qualify, this project also has a scene Navigation singleton.
@@ -121,6 +134,18 @@ public class MermaidTray : MonoBehaviour
             colors.selectedColor = colors.highlightedColor;
             entry.button.colors = colors;
         }
+    }
+
+    public float PlayPickupSound(MermaidTool tool)
+    {
+        if (miscObjectClick == null) return 0f;
+        foreach (ToolButton entry in tools)
+            if (entry != null && entry.tool == tool && entry.pickupSound != null)
+            {
+                miscObjectClick.PlaySound(entry.pickupSound);
+                return entry.pickupSound.length;
+            }
+        return 0f;
     }
 
     private static void ClearUiSelection()

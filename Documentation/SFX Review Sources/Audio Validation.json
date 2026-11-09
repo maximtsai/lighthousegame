@@ -1,0 +1,212 @@
+[
+  {
+    "clip": "Brick Sliding into Place.wav",
+    "seconds": 1.625,
+    "last_10ms_relative_rms_dB": -66.8,
+    "peak_dBFS": -3.0,
+    "trimmed_leading_silence_s": 0.0
+  },
+  {
+    "clip": "Brick Drop.wav",
+    "seconds": 0.61,
+    "last_10ms_relative_rms_dB": -45.54,
+    "peak_dBFS": -3.0,
+    "trimmed_leading_silence_s": 0.0
+  },
+  {
+    "clip": "Crisp Flower Pick.wav",
+    "seconds": 0.414,
+    "last_10ms_relative_rms_dB": -44.68,
+    "peak_dBFS": -3.0,
+    "trimmed_leading_silence_s": 0.0
+  },
+  {
+    "clip": "Soft Flower Pick.wav",
+    "seconds": 0.476,
+    "last_10ms_relative_rms_dB": -41.33,
+    "peak_dBFS": -5.0,
+    "trimmed_leading_silence_s": 0.0
+  },
+  {
+    "clip": "Bag Rustle.wav",
+    "seconds": 0.228,
+    "last_10ms_relative_rms_dB": -43.0,
+    "peak_dBFS": -5.0,
+    "trimmed_leading_silence_s": 0.0
+  },
+  {
+    "clip": "Discarded Flower Rustle.wav",
+    "seconds": 0.415,
+    "last_10ms_relative_rms_dB": -30.71,
+    "peak_dBFS": -5.0,
+    "trimmed_leading_silence_s": 0.0
+  },
+  {
+    "clip": "F05_Spider_Skitter.wav",
+    "seconds": 0.185,
+    "last_10ms_relative_rms_dB": -86.35,
+    "peak_dBFS": -5.0,
+    "trimmed_leading_silence_s": 0.0
+  },
+  {
+    "clip": "F06_Fly_Reveal_Short_Buzz.wav",
+    "seconds": 0.55,
+    "last_10ms_relative_rms_dB": -44.34,
+    "peak_dBFS": -6.0,
+    "trimmed_leading_silence_s": 0.0
+  },
+  {
+    "clip": "F07_Fly_Reveal_Punchy_Buzz.wav",
+    "seconds": 0.52,
+    "last_10ms_relative_rms_dB": -35.92,
+    "peak_dBFS": -6.0,
+    "trimmed_leading_silence_s": 0.0
+  },
+  {
+    "clip": "Flower Hover Tick.wav",
+    "seconds": 0.063,
+    "last_10ms_relative_rms_dB": -30.07,
+    "peak_dBFS": -12.0,
+    "trimmed_leading_silence_s": 0.0
+  },
+  {
+    "clip": "Quick Stitch.wav",
+    "seconds": 0.248,
+    "last_10ms_relative_rms_dB": -46.3,
+    "peak_dBFS": -3.0,
+    "trimmed_leading_silence_s": 0.0
+  },
+  {
+    "clip": "Tight Stitch.wav",
+    "seconds": 0.165,
+    "last_10ms_relative_rms_dB": -46.96,
+    "peak_dBFS": -3.0,
+    "trimmed_leading_silence_s": 6.25e-05
+  },
+  {
+    "clip": "M03_Worm_Pop.wav",
+    "seconds": 0.35,
+    "last_10ms_relative_rms_dB": -71.19,
+    "peak_dBFS": -3.0,
+    "trimmed_leading_silence_s": 0.0
+  },
+  {
+    "clip": "M04_Worm_Pop_Alt.wav",
+    "seconds": 0.37,
+    "last_10ms_relative_rms_dB": -50.13,
+    "peak_dBFS": -3.0,
+    "trimmed_leading_silence_s": 0.0
+  },
+  {
+    "clip": "M05_Big_Worm_Burst.wav",
+    "seconds": 0.444,
+    "last_10ms_relative_rms_dB": -83.33,
+    "peak_dBFS": -3.0,
+    "trimmed_leading_silence_s": 0.0
+  },
+  {
+    "clip": "M06_Small_Worm_Landing.wav",
+    "seconds": 0.149,
+    "last_10ms_relative_rms_dB": -53.62,
+    "peak_dBFS": -8.0,
+    "trimmed_leading_silence_s": 0.0
+  },
+  {
+    "clip": "Dirty Bandage Peel.wav",
+    "seconds": 0.558,
+    "last_10ms_relative_rms_dB": -214.97,
+    "peak_dBFS": -3.0,
+    "trimmed_leading_silence_s": 0.0
+  },
+  {
+    "clip": "M08_Clean_Bandage_Place.wav",
+    "seconds": 0.228,
+    "last_10ms_relative_rms_dB": -43.0,
+    "peak_dBFS": -5.0,
+    "trimmed_leading_silence_s": 0.0
+  },
+  {
+    "clip": "Alcohol Sizzle.wav",
+    "seconds": 0.55,
+    "last_10ms_relative_rms_dB": -35.6,
+    "peak_dBFS": -6.0,
+    "trimmed_leading_silence_s": 0.0
+  },
+  {
+    "clip": "M10_Fish_Skin_Crack_Peel.wav",
+    "seconds": 0.562,
+    "last_10ms_relative_rms_dB": -62.11,
+    "peak_dBFS": -3.0,
+    "trimmed_leading_silence_s": 0.0
+  },
+  {
+    "clip": "M11_Graft_Wet_Slap.wav",
+    "seconds": 0.563,
+    "last_10ms_relative_rms_dB": -212.81,
+    "peak_dBFS": -3.0,
+    "trimmed_leading_silence_s": 0.0
+  },
+  {
+    "clip": "Wilted Flower Pluck.wav",
+    "seconds": 0.414,
+    "last_10ms_relative_rms_dB": -33.77,
+    "peak_dBFS": -3.0,
+    "trimmed_leading_silence_s": 0.0
+  },
+  {
+    "clip": "Fresh Flower Placement.wav",
+    "seconds": 0.501,
+    "last_10ms_relative_rms_dB": -30.28,
+    "peak_dBFS": -8.0,
+    "trimmed_leading_silence_s": 0.0
+  },
+  {
+    "clip": "M14_Worm_Wriggle_Burst.wav",
+    "seconds": 0.621,
+    "last_10ms_relative_rms_dB": -203.55,
+    "peak_dBFS": -12.0,
+    "trimmed_leading_silence_s": 0.006625
+  },
+  {
+    "clip": "T01_Gloves_Pickup.wav",
+    "seconds": 0.228,
+    "last_10ms_relative_rms_dB": -43.01,
+    "peak_dBFS": -6.0,
+    "trimmed_leading_silence_s": 0.0
+  },
+  {
+    "clip": "Bottle Clink.wav",
+    "seconds": 0.185,
+    "last_10ms_relative_rms_dB": -64.08,
+    "peak_dBFS": -6.0,
+    "trimmed_leading_silence_s": 0.0
+  },
+  {
+    "clip": "Fish Flop.wav",
+    "seconds": 0.604,
+    "last_10ms_relative_rms_dB": -208.54,
+    "peak_dBFS": -3.0,
+    "trimmed_leading_silence_s": 0.008833333333333334
+  },
+  {
+    "clip": "Fish Bone Clack.wav",
+    "seconds": 0.165,
+    "last_10ms_relative_rms_dB": -62.02,
+    "peak_dBFS": -5.0,
+    "trimmed_leading_silence_s": 0.0
+  },
+  {
+    "clip": "Bandage Roll Pickup.wav",
+    "seconds": 1.123,
+    "last_10ms_relative_rms_dB": -65.35,
+    "peak_dBFS": -6.0,
+    "trimmed_leading_silence_s": 0.0
+  },
+  {
+    "clip": "T06_Tray_Slide_Stop.wav",
+    "seconds": 1.675,
+    "last_10ms_relative_rms_dB": -70.88,
+    "peak_dBFS": -5.0,
+    "trimmed_leading_silence_s": 0.0
+  }
+]

@@ -12,6 +12,8 @@ public class FlowerSpot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     [SerializeField] private bool healthy;
     [SerializeField, Range(1, 2)] private int flowerCount = 1;
 
+    [SerializeField] private AudioClip revealSound;
+    public AudioClip RevealSound => revealSource != null ? revealSource.revealSound : revealSound;
     private FlowerSpot revealSource;
     public Sprite PickedSprite => revealSource != null ? revealSource.pickedSprite : pickedSprite;
     public Vector2 InspectionSize => revealSource != null ? revealSource.inspectionSize : inspectionSize;
@@ -35,6 +37,7 @@ public class FlowerSpot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     {
         if (minigame != null && minigame.CanInspect)
         {
+            minigame.PlayHoverSound();
             hoverOutline.SetActive(true);
             CustomCursor.SetCursorToPointer();
         }

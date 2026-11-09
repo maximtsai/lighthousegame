@@ -1,0 +1,4 @@
+Checked YouTube fly reference: https://www.youtube.com/watch?v=W0ZSmgTISKY
+Creator download: https://soundatabase.com/fly-buzzing-2/
+The linked download host failed DNS resolution. No YouTube audio was downloaded or used.
+F06 uses the previously downloaded fly recording; F07 is newly synthesized.

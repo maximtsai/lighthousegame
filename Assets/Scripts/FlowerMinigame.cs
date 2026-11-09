@@ -36,6 +36,9 @@ public class FlowerMinigame : MonoBehaviour
     [SerializeField] private float popupDuration = 1f;
     [Header("Sound and timing")]
     [SerializeField] private AudioSource choiceAudio;
+    [SerializeField] private AudioClip pickSound;
+    [SerializeField] private AudioClip hoverSound;
+    private float nextHoverSound;
     [SerializeField] private AudioClip keepSound;
     [SerializeField] private AudioClip discardSound;
     [SerializeField] private float feedbackDuration = 0.65f;
@@ -141,6 +144,11 @@ public class FlowerMinigame : MonoBehaviour
             return;
 
         current = flower;
+        if (choiceAudio != null)
+        {
+            if (pickSound != null) choiceAudio.PlayOneShot(pickSound);
+            if (flower.RevealSound != null) choiceAudio.PlayOneShot(flower.RevealSound, 0.75f);
+        }
         bobPhase = 0f;
         foreach (FlowerSpot spot in flowers) spot.ClearHover();
         pickedFlower.sprite = flower.PickedSprite;
@@ -150,6 +158,13 @@ public class FlowerMinigame : MonoBehaviour
         keepButton.interactable = true;
         discardButton.interactable = true;
         ClearSelection();
+    }
+
+    public void PlayHoverSound()
+    {
+        if (!CanInspect || Time.unscaledTime < nextHoverSound || choiceAudio == null || hoverSound == null) return;
+        nextHoverSound = Time.unscaledTime + 0.12f;
+        choiceAudio.PlayOneShot(hoverSound, 0.45f);
     }
 
     public void Keep() => Resolve(true);

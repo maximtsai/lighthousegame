@@ -37,10 +37,9 @@ public class StoveScript : MonoBehaviour
         bool isNighttime = GameState.Get<bool>("is_nighttime");
 
         // Fish is active on Day 1 dinner (if gathered), Day 2 breakfast, or at night from Day 3 onward
-        bool shouldShowFish = !GameState.FishIsForTreatment(day) &&
+        bool shouldShowFish =
             ((day == 1 && gatheredFish) || (day == 2 && isBreakfastTime) || (day >= 3 && isNighttime));
         fish.SetActive(shouldShowFish);
-        if (GameState.FishIsForTreatment(day)) fishAnim.SetActive(false);
 
         if (shouldShowFish)
         {
@@ -151,7 +150,6 @@ public class StoveScript : MonoBehaviour
 
     public void ClickFish()
     {
-        if (GameState.FishIsForTreatment(GameState.Get<int>("day"))) return;
         if (GameState.Get<bool>("fish_clicked"))
         {
             // Already clicked

@@ -1,0 +1,80 @@
+[
+  {
+    "cue": "A01_Worm_Pop_Alt_Dry",
+    "source": "EZduzziteh squish_03; original M04 source",
+    "notes": "Single source, no pitch change, restrained background tail",
+    "duration": 0.295
+  },
+  {
+    "cue": "A02_Worm_Burst_Single_Dry",
+    "source": "EZduzziteh squish_01",
+    "notes": "Single source replaces doubled overlapping squishes",
+    "duration": 0.295
+  },
+  {
+    "cue": "A03_Worm_Landing_Dry",
+    "source": "EZduzziteh squishsplat_impact",
+    "notes": "No pitch speeding; lower level",
+    "duration": 0.19
+  },
+  {
+    "cue": "Fish Skin Graft",
+    "source": "rubberduck slime_10",
+    "notes": "Single-source sticky contact alternative; no slap layering",
+    "duration": 0.45
+  },
+  {
+    "event_source": ".utmp\\sfx-download\\revision3\\glove.mp3",
+    "start_s": 7.855,
+    "end_s": 8.235
+  },
+  {
+    "cue": "Glove Snap",
+    "source": "https://freesound.org/people/j_soundeffects/sounds/847750/",
+    "notes": "HQ preview, j_soundeffects, CC BY 4.0; final glove action and snap",
+    "duration": 0.38
+  },
+  {
+    "event_source": ".utmp\\sfx-download\\revision3\\fly_close.mp3",
+    "start_s": 0.08,
+    "end_s": 2.8
+  },
+  {
+    "cue": "Close Fly Buzz",
+    "source": "https://freesound.org/people/TRP/sounds/717567/",
+    "notes": "HQ preview; isolated close fly pass, no synthesis or reverb",
+    "duration": 2.72
+  },
+  {
+    "event_source": ".utmp\\sfx-download\\revision3\\fly_spasms.mp3",
+    "start_s": 6.14,
+    "end_s": 8.47
+  },
+  {
+    "cue": "Quick Fly Buzz",
+    "source": "https://freesound.org/people/kyles/sounds/452627/",
+    "notes": "HQ preview; isolated close fly pass, no synthesis or reverb",
+    "duration": 2.33
+  },
+  {
+    "cue": "A08_Spider_Dry_Surface_Scuttle",
+    "source": "OwlishMedia Impacts/tap.wav",
+    "notes": "Three physical surface taps; replaces synthetic noise skitter",
+    "duration": 0.355
+  },
+  {
+    "reference": "Fish Skin Peel.wav",
+    "original": "Assets/Audio/Fish Skin Peel.wav",
+    "notes": "Exact unchanged copy for comparison; gameplay already uses original"
+  },
+  {
+    "reference": "Clean Bandage Placement.mp3",
+    "original": "Assets/Audio/bandage.mp3",
+    "notes": "Exact unchanged copy for comparison; gameplay already uses original"
+  },
+  {
+    "reference": "Metal Tray Slide.mp3",
+    "original": "Assets/Audio/toolbox.mp3",
+    "notes": "Exact unchanged copy for comparison; gameplay already uses original"
+  }
+]
