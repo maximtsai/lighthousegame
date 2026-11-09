@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 
 /// <summary>
 /// Day 4 at the dock: the wreck has washed in with the weather. Picking through the scraps of it
@@ -42,6 +41,9 @@ public class Day4Dock : MonoBehaviour
     // It sits in front of the bodies' boxes, so clicking a body surveys first, but stays behind the
     // dialogue box's click catcher (z -3 or nearer) so dialogues still advance.
     private const float ScrapsBoxForward = 0.5f;
+    // Picking something up: a quick dip to black, shorter than putting a body in the grave
+    private const float PickUpFade = 0.25f;
+    private const float PickUpHold = 0.15f;
 
     private SpriteRenderer background;
     private FloatingLayer driftwood;
@@ -50,9 +52,6 @@ public class Day4Dock : MonoBehaviour
     private Sprite[] carrySprites;
     private Sprite mermaidSprite;
 
-    private Canvas overlayCanvas;
-    private Image blackImage;
-    private Image carryImage;
     private bool busy;
 
     public void Init(SpriteRenderer background, FloatingLayer driftwood, PierMiscLogic.FloatSheet[] bodySheets,
@@ -161,18 +160,27 @@ public class Day4Dock : MonoBehaviour
             return;
         }
 
-        PickUp(index, body);
+        StartCoroutine(PickUpRoutine(index, body));
     }
 
-    // Out of the water and into his arms. The first one he carries up to the grave himself (the strip
-    // follows him there); after that the walk is skipped and it fades straight to the grave.
-    private void PickUp(int index, GameObject body)
+    // Out of the water and into his arms, in a quick dip to black. The first one he carries up to the
+    // grave himself (the strip follows him there); after that the walk is skipped and it fades
+    // straight to the grave.
+    private IEnumerator PickUpRoutine(int index, GameObject body)
     {
+        busy = true;
+        GameState.Set("navigationBlocked", true);
         bool firstTrip = Day4Beach.Buried == 0;
 
-        Day4Beach.SetCarriedBody(index);
-        Destroy(body);
-        Day4CarryStrip.Show(CarrySprite(index));
+        yield return Day4CarryStrip.InDark(PickUpFade, PickUpHold, () =>
+        {
+            Day4Beach.SetCarriedBody(index);
+            Destroy(body);
+            Day4CarryStrip.Show(CarrySprite(index));
+        });
+
+        GameState.Set("navigationBlocked", false);
+        busy = false;
 
         string[] lines = index < PickUpLines.Length ? PickUpLines[index] : new[] { "Heavier than they look." };
         Dialogue d = DialogueManager.ShowDialogueFromText(lines);
@@ -197,6 +205,8 @@ public class Day4Dock : MonoBehaviour
     private void Survey()
     {
         GameState.Set(Day4Beach.SurveyedKey, true);
+        // Rummaging through the wreckage (placeholder until there's a proper sound)
+        MessageBus.Instance.Publish("PlaySound", "drop_item");
         DialogueManager.ShowDialogueFromText(new string[]
         {
             "You pick through the scraps on the shore.",
@@ -228,121 +238,26 @@ public class Day4Dock : MonoBehaviour
         d.onDialogueEnd.AddListener(() => StartCoroutine(CarryInsideRoutine(body)));
     }
 
-    // Not to the grave: up to the house, and Camborne's empty bed.
+    // Not to the grave: up to the house, and Camborne's empty bed. Picked up the same way as the
+    // bodies; Navigation keeps him on the way to the bedroom, with her in his arms on screen.
     private IEnumerator CarryInsideRoutine(GameObject body)
     {
         busy = true;
         GameState.Set("navigationBlocked", true);
-        EnsureOverlay();
-        // Stays hidden: handlogic keeps it off while he's carrying her up to the house
-        handlogic.SetVisible(false);
 
-        if (body != null) body.SetActive(false);
         Sprite carry = mermaidSprite != null ? mermaidSprite : CarrySprite(0);
-        SetCarrySprite(carry);
-        yield return Fade(carryImage, 0f, 1f, 0.35f);
+        yield return Day4CarryStrip.InDark(PickUpFade, PickUpHold, () =>
+        {
+            GameState.Set(Day4Beach.MermaidRescuedKey, true);
+            if (body != null) Destroy(body);
+            Day4CarryStrip.Show(carry);
+        });
 
-        yield return null;
-        while (!Input.GetMouseButtonDown(0))
-            yield return null;
-
-        blackImage.enabled = true;
-        yield return Fade(blackImage, 0f, 1f, 0.6f);
-        carryImage.enabled = false;
-        if (body != null) Destroy(body);
-
-        GameState.Set(Day4Beach.MermaidRescuedKey, true);
         // There are more important things than the lighthouse now
         MessageBus.Instance.Publish("CompleteTask", "task_work");
-
-        // He carries her up to the house himself; Navigation keeps him on the way to the bedroom. She
-        // stays in his arms on screen the whole way (set under the black, so she's there when it lifts)
-        Day4CarryStrip.Show(carry);
-        yield return Fade(blackImage, 1f, 0f, 0.6f);
-        blackImage.enabled = false;
 
         GameState.Set("navigationBlocked", false);
         busy = false;
         MessageBus.Instance.Publish("AddTaskStringImportant", "generic/task_mermaid_bed");
-    }
-
-    private void EnsureOverlay()
-    {
-        if (overlayCanvas != null) return;
-
-        GameObject canvasObject = new GameObject("Day4BurialOverlay");
-        canvasObject.transform.SetParent(transform, false);
-        overlayCanvas = canvasObject.AddComponent<Canvas>();
-        overlayCanvas.renderMode = RenderMode.ScreenSpaceOverlay;
-        // Above the scene, under the dialogue box
-        overlayCanvas.sortingOrder = 50;
-
-        carryImage = CreateCarryImage();
-        blackImage = CreateFullScreenImage("black", Color.black);
-    }
-
-    // The carrying images are a strip along the bottom of the screen, as wide as the screen and as
-    // tall as their own proportions make them, like looking down at what you're hauling.
-    private Image CreateCarryImage()
-    {
-        GameObject imageObject = new GameObject("carry");
-        imageObject.transform.SetParent(overlayCanvas.transform, false);
-        RectTransform rect = imageObject.AddComponent<RectTransform>();
-        rect.anchorMin = Vector2.zero;
-        rect.anchorMax = new Vector2(1f, 0f);
-        rect.pivot = new Vector2(0.5f, 0f);
-        rect.offsetMin = Vector2.zero;
-        rect.offsetMax = Vector2.zero;
-
-        Image image = imageObject.AddComponent<Image>();
-        image.color = Color.white;
-        image.raycastTarget = false;
-        image.preserveAspect = true;
-        image.enabled = false;
-
-        AspectRatioFitter fitter = imageObject.AddComponent<AspectRatioFitter>();
-        fitter.aspectMode = AspectRatioFitter.AspectMode.WidthControlsHeight;
-        return image;
-    }
-
-
-    private void SetCarrySprite(Sprite sprite)
-    {
-        carryImage.sprite = sprite;
-        carryImage.enabled = sprite != null;
-        if (sprite != null)
-            carryImage.GetComponent<AspectRatioFitter>().aspectRatio = sprite.rect.width / sprite.rect.height;
-    }
-
-    private Image CreateFullScreenImage(string name, Color color)
-    {
-        GameObject imageObject = new GameObject(name);
-        imageObject.transform.SetParent(overlayCanvas.transform, false);
-        RectTransform rect = imageObject.AddComponent<RectTransform>();
-        rect.anchorMin = Vector2.zero;
-        rect.anchorMax = Vector2.one;
-        rect.offsetMin = Vector2.zero;
-        rect.offsetMax = Vector2.zero;
-
-        Image image = imageObject.AddComponent<Image>();
-        image.color = color;
-        image.raycastTarget = false;
-        image.enabled = false;
-        return image;
-    }
-
-    private static IEnumerator Fade(Image image, float from, float to, float duration)
-    {
-        Color c = image.color;
-        float t = 0f;
-        while (t < duration)
-        {
-            t += Time.deltaTime;
-            c.a = Mathf.Lerp(from, to, t / duration);
-            image.color = c;
-            yield return null;
-        }
-        c.a = to;
-        image.color = c;
     }
 }

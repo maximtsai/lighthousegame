@@ -16,17 +16,16 @@ public class Day4CarryStrip : MonoBehaviour
     private Image image;
     private Image black;
 
-    // Fades to black, lets go of what he's carrying while it's dark (whileDark), holds, and fades back.
-    // The black covers the scene, the strip and the hand but not the dialogue box. Run it from a
-    // coroutine: yield return Day4CarryStrip.PutDownInDark(...).
-    public static IEnumerator PutDownInDark(float fade, float hold, Action whileDark)
+    // Fades to black, does whileDark (picking something up or putting it down), holds, and fades back,
+    // so the swap happens unseen. The black covers the scene, the strip and the hand but not the
+    // dialogue box. Run it from a coroutine: yield return Day4CarryStrip.InDark(...).
+    public static IEnumerator InDark(float fade, float hold, Action whileDark)
     {
         Ensure();
         Image black = instance.black;
         black.enabled = true;
         yield return Fade(black, 0f, 1f, fade);
         whileDark?.Invoke();
-        Hide();
         yield return new WaitForSeconds(hold);
         yield return Fade(black, 1f, 0f, fade);
         black.enabled = false;
@@ -48,6 +47,18 @@ public class Day4CarryStrip : MonoBehaviour
         if (instance == null) return;
         instance.image.sprite = null;
         instance.image.enabled = false;
+    }
+
+    // A fade runs on whatever started it, so a scene change partway through (back to the main menu
+    // from the pause menu) would leave the black up for good. No fade is meant to last across scenes.
+    void OnEnable() => SceneManager.sceneLoaded += ClearBlack;
+    void OnDisable() => SceneManager.sceneLoaded -= ClearBlack;
+
+    private void ClearBlack(Scene scene, LoadSceneMode mode)
+    {
+        if (black == null) return;
+        black.enabled = false;
+        black.color = new Color(0f, 0f, 0f, 0f);
     }
 
     // Outdoors is the overhead map, not his own eyes, so there's nothing in his arms to see there.

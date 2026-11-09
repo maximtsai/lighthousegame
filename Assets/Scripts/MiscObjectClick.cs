@@ -42,14 +42,7 @@ public class MiscObjectClick : MonoBehaviour
             // First click lays her down (MermaidOnBed shows her there); the next starts tending to her
             if (!GameState.Get<bool>(Day4Beach.MermaidInBedKey, false))
             {
-                GameState.Set(Day4Beach.MermaidInBedKey, true);
-                MessageBus.Instance.Publish("CompleteTask", "task_mermaid_bed");
-                MessageBus.Instance.Publish("AddTaskStringImportant", "generic/task_tend_her");
-                DialogueManager.ShowDialogueFromText(new string[]
-                {
-                    "You lay her down in Camborne's bed.",
-                    "She's covered in barnacles.## I have to clean her up."
-                });
+                StartCoroutine(LayHerDownRoutine());
                 return;
             }
 
@@ -86,6 +79,28 @@ public class MiscObjectClick : MonoBehaviour
             DialogueManager.ShowDialogue(getDialogue("Bedroom/co_bed_3"));
         }
     }
+    // Day 4: out of his arms and into Camborne's bed, swapped while the screen's dark
+    private IEnumerator LayHerDownRoutine()
+    {
+        GameState.Set("navigationBlocked", true);
+        yield return Day4CarryStrip.InDark(0.5f, 0.6f, () =>
+        {
+            Day4CarryStrip.Hide();
+            // MermaidOnBed puts her on the bed as soon as this is set
+            GameState.Set(Day4Beach.MermaidInBedKey, true);
+            MessageBus.Instance.Publish("PlaySound", "bed_creak1");
+        });
+        GameState.Set("navigationBlocked", false);
+
+        MessageBus.Instance.Publish("CompleteTask", "task_mermaid_bed");
+        MessageBus.Instance.Publish("AddTaskStringImportant", "generic/task_tend_her");
+        DialogueManager.ShowDialogueFromText(new string[]
+        {
+            "You lay her down in Camborne's bed.",
+            "She's covered in barnacles.## I have to clean her up."
+        });
+    }
+
     public void ClickSelfBed()
     {
         if (GameState.Get<bool>("day_transition_started", false))

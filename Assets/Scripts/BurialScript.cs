@@ -267,8 +267,9 @@ public class BurialScript : MonoBehaviour
         // Into the grave while the screen's dark: when it comes back his arms are empty
         int index = Day4Beach.CarriedBody;
         int buried = 0;
-        yield return Day4CarryStrip.PutDownInDark(0.5f, 0.9f, () =>
+        yield return Day4CarryStrip.InDark(0.5f, 0.9f, () =>
         {
+            Day4CarryStrip.Hide();
             Day4Beach.SetCarriedBody(-1);
             GameState.Set(Day4Beach.BodyBuriedKeyPrefix + index, true);
             buried = GameState.Increment(Day4Beach.BuriedKey);
@@ -298,14 +299,38 @@ public class BurialScript : MonoBehaviour
             Dialogue d = DialogueManager.ShowDialogueFromText(lines);
             d.onDialogueEnd.AddListener(() =>
             {
-                // The last one: filled in while the screen's dark, so it's covered next time
-                if (left <= 0 && shovelClip != null)
-                    miscObjectClick.PlaySound(shovelClip, 0.6f);
-                GameState.Set("navigationBlocked", false);
-                droppingBody = false;
-                Navigation.GoToScene(GameConsts.PIERSCENE);
+                if (left <= 0)
+                {
+                    StartCoroutine(FillGraveRoutine());
+                    return;
+                }
+                BackToTheDock();
             });
         });
+    }
+
+    // The last one's in: the grave is filled while the screen's dark, and he looks at it a moment
+    // before heading back down
+    private IEnumerator FillGraveRoutine()
+    {
+        yield return Day4CarryStrip.InDark(0.6f, 1.4f, () =>
+        {
+            if (shovelClip != null)
+                miscObjectClick.PlaySound(shovelClip, 0.6f);
+            Sprite covered = backgroundCoveredSpriteDay != null ? backgroundCoveredSpriteDay : backgroundCoveredSprite;
+            if (covered != null)
+                background.sprite = covered;
+            MessageBus.Instance.Publish("BurialMoundCovered");
+        });
+        yield return new WaitForSeconds(1.5f);
+        BackToTheDock();
+    }
+
+    private void BackToTheDock()
+    {
+        GameState.Set("navigationBlocked", false);
+        droppingBody = false;
+        Navigation.GoToScene(GameConsts.PIERSCENE);
     }
 
     public void CoverUpHole()
