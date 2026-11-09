@@ -12,7 +12,7 @@ using UnityEngine.UI;
 /// </summary>
 public class Day4Dock : MonoBehaviour
 {
-    private const string SeenKey = "day4_dock_bodies_seen";
+    private const string SeenKey = Day4Beach.BodiesSeenKey;
     private const string MermaidSeenKey = "day4_dock_mermaid_seen";
     private const int BrideIndex = 2;
 
@@ -45,8 +45,8 @@ public class Day4Dock : MonoBehaviour
 
     private SpriteRenderer background;
     private FloatingLayer driftwood;
-    private Sprite[][] bodyFrames;
-    private Sprite[] mermaidFrames;
+    private PierMiscLogic.FloatSheet[] bodySheets;
+    private PierMiscLogic.FloatSheet mermaidSheet;
     private Sprite[] carrySprites;
     private Sprite mermaidSprite;
 
@@ -55,13 +55,13 @@ public class Day4Dock : MonoBehaviour
     private Image carryImage;
     private bool busy;
 
-    public void Init(SpriteRenderer background, FloatingLayer driftwood, Sprite[][] bodyFrames, Sprite[] mermaidFrames,
-        Sprite[] carrySprites, Sprite mermaidSprite)
+    public void Init(SpriteRenderer background, FloatingLayer driftwood, PierMiscLogic.FloatSheet[] bodySheets,
+        PierMiscLogic.FloatSheet mermaidSheet, Sprite[] carrySprites, Sprite mermaidSprite)
     {
         this.background = background;
         this.driftwood = driftwood;
-        this.bodyFrames = bodyFrames;
-        this.mermaidFrames = mermaidFrames;
+        this.bodySheets = bodySheets;
+        this.mermaidSheet = mermaidSheet;
         this.carrySprites = carrySprites;
         this.mermaidSprite = mermaidSprite;
     }
@@ -118,13 +118,25 @@ public class Day4Dock : MonoBehaviour
 
     private void SpawnBody(int index)
     {
-        Sprite[] frames = bodyFrames != null && index < bodyFrames.Length ? bodyFrames[index] : null;
-        FloatingLayer layer = FloatingLayer.Spawn("day4_floating_body_" + index, background, frames);
+        PierMiscLogic.FloatSheet sheet = bodySheets != null && index < bodySheets.Length ? bodySheets[index] : null;
+        FloatingLayer layer = Spawn("day4_floating_body_" + index, sheet, BodyBoxes[index], out ClickTarget target);
         if (layer == null) return;
 
-        BoxCollider2D box = layer.AddClickBox(BodyBoxes[index]);
         GameObject body = layer.gameObject;
-        box.gameObject.AddComponent<ClickTarget>().onClick = () => OnBodyClicked(index, body);
+        target.onClick = () => OnBodyClicked(index, body);
+    }
+
+    // A floating sheet with its click box, lit up with its yellow outline while hovered
+    private FloatingLayer Spawn(string name, PierMiscLogic.FloatSheet sheet, RectInt clickBox, out ClickTarget target)
+    {
+        target = null;
+        FloatingLayer layer = FloatingLayer.Spawn(name, background, sheet != null ? sheet.frames : null);
+        if (layer == null) return null;
+
+        layer.SetOutlineFrames(sheet.outlineFrames);
+        target = layer.AddClickBox(clickBox).gameObject.AddComponent<ClickTarget>();
+        target.onHover = layer.SetHovered;
+        return layer;
     }
 
     private Sprite CarrySprite(int index)
@@ -196,12 +208,11 @@ public class Day4Dock : MonoBehaviour
 
     private void SpawnMermaid()
     {
-        FloatingLayer layer = FloatingLayer.Spawn("day4_floating_mermaid", background, mermaidFrames);
+        FloatingLayer layer = Spawn("day4_floating_mermaid", mermaidSheet, MermaidBox, out ClickTarget target);
         if (layer == null) return;
 
-        BoxCollider2D box = layer.AddClickBox(MermaidBox);
         GameObject body = layer.gameObject;
-        box.gameObject.AddComponent<ClickTarget>().onClick = () => OnMermaidClicked(body);
+        target.onClick = () => OnMermaidClicked(body);
     }
 
     private void OnMermaidClicked(GameObject body)
@@ -244,7 +255,9 @@ public class Day4Dock : MonoBehaviour
         // There are more important things than the lighthouse now
         MessageBus.Instance.Publish("CompleteTask", "task_work");
 
-        // He carries her up to the house himself; Navigation keeps him on the way to the bedroom
+        // He carries her up to the house himself; Navigation keeps him on the way to the bedroom. She
+        // stays in his arms on screen the whole way (set under the black, so she's there when it lifts)
+        Day4CarryStrip.Show(carry);
         yield return Fade(blackImage, 1f, 0f, 0.6f);
         blackImage.enabled = false;
 

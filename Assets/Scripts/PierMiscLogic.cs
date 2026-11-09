@@ -10,6 +10,8 @@ public class PierMiscLogic : MonoBehaviour
     public class FloatSheet
     {
         public Sprite[] frames;
+        // Optional yellow hover outline, frame for frame with the sheet ("... float dock outline").
+        public Sprite[] outlineFrames;
     }
 
     [SerializeField] private AudioClip finishLoop;
@@ -85,13 +87,7 @@ public class PierMiscLogic : MonoBehaviour
         // Day 4: the bodies from the wreck, out in the water
         if (Day4Beach.IsToday)
         {
-            int count = floatingCorpses != null ? floatingCorpses.Length : 0;
-            Sprite[][] bodyFrames = new Sprite[count][];
-            for (int i = 0; i < count; i++)
-                bodyFrames[i] = floatingCorpses[i] != null ? floatingCorpses[i].frames : null;
-
-            gameObject.AddComponent<Day4Dock>().Init(dockBackground, driftwood, bodyFrames,
-                mermaidFloat != null ? mermaidFloat.frames : null,
+            gameObject.AddComponent<Day4Dock>().Init(dockBackground, driftwood, floatingCorpses, mermaidFloat,
                 carryBodySprites, mermaidCarrySprite);
         }
     }

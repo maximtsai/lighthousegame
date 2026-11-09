@@ -264,15 +264,19 @@ public class BurialScript : MonoBehaviour
         droppingBody = true;
         GameState.Set("navigationBlocked", true);
 
+        // Into the grave while the screen's dark: when it comes back his arms are empty
         int index = Day4Beach.CarriedBody;
-        Day4Beach.SetCarriedBody(-1);
-        Day4CarryStrip.Hide();
-        GameState.Set(Day4Beach.BodyBuriedKeyPrefix + index, true);
-        int buried = GameState.Increment(Day4Beach.BuriedKey);
+        int buried = 0;
+        yield return Day4CarryStrip.PutDownInDark(0.5f, 0.9f, () =>
+        {
+            Day4Beach.SetCarriedBody(-1);
+            GameState.Set(Day4Beach.BodyBuriedKeyPrefix + index, true);
+            buried = GameState.Increment(Day4Beach.BuriedKey);
+            if (shovelClip != null)
+                miscObjectClick.PlaySound(shovelClip, 0.6f);
+        });
         int left = Day4Beach.BodyCount - buried;
-        if (shovelClip != null)
-            miscObjectClick.PlaySound(shovelClip, 0.6f);
-        yield return new WaitForSeconds(0.8f);
+        yield return new WaitForSeconds(0.3f);
 
         HandScratch.Prompt("Scratch?", () =>
         {

@@ -8,6 +8,10 @@ using UnityEngine;
 public class ClickTarget : MonoBehaviour
 {
     public Action onClick;
+    // Told when the cursor comes onto it (true) and leaves it or gets blocked (false), for a highlight
+    public Action<bool> onHover;
+
+    private bool hovering;
 
     private static bool Blocked => InputGate.WorldBlocked;
 
@@ -15,11 +19,20 @@ public class ClickTarget : MonoBehaviour
     {
         if (!Blocked)
             CustomCursor.SetCursorToPointer();
+        SetHovering(!Blocked);
     }
 
     void OnMouseExit()
     {
         CustomCursor.SetCursorToNormal();
+        SetHovering(false);
+    }
+
+    private void SetHovering(bool value)
+    {
+        if (hovering == value) return;
+        hovering = value;
+        onHover?.Invoke(value);
     }
 
     void OnMouseUp()

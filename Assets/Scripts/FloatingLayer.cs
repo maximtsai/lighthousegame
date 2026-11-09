@@ -13,8 +13,33 @@ public class FloatingLayer : MonoBehaviour
     private float timer;
     private int frame;
     private SpriteRenderer spriteRenderer;
+    // Yellow hover outline, frame for frame with the sheet, drawn just in front of it
+    private Sprite[] outlineFrames;
+    private SpriteRenderer outline;
 
     public SpriteRenderer Renderer => spriteRenderer;
+
+    public void SetOutlineFrames(Sprite[] outlineSprites)
+    {
+        if (outlineSprites == null || outlineSprites.Length == 0) return;
+        outlineFrames = outlineSprites;
+
+        GameObject outlineObject = new GameObject("hover_outline");
+        outlineObject.transform.SetParent(transform, false);
+        outlineObject.transform.localPosition = new Vector3(0f, 0f, -0.01f);
+        outline = outlineObject.AddComponent<SpriteRenderer>();
+        outline.sharedMaterial = spriteRenderer.sharedMaterial;
+        outline.sortingLayerID = spriteRenderer.sortingLayerID;
+        outline.sortingOrder = spriteRenderer.sortingOrder;
+        outline.sprite = outlineFrames[frame % outlineFrames.Length];
+        outline.enabled = false;
+    }
+
+    public void SetHovered(bool hovered)
+    {
+        if (outline != null)
+            outline.enabled = hovered;
+    }
 
     // Child of the background so it pans and scales with it, just in front of it.
     public static FloatingLayer Spawn(string name, SpriteRenderer background, Sprite[] frames, float fps = 12f)
@@ -74,6 +99,8 @@ public class FloatingLayer : MonoBehaviour
             timer -= frameTime;
             frame = (frame + 1) % frames.Length;
             spriteRenderer.sprite = frames[frame];
+            if (outline != null)
+                outline.sprite = outlineFrames[frame % outlineFrames.Length];
         }
     }
 }

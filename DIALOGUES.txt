@@ -309,7 +309,8 @@ CONTEXT: Starting the weather recording task for the first time.
 LINES WRITTEN IN CODE
 =====================
 These lines live in the scripts rather than in dialogue assets. Edit them in the named file.
-Parts in {braces} are filled in by the game.
+Parts in {braces} are filled in by the game. Regenerate this section with:
+  python tools/catalogue_code_lines.py
 
 [Code - BurialScript]
 FILE: Assets/Scripts/BurialScript.cs
@@ -318,10 +319,10 @@ FILE: Assets/Scripts/BurialScript.cs
   Giving me trouble even after death.
   Scratch?
   That's all of them.## All in one grave.
-  One.## {Three} more in the water.
+  One.## {CountWords} more in the water.
   This is going to take all day.
   One more.
-  {Two} left.
+  {CountWords} left.
 
 [Code - Day4Beach]
 FILE: Assets/Scripts/Day4Beach.cs
@@ -348,6 +349,7 @@ FILE: Assets/Scripts/Day4Dock.cs
   Wait.## There's one more.
   I should see what else washed up first.
   One at a time.
+  Heavier than they look.
   You pick through the scraps on the shore.
   A can of corn chowder.## A different brand.
   Be grateful.
@@ -412,6 +414,7 @@ FILE: Assets/Scripts/Navigation.cs
   I should finish my work first.
   I haven't checked the fish traps yet.
   Something's wrong with the grave.
+  The dock first.
   Wait, something is down at the dock.
   You need to record the weather first
   The bodies are still down at the dock.
@@ -419,7 +422,7 @@ FILE: Assets/Scripts/Navigation.cs
   I should take care of my hand first.
   Camborne still hasn't woken up.
   It's time for work now.
-  Today is Day {n}.
+  Today is Day {day}.
   The scissors have to be somewhere in the lighthouse.
   You have work to do.
   Head upstairs.
@@ -443,6 +446,7 @@ FILE: Assets/Scripts/ScissorsCloseUp.cs
 FILE: Assets/Scripts/WeatherUIController.cs
   Are you sure you chose right?
   Are you certain it's not raining?
+  ...Huh?
   The storm's going to be bad for ships.
   Better get the lighthouse going.
 
@@ -471,11 +475,14 @@ FILE: Assets/Scripts/sceneScripts/SinkScript.cs
   Your wound is festering. Scratch?
   ...My hand will be fine
   I'm clean enough.
+  I rinse my hand under the crusty tap.
+  No medical supplies here. I tear a strip off a spare rag.
+  I wrap it tight.##.##. ##It'll do for now.
   Are you going to get an infection and die?
 
 [Code - StoveScript]
 FILE: Assets/Scripts/sceneScripts/StoveScript.cs
   Pus is oozing out of your hand. Scratch?
   Don't feel like eating fish tonight.
-  {Fish and corn chowder / Corn chowder} for the {17}th meal in a row.
+  {dish} for the {meal}th meal in a row.
   Corn chowder with fish tonight.

@@ -146,8 +146,12 @@ public class Navigation : MonoBehaviour
                 DialogueManager.ShowDialogueFromText(new string[] { Day4Beach.BlockedLine });
                 return;
             }
-            // Heading off to work is when he first notices the wreck, and that's the job done for now
-            Dialogue d = DialogueManager.ShowDialogueFromText(new string[] { "Wait, something is down at the dock." });
+            // Heading off to work is when he first notices the wreck, and that's the job done for now.
+            // If he's already been down and seen the bodies, it's just a reminder.
+            string line = GameState.Get<bool>(Day4Beach.BodiesSeenKey, false)
+                ? "The dock first."
+                : "Wait, something is down at the dock.";
+            Dialogue d = DialogueManager.ShowDialogueFromText(new string[] { line });
             d.onDialogueEnd.AddListener(() => MessageBus.Instance.Publish("CompleteTask", "task_work"));
             return;
         }

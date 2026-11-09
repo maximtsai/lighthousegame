@@ -18,6 +18,8 @@ public static class Day4Beach
     public const string MermaidTreatedKey = "mermaid_treated";
 
     public const string BodyBuriedKeyPrefix = "day4_body_buried_";
+    // Set once he's been down to the dock and seen the bodies in the water
+    public const string BodiesSeenKey = "day4_dock_bodies_seen";
     // Which body he's carrying up to the grave, stored as index + 1 so 0 means empty-handed.
     private const string CarriedBodyKey = "day4_carried_body";
 

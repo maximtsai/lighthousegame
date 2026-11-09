@@ -81,7 +81,7 @@ DIALOGUES.txt (at project root)
 
 This file contains all dialogue text organized by file path for easy searching.
 
-Some lines are written directly in scripts (mostly from Day 4 on) instead of in dialogue assets. They are listed under **LINES WRITTEN IN CODE** at the end of `DIALOGUES.txt`, each with the script to edit.
+Some lines are written directly in scripts (mostly from Day 4 on) instead of in dialogue assets. They are listed under **LINES WRITTEN IN CODE** at the end of `DIALOGUES.txt`, each with the script to edit. After changing them, refresh that section with `python tools/catalogue_code_lines.py` (it rewrites only that section).
 
 ## Important Notes
 
