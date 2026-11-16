@@ -20,7 +20,7 @@ public class Day4Dock : MonoBehaviour
     {
         new[] { "His eyes are still open." },
         new[] { "His coat is full of seawater." },
-        new[] { "Her dress.##.##.## a wedding dress." },
+        new[] { "Her dress.##.##.### Did she die on her wedding day?" },
         new[] { "Younger than me." },
     };
 
@@ -172,14 +172,31 @@ public class Day4Dock : MonoBehaviour
         StartCoroutine(PickUpRoutine(index, body));
     }
 
-    // Out of the water and into his arms, in a quick dip to black. The first one he carries up to the
-    // grave himself (the strip follows him there); after that the walk is skipped and it fades
-    // straight to the grave.
+    // Out of the water and into his arms. The first one he picks up in a quick dip to black and
+    // carries up to the grave himself (the strip follows him there). After that the walk is skipped:
+    // a look at the body, then one fade straight to the grave with it in his arms, instead of a dip
+    // to black and a scene fade one after the other.
     private IEnumerator PickUpRoutine(int index, GameObject body)
     {
         busy = true;
-        GameState.Set("navigationBlocked", true);
         bool firstTrip = Day4Beach.Buried == 0;
+        string[] lines = index < PickUpLines.Length ? PickUpLines[index] : new[] { "Heavier than they look." };
+
+        if (!firstTrip)
+        {
+            Dialogue look = DialogueManager.ShowDialogueFromText(lines);
+            look.onDialogueEnd.AddListener(() =>
+            {
+                Day4Beach.SetCarriedBody(index);
+                // Comes up under the scene fade, so he arrives with it in his arms
+                Day4CarryStrip.Show(CarrySprite(index));
+                busy = false;
+                Navigation.GoToScene(GameConsts.BURIALSCENE);
+            });
+            yield break;
+        }
+
+        GameState.Set("navigationBlocked", true);
 
         yield return Day4CarryStrip.InDark(PickUpFade, PickUpHold, () =>
         {
@@ -191,10 +208,7 @@ public class Day4Dock : MonoBehaviour
         GameState.Set("navigationBlocked", false);
         busy = false;
 
-        string[] lines = index < PickUpLines.Length ? PickUpLines[index] : new[] { "Heavier than they look." };
-        Dialogue d = DialogueManager.ShowDialogueFromText(lines);
-        if (!firstTrip)
-            d.onDialogueEnd.AddListener(() => Navigation.GoToScene(GameConsts.BURIALSCENE));
+        DialogueManager.ShowDialogueFromText(lines);
     }
 
     private void WireScraps()

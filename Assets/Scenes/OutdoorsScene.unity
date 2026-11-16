@@ -1153,7 +1153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   background: {fileID: 1717215370}
-  edgeThreshold: 0.07
+  edgeThreshold: 0.12
   scrollSpeed: 0.025
 --- !u!1 &546758291
 GameObject:
@@ -1456,6 +1456,8 @@ MonoBehaviour:
   - {fileID: 2537168569487817866, guid: 27d3ab70d9554a0b84dfd1418dbd696d, type: 3}
   lighthouseLightFrameRate: 4
   blackoutSprite: {fileID: 5230644827929433145, guid: 689cba0c00624f3cb47fc18cb6f29a64, type: 3}
+  sparkleSprite: {fileID: 8740280916574672088, guid: fe6dd8464038fb64d9e4863cb52fc8eb, type: 3}
+  sparkleController: {fileID: 9100000, guid: e249233f7faad8d4598be41d9cf71f38, type: 2}
 --- !u!4 &647772682
 Transform:
   m_ObjectHideFlags: 0

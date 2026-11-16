@@ -231,6 +231,12 @@ public class FishingMinigame : MonoBehaviour
                 DialogueManager.ShowDialogueFromText(new string[] { Day5.HerFirstLine });
                 return;
             }
+            // ...and her flowers are picked in the morning, before the fish
+            if (Day5.IsCareDay && !Day5.FlowersPicked)
+            {
+                DialogueManager.ShowDialogueFromText(new string[] { Day5.FlowersFirstLine });
+                return;
+            }
 
             if (!Day4Beach.WorkDone)
             {

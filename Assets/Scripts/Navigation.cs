@@ -102,7 +102,7 @@ public class Navigation : MonoBehaviour
             if (!GameState.Get<bool>("recorded_weather"))
                 unfinished = "Weather first.";
             else if (!Day5.FlowersPicked)
-                unfinished = "Her flowers first.";
+                unfinished = Day5.FlowersFirstLine;
             else if (!GameState.Get<bool>("gathered_fish"))
                 unfinished = "Her fish first.";
             if (unfinished != null)

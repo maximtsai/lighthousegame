@@ -145,11 +145,13 @@ public class MiscObjectClick : MonoBehaviour
 
         MessageBus.Instance.Publish("CompleteTask", "task_mermaid_bed");
         MessageBus.Instance.Publish("AddTaskStringImportant", "generic/task_tend_her");
-        DialogueManager.ShowDialogueFromText(new string[]
+        Dialogue d = DialogueManager.ShowDialogueFromText(new string[]
         {
             "You lay her down in Camborne's bed.",
             "She's covered in barnacles.## I have to clean her up."
         });
+        // Straight into tending to her: there's nothing else to do first
+        d.onDialogueEnd.AddListener(() => Navigation.GoToScene(GameConsts.MERMAIDSCENE));
     }
 
     public void ClickSelfBed()
@@ -504,6 +506,10 @@ public class MiscObjectClick : MonoBehaviour
         {
             // Days 5 and 6: the net waits on her, not on the lighthouse
             DialogueManager.ShowDialogueFromText(new string[] { Day5.HerFirstLine });
+		} else if (Day5.IsCareDay && !Day5.FlowersPicked)
+        {
+            // ...and her flowers are picked in the morning, before the fish
+            DialogueManager.ShowDialogueFromText(new string[] { Day5.FlowersFirstLine });
 		} else if (!Day4Beach.WorkDone)
         {
             DialogueManager.ShowDialogue(getDialogue("dock/gather_fish_not_yet"));

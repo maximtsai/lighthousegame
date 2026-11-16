@@ -317,8 +317,8 @@ FILE: Assets/Scripts/BurialScript.cs
   Nothing to put in it yet.
   They're all in there now.
   Giving me trouble even after death.
-  Scratch?
   That's all of them.
+  Scratch?
   One.## {CountWords} more in the water.
   This is going to take all day.
   One more.
@@ -340,7 +340,7 @@ FILE: Assets/Scripts/Day4Beach.cs
 FILE: Assets/Scripts/Day4Dock.cs
   His eyes are still open.
   His coat is full of seawater.
-  Her dress.##.##.## a wedding dress.
+  Her dress.##.##.### Did she die on her wedding day?
   Younger than me.
   Bodies.## Floating in the water.
   The tide keeps bringing them in.
@@ -359,6 +359,7 @@ FILE: Assets/Scripts/Day4Dock.cs
 FILE: Assets/Scripts/Day5.cs
   She needs tending first.
   Her first.
+  Her flowers first.
 
 [Code - Day5Dream]
 FILE: Assets/Scripts/Day5Dream.cs

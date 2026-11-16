@@ -254,8 +254,9 @@ public class BurialScript : MonoBehaviour
     }
 
     // Day 4: in it goes. Then the usual "Scratch?", a line about how many are left, and back to the
-    // dock. The first one also gets him realising how long this is going to take, and the last one
-    // fills the grave in on the way back.
+    // dock. The first one also gets him realising how long this is going to take. With the last one
+    // the grave is filled in during the same blackout, and it skips the "Scratch?" and goes straight
+    // on to the dock.
     private bool droppingBody;
     private static readonly string[] CountWords = { "None", "One", "Two", "Three", "Four" };
 
@@ -275,19 +276,26 @@ public class BurialScript : MonoBehaviour
             buried = GameState.Increment(Day4Beach.BuriedKey);
             if (shovelClip != null)
                 miscObjectClick.PlaySound(shovelClip, 0.6f);
+            if (buried >= Day4Beach.BodyCount)
+                FillGrave();
         });
         int left = Day4Beach.BodyCount - buried;
         yield return new WaitForSeconds(0.3f);
 
+        // The last one goes straight to "That's all of them": no "Scratch?" between the grave
+        // being finished and saying so
+        if (left <= 0)
+        {
+            MessageBus.Instance.Publish("CompleteTask", "task_bury_bodies");
+            Dialogue last = DialogueManager.ShowDialogueFromText(new[] { "That's all of them." });
+            last.onDialogueEnd.AddListener(BackToTheDock);
+            yield break;
+        }
+
         HandScratch.Prompt("Scratch?", () =>
         {
             string[] lines;
-            if (left <= 0)
-            {
-                MessageBus.Instance.Publish("CompleteTask", "task_bury_bodies");
-                lines = new[] { "That's all of them." };
-            }
-            else if (buried == 1)
+            if (buried == 1)
             {
                 lines = new[] { "One.## " + CountWords[Mathf.Min(left, CountWords.Length - 1)] + " more in the water.", "This is going to take all day." };
             }
@@ -297,33 +305,17 @@ public class BurialScript : MonoBehaviour
             }
 
             Dialogue d = DialogueManager.ShowDialogueFromText(lines);
-            d.onDialogueEnd.AddListener(() =>
-            {
-                if (left <= 0)
-                {
-                    StartCoroutine(FillGraveRoutine());
-                    return;
-                }
-                BackToTheDock();
-            });
+            d.onDialogueEnd.AddListener(BackToTheDock);
         });
     }
 
-    // The last one's in: the grave is filled while the screen's dark, and he looks at it a moment
-    // before heading back down
-    private IEnumerator FillGraveRoutine()
+    // The last one's in: the mass grave is filled in (called while the screen's dark)
+    private void FillGrave()
     {
-        yield return Day4CarryStrip.InDark(0.6f, 1.4f, () =>
-        {
-            if (shovelClip != null)
-                miscObjectClick.PlaySound(shovelClip, 0.6f);
-            Sprite covered = backgroundCoveredSpriteDay != null ? backgroundCoveredSpriteDay : backgroundCoveredSprite;
-            if (covered != null)
-                background.sprite = covered;
-            MessageBus.Instance.Publish("BurialMoundCovered");
-        });
-        yield return new WaitForSeconds(1.5f);
-        BackToTheDock();
+        Sprite covered = backgroundCoveredSpriteDay != null ? backgroundCoveredSpriteDay : backgroundCoveredSprite;
+        if (covered != null)
+            background.sprite = covered;
+        MessageBus.Instance.Publish("BurialMoundCovered");
     }
 
     private void BackToTheDock()

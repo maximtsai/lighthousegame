@@ -513,7 +513,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   background: {fileID: 1764343127}
-  edgeThreshold: 0.07
+  edgeThreshold: 0.12
   scrollSpeed: 0.05
 --- !u!1 &619394800
 GameObject:

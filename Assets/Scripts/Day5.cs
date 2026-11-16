@@ -20,6 +20,8 @@ public static class Day5
     public const string TendHerFirstLine = "She needs tending first.";
     // The fish net before she's been tended on Days 5 and 6
     public const string HerFirstLine = "Her first.";
+    // The fish net before her flowers are picked on Days 5 and 6
+    public const string FlowersFirstLine = "Her flowers first.";
 
     // The day the skin fish was last set aside for her at the fish net. The next morning's
     // treatment uses it (MiscObjectClick.ClickPartnerBed says so on the first click).

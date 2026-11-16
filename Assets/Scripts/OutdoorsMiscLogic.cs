@@ -32,6 +32,15 @@ public class OutdoorsMiscLogic : MonoBehaviour
     // behind the scene's own clickables (z -1) and the treasure, so it only catches open grass.
     [SerializeField] private Vector2 day5FieldCenter = new Vector2(-0.6f, -1.0f);
     [SerializeField] private Vector2 day5FieldSize = new Vector2(6f, 1.3f);
+    // Twinkles over the meadow until her flowers are picked, so it's clear where to go. Same art
+    // as the treasure sparkles.
+    [SerializeField] private Sprite sparkleSprite;
+    [SerializeField] private RuntimeAnimatorController sparkleController;
+    [Tooltip("Where the sparkles sit, relative to the field's centre, in world units.")]
+    [SerializeField] private Vector2[] fieldSparkleOffsets =
+    {
+        new Vector2(-2f, 0.15f), new Vector2(0.3f, -0.25f), new Vector2(2.2f, 0.1f)
+    };
 
     private SpriteRenderer lighthouseLight;
 
@@ -134,6 +143,32 @@ public class OutdoorsMiscLogic : MonoBehaviour
         BoxCollider2D box = field.AddComponent<BoxCollider2D>();
         box.size = day5FieldSize;
         field.AddComponent<ClickTarget>().onClick = ClickFlowerField;
+
+        if (!Day5.FlowersPicked)
+            AddFieldSparkles(field.transform);
+    }
+
+    private void AddFieldSparkles(Transform field)
+    {
+        if (sparkleSprite == null || fieldSparkleOffsets == null) return;
+
+        foreach (Vector2 offset in fieldSparkleOffsets)
+        {
+            GameObject sparkle = new GameObject("field_sparkle");
+            sparkle.transform.SetParent(field, false);
+            sparkle.transform.localPosition = new Vector3(offset.x, offset.y, 0f);
+            SpriteRenderer sr = sparkle.AddComponent<SpriteRenderer>();
+            sr.sprite = sparkleSprite;
+            // Same as the treasure sparkles
+            sr.sortingOrder = 6;
+            if (sparkleController != null)
+            {
+                Animator animator = sparkle.AddComponent<Animator>();
+                animator.runtimeAnimatorController = sparkleController;
+                // Out of step with each other, so they don't all twinkle at once
+                animator.Play(0, -1, Random.value);
+            }
+        }
     }
 
     private void ClickFlowerField()
