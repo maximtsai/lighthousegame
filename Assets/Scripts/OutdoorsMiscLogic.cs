@@ -36,6 +36,7 @@ public class OutdoorsMiscLogic : MonoBehaviour
     private SpriteRenderer lighthouseLight;
 
     private const string Day3FlickerSeenKey = "day3_flicker_seen";
+    private const string Day6LitSeenKey = "day6_lit_seen";
 
     void Start()
     {
@@ -74,7 +75,26 @@ public class OutdoorsMiscLogic : MonoBehaviour
             }
         }
 
-        if (Day5.IsToday)
+        // Night on the days nobody tends the lighthouse. Day 5: it's dark, as it should be.
+        // Day 6: it's lit anyway, and he notices.
+        if (GameState.Get<bool>("is_nighttime") && !lit)
+        {
+            if (Day5.IsToday)
+            {
+                SpriteRenderer blackout = CreateBlackout("day5_blackout");
+                if (blackout != null) blackout.enabled = true;
+            }
+            else if (GameState.Get<int>("day") == 6 && !GameState.Get<bool>(Day6LitSeenKey, false))
+            {
+                if (nearlyDark != null)
+                    nearlyDark.onDialogueEnd.AddListener(ShowDay6LitDialogue);
+                else
+                    ShowDay6LitDialogue();
+            }
+        }
+
+        // Days 5 and 6: flowers for her instead of the lighthouse
+        if (Day5.IsCareDay)
         {
             SpawnFlowerField();
             if (!GameState.Get<bool>(Day5.WorkReplacedKey, false))
@@ -90,18 +110,17 @@ public class OutdoorsMiscLogic : MonoBehaviour
 
 
 
-    // Day 5: the first time he steps out, the day's work is crossed off for something better
+    // Days 5 and 6: the first time he steps out, the day's work is crossed off for something better
     private void ReplaceWorkWithFlowers(Dialogue showAfter)
     {
         GameState.Set(Day5.WorkReplacedKey, true);
         MessageBus.Instance.Publish("CompleteTask", "task_work");
         MessageBus.Instance.Publish("AddTaskBefore", "generic/task_flowers", "task_fish");
 
-        System.Action line = () => DialogueManager.ShowDialogueFromText(new string[]
-        {
-            "The lighthouse can wait.",
-            "She'd like some flowers."
-        });
+        string[] lines = GameState.Get<int>("day") == Day5.Day
+            ? new string[] { "No lighthouse today.", "She'd like some flowers." }
+            : new string[] { "No lighthouse today.", "She needs more flowers.## For the smell." };
+        System.Action line = () => DialogueManager.ShowDialogueFromText(lines);
         if (showAfter != null)
             showAfter.onDialogueEnd.AddListener(() => line());
         else
@@ -121,10 +140,20 @@ public class OutdoorsMiscLogic : MonoBehaviour
     {
         if (Day5.FlowersPicked)
             DialogueManager.ShowDialogueFromText(new string[] { "That's enough flowers for today." });
-        else if (!Day5.Treated)
+        else if (!Day5.CareTreated)
             DialogueManager.ShowDialogueFromText(new string[] { Day5.TendHerFirstLine });
         else
             Navigation.GoToScene(GameConsts.FLOWERSCENE);
+    }
+
+    private void ShowDay6LitDialogue()
+    {
+        GameState.Set(Day6LitSeenKey, true);
+        DialogueManager.ShowDialogueFromText(new string[]
+        {
+            "The light's on.",
+            "...I didn't go up today."
+        });
     }
 
     private void ShowFlickerDialogue()
@@ -173,15 +202,24 @@ public class OutdoorsMiscLogic : MonoBehaviour
 
     private void StartLighthouseFlicker()
     {
+        SpriteRenderer blackout = CreateBlackout("day3_blackout");
+        if (blackout != null)
+            StartCoroutine(FlickerRoutine(off => blackout.enabled = off));
+    }
+
+    // The night background with the lighthouse's lights out, laid over the normal one and
+    // switched off to start with. Null if the art isn't assigned.
+    private SpriteRenderer CreateBlackout(string name)
+    {
         if (background == null || blackoutSprite == null)
         {
-            Debug.LogWarning("OutdoorsMiscLogic: background or blackoutSprite not assigned for the day 3 flicker");
-            return;
+            Debug.LogWarning("OutdoorsMiscLogic: background or blackoutSprite not assigned for the lights-out night");
+            return null;
         }
 
         // Child of the background so it pans and scales with it. Same sorting order, just in
         // front of it, so the rain and everything else in front of the background stays in front.
-        GameObject blackoutObject = new GameObject("day3_blackout");
+        GameObject blackoutObject = new GameObject(name);
         blackoutObject.transform.SetParent(background.transform, false);
         blackoutObject.transform.localPosition = new Vector3(0f, 0f, -0.05f);
         SpriteRenderer blackout = blackoutObject.AddComponent<SpriteRenderer>();
@@ -190,8 +228,7 @@ public class OutdoorsMiscLogic : MonoBehaviour
         blackout.sortingLayerID = background.sortingLayerID;
         blackout.sortingOrder = background.sortingOrder;
         blackout.enabled = false;
-
-        StartCoroutine(FlickerRoutine(off => blackout.enabled = off));
+        return blackout;
     }
 
     // setLightOff(true) puts the light out: hides the separate light by day, shows the blackout at night.

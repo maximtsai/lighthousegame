@@ -4030,7 +4030,7 @@ MonoBehaviour:
   discardButton: {fileID: 1102016824}
   progressLabel: {fileID: 1644581200}
   feedbackLabel: {fileID: 542365331}
-  edgeThreshold: 0.25
+  edgeThreshold: 0.07
   panSmoothing: 0.0335
   bobAmplitude: 2.5
   bobSpeed: 1.4

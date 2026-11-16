@@ -225,6 +225,13 @@ public class FishingMinigame : MonoBehaviour
                 return;
             }
 
+            // Days 5 and 6: the net waits on her, not on the lighthouse
+            if (Day5.IsCareDay && !Day5.CareTreated)
+            {
+                DialogueManager.ShowDialogueFromText(new string[] { Day5.HerFirstLine });
+                return;
+            }
+
             if (!Day4Beach.WorkDone)
             {
                 DialogueManager.ShowDialogue(miscObjectClick.getDialogue("dock/gather_fish_not_yet"));
@@ -833,6 +840,16 @@ public class FishingMinigame : MonoBehaviour
         MessageBus.Instance.Publish("CompleteTask", "task_fish");
         if (GetCurrentDay() == 2)
             DialogueManager.ShowDialogueFromText(new string[] { "You don't feel like fish for dinner tonight.", "You let the caught fishes go." });
+        // Days 5 and 6: the skin fish is set aside for her next treatment (Day5.FishSetAsideKey)
+        else if (Day5.IsCareDay)
+        {
+            GameState.Set(Day5.FishSetAsideKey, GetCurrentDay());
+            DialogueManager.ShowDialogueFromText(new string[]
+            {
+                "One to eat.## One to skin.",
+                "Tomorrow's problem."
+            });
+        }
         else
             DialogueManager.ShowDialogue(miscObjectClick.getDialogue("dock/gather_fish"));
     }

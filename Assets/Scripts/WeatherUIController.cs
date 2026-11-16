@@ -237,6 +237,9 @@ public class WeatherUIController : MonoBehaviour
             }
         }
 
+        // Read back later in the day, e.g. Day 6's flash at night (only meaningful with recorded_weather)
+        GameState.Set("weather_correct", isCorrect);
+
         string spriteName = drawImage.sprite != null ? drawImage.sprite.name : "None";
         Debug.Log($"Judgment Result - Day: {day}, Correct: {isCorrect}, Target: {targetSpriteName}, Selected Sprite: {spriteName}");
 

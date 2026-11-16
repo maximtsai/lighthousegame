@@ -25,7 +25,7 @@ public class FlowerMinigame : MonoBehaviour
     [SerializeField] private TextMeshProUGUI progressLabel;
     [SerializeField] private TextMeshProUGUI feedbackLabel;
     [Header("Cursor movement")]
-    [SerializeField, Range(0f, 0.49f)] private float edgeThreshold = 0.25f;
+    [SerializeField, Range(0f, 0.49f)] private float edgeThreshold = 0.07f;
     [SerializeField, Range(0.01f, 1f)] private float panSmoothing = 0.0335f;
     [Header("Preview movement")]
     [SerializeField] private float bobAmplitude = 5f;

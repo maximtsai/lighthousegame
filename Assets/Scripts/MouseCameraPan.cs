@@ -7,7 +7,7 @@ public class MouseCameraPan : MonoBehaviour
 {
     public Transform background; // assign your background GameObject in Inspector
     private Camera cam;
-    public float edgeThreshold = 0.25f; // 25% by default
+    public float edgeThreshold = 0.07f; // the outer 7% each side pans all the way
     public float scrollSpeed = 0.05f;
     // Above 1, eases the pan around the middle of the screen, so small cursor moves there barely
     // shift the view and clicks land on what you aimed at. The edges still reach the same limits.

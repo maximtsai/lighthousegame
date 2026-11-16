@@ -285,7 +285,7 @@ public class BurialScript : MonoBehaviour
             if (left <= 0)
             {
                 MessageBus.Instance.Publish("CompleteTask", "task_bury_bodies");
-                lines = new[] { "That's all of them.## All in one grave." };
+                lines = new[] { "That's all of them." };
             }
             else if (buried == 1)
             {

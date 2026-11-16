@@ -83,6 +83,8 @@ public class MermaidMinigame : MonoBehaviour
     private int stepsDone;
     private int stepsTotal;
     private int soundRotate;
+    // Day 6: how many flowers there were when it was fewer than the spots, otherwise -1
+    private int flowersShort = -1;
     private AudioClip[] shuffledSounds;
 
     // The treat sounds get a few voices of their own, so changing one sound's pitch never bends
@@ -236,6 +238,16 @@ public class MermaidMinigame : MonoBehaviour
             return;
         }
 
+        // Day 6: no flowers kept for her on Day 5 means nothing to place, so the step is skipped
+        if (LimitFlowersToSupply(phase) == 0)
+        {
+            if (!string.IsNullOrEmpty(phase.taskId))
+                MessageBus.Instance.Publish("CompleteTask", phase.taskId);
+            if (index + 1 < phases.Count) BeginPhase(index + 1);
+            else Finish();
+            return;
+        }
+
         // Switch colliders rather than filtering clicks later, so the bandages can never steal
         // a click from the wound sitting underneath them.
         foreach (MermaidTarget target in allTargets)
@@ -291,6 +303,22 @@ public class MermaidMinigame : MonoBehaviour
         else Finish();
     }
 
+    // Day 6: she gets one spot covered for each flower he kept for her in the field on Day 5. The
+    // rest stay bare. Returns how many targets the phase is left with.
+    private int LimitFlowersToSupply(Phase phase)
+    {
+        if (phase.tool != MermaidTool.Flowers || GameState.Get<int>("day", 1) != 6)
+            return phase.targets.Count;
+
+        int supply = Mathf.Max(0, GameState.Get<int>(Day5.FlowersKeptKey, 0));
+        if (supply < phase.targets.Count)
+        {
+            flowersShort = supply;
+            phase.targets.RemoveRange(supply, phase.targets.Count - supply);
+        }
+        return phase.targets.Count;
+    }
+
     private static bool AnyBusy(Phase phase)
     {
         foreach (MermaidTarget target in phase.targets)
@@ -322,12 +350,21 @@ public class MermaidMinigame : MonoBehaviour
         }
         if (dialogue == null)
         {
-            dialogue = DialogueManager.ShowDialogueFromText(new string[] { "That's all I can do for her." });
+            if (flowersShort < 0)
+                dialogue = DialogueManager.ShowDialogueFromText(new string[] { "That's all I can do for her." });
+            else
+                dialogue = DialogueManager.ShowDialogueFromText(new string[]
+                {
+                    "That's all I can do for her.",
+                    flowersShort == 0
+                        ? "No flowers.## Nice going."
+                        : "Not enough flowers.## Still stinks."
+                });
         }
 
-        // Days 4 and 5: she's been tended to for the day
+        // Days 4 to 6: she's been tended to for the day
         int day = GameState.Get<int>("day", 1);
-        if (day == 4 || day == Day5.Day)
+        if (day == 4 || Day5.IsCareDay)
             MessageBus.Instance.Publish("CompleteTask", "task_tend_her");
 
         // The scene has no way out of its own, so head back to the bedroom once she's patched up

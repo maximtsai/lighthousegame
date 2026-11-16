@@ -318,7 +318,7 @@ FILE: Assets/Scripts/BurialScript.cs
   They're all in there now.
   Giving me trouble even after death.
   Scratch?
-  That's all of them.## All in one grave.
+  That's all of them.
   One.## {CountWords} more in the water.
   This is going to take all day.
   One more.
@@ -329,9 +329,8 @@ FILE: Assets/Scripts/Day4Beach.cs
   I have more important things to handle now.
   Not with her in my arms.
   Not with my arms full.
-  The lighthouse can wait.## She can't.
+  My arms are full.
   Camborne's bed first.
-  The lighthouse can wait.
   The grave first.
   Something's washed up by the dock.
   There are still bodies in the water.
@@ -342,7 +341,6 @@ FILE: Assets/Scripts/Day4Dock.cs
   His eyes are still open.
   His coat is full of seawater.
   Her dress.##.##.## a wedding dress.
-  She died on her wedding day.
   Younger than me.
   Bodies.## Floating in the water.
   The tide keeps bringing them in.
@@ -353,14 +351,14 @@ FILE: Assets/Scripts/Day4Dock.cs
   You pick through the scraps on the shore.
   A can of corn chowder.## A different brand.
   Be grateful.
-  She's not like the others.
+  This one isn't bloated.
   Her chest.##.##.## it's moving.
-  She's alive.## She can be saved.
+  She's alive.
 
 [Code - Day5]
 FILE: Assets/Scripts/Day5.cs
-  She's waiting for me.
   She needs tending first.
+  Her first.
 
 [Code - Day5Dream]
 FILE: Assets/Scripts/Day5Dream.cs
@@ -370,6 +368,8 @@ FILE: Assets/Scripts/Day5Dream.cs
 FILE: Assets/Scripts/FishingMinigame.cs
   You don't feel like fish for dinner tonight.
   You let the caught fishes go.
+  One to eat.## One to skin.
+  Tomorrow's problem.
 
 [Code - FlowerMinigame]
 FILE: Assets/Scripts/FlowerMinigame.cs
@@ -388,10 +388,23 @@ FILE: Assets/Scripts/LighthouseScissors.cs
 [Code - MermaidMinigame]
 FILE: Assets/Scripts/MermaidMinigame.cs
   That's all I can do for her.
+  No flowers.## Nice going.
+  Not enough flowers.## Still stinks.
 
 [Code - MiscObjectClick]
 FILE: Assets/Scripts/MiscObjectClick.cs
   She's resting.
+  Yesterday's fish.
+  Smells fine.## Mostly.
+  You hold the spoon to her lips.## Nothing.
+  You leave the bowl by her.
+  The bowl's still full.
+  Should've eaten it yourself.
+  She's quiet.
+  Smells sweet.## Like old fruit.
+  Nothing covers the smell.
+  The flowers aren't helping.
+  Could be worse.
   You lay her down in Camborne's bed.
   She's covered in barnacles.## I have to clean her up.
   Not my bed.## Camborne's.
@@ -400,8 +413,10 @@ FILE: Assets/Scripts/MiscObjectClick.cs
   The rain doesn't stop. You don't notice yourself falling asleep.
   Your arms ache from the digging.
   You can still smell the sea on your hands as you drift off...
-  She's still breathing.## That's something.
+  She's still breathing.
   You fall asleep to the sound of it...
+  You can still smell her.
+  You drift off anyway...
   You don't feel like fish for dinner tonight.
   You let the caught fishes go.
   No more ships are coming.
@@ -422,6 +437,9 @@ FILE: Assets/Scripts/Navigation.cs
   I should take care of my hand first.
   Camborne still hasn't woken up.
   It's time for work now.
+  I can't leave her like this.
+  Not after that dream.
+  She needs me first.
   Today is Day {day}.
   The scissors have to be somewhere in the lighthouse.
   You have work to do.
@@ -432,9 +450,12 @@ FILE: Assets/Scripts/Navigation.cs
 
 [Code - OutdoorsMiscLogic]
 FILE: Assets/Scripts/OutdoorsMiscLogic.cs
-  The lighthouse can wait.
+  No lighthouse today.
   She'd like some flowers.
+  She needs more flowers.## For the smell.
   That's enough flowers for today.
+  The light's on.
+  ...I didn't go up today.
   The lighthouse is flickering.
   Eh.## Good enough.
 
@@ -455,6 +476,8 @@ FILE: Assets/Scripts/sceneScripts/BedroomMiscLogic.cs
   I should bandage my hand.
   Just a dream.
   She's still there.## Still breathing.
+  She's not rotting.## She isn't.
+  I won't let her.
   Something is wriggling out of her legs.
   You take a look at your hand.
   Feels like bugs are crawling underneath it.
@@ -482,6 +505,9 @@ FILE: Assets/Scripts/sceneScripts/SinkScript.cs
 
 [Code - StoveScript]
 FILE: Assets/Scripts/sceneScripts/StoveScript.cs
+  Hers or yours?
+  You pour it into a bowl for her.
+  Your stomach growls.## Ignore it.
   Pus is oozing out of your hand. Scratch?
   Don't feel like eating fish tonight.
   {dish} for the {meal}th meal in a row.

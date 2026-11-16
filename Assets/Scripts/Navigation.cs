@@ -94,6 +94,24 @@ public class Navigation : MonoBehaviour
             return;
         }
 
+        // Days 5 and 6: once she's tended, the outdoor chores for her come before heading back in
+        // (weather, her flowers, her fish, in task-list order). Before she's tended he can go in to her.
+        if (Day5.CareTreated)
+        {
+            string unfinished = null;
+            if (!GameState.Get<bool>("recorded_weather"))
+                unfinished = "Weather first.";
+            else if (!Day5.FlowersPicked)
+                unfinished = "Her flowers first.";
+            else if (!GameState.Get<bool>("gathered_fish"))
+                unfinished = "Her fish first.";
+            if (unfinished != null)
+            {
+                DialogueManager.ShowDialogueFromText(new string[] { unfinished });
+                return;
+            }
+        }
+
         if (GameState.Get<bool>("lighthouse_fixed") && !GameState.Get<bool>("gathered_fish"))
         {
             if (GameState.Get<int>("day") == 2)
@@ -128,10 +146,10 @@ public class Navigation : MonoBehaviour
             DialogueManager.ShowDialogueFromText(new string[] { Day4Beach.LighthouseSetAsideLine });
             return;
         }
-        // Day 5: the lighthouse goes untended, all day
-        if (Day5.IsToday)
+        // Days 5 and 6: the lighthouse goes untended, all day
+        if (Day5.IsCareDay)
         {
-            DialogueManager.ShowDialogueFromText(new string[] { Day5.LighthouseLine });
+            DialogueManager.ShowDialogueFromText(new string[] { Day5.NextLighthouseLine() });
             return;
         }
         if (GameState.Get<bool>("do_burial", false))
@@ -385,6 +403,8 @@ public class Navigation : MonoBehaviour
     {
         if (BlockedWhileCarrying(GameConsts.SINKSCENE))
             return;
+        if (BlockedUntilTended())
+            return;
         bool handNeedsCleaning = GameState.Get<bool>("hand_cut") && !GameState.Get<bool>("hand_cleaned");
         if (GameState.Get<string>("is_clean") == "true" && !handNeedsCleaning)
         {
@@ -485,6 +505,20 @@ public class Navigation : MonoBehaviour
         GameState.StartNewDay();
         GameState.Set("pause_open", false);
         GoToTransition(GameConsts.MAINSCENE, 0.3f);
+    }
+
+    // Day 5: after the dream he can't bring himself to leave her side until she's been tended to
+    private bool BlockedUntilTended()
+    {
+        if (!Day5.IsToday || Day5.CareTreated)
+            return false;
+
+        bool firstTry = !GameState.Get<bool>(Day5.LeaveBlockedKey, false);
+        GameState.Set(Day5.LeaveBlockedKey, true);
+        DialogueManager.ShowDialogueFromText(firstTry
+            ? new string[] { "I can't leave her like this.", "Not after that dream." }
+            : new string[] { "She needs me first." });
+        return true;
     }
 
     public void GoToJournal()
@@ -671,6 +705,8 @@ public class Navigation : MonoBehaviour
     public void LeaveBedroom(SceneTransition transition)
     {
         if (BlockedWhileCarrying(transition.destination_scene))
+            return;
+        if (BlockedUntilTended())
             return;
 
         // query GameState static class and check value 

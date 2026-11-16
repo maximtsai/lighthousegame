@@ -16,9 +16,9 @@ public class MermaidOnBed : MonoBehaviour
     private SpriteRenderer outline;
     private InteractableObject bed;
 
-    // Laid down on Day 4, and still there all through Day 5
+    // Laid down on Day 4, and still there all through Days 5 and 6
     public static bool ShouldShow =>
-        (Day4Beach.IsToday && GameState.Get<bool>(Day4Beach.MermaidInBedKey, false)) || Day5.IsToday;
+        (Day4Beach.IsToday && GameState.Get<bool>(Day4Beach.MermaidInBedKey, false)) || Day5.IsCareDay;
 
     public void Init(Sprite daySprite, Sprite nightSprite, Sprite outlineSprite, Vector3 position)
     {

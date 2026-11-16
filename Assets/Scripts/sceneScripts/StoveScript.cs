@@ -293,75 +293,117 @@ public class StoveScript : MonoBehaviour
         
         if (IsDoneCooking())
         {
-            bool isBreakfast = !GameState.Get<bool>("ate_breakfast");
-            bool ateFish = !isBreakfast && GameState.Get<bool>("fish_clicked");
-
-            PlaySound(eatSound);
-            MessageBus.Instance.Publish("FloatText", 0, -0.4f, "+SANITY", "green");
-            MessageBus.Instance.Publish("PlusSanity", 1);
-
-            if (!isBreakfast)
+            // Day 6: she hasn't eaten in days, so he can go without for her
+            if (!GameState.Get<bool>("ate_breakfast") && GameState.Get<int>("day") == 6)
             {
-                MessageBus.Instance.Publish("CompleteTask", "task_dinner");
-                GameState.Set("ate_dinner", true);
-                if (GameState.Get<int>("day") >= 2)
-                {
-                    GameState.Set("ready_to_sleep", true);
-                }
+                AskDay6Breakfast();
+                return;
             }
-            else
-            {
-                MessageBus.Instance.Publish("CompleteTask", "task_breakfast");
-            }
-
-            GameState.Set("corn_clicked", false);
-            GameState.Set("pepper_clicked", false);
-            GameState.Set("alcohol_clicked", false);
-            GameState.Set("fish_clicked", false);
-            
-            GameState.Set("ate_breakfast", true);
-            GameState.Set("hungry", false);
-            doneAnim.SetActive(false);
-            soupCover.SetActive(true);
-
-            if (isBreakfast && GameState.Get<int>("day") == 4)
-            {
-                // Day 4: pus starts oozing out of the wound over breakfast
-                Dialogue eating = Instantiate(miscObjectClick.getDialogue("stove/eating"));
-                eating.onDialogueEnd.AddListener(() =>
-                {
-                    GameState.Set("hand_oozing", true);
-                    HandScratch.Prompt("Pus is oozing out of your hand. Scratch?");
-                });
-                DialogueManager.ShowDialogue(eating);
-            }
-            else if (GameState.Get<int>("day") == 2 && !isBreakfast)
-            {
-                // Day 2: after Camborne's grave, the thought of flesh puts him off
-                DialogueManager.ShowDialogueFromText(new string[] { "Don't feel like eating fish tonight." });
-            }
-            else if (GameState.Get<int>("day") <= 2)
-            {
-                // Days 1-2: the same meal again and again, counting up from the 17th
-                int meal = 17 + (GameState.Get<int>("day") - 1) * 2 + (isBreakfast ? 0 : 1);
-                string dish = ateFish ? "Fish and corn chowder" : "Corn chowder";
-                DialogueManager.ShowDialogueFromText(new string[] { dish + " for the " + meal + "th meal in a row." });
-            }
-            else if (ateFish)
-            {
-                DialogueManager.ShowDialogueFromText(new string[] { "Corn chowder with fish tonight." });
-            }
-            else
-            {
-                // Day 3 on: the wound's festering and he can't stomach anything more
-                DialogueManager.ShowDialogue(miscObjectClick.getDialogue("stove/eating"));
-            }
+            EatFromPot();
         }
         else
         {
             DialogueManager.ShowDialogue(miscObjectClick.getDialogue("stove/not_ready"));
         }
+    }
 
+    private void AskDay6Breakfast()
+    {
+        MessageBus.Instance.Publish("ShowChoiceDialog", "Hers or yours?");
+        MessageBus.Instance.Publish(
+            "ShowTwoChoice",
+            "MINE",
+            "HERS",
+            (System.Action)EatFromPot,
+            (System.Action)GiveBreakfastToHer);
+    }
+
+    // Day 6: breakfast goes in a bowl for her. No meal for him, and it weighs on him.
+    private void GiveBreakfastToHer()
+    {
+        GameState.Set(Day5.BreakfastForHerKey, true);
+        MessageBus.Instance.Publish("CompleteTask", "task_breakfast");
+        MessageBus.Instance.Publish("FloatText", 0, -0.4f, "-SANITY", "purple");
+        MessageBus.Instance.Publish("PlusSanity", -1);
+        ClearPot();
+        DialogueManager.ShowDialogueFromText(new string[]
+        {
+            "You pour it into a bowl for her.",
+            "Your stomach growls.## Ignore it."
+        });
+    }
+
+    // Done with the pot for this meal, whoever it went to
+    private void ClearPot()
+    {
+        GameState.Set("corn_clicked", false);
+        GameState.Set("pepper_clicked", false);
+        GameState.Set("alcohol_clicked", false);
+        GameState.Set("fish_clicked", false);
+
+        GameState.Set("ate_breakfast", true);
+        GameState.Set("hungry", false);
+        doneAnim.SetActive(false);
+        soupCover.SetActive(true);
+    }
+
+    private void EatFromPot()
+    {
+        bool isBreakfast = !GameState.Get<bool>("ate_breakfast");
+        bool ateFish = !isBreakfast && GameState.Get<bool>("fish_clicked");
+
+        PlaySound(eatSound);
+        MessageBus.Instance.Publish("FloatText", 0, -0.4f, "+SANITY", "green");
+        MessageBus.Instance.Publish("PlusSanity", 1);
+
+        if (!isBreakfast)
+        {
+            MessageBus.Instance.Publish("CompleteTask", "task_dinner");
+            GameState.Set("ate_dinner", true);
+            if (GameState.Get<int>("day") >= 2)
+            {
+                GameState.Set("ready_to_sleep", true);
+            }
+        }
+        else
+        {
+            MessageBus.Instance.Publish("CompleteTask", "task_breakfast");
+        }
+
+        ClearPot();
+
+        if (isBreakfast && GameState.Get<int>("day") == 4)
+        {
+            // Day 4: pus starts oozing out of the wound over breakfast
+            Dialogue eating = Instantiate(miscObjectClick.getDialogue("stove/eating"));
+            eating.onDialogueEnd.AddListener(() =>
+            {
+                GameState.Set("hand_oozing", true);
+                HandScratch.Prompt("Pus is oozing out of your hand. Scratch?");
+            });
+            DialogueManager.ShowDialogue(eating);
+        }
+        else if (GameState.Get<int>("day") == 2 && !isBreakfast)
+        {
+            // Day 2: after Camborne's grave, the thought of flesh puts him off
+            DialogueManager.ShowDialogueFromText(new string[] { "Don't feel like eating fish tonight." });
+        }
+        else if (GameState.Get<int>("day") <= 2)
+        {
+            // Days 1-2: the same meal again and again, counting up from the 17th
+            int meal = 17 + (GameState.Get<int>("day") - 1) * 2 + (isBreakfast ? 0 : 1);
+            string dish = ateFish ? "Fish and corn chowder" : "Corn chowder";
+            DialogueManager.ShowDialogueFromText(new string[] { dish + " for the " + meal + "th meal in a row." });
+        }
+        else if (ateFish)
+        {
+            DialogueManager.ShowDialogueFromText(new string[] { "Corn chowder with fish tonight." });
+        }
+        else
+        {
+            // Day 3 on: the wound's festering and he can't stomach anything more
+            DialogueManager.ShowDialogue(miscObjectClick.getDialogue("stove/eating"));
+        }
     }
     
     private bool IsDoneCooking() {

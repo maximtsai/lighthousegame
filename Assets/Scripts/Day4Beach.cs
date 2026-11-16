@@ -41,7 +41,7 @@ public static class Day4Beach
     public static bool WorkDone =>
         GameState.Get<bool>("lighthouse_fixed", false)
         || (IsToday && GameState.Get<bool>(MermaidTreatedKey, false))
-        || Day5.Treated;
+        || Day5.CareTreated;
 
     // The wreck comes in with the weather.
     public static bool WreckageWashedUp => IsToday && GameState.Get<bool>("recorded_weather", false);
@@ -67,8 +67,8 @@ public static class Day4Beach
 
     public static string CarryingLine(string destination) =>
         CarryingHer
-            ? (destination == GameConsts.LHFLOORSCENE ? "The lighthouse can wait.## She can't." : "Camborne's bed first.")
-            : (destination == GameConsts.LHFLOORSCENE ? "The lighthouse can wait." : "The grave first.");
+            ? (destination == GameConsts.LHFLOORSCENE ? "My arms are full." : "Camborne's bed first.")
+            : (destination == GameConsts.LHFLOORSCENE ? "My arms are full." : "The grave first.");
 
     public static string BlockedLine =>
         !Surveyed ? "Something's washed up by the dock."

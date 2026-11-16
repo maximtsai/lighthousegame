@@ -20,7 +20,7 @@ public class Day4Dock : MonoBehaviour
     {
         new[] { "His eyes are still open." },
         new[] { "His coat is full of seawater." },
-        new[] { "Her dress.##.##.## a wedding dress.", "She died on her wedding day." },
+        new[] { "Her dress.##.##.## a wedding dress." },
         new[] { "Younger than me." },
     };
 
@@ -33,8 +33,17 @@ public class Day4Dock : MonoBehaviour
         new RectInt(133, 229, 101, 60),
         new RectInt(494, 235, 162, 55),
     };
-    // She floats where the first body was.
-    private static readonly RectInt MermaidBox = new RectInt(10, 242, 221, 122);
+    // She floats where the first body was. The click box stops short of her trailing hair so it
+    // ends at the Return strip's top once she's moved down (see MermaidShiftDown); it sits in
+    // front of the strip, so any overlap would take its clicks.
+    private static readonly RectInt MermaidBox = new RectInt(10, 242, 221, 59);
+    // How far she's moved, in sheet pixels: down and a little right, beside the pier and nearer
+    // the player
+    private const float MermaidShiftRight = 5f;
+    private const float MermaidShiftDown = 35f;
+    // Nearer the camera than the other floating layers (which all sit at the same depth), still
+    // well behind the scene's clickables at z -1
+    private const float MermaidForward = 0.03f;
     // The survey: the washed-up planks are in the bottom-right corner, but the click covers the
     // whole frame down to the Return strip along the bottom, so it's hard to miss.
     private static readonly RectInt ScrapsBox = new RectInt(0, 0, 660, 336);
@@ -221,6 +230,12 @@ public class Day4Dock : MonoBehaviour
         FloatingLayer layer = Spawn("day4_floating_mermaid", mermaidSheet, MermaidBox, out ClickTarget target);
         if (layer == null) return;
 
+        // Slid down and right so she's up against the pier's edge, peeking out from beside it (her
+        // click box and outline are children, so they come along), and drawn in front of the other
+        // floating layers. At the same depth as the driftwood they'd flicker over each other.
+        float ppu = layer.Renderer.sprite.pixelsPerUnit;
+        layer.transform.localPosition += new Vector3(MermaidShiftRight / ppu, -MermaidShiftDown / ppu, -MermaidForward);
+
         GameObject body = layer.gameObject;
         target.onClick = () => OnMermaidClicked(body);
     }
@@ -231,9 +246,9 @@ public class Day4Dock : MonoBehaviour
 
         Dialogue d = DialogueManager.ShowDialogueFromText(new string[]
         {
-            "She's not like the others.",
+            "This one isn't bloated.",
             "Her chest.##.##.## it's moving.",
-            "She's alive.## She can be saved."
+            "She's alive."
         });
         d.onDialogueEnd.AddListener(() => StartCoroutine(CarryInsideRoutine(body)));
     }

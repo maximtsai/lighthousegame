@@ -42,7 +42,7 @@ public class MiscObjectClick : MonoBehaviour
             // First click lays her down (MermaidOnBed shows her there); the next starts tending to her
             if (!GameState.Get<bool>(Day4Beach.MermaidInBedKey, false))
             {
-                StartCoroutine(LayHerDownRoutine());
+                RunCoroutine(LayHerDownRoutine());
                 return;
             }
 
@@ -50,11 +50,22 @@ public class MiscObjectClick : MonoBehaviour
             return;
         }
 
-        // Day 5: the worms first thing, then she rests while he sees to the rest of the day for her
-        if (Day5.IsToday)
+        // Days 5 and 6: the worms first thing, then she rests while he sees to the rest of the day for her
+        if (Day5.IsCareDay)
         {
-            if (Day5.Treated)
-                DialogueManager.ShowDialogueFromText(new string[] { "She's resting." });
+            if (Day5.CareTreated)
+                DialogueManager.ShowDialogueFromText(NightBesideHerLines());
+            else if (GameState.Get<int>(Day5.FishSetAsideKey, 0) == GameState.Get<int>("day") - 1)
+            {
+                // The skin fish he set aside at the net yesterday goes into this morning's graft
+                GameState.Set(Day5.FishSetAsideKey, 0);
+                Dialogue d = DialogueManager.ShowDialogueFromText(new string[]
+                {
+                    "Yesterday's fish.",
+                    "Smells fine.## Mostly."
+                });
+                d.onDialogueEnd.AddListener(() => Navigation.GoToScene(GameConsts.MERMAIDSCENE));
+            }
             else
                 Navigation.GoToScene(GameConsts.MERMAIDSCENE);
             return;
@@ -79,6 +90,46 @@ public class MiscObjectClick : MonoBehaviour
             DialogueManager.ShowDialogue(getDialogue("Bedroom/co_bed_3"));
         }
     }
+    private const string BowlTriedKey = "day6_bowl_tried";
+
+    // Days 5 and 6, once she's tended: by day she's resting, by night he lingers a little longer
+    private static string[] NightBesideHerLines()
+    {
+        bool bowl = GameState.Get<int>("day") == 6 && GameState.Get<bool>(Day5.BreakfastForHerKey, false);
+        if (!GameState.Get<bool>("is_nighttime", false))
+        {
+            // Day 6: the first time after giving her his breakfast, he tries to feed her
+            if (bowl && !GameState.Get<bool>(BowlTriedKey, false))
+            {
+                GameState.Set(BowlTriedKey, true);
+                return new string[]
+                {
+                    "You hold the spoon to her lips.## Nothing.",
+                    "You leave the bowl by her."
+                };
+            }
+            return new string[] { "She's resting." };
+        }
+        if (bowl)
+            return new string[]
+            {
+                "The bowl's still full.",
+                "Should've eaten it yourself."
+            };
+
+        if (GameState.Get<int>("day") == Day5.Day)
+            return new string[]
+            {
+                "She's quiet.",
+                "Smells sweet.## Like old fruit."
+            };
+        return new string[]
+        {
+            Day5.NoFlowersOnHer ? "Nothing covers the smell." : "The flowers aren't helping.",
+            "Could be worse."
+        };
+    }
+
     // Day 4: out of his arms and into Camborne's bed, swapped while the screen's dark
     private IEnumerator LayHerDownRoutine()
     {
@@ -160,6 +211,8 @@ public class MiscObjectClick : MonoBehaviour
                     "Your arms ache from the digging.",
                     "You can still smell the sea on your hands as you drift off..."
                 });
+                // No cutscene: Day 5 opens on its own dream over the bedroom (Day5Dream), which
+                // covers the fade-in from this
                 sleepDialogue.onLineStart = new List<UnityEngine.Events.UnityEvent>
                 {
                     new UnityEngine.Events.UnityEvent(),
@@ -170,15 +223,19 @@ public class MiscObjectClick : MonoBehaviour
             {
                 Dialogue sleepDialogue = DialogueManager.ShowDialogueFromText(new string[]
                 {
-                    "She's still breathing.## That's something.",
+                    "She's still breathing.",
                     "You fall asleep to the sound of it..."
                 });
-                sleepDialogue.onLineStart = new List<UnityEngine.Events.UnityEvent>
+                // Into the Day 6 dream cutscene once he's asleep, then the new morning
+                sleepDialogue.onDialogueEnd.AddListener(GotoNextDay);
+            } else if (day == 6)
+            {
+                Dialogue sleepDialogue = DialogueManager.ShowDialogueFromText(new string[]
                 {
-                    new UnityEngine.Events.UnityEvent(),
-                    new UnityEngine.Events.UnityEvent()
-                };
-                sleepDialogue.onLineStart[1].AddListener(() => FadeToBlackAndTransitionDay(6));
+                    "You can still smell her.",
+                    "You drift off anyway..."
+                });
+                sleepDialogue.onDialogueEnd.AddListener(GotoNextDay);
             }
         }
         else
@@ -213,6 +270,28 @@ public class MiscObjectClick : MonoBehaviour
                 }
             }
         }
+    }
+
+    // The scenes' clickables call this component on the MiscObjectClick prefab asset itself, not a
+    // copy in the scene, and an asset isn't active so it can't run coroutines. Borrow a live host
+    // instead. (Routines that load a scene go through FadeToBlackAndTransitionDay, which prefers a
+    // host that survives the load.)
+    private Coroutine RunCoroutine(IEnumerator routine)
+    {
+        MonoBehaviour host = null;
+        if (gameObject.activeInHierarchy)
+            host = this;
+        else if (DialogueManager.instance != null && DialogueManager.instance.gameObject.activeInHierarchy)
+            host = DialogueManager.instance;
+        else if (Navigation.Instance != null && Navigation.Instance.gameObject.activeInHierarchy)
+            host = Navigation.Instance;
+
+        if (host == null)
+        {
+            Debug.LogWarning("MiscObjectClick: no active object to run a coroutine on");
+            return null;
+        }
+        return host.StartCoroutine(routine);
     }
 
     private void FadeToBlackAndTransitionDay(int newDay)
@@ -343,6 +422,14 @@ public class MiscObjectClick : MonoBehaviour
             case 3:
                 cutsceneToPlay = "Day3";
                 break;
+            // Placeholders: Day6/Day7 reuse the Day 1 intro animation until their dreams are drawn.
+            // (Day 5 has its own dream in the bedroom, so Day 4 doesn't come through here.)
+            case 6:
+                cutsceneToPlay = "Day6";
+                break;
+            case 7:
+                cutsceneToPlay = "Day7";
+                break;
             default:
                 cutsceneToPlay = "Day2";
                 break;
@@ -413,6 +500,10 @@ public class MiscObjectClick : MonoBehaviour
         {
         	DialogueManager.ShowDialogue(getDialogue("dock/gather_fish_done"));
 
+		} else if (Day5.IsCareDay && !Day5.CareTreated)
+        {
+            // Days 5 and 6: the net waits on her, not on the lighthouse
+            DialogueManager.ShowDialogueFromText(new string[] { Day5.HerFirstLine });
 		} else if (!Day4Beach.WorkDone)
         {
             DialogueManager.ShowDialogue(getDialogue("dock/gather_fish_not_yet"));
@@ -458,7 +549,7 @@ public class MiscObjectClick : MonoBehaviour
 
 	public void PlaySoundDelayed(AudioClip sfx, float volume = 1f, bool loop = false, float delay = 0.1f)
 	{
-   		StartCoroutine(InvokeAfterDelay(() => PlaySound(sfx, volume, loop), delay));
+   		RunCoroutine(InvokeAfterDelay(() => PlaySound(sfx, volume, loop), delay));
 	}
 
 	private IEnumerator InvokeAfterDelay(System.Action action, float delay)
